@@ -4,8 +4,12 @@ accroche: Infrastructure cloud suisse basée sur OpenStack
 type: IaaS
 categorie: iaas
 formule: Crédit de bienvenue à durée limitée pour découvrir la plateforme
+inclus: [Crédit de bienvenue, Accès à l’infrastructure OpenStack, Découverte des services cloud]
+conditions: [Création d’un compte Infomaniak, Carte bancaire requise]
+restrictions: [Crédit limité dans le temps, Pas de formule gratuite permanente]
 usages: [Compute, Kubernetes, OpenStack]
 url: https://www.infomaniak.com/fr/hebergement/public-cloud
+documentation: https://docs.infomaniak.cloud/
 source: https://www.infomaniak.com/fr/hebergement/public-cloud/tarifs
 couleur: "#0098ff"
 initiales: IK

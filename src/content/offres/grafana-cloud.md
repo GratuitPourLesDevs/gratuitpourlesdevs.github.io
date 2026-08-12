@@ -4,8 +4,12 @@ accroche: Observabilité, métriques, logs et traces
 type: SaaS
 categorie: supervision
 formule: 10k séries métriques, 50 Go de logs et 50 Go de traces par mois
+inclus: [10 000 séries métriques, 50 Go de logs par mois, 50 Go de traces par mois, Rétention de 14 jours]
+conditions: [Compte Grafana Cloud gratuit, Aucune carte bancaire]
+restrictions: [Quotas mensuels, Capacité et rétention limitées au plan gratuit]
 usages: [Observabilité, Monitoring, Logs]
 url: https://grafana.com/products/cloud/
+documentation: https://grafana.com/docs/grafana-cloud/
 source: https://grafana.com/pricing/
 couleur: "#f46800"
 initiales: GC

@@ -4,8 +4,12 @@ accroche: Surveillance de disponibilité simple
 type: SaaS
 categorie: supervision
 formule: 50 moniteurs avec contrôles toutes les 5 minutes
+inclus: [50 moniteurs, Contrôles toutes les 5 minutes, Alertes de disponibilité]
+conditions: [Compte UptimeRobot gratuit, Aucune carte bancaire]
+restrictions: [Intervalle minimal de 5 minutes, Fonctions avancées réservées aux plans payants]
 usages: [Monitoring, Disponibilité, Alertes]
 url: https://uptimerobot.com/
+documentation: https://uptimerobot.com/help/
 source: https://uptimerobot.com/pricing/
 couleur: "#27ae60"
 initiales: UR

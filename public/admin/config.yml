@@ -45,7 +45,7 @@ collections:
     fields:
       - { label: Nom, name: nom, widget: string }
       - { label: Accroche, name: accroche, widget: string }
-      - { label: Type, name: type, widget: select, options: [SaaS, PaaS, IaaS] }
+      - { label: Modèle de service, name: type, widget: select, options: [SaaS, PaaS, IaaS, BaaS, API, "Service managé", Ressource] }
       - label: Catégorie
         name: categorie
         widget: relation
@@ -54,8 +54,12 @@ collections:
         display_fields: [nom]
         value_field: "{{slug}}"
       - { label: Formule gratuite, name: formule, widget: text }
+      - { label: Ce qui est inclus, name: inclus, widget: list, field: { label: Élément, name: element, widget: string } }
+      - { label: Conditions, name: conditions, widget: list, field: { label: Condition, name: element, widget: string } }
+      - { label: Restrictions, name: restrictions, widget: list, field: { label: Restriction, name: element, widget: string } }
       - { label: Usages, name: usages, widget: list }
       - { label: Site officiel, name: url, widget: string }
+      - { label: Documentation, name: documentation, widget: string, required: false }
       - { label: Source tarifaire, name: source, widget: string }
       - { label: Couleur, name: couleur, widget: color, default: "#0b45ff" }
       - { label: Initiales, name: initiales, widget: string, hint: "Deux caractères de préférence" }
@@ -64,4 +68,4 @@ collections:
       - { label: Mise en avant, name: vedette, widget: boolean, default: false }
       - { label: Ordre, name: ordre, widget: number, value_type: int, default: 100 }
       - { label: Vérifié le, name: verifieLe, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - { label: Description, name: body, widget: markdown }
+      - { label: Pourquoi c'est utile, name: body, widget: markdown }

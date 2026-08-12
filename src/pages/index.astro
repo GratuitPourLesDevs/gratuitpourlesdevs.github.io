@@ -4,12 +4,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const entries = (await getCollection('offres')).sort((a, b) => a.data.ordre - b.data.ordre);
 const offers = await Promise.all(entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content })));
-const featured = offers.find(({ entry }) => entry.data.vedette) ?? offers[0];
 const categories = (await getCollection('categories'))
   .filter(({ data }) => data.actif)
   .sort((a, b) => a.data.ordre - b.data.ordre);
 const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
-const usages = [...new Set(entries.flatMap(({ data }) => data.usages))].sort((a, b) => a.localeCompare(b, 'fr'));
+const categoryCounts = new Map<string, number>();
+entries.forEach(({ data }) => categoryCounts.set(data.categorie, (categoryCounts.get(data.categorie) ?? 0) + 1));
+const populatedCategories = categories
+  .filter(({ id }) => categoryCounts.has(id))
+  .sort((a, b) => (categoryCounts.get(b.id) ?? 0) - (categoryCounts.get(a.id) ?? 0) || a.data.ordre - b.data.ordre);
+const serviceModels = [...new Set(entries.map(({ data }) => data.type))].sort((a, b) => a.localeCompare(b, 'fr'));
 ---
 
 <BaseLayout>
@@ -33,70 +37,69 @@ const usages = [...new Set(entries.flatMap(({ data }) => data.usages))].sort((a,
       <label class="search-shell">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
         <span class="sr-only">Rechercher dans le catalogue</span>
-        <input id="search" type="search" placeholder="Rechercher un outil, un usage…" autocomplete="off" />
+        <input id="search" type="search" placeholder="Rechercher un outil, une catégorie, une limite…" autocomplete="off" />
         <kbd>⌘ K</kbd>
       </label>
 
-      <div class="filter-bar">
-        <div class="type-filters" aria-label="Filtrer par type">
-          {['Tout', 'SaaS', 'PaaS', 'IaaS'].map((type) => <button type="button" class:list={{ active: type === 'Tout' }} data-type={type}>{type}</button>)}
+      <section class="category-explorer" aria-labelledby="category-title">
+        <div class="section-intro"><span class="step-number">1</span><div><h2 id="category-title">Explorer les catégories</h2><p>57 domaines pour trouver un outil par besoin, du CI/CD à la supervision.</p></div></div>
+        <div class="category-controls">
+          <label class="select-shell"><span class="sr-only">Choisir une catégorie</span>
+            <select id="category-filter"><option value="">Toutes les catégories</option>{categories.map((category) => <option value={category.id}>{category.data.nom}</option>)}</select>
+          </label>
+          <div class="category-shortcuts" aria-label="Catégories contenant des offres">
+            {populatedCategories.slice(0, 4).map((category) => <button type="button" data-category={category.id}>{category.data.nom}<span>{categoryCounts.get(category.id)}</span></button>)}
+            <button class="all-categories" type="button">Voir les 57 catégories</button>
+          </div>
         </div>
-        <button class="filters-toggle" type="button" aria-expanded="false" aria-controls="usage-filters">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M7 14v6"/></svg>Filtres
-        </button>
-      </div>
+      </section>
 
-      <div class="usage-filters" id="usage-filters" hidden>
-        <label class="category-filter">Catégorie
-          <select id="category-filter">
-            <option value="">Toutes les catégories</option>
-            {categories.map((category) => <option value={category.id}>{category.data.nom}</option>)}
-          </select>
-        </label>
-        <div class="usage-filter-list"><span>Usage</span>{usages.map((usage) => <button type="button" data-usage={usage}>{usage}</button>)}</div>
-        <button class="reset" type="button">Effacer les filtres</button>
-      </div>
+      <section class="advanced-filters" aria-labelledby="filter-title">
+        <div class="section-intro compact"><span class="step-number">2</span><div><h2 id="filter-title">Affiner les résultats</h2><p>Le modèle technique devient un critère parmi les conditions de l’offre.</p></div></div>
+        <div class="filter-grid">
+          <label>Modèle de service<select id="type-filter"><option value="">Tous les modèles</option>{serviceModels.map((model) => <option value={model}>{model}</option>)}</select></label>
+          <label>Carte bancaire<select id="card-filter"><option value="">Indifférent</option><option value="false">Sans carte</option><option value="true">Carte requise</option></select></label>
+          <label>Permanence<select id="permanent-filter"><option value="">Indifférent</option><option value="true">Formule permanente</option><option value="false">Essai limité</option></select></label>
+          <button class="reset" type="button">Réinitialiser</button>
+        </div>
+      </section>
 
       <div class="catalogue-heading">
         <h2><span id="result-count">{offers.length}</span> offres vérifiées</h2>
-        <label>Trier par&nbsp;:<select id="sort"><option value="pertinence">Pertinence</option><option value="nom">Nom</option><option value="categorie">Catégorie</option><option value="type">Type</option></select></label>
+        <label>Trier par&nbsp;:<select id="sort"><option value="pertinence">Pertinence</option><option value="nom">Nom</option><option value="categorie">Catégorie</option><option value="type">Modèle</option></select></label>
       </div>
 
-      <div class="content-grid">
-        <div class="offers-table" role="table" aria-label="Offres gratuites">
-          <div class="table-head" role="row"><span>Outil</span><span>Type / catégorie</span><span>Formule gratuite</span><span>Usages</span><span>Favori</span></div>
-          <div id="offers-list">
-            {offers.map(({ entry, Content }) => (
-              <article class="offer-row" role="row" tabindex="0"
-                data-name={entry.data.nom.toLocaleLowerCase('fr')} data-type={entry.data.type}
-                data-category={entry.data.categorie}
-                data-category-name={categoryNames.get(entry.data.categorie) ?? entry.data.categorie}
-                data-usages={entry.data.usages.join('|')}
-                data-search={`${entry.data.nom} ${entry.data.accroche} ${entry.data.formule} ${categoryNames.get(entry.data.categorie) ?? ''} ${entry.data.usages.join(' ')}`.toLocaleLowerCase('fr')}
-                data-order={entry.data.ordre}>
-                <div class="offer-identity"><span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span><span><strong>{entry.data.nom}</strong><small>{entry.data.accroche}</small></span></div>
-                <div class="offer-type"><span>{entry.data.type}</span><small class="offer-category">{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small>{!entry.data.permanent && <small>Essai</small>}</div>
-                <p class="offer-plan">{entry.data.formule}</p>
-                <div class="offer-usages">{entry.data.usages.slice(0, 2).map((usage) => <span>{usage}</span>)}</div>
-                <button class="favorite" type="button" aria-label={`Ajouter ${entry.data.nom} aux favoris`} data-id={entry.id}>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg>
-                </button>
-                <div class="offer-detail"><Content /><div><span>{entry.data.carteRequise ? 'Carte bancaire requise' : 'Sans carte bancaire'}</span><span>Vérifié le {entry.data.verifieLe.toLocaleDateString('fr-FR')}</span></div><a href={entry.data.url} target="_blank" rel="noreferrer">Visiter le site ↗</a><a href={entry.data.source} target="_blank" rel="noreferrer">Voir la source ↗</a></div>
-              </article>
-            ))}
-          </div>
-          <div class="empty-state" id="empty-state" hidden>Aucune offre ne correspond à cette recherche.</div>
+      <div class="offers-table" role="table" aria-label="Offres gratuites">
+        <div class="table-head" role="row"><span>Outil et catégorie</span><span>Formule gratuite</span><span>Conditions</span><span>Actions</span></div>
+        <div id="offers-list">
+          {offers.map(({ entry, Content }) => (
+            <article class="offer-row" role="row"
+              data-name={entry.data.nom.toLocaleLowerCase('fr')} data-type={entry.data.type}
+              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-permanent={String(entry.data.permanent)}
+              data-category-name={categoryNames.get(entry.data.categorie) ?? entry.data.categorie}
+              data-search={`${entry.data.nom} ${entry.data.accroche} ${entry.data.formule} ${categoryNames.get(entry.data.categorie) ?? ''} ${entry.data.type} ${entry.data.usages.join(' ')} ${entry.data.inclus.join(' ')} ${entry.data.conditions.join(' ')} ${entry.data.restrictions.join(' ')} ${entry.body ?? ''}`.toLocaleLowerCase('fr')}
+              data-order={entry.data.ordre}>
+              <div class="offer-identity">
+                <span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span>
+                <span><small class="offer-category">{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><strong>{entry.data.nom}</strong><span class="identity-meta"><small>{entry.data.accroche}</small><em>{entry.data.type}</em></span></span>
+              </div>
+              <p class="offer-plan"><strong>{entry.data.formule}</strong><small>{entry.data.usages.slice(0, 3).join(' · ')}</small></p>
+              <div class="offer-status"><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</span><small>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small></div>
+              <div class="offer-actions">
+                <button class="favorite" type="button" aria-label={`Ajouter ${entry.data.nom} aux favoris`} data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
+                <button class="expand-offer" type="button" aria-label={`Afficher le détail de ${entry.data.nom}`} aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+              </div>
+              <div class="offer-detail">
+                <section><h3>Ce qui est inclus</h3><ul>{entry.data.inclus.map((item) => <li>{item}</li>)}</ul></section>
+                <section><h3>Conditions</h3><ul>{entry.data.conditions.map((item) => <li>{item}</li>)}</ul></section>
+                <section><h3>Restrictions</h3><ul>{entry.data.restrictions.map((item) => <li>{item}</li>)}</ul></section>
+                <section class="why-useful"><h3>Pourquoi c’est utile</h3><Content /></section>
+                <div class="detail-footer"><span class="verified-date"><b>✓</b> Vérifié le {entry.data.verifieLe.toLocaleDateString('fr-FR')}</span><nav aria-label={`Liens pour ${entry.data.nom}`}><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></div>
+              </div>
+            </article>
+          ))}
         </div>
-
-        {featured && <aside class="weekly-pick">
-          <h3><span aria-hidden="true">✦</span> À tester cette semaine</h3>
-          <div class="pick-body">
-            <div class="pick-title"><span class="offer-logo" style={`--logo-color:${featured.entry.data.couleur}`}>{featured.entry.data.initiales}</span><span><strong>{featured.entry.data.nom}</strong><small>{featured.entry.data.accroche}</small></span></div>
-            <p>Une pile d’observabilité complète pour découvrir métriques, journaux et traces sans héberger la plateforme.</p>
-            <dl><div><dt>Formule gratuite</dt><dd>{featured.entry.data.formule}</dd></div><div><dt>Usages</dt><dd>{featured.entry.data.usages.join(', ')}</dd></div></dl>
-            <a href={featured.entry.data.url} target="_blank" rel="noreferrer">Voir la fiche</a>
-          </div>
-        </aside>}
+        <div class="empty-state" id="empty-state" hidden>Aucune offre ne correspond à ces critères.</div>
       </div>
     </section>
   </main>
@@ -109,30 +112,38 @@ const usages = [...new Set(entries.flatMap(({ data }) => data.usages))].sort((a,
 
   <script>
     const search = document.querySelector<HTMLInputElement>('#search');
-    const typeButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-type]')];
-    const usageButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-usage]')];
     const categorySelect = document.querySelector<HTMLSelectElement>('#category-filter');
+    const typeSelect = document.querySelector<HTMLSelectElement>('#type-filter');
+    const cardSelect = document.querySelector<HTMLSelectElement>('#card-filter');
+    const permanentSelect = document.querySelector<HTMLSelectElement>('#permanent-filter');
+    const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-category]')];
     const rows = [...document.querySelectorAll<HTMLElement>('.offer-row')];
     const list = document.querySelector<HTMLElement>('#offers-list');
     const count = document.querySelector<HTMLElement>('#result-count');
     const empty = document.querySelector<HTMLElement>('#empty-state');
     const sort = document.querySelector<HTMLSelectElement>('#sort');
-    let activeType = 'Tout'; let activeUsage = ''; let activeCategory = '';
     const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
     const refresh = () => {
       const query = normalize(search?.value ?? ''); let visible = 0;
-      rows.forEach((row) => { const show = normalize(row.dataset.search ?? '').includes(query) && (activeType === 'Tout' || row.dataset.type === activeType) && (!activeCategory || row.dataset.category === activeCategory) && (!activeUsage || (row.dataset.usages ?? '').split('|').includes(activeUsage)); row.hidden = !show; if (show) visible++; });
+      rows.forEach((row) => {
+        const show = normalize(row.dataset.search ?? '').includes(query)
+          && (!categorySelect?.value || row.dataset.category === categorySelect.value)
+          && (!typeSelect?.value || row.dataset.type === typeSelect.value)
+          && (!cardSelect?.value || row.dataset.card === cardSelect.value)
+          && (!permanentSelect?.value || row.dataset.permanent === permanentSelect.value);
+        row.hidden = !show; if (show) visible++;
+      });
+      categoryButtons.forEach((button) => button.classList.toggle('active', button.dataset.category === categorySelect?.value));
       if (count) count.textContent = String(visible); if (empty) empty.hidden = visible !== 0;
     };
     search?.addEventListener('input', refresh);
     document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search?.focus(); } if (event.key === 'Escape' && document.activeElement === search) search?.blur(); });
-    typeButtons.forEach((button) => button.addEventListener('click', () => { activeType = button.dataset.type ?? 'Tout'; typeButtons.forEach((item) => item.classList.toggle('active', item === button)); refresh(); }));
-    categorySelect?.addEventListener('change', () => { activeCategory = categorySelect.value; refresh(); });
-    usageButtons.forEach((button) => button.addEventListener('click', () => { activeUsage = activeUsage === button.dataset.usage ? '' : (button.dataset.usage ?? ''); usageButtons.forEach((item) => item.classList.toggle('active', item.dataset.usage === activeUsage)); refresh(); }));
-    document.querySelector('.filters-toggle')?.addEventListener('click', (event) => { const button = event.currentTarget as HTMLButtonElement; const panel = document.querySelector<HTMLElement>('#usage-filters'); if (!panel) return; panel.hidden = !panel.hidden; button.setAttribute('aria-expanded', String(!panel.hidden)); });
-    document.querySelector('.reset')?.addEventListener('click', () => { activeUsage = ''; activeCategory = ''; if (categorySelect) categorySelect.value = ''; usageButtons.forEach((button) => button.classList.remove('active')); refresh(); });
+    [categorySelect, typeSelect, cardSelect, permanentSelect].forEach((select) => select?.addEventListener('change', refresh));
+    categoryButtons.forEach((button) => button.addEventListener('click', () => { if (!categorySelect) return; categorySelect.value = categorySelect.value === button.dataset.category ? '' : (button.dataset.category ?? ''); refresh(); }));
+    document.querySelector('.all-categories')?.addEventListener('click', () => { categorySelect?.focus(); categorySelect?.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+    document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; [categorySelect, typeSelect, cardSelect, permanentSelect].forEach((select) => { if (select) select.value = ''; }); refresh(); });
     sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); });
-    rows.forEach((row) => { row.addEventListener('click', (event) => { if (!(event.target as HTMLElement).closest('a,button')) row.classList.toggle('expanded'); }); row.addEventListener('keydown', (event) => { if (event.key === 'Enter') row.classList.toggle('expanded'); }); });
+    document.querySelectorAll<HTMLButtonElement>('.expand-offer').forEach((button) => button.addEventListener('click', () => { const row = button.closest('.offer-row'); const expanded = !row?.classList.contains('expanded'); row?.classList.toggle('expanded', expanded); button.setAttribute('aria-expanded', String(expanded)); button.setAttribute('aria-label', `${expanded ? 'Masquer' : 'Afficher'} le détail de ${row?.querySelector('strong')?.textContent ?? "l’offre"}`); }));
     const saved = new Set<string>(JSON.parse(localStorage.getItem('gpld-favorites') ?? '[]'));
     document.querySelectorAll<HTMLButtonElement>('.favorite').forEach((button) => { const id = button.dataset.id ?? ''; button.classList.toggle('active', saved.has(id)); button.addEventListener('click', () => { saved.has(id) ? saved.delete(id) : saved.add(id); button.classList.toggle('active', saved.has(id)); localStorage.setItem('gpld-favorites', JSON.stringify([...saved])); }); });
   </script>

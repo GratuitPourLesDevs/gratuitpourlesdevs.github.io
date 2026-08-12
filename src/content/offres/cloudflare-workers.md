@@ -4,8 +4,12 @@ accroche: Fonctions serverless déployées à l’edge
 type: PaaS
 categorie: paas
 formule: 100 000 requêtes Workers par jour
+inclus: [100 000 requêtes Workers par jour, Déploiement mondial à l’edge, Pages Functions]
+conditions: [Compte Cloudflare gratuit, Aucune carte bancaire]
+restrictions: [Quotas journaliers, Limites propres à chaque service associé]
 usages: [Serverless, Edge, Réseau]
 url: https://workers.cloudflare.com/
+documentation: https://developers.cloudflare.com/workers/
 source: https://developers.cloudflare.com/workers/platform/pricing/
 couleur: "#f6821f"
 initiales: CF
