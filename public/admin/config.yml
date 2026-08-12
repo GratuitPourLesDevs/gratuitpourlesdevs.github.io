@@ -33,16 +33,17 @@ collections:
       - { label: Active, name: actif, widget: boolean, default: true }
 
   - name: offres
-    label: Offres
+    label: Offres en ligne
     label_singular: Offre
     folder: src/content/offres
     create: true
     extension: md
     format: frontmatter
     slug: "{{slug}}"
+    filter: { field: statut, value: active }
     summary: "{{nom}} · {{type}} · vérifié le {{verifieLe}}"
     sortable_fields: [nom, type, verifieLe, ordre]
-    fields:
+    fields: &offer_fields
       - { label: Nom, name: nom, widget: string }
       - { label: Accroche, name: accroche, widget: string }
       - { label: Modèle de service, name: type, widget: select, options: [SaaS, PaaS, IaaS, BaaS, API, "Service managé", Ressource] }
@@ -65,7 +66,45 @@ collections:
       - { label: Initiales, name: initiales, widget: string, hint: "Deux caractères de préférence" }
       - { label: Carte bancaire requise, name: carteRequise, widget: boolean, default: false }
       - { label: Formule permanente, name: permanent, widget: boolean, default: true }
+      - label: Statut
+        name: statut
+        widget: select
+        default: active
+        options:
+          - { label: Active, value: active }
+          - { label: À vérifier, value: a_verifier }
+          - { label: Obsolète, value: obsolete }
+      - { label: Vérification automatique le, name: verificationAutomatiqueLe, widget: datetime, required: false, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Note de vérification, name: verificationNote, widget: text, required: false }
       - { label: Mise en avant, name: vedette, widget: boolean, default: false }
       - { label: Ordre, name: ordre, widget: number, value_type: int, default: 100 }
       - { label: Vérifié le, name: verifieLe, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Pourquoi c'est utile, name: body, widget: markdown }
+
+  - name: offres_a_verifier
+    label: À vérifier
+    label_singular: Offre à vérifier
+    folder: src/content/offres
+    create: false
+    delete: false
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    filter: { field: statut, value: a_verifier }
+    summary: "{{nom}} · {{verificationNote}}"
+    sortable_fields: [nom, type, verificationAutomatiqueLe, verifieLe]
+    fields: *offer_fields
+
+  - name: archives
+    label: Archives
+    label_singular: Offre archivée
+    folder: src/content/offres
+    create: false
+    delete: false
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    filter: { field: statut, value: obsolete }
+    summary: "{{nom}} · {{verificationNote}}"
+    sortable_fields: [nom, type, verificationAutomatiqueLe, verifieLe]
+    fields: *offer_fields

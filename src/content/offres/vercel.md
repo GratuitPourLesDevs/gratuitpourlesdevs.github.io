@@ -15,9 +15,12 @@ couleur: "#000000"
 initiales: VE
 carteRequise: false
 permanent: true
+statut: "active"
 vedette: false
 ordre: 5
 verifieLe: 2026-08-12
+verificationAutomatiqueLe: 2026-08-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Le plan Hobby est réservé aux projets personnels et non commerciaux.

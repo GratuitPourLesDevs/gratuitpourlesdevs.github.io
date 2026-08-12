@@ -15,9 +15,12 @@ couleur: "#27ae60"
 initiales: UR
 carteRequise: false
 permanent: true
+statut: "active"
 vedette: false
 ordre: 7
 verifieLe: 2026-08-12
+verificationAutomatiqueLe: 2026-08-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Un service utile pour surveiller rapidement HTTP, ports, mots-clés et échéances de certificats.

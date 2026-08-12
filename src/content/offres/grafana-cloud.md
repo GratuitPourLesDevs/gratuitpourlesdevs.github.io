@@ -15,9 +15,12 @@ couleur: "#f46800"
 initiales: GC
 carteRequise: false
 permanent: true
+statut: "active"
 vedette: true
 ordre: 1
 verifieLe: 2026-08-12
+verificationAutomatiqueLe: 2026-08-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 La formule gratuite permanente donne accès à l’essentiel de la pile Grafana Cloud avec une rétention de 14 jours.

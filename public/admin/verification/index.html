@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Vérification des offres — Administration</title>
+    <style>
+      :root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#111827;background:#f5f7fb}*{box-sizing:border-box}body{margin:0}header{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,5vw);background:#fff;border-bottom:1px solid #dce1ea}header a{color:#0b45ff;font-weight:700;text-decoration:none}main{width:min(900px,calc(100% - 32px));margin:48px auto}h1{margin:0 0 12px;font-size:clamp(30px,5vw,48px);letter-spacing:-1.5px}p{color:#5d6472;line-height:1.6}.panel{margin-top:28px;padding:28px;background:#fff;border:1px solid #dce1ea;border-radius:12px}.primary{display:inline-block;margin-top:12px;padding:13px 18px;color:#fff;background:#0b45ff;border-radius:7px;font-weight:750;text-decoration:none}.primary:hover{background:#0738d3}.states{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.state{padding:16px;border:1px solid #dce1ea;border-radius:8px}.state strong{display:block;margin-bottom:6px}.state small{color:#6b7280;line-height:1.45}.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.links a{padding:10px 13px;color:#0b45ff;border:1px solid #b9c7ff;border-radius:6px;font-weight:650;text-decoration:none}@media(max-width:680px){.states{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <header><strong>GratuitPourLesDevs · Administration</strong><a href="/admin/">Retour au contenu</a></header>
+    <main>
+      <h1>Vérification des offres</h1>
+      <p>Le contrôle visite le site officiel et la source tarifaire de chaque offre publiée. Il est aussi exécuté automatiquement le premier jour de chaque mois.</p>
+      <section class="panel">
+        <h2>Lancer un contrôle complet</h2>
+        <p>GitHub vous demandera de confirmer l’exécution du workflow « Vérifier les offres ». Le rapport détaillé sera disponible dans l’exécution.</p>
+        <a class="primary" href="https://github.com/GratuitPourLesDevs/gratuitpourlesdevs.github.io/actions/workflows/verify-offers.yml" target="_blank" rel="noreferrer">Ouvrir la vérification dans GitHub ↗</a>
+        <div class="states">
+          <div class="state"><strong>Active</strong><small>La source tarifaire est accessible et mentionne une formule gratuite.</small></div>
+          <div class="state"><strong>À vérifier</strong><small>Le contrôle est ambigu ou bloqué. Une décision éditoriale est nécessaire.</small></div>
+          <div class="state"><strong>Obsolète</strong><small>Le site officiel a disparu. L’offre quitte le catalogue et reste dans les archives.</small></div>
+        </div>
+        <div class="links">
+          <a href="/admin/#/collections/offres">Offres en ligne</a>
+          <a href="/admin/#/collections/offres_a_verifier">À vérifier</a>
+          <a href="/admin/#/collections/archives">Archives</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

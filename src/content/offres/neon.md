@@ -15,9 +15,12 @@ couleur: "#00bfa5"
 initiales: NE
 carteRequise: false
 permanent: true
+statut: "active"
 vedette: false
 ordre: 3
 verifieLe: 2026-08-12
+verificationAutomatiqueLe: 2026-08-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Une base PostgreSQL qui se met en veille automatiquement, avec branches et restauration jusqu’à six heures.

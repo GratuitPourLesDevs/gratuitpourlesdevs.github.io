@@ -15,9 +15,12 @@ couleur: "#111111"
 initiales: GH
 carteRequise: false
 permanent: true
+statut: "active"
 vedette: false
 ordre: 4
 verifieLe: 2026-08-12
+verificationAutomatiqueLe: 2026-08-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Les workflows des dépôts publics utilisant les runners standards restent gratuits.

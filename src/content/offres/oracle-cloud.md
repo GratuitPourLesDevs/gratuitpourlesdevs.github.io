@@ -15,9 +15,12 @@ couleur: "#c74634"
 initiales: OC
 carteRequise: true
 permanent: true
+statut: "a_verifier"
 vedette: false
 ordre: 6
 verifieLe: 2026-08-12
+verificationAutomatiqueLe: 2026-08-12
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Une sélection de ressources cloud demeure gratuite dans les limites Always Free ; une vérification de paiement est demandée.

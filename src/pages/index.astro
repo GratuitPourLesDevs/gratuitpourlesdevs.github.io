@@ -3,7 +3,9 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CustomSelect from '../components/CustomSelect.astro';
 
-const entries = (await getCollection('offres')).sort((a, b) => a.data.ordre - b.data.ordre);
+const entries = (await getCollection('offres'))
+  .filter(({ data }) => data.statut !== 'obsolete')
+  .sort((a, b) => a.data.ordre - b.data.ordre);
 const offers = await Promise.all(entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content })));
 const categories = (await getCollection('categories'))
   .filter(({ data }) => data.actif)
@@ -25,7 +27,7 @@ const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-
       <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
       <span>Gratuit<span>PourLesDevs</span></span>
     </a>
-    <nav aria-label="Navigation principale"><a class="active" href="#catalogue">Catalogue</a><a href="#methode">À propos</a></nav>
+    <nav aria-label="Navigation principale"><a class="active" href="#catalogue">Catalogue</a><a href="/archives/">Archives</a><a href="#methode">À propos</a></nav>
     <a class="outline-button" href="https://github.com/GratuitPourLesDevs/gratuitpourlesdevs.github.io/issues/new" target="_blank" rel="noreferrer">Suggérer un outil</a>
   </header>
 
@@ -45,7 +47,7 @@ const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-
       </label>
 
       <section class="advanced-filters" aria-labelledby="filter-title">
-        <div class="section-intro compact"><span class="step-number">1</span><div><h2 id="filter-title">Affiner les résultats</h2><p>Combinez catégorie, modèle et conditions de l’offre.</p></div></div>
+        <div class="section-intro compact"><div><h2 id="filter-title">Affiner les résultats</h2><p>Combinez catégorie, modèle et conditions de l’offre.</p></div></div>
         <div class="filter-grid">
           <CustomSelect id="category-filter" label="Catégorie" options={categoryOptions} searchable />
           <CustomSelect id="type-filter" label="Modèle de service" options={modelOptions} />
@@ -76,7 +78,7 @@ const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-
                 <span><small class="offer-category">{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><strong>{entry.data.nom}</strong><span class="identity-meta"><small>{entry.data.accroche}</small><em>{entry.data.type}</em></span></span>
               </div>
               <p class="offer-plan"><strong>{entry.data.formule}</strong><small>{entry.data.usages.slice(0, 3).join(' · ')}</small></p>
-              <div class="offer-status"><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</span><small>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small></div>
+              <div class="offer-status"><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</span><small>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small>{entry.data.statut === 'a_verifier' && <small class="needs-review">À vérifier</small>}</div>
               <div class="offer-actions">
                 <button class="favorite" type="button" aria-label={`Ajouter ${entry.data.nom} aux favoris`} data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
                 <button class="expand-offer" type="button" aria-label={`Afficher le détail de ${entry.data.nom}`} aria-expanded="false" aria-controls={`detail-${entry.id}`}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
@@ -98,7 +100,7 @@ const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-
 
   <footer id="methode">
     <div class="verified-mark"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="M16 2 29 7v10c0 8-5 14-13 17C8 31 3 25 3 17V7l13-5Z"/><path d="m10 18 4 4 8-9"/></svg><span><strong>Vérifié en août 2026</strong><small>Chaque quota renvoie vers sa source officielle.</small></span></div>
-    <nav aria-label="Navigation secondaire"><a href="#methode">Méthodologie</a><a href="https://github.com/GratuitPourLesDevs/gratuitpourlesdevs.github.io/issues/new" target="_blank" rel="noreferrer">Signaler une erreur</a><a href="mailto:julien.taverne+gratuitpourlesdevs@gmail.com">Contact</a></nav>
+    <nav aria-label="Navigation secondaire"><a href="/archives/">Archives</a><a href="#methode">Méthodologie</a><a href="https://github.com/GratuitPourLesDevs/gratuitpourlesdevs.github.io/issues/new" target="_blank" rel="noreferrer">Signaler une erreur</a><a href="mailto:julien.taverne+gratuitpourlesdevs@gmail.com">Contact</a></nav>
     <span class="terminal-mark" aria-hidden="true">›_</span>
   </footer>
 

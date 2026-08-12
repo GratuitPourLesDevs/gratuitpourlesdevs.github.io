@@ -15,9 +15,12 @@ couleur: "#5b5bd6"
 initiales: BB
 carteRequise: false
 permanent: true
+statut: "active"
 vedette: false
 ordre: 9
-verifieLe: 2026-08-13
+verifieLe: 2026-08-12
+verificationAutomatiqueLe: 2026-08-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Brainboard permet de dessiner une architecture multicloud et d’obtenir automatiquement le code Terraform correspondant, sans commencer par écrire l’infrastructure à la main.

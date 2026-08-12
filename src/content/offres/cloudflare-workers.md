@@ -15,9 +15,12 @@ couleur: "#f6821f"
 initiales: CF
 carteRequise: false
 permanent: true
+statut: "active"
 vedette: false
 ordre: 2
 verifieLe: 2026-08-12
+verificationAutomatiqueLe: 2026-08-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Le plan gratuit couvre Workers, Pages Functions et des quotas limités sur plusieurs services de données associés.

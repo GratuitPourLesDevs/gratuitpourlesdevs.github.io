@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const categories = await getCollection('categories');
+const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
+const archives = (await getCollection('offres'))
+  .filter(({ data }) => data.statut === 'obsolete')
+  .sort((a, b) => (b.data.verificationAutomatiqueLe?.getTime() ?? b.data.verifieLe.getTime()) - (a.data.verificationAutomatiqueLe?.getTime() ?? a.data.verifieLe.getTime()));
+---
+
+<BaseLayout title="Archives des offres — Gratuit pour les devs" description="Les offres gratuites retirées du catalogue, conservées avec leur dernier état de vérification.">
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Gratuit pour les devs, accueil">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
+      <span>Gratuit<span>PourLesDevs</span></span>
+    </a>
+    <nav aria-label="Navigation principale"><a href="/">Catalogue</a><a class="active" href="/archives/">Archives</a><a href="/#methode">À propos</a></nav>
+    <a class="outline-button" href="/">Retour au catalogue</a>
+  </header>
+
+  <main class="archive-page">
+    <header class="archive-hero"><small>MÉMOIRE DU CATALOGUE</small><h1>Archives</h1><p>Les offres devenues indisponibles restent consultables avec la date et le motif de leur retrait.</p></header>
+    {archives.length === 0 ? (
+      <section class="archive-empty"><strong>Aucune offre archivée</strong><p>Toutes les offres suivies sont encore actives ou en attente de vérification.</p></section>
+    ) : (
+      <section class="archive-list" aria-label="Offres archivées">
+        {archives.map((entry) => (
+          <article class="archive-card">
+            <div class="archive-identity"><span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span><div><small>{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><h2>{entry.data.nom}</h2><p>{entry.data.accroche}</p></div></div>
+            <div class="archive-reason"><span>Obsolète</span><p>{entry.data.verificationNote ?? 'Cette offre n’est plus disponible dans le catalogue actif.'}</p><small>Contrôlée le {(entry.data.verificationAutomatiqueLe ?? entry.data.verifieLe).toLocaleDateString('fr-FR')}</small></div>
+            <nav aria-label={`Sources archivées pour ${entry.data.nom}`}><a href={entry.data.url} target="_blank" rel="noreferrer">Ancien site ↗</a><a href={entry.data.source} target="_blank" rel="noreferrer">Dernière source ↗</a></nav>
+          </article>
+        ))}
+      </section>
+    )}
+  </main>
+
+  <footer><div class="verified-mark"><span><strong>Archives transparentes</strong><small>Une offre retirée n’est jamais effacée de l’historique.</small></span></div><nav><a href="/">Catalogue</a><a href="mailto:julien.taverne+gratuitpourlesdevs@gmail.com">Contact</a></nav><span class="terminal-mark" aria-hidden="true">›_</span></footer>
+</BaseLayout>

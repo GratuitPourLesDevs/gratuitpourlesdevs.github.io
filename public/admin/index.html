@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="fr">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="robots" content="noindex" /><title>Administration — Gratuit pour les devs</title></head>
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="robots" content="noindex" /><title>Administration — Gratuit pour les devs</title>
+    <style>.verification-link{position:fixed;z-index:999999;right:18px;bottom:18px;padding:11px 16px;color:#fff;background:#0b45ff;border-radius:7px;box-shadow:0 8px 24px rgb(0 0 0/20%);font:700 13px system-ui,sans-serif;text-decoration:none}.verification-link:hover{background:#0738d3}</style>
+  </head>
   <body>
+    <a class="verification-link" href="/admin/verification/">Vérifier les offres</a>
     <script>
       const nativeFetch = window.fetch.bind(window);
       window.fetch = (input, init = {}) => {
