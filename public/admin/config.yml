@@ -2,8 +2,9 @@ backend:
   name: github
   repo: GratuitPourLesDevs/gratuitpourlesdevs.github.io
   branch: main
-  base_url: https://auth.gratuitpourlesdevs.fr
+  base_url: https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev
   auth_endpoint: auth
+  auth_scope: public_repo
   squash_merges: true
 
 publish_mode: editorial_workflow

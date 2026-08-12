@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "gratuitpourlesdevs-oauth",
+  "main": "oauth.js",
+  "compatibility_date": "2026-08-12",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "GITHUB_CLIENT_ID": "Ov23liDQH3gduQqpKUP2",
+    "ALLOWED_ORIGIN": "https://gratuitpourlesdevs.fr",
+    "ALLOWED_SITE_ID": "gratuitpourlesdevs.fr",
+    "ALLOWED_GITHUB_LOGINS": "GratuitPourLesDevs"
+  }
+}
