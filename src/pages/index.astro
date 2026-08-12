@@ -9,11 +9,6 @@ const categories = (await getCollection('categories'))
   .filter(({ data }) => data.actif)
   .sort((a, b) => a.data.ordre - b.data.ordre);
 const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
-const categoryCounts = new Map<string, number>();
-entries.forEach(({ data }) => categoryCounts.set(data.categorie, (categoryCounts.get(data.categorie) ?? 0) + 1));
-const populatedCategories = categories
-  .filter(({ id }) => categoryCounts.has(id))
-  .sort((a, b) => (categoryCounts.get(b.id) ?? 0) - (categoryCounts.get(a.id) ?? 0) || a.data.ordre - b.data.ordre);
 const serviceModels = [...new Set(entries.map(({ data }) => data.type))].sort((a, b) => a.localeCompare(b, 'fr'));
 const categoryOptions = [{ value: '', label: 'Toutes les catégories' }, ...categories
   .map((category) => ({ value: category.id, label: category.data.nom }))
@@ -49,19 +44,10 @@ const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-
         <kbd>⌘ K</kbd>
       </label>
 
-      <section class="category-explorer" aria-labelledby="category-title">
-        <div class="section-intro"><span class="step-number">1</span><div><h2 id="category-title">Explorer les catégories</h2><p>57 domaines pour trouver un outil par besoin, du CI/CD à la supervision.</p></div></div>
-        <div class="category-controls">
-          <CustomSelect id="category-filter" label="Choisir une catégorie" options={categoryOptions} searchable />
-          <div class="category-shortcuts" aria-label="Catégories contenant des offres">
-            {populatedCategories.slice(0, 4).map((category) => <button type="button" data-category={category.id}>{category.data.nom}<span>{categoryCounts.get(category.id)}</span></button>)}
-          </div>
-        </div>
-      </section>
-
       <section class="advanced-filters" aria-labelledby="filter-title">
-        <div class="section-intro compact"><span class="step-number">2</span><div><h2 id="filter-title">Affiner les résultats</h2><p>Le modèle technique devient un critère parmi les conditions de l’offre.</p></div></div>
+        <div class="section-intro compact"><span class="step-number">1</span><div><h2 id="filter-title">Affiner les résultats</h2><p>Combinez catégorie, modèle et conditions de l’offre.</p></div></div>
         <div class="filter-grid">
+          <CustomSelect id="category-filter" label="Catégorie" options={categoryOptions} searchable />
           <CustomSelect id="type-filter" label="Modèle de service" options={modelOptions} />
           <CustomSelect id="card-filter" label="Carte bancaire" options={cardOptions} />
           <CustomSelect id="permanent-filter" label="Permanence" options={permanenceOptions} />
@@ -123,7 +109,6 @@ const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-
     const cardSelect = document.querySelector<HTMLSelectElement>('#card-filter');
     const permanentSelect = document.querySelector<HTMLSelectElement>('#permanent-filter');
     const verificationSelect = document.querySelector<HTMLSelectElement>('#verification-filter');
-    const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('.category-shortcuts button[data-category]')];
     const rows = [...document.querySelectorAll<HTMLElement>('.offer-row')];
     const list = document.querySelector<HTMLElement>('#offers-list');
     const count = document.querySelector<HTMLElement>('#result-count');
@@ -193,13 +178,11 @@ const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-
           && matchesVerification;
         row.hidden = !show; if (show) visible++;
       });
-      categoryButtons.forEach((button) => button.classList.toggle('active', button.dataset.category === categorySelect?.value));
       if (count) count.textContent = String(visible); if (empty) empty.hidden = visible !== 0;
     };
     search?.addEventListener('input', refresh);
     document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search?.focus(); } if (event.key === 'Escape' && document.activeElement === search) search?.blur(); });
     [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => select?.addEventListener('change', refresh));
-    categoryButtons.forEach((button) => button.addEventListener('click', () => { if (!categorySelect) return; categorySelect.value = categorySelect.value === button.dataset.category ? '' : (button.dataset.category ?? ''); categorySelect.dispatchEvent(new Event('change', { bubbles: true })); }));
     document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => { if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); } }); closeOtherSelects(); refresh(); });
     sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : sort.value === 'verification' ? Number(b.dataset.verified) - Number(a.dataset.verified) : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); });
     const setRowExpanded = (row: HTMLElement, expanded: boolean) => {
