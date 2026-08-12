@@ -1,5 +1,15 @@
 <!doctype html>
 <html lang="fr">
   <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="robots" content="noindex" /><title>Administration — Gratuit pour les devs</title></head>
-  <body><script src="https://unpkg.com/decap-cms@^3.8.0/dist/decap-cms.js"></script></body>
+  <body>
+    <script>
+      const nativeFetch = window.fetch.bind(window);
+      window.fetch = (input, init = {}) => {
+        const requestUrl = typeof input === 'string' ? input : input.url;
+        const isDecapConfig = new URL(requestUrl, window.location.href).pathname.endsWith('/admin/config.yml');
+        return nativeFetch(input, isDecapConfig ? { ...init, cache: 'no-store' } : init);
+      };
+    </script>
+    <script src="https://unpkg.com/decap-cms@^3.8.0/dist/decap-cms.js"></script>
+  </body>
 </html>
