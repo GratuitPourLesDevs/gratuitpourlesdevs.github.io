@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: GratuitPourLesDevs/gratuitpourlesdevs.github.io
+  branch: main
+  base_url: https://auth.gratuitpourlesdevs.fr
+  auth_endpoint: auth
+  squash_merges: true
+
+publish_mode: editorial_workflow
+locale: fr
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: offres
+    label: Offres
+    label_singular: Offre
+    folder: src/content/offres
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{nom}} · {{type}} · vérifié le {{verifieLe}}"
+    sortable_fields: [nom, type, verifieLe, ordre]
+    fields:
+      - { label: Nom, name: nom, widget: string }
+      - { label: Accroche, name: accroche, widget: string }
+      - { label: Type, name: type, widget: select, options: [SaaS, PaaS, IaaS] }
+      - { label: Formule gratuite, name: formule, widget: text }
+      - { label: Usages, name: usages, widget: list }
+      - { label: Site officiel, name: url, widget: string }
+      - { label: Source tarifaire, name: source, widget: string }
+      - { label: Couleur, name: couleur, widget: color, default: "#0b45ff" }
+      - { label: Initiales, name: initiales, widget: string, hint: "Deux caractères de préférence" }
+      - { label: Carte bancaire requise, name: carteRequise, widget: boolean, default: false }
+      - { label: Formule permanente, name: permanent, widget: boolean, default: true }
+      - { label: Mise en avant, name: vedette, widget: boolean, default: false }
+      - { label: Ordre, name: ordre, widget: number, value_type: int, default: 100 }
+      - { label: Vérifié le, name: verifieLe, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Description, name: body, widget: markdown }

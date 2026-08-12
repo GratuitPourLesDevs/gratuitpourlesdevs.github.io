@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+
+interface Props { title?: string; description?: string; }
+const {
+  title = 'Gratuit pour les devs — Les bons outils, avant la facture',
+  description = 'Une sélection vérifiée de services SaaS, PaaS et IaaS proposant une formule gratuite utile aux développeurs, DevOps et Infradev.',
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <title>{title}</title>
+  </head>
+  <body><slot /></body>
+</html>
