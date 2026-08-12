@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { handleRequest } from './oauth.js';
+import worker, { handleRequest } from './oauth.js';
 
 const env = {
   GITHUB_CLIENT_ID: 'client-id',
@@ -55,6 +55,32 @@ test('callback returns the exact Decap handshake for an allowed user', async () 
   assert.match(response.headers.get('set-cookie'), /Max-Age=0/);
   assert.equal(calls.length, 2);
   assert.match(calls[0].options.body, /code_verifier/);
+});
+
+test('Cloudflare execution context is not used as the outbound fetch function', async () => {
+  const start = await worker.fetch(
+    new Request('https://oauth.example/auth?provider=github&site_id=gratuitpourlesdevs.fr'),
+    env,
+    { waitUntil() {} },
+  );
+  const redirect = new URL(start.headers.get('location'));
+  const cookie = start.headers.get('set-cookie').split(';')[0];
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url) => url.includes('/access_token')
+    ? Response.json({ access_token: 'secret-token' })
+    : Response.json({ login: 'GratuitPourLesDevs' });
+
+  try {
+    const callback = new Request(
+      `https://oauth.example/callback?code=temporary-code&state=${redirect.searchParams.get('state')}`,
+      { headers: { Cookie: cookie } },
+    );
+    const response = await worker.fetch(callback, env, { waitUntil() {} });
+    assert.equal(response.status, 200);
+    assert.match(await response.text(), /authorization:github:success:/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 test('callback rejects a modified state before contacting GitHub', async () => {
