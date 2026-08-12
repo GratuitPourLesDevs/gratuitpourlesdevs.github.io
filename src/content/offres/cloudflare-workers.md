@@ -2,6 +2,7 @@
 nom: Cloudflare Workers
 accroche: Fonctions serverless déployées à l’edge
 type: PaaS
+categorie: paas
 formule: 100 000 requêtes Workers par jour
 usages: [Serverless, Edge, Réseau]
 url: https://workers.cloudflare.com/

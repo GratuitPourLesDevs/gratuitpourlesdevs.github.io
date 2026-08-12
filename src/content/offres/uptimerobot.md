@@ -2,6 +2,7 @@
 nom: UptimeRobot
 accroche: Surveillance de disponibilité simple
 type: SaaS
+categorie: supervision
 formule: 50 moniteurs avec contrôles toutes les 5 minutes
 usages: [Monitoring, Disponibilité, Alertes]
 url: https://uptimerobot.com/

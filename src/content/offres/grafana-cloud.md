@@ -2,6 +2,7 @@
 nom: Grafana Cloud
 accroche: Observabilité, métriques, logs et traces
 type: SaaS
+categorie: supervision
 formule: 10k séries métriques, 50 Go de logs et 50 Go de traces par mois
 usages: [Observabilité, Monitoring, Logs]
 url: https://grafana.com/products/cloud/

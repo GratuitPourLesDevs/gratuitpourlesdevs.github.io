@@ -2,6 +2,7 @@
 nom: Vercel
 accroche: Déploiement continu pour applications web
 type: PaaS
+categorie: paas
 formule: 1 M d’invocations, 100 Go de transfert et 6 000 min de build
 usages: [Hébergement, CI/CD, Serverless]
 url: https://vercel.com/

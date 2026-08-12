@@ -2,6 +2,7 @@
 nom: Infomaniak Public Cloud
 accroche: Infrastructure cloud suisse basée sur OpenStack
 type: IaaS
+categorie: iaas
 formule: Crédit de bienvenue à durée limitée pour découvrir la plateforme
 usages: [Compute, Kubernetes, OpenStack]
 url: https://www.infomaniak.com/fr/hebergement/public-cloud

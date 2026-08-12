@@ -2,6 +2,7 @@
 nom: GitHub Actions
 accroche: CI/CD directement dans les dépôts GitHub
 type: SaaS
+categorie: ci-cd
 formule: 2 000 minutes par mois sur dépôts privés, gratuit sur dépôts publics
 usages: [CI/CD, Automatisation, Git]
 url: https://github.com/features/actions

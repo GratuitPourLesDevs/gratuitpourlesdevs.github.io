@@ -8,6 +8,7 @@ const offres = defineCollection({
     nom: z.string(),
     accroche: z.string(),
     type: z.enum(['SaaS', 'PaaS', 'IaaS']),
+    categorie: z.string(),
     formule: z.string(),
     usages: z.array(z.string()),
     url: z.url(),
@@ -22,4 +23,15 @@ const offres = defineCollection({
   }),
 });
 
-export const collections = { offres };
+const categories = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/categories' }),
+  schema: z.object({
+    nom: z.string(),
+    nomSource: z.string(),
+    description: z.string(),
+    ordre: z.number().default(100),
+    actif: z.boolean().default(true),
+  }),
+});
+
+export const collections = { offres, categories };

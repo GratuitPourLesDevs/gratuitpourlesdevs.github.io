@@ -2,6 +2,7 @@
 nom: Neon
 accroche: PostgreSQL serverless avec branchement
 type: PaaS
+categorie: services-donnees-manages
 formule: 100 projets, 100 CU-h et 0,5 Go de stockage par projet
 usages: [Base de données, PostgreSQL, Serverless]
 url: https://neon.com/

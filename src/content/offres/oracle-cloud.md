@@ -2,6 +2,7 @@
 nom: Oracle Cloud Free Tier
 accroche: Machines virtuelles et services cloud
 type: IaaS
+categorie: grands-fournisseurs-cloud
 formule: Ressources Always Free, dont compute Arm et stockage bloc
 usages: [Compute, Stockage, Réseau]
 url: https://www.oracle.com/cloud/free/

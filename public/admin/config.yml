@@ -13,6 +13,25 @@ media_folder: public/images/uploads
 public_folder: /images/uploads
 
 collections:
+  - name: categories
+    label: Catégories
+    label_singular: Catégorie
+    folder: src/content/categories
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    identifier_field: nom
+    summary: "{{ordre}} · {{nom}}"
+    sortable_fields: [nom, ordre, actif]
+    fields:
+      - { label: Nom, name: nom, widget: string }
+      - { label: Nom dans la source, name: nomSource, widget: string, hint: "Libellé anglais utilisé par free-for.dev" }
+      - { label: Description, name: description, widget: text }
+      - { label: Ordre, name: ordre, widget: number, value_type: int, default: 100 }
+      - { label: Active, name: actif, widget: boolean, default: true }
+
   - name: offres
     label: Offres
     label_singular: Offre
@@ -27,6 +46,13 @@ collections:
       - { label: Nom, name: nom, widget: string }
       - { label: Accroche, name: accroche, widget: string }
       - { label: Type, name: type, widget: select, options: [SaaS, PaaS, IaaS] }
+      - label: Catégorie
+        name: categorie
+        widget: relation
+        collection: categories
+        search_fields: [nom, nomSource]
+        display_fields: [nom]
+        value_field: "{{slug}}"
       - { label: Formule gratuite, name: formule, widget: text }
       - { label: Usages, name: usages, widget: list }
       - { label: Site officiel, name: url, widget: string }
