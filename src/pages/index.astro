@@ -15,8 +15,12 @@ const populatedCategories = categories
   .filter(({ id }) => categoryCounts.has(id))
   .sort((a, b) => (categoryCounts.get(b.id) ?? 0) - (categoryCounts.get(a.id) ?? 0) || a.data.ordre - b.data.ordre);
 const serviceModels = [...new Set(entries.map(({ data }) => data.type))].sort((a, b) => a.localeCompare(b, 'fr'));
-const categoryOptions = [{ value: '', label: 'Toutes les catégories' }, ...categories.map((category) => ({ value: category.id, label: category.data.nom }))];
+const categoryOptions = [{ value: '', label: 'Toutes les catégories' }, ...categories
+  .map((category) => ({ value: category.id, label: category.data.nom }))
+  .sort((a, b) => a.label.localeCompare(b.label, 'fr'))];
 const modelOptions = [{ value: '', label: 'Tous les modèles' }, ...serviceModels.map((model) => ({ value: model, label: model }))];
+const cardOptions = [{ value: '', label: 'Indifférent' }, { value: 'true', label: 'Carte requise' }, { value: 'false', label: 'Sans carte' }];
+const permanenceOptions = [{ value: '', label: 'Indifférent' }, { value: 'false', label: 'Essai limité' }, { value: 'true', label: 'Formule permanente' }];
 ---
 
 <BaseLayout>
@@ -58,15 +62,15 @@ const modelOptions = [{ value: '', label: 'Tous les modèles' }, ...serviceModel
         <div class="section-intro compact"><span class="step-number">2</span><div><h2 id="filter-title">Affiner les résultats</h2><p>Le modèle technique devient un critère parmi les conditions de l’offre.</p></div></div>
         <div class="filter-grid">
           <CustomSelect id="type-filter" label="Modèle de service" options={modelOptions} />
-          <CustomSelect id="card-filter" label="Carte bancaire" options={[{ value: '', label: 'Indifférent' }, { value: 'false', label: 'Sans carte' }, { value: 'true', label: 'Carte requise' }]} />
-          <CustomSelect id="permanent-filter" label="Permanence" options={[{ value: '', label: 'Indifférent' }, { value: 'true', label: 'Formule permanente' }, { value: 'false', label: 'Essai limité' }]} />
+          <CustomSelect id="card-filter" label="Carte bancaire" options={cardOptions} />
+          <CustomSelect id="permanent-filter" label="Permanence" options={permanenceOptions} />
           <button class="reset" type="button">Réinitialiser</button>
         </div>
       </section>
 
       <div class="catalogue-heading">
         <h2><span id="result-count">{offers.length}</span> offres vérifiées</h2>
-        <label>Trier par&nbsp;:<select id="sort"><option value="pertinence">Pertinence</option><option value="nom">Nom</option><option value="categorie">Catégorie</option><option value="type">Modèle</option></select></label>
+        <label>Trier par&nbsp;:<select id="sort"><option value="categorie">Catégorie</option><option value="type">Modèle</option><option value="nom">Nom</option><option value="pertinence" selected>Pertinence</option></select></label>
       </div>
 
       <div class="offers-table" role="table" aria-label="Offres gratuites">
@@ -116,7 +120,7 @@ const modelOptions = [{ value: '', label: 'Tous les modèles' }, ...serviceModel
     const typeSelect = document.querySelector<HTMLSelectElement>('#type-filter');
     const cardSelect = document.querySelector<HTMLSelectElement>('#card-filter');
     const permanentSelect = document.querySelector<HTMLSelectElement>('#permanent-filter');
-    const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-category]')];
+    const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('.category-shortcuts button[data-category]')];
     const rows = [...document.querySelectorAll<HTMLElement>('.offer-row')];
     const list = document.querySelector<HTMLElement>('#offers-list');
     const count = document.querySelector<HTMLElement>('#result-count');
