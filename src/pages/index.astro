@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CustomSelect from '../components/CustomSelect.astro';
 
 const entries = (await getCollection('offres')).sort((a, b) => a.data.ordre - b.data.ordre);
 const offers = await Promise.all(entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content })));
@@ -14,6 +15,8 @@ const populatedCategories = categories
   .filter(({ id }) => categoryCounts.has(id))
   .sort((a, b) => (categoryCounts.get(b.id) ?? 0) - (categoryCounts.get(a.id) ?? 0) || a.data.ordre - b.data.ordre);
 const serviceModels = [...new Set(entries.map(({ data }) => data.type))].sort((a, b) => a.localeCompare(b, 'fr'));
+const categoryOptions = [{ value: '', label: 'Toutes les catégories' }, ...categories.map((category) => ({ value: category.id, label: category.data.nom }))];
+const modelOptions = [{ value: '', label: 'Tous les modèles' }, ...serviceModels.map((model) => ({ value: model, label: model }))];
 ---
 
 <BaseLayout>
@@ -44,12 +47,9 @@ const serviceModels = [...new Set(entries.map(({ data }) => data.type))].sort((a
       <section class="category-explorer" aria-labelledby="category-title">
         <div class="section-intro"><span class="step-number">1</span><div><h2 id="category-title">Explorer les catégories</h2><p>57 domaines pour trouver un outil par besoin, du CI/CD à la supervision.</p></div></div>
         <div class="category-controls">
-          <label class="select-shell"><span class="sr-only">Choisir une catégorie</span>
-            <select id="category-filter"><option value="">Toutes les catégories</option>{categories.map((category) => <option value={category.id}>{category.data.nom}</option>)}</select>
-          </label>
+          <CustomSelect id="category-filter" label="Choisir une catégorie" options={categoryOptions} searchable />
           <div class="category-shortcuts" aria-label="Catégories contenant des offres">
             {populatedCategories.slice(0, 4).map((category) => <button type="button" data-category={category.id}>{category.data.nom}<span>{categoryCounts.get(category.id)}</span></button>)}
-            <button class="all-categories" type="button">Voir les 57 catégories</button>
           </div>
         </div>
       </section>
@@ -57,9 +57,9 @@ const serviceModels = [...new Set(entries.map(({ data }) => data.type))].sort((a
       <section class="advanced-filters" aria-labelledby="filter-title">
         <div class="section-intro compact"><span class="step-number">2</span><div><h2 id="filter-title">Affiner les résultats</h2><p>Le modèle technique devient un critère parmi les conditions de l’offre.</p></div></div>
         <div class="filter-grid">
-          <label>Modèle de service<select id="type-filter"><option value="">Tous les modèles</option>{serviceModels.map((model) => <option value={model}>{model}</option>)}</select></label>
-          <label>Carte bancaire<select id="card-filter"><option value="">Indifférent</option><option value="false">Sans carte</option><option value="true">Carte requise</option></select></label>
-          <label>Permanence<select id="permanent-filter"><option value="">Indifférent</option><option value="true">Formule permanente</option><option value="false">Essai limité</option></select></label>
+          <CustomSelect id="type-filter" label="Modèle de service" options={modelOptions} />
+          <CustomSelect id="card-filter" label="Carte bancaire" options={[{ value: '', label: 'Indifférent' }, { value: 'false', label: 'Sans carte' }, { value: 'true', label: 'Carte requise' }]} />
+          <CustomSelect id="permanent-filter" label="Permanence" options={[{ value: '', label: 'Indifférent' }, { value: 'true', label: 'Formule permanente' }, { value: 'false', label: 'Essai limité' }]} />
           <button class="reset" type="button">Réinitialiser</button>
         </div>
       </section>
@@ -123,6 +123,53 @@ const serviceModels = [...new Set(entries.map(({ data }) => data.type))].sort((a
     const empty = document.querySelector<HTMLElement>('#empty-state');
     const sort = document.querySelector<HTMLSelectElement>('#sort');
     const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const customSelects = [...document.querySelectorAll<HTMLElement>('.custom-select-field')];
+    const closeCustomSelect = (root: HTMLElement, restoreFocus = false) => {
+      const trigger = root.querySelector<HTMLButtonElement>('.custom-select-trigger');
+      const popover = root.querySelector<HTMLElement>('.custom-select-popover');
+      if (!trigger || !popover) return;
+      popover.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) trigger.focus();
+    };
+    const closeOtherSelects = (current?: HTMLElement) => customSelects.forEach((root) => { if (root !== current) closeCustomSelect(root); });
+    customSelects.forEach((root) => {
+      const nativeSelect = root.querySelector<HTMLSelectElement>('.native-filter-control');
+      const trigger = root.querySelector<HTMLButtonElement>('.custom-select-trigger');
+      const selectedLabel = root.querySelector<HTMLElement>('[data-selected-label]');
+      const popover = root.querySelector<HTMLElement>('.custom-select-popover');
+      const searchInput = root.querySelector<HTMLInputElement>('.custom-select-search input');
+      const options = [...root.querySelectorAll<HTMLButtonElement>('[role="option"]')];
+      const emptyMessage = root.querySelector<HTMLElement>('.custom-select-empty');
+      if (!nativeSelect || !trigger || !selectedLabel || !popover) return;
+      const sync = () => {
+        const selected = options.find((option) => option.dataset.value === nativeSelect.value) ?? options[0];
+        selectedLabel.textContent = selected?.dataset.optionLabel ?? '';
+        options.forEach((option) => option.setAttribute('aria-selected', String(option === selected)));
+      };
+      trigger.addEventListener('click', () => {
+        const opening = popover.hidden;
+        closeOtherSelects(root);
+        popover.hidden = !opening;
+        trigger.setAttribute('aria-expanded', String(opening));
+        if (opening) (searchInput ?? options[0])?.focus();
+      });
+      options.forEach((option) => option.addEventListener('click', () => {
+        nativeSelect.value = option.dataset.value ?? '';
+        nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        sync();
+        closeCustomSelect(root, true);
+      }));
+      searchInput?.addEventListener('input', () => {
+        const query = normalize(searchInput.value); let visible = 0;
+        options.forEach((option) => { const show = normalize(option.dataset.optionLabel ?? '').includes(query); option.hidden = !show; if (show) visible++; });
+        if (emptyMessage) emptyMessage.hidden = visible !== 0;
+      });
+      root.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeCustomSelect(root, true); });
+      nativeSelect.addEventListener('change', sync);
+      sync();
+    });
+    document.addEventListener('click', (event) => { if (!(event.target as HTMLElement).closest('.custom-select-field')) closeOtherSelects(); });
     const refresh = () => {
       const query = normalize(search?.value ?? ''); let visible = 0;
       rows.forEach((row) => {
@@ -139,9 +186,8 @@ const serviceModels = [...new Set(entries.map(({ data }) => data.type))].sort((a
     search?.addEventListener('input', refresh);
     document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search?.focus(); } if (event.key === 'Escape' && document.activeElement === search) search?.blur(); });
     [categorySelect, typeSelect, cardSelect, permanentSelect].forEach((select) => select?.addEventListener('change', refresh));
-    categoryButtons.forEach((button) => button.addEventListener('click', () => { if (!categorySelect) return; categorySelect.value = categorySelect.value === button.dataset.category ? '' : (button.dataset.category ?? ''); refresh(); }));
-    document.querySelector('.all-categories')?.addEventListener('click', () => { categorySelect?.focus(); categorySelect?.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
-    document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; [categorySelect, typeSelect, cardSelect, permanentSelect].forEach((select) => { if (select) select.value = ''; }); refresh(); });
+    categoryButtons.forEach((button) => button.addEventListener('click', () => { if (!categorySelect) return; categorySelect.value = categorySelect.value === button.dataset.category ? '' : (button.dataset.category ?? ''); categorySelect.dispatchEvent(new Event('change', { bubbles: true })); }));
+    document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; [categorySelect, typeSelect, cardSelect, permanentSelect].forEach((select) => { if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); } }); closeOtherSelects(); refresh(); });
     sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); });
     const setRowExpanded = (row: HTMLElement, expanded: boolean) => {
       const button = row.querySelector<HTMLButtonElement>('.expand-offer');
