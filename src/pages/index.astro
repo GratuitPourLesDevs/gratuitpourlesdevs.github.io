@@ -21,6 +21,7 @@ const categoryOptions = [{ value: '', label: 'Toutes les catégories' }, ...cate
 const modelOptions = [{ value: '', label: 'Tous les modèles' }, ...serviceModels.map((model) => ({ value: model, label: model }))];
 const cardOptions = [{ value: '', label: 'Indifférent' }, { value: 'true', label: 'Carte requise' }, { value: 'false', label: 'Sans carte' }];
 const permanenceOptions = [{ value: '', label: 'Indifférent' }, { value: 'false', label: 'Essai limité' }, { value: 'true', label: 'Formule permanente' }];
+const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-90', label: 'De 31 à 90 jours' }, { value: '0-30', label: 'Moins de 30 jours' }, { value: '90+', label: 'Plus de 90 jours' }];
 ---
 
 <BaseLayout>
@@ -64,13 +65,14 @@ const permanenceOptions = [{ value: '', label: 'Indifférent' }, { value: 'false
           <CustomSelect id="type-filter" label="Modèle de service" options={modelOptions} />
           <CustomSelect id="card-filter" label="Carte bancaire" options={cardOptions} />
           <CustomSelect id="permanent-filter" label="Permanence" options={permanenceOptions} />
+          <CustomSelect id="verification-filter" label="Date de vérification" options={verificationOptions} />
           <button class="reset" type="button">Réinitialiser</button>
         </div>
       </section>
 
       <div class="catalogue-heading">
         <h2><span id="result-count">{offers.length}</span> offres vérifiées</h2>
-        <label>Trier par&nbsp;:<select id="sort"><option value="categorie">Catégorie</option><option value="type">Modèle</option><option value="nom">Nom</option><option value="pertinence" selected>Pertinence</option></select></label>
+        <label>Trier par&nbsp;:<select id="sort"><option value="categorie">Catégorie</option><option value="verification">Date de vérification</option><option value="type">Modèle</option><option value="nom">Nom</option><option value="pertinence" selected>Pertinence</option></select></label>
       </div>
 
       <div class="offers-table" role="table" aria-label="Offres gratuites">
@@ -79,7 +81,7 @@ const permanenceOptions = [{ value: '', label: 'Indifférent' }, { value: 'false
           {offers.map(({ entry, Content }) => (
             <article class="offer-row" role="row" tabindex="0" aria-expanded="false"
               data-name={entry.data.nom.toLocaleLowerCase('fr')} data-type={entry.data.type}
-              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-permanent={String(entry.data.permanent)}
+              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()}
               data-category-name={categoryNames.get(entry.data.categorie) ?? entry.data.categorie}
               data-search={`${entry.data.nom} ${entry.data.accroche} ${entry.data.formule} ${categoryNames.get(entry.data.categorie) ?? ''} ${entry.data.type} ${entry.data.usages.join(' ')} ${entry.data.inclus.join(' ')} ${entry.data.conditions.join(' ')} ${entry.data.restrictions.join(' ')} ${entry.body ?? ''}`.toLocaleLowerCase('fr')}
               data-order={entry.data.ordre}>
@@ -120,6 +122,7 @@ const permanenceOptions = [{ value: '', label: 'Indifférent' }, { value: 'false
     const typeSelect = document.querySelector<HTMLSelectElement>('#type-filter');
     const cardSelect = document.querySelector<HTMLSelectElement>('#card-filter');
     const permanentSelect = document.querySelector<HTMLSelectElement>('#permanent-filter');
+    const verificationSelect = document.querySelector<HTMLSelectElement>('#verification-filter');
     const categoryButtons = [...document.querySelectorAll<HTMLButtonElement>('.category-shortcuts button[data-category]')];
     const rows = [...document.querySelectorAll<HTMLElement>('.offer-row')];
     const list = document.querySelector<HTMLElement>('#offers-list');
@@ -177,11 +180,17 @@ const permanenceOptions = [{ value: '', label: 'Indifférent' }, { value: 'false
     const refresh = () => {
       const query = normalize(search?.value ?? ''); let visible = 0;
       rows.forEach((row) => {
+        const ageInDays = Math.max(0, (Date.now() - Number(row.dataset.verified)) / 86_400_000);
+        const matchesVerification = !verificationSelect?.value
+          || (verificationSelect.value === '0-30' && ageInDays <= 30)
+          || (verificationSelect.value === '31-90' && ageInDays > 30 && ageInDays <= 90)
+          || (verificationSelect.value === '90+' && ageInDays > 90);
         const show = normalize(row.dataset.search ?? '').includes(query)
           && (!categorySelect?.value || row.dataset.category === categorySelect.value)
           && (!typeSelect?.value || row.dataset.type === typeSelect.value)
           && (!cardSelect?.value || row.dataset.card === cardSelect.value)
-          && (!permanentSelect?.value || row.dataset.permanent === permanentSelect.value);
+          && (!permanentSelect?.value || row.dataset.permanent === permanentSelect.value)
+          && matchesVerification;
         row.hidden = !show; if (show) visible++;
       });
       categoryButtons.forEach((button) => button.classList.toggle('active', button.dataset.category === categorySelect?.value));
@@ -189,10 +198,10 @@ const permanenceOptions = [{ value: '', label: 'Indifférent' }, { value: 'false
     };
     search?.addEventListener('input', refresh);
     document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search?.focus(); } if (event.key === 'Escape' && document.activeElement === search) search?.blur(); });
-    [categorySelect, typeSelect, cardSelect, permanentSelect].forEach((select) => select?.addEventListener('change', refresh));
+    [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => select?.addEventListener('change', refresh));
     categoryButtons.forEach((button) => button.addEventListener('click', () => { if (!categorySelect) return; categorySelect.value = categorySelect.value === button.dataset.category ? '' : (button.dataset.category ?? ''); categorySelect.dispatchEvent(new Event('change', { bubbles: true })); }));
-    document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; [categorySelect, typeSelect, cardSelect, permanentSelect].forEach((select) => { if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); } }); closeOtherSelects(); refresh(); });
-    sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); });
+    document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => { if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); } }); closeOtherSelects(); refresh(); });
+    sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : sort.value === 'verification' ? Number(b.dataset.verified) - Number(a.dataset.verified) : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); });
     const setRowExpanded = (row: HTMLElement, expanded: boolean) => {
       const button = row.querySelector<HTMLButtonElement>('.expand-offer');
       const offerName = row.querySelector('strong')?.textContent ?? 'l’offre';
