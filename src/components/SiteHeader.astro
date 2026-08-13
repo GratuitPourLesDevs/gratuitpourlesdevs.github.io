@@ -1,0 +1,13 @@
+---
+interface Props { active?: 'catalogue' | 'archives' | 'about'; }
+const { active } = Astro.props;
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Gratuit pour les devs, accueil">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
+    <span>Gratuit<span>PourLesDevs</span></span>
+  </a>
+  <nav aria-label="Navigation principale"><a class:list={{ active: active === 'catalogue' }} href="/">Catalogue</a><a class:list={{ active: active === 'archives' }} href="/archives/">Archives</a><a class:list={{ active: active === 'about' }} href="/a-propos/">À propos</a></nav>
+  <a class="outline-button" href="/contact/?objet=suggestion">Suggérer un outil</a>
+</header>

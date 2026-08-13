@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout title="Contact — Gratuit pour les devs" description="Contacter Gratuit pour les devs, signaler une erreur ou suggérer un nouvel outil.">
+  <SiteHeader />
+  <main class="contact-page">
+    <header class="contact-intro"><small>CONTACT & CONTRIBUTIONS</small><h1>Parlons outils.</h1><p>Une question, une correction ou un service gratuit à partager ? Le message arrive directement à l’équipe du site.</p><div class="contact-promise"><strong>Réponse directe</strong><span>Aucun compte GitHub nécessaire</span><span>Vos coordonnées ne sont pas publiées</span></div></header>
+
+    <section class="contact-panel" aria-labelledby="form-title">
+      <div class="contact-tabs" role="tablist" aria-label="Type de message">
+        <button type="button" role="tab" data-kind="contact" aria-selected="true">Contact</button>
+        <button type="button" role="tab" data-kind="erreur" aria-selected="false">Signaler une erreur</button>
+        <button type="button" role="tab" data-kind="suggestion" aria-selected="false">Suggérer un outil</button>
+      </div>
+      <form id="contact-form" action="https://formsubmit.co/ajax/julien.taverne+gratuitpourlesdevs@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nouveau message — GratuitPourLesDevs" />
+        <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" />
+        <input type="hidden" id="request-type" name="type_de_demande" value="Contact général" />
+        <h2 id="form-title">Nous écrire</h2>
+        <p id="form-description">Posez une question ou partagez une remarque à propos du site.</p>
+        <div class="form-grid">
+          <label><span>Nom</span><input name="nom" type="text" autocomplete="name" required /></label>
+          <label><span>Adresse e-mail</span><input name="email" type="email" autocomplete="email" required /></label>
+          <label class="context-field" data-for="erreur" hidden><span>Offre ou page concernée</span><input name="offre_concernee" type="text" /></label>
+          <label class="context-field" data-for="suggestion" hidden><span>Nom de l’outil</span><input name="outil_propose" type="text" /></label>
+          <label class="context-field full" data-for="erreur suggestion" hidden><span>Adresse de la source officielle</span><input name="source_officielle" type="url" placeholder="https://" /></label>
+          <label class="full"><span>Message</span><textarea name="message" rows="7" required></textarea></label>
+        </div>
+        <label class="consent"><input type="checkbox" required /><span>J’accepte que mes informations soient utilisées uniquement pour répondre à cette demande.</span></label>
+        <div class="form-actions"><button type="submit">Envoyer le message <span>→</span></button><small>Tous les champs visibles sont nécessaires.</small></div>
+        <p class="form-status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </section>
+  </main>
+  <SiteFooter />
+
+  <script>
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>('.contact-tabs button')];
+    const form = document.querySelector<HTMLFormElement>('#contact-form');
+    const typeField = document.querySelector<HTMLInputElement>('#request-type');
+    const title = document.querySelector<HTMLElement>('#form-title');
+    const description = document.querySelector<HTMLElement>('#form-description');
+    const status = document.querySelector<HTMLElement>('.form-status');
+    const submitButton = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const copy = {
+      contact: { title: 'Nous écrire', description: 'Posez une question ou partagez une remarque à propos du site.', type: 'Contact général' },
+      erreur: { title: 'Signaler une erreur', description: 'Indiquez l’offre concernée, la donnée à corriger et, si possible, sa source officielle.', type: 'Signalement d’erreur' },
+      suggestion: { title: 'Suggérer un outil', description: 'Proposez un service disposant d’une véritable formule gratuite utile aux développeurs.', type: 'Suggestion d’outil' },
+    };
+    const selectKind = (kind: keyof typeof copy) => {
+      const selected = copy[kind] ?? copy.contact;
+      tabs.forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.kind === kind)));
+      document.querySelectorAll<HTMLElement>('.context-field').forEach((field) => {
+        const visible = field.dataset.for?.split(' ').includes(kind) ?? false;
+        field.hidden = !visible;
+        field.querySelector<HTMLInputElement>('input')?.toggleAttribute('required', visible);
+      });
+      if (title) title.textContent = selected.title;
+      if (description) description.textContent = selected.description;
+      if (typeField) typeField.value = selected.type;
+      history.replaceState(null, '', kind === 'contact' ? '/contact/' : `/contact/?objet=${kind}`);
+      if (status) status.hidden = true;
+    };
+    tabs.forEach((tab) => tab.addEventListener('click', () => selectKind((tab.dataset.kind ?? 'contact') as keyof typeof copy)));
+    const requestedKind = new URLSearchParams(location.search).get('objet');
+    selectKind(requestedKind === 'erreur' || requestedKind === 'suggestion' ? requestedKind : 'contact');
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity() || !submitButton || !status) return;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Envoi en cours…';
+      status.hidden = true;
+      try {
+        const data = Object.fromEntries(new FormData(form).entries());
+        const response = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) });
+        if (!response.ok) throw new Error('Échec de la transmission');
+        form.reset();
+        selectKind((tabs.find((tab) => tab.getAttribute('aria-selected') === 'true')?.dataset.kind ?? 'contact') as keyof typeof copy);
+        status.textContent = 'Message transmis. Merci pour votre contribution.';
+        status.className = 'form-status success';
+        status.hidden = false;
+      } catch {
+        status.textContent = 'Le message n’a pas pu être transmis. Réessayez dans quelques instants.';
+        status.className = 'form-status error';
+        status.hidden = false;
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Envoyer le message <span>→</span>';
+      }
+    });
+  </script>
+</BaseLayout>

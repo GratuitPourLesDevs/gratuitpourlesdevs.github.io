@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout title="À propos — Gratuit pour les devs" description="Pourquoi Gratuit pour les devs recense et vérifie les offres gratuites utiles aux développeurs, DevOps et Infradev.">
+  <SiteHeader active="about" />
+  <main class="content-page">
+    <header class="content-hero"><small>À PROPOS</small><h1>Les outils utiles.<br />Sans mauvaise surprise.</h1><p>GratuitPourLesDevs aide les développeurs, DevOps et Infradev à identifier les véritables formules gratuites avant d’investir du temps dans un service.</p></header>
+    <section class="content-grid">
+      <article><span>01</span><h2>Une sélection lisible</h2><p>Chaque fiche résume le quota gratuit, les conditions d’accès, la carte bancaire éventuelle et les principales restrictions.</p></article>
+      <article><span>02</span><h2>Des sources officielles</h2><p>Les informations renvoient aux pages tarifaires et documentations de l’éditeur, afin que chacun puisse contrôler les limites annoncées.</p></article>
+      <article><span>03</span><h2>Un catalogue vivant</h2><p>Les offres sont revérifiées régulièrement. Une offre incertaine est signalée ; une offre disparue rejoint les archives au lieu d’être effacée.</p></article>
+    </section>
+    <section class="content-callout"><div><h2>Une information à corriger ?</h2><p>Les retours des utilisateurs permettent de maintenir le catalogue précis et utile.</p></div><a class="outline-button" href="/contact/?objet=erreur">Signaler une erreur</a></section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
