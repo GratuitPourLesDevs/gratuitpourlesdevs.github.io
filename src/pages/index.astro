@@ -108,6 +108,14 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
         </div>
         <div class="empty-state" id="empty-state" hidden>Aucune offre ne correspond à ces critères.</div>
       </div>
+      <nav class="pagination" id="pagination" aria-label="Pagination du catalogue">
+        <span id="pagination-summary" aria-live="polite"></span>
+        <div class="pagination-controls">
+          <button id="previous-page" type="button" aria-label="Page précédente">← <span>Précédent</span></button>
+          <div id="page-numbers" aria-label="Pages"></div>
+          <button id="next-page" type="button" aria-label="Page suivante"><span>Suivant</span> →</button>
+        </div>
+      </nav>
     </section>
   </main>
 
@@ -129,6 +137,14 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
     const count = document.querySelector<HTMLElement>('#result-count');
     const empty = document.querySelector<HTMLElement>('#empty-state');
     const sort = document.querySelector<HTMLSelectElement>('#sort');
+    const pagination = document.querySelector<HTMLElement>('#pagination');
+    const paginationSummary = document.querySelector<HTMLElement>('#pagination-summary');
+    const pageNumbers = document.querySelector<HTMLElement>('#page-numbers');
+    const previousPage = document.querySelector<HTMLButtonElement>('#previous-page');
+    const nextPage = document.querySelector<HTMLButtonElement>('#next-page');
+    const pageSize = 8;
+    let currentPage = 1;
+    let filteredRows = [...rows];
     const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
     const customSelects = [...document.querySelectorAll<HTMLElement>('.custom-select-field')];
     const closeCustomSelect = (root: HTMLElement, restoreFocus = false) => {
@@ -177,8 +193,32 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
       sync();
     });
     document.addEventListener('click', (event) => { if (!(event.target as HTMLElement).closest('.custom-select-field')) closeOtherSelects(); });
-    const refresh = () => {
-      const query = normalize(search?.value ?? ''); let visible = 0;
+    const renderPagination = () => {
+      const total = filteredRows.length;
+      const pageCount = Math.max(1, Math.ceil(total / pageSize));
+      currentPage = Math.min(currentPage, pageCount);
+      const start = total === 0 ? 0 : (currentPage - 1) * pageSize + 1;
+      const end = Math.min(currentPage * pageSize, total);
+      rows.forEach((row) => { row.hidden = !filteredRows.includes(row) || filteredRows.indexOf(row) < start - 1 || filteredRows.indexOf(row) >= end; });
+      if (paginationSummary) paginationSummary.textContent = total ? `${start}–${end} sur ${total} offres` : '0 offre';
+      if (pagination) pagination.hidden = total <= pageSize;
+      if (previousPage) previousPage.disabled = currentPage === 1;
+      if (nextPage) nextPage.disabled = currentPage === pageCount;
+      if (pageNumbers) {
+        pageNumbers.replaceChildren(...Array.from({ length: pageCount }, (_, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = String(index + 1);
+          button.setAttribute('aria-label', `Page ${index + 1}`);
+          if (index + 1 === currentPage) { button.classList.add('active'); button.setAttribute('aria-current', 'page'); }
+          button.addEventListener('click', () => { currentPage = index + 1; renderPagination(); });
+          return button;
+        }));
+      }
+    };
+    const refresh = (resetPage = true) => {
+      const query = normalize(search?.value ?? '');
+      filteredRows = [];
       rows.forEach((row) => {
         const ageInDays = Math.max(0, (Date.now() - Number(row.dataset.verified)) / 86_400_000);
         const matchesVerification = !verificationSelect?.value
@@ -191,15 +231,19 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
           && (!cardSelect?.value || row.dataset.card === cardSelect.value)
           && (!permanentSelect?.value || row.dataset.permanent === permanentSelect.value)
           && matchesVerification;
-        row.hidden = !show; if (show) visible++;
+        if (show) filteredRows.push(row);
       });
-      if (count) count.textContent = String(visible); if (empty) empty.hidden = visible !== 0;
+      if (resetPage) currentPage = 1;
+      if (count) count.textContent = String(filteredRows.length); if (empty) empty.hidden = filteredRows.length !== 0;
+      renderPagination();
     };
-    search?.addEventListener('input', refresh);
+    search?.addEventListener('input', () => refresh());
     document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search?.focus(); } if (event.key === 'Escape' && document.activeElement === search) search?.blur(); });
-    [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => select?.addEventListener('change', refresh));
+    [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => select?.addEventListener('change', () => refresh()));
     document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => { if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); } }); closeOtherSelects(); refresh(); });
-    sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : sort.value === 'verification' ? Number(b.dataset.verified) - Number(a.dataset.verified) : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); });
+    sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : sort.value === 'verification' ? Number(b.dataset.verified) - Number(a.dataset.verified) : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); refresh(); });
+    previousPage?.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderPagination(); } });
+    nextPage?.addEventListener('click', () => { if (currentPage * pageSize < filteredRows.length) { currentPage++; renderPagination(); } });
     const setRowExpanded = (row: HTMLElement, expanded: boolean) => {
       const button = row.querySelector<HTMLButtonElement>('.expand-offer');
       const offerName = row.querySelector('strong')?.textContent ?? 'l’offre';
@@ -222,5 +266,6 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
     document.querySelectorAll<HTMLButtonElement>('.expand-offer').forEach((button) => button.addEventListener('click', () => { const row = button.closest<HTMLElement>('.offer-row'); if (row) setRowExpanded(row, !row.classList.contains('expanded')); }));
     const saved = new Set<string>(JSON.parse(localStorage.getItem('gpld-favorites') ?? '[]'));
     document.querySelectorAll<HTMLButtonElement>('.favorite').forEach((button) => { const id = button.dataset.id ?? ''; button.classList.toggle('active', saved.has(id)); button.addEventListener('click', () => { saved.has(id) ? saved.delete(id) : saved.add(id); button.classList.toggle('active', saved.has(id)); localStorage.setItem('gpld-favorites', JSON.stringify([...saved])); }); });
+    refresh(false);
   </script>
 </BaseLayout>
