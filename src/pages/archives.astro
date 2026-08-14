@@ -16,7 +16,7 @@ const archives = (await getCollection('offres'))
       <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
       <span>Gratuit<span>PourLesDevs</span></span>
     </a>
-    <nav aria-label="Navigation principale"><a href="/">Catalogue</a><a class="active" href="/archives/">Archives</a><a href="/a-propos/">À propos</a></nav>
+    <nav aria-label="Navigation principale"><a href="/">Catalogue</a><a class="active" href="/archives/">Archives</a></nav>
     <div class="header-actions"><ThemeToggle /><a class="outline-button" href="/">Retour au catalogue</a></div>
   </header>
 
@@ -37,5 +37,5 @@ const archives = (await getCollection('offres'))
     )}
   </main>
 
-  <footer><div class="verified-mark"><span><strong>Archives transparentes</strong><small>Une offre retirée n’est jamais effacée de l’historique.</small></span></div><nav><a href="/methodologie/">Méthodologie</a><a href="/contact/">Contact</a></nav><span class="terminal-mark" aria-hidden="true">›_</span></footer>
+  <footer><div class="verified-mark"><span><strong>Archives transparentes</strong><small>Une offre retirée n’est jamais effacée de l’historique.</small></span></div><nav><a href="/methodologie/">Méthodologie</a><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a></nav><span class="terminal-mark" aria-hidden="true">›_</span></footer>
 </BaseLayout>
