@@ -143,7 +143,7 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
     const pageNumbers = document.querySelector<HTMLElement>('#page-numbers');
     const previousPage = document.querySelector<HTMLButtonElement>('#previous-page');
     const nextPage = document.querySelector<HTMLButtonElement>('#next-page');
-    const pageSize = 8;
+    const pageSize = 10;
     let currentPage = 1;
     let filteredRows = [...rows];
     const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
