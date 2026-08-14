@@ -1,8 +1,21 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { execFileSync } from 'node:child_process';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CustomSelect from '../components/CustomSelect.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+
+const offerChangeDates = new Map<string, number>();
+try {
+  const history = execFileSync('git', ['log', '--format=@@%ct', '--name-only', '--', 'src/content/offres'], { encoding: 'utf8' });
+  let commitTimestamp = 0;
+  history.split(/\r?\n/).forEach((line) => {
+    if (line.startsWith('@@')) commitTimestamp = Number(line.slice(2)) * 1000;
+    else if (line.startsWith('src/content/offres/') && commitTimestamp && !offerChangeDates.has(line)) offerChangeDates.set(line, commitTimestamp);
+  });
+} catch {
+  // La date de vérification sert de repli lorsque l’historique Git n’est pas disponible.
+}
 
 const entries = (await getCollection('offres'))
   .filter(({ data }) => data.statut !== 'obsolete')
@@ -29,6 +42,7 @@ const coveredCategories = new Set(entries.map(({ data }) => data.categorie)).siz
 const withoutCard = entries.filter(({ data }) => !data.carteRequise).length;
 const latestVerification = new Date(Math.max(...entries.map(({ data }) => data.verifieLe.getTime())));
 const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }).replace('.', '');
+const getOfferChangeDate = (entry: typeof entries[number]) => offerChangeDates.get(`src/content/offres/${entry.id}.md`) ?? entry.data.verifieLe.getTime();
 const comparisonPayload = JSON.stringify(entries.map((entry) => ({
   id: entry.id,
   name: entry.data.nom,
@@ -111,7 +125,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
 
       <div class="catalogue-heading">
         <h2><span id="result-count">{offers.length}</span> offres vérifiées</h2>
-        <label>Trier par&nbsp;:<select id="sort"><option value="categorie">Catégorie</option><option value="verification">Date de vérification</option><option value="type">Modèle</option><option value="nom">Nom</option><option value="pertinence" selected>Pertinence</option></select></label>
+        <label>Trier par&nbsp;:<select id="sort"><option value="recent" selected>Ajout / modification</option><option value="categorie">Catégorie</option><option value="verification">Date de vérification</option><option value="type">Modèle</option><option value="nom">Nom</option><option value="pertinence">Pertinence</option></select></label>
       </div>
 
       <div class="offers-table" role="table" aria-label="Offres gratuites">
@@ -120,7 +134,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
           {offers.map(({ entry, Content }) => (
             <article class="offer-row" role="row" tabindex="0" aria-expanded="false"
               data-name={entry.data.nom.toLocaleLowerCase('fr')} data-type={entry.data.type}
-              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()}
+              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()} data-updated={getOfferChangeDate(entry)}
               data-usages={JSON.stringify(entry.data.usages)}
               data-category-name={categoryNames.get(entry.data.categorie) ?? entry.data.categorie}
               data-search={`${entry.data.nom} ${entry.data.accroche} ${entry.data.formule} ${categoryNames.get(entry.data.categorie) ?? ''} ${entry.data.type} ${entry.data.usages.join(' ')} ${entry.data.inclus.join(' ')} ${entry.data.conditions.join(' ')} ${entry.data.restrictions.join(' ')} ${entry.body ?? ''}`.toLocaleLowerCase('fr')}
@@ -603,7 +617,22 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search?.focus(); } if (event.key === 'Escape' && document.activeElement === search) search?.blur(); });
     [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => select?.addEventListener('change', () => refresh()));
     document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; if (tagInput) tagInput.value = ''; selectedTags.clear(); renderSelectedTags(); closeTagSuggestions(); [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => { if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); } }); closeOtherSelects(); refresh(); });
-    sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : sort.value === 'verification' ? Number(b.dataset.verified) - Number(a.dataset.verified) : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); refresh(); });
+    const sortRows = (resetPage = true) => {
+      if (!sort) return;
+      rows.sort((a, b) => sort.value === 'nom'
+        ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr')
+        : sort.value === 'categorie'
+          ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr')
+          : sort.value === 'type'
+            ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr')
+            : sort.value === 'verification'
+              ? Number(b.dataset.verified) - Number(a.dataset.verified)
+              : sort.value === 'recent'
+                ? Number(b.dataset.updated) - Number(a.dataset.updated) || Number(a.dataset.order) - Number(b.dataset.order)
+                : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row));
+      refresh(resetPage);
+    };
+    sort?.addEventListener('change', () => sortRows());
     previousPage?.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderPagination(); } });
     nextPage?.addEventListener('click', () => { if (currentPage * pageSize < filteredRows.length) { currentPage++; renderPagination(); } });
     const setRowExpanded = (row: HTMLElement, expanded: boolean) => {
@@ -628,6 +657,6 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     document.querySelectorAll<HTMLButtonElement>('.expand-offer').forEach((button) => button.addEventListener('click', () => { const row = button.closest<HTMLElement>('.offer-row'); if (row) setRowExpanded(row, !row.classList.contains('expanded')); }));
     const saved = new Set<string>(JSON.parse(localStorage.getItem('gpld-favorites') ?? '[]'));
     document.querySelectorAll<HTMLButtonElement>('.favorite').forEach((button) => { const id = button.dataset.id ?? ''; button.classList.toggle('active', saved.has(id)); button.addEventListener('click', () => { saved.has(id) ? saved.delete(id) : saved.add(id); button.classList.toggle('active', saved.has(id)); localStorage.setItem('gpld-favorites', JSON.stringify([...saved])); }); });
-    refresh(false);
+    sortRows(false);
   </script>
 </BaseLayout>
