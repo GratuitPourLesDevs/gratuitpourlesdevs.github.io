@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
 const categories = await getCollection('categories');
 const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
@@ -16,7 +17,7 @@ const archives = (await getCollection('offres'))
       <span>Gratuit<span>PourLesDevs</span></span>
     </a>
     <nav aria-label="Navigation principale"><a href="/">Catalogue</a><a class="active" href="/archives/">Archives</a><a href="/a-propos/">À propos</a></nav>
-    <a class="outline-button" href="/">Retour au catalogue</a>
+    <div class="header-actions"><ThemeToggle /><a class="outline-button" href="/">Retour au catalogue</a></div>
   </header>
 
   <main class="archive-page">

@@ -1,6 +1,7 @@
 ---
 interface Props { active?: 'catalogue' | 'archives' | 'about'; }
 const { active } = Astro.props;
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header class="site-header">
@@ -9,5 +10,5 @@ const { active } = Astro.props;
     <span>Gratuit<span>PourLesDevs</span></span>
   </a>
   <nav aria-label="Navigation principale"><a class:list={{ active: active === 'catalogue' }} href="/">Catalogue</a><a class:list={{ active: active === 'archives' }} href="/archives/">Archives</a><a class:list={{ active: active === 'about' }} href="/a-propos/">À propos</a></nav>
-  <a class="outline-button" href="/contact/?objet=suggestion">Suggérer un outil</a>
+  <div class="header-actions"><ThemeToggle /><a class="outline-button" href="/contact/?objet=suggestion">Suggérer un outil</a></div>
 </header>

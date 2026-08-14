@@ -16,6 +16,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#ffffff" />
+    <script is:inline>
+      (() => {
+        let theme = 'light';
+        try { theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light'; } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#11141a' : '#ffffff');
+      })();
+    </script>
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:title" content={title} />
@@ -24,5 +33,33 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
     <title>{title}</title>
   </head>
-  <body><slot /></body>
+  <body>
+    <slot />
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const meta = document.querySelector('meta[name="theme-color"]');
+        const syncButtons = () => {
+          const dark = root.dataset.theme === 'dark';
+          document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+            button.setAttribute('aria-pressed', String(dark));
+            button.setAttribute('aria-label', dark ? 'Activer le mode clair' : 'Activer le mode sombre');
+            const label = button.querySelector('.theme-label');
+            if (label) label.textContent = dark ? 'Mode clair' : 'Mode sombre';
+          });
+          meta?.setAttribute('content', dark ? '#11141a' : '#ffffff');
+        };
+        document.addEventListener('click', (event) => {
+          const button = event.target.closest?.('[data-theme-toggle]');
+          if (!button) return;
+          const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = theme;
+          root.style.colorScheme = theme;
+          try { localStorage.setItem('theme', theme); } catch {}
+          syncButtons();
+        });
+        syncButtons();
+      })();
+    </script>
+  </body>
 </html>
