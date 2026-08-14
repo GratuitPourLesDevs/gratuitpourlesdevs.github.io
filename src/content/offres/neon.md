@@ -4,10 +4,39 @@ accroche: PostgreSQL serverless avec branchement
 type: PaaS
 categorie: services-donnees-manages
 formule: 100 projets, 100 CU-h et 0,5 Go de stockage par projet
-inclus: [Jusqu’à 100 projets, 100 CU-h mensuelles, 0,5 Go de stockage par projet, Branches PostgreSQL]
-conditions: [Compte Neon gratuit, Aucune carte bancaire]
-restrictions: [Mise en veille automatique, Stockage et calcul plafonnés]
-usages: [Base de données, PostgreSQL, Serverless]
+inclus:
+  - Jusqu’à 100 projets
+  - 100 CU-heures de calcul par mois et par projet
+  - 0,5 Go de stockage par projet
+  - Jusqu’à 10 branches simultanées par projet
+  - Calcul jusqu’à 2 CU soit environ 8 Go de mémoire
+  - Mise à l’échelle automatique
+  - Mise en veille après 5 minutes d’inactivité
+  - Restauration instantanée sur 6 heures ou 1 Go de modifications
+  - Réplicas de lecture
+  - 5 Go de transfert réseau public inclus
+  - Neon Auth jusqu’à 60 000 utilisateurs actifs mensuels
+  - Membres d’équipe illimités
+  - Pool de connexions PgBouncer intégré
+conditions:
+  - Compte Neon gratuit
+  - Aucune carte bancaire
+restrictions:
+  - Quotas de calcul et de stockage appliqués séparément à chaque projet
+  - Calcul limité à 100 CU-heures par mois et par projet
+  - Stockage limité à 0,5 Go par projet
+  - Calcul limité à 2 CU soit environ 8 Go de mémoire
+  - Mise en veille automatique et non configurable après 5 minutes sur le plan gratuit
+  - Fenêtre de restauration limitée à 6 heures ou 1 Go de modifications selon la première limite atteinte
+  - Transfert réseau public limité à 5 Go inclus
+  - Historique des métriques et journaux limité à un jour dans la console
+  - Réseau privé règles IP avancées SLA et support professionnel réservés aux offres payantes
+usages:
+  - Base de données
+  - PostgreSQL
+  - Serverless
+  - Environnements de prévisualisation
+  - Développement et test
 url: https://neon.com/
 documentation: https://neon.com/docs/introduction
 source: https://neon.com/pricing
@@ -15,12 +44,12 @@ couleur: "#00bfa5"
 initiales: NE
 carteRequise: false
 permanent: true
-statut: "active"
+statut: active
 vedette: false
 ordre: 3
-verifieLe: 2026-08-12
-verificationAutomatiqueLe: 2026-08-12
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verifieLe: 2026-08-14
+verificationAutomatiqueLe: 2026-08-14
+verificationNote: "La tarification Neon confirme 100 projets, 100 CU-heures mensuelles et 0,5 Go de stockage par projet, jusqu’à 2 CU, 10 branches simultanées, 5 Go de transfert public, 60 000 utilisateurs Neon Auth et une restauration sur 6 heures ou 1 Go de modifications."
 ---
 
-Une base PostgreSQL qui se met en veille automatiquement, avec branches et restauration jusqu’à six heures.
+Neon fournit PostgreSQL sous forme serverless avec séparation du calcul et du stockage. Chaque projet gratuit dispose de son propre quota de calcul et de stockage, se met automatiquement en veille après cinq minutes d’inactivité et peut être cloné en branches pour les développements et prévisualisations. La restauration instantanée remonte jusqu’à six heures, dans la limite d’un gigaoctet de modifications.
