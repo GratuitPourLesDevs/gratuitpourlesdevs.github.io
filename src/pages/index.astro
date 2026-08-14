@@ -20,6 +20,10 @@ const modelOptions = [{ value: '', label: 'Tous les modèles' }, ...serviceModel
 const cardOptions = [{ value: '', label: 'Indifférent' }, { value: 'true', label: 'Carte requise' }, { value: 'false', label: 'Sans carte' }];
 const permanenceOptions = [{ value: '', label: 'Indifférent' }, { value: 'false', label: 'Essai limité' }, { value: 'true', label: 'Formule permanente' }];
 const verificationOptions = [{ value: '', label: 'Indifférent' }, { value: '31-90', label: 'De 31 à 90 jours' }, { value: '0-30', label: 'Moins de 30 jours' }, { value: '90+', label: 'Plus de 90 jours' }];
+const usageTags = [...new Map(entries
+  .flatMap(({ data }) => data.usages)
+  .map((tag) => [tag.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr'), tag])).values()]
+  .sort((a, b) => a.localeCompare(b, 'fr'));
 const activeOffers = entries.filter(({ data }) => data.statut === 'active').length;
 const coveredCategories = new Set(entries.map(({ data }) => data.categorie)).size;
 const withoutCard = entries.filter(({ data }) => !data.carteRequise).length;
@@ -61,7 +65,20 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
       </label>
 
       <section class="advanced-filters" aria-labelledby="filter-title">
-        <div class="section-intro compact"><div><h2 id="filter-title">Affiner les résultats</h2><p>Combinez catégorie, modèle et conditions de l’offre.</p></div></div>
+        <div class="section-intro compact">
+          <div><h2 id="filter-title">Affiner les résultats</h2><p>Combinez catégorie, modèle et conditions de l’offre.</p></div>
+          <div class="tag-filter" data-tag-filter>
+            <div class="tag-filter-heading"><label id="usage-tag-label" for="usage-tag-input">Filtrer par usage</label><span>Les offres doivent contenir tous ces tags</span></div>
+            <div class="tag-combobox">
+              <div class="selected-tags" id="selected-usage-tags"></div>
+              <input id="usage-tag-input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="usage-tag-options" aria-labelledby="usage-tag-label" placeholder="Ajouter un tag…" autocomplete="off" />
+            </div>
+            <div class="tag-suggestions" id="usage-tag-options" role="listbox" aria-labelledby="usage-tag-label" hidden>
+              {usageTags.map((tag, index) => <button id={`usage-tag-option-${index}`} type="button" role="option" aria-selected="false" data-tag={tag}>{tag}</button>)}
+              <p class="tag-empty" hidden>Aucun tag correspondant</p>
+            </div>
+          </div>
+        </div>
         <div class="filter-grid">
           <CustomSelect id="category-filter" label="Catégorie" options={categoryOptions} searchable />
           <CustomSelect id="type-filter" label="Modèle de service" options={modelOptions} />
@@ -84,6 +101,7 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
             <article class="offer-row" role="row" tabindex="0" aria-expanded="false"
               data-name={entry.data.nom.toLocaleLowerCase('fr')} data-type={entry.data.type}
               data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()}
+              data-usages={JSON.stringify(entry.data.usages)}
               data-category-name={categoryNames.get(entry.data.categorie) ?? entry.data.categorie}
               data-search={`${entry.data.nom} ${entry.data.accroche} ${entry.data.formule} ${categoryNames.get(entry.data.categorie) ?? ''} ${entry.data.type} ${entry.data.usages.join(' ')} ${entry.data.inclus.join(' ')} ${entry.data.conditions.join(' ')} ${entry.data.restrictions.join(' ')} ${entry.body ?? ''}`.toLocaleLowerCase('fr')}
               data-order={entry.data.ordre}>
@@ -143,10 +161,18 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
     const pageNumbers = document.querySelector<HTMLElement>('#page-numbers');
     const previousPage = document.querySelector<HTMLButtonElement>('#previous-page');
     const nextPage = document.querySelector<HTMLButtonElement>('#next-page');
+    const tagFilter = document.querySelector<HTMLElement>('[data-tag-filter]');
+    const tagInput = document.querySelector<HTMLInputElement>('#usage-tag-input');
+    const selectedTagsRoot = document.querySelector<HTMLElement>('#selected-usage-tags');
+    const tagSuggestions = document.querySelector<HTMLElement>('#usage-tag-options');
+    const tagOptions = [...document.querySelectorAll<HTMLButtonElement>('#usage-tag-options [role="option"]')];
+    const tagEmpty = document.querySelector<HTMLElement>('.tag-empty');
     const pageSize = 10;
     let currentPage = 1;
     let filteredRows = [...rows];
+    const selectedTags = new Set<string>();
     const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const rowUsages = new Map(rows.map((row) => [row, (JSON.parse(row.dataset.usages ?? '[]') as string[]).map(normalize)]));
     const customSelects = [...document.querySelectorAll<HTMLElement>('.custom-select-field')];
     const closeCustomSelect = (root: HTMLElement, restoreFocus = false) => {
       const trigger = root.querySelector<HTMLButtonElement>('.custom-select-trigger');
@@ -174,6 +200,7 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
       trigger.addEventListener('click', () => {
         const opening = popover.hidden;
         closeOtherSelects(root);
+        closeTagSuggestions();
         popover.hidden = !opening;
         trigger.setAttribute('aria-expanded', String(opening));
         if (opening) (searchInput ?? options[0])?.focus();
@@ -193,7 +220,76 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
       nativeSelect.addEventListener('change', sync);
       sync();
     });
-    document.addEventListener('click', (event) => { if (!(event.target as HTMLElement).closest('.custom-select-field')) closeOtherSelects(); });
+    const closeTagSuggestions = () => {
+      if (tagSuggestions) tagSuggestions.hidden = true;
+      tagInput?.setAttribute('aria-expanded', 'false');
+      tagInput?.removeAttribute('aria-activedescendant');
+    };
+    const visibleTagOptions = () => tagOptions.filter((option) => !option.hidden);
+    const updateTagSuggestions = (open = true) => {
+      const query = normalize(tagInput?.value ?? '');
+      let visible = 0;
+      tagOptions.forEach((option) => {
+        const tag = option.dataset.tag ?? '';
+        const show = !selectedTags.has(tag) && normalize(tag).includes(query);
+        option.hidden = !show;
+        option.setAttribute('aria-selected', 'false');
+        if (show) visible++;
+      });
+      if (tagEmpty) tagEmpty.hidden = visible !== 0;
+      if (tagSuggestions && open) tagSuggestions.hidden = false;
+      tagInput?.setAttribute('aria-expanded', String(open));
+    };
+    const renderSelectedTags = () => {
+      if (!selectedTagsRoot) return;
+      selectedTagsRoot.replaceChildren(...[...selectedTags].map((tag) => {
+        const chip = document.createElement('span');
+        chip.className = 'selected-tag';
+        chip.append(document.createTextNode(tag));
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.textContent = '×';
+        remove.setAttribute('aria-label', `Retirer le tag ${tag}`);
+        remove.addEventListener('click', () => { selectedTags.delete(tag); renderSelectedTags(); updateTagSuggestions(false); refresh(); tagInput?.focus(); closeTagSuggestions(); });
+        chip.append(remove);
+        return chip;
+      }));
+      tagFilter?.classList.toggle('has-tags', selectedTags.size > 0);
+    };
+    const addTag = (tag: string) => {
+      if (!tag || selectedTags.has(tag)) return;
+      selectedTags.add(tag);
+      if (tagInput) tagInput.value = '';
+      renderSelectedTags();
+      updateTagSuggestions(false);
+      refresh();
+      tagInput?.focus();
+      closeTagSuggestions();
+    };
+    tagInput?.addEventListener('focus', () => { closeOtherSelects(); updateTagSuggestions(); });
+    tagInput?.addEventListener('input', () => updateTagSuggestions());
+    tagInput?.addEventListener('keydown', (event) => {
+      const options = visibleTagOptions();
+      if (event.key === 'ArrowDown' && options[0]) { event.preventDefault(); options[0].focus(); tagInput.setAttribute('aria-activedescendant', options[0].id); }
+      if (event.key === 'Enter' && options[0]) { event.preventDefault(); addTag(options[0].dataset.tag ?? ''); }
+      if (event.key === 'Backspace' && !tagInput.value && selectedTags.size) { event.preventDefault(); const last = [...selectedTags].at(-1); if (last) { selectedTags.delete(last); renderSelectedTags(); updateTagSuggestions(); refresh(); } }
+      if (event.key === 'Escape') closeTagSuggestions();
+    });
+    tagOptions.forEach((option) => {
+      option.addEventListener('click', () => addTag(option.dataset.tag ?? ''));
+      option.addEventListener('keydown', (event) => {
+        const options = visibleTagOptions();
+        const current = options.indexOf(option);
+        if (event.key === 'ArrowDown') { event.preventDefault(); (options[current + 1] ?? options[0])?.focus(); }
+        if (event.key === 'ArrowUp') { event.preventDefault(); (options[current - 1] ?? tagInput)?.focus(); }
+        if (event.key === 'Escape') { event.preventDefault(); closeTagSuggestions(); tagInput?.focus(); }
+      });
+    });
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.custom-select-field')) closeOtherSelects();
+      if (!target.closest('[data-tag-filter]')) closeTagSuggestions();
+    });
     const renderPagination = () => {
       const total = filteredRows.length;
       const pageCount = Math.max(1, Math.ceil(total / pageSize));
@@ -231,6 +327,7 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
           && (!typeSelect?.value || row.dataset.type === typeSelect.value)
           && (!cardSelect?.value || row.dataset.card === cardSelect.value)
           && (!permanentSelect?.value || row.dataset.permanent === permanentSelect.value)
+          && [...selectedTags].every((tag) => rowUsages.get(row)?.includes(normalize(tag)))
           && matchesVerification;
         if (show) filteredRows.push(row);
       });
@@ -241,7 +338,7 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
     search?.addEventListener('input', () => refresh());
     document.addEventListener('keydown', (event) => { if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); search?.focus(); } if (event.key === 'Escape' && document.activeElement === search) search?.blur(); });
     [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => select?.addEventListener('change', () => refresh()));
-    document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => { if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); } }); closeOtherSelects(); refresh(); });
+    document.querySelector('.reset')?.addEventListener('click', () => { if (search) search.value = ''; if (tagInput) tagInput.value = ''; selectedTags.clear(); renderSelectedTags(); closeTagSuggestions(); [categorySelect, typeSelect, cardSelect, permanentSelect, verificationSelect].forEach((select) => { if (select) { select.value = ''; select.dispatchEvent(new Event('change', { bubbles: true })); } }); closeOtherSelects(); refresh(); });
     sort?.addEventListener('change', () => { rows.sort((a, b) => sort.value === 'nom' ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr') : sort.value === 'categorie' ? (a.dataset.categoryName ?? '').localeCompare(b.dataset.categoryName ?? '', 'fr') : sort.value === 'type' ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr') : sort.value === 'verification' ? Number(b.dataset.verified) - Number(a.dataset.verified) : Number(a.dataset.order) - Number(b.dataset.order)).forEach((row) => list?.append(row)); refresh(); });
     previousPage?.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderPagination(); } });
     nextPage?.addEventListener('click', () => { if (currentPage * pageSize < filteredRows.length) { currentPage++; renderPagination(); } });
