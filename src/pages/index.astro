@@ -274,11 +274,13 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
         const offer = comparisonById.get(id);
         const selected = selectedComparisonIds.has(id);
         const atMaximum = selectedComparisonIds.size >= 4 && !selected;
+        const suggested = Boolean(first && offer && !selected && !atMaximum && first.category === offer.category);
         button.classList.toggle('active', selected);
-        button.classList.toggle('suggested', Boolean(first && offer && !selected && first.category === offer.category));
+        button.classList.toggle('suggested', suggested);
         button.disabled = atMaximum;
+        button.title = suggested ? `Même catégorie que ${first?.name}` : '';
         button.setAttribute('aria-pressed', String(selected));
-        button.setAttribute('aria-label', selected ? `Retirer ${offer?.name ?? 'cette offre'} du comparateur` : atMaximum ? 'Le comparateur contient déjà quatre offres' : `Ajouter ${offer?.name ?? 'cette offre'} au comparateur`);
+        button.setAttribute('aria-label', selected ? `Retirer ${offer?.name ?? 'cette offre'} du comparateur` : atMaximum ? 'Le comparateur contient déjà quatre offres' : suggested ? `Ajouter ${offer?.name ?? 'cette offre'} au comparateur — même catégorie que ${first?.name}` : `Ajouter ${offer?.name ?? 'cette offre'} au comparateur`);
       });
     };
     const renderComparisonState = () => {
