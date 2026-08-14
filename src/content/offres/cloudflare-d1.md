@@ -1,0 +1,26 @@
+---
+nom: Cloudflare D1
+accroche: Base de données SQL serverless compatible SQLite pour Workers et Pages
+type: PaaS
+categorie: services-donnees-manages
+formule: 5 millions de lignes lues et 100 000 lignes écrites par jour avec 5 Go au total
+inclus: [5 millions de lignes lues par jour, 100 000 lignes écrites par jour, 5 Go de stockage au total par compte, Jusqu’à 10 bases de données, 500 Mo maximum par base, Sémantique SQL compatible SQLite, Accès depuis Cloudflare Workers et Pages, API HTTP pour l’administration, Restauration à un instant donné sur 7 jours, Jusqu’à 50 requêtes D1 par invocation Worker, Aucun frais de transfert sortant, Mise à l’échelle à zéro sans facturation de capacité inactive]
+conditions: [Compte Cloudflare gratuit, Utilisation du plan Workers Free, Base D1 liée à un Worker ou une application Pages, Aucune carte bancaire]
+restrictions: [Quotas de lecture et d’écriture réinitialisés chaque jour à minuit UTC, Requêtes bloquées lorsque le quota quotidien de lecture ou d’écriture est atteint, Nouvelles écritures et modifications de schéma bloquées lorsque les 5 Go sont atteints, 500 Mo maximum par base sur le plan gratuit, 10 bases maximum par compte gratuit, Chaque base traite les requêtes de manière séquentielle, 30 secondes maximum par requête SQL, 100 colonnes maximum par table, 2 Mo maximum pour une chaîne un BLOB ou une ligne, 100 paramètres liés maximum par requête, Les index réduisent les lignes lues mais ajoutent des lignes écrites lors des modifications]
+usages: [Base SQL serverless, API, Application web, Données relationnelles, Prototypage, Architecture multi-tenant]
+url: https://developers.cloudflare.com/d1/
+documentation: https://developers.cloudflare.com/d1/
+source: https://developers.cloudflare.com/d1/platform/pricing/
+couleur: "#f6821f"
+initiales: D1
+carteRequise: false
+permanent: true
+statut: active
+vedette: false
+ordre: 54
+verifieLe: 2026-08-14
+verificationAutomatiqueLe: 2026-08-14
+verificationNote: "La tarification officielle confirme 5 millions de lignes lues, 100 000 lignes écrites par jour et 5 Go de stockage total. Les limites actuelles du plan gratuit autorisent 10 bases de 500 Mo maximum chacune et 7 jours de restauration Time Travel."
+---
+
+Cloudflare D1 est une base SQL serverless reposant sur la sémantique SQLite et intégrée à Workers et Pages. Elle convient aux API, applications web et architectures qui répartissent les données entre plusieurs petites bases. Le quota de stockage gratuit atteint désormais 5 Go au total, mais chaque base reste limitée à 500 Mo sur le plan Workers Free.
