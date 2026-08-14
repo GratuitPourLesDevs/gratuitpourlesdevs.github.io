@@ -14,6 +14,7 @@ import SiteFooter from '../components/SiteFooter.astro';
         <button type="button" role="tab" data-kind="contact" aria-selected="true">Contact</button>
         <button type="button" role="tab" data-kind="erreur" aria-selected="false">Signaler une erreur</button>
         <button type="button" role="tab" data-kind="suggestion" aria-selected="false">Suggérer un outil</button>
+        <button type="button" role="tab" data-kind="evolution" aria-selected="false">Proposer une amélioration</button>
       </div>
       <form id="contact-form" action="https://formsubmit.co/ajax/julien.taverne+gratuitpourlesdevs@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Nouveau message — GratuitPourLesDevs" />
@@ -26,6 +27,7 @@ import SiteFooter from '../components/SiteFooter.astro';
           <label><span>Adresse e-mail</span><input name="email" type="email" autocomplete="email" required /></label>
           <label class="context-field" data-for="erreur" hidden><span>Offre ou page concernée</span><input name="offre_concernee" type="text" /></label>
           <label class="context-field" data-for="suggestion" hidden><span>Nom de l’outil</span><input name="outil_propose" type="text" /></label>
+          <label class="context-field full" data-for="evolution" hidden><span>Zone ou fonctionnalité concernée</span><input name="fonctionnalite_concernee" type="text" /></label>
           <label class="context-field full" data-for="erreur suggestion" hidden><span>Adresse de la source officielle</span><input name="source_officielle" type="url" placeholder="https://" /></label>
           <label class="full"><span>Message</span><textarea name="message" rows="7" required></textarea></label>
         </div>
@@ -49,6 +51,7 @@ import SiteFooter from '../components/SiteFooter.astro';
       contact: { title: 'Nous écrire', description: 'Posez une question ou partagez une remarque à propos du site.', type: 'Contact général' },
       erreur: { title: 'Signaler une erreur', description: 'Indiquez l’offre concernée, la donnée à corriger et, si possible, sa source officielle.', type: 'Signalement d’erreur' },
       suggestion: { title: 'Suggérer un outil', description: 'Proposez un service disposant d’une véritable formule gratuite utile aux développeurs.', type: 'Suggestion d’outil' },
+      evolution: { title: 'Proposer une amélioration', description: 'Décrivez la fonctionnalité ou le changement qui rendrait le catalogue plus utile.', type: 'Proposition d’évolution' },
     };
     const selectKind = (kind: keyof typeof copy) => {
       const selected = copy[kind] ?? copy.contact;
@@ -66,7 +69,7 @@ import SiteFooter from '../components/SiteFooter.astro';
     };
     tabs.forEach((tab) => tab.addEventListener('click', () => selectKind((tab.dataset.kind ?? 'contact') as keyof typeof copy)));
     const requestedKind = new URLSearchParams(location.search).get('objet');
-    selectKind(requestedKind === 'erreur' || requestedKind === 'suggestion' ? requestedKind : 'contact');
+    selectKind(requestedKind === 'erreur' || requestedKind === 'suggestion' || requestedKind === 'evolution' ? requestedKind : 'contact');
     form?.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (!form.reportValidity() || !submitButton || !status) return;

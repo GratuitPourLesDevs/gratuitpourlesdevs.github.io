@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout title="Évolutions — Gratuit pour les devs" description="Les nouveautés déployées et les prochaines pistes d’amélioration de GratuitPourLesDevs.">
+  <SiteHeader />
+  <main class="evolutions-page">
+    <header class="evolutions-hero">
+      <small>ÉVOLUTIONS DU SITE</small>
+      <div>
+        <h1>Ce qui change.<br />Et ce qui se prépare.</h1>
+        <p>Une vue transparente des fonctionnalités livrées et des sujets encore à l’étude. Les pistes présentées ici n’impliquent pas de date de sortie.</p>
+      </div>
+      <aside aria-label="Résumé des évolutions"><strong>2</strong><span>jours d’améliorations documentés</span><strong>1</strong><span>sujet actuellement à l’étude</span></aside>
+    </header>
+
+    <section class="evolutions-section" aria-labelledby="released-title">
+      <div class="evolutions-section-heading"><div><small>JOURNAL DES MODIFICATIONS</small><h2 id="released-title">Dernières nouveautés</h2></div><span class="evolution-status delivered">Déployé</span></div>
+      <div class="evolution-timeline">
+        <article>
+          <time datetime="2026-08-15">15 août 2026</time>
+          <div class="evolution-card"><h3>Favoris, tris et repères plus visibles</h3><ul><li>Filtre dédié pour retrouver uniquement les offres placées en favoris.</li><li>Indicateur « Favoris uniquement » au-dessus des résultats.</li><li>Tri par ajout ou modification, avec ordre ascendant ou descendant.</li><li>Suggestions plus visibles pour comparer des offres de la même catégorie.</li></ul></div>
+        </article>
+        <article>
+          <time datetime="2026-08-14">14 août 2026</time>
+          <div class="evolution-card"><h3>Comparer et affiner le catalogue</h3><ul><li>Comparateur de deux à quatre offres avec lien partageable.</li><li>Lecture plus fine des usages communs et spécifiques.</li><li>Filtre multitag avec recherche assistée.</li><li>Pagination portée à dix offres et ajout du mode sombre.</li></ul></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="evolutions-section roadmap-section" aria-labelledby="roadmap-title">
+      <div class="evolutions-section-heading"><div><small>PROCHAINES PISTES</small><h2 id="roadmap-title">À l’étude</h2></div><span class="evolution-status exploring">Sans échéance</span></div>
+      <article class="roadmap-card">
+        <div class="roadmap-index">01</div>
+        <div><span>Comparateur</span><h3>Normaliser les quotas</h3><p>Structurer les volumes, durées et unités afin de rapprocher plus justement les formules gratuites, sans perdre le détail propre à chaque fournisseur.</p></div>
+        <small>Réflexion</small>
+      </article>
+    </section>
+
+    <section class="content-callout evolution-callout"><div><h2>Une amélioration à proposer ?</h2><p>Les retours permettent de prioriser les prochaines évolutions du catalogue.</p></div><a class="outline-button" href="/contact/?objet=evolution">Partager une idée</a></section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
