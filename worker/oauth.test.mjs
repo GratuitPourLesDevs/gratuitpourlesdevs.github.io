@@ -17,6 +17,22 @@ test('health fails closed when secrets are missing', async () => {
   assert.deepEqual(await response.json(), { ok: false, configured: false });
 });
 
+test('comparisons API fails closed when D1 or the anonymous analytics secret is missing', async () => {
+  const response = await handleRequest(new Request('https://oauth.example/api/comparisons'), env);
+  assert.equal(response.status, 503);
+  assert.deepEqual(await response.json(), { error: 'Comparisons API is not configured' });
+});
+
+test('comparisons API rejects writes from an unknown browser origin', async () => {
+  const response = await handleRequest(new Request('https://oauth.example/api/comparisons/view', {
+    method: 'POST',
+    headers: { Origin: 'https://evil.example', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ offers: ['neon', 'amazon-dynamodb'] }),
+  }), { ...env, ANALYTICS_SECRET: 'anonymous-test-secret', COMPARISONS_DB: {} });
+  assert.equal(response.status, 403);
+  assert.deepEqual(await response.json(), { error: 'Origin not allowed' });
+});
+
 test('auth rejects unknown sites', async () => {
   const response = await handleRequest(new Request('https://oauth.example/auth?provider=github&site_id=evil.example'), env);
   assert.equal(response.status, 403);

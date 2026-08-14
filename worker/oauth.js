@@ -5,6 +5,7 @@ const COOKIE_NAME = 'gpld_oauth';
 const MAX_AGE_SECONDS = 600;
 
 const encoder = new TextEncoder();
+let offerIndexCache = { expiresAt: 0, ids: new Set() };
 
 function base64url(value) {
   const bytes = typeof value === 'string' ? encoder.encode(value) : value;
@@ -77,11 +78,141 @@ function securityHeaders() {
   };
 }
 
-function json(data, status = 200) {
+function json(data, status = 200, headers = {}) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { ...securityHeaders(), 'Content-Type': 'application/json; charset=utf-8' },
+    headers: { ...securityHeaders(), 'Content-Type': 'application/json; charset=utf-8', ...headers },
   });
+}
+
+function allowedApiOrigin(request, env) {
+  const origin = request.headers.get('Origin');
+  if (!origin) return null;
+  if (origin === env.ALLOWED_ORIGIN || /^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(origin)) return origin;
+  return false;
+}
+
+function apiHeaders(request, env) {
+  const origin = allowedApiOrigin(request, env);
+  return origin ? {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '86400',
+    Vary: 'Origin',
+  } : {};
+}
+
+function canonicalOfferIds(value) {
+  if (!Array.isArray(value)) return null;
+  const ids = [...new Set(value.map((id) => String(id).trim()).filter((id) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)))].sort();
+  return ids.length >= 2 && ids.length <= 4 && ids.length === value.length ? ids : null;
+}
+
+async function sha256Hex(value) {
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', encoder.encode(value)));
+  return [...digest].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+async function apiFingerprint(request, env, eventType, eventWindow) {
+  const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
+  const agent = request.headers.get('User-Agent') ?? 'unknown';
+  return sha256Hex(`${env.ANALYTICS_SECRET}:${eventType}:${eventWindow}:${ip}:${agent}`);
+}
+
+async function validOfferIds(env, fetchImpl) {
+  if (offerIndexCache.expiresAt > Date.now()) return offerIndexCache.ids;
+  const response = await fetchImpl(new URL('/offres.json', env.ALLOWED_ORIGIN), { headers: { Accept: 'application/json' } });
+  if (!response.ok) throw new Error('Offer index is unavailable');
+  const payload = await response.json();
+  const ids = new Set(Array.isArray(payload.offers) ? payload.offers.filter((id) => typeof id === 'string') : []);
+  if (!ids.size) throw new Error('Offer index is empty');
+  offerIndexCache = { expiresAt: Date.now() + 300_000, ids };
+  return ids;
+}
+
+function comparisonRecord(row) {
+  return {
+    key: row.comparison_key,
+    offerIds: String(row.offer_ids).split(',').filter(Boolean),
+    createdAt: Number(row.created_at) * 1000,
+    lastViewedAt: Number(row.last_viewed_at) * 1000,
+    views: Number(row.view_count),
+    helpful: Number(row.helpful_count),
+    featured: Boolean(row.featured),
+  };
+}
+
+async function listComparisons(request, env) {
+  const url = new URL(request.url);
+  const sort = url.searchParams.get('sort') === 'recent' ? 'recent' : 'popular';
+  const requestedLimit = Math.min(20, Math.max(1, Number.parseInt(url.searchParams.get('limit') ?? '10', 10) || 10));
+  const offset = Math.min(99, Math.max(0, Number.parseInt(url.searchParams.get('offset') ?? '0', 10) || 0));
+  const limit = Math.min(requestedLimit, 100 - offset);
+  const order = sort === 'recent'
+    ? 'created_at DESC, comparison_key ASC'
+    : 'view_count DESC, helpful_count DESC, featured DESC, last_viewed_at DESC, comparison_key ASC';
+  const result = await env.COMPARISONS_DB.prepare(`SELECT * FROM comparisons ORDER BY ${order} LIMIT ? OFFSET ?`).bind(limit + 1, offset).all();
+  const hasMore = result.results.length > limit && offset + limit < 100;
+  return json({ items: result.results.slice(0, limit).map(comparisonRecord), limit, offset, hasMore }, 200, apiHeaders(request, env));
+}
+
+async function recordComparisonEvent(request, env, eventType, fetchImpl) {
+  if (allowedApiOrigin(request, env) === false) return json({ error: 'Origin not allowed' }, 403, apiHeaders(request, env));
+  const contentLength = Number(request.headers.get('Content-Length') ?? 0);
+  if (contentLength > 2048) return json({ error: 'Payload too large' }, 413, apiHeaders(request, env));
+  let payload;
+  try { payload = await request.json(); } catch { return json({ error: 'Invalid JSON' }, 400, apiHeaders(request, env)); }
+  const ids = canonicalOfferIds(payload.offers);
+  if (!ids) return json({ error: 'Two to four valid and unique offers are required' }, 400, apiHeaders(request, env));
+  const origin = allowedApiOrigin(request, env);
+  if (!origin || !/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(origin)) {
+    try {
+      const knownIds = await validOfferIds(env, fetchImpl);
+      if (ids.some((id) => !knownIds.has(id))) return json({ error: 'Unknown offer' }, 400, apiHeaders(request, env));
+    } catch {
+      return json({ error: 'Offer validation is temporarily unavailable' }, 503, apiHeaders(request, env));
+    }
+  }
+
+  const now = Math.floor(Date.now() / 1000);
+  const key = ids.join(',');
+  const eventWindow = eventType === 'view' ? String(Math.floor(now / 86400)) : 'all';
+  const fingerprint = await apiFingerprint(request, env, eventType, eventWindow);
+  const event = await env.COMPARISONS_DB.prepare(
+    'INSERT OR IGNORE INTO comparison_events (comparison_key, event_type, event_window, fingerprint, created_at) VALUES (?, ?, ?, ?, ?)',
+  ).bind(key, eventType, eventWindow, fingerprint, now).run();
+  const recorded = Number(event.meta?.changes ?? 0) > 0;
+
+  if (recorded) {
+    const viewIncrement = eventType === 'view' ? 1 : 0;
+    const helpfulIncrement = eventType === 'helpful' ? 1 : 0;
+    await env.COMPARISONS_DB.prepare(`
+      INSERT INTO comparisons (comparison_key, offer_ids, created_at, last_viewed_at, view_count, helpful_count, featured)
+      VALUES (?, ?, ?, ?, ?, ?, 0)
+      ON CONFLICT(comparison_key) DO UPDATE SET
+        last_viewed_at = CASE WHEN ? = 1 THEN excluded.last_viewed_at ELSE comparisons.last_viewed_at END,
+        view_count = comparisons.view_count + ?,
+        helpful_count = comparisons.helpful_count + ?
+    `).bind(key, key, now, now, viewIncrement, helpfulIncrement, viewIncrement, viewIncrement, helpfulIncrement).run();
+    if (eventType === 'view') {
+      await env.COMPARISONS_DB.prepare("DELETE FROM comparison_events WHERE event_type = 'view' AND created_at < ?").bind(now - 45 * 86400).run();
+    }
+  }
+
+  const row = await env.COMPARISONS_DB.prepare('SELECT * FROM comparisons WHERE comparison_key = ?').bind(key).first();
+  return json({ recorded, item: comparisonRecord(row) }, 200, apiHeaders(request, env));
+}
+
+async function handleComparisonsApi(request, env, fetchImpl) {
+  const headers = apiHeaders(request, env);
+  if (!env.COMPARISONS_DB || !env.ANALYTICS_SECRET) return json({ error: 'Comparisons API is not configured' }, 503, headers);
+  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers });
+  const url = new URL(request.url);
+  if (url.pathname === '/api/comparisons' && request.method === 'GET') return listComparisons(request, env);
+  if (url.pathname === '/api/comparisons/view' && request.method === 'POST') return recordComparisonEvent(request, env, 'view', fetchImpl);
+  if (url.pathname === '/api/comparisons/helpful' && request.method === 'POST') return recordComparisonEvent(request, env, 'helpful', fetchImpl);
+  return json({ error: 'Not found' }, 404, headers);
 }
 
 function popupPage({ origin, status, payload }) {
@@ -179,8 +310,9 @@ async function finishAuth(request, env, fetchImpl) {
 }
 
 export async function handleRequest(request, env, fetchImpl = fetch) {
-  const missing = validateEnv(env);
   const url = new URL(request.url);
+  if (url.pathname.startsWith('/api/comparisons')) return handleComparisonsApi(request, env, fetchImpl);
+  const missing = validateEnv(env);
   if (url.pathname === '/health') return json({ ok: missing.length === 0, configured: missing.length === 0 }, missing.length === 0 ? 200 : 503);
   if (missing.length) return json({ error: 'OAuth worker is not configured' }, 503);
   if (request.method !== 'GET') return json({ error: 'Method not allowed' }, 405);

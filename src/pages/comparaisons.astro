@@ -1,0 +1,187 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const categories = await getCollection('categories');
+const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
+const offers = (await getCollection('offres'))
+  .filter(({ data }) => data.statut !== 'obsolete')
+  .map((entry) => ({
+    id: entry.id,
+    name: entry.data.nom,
+    tagline: entry.data.accroche,
+    initials: entry.data.initiales,
+    color: entry.data.couleur,
+    category: categoryNames.get(entry.data.categorie) ?? entry.data.categorie,
+  }));
+const offerIds = new Set(offers.map((offer) => offer.id));
+const editorialComparisons = [
+  ['grafana-cloud', 'amazon-cloudwatch', 'uptimerobot'],
+  ['amazon-dynamodb', 'neon', 'azure-cosmos-db', 'cloudflare-d1'],
+  ['aws-lambda', 'cloudflare-workers', 'azure-functions'],
+  ['github-actions', 'aws-codebuild', 'aws-codepipeline'],
+  ['cloudflare-r2', 'azure-storage-free-services'],
+  ['cloudflare-pages', 'vercel', 'azure-static-web-apps'],
+].filter((ids) => ids.every((id) => offerIds.has(id))).map((offerIds, index) => ({
+  key: [...offerIds].sort().join(','),
+  offerIds: [...offerIds].sort(),
+  createdAt: new Date('2026-08-14T00:00:00Z').getTime() - index,
+  lastViewedAt: new Date('2026-08-14T00:00:00Z').getTime() - index,
+  views: 0,
+  helpful: 0,
+  featured: true,
+}));
+const directoryPayload = JSON.stringify({ offers, editorialComparisons }).replace(/</g, '\\u003c');
+---
+
+<BaseLayout title="Comparaisons — Gratuit pour les devs" description="Découvrez les comparaisons d’offres gratuites les plus consultées et les plus récentes.">
+  <SiteHeader active="comparisons" />
+  <main class="comparisons-page">
+    <header class="comparisons-hero">
+      <div><small>COMPARAISONS PUBLIQUES</small><h1>Comparer.<br />Décider plus vite.</h1></div>
+      <p>Explorez les rapprochements les plus consultés ou les derniers créés par la communauté. Chaque comparaison ouvre le même outil détaillé que le catalogue.</p>
+      <div class="comparisons-principles"><span><strong>2–4</strong> offres par comparaison</span><span><strong>100</strong> résultats maximum par liste</span><span><strong>0</strong> adresse IP conservée</span></div>
+    </header>
+
+    <section class="comparison-directory" aria-label="Répertoire des comparaisons">
+      <article class="comparison-directory-column">
+        <header><div><small>TENDANCES</small><h2>Les plus consultées</h2><p>Classées selon les vues uniques et les votes utiles.</p></div><span aria-hidden="true">↗</span></header>
+        <ol id="popular-comparisons" class="public-comparison-list" aria-live="polite"></ol>
+        <p class="comparison-list-empty" id="popular-empty" hidden>Aucune comparaison populaire pour le moment.</p>
+        <button class="load-comparisons" id="load-popular" type="button" hidden>Afficher 10 comparaisons de plus</button>
+      </article>
+      <article class="comparison-directory-column">
+        <header><div><small>NOUVEAUTÉS</small><h2>Les dernières comparaisons</h2><p>Les rapprochements ouverts le plus récemment.</p></div><span aria-hidden="true">↓</span></header>
+        <ol id="recent-comparisons" class="public-comparison-list" aria-live="polite"></ol>
+        <p class="comparison-list-empty" id="recent-empty" hidden>Les premières comparaisons apparaîtront ici.</p>
+        <button class="load-comparisons" id="load-recent" type="button" hidden>Afficher 10 comparaisons de plus</button>
+      </article>
+    </section>
+
+    <section class="comparison-directory-note"><div><small>COMMENT ÇA MARCHE ?</small><h2>Un classement utile, pas intrusif.</h2></div><p>Une vue est comptée au maximum une fois par jour et par navigateur. Les identifiants techniques sont immédiatement transformés en empreinte irréversible et ne servent qu’à éviter les doublons.</p><a href="/methodologie/">Consulter la méthodologie →</a></section>
+  </main>
+  <SiteFooter />
+  <script id="comparison-directory-data" type="application/json" set:html={directoryPayload} is:inline></script>
+
+  <script>
+    type OfferSummary = { id: string; name: string; tagline: string; initials: string; color: string; category: string };
+    type PublicComparison = { key: string; offerIds: string[]; createdAt: number; lastViewedAt: number; views: number; helpful: number; featured: boolean };
+    const dataElement = document.querySelector<HTMLScriptElement>('#comparison-directory-data');
+    const directoryData = JSON.parse(dataElement?.textContent ?? '{"offers":[],"editorialComparisons":[]}') as { offers: OfferSummary[]; editorialComparisons: PublicComparison[] };
+    const offersById = new Map(directoryData.offers.map((offer) => [offer.id, offer]));
+    const apiBase = location.hostname === '127.0.0.1' || location.hostname === 'localhost'
+      ? document.body.dataset.comparisonsApiLocal ?? ''
+      : document.body.dataset.comparisonsApi ?? '';
+    const votedKey = 'gpld-helpful-comparisons';
+    let votedComparisons: Set<string>;
+    try { votedComparisons = new Set(JSON.parse(localStorage.getItem(votedKey) ?? '[]')); } catch { votedComparisons = new Set(); }
+    const state = {
+      popular: { items: [] as PublicComparison[], offset: 0, hasMore: false },
+      recent: { items: [] as PublicComparison[], offset: 0, hasMore: false },
+    };
+
+    const formatDate = (timestamp: number) => new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(timestamp));
+    const isCompleteComparison = (item: PublicComparison) => item.offerIds.length >= 2
+      && item.offerIds.length <= 4
+      && item.offerIds.every((id) => offersById.has(id));
+    const buildComparisonCard = (item: PublicComparison, rank: number, sort: 'popular' | 'recent') => {
+      const comparedOffers = item.offerIds.map((id) => offersById.get(id)).filter((offer): offer is OfferSummary => Boolean(offer));
+      const li = document.createElement('li');
+      li.className = 'public-comparison-card';
+      const rankNode = document.createElement('span');
+      rankNode.className = 'public-comparison-rank';
+      rankNode.textContent = String(rank).padStart(2, '0');
+      const content = document.createElement('div');
+      content.className = 'public-comparison-content';
+      const logos = document.createElement('div');
+      logos.className = 'public-comparison-logos';
+      comparedOffers.forEach((offer) => { const logo = document.createElement('span'); logo.style.backgroundColor = offer.color; logo.textContent = offer.initials; logo.title = offer.name; logos.append(logo); });
+      const title = document.createElement('h3');
+      title.textContent = comparedOffers.map((offer) => offer.name).join(' × ');
+      const categories = [...new Set(comparedOffers.map((offer) => offer.category))];
+      const context = document.createElement('p');
+      context.className = 'public-comparison-context';
+      if (categories.length > 1) context.classList.add('cross-category');
+      context.textContent = categories.length === 1 ? categories[0] ?? '' : `${categories.length} catégories · comparaison transversale`;
+      const meta = document.createElement('div');
+      meta.className = 'public-comparison-meta';
+      const views = document.createElement('span');
+      views.textContent = item.views > 0 ? `${item.views.toLocaleString('fr-FR')} vue${item.views > 1 ? 's' : ''}` : item.featured ? 'Sélection éditoriale' : 'Nouvelle comparaison';
+      const date = document.createElement('time');
+      date.dateTime = new Date(item.createdAt).toISOString();
+      date.textContent = sort === 'recent' ? `Créée le ${formatDate(item.createdAt)}` : `${item.helpful} vote${item.helpful > 1 ? 's' : ''} utile${item.helpful > 1 ? 's' : ''}`;
+      meta.append(views, date);
+      content.append(logos, title, context, meta);
+      const actions = document.createElement('div');
+      actions.className = 'public-comparison-actions';
+      const open = document.createElement('a');
+      open.href = `/?compare=${encodeURIComponent(item.offerIds.join(','))}`;
+      open.textContent = 'Ouvrir';
+      open.setAttribute('aria-label', `Ouvrir la comparaison ${comparedOffers.map((offer) => offer.name).join(' et ')}`);
+      const helpful = document.createElement('button');
+      helpful.type = 'button';
+      helpful.className = 'comparison-helpful';
+      helpful.disabled = votedComparisons.has(item.key);
+      helpful.textContent = helpful.disabled ? 'Utile ✓' : 'Utile ?';
+      helpful.setAttribute('aria-label', `Indiquer que la comparaison ${comparedOffers.map((offer) => offer.name).join(' et ')} est utile`);
+      helpful.addEventListener('click', async () => {
+        helpful.disabled = true;
+        helpful.textContent = 'Enregistrement…';
+        try {
+          const response = await fetch(`${apiBase}/api/comparisons/helpful`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ offers: item.offerIds }) });
+          if (!response.ok) throw new Error('Vote impossible');
+          const result = await response.json() as { recorded: boolean; item: PublicComparison };
+          item.helpful = result.item.helpful;
+          votedComparisons.add(item.key);
+          localStorage.setItem(votedKey, JSON.stringify([...votedComparisons]));
+          helpful.textContent = 'Utile ✓';
+          date.textContent = sort === 'recent' ? `Créée le ${formatDate(item.createdAt)}` : `${item.helpful} vote${item.helpful > 1 ? 's' : ''} utile${item.helpful > 1 ? 's' : ''}`;
+        } catch {
+          helpful.disabled = false;
+          helpful.textContent = 'Réessayer';
+        }
+      });
+      actions.append(open, helpful);
+      li.append(rankNode, content, actions);
+      return li;
+    };
+
+    const renderList = (sort: 'popular' | 'recent') => {
+      const root = document.querySelector<HTMLOListElement>(`#${sort}-comparisons`);
+      const empty = document.querySelector<HTMLElement>(`#${sort}-empty`);
+      const more = document.querySelector<HTMLButtonElement>(`#load-${sort}`);
+      if (!root || !empty || !more) return;
+      root.replaceChildren(...state[sort].items.map((item, index) => buildComparisonCard(item, index + 1, sort)));
+      empty.hidden = state[sort].items.length !== 0;
+      more.hidden = !state[sort].hasMore || state[sort].items.length >= 100;
+    };
+
+    const loadComparisons = async (sort: 'popular' | 'recent', append = false) => {
+      const offset = append ? state[sort].items.length : 0;
+      try {
+        const response = await fetch(`${apiBase}/api/comparisons?sort=${sort}&limit=10&offset=${offset}`);
+        if (!response.ok) throw new Error('Chargement impossible');
+        const result = await response.json() as { items: PublicComparison[]; hasMore: boolean };
+        const completeItems = result.items.filter(isCompleteComparison);
+        state[sort].items = append ? [...state[sort].items, ...completeItems] : completeItems;
+        state[sort].hasMore = result.hasMore;
+      } catch {
+        if (!append) {
+          state[sort].items = sort === 'popular' ? directoryData.editorialComparisons.filter(isCompleteComparison) : [];
+          state[sort].hasMore = false;
+        }
+      }
+      renderList(sort);
+    };
+
+    state.popular.items = directoryData.editorialComparisons.filter(isCompleteComparison);
+    renderList('popular');
+    renderList('recent');
+    (['popular', 'recent'] as const).forEach((sort) => {
+      document.querySelector<HTMLButtonElement>(`#load-${sort}`)?.addEventListener('click', () => loadComparisons(sort, true));
+      void loadComparisons(sort);
+    });
+  </script>
+</BaseLayout>

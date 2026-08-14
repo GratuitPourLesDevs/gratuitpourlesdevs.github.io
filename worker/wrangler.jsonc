@@ -8,6 +8,14 @@
     "enabled": true,
     "head_sampling_rate": 1
   },
+  "d1_databases": [
+    {
+      "binding": "COMPARISONS_DB",
+      "database_name": "gratuitpourlesdevs-comparisons",
+      "database_id": "9c9057d2-b21c-45df-828d-0b0ba3da5348",
+      "migrations_dir": "migrations"
+    }
+  ],
   "vars": {
     "GITHUB_CLIENT_ID": "Ov23liDQH3gduQqpKUP2",
     "ALLOWED_ORIGIN": "https://gratuitpourlesdevs.fr",

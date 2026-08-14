@@ -71,7 +71,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
       <span>Gratuit<span>PourLesDevs</span></span>
     </a>
-    <nav aria-label="Navigation principale"><a class="active" href="#catalogue">Catalogue</a><a href="/archives/">Archives</a></nav>
+    <nav aria-label="Navigation principale"><a class="active" href="#catalogue">Catalogue</a><a href="/comparaisons/">Comparaisons</a><a href="/archives/">Archives</a></nav>
     <div class="header-actions">
       <ThemeToggle />
       <button class="favorites-filter" id="favorites-filter" type="button" aria-label="Afficher uniquement les favoris" aria-pressed="false" title="Afficher uniquement les favoris">
@@ -272,7 +272,20 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     const comparisonShareStatus = document.querySelector<HTMLElement>('#comparison-share-status');
     const selectedComparisonIds = new Set<string>();
     const comparisonSessionKey = 'gpld-comparison';
+    const comparisonsApiBase = location.hostname === '127.0.0.1' || location.hostname === 'localhost'
+      ? document.body.dataset.comparisonsApiLocal ?? ''
+      : document.body.dataset.comparisonsApi ?? '';
     const selectedComparisonOffers = () => [...selectedComparisonIds].map((id) => comparisonById.get(id)).filter((offer): offer is ComparisonOffer => Boolean(offer));
+    const recordComparisonView = () => {
+      const offers = [...selectedComparisonIds];
+      if (!comparisonsApiBase || offers.length < 2) return;
+      void fetch(`${comparisonsApiBase}/api/comparisons/view`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ offers }),
+        keepalive: true,
+      }).catch(() => {});
+    };
     const syncComparisonState = () => {
       const ids = [...selectedComparisonIds];
       try { sessionStorage.setItem(comparisonSessionKey, JSON.stringify(ids)); } catch {}
@@ -444,6 +457,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       if (differencesOnly) differencesOnly.checked = false;
       renderComparisonTable();
       if (!comparisonDialog.open) comparisonDialog.showModal();
+      recordComparisonView();
     };
     compareButtons.forEach((button) => button.addEventListener('click', () => {
       const id = button.dataset.id ?? '';

@@ -33,7 +33,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
     <title>{title}</title>
   </head>
-  <body>
+  <body data-comparisons-api="https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev" data-comparisons-api-local="http://127.0.0.1:8787">
     <slot />
     <script is:inline>
       (() => {
