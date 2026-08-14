@@ -29,6 +29,26 @@ const coveredCategories = new Set(entries.map(({ data }) => data.categorie)).siz
 const withoutCard = entries.filter(({ data }) => !data.carteRequise).length;
 const latestVerification = new Date(Math.max(...entries.map(({ data }) => data.verifieLe.getTime())));
 const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }).replace('.', '');
+const comparisonPayload = JSON.stringify(entries.map((entry) => ({
+  id: entry.id,
+  name: entry.data.nom,
+  tagline: entry.data.accroche,
+  initials: entry.data.initiales,
+  color: entry.data.couleur,
+  category: categoryNames.get(entry.data.categorie) ?? entry.data.categorie,
+  type: entry.data.type,
+  plan: entry.data.formule,
+  cardRequired: entry.data.carteRequise,
+  permanent: entry.data.permanent,
+  usages: entry.data.usages,
+  included: entry.data.inclus,
+  conditions: entry.data.conditions,
+  restrictions: entry.data.restrictions,
+  verified: entry.data.verifieLe.toLocaleDateString('fr-FR'),
+  url: entry.data.url,
+  documentation: entry.data.documentation,
+  source: entry.data.source,
+}))).replace(/</g, '\\u003c');
 ---
 
 <BaseLayout>
@@ -113,6 +133,7 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
               <div class="offer-status"><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</span><small>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small>{entry.data.statut === 'a_verifier' && <small class="needs-review">À vérifier</small>}</div>
               <div class="offer-actions">
                 <button class="favorite" type="button" aria-label={`Ajouter ${entry.data.nom} aux favoris`} data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
+                <button class="compare-offer" type="button" aria-label={`Ajouter ${entry.data.nom} au comparateur`} aria-pressed="false" data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7.5h4M14 16.5h-4M13 5l2.5 2.5L13 10M11 14l-2.5 2.5L11 19"/></svg></button>
                 <button class="expand-offer" type="button" aria-label={`Afficher le détail de ${entry.data.nom}`} aria-expanded="false" aria-controls={`detail-${entry.id}`}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
               </div>
               <div class="offer-detail" id={`detail-${entry.id}`}>
@@ -137,6 +158,24 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
       </nav>
     </section>
   </main>
+
+  <aside class="comparison-tray" id="comparison-tray" aria-label="Sélection à comparer" hidden>
+    <div class="comparison-tray-copy"><strong><span id="comparison-count">0</span>/4 offres</strong><small id="comparison-tray-status" aria-live="polite">Sélectionnez au moins deux offres.</small></div>
+    <div class="comparison-selection" id="comparison-selection"></div>
+    <div class="comparison-tray-actions"><button id="clear-comparison" type="button">Effacer</button><button id="open-comparison" type="button" disabled>Comparer</button></div>
+  </aside>
+
+  <dialog class="comparison-dialog" id="comparison-dialog" aria-labelledby="comparison-title">
+    <div class="comparison-dialog-shell">
+      <header class="comparison-dialog-header">
+        <div><small>COMPARATEUR D’OFFRES</small><h2 id="comparison-title">Comparer les offres sélectionnées</h2><p id="comparison-context"></p></div>
+        <div class="comparison-dialog-controls"><label><input id="differences-only" type="checkbox" /> Afficher uniquement les différences</label><button id="close-comparison" type="button" aria-label="Fermer la comparaison">×</button></div>
+      </header>
+      <div class="comparison-scroll"><table class="comparison-table"><thead id="comparison-head"></thead><tbody id="comparison-body"></tbody></table></div>
+      <div class="comparison-dialog-actions"><button id="copy-comparison-link" type="button">Copier le lien partageable</button><span id="comparison-share-status" aria-live="polite"></span></div>
+    </div>
+  </dialog>
+  <script id="comparison-data" type="application/json" set:html={comparisonPayload} is:inline></script>
 
   <footer>
     <div class="verified-mark"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="M16 2 29 7v10c0 8-5 14-13 17C8 31 3 25 3 17V7l13-5Z"/><path d="m10 18 4 4 8-9"/></svg><span><strong>Vérifié en août 2026</strong><small>Chaque quota renvoie vers sa source officielle.</small></span></div>
@@ -173,6 +212,203 @@ const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', {
     const selectedTags = new Set<string>();
     const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
     const rowUsages = new Map(rows.map((row) => [row, (JSON.parse(row.dataset.usages ?? '[]') as string[]).map(normalize)]));
+    type ComparisonOffer = {
+      id: string; name: string; tagline: string; initials: string; color: string; category: string; type: string; plan: string;
+      cardRequired: boolean; permanent: boolean; usages: string[]; included: string[]; conditions: string[]; restrictions: string[];
+      verified: string; url: string; documentation?: string; source: string;
+    };
+    const comparisonDataElement = document.querySelector<HTMLScriptElement>('#comparison-data');
+    const comparisonOffers = JSON.parse(comparisonDataElement?.textContent ?? '[]') as ComparisonOffer[];
+    const comparisonById = new Map(comparisonOffers.map((offer) => [offer.id, offer]));
+    const compareButtons = [...document.querySelectorAll<HTMLButtonElement>('.compare-offer')];
+    const comparisonTray = document.querySelector<HTMLElement>('#comparison-tray');
+    const comparisonCount = document.querySelector<HTMLElement>('#comparison-count');
+    const comparisonTrayStatus = document.querySelector<HTMLElement>('#comparison-tray-status');
+    const comparisonSelection = document.querySelector<HTMLElement>('#comparison-selection');
+    const clearComparisonButton = document.querySelector<HTMLButtonElement>('#clear-comparison');
+    const openComparisonButton = document.querySelector<HTMLButtonElement>('#open-comparison');
+    const comparisonDialog = document.querySelector<HTMLDialogElement>('#comparison-dialog');
+    const comparisonHead = document.querySelector<HTMLElement>('#comparison-head');
+    const comparisonBody = document.querySelector<HTMLElement>('#comparison-body');
+    const comparisonContext = document.querySelector<HTMLElement>('#comparison-context');
+    const closeComparisonButton = document.querySelector<HTMLButtonElement>('#close-comparison');
+    const differencesOnly = document.querySelector<HTMLInputElement>('#differences-only');
+    const copyComparisonLink = document.querySelector<HTMLButtonElement>('#copy-comparison-link');
+    const comparisonShareStatus = document.querySelector<HTMLElement>('#comparison-share-status');
+    const selectedComparisonIds = new Set<string>();
+    const comparisonSessionKey = 'gpld-comparison';
+    const selectedComparisonOffers = () => [...selectedComparisonIds].map((id) => comparisonById.get(id)).filter((offer): offer is ComparisonOffer => Boolean(offer));
+    const syncComparisonState = () => {
+      const ids = [...selectedComparisonIds];
+      try { sessionStorage.setItem(comparisonSessionKey, JSON.stringify(ids)); } catch {}
+      const url = new URL(window.location.href);
+      if (ids.length) url.searchParams.set('compare', ids.join(',')); else url.searchParams.delete('compare');
+      history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    };
+    const removeComparisonOffer = (id: string) => {
+      selectedComparisonIds.delete(id);
+      renderComparisonState();
+      if (comparisonDialog?.open && selectedComparisonIds.size < 2) comparisonDialog.close();
+    };
+    const buildSelectedOffer = (offer: ComparisonOffer) => {
+      const item = document.createElement('div');
+      item.className = 'comparison-selected-offer';
+      const logo = document.createElement('span');
+      logo.className = 'comparison-mini-logo';
+      logo.style.backgroundColor = offer.color;
+      logo.textContent = offer.initials;
+      const name = document.createElement('strong');
+      name.textContent = offer.name;
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.textContent = '×';
+      remove.setAttribute('aria-label', `Retirer ${offer.name} du comparateur`);
+      remove.addEventListener('click', () => removeComparisonOffer(offer.id));
+      item.append(logo, name, remove);
+      return item;
+    };
+    const updateCompareButtons = () => {
+      const first = comparisonById.get([...selectedComparisonIds][0] ?? '');
+      compareButtons.forEach((button) => {
+        const id = button.dataset.id ?? '';
+        const offer = comparisonById.get(id);
+        const selected = selectedComparisonIds.has(id);
+        const atMaximum = selectedComparisonIds.size >= 4 && !selected;
+        button.classList.toggle('active', selected);
+        button.classList.toggle('suggested', Boolean(first && offer && !selected && first.category === offer.category));
+        button.disabled = atMaximum;
+        button.setAttribute('aria-pressed', String(selected));
+        button.setAttribute('aria-label', selected ? `Retirer ${offer?.name ?? 'cette offre'} du comparateur` : atMaximum ? 'Le comparateur contient déjà quatre offres' : `Ajouter ${offer?.name ?? 'cette offre'} au comparateur`);
+      });
+    };
+    const renderComparisonState = () => {
+      const offers = selectedComparisonOffers();
+      if (comparisonTray) comparisonTray.hidden = offers.length === 0;
+      document.body.classList.toggle('has-comparison-tray', offers.length > 0);
+      if (comparisonCount) comparisonCount.textContent = String(offers.length);
+      if (comparisonSelection) comparisonSelection.replaceChildren(...offers.map(buildSelectedOffer));
+      if (openComparisonButton) openComparisonButton.disabled = offers.length < 2;
+      if (comparisonTrayStatus) comparisonTrayStatus.textContent = offers.length === 1 ? 'Ajoutez encore une offre.' : offers.length === 4 ? 'Maximum atteint, prêt à comparer.' : offers.length >= 2 ? 'Prêt à comparer.' : 'Sélectionnez au moins deux offres.';
+      updateCompareButtons();
+      syncComparisonState();
+      if (comparisonDialog?.open && offers.length >= 2) renderComparisonTable();
+    };
+    const appendComparisonValue = (cell: HTMLTableCellElement, value: string | string[]) => {
+      if (Array.isArray(value)) {
+        const list = document.createElement('ul');
+        value.forEach((item) => { const li = document.createElement('li'); li.textContent = item; list.append(li); });
+        cell.append(list);
+      } else cell.textContent = value;
+    };
+    const comparisonCriteria: Array<{ label: string; get: (offer: ComparisonOffer) => string | string[]; links?: boolean }> = [
+      { label: 'Catégorie', get: (offer) => offer.category },
+      { label: 'Modèle', get: (offer) => offer.type },
+      { label: 'Formule gratuite', get: (offer) => offer.plan },
+      { label: 'Carte bancaire', get: (offer) => offer.cardRequired ? 'Carte requise' : 'Sans carte bancaire' },
+      { label: 'Durée', get: (offer) => offer.permanent ? 'Formule permanente' : 'Essai limité' },
+      { label: 'Usages', get: (offer) => offer.usages },
+      { label: 'Inclus', get: (offer) => offer.included },
+      { label: 'Conditions', get: (offer) => offer.conditions },
+      { label: 'Restrictions', get: (offer) => offer.restrictions },
+      { label: 'Dernière vérification', get: (offer) => offer.verified },
+      { label: 'Liens', links: true, get: (offer) => [offer.url, offer.documentation ?? '', offer.source] },
+    ];
+    const renderComparisonTable = () => {
+      const offers = selectedComparisonOffers();
+      if (!comparisonHead || !comparisonBody) return;
+      const headRow = document.createElement('tr');
+      const criterionHead = document.createElement('th');
+      criterionHead.scope = 'col';
+      criterionHead.textContent = 'Critère';
+      headRow.append(criterionHead);
+      offers.forEach((offer) => {
+        const th = document.createElement('th');
+        th.scope = 'col';
+        const identity = document.createElement('div');
+        identity.className = 'comparison-offer-head';
+        const logo = document.createElement('span');
+        logo.className = 'comparison-head-logo';
+        logo.style.backgroundColor = offer.color;
+        logo.textContent = offer.initials;
+        const copy = document.createElement('span');
+        const name = document.createElement('strong');
+        name.textContent = offer.name;
+        const tagline = document.createElement('small');
+        tagline.textContent = offer.tagline;
+        copy.append(name, tagline);
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.textContent = '×';
+        remove.setAttribute('aria-label', `Retirer ${offer.name} du comparateur`);
+        remove.addEventListener('click', () => removeComparisonOffer(offer.id));
+        identity.append(logo, copy, remove);
+        th.append(identity);
+        headRow.append(th);
+      });
+      comparisonHead.replaceChildren(headRow);
+      const onlyDifferences = differencesOnly?.checked ?? false;
+      const rows = comparisonCriteria.map((criterion) => {
+        const values = offers.map(criterion.get);
+        const different = new Set(values.map((value) => JSON.stringify(value))).size > 1;
+        const row = document.createElement('tr');
+        row.classList.toggle('different', different);
+        row.classList.toggle('common', !different);
+        row.hidden = onlyDifferences && !different;
+        const label = document.createElement('th');
+        label.scope = 'row';
+        label.textContent = criterion.label;
+        row.append(label);
+        values.forEach((value, index) => {
+          const cell = document.createElement('td');
+          if (criterion.links) {
+            const links = value as string[];
+            const names = ['Site officiel ↗', 'Documentation ↗', 'Source tarifaire ↗'];
+            const nav = document.createElement('nav');
+            links.forEach((href, linkIndex) => { if (!href) return; const link = document.createElement('a'); link.href = href; link.target = '_blank'; link.rel = 'noreferrer'; link.textContent = names[linkIndex] ?? 'Lien ↗'; nav.append(link); });
+            cell.append(nav);
+          } else appendComparisonValue(cell, value);
+          cell.dataset.offer = offers[index]?.id ?? '';
+          row.append(cell);
+        });
+        return row;
+      });
+      comparisonBody.replaceChildren(...rows);
+      const categories = new Set(offers.map((offer) => offer.category));
+      if (comparisonContext) comparisonContext.textContent = categories.size === 1 ? `${offers.length} offres de la catégorie ${offers[0]?.category}.` : 'Ces offres appartiennent à plusieurs catégories : comparez leurs usages avec attention.';
+    };
+    const openComparison = () => {
+      if (!comparisonDialog || selectedComparisonIds.size < 2) return;
+      if (differencesOnly) differencesOnly.checked = false;
+      renderComparisonTable();
+      if (!comparisonDialog.open) comparisonDialog.showModal();
+    };
+    compareButtons.forEach((button) => button.addEventListener('click', () => {
+      const id = button.dataset.id ?? '';
+      if (selectedComparisonIds.has(id)) selectedComparisonIds.delete(id); else if (selectedComparisonIds.size < 4 && comparisonById.has(id)) selectedComparisonIds.add(id);
+      renderComparisonState();
+    }));
+    clearComparisonButton?.addEventListener('click', () => { selectedComparisonIds.clear(); renderComparisonState(); comparisonDialog?.close(); });
+    openComparisonButton?.addEventListener('click', openComparison);
+    closeComparisonButton?.addEventListener('click', () => comparisonDialog?.close());
+    differencesOnly?.addEventListener('change', renderComparisonTable);
+    copyComparisonLink?.addEventListener('click', async () => {
+      syncComparisonState();
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        if (comparisonShareStatus) comparisonShareStatus.textContent = 'Lien copié.';
+      } catch {
+        if (comparisonShareStatus) comparisonShareStatus.textContent = 'Copiez l’adresse affichée dans votre navigateur.';
+      }
+    });
+    const comparisonParams = new URLSearchParams(window.location.search);
+    const idsFromUrl = (comparisonParams.get('compare') ?? '').split(',').filter((id) => comparisonById.has(id)).slice(0, 4);
+    let initialComparisonIds = idsFromUrl;
+    if (!initialComparisonIds.length) {
+      try { initialComparisonIds = (JSON.parse(sessionStorage.getItem(comparisonSessionKey) ?? '[]') as string[]).filter((id) => comparisonById.has(id)).slice(0, 4); } catch { initialComparisonIds = []; }
+    }
+    initialComparisonIds.forEach((id) => selectedComparisonIds.add(id));
+    renderComparisonState();
+    if (idsFromUrl.length >= 2) queueMicrotask(openComparison);
     const customSelects = [...document.querySelectorAll<HTMLElement>('.custom-select-field')];
     const closeCustomSelect = (root: HTMLElement, restoreFocus = false) => {
       const trigger = root.querySelector<HTMLButtonElement>('.custom-select-trigger');
