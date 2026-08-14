@@ -300,13 +300,31 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
         cell.append(list);
       } else cell.textContent = value;
     };
-    const comparisonCriteria: Array<{ label: string; get: (offer: ComparisonOffer) => string | string[]; links?: boolean }> = [
+    const appendGranularComparisonValue = (cell: HTMLTableCellElement, value: string[], occurrences: Map<string, number>, offerCount: number, hideCommon: boolean) => {
+      const list = document.createElement('ul');
+      list.className = 'comparison-granular-list';
+      value.forEach((item) => {
+        const occurrenceCount = occurrences.get(normalize(item)) ?? 1;
+        const status = occurrenceCount === offerCount ? 'common' : occurrenceCount > 1 ? 'shared' : 'specific';
+        if (hideCommon && status === 'common') return;
+        const li = document.createElement('li');
+        li.className = `comparison-granular-item ${status}`;
+        const text = document.createElement('span');
+        text.textContent = item;
+        const badge = document.createElement('small');
+        badge.textContent = status === 'common' ? 'Commun' : status === 'shared' ? `Partagé ${occurrenceCount}/${offerCount}` : 'Spécifique';
+        li.append(text, badge);
+        list.append(li);
+      });
+      cell.append(list);
+    };
+    const comparisonCriteria: Array<{ label: string; get: (offer: ComparisonOffer) => string | string[]; links?: boolean; granular?: boolean }> = [
       { label: 'Catégorie', get: (offer) => offer.category },
       { label: 'Modèle', get: (offer) => offer.type },
       { label: 'Formule gratuite', get: (offer) => offer.plan },
       { label: 'Carte bancaire', get: (offer) => offer.cardRequired ? 'Carte requise' : 'Sans carte bancaire' },
       { label: 'Durée', get: (offer) => offer.permanent ? 'Formule permanente' : 'Essai limité' },
-      { label: 'Usages', get: (offer) => offer.usages },
+      { label: 'Usages', granular: true, get: (offer) => offer.usages },
       { label: 'Inclus', get: (offer) => offer.included },
       { label: 'Conditions', get: (offer) => offer.conditions },
       { label: 'Restrictions', get: (offer) => offer.restrictions },
@@ -349,7 +367,14 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       const onlyDifferences = differencesOnly?.checked ?? false;
       const rows = comparisonCriteria.map((criterion) => {
         const values = offers.map(criterion.get);
-        const different = new Set(values.map((value) => JSON.stringify(value))).size > 1;
+        const comparableValues = criterion.granular
+          ? values.map((value) => [...new Set((value as string[]).map(normalize))].sort())
+          : values;
+        const different = new Set(comparableValues.map((value) => JSON.stringify(value))).size > 1;
+        const granularOccurrences = new Map<string, number>();
+        if (criterion.granular) {
+          comparableValues.forEach((value) => (value as string[]).forEach((item) => granularOccurrences.set(item, (granularOccurrences.get(item) ?? 0) + 1)));
+        }
         const row = document.createElement('tr');
         row.classList.toggle('different', different);
         row.classList.toggle('common', !different);
@@ -366,7 +391,8 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
             const nav = document.createElement('nav');
             links.forEach((href, linkIndex) => { if (!href) return; const link = document.createElement('a'); link.href = href; link.target = '_blank'; link.rel = 'noreferrer'; link.textContent = names[linkIndex] ?? 'Lien ↗'; nav.append(link); });
             cell.append(nav);
-          } else appendComparisonValue(cell, value);
+          } else if (criterion.granular) appendGranularComparisonValue(cell, value as string[], granularOccurrences, offers.length, onlyDifferences);
+          else appendComparisonValue(cell, value);
           cell.dataset.offer = offers[index]?.id ?? '';
           row.append(cell);
         });
