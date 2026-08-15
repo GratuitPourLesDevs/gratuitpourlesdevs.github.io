@@ -1,0 +1,165 @@
+---
+import { execFileSync } from 'node:child_process';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
+
+type HistoryItem = { timestamp: number; revision?: string };
+
+const offers = await getCollection('offres');
+const categories = await getCollection('categories');
+const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
+const offerHistory = new Map<string, HistoryItem[]>();
+
+try {
+  const history = execFileSync('git', ['log', '--format=@@%ct|%h', '--name-only', '--', 'src/content/offres'], { encoding: 'utf8' });
+  let current: HistoryItem | undefined;
+  history.split(/\r?\n/).forEach((line) => {
+    if (line.startsWith('@@')) {
+      const [timestamp, revision] = line.slice(2).split('|');
+      current = { timestamp: Number(timestamp) * 1000, revision };
+      return;
+    }
+    const match = line.match(/^src\/content\/offres\/(.+)\.md$/);
+    if (!match || !current) return;
+    const offerId = match[1]!;
+    const items = offerHistory.get(offerId) ?? [];
+    if (!items.some((item) => item.revision === current?.revision)) items.push(current);
+    offerHistory.set(offerId, items);
+  });
+} catch {
+  // Les dates de vérification prennent le relais hors d’un dépôt Git complet.
+}
+
+export async function getStaticPaths() {
+  const entries = await getCollection('offres');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { offerId: entry.id } }));
+}
+
+const { offerId } = Astro.props as { offerId: string };
+const entry = offers.find((offer) => offer.id === offerId);
+if (!entry) throw new Error(`Offre introuvable : ${offerId}`);
+
+const { Content } = await render(entry);
+const categoryName = categoryNames.get(entry.data.categorie) ?? entry.data.categorie;
+const activeOffers = offers.filter((offer) => offer.data.statut !== 'obsolete' && offer.id !== entry.id);
+const sharedUsageCount = (candidate: typeof entry) => candidate.data.usages.filter((tag) => entry.data.usages.includes(tag)).length;
+const alternatives = activeOffers
+  .map((candidate) => ({
+    entry: candidate,
+    sharedUsages: candidate.data.usages.filter((tag) => entry.data.usages.includes(tag)),
+    score: (candidate.data.categorie === entry.data.categorie ? 100 : 0) + sharedUsageCount(candidate) * 10 + (candidate.data.type === entry.data.type ? 2 : 0),
+  }))
+  .sort((a, b) => b.score - a.score || a.entry.data.ordre - b.entry.data.ordre)
+  .slice(0, 3);
+
+const validIds = new Set(offers.filter((offer) => offer.data.statut !== 'obsolete').map((offer) => offer.id));
+const comparisonGroups: string[][] = EDITORIAL_COMPARISONS
+  .filter((ids) => ids.includes(entry.id as never) && ids.every((id) => validIds.has(id)))
+  .map((ids) => [...ids]);
+for (const alternative of alternatives) {
+  if (comparisonGroups.length >= 3) break;
+  const pair = [entry.id, alternative.entry.id];
+  if (!comparisonGroups.some((group) => group.length === 2 && pair.every((id) => group.includes(id)))) comparisonGroups.push(pair);
+}
+
+const offersById = new Map(offers.map((offer) => [offer.id, offer]));
+const historyEvents = [
+  ...(entry.data.verificationAutomatiqueLe ? [{ timestamp: entry.data.verificationAutomatiqueLe.getTime(), label: 'Contrôle automatique', detail: entry.data.verificationNote ?? 'La source officielle a été contrôlée.' }] : []),
+  { timestamp: entry.data.verifieLe.getTime(), label: 'Offre vérifiée', detail: 'Quotas, conditions et source tarifaire revérifiés.' },
+  ...(offerHistory.get(entry.id) ?? []).slice(0, 3).map((item) => ({ timestamp: item.timestamp, label: 'Mise à jour éditoriale', detail: item.revision ? `Révision ${item.revision}` : 'Contenu de la fiche actualisé.' })),
+].sort((a, b) => b.timestamp - a.timestamp);
+const modifiedAt = new Date(historyEvents[0]?.timestamp ?? entry.data.verifieLe.getTime());
+const statusLabel = entry.data.statut === 'obsolete' ? 'Archivée' : entry.data.statut === 'a_verifier' ? 'À vérifier' : 'Active';
+const title = `${entry.data.nom} : formule gratuite, quotas et limites`;
+const description = `${entry.data.accroche}. Découvrez la formule gratuite de ${entry.data.nom}, ses quotas, conditions, limites, alternatives et comparaisons.`;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: entry.data.nom,
+    description,
+    applicationCategory: categoryName,
+    operatingSystem: 'Web',
+    url: new URL(`/offres/${entry.id}/`, Astro.site).href,
+    sameAs: [entry.data.url, entry.data.documentation].filter(Boolean),
+    dateModified: modifiedAt.toISOString(),
+    isAccessibleForFree: true,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', description: entry.data.formule, url: entry.data.url },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Catalogue', item: new URL('/', Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: entry.data.nom, item: new URL(`/offres/${entry.id}/`, Astro.site).href },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogType="article" modifiedTime={modifiedAt} jsonLd={jsonLd} robots={entry.data.statut === 'obsolete' ? 'noindex, follow' : undefined}>
+  <SiteHeader active="catalogue" />
+  <main class="offer-page">
+    <nav class="offer-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Catalogue</a><span aria-hidden="true">/</span><span>{categoryName}</span><span aria-hidden="true">/</span><strong>{entry.data.nom}</strong></nav>
+
+    <header class="offer-page-hero">
+      <div class="offer-page-heading">
+        <span class="offer-page-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span>
+        <div><small>{categoryName}</small><h1>{entry.data.nom}</h1><p>{entry.data.accroche}</p><div class="offer-page-tags"><span>{entry.data.type}</span><span>{statusLabel}</span>{entry.data.usages.slice(0, 3).map((tag) => <span>{tag}</span>)}</div></div>
+      </div>
+      <aside class="offer-plan-card" aria-label="Résumé de la formule gratuite">
+        <small>FORMULE GRATUITE</small><strong>{entry.data.formule}</strong>
+        <div><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte bancaire requise' : 'Sans carte bancaire'}</span><span>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</span></div>
+        <nav><a class="offer-primary-action" href={entry.data.url} target="_blank" rel="noreferrer">Accéder au service ↗</a><a href={`/?compare=${encodeURIComponent(entry.id)}`}>Ajouter au comparateur</a><button class="offer-page-favorite" type="button" data-id={entry.id}>Ajouter aux favoris</button></nav>
+      </aside>
+    </header>
+
+    {entry.data.statut !== 'active' && <aside class:list={['offer-page-notice', { obsolete: entry.data.statut === 'obsolete' }]}><strong>{statusLabel}</strong><p>{entry.data.verificationNote ?? 'Cette offre doit faire l’objet d’une nouvelle vérification.'}</p></aside>}
+
+    <div class="offer-page-layout">
+      <div class="offer-page-content">
+        <section class="offer-editorial"><small>EN BREF</small><h2>Pourquoi {entry.data.nom} est utile</h2><Content /></section>
+
+        <section class="offer-information-grid">
+          <article><small>CE QUI EST INCLUS</small><h2>Les ressources gratuites</h2><ul>{entry.data.inclus.map((item) => <li>{item}</li>)}</ul></article>
+          <article><small>CONDITIONS</small><h2>Avant de commencer</h2><ul>{entry.data.conditions.map((item) => <li>{item}</li>)}</ul></article>
+          <article class="offer-restrictions"><small>LIMITES</small><h2>Les restrictions à connaître</h2><ul>{entry.data.restrictions.map((item) => <li>{item}</li>)}</ul></article>
+        </section>
+
+        <section class="offer-usage-section"><div><small>USAGES</small><h2>À quoi sert {entry.data.nom} ?</h2></div><div>{entry.data.usages.map((tag) => <a href={`/#catalogue`} title={`Filtrer le catalogue par ${tag}`}>{tag}</a>)}</div></section>
+      </div>
+
+      <aside class="offer-page-sidebar">
+        <section><small>REPÈRES</small><dl><div><dt>Catégorie</dt><dd>{categoryName}</dd></div><div><dt>Modèle</dt><dd>{entry.data.type}</dd></div><div><dt>Durée</dt><dd>{entry.data.permanent ? 'Permanente' : 'Limitée'}</dd></div><div><dt>Paiement</dt><dd>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</dd></div><div><dt>Statut</dt><dd>{statusLabel}</dd></div></dl></section>
+        <section><small>SOURCES OFFICIELLES</small><nav><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></section>
+        <section class="offer-history"><small>HISTORIQUE</small><ol>{historyEvents.map((event) => <li><time datetime={new Date(event.timestamp).toISOString()}>{new Date(event.timestamp).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time><strong>{event.label}</strong><span>{event.detail}</span></li>)}</ol></section>
+      </aside>
+    </div>
+
+    <section class="offer-related-section">
+      <header><div><small>ALTERNATIVES</small><h2>Offres proches de {entry.data.nom}</h2></div><a href="/#catalogue">Explorer tout le catalogue →</a></header>
+      <div class="offer-alternative-grid">{alternatives.map(({ entry: alternative, sharedUsages }) => <article><div><span class="offer-logo" style={`--logo-color:${alternative.data.couleur}`}>{alternative.data.initiales}</span><small>{categoryNames.get(alternative.data.categorie) ?? alternative.data.categorie}</small></div><h3><a href={`/offres/${alternative.id}/`}>{alternative.data.nom}</a></h3><p>{alternative.data.accroche}</p><strong>{alternative.data.formule}</strong><div class="offer-alternative-footer">{sharedUsages.slice(0, 2).map((tag) => <span>{tag}</span>)}<a href={`/offres/${alternative.id}/`}>Voir la fiche →</a></div></article>)}</div>
+    </section>
+
+    <section class="offer-related-section offer-comparison-section">
+      <header><div><small>COMPARAISONS</small><h2>Comparer {entry.data.nom}</h2></div><a href="/comparaisons/">Voir les comparaisons publiques →</a></header>
+      <div class="offer-comparison-grid">{comparisonGroups.map((ids) => { const compared = ids.map((id) => offersById.get(id)).filter(Boolean); return <a href={`/?compare=${encodeURIComponent(ids.join(','))}`}><div>{compared.map((offer) => <span class="offer-logo" style={`--logo-color:${offer?.data.couleur}`}>{offer?.data.initiales}</span>)}</div><strong>{compared.map((offer) => offer?.data.nom).join(' × ')}</strong><small>{ids.length} offres · ouvrir le comparateur →</small></a>; })}</div>
+    </section>
+  </main>
+  <SiteFooter />
+
+  <script>
+    const favorite = document.querySelector<HTMLButtonElement>('.offer-page-favorite');
+    if (favorite) {
+      const id = favorite.dataset.id ?? '';
+      let saved: Set<string>;
+      try { saved = new Set(JSON.parse(localStorage.getItem('gpld-favorites') ?? '[]')); } catch { saved = new Set(); }
+      const render = () => { const active = saved.has(id); favorite.classList.toggle('active', active); favorite.textContent = active ? 'Retirer des favoris' : 'Ajouter aux favoris'; favorite.setAttribute('aria-pressed', String(active)); };
+      render();
+      favorite.addEventListener('click', () => { saved.has(id) ? saved.delete(id) : saved.add(id); localStorage.setItem('gpld-favorites', JSON.stringify([...saved])); render(); });
+    }
+  </script>
+</BaseLayout>

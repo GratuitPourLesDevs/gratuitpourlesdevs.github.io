@@ -155,13 +155,14 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
               data-order={entry.data.ordre}>
               <div class="offer-identity">
                 <span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span>
-                <span><small class="offer-category">{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><strong>{entry.data.nom}</strong><span class="identity-meta"><small>{entry.data.accroche}</small><em>{entry.data.type}</em></span></span>
+                <span><small class="offer-category">{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><strong><a class="offer-name-link" href={`/offres/${entry.id}/`}>{entry.data.nom}</a></strong><span class="identity-meta"><small>{entry.data.accroche}</small><em>{entry.data.type}</em></span></span>
               </div>
               <p class="offer-plan"><strong>{entry.data.formule}</strong><small>{entry.data.usages.slice(0, 3).join(' · ')}</small></p>
               <div class="offer-status"><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</span><small>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small>{entry.data.statut === 'a_verifier' && <small class="needs-review">À vérifier</small>}</div>
               <div class="offer-actions">
                 <button class="favorite" type="button" aria-label={`Ajouter ${entry.data.nom} aux favoris`} data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
                 <button class="compare-offer" type="button" aria-label={`Ajouter ${entry.data.nom} au comparateur`} aria-pressed="false" data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7.5h4M14 16.5h-4M13 5l2.5 2.5L13 10M11 14l-2.5 2.5L11 19"/></svg></button>
+                <a class="open-offer-page" href={`/offres/${entry.id}/`} aria-label={`Ouvrir la fiche de ${entry.data.nom}`} title={`Ouvrir la fiche de ${entry.data.nom}`}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></a>
                 <button class="expand-offer" type="button" aria-label={`Afficher le détail de ${entry.data.nom}`} aria-expanded="false" aria-controls={`detail-${entry.id}`}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
               </div>
               <div class="offer-detail" id={`detail-${entry.id}`}>
@@ -169,7 +170,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
                 <section><h3>Conditions</h3><ul>{entry.data.conditions.map((item) => <li>{item}</li>)}</ul></section>
                 <section><h3>Restrictions</h3><ul>{entry.data.restrictions.map((item) => <li>{item}</li>)}</ul></section>
                 <section class="why-useful"><h3>Pourquoi c’est utile</h3><Content /></section>
-                <div class="detail-footer"><span class="verified-date"><b>✓</b> Vérifié le {entry.data.verifieLe.toLocaleDateString('fr-FR')}</span><nav aria-label={`Liens pour ${entry.data.nom}`}><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></div>
+                <div class="detail-footer"><span class="verified-date"><b>✓</b> Vérifié le {entry.data.verifieLe.toLocaleDateString('fr-FR')}</span><nav aria-label={`Liens pour ${entry.data.nom}`}><a href={`/offres/${entry.id}/`}>Voir la fiche complète →</a><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></div>
               </div>
             </article>
           ))}

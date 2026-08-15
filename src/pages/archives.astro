@@ -28,7 +28,7 @@ const archives = (await getCollection('offres'))
       <section class="archive-list" aria-label="Offres archivées">
         {archives.map((entry) => (
           <article class="archive-card">
-            <div class="archive-identity"><span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span><div><small>{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><h2>{entry.data.nom}</h2><p>{entry.data.accroche}</p></div></div>
+            <div class="archive-identity"><span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span><div><small>{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><h2><a href={`/offres/${entry.id}/`}>{entry.data.nom}</a></h2><p>{entry.data.accroche}</p></div></div>
             <div class="archive-reason"><span>Obsolète</span><p>{entry.data.verificationNote ?? 'Cette offre n’est plus disponible dans le catalogue actif.'}</p><small>Contrôlée le {(entry.data.verificationAutomatiqueLe ?? entry.data.verifieLe).toLocaleDateString('fr-FR')}</small></div>
             <nav aria-label={`Sources archivées pour ${entry.data.nom}`}><a href={entry.data.url} target="_blank" rel="noreferrer">Ancien site ↗</a><a href={entry.data.source} target="_blank" rel="noreferrer">Dernière source ↗</a></nav>
           </article>

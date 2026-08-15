@@ -1,12 +1,24 @@
 ---
 import '../styles/global.css';
 
-interface Props { title?: string; description?: string; }
+interface Props {
+  title?: string;
+  description?: string;
+  ogType?: 'website' | 'article';
+  modifiedTime?: Date;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  robots?: string;
+}
 const {
   title = 'Gratuit pour les devs — Les bons outils, avant la facture',
   description = 'Une sélection vérifiée de services SaaS, PaaS et IaaS proposant une formule gratuite utile aux développeurs, DevOps et Infradev.',
+  ogType = 'website',
+  modifiedTime,
+  jsonLd,
+  robots,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const jsonLdPayload = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') : undefined;
 ---
 
 <!doctype html>
@@ -15,6 +27,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <meta name="theme-color" content="#ffffff" />
     <script is:inline>
       (() => {
@@ -29,8 +42,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {jsonLdPayload && <script type="application/ld+json" set:html={jsonLdPayload} is:inline />}
     <title>{title}</title>
   </head>
   <body data-comparisons-api="https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev" data-comparisons-api-local="http://127.0.0.1:8787">

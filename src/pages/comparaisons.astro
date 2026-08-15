@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { EDITORIAL_COMPARISONS } from '../data/editorial-comparisons';
 
 const categories = await getCollection('categories');
 const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
@@ -17,14 +18,7 @@ const offers = (await getCollection('offres'))
     category: categoryNames.get(entry.data.categorie) ?? entry.data.categorie,
   }));
 const offerIds = new Set(offers.map((offer) => offer.id));
-const editorialComparisons = [
-  ['grafana-cloud', 'amazon-cloudwatch', 'uptimerobot'],
-  ['amazon-dynamodb', 'neon', 'azure-cosmos-db', 'cloudflare-d1'],
-  ['aws-lambda', 'cloudflare-workers', 'azure-functions'],
-  ['github-actions', 'aws-codebuild', 'aws-codepipeline'],
-  ['cloudflare-r2', 'azure-storage-free-services'],
-  ['cloudflare-pages', 'vercel', 'azure-static-web-apps'],
-].filter((ids) => ids.every((id) => offerIds.has(id))).map((offerIds, index) => ({
+const editorialComparisons = EDITORIAL_COMPARISONS.filter((ids) => ids.every((id) => offerIds.has(id))).map((offerIds, index) => ({
   key: [...offerIds].sort().join(','),
   offerIds: [...offerIds].sort(),
   createdAt: new Date('2026-08-14T00:00:00Z').getTime() - index,
