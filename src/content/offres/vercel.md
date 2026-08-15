@@ -23,4 +23,4 @@ verificationAutomatiqueLe: 2026-08-12
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
-Le plan Hobby est réservé aux projets personnels et non commerciaux.
+Vercel permet de publier rapidement un site ou une application web directement depuis un dépôt Git, avec des aperçus automatiques pour chaque modification. Le plan Hobby est particulièrement utile pour les portfolios, prototypes, démonstrations techniques et projets open source qui ont besoin d’un hébergement mondial sans infrastructure à administrer.
