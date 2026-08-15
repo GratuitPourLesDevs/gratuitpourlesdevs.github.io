@@ -14,6 +14,7 @@ source: https://docs.cloud.google.com/free/docs/free-cloud-features
 couleur: "#4285f4"
 initiales: GCP
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

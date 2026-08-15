@@ -14,6 +14,7 @@ source: https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-pr
 couleur: "#0078d4"
 initiales: CD
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

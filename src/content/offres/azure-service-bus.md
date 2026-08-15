@@ -14,6 +14,7 @@ source: https://azure.microsoft.com/en-us/pricing/free-services/
 couleur: "#0078d4"
 initiales: SB
 carteRequise: true
+depassementFacture: true
 permanent: false
 statut: active
 vedette: false

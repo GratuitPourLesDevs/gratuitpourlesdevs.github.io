@@ -14,6 +14,7 @@ source: https://azure.microsoft.com/fr-fr/pricing/details/devtest-lab/
 couleur: "#0078d4"
 initiales: DL
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

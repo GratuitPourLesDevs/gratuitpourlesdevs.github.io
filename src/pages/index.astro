@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CustomSelect from '../components/CustomSelect.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import { getBillingRisk } from '../data/billing-risk';
 
 const offerChangeDates = new Map<string, number>();
 try {
@@ -53,6 +54,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
   type: entry.data.type,
   plan: entry.data.formule,
   cardRequired: entry.data.carteRequise,
+  billingRisk: getBillingRisk(entry.data).label,
   permanent: entry.data.permanent,
   usages: entry.data.usages,
   included: entry.data.inclus,
@@ -143,12 +145,14 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       </div>
 
       <div class="offers-table" role="table" aria-label="Offres gratuites">
-        <div class="table-head" role="row"><span>Outil et catégorie</span><span>Formule gratuite</span><span>Conditions</span><span>Actions</span></div>
+        <div class="table-head" role="row"><span>Outil et catégorie</span><span>Formule gratuite</span><span>Facturation</span><span>Actions</span></div>
         <div id="offers-list">
-          {offers.map(({ entry, Content }) => (
+          {offers.map(({ entry, Content }) => {
+            const billingRisk = getBillingRisk(entry.data);
+            return (
             <article class="offer-row" role="row" tabindex="0" aria-expanded="false" data-id={entry.id}
               data-name={entry.data.nom.toLocaleLowerCase('fr')} data-type={entry.data.type}
-              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()} data-updated={getOfferChangeDate(entry)}
+              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-risk={billingRisk.level} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()} data-updated={getOfferChangeDate(entry)}
               data-usages={JSON.stringify(entry.data.usages)}
               data-category-name={categoryNames.get(entry.data.categorie) ?? entry.data.categorie}
               data-search={`${entry.data.nom} ${entry.data.accroche} ${entry.data.formule} ${categoryNames.get(entry.data.categorie) ?? ''} ${entry.data.type} ${entry.data.usages.join(' ')} ${entry.data.inclus.join(' ')} ${entry.data.conditions.join(' ')} ${entry.data.restrictions.join(' ')} ${entry.body ?? ''}`.toLocaleLowerCase('fr')}
@@ -157,8 +161,8 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
                 <span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span>
                 <span><small class="offer-category">{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><strong><a class="offer-name-link" href={`/offres/${entry.id}/`}>{entry.data.nom}</a></strong><span class="identity-meta"><small>{entry.data.accroche}</small><em>{entry.data.type}</em></span></span>
               </div>
-              <p class="offer-plan"><strong>{entry.data.formule}</strong><small>{entry.data.usages.slice(0, 3).join(' · ')}</small></p>
-              <div class="offer-status"><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</span><small>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small>{entry.data.statut === 'a_verifier' && <small class="needs-review">À vérifier</small>}</div>
+              <p class="offer-plan"><strong>{entry.data.formule}</strong><small>{entry.data.usages.slice(0, 3).join(' · ')}</small><small class="offer-duration">{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small></p>
+              <div class="offer-status"><span class:list={['billing-risk-badge', `is-${billingRisk.level}`]}><i aria-hidden="true"></i>{billingRisk.shortLabel}</span><small class="billing-card-state">{entry.data.carteRequise ? 'Carte bancaire requise' : 'Sans carte bancaire'}</small>{entry.data.statut === 'a_verifier' && <small class="needs-review">À vérifier</small>}</div>
               <div class="offer-actions">
                 <button class="favorite" type="button" aria-label={`Ajouter ${entry.data.nom} aux favoris`} data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
                 <button class="compare-offer" type="button" aria-label={`Ajouter ${entry.data.nom} au comparateur`} aria-pressed="false" data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7.5h4M14 16.5h-4M13 5l2.5 2.5L13 10M11 14l-2.5 2.5L11 19"/></svg></button>
@@ -173,7 +177,8 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
                 <div class="detail-footer"><span class="verified-date"><b>✓</b> Vérifié le {entry.data.verifieLe.toLocaleDateString('fr-FR')}</span><nav aria-label={`Liens pour ${entry.data.nom}`}><a href={`/offres/${entry.id}/`}>Voir la fiche complète →</a><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></div>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
         <div class="empty-state" id="empty-state" hidden>Aucune offre ne correspond à ces critères.</div>
       </div>
@@ -250,7 +255,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     const rowUsages = new Map(rows.map((row) => [row, (JSON.parse(row.dataset.usages ?? '[]') as string[]).map(normalize)]));
     type ComparisonOffer = {
       id: string; name: string; tagline: string; initials: string; color: string; category: string; type: string; plan: string;
-      cardRequired: boolean; permanent: boolean; usages: string[]; included: string[]; conditions: string[]; restrictions: string[];
+      cardRequired: boolean; billingRisk: string; permanent: boolean; usages: string[]; included: string[]; conditions: string[]; restrictions: string[];
       verified: string; url: string; documentation?: string; source: string;
     };
     const comparisonDataElement = document.querySelector<HTMLScriptElement>('#comparison-data');
@@ -373,6 +378,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       { label: 'Catégorie', get: (offer) => offer.category },
       { label: 'Modèle', get: (offer) => offer.type },
       { label: 'Formule gratuite', get: (offer) => offer.plan },
+      { label: 'Risque de facturation', get: (offer) => offer.billingRisk },
       { label: 'Carte bancaire', get: (offer) => offer.cardRequired ? 'Carte requise' : 'Sans carte bancaire' },
       { label: 'Durée', get: (offer) => offer.permanent ? 'Formule permanente' : 'Essai limité' },
       { label: 'Usages', granular: true, get: (offer) => offer.usages },

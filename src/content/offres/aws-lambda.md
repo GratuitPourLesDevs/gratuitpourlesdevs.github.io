@@ -14,6 +14,7 @@ source: https://aws.amazon.com/lambda/pricing/
 couleur: "#ff9900"
 initiales: LA
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

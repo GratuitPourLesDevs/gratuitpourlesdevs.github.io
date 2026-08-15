@@ -14,6 +14,7 @@ source: https://developers.cloudflare.com/r2/pricing/
 couleur: "#f6821f"
 initiales: R2
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

@@ -14,6 +14,7 @@ source: https://aws.amazon.com/codepipeline/pricing/
 couleur: "#ff9900"
 initiales: CP
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

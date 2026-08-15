@@ -14,6 +14,7 @@ source: https://aws.amazon.com/dynamodb/pricing/
 couleur: "#ff9900"
 initiales: DB
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

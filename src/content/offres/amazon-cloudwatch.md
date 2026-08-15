@@ -14,6 +14,7 @@ source: https://aws.amazon.com/cloudwatch/pricing/
 couleur: "#ff9900"
 initiales: CW
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

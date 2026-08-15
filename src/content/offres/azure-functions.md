@@ -14,6 +14,7 @@ source: https://azure.microsoft.com/fr-fr/pricing/details/functions/
 couleur: "#0078d4"
 initiales: AF
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
+import { getBillingRisk } from '../../data/billing-risk';
 
 type HistoryItem = { timestamp: number; revision?: string };
 type HistoryChange = { champ: string; avant?: string; apres?: string; note?: string };
@@ -112,6 +113,7 @@ const historyEvents = [
 ].sort((a, b) => b.timestamp - a.timestamp || (a.type === 'publication' ? 1 : -1));
 const modifiedAt = new Date(historyEvents[0]?.timestamp ?? entry.data.verifieLe.getTime());
 const statusLabel = entry.data.statut === 'obsolete' ? 'Archivée' : entry.data.statut === 'a_verifier' ? 'À vérifier' : 'Active';
+const billingRisk = getBillingRisk(entry.data);
 const title = `${entry.data.nom} : formule gratuite, quotas et limites`;
 const description = `${entry.data.accroche}. Découvrez la formule gratuite de ${entry.data.nom}, ses quotas, conditions, limites, alternatives et comparaisons.`;
 const jsonLd = [
@@ -153,6 +155,7 @@ const jsonLd = [
       <aside class="offer-plan-card" aria-label="Résumé de la formule gratuite">
         <small>FORMULE GRATUITE</small><strong>{entry.data.formule}</strong>
         <div><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte bancaire requise' : 'Sans carte bancaire'}</span><span>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</span></div>
+        <aside class:list={['billing-risk-callout', `is-${billingRisk.level}`]}><div><i aria-hidden="true"></i><span><small>RISQUE DE FACTURATION</small><strong>{billingRisk.label}</strong></span></div><p>{billingRisk.detail} <a href="#limites">Voir les limites →</a></p></aside>
         <nav><a class="offer-primary-action" href={entry.data.url} target="_blank" rel="noreferrer">Accéder au service ↗</a><a href={`/?compare=${encodeURIComponent(entry.id)}`}>Ajouter au comparateur</a><button class="offer-page-favorite" type="button" data-id={entry.id}>Ajouter aux favoris</button></nav>
       </aside>
     </header>
@@ -166,10 +169,8 @@ const jsonLd = [
         <section class="offer-information-grid">
           <article><small>CE QUI EST INCLUS</small><h2>Les ressources gratuites</h2><ul>{entry.data.inclus.map((item) => <li>{item}</li>)}</ul></article>
           <article><small>CONDITIONS</small><h2>Avant de commencer</h2><ul>{entry.data.conditions.map((item) => <li>{item}</li>)}</ul></article>
-          <article class="offer-restrictions"><small>LIMITES</small><h2>Les restrictions à connaître</h2><ul>{entry.data.restrictions.map((item) => <li>{item}</li>)}</ul></article>
+          <article class="offer-restrictions" id="limites"><small>LIMITES</small><h2>Les restrictions à connaître</h2><ul>{entry.data.restrictions.map((item) => <li>{item}</li>)}</ul></article>
         </section>
-
-        <section class="offer-usage-section"><div><small>USAGES</small><h2>À quoi sert {entry.data.nom} ?</h2></div><div>{entry.data.usages.map((tag) => <a href={`/#catalogue`} title={`Filtrer le catalogue par ${tag}`}>{tag}</a>)}</div></section>
 
         <section class="offer-change-history" id="historique">
           <header><div><small>HISTORIQUE DE L’OFFRE</small><h2>Ce qui a changé pour {entry.data.nom}</h2></div><p>Les évolutions ci-dessous portent sur l’offre elle-même. Une précision de notre fiche est distinguée d’un changement annoncé par l’éditeur.</p></header>
@@ -195,6 +196,7 @@ const jsonLd = [
       <aside class="offer-page-sidebar">
         <section><small>REPÈRES</small><dl><div><dt>Catégorie</dt><dd>{categoryName}</dd></div><div><dt>Modèle</dt><dd>{entry.data.type}</dd></div><div><dt>Durée</dt><dd>{entry.data.permanent ? 'Permanente' : 'Limitée'}</dd></div><div><dt>Paiement</dt><dd>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</dd></div><div><dt>Statut</dt><dd>{statusLabel}</dd></div></dl></section>
         <section><small>SOURCES OFFICIELLES</small><nav><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></section>
+        <section class="offer-sidebar-usages"><small>USAGES</small><h2>À quoi sert {entry.data.nom} ?</h2><div>{entry.data.usages.map((tag) => <a href="/#catalogue" title={'Filtrer le catalogue par ' + tag}>{tag}</a>)}</div></section>
       </aside>
     </div>
 

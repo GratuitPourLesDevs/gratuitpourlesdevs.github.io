@@ -33,6 +33,7 @@ const offres = defineCollection({
     couleur: z.string(),
     initiales: z.string(),
     carteRequise: z.boolean(),
+    depassementFacture: z.boolean().default(false),
     permanent: z.boolean(),
     statut: z.enum(['active', 'a_verifier', 'obsolete']).default('active'),
     verificationAutomatiqueLe: z.coerce.date().optional(),

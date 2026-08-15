@@ -14,6 +14,7 @@ source: https://aws.amazon.com/sqs/pricing/
 couleur: "#ff9900"
 initiales: SQ
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

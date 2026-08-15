@@ -14,6 +14,7 @@ source: https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/
 couleur: "#0078d4"
 initiales: AK
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false

@@ -14,6 +14,7 @@ source: https://aws.amazon.com/ses/pricing/
 couleur: "#ff9900"
 initiales: SE
 carteRequise: true
+depassementFacture: true
 permanent: false
 statut: active
 vedette: false

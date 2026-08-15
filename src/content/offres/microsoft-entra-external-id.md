@@ -14,6 +14,7 @@ source: https://www.microsoft.com/security/pricing/microsoft-entra-external-id/
 couleur: "#7656b7"
 initiales: EX
 carteRequise: true
+depassementFacture: true
 permanent: true
 statut: active
 vedette: false
