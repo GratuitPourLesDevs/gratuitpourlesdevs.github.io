@@ -7,6 +7,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
 
 type HistoryItem = { timestamp: number; revision?: string };
+type HistoryChange = { champ: string; avant?: string; apres?: string; note?: string };
 
 const offers = await getCollection('offres');
 const categories = await getCollection('categories');
@@ -66,11 +67,49 @@ for (const alternative of alternatives) {
 }
 
 const offersById = new Map(offers.map((offer) => [offer.id, offer]));
+const offerRevisions = offerHistory.get(entry.id) ?? [];
+const firstPublication = offerRevisions.at(-1);
+const publishedAt = new Date(firstPublication?.timestamp ?? entry.data.verifieLe.getTime());
+const dateKey = (date: Date) => date.toISOString().slice(0, 10);
+const typeLabels = {
+  quota: 'Quota modifié',
+  conditions: 'Conditions modifiées',
+  statut: 'Statut modifié',
+  correction: 'Fiche précisée',
+  verification: 'Offre vérifiée',
+} as const;
+const documentedHistory = entry.data.historique.map((event) => ({
+  timestamp: event.date.getTime(),
+  type: event.type,
+  label: typeLabels[event.type],
+  title: event.titre,
+  detail: event.resume,
+  changes: event.changements as HistoryChange[],
+  source: event.source,
+}));
+const verificationIsDocumented = documentedHistory.some((event) => dateKey(new Date(event.timestamp)) === dateKey(entry.data.verifieLe));
+const verificationMatchesPublication = dateKey(publishedAt) === dateKey(entry.data.verifieLe);
 const historyEvents = [
-  ...(entry.data.verificationAutomatiqueLe ? [{ timestamp: entry.data.verificationAutomatiqueLe.getTime(), label: 'Contrôle automatique', detail: entry.data.verificationNote ?? 'La source officielle a été contrôlée.' }] : []),
-  { timestamp: entry.data.verifieLe.getTime(), label: 'Offre vérifiée', detail: 'Quotas, conditions et source tarifaire revérifiés.' },
-  ...(offerHistory.get(entry.id) ?? []).slice(0, 3).map((item) => ({ timestamp: item.timestamp, label: 'Mise à jour éditoriale', detail: item.revision ? `Révision ${item.revision}` : 'Contenu de la fiche actualisé.' })),
-].sort((a, b) => b.timestamp - a.timestamp);
+  ...documentedHistory,
+  ...(!verificationIsDocumented && !verificationMatchesPublication ? [{
+    timestamp: entry.data.verifieLe.getTime(),
+    type: 'verification' as const,
+    label: typeLabels.verification,
+    title: 'Quotas et conditions contrôlés',
+    detail: entry.data.verificationNote ?? 'La formule gratuite et sa source tarifaire ont été contrôlées.',
+    changes: [{ champ: 'Formule gratuite observée', apres: entry.data.formule }] as HistoryChange[],
+    source: entry.data.source,
+  }] : []),
+  {
+    timestamp: publishedAt.getTime(),
+    type: 'publication' as const,
+    label: verificationMatchesPublication ? 'Ajout vérifié' : 'Ajout au catalogue',
+    title: verificationMatchesPublication ? 'Offre ajoutée et vérifiée' : 'Première version de la fiche',
+    detail: `Début du suivi de l’offre gratuite ${entry.data.nom} par GratuitPourLesDevs.`,
+    changes: [{ champ: 'Formule gratuite de référence', apres: entry.data.formule }] as HistoryChange[],
+    source: entry.data.source,
+  },
+].sort((a, b) => b.timestamp - a.timestamp || (a.type === 'publication' ? 1 : -1));
 const modifiedAt = new Date(historyEvents[0]?.timestamp ?? entry.data.verifieLe.getTime());
 const statusLabel = entry.data.statut === 'obsolete' ? 'Archivée' : entry.data.statut === 'a_verifier' ? 'À vérifier' : 'Active';
 const title = `${entry.data.nom} : formule gratuite, quotas et limites`;
@@ -85,6 +124,7 @@ const jsonLd = [
     operatingSystem: 'Web',
     url: new URL(`/offres/${entry.id}/`, Astro.site).href,
     sameAs: [entry.data.url, entry.data.documentation].filter(Boolean),
+    datePublished: publishedAt.toISOString(),
     dateModified: modifiedAt.toISOString(),
     isAccessibleForFree: true,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', description: entry.data.formule, url: entry.data.url },
@@ -130,12 +170,31 @@ const jsonLd = [
         </section>
 
         <section class="offer-usage-section"><div><small>USAGES</small><h2>À quoi sert {entry.data.nom} ?</h2></div><div>{entry.data.usages.map((tag) => <a href={`/#catalogue`} title={`Filtrer le catalogue par ${tag}`}>{tag}</a>)}</div></section>
+
+        <section class="offer-change-history" id="historique">
+          <header><div><small>HISTORIQUE DE L’OFFRE</small><h2>Ce qui a changé pour {entry.data.nom}</h2></div><p>Les évolutions ci-dessous portent sur l’offre elle-même. Une précision de notre fiche est distinguée d’un changement annoncé par l’éditeur.</p></header>
+          <ol>
+            {historyEvents.map((event) => <li class:list={['offer-change-event', `is-${event.type}`]}>
+              <div class="offer-change-date"><time datetime={new Date(event.timestamp).toISOString()}>{new Date(event.timestamp).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time><span>{event.label}</span></div>
+              <article>
+                <h3>{event.title}</h3>
+                {event.detail && <p>{event.detail}</p>}
+                <dl>{event.changes.map((change) => <div><dt>{change.champ}</dt><dd>
+                  {change.avant && <span class="change-before"><small>Avant</small>{change.avant}</span>}
+                  {change.avant && change.apres && <b aria-hidden="true">→</b>}
+                  {change.apres && <span class="change-after"><small>{change.avant ? 'Après' : 'Valeur documentée'}</small>{change.apres}</span>}
+                  {change.note && <em>{change.note}</em>}
+                </dd></div>)}</dl>
+                {event.source && <a href={event.source} target="_blank" rel="noreferrer">Consulter la source officielle ↗</a>}
+              </article>
+            </li>)}
+          </ol>
+        </section>
       </div>
 
       <aside class="offer-page-sidebar">
         <section><small>REPÈRES</small><dl><div><dt>Catégorie</dt><dd>{categoryName}</dd></div><div><dt>Modèle</dt><dd>{entry.data.type}</dd></div><div><dt>Durée</dt><dd>{entry.data.permanent ? 'Permanente' : 'Limitée'}</dd></div><div><dt>Paiement</dt><dd>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</dd></div><div><dt>Statut</dt><dd>{statusLabel}</dd></div></dl></section>
         <section><small>SOURCES OFFICIELLES</small><nav><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></section>
-        <section class="offer-history"><small>HISTORIQUE</small><ol>{historyEvents.map((event) => <li><time datetime={new Date(event.timestamp).toISOString()}>{new Date(event.timestamp).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</time><strong>{event.label}</strong><span>{event.detail}</span></li>)}</ol></section>
       </aside>
     </div>
 

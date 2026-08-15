@@ -50,6 +50,28 @@ ordre: 3
 verifieLe: 2026-08-14
 verificationAutomatiqueLe: 2026-08-14
 verificationNote: "La tarification Neon confirme 100 projets, 100 CU-heures mensuelles et 0,5 Go de stockage par projet, jusqu’à 2 CU, 10 branches simultanées, 5 Go de transfert public, 60 000 utilisateurs Neon Auth et une restauration sur 6 heures ou 1 Go de modifications."
+historique:
+  - date: 2026-08-14
+    type: correction
+    titre: Périmètre du plan gratuit précisé
+    resume: Les quotas principaux étaient déjà présents. La vérification a documenté leur portée par projet et les ressources gratuites complémentaires.
+    changements:
+      - champ: Calcul
+        avant: 100 CU-h mensuelles
+        apres: 100 CU-heures par mois et par projet
+      - champ: Branches
+        avant: Branches PostgreSQL, sans limite indiquée
+        apres: Jusqu’à 10 branches simultanées par projet
+      - champ: Capacité de calcul
+        avant: Non documentée
+        apres: Jusqu’à 2 CU, soit environ 8 Go de mémoire
+      - champ: Transfert réseau public
+        avant: Non documenté
+        apres: 5 Go inclus
+      - champ: Restauration instantanée
+        avant: Jusqu’à 6 heures
+        apres: 6 heures ou 1 Go de modifications, selon la première limite atteinte
+    source: https://neon.com/pricing
 ---
 
 Neon fournit PostgreSQL sous forme serverless avec séparation du calcul et du stockage. Chaque projet gratuit dispose de son propre quota de calcul et de stockage, se met automatiquement en veille après cinq minutes d’inactivité et peut être cloné en branches pour les développements et prévisualisations. La restauration instantanée remonte jusqu’à six heures, dans la limite d’un gigaoctet de modifications.

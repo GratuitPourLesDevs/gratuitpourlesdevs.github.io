@@ -21,6 +21,28 @@ ordre: 2
 verifieLe: 2026-08-14
 verificationAutomatiqueLe: 2026-08-14
 verificationNote: "La documentation Cloudflare confirme 100 000 requêtes par jour sur le plan Workers Free, 10 ms de CPU par invocation HTTP, 128 Mo de mémoire, 50 sous-requêtes externes, 1 000 sous-requêtes vers les services Cloudflare et 100 Workers par compte. Les requêtes vers les fichiers statiques sont gratuites et illimitées."
+historique:
+  - date: 2026-08-14
+    type: correction
+    titre: Quotas gratuits documentés en détail
+    resume: La fiche initiale indiquait seulement le quota journalier principal. Les limites officielles associées au plan Workers Free ont été ajoutées après vérification.
+    changements:
+      - champ: Temps CPU par requête HTTP
+        avant: Non documenté
+        apres: 10 ms
+      - champ: Mémoire par Worker
+        avant: Non documentée
+        apres: 128 Mo
+      - champ: Workers par compte
+        avant: Non documenté
+        apres: Jusqu’à 100
+      - champ: Sous-requêtes externes
+        avant: Non documentées
+        apres: 50 par invocation
+      - champ: Fichiers statiques
+        avant: Pages Functions mentionnées sans précision
+        apres: Requêtes gratuites et illimitées, 20 000 fichiers par version
+    source: https://developers.cloudflare.com/workers/platform/limits/
 ---
 
 Cloudflare Workers exécute du code serverless au plus près des utilisateurs sur le réseau mondial de Cloudflare. Le plan gratuit convient aux API, middlewares, fonctions web et petits traitements à l’edge. Il couvre également Pages Functions et donne accès, avec leurs propres quotas, à plusieurs services de données de la plateforme.
