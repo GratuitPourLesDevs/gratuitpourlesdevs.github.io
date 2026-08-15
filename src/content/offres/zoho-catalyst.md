@@ -33,7 +33,7 @@ usages:
   - Backend d’application
   - Fonctions serverless
   - API et microservices
-  - Hébergement d’application web
+  - Applications web
   - Base de données relationnelle
   - Stockage de fichiers
   - Automatisation et traitements planifiés

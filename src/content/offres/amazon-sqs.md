@@ -7,7 +7,7 @@ formule: 1 million de requêtes de messagerie gratuites par mois
 inclus: [1 million de requêtes Amazon SQS par mois, Files Standard à débit élevé, Files FIFO avec ordre et déduplication, Envoi réception suppression et modification de visibilité via API, Transfert sans frais lorsque toutes les ressources restent dans la même région AWS]
 conditions: [Compte AWS, Compte de facturation et moyen de paiement configurés, Files politiques d’accès et producteurs ou consommateurs configurés, Quota gratuit partagé entre les régions hors GovCloud]
 restrictions: [Chaque action API compte comme une requête, Chaque tranche de 64 Ko du payload compte comme une requête, Requêtes FIFO facturées au tarif FIFO après le quota, Requêtes Fair Queue susceptibles de cumuler les tarifs Standard et Fair Queue, Usage gratuit inutilisé non reporté au mois suivant, Transferts interrégion Internet stockage S3 et appels KMS susceptibles d’être facturés]
-usages: [Files de messages, Asynchrone, Découplage]
+usages: [Files de messages, Traitement asynchrone, Découplage de services]
 url: https://aws.amazon.com/sqs/
 documentation: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
 source: https://aws.amazon.com/sqs/pricing/

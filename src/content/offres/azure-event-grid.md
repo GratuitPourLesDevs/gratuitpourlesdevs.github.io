@@ -7,7 +7,7 @@ formule: 100 000 opérations Event Grid Basic gratuites par mois
 inclus: [100 000 opérations gratuites chaque mois, Publication d’événements, Livraison push, Rubriques personnalisées, Rubriques système, Rubriques partenaires, Domaines Event Grid, Filtrage sur le type d’événement, Filtrage sur le début du sujet, Rétention gratuite pendant un jour]
 conditions: [Compte Microsoft, Abonnement Azure actif, Moyen de paiement configuré, Utilisation du niveau Event Grid Basic, Facturation à l’usage au-delà du quota gratuit]
 restrictions: [Chaque opération est comptabilisée par tranche de 64 Ko, Les événements publiés sont facturables, Les tentatives de livraison sont facturables, Le filtrage avancé est facturable, Le filtrage sur la fin du sujet est facturable, Les messages supérieurs à 64 Ko comptent pour plusieurs opérations, MQTT et livraison pull réservés au niveau Standard, Les autres ressources Azure utilisées peuvent être facturées séparément]
-usages: [Architecture événementielle, Pub Sub, Intégration cloud, Automatisation]
+usages: [Architecture événementielle, Pub/Sub, Intégration cloud, Automatisation]
 url: https://azure.microsoft.com/en-us/products/event-grid/
 documentation: https://learn.microsoft.com/en-us/azure/event-grid/overview
 source: https://azure.microsoft.com/en-us/pricing/details/event-grid/

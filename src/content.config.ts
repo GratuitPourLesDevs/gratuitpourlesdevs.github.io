@@ -1,6 +1,19 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
+import { DEPRECATED_USAGE_TAGS, USAGE_TAG_SET } from './data/usage-tags';
+
+const usageTag = z.string().superRefine((tag, context) => {
+  if (USAGE_TAG_SET.has(tag)) return;
+
+  const replacement = DEPRECATED_USAGE_TAGS[tag];
+  context.addIssue({
+    code: 'custom',
+    message: replacement
+      ? `Tag non canonique « ${tag} ». Utiliser « ${replacement} ».`
+      : `Tag inconnu « ${tag} ». L’ajouter d’abord au vocabulaire canonique.`,
+  });
+});
 
 const offres = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/offres' }),
@@ -13,7 +26,7 @@ const offres = defineCollection({
     inclus: z.array(z.coerce.string()),
     conditions: z.array(z.coerce.string()),
     restrictions: z.array(z.coerce.string()),
-    usages: z.array(z.string()),
+    usages: z.array(usageTag).min(1),
     url: z.url(),
     documentation: z.url().optional(),
     source: z.url(),

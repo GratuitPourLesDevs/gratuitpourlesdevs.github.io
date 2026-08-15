@@ -7,7 +7,7 @@ formule: 10 applications, 100 Go de bande passante par mois et 500 Mo de stockag
 inclus: [Jusqu’à 10 applications par abonnement, 100 Go de bande passante mensuelle par abonnement, 500 Mo de stockage pour tous les environnements, 250 Mo maximum par déploiement, Deux domaines personnalisés par application, Certificats SSL gratuits renouvelés automatiquement, Trois environnements de prévisualisation par application, Contenu statique distribué mondialement, Intégration GitHub et Azure DevOps, API managées avec Azure Functions, Authentification prédéfinie]
 conditions: [Compte Microsoft, Abonnement Azure actif, Moyen de paiement généralement configuré pour l’abonnement, Application créée avec le plan Free, Dépôt GitHub ou Azure DevOps pour le déploiement automatisé]
 restrictions: [Plan destiné aux loisirs et projets personnels, Aucun SLA, Dépassement des quotas de bande passante non disponible sur le plan Free, Site susceptible de ne plus être servi après dépassement du quota, Maximum de 15 000 fichiers par application, Pas de point de terminaison privé, Pas de restriction par plage IP, Pas de fournisseur d’authentification personnalisé, Attribution de rôles par fonction indisponible, Exécutions Azure Functions soumises aux tarifs et quotas du plan Consumption]
-usages: [Hébergement statique, Jamstack, CI/CD, API serverless]
+usages: [Hébergement statique, JAMstack, CI/CD, API serverless]
 url: https://azure.microsoft.com/en-us/products/app-service/static/
 documentation: https://learn.microsoft.com/en-us/azure/static-web-apps/plans
 source: https://azure.microsoft.com/en-us/pricing/details/app-service/static/
