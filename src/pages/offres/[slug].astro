@@ -6,6 +6,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
 import { getBillingRisk } from '../../data/billing-risk';
+import { getFreeTierScore } from '../../data/free-tier-score';
 
 type HistoryItem = { timestamp: number; revision?: string };
 type HistoryChange = { champ: string; avant?: string; apres?: string; note?: string };
@@ -114,6 +115,8 @@ const historyEvents = [
 const modifiedAt = new Date(historyEvents[0]?.timestamp ?? entry.data.verifieLe.getTime());
 const statusLabel = entry.data.statut === 'obsolete' ? 'Archivée' : entry.data.statut === 'a_verifier' ? 'À vérifier' : 'Active';
 const billingRisk = getBillingRisk(entry.data);
+const freeTierScore = entry.data.statut === 'obsolete' ? undefined : getFreeTierScore(entry.id, entry.data);
+const scoreTone = freeTierScore ? (freeTierScore.total >= 85 ? 'excellent' : freeTierScore.total >= 70 ? 'strong' : freeTierScore.total >= 50 ? 'balanced' : 'limited') : undefined;
 const title = `${entry.data.nom} : formule gratuite, quotas et limites`;
 const description = `${entry.data.accroche}. Découvrez la formule gratuite de ${entry.data.nom}, ses quotas, conditions, limites, alternatives et comparaisons.`;
 const jsonLd = [
@@ -153,6 +156,7 @@ const jsonLd = [
         <div><small>{categoryName}</small><h1>{entry.data.nom}</h1><p>{entry.data.accroche}</p><div class="offer-page-tags"><span>{entry.data.type}</span><span>{statusLabel}</span>{entry.data.usages.slice(0, 3).map((tag) => <span>{tag}</span>)}</div></div>
       </div>
       <aside class="offer-plan-card" aria-label="Résumé de la formule gratuite">
+        {freeTierScore && <a class:list={['offer-score-summary', `is-${scoreTone}`]} href="#score-gratuitpourlesdevs"><span><small>SCORE GRATUITPOURLESDEVS</small><b>Calcul transparent</b></span><strong>{freeTierScore.total}<em>/100</em></strong></a>}
         <small>FORMULE GRATUITE</small><strong>{entry.data.formule}</strong>
         <div><span class:list={{ positive: !entry.data.carteRequise }}>{entry.data.carteRequise ? 'Carte bancaire requise' : 'Sans carte bancaire'}</span><span>{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</span></div>
         <aside class:list={['billing-risk-callout', `is-${billingRisk.level}`]}><div><i aria-hidden="true"></i><span><small>RISQUE DE FACTURATION</small><strong>{billingRisk.label}</strong></span></div><p>{billingRisk.detail} <a href="#limites">Voir les limites →</a></p></aside>
@@ -165,6 +169,18 @@ const jsonLd = [
     <div class="offer-page-layout">
       <div class="offer-page-content">
         <section class="offer-editorial"><small>EN BREF</small><h2>Pourquoi {entry.data.nom} est utile</h2><Content /></section>
+
+        {freeTierScore && <section class="offer-score-section" id="score-gratuitpourlesdevs">
+          <header><div><small>SCORE GRATUITPOURLESDEVS</small><h2>Pourquoi {entry.data.nom} obtient ce score</h2></div><strong>{freeTierScore.total}<span>/100</span></strong></header>
+          <p>Le score évalue uniquement la qualité de la formule gratuite. Chaque point ci-dessous peut être contrôlé à partir de la fiche et des sources officielles.</p>
+          <div class="offer-score-breakdown">
+            {freeTierScore.criteria.map((criterion) => <article>
+              <div><h3>{criterion.label}</h3><span>{criterion.points}<small>/{criterion.max}</small></span></div>
+              <p>{criterion.detail}</p>
+            </article>)}
+          </div>
+          <footer><a href="/methodologie/#score-gratuitpourlesdevs">Consulter la formule complète →</a></footer>
+        </section>}
 
         <section class="offer-information-grid">
           <article><small>CE QUI EST INCLUS</small><h2>Les ressources gratuites</h2><ul>{entry.data.inclus.map((item) => <li>{item}</li>)}</ul></article>

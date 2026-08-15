@@ -5,6 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CustomSelect from '../components/CustomSelect.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { getBillingRisk } from '../data/billing-risk';
+import { getFreeTierScore } from '../data/free-tier-score';
 
 const offerChangeDates = new Map<string, number>();
 try {
@@ -44,6 +45,7 @@ const withoutCard = entries.filter(({ data }) => !data.carteRequise).length;
 const latestVerification = new Date(Math.max(...entries.map(({ data }) => data.verifieLe.getTime())));
 const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }).replace('.', '');
 const getOfferChangeDate = (entry: typeof entries[number]) => offerChangeDates.get(`src/content/offres/${entry.id}.md`) ?? entry.data.verifieLe.getTime();
+const scoreById = new Map(entries.map((entry) => [entry.id, getFreeTierScore(entry.id, entry.data)]));
 const comparisonPayload = JSON.stringify(entries.map((entry) => ({
   id: entry.id,
   name: entry.data.nom,
@@ -55,6 +57,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
   plan: entry.data.formule,
   cardRequired: entry.data.carteRequise,
   billingRisk: getBillingRisk(entry.data).label,
+  freeTierScore: scoreById.get(entry.id)?.total ?? 0,
   permanent: entry.data.permanent,
   usages: entry.data.usages,
   included: entry.data.inclus,
@@ -139,7 +142,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
           <small>Tout afficher</small>
         </button>
         <div class="sort-controls">
-          <label>Trier par&nbsp;:<select id="sort"><option value="recent" selected>Ajout / modification</option><option value="categorie">Catégorie</option><option value="verification">Date de vérification</option><option value="type">Modèle</option><option value="nom">Nom</option><option value="pertinence">Pertinence</option></select></label>
+          <label>Trier par&nbsp;:<select id="sort"><option value="recent" selected>Ajout / modification</option><option value="score">Meilleur free tier</option><option value="categorie">Catégorie</option><option value="verification">Date de vérification</option><option value="type">Modèle</option><option value="nom">Nom</option><option value="pertinence">Pertinence</option></select></label>
           <button class="sort-direction" id="sort-direction" type="button" data-direction="desc" aria-label="Tri décroissant — passer en ordre croissant" title="Tri décroissant — passer en ordre croissant"><span aria-hidden="true">↓</span></button>
         </div>
       </div>
@@ -149,16 +152,18 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
         <div id="offers-list">
           {offers.map(({ entry, Content }) => {
             const billingRisk = getBillingRisk(entry.data);
+            const freeTierScore = scoreById.get(entry.id)!;
+            const scoreTone = freeTierScore.total >= 85 ? 'excellent' : freeTierScore.total >= 70 ? 'strong' : freeTierScore.total >= 50 ? 'balanced' : 'limited';
             return (
             <article class="offer-row" role="row" tabindex="0" aria-expanded="false" data-id={entry.id}
               data-name={entry.data.nom.toLocaleLowerCase('fr')} data-type={entry.data.type}
-              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-risk={billingRisk.level} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()} data-updated={getOfferChangeDate(entry)}
+              data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-risk={billingRisk.level} data-score={freeTierScore.total} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()} data-updated={getOfferChangeDate(entry)}
               data-usages={JSON.stringify(entry.data.usages)}
               data-category-name={categoryNames.get(entry.data.categorie) ?? entry.data.categorie}
               data-search={`${entry.data.nom} ${entry.data.accroche} ${entry.data.formule} ${categoryNames.get(entry.data.categorie) ?? ''} ${entry.data.type} ${entry.data.usages.join(' ')} ${entry.data.inclus.join(' ')} ${entry.data.conditions.join(' ')} ${entry.data.restrictions.join(' ')} ${entry.body ?? ''}`.toLocaleLowerCase('fr')}
               data-order={entry.data.ordre}>
               <div class="offer-identity">
-                <span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span>
+                <a class:list={['offer-score-tile', `is-${scoreTone}`]} href={`/offres/${entry.id}/#score-gratuitpourlesdevs`} aria-label={`Score GratuitPourLesDevs de ${entry.data.nom} : ${freeTierScore.total} sur 100. Voir le calcul.`} title="Voir le calcul du score"><b>{freeTierScore.total}</b><span>/100</span></a>
                 <span><small class="offer-category">{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><strong><a class="offer-name-link" href={`/offres/${entry.id}/`}>{entry.data.nom}</a></strong><span class="identity-meta"><small>{entry.data.accroche}</small><em>{entry.data.type}</em></span></span>
               </div>
               <p class="offer-plan"><strong>{entry.data.formule}</strong><small>{entry.data.usages.slice(0, 3).join(' · ')}</small><small class="offer-duration">{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small></p>
@@ -255,7 +260,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     const rowUsages = new Map(rows.map((row) => [row, (JSON.parse(row.dataset.usages ?? '[]') as string[]).map(normalize)]));
     type ComparisonOffer = {
       id: string; name: string; tagline: string; initials: string; color: string; category: string; type: string; plan: string;
-      cardRequired: boolean; billingRisk: string; permanent: boolean; usages: string[]; included: string[]; conditions: string[]; restrictions: string[];
+      cardRequired: boolean; billingRisk: string; freeTierScore: number; permanent: boolean; usages: string[]; included: string[]; conditions: string[]; restrictions: string[];
       verified: string; url: string; documentation?: string; source: string;
     };
     const comparisonDataElement = document.querySelector<HTMLScriptElement>('#comparison-data');
@@ -378,6 +383,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       { label: 'Catégorie', get: (offer) => offer.category },
       { label: 'Modèle', get: (offer) => offer.type },
       { label: 'Formule gratuite', get: (offer) => offer.plan },
+      { label: 'Score GratuitPourLesDevs', get: (offer) => `${offer.freeTierScore}/100` },
       { label: 'Risque de facturation', get: (offer) => offer.billingRisk },
       { label: 'Carte bancaire', get: (offer) => offer.cardRequired ? 'Carte requise' : 'Sans carte bancaire' },
       { label: 'Durée', get: (offer) => offer.permanent ? 'Formule permanente' : 'Essai limité' },
@@ -683,6 +689,8 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
               ? (a.dataset.type ?? '').localeCompare(b.dataset.type ?? '', 'fr')
               : sort.value === 'verification'
                 ? Number(a.dataset.verified) - Number(b.dataset.verified)
+                : sort.value === 'score'
+                  ? Number(a.dataset.score) - Number(b.dataset.score)
                 : sort.value === 'recent'
                   ? Number(a.dataset.updated) - Number(b.dataset.updated)
                   : Number(a.dataset.order) - Number(b.dataset.order);
@@ -699,7 +707,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       sortDirection.setAttribute('aria-label', label);
       sortDirection.title = label;
     };
-    sort?.addEventListener('change', () => { setSortDirection(sort.value === 'recent' || sort.value === 'verification' ? 'desc' : 'asc'); sortRows(); });
+    sort?.addEventListener('change', () => { setSortDirection(sort.value === 'recent' || sort.value === 'verification' || sort.value === 'score' ? 'desc' : 'asc'); sortRows(); });
     sortDirection?.addEventListener('click', () => { setSortDirection(sortDirection.dataset.direction === 'asc' ? 'desc' : 'asc'); sortRows(); });
     previousPage?.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderPagination(); } });
     nextPage?.addEventListener('click', () => { if (currentPage * pageSize < filteredRows.length) { currentPage++; renderPagination(); } });

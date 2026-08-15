@@ -14,6 +14,18 @@ import SiteFooter from '../components/SiteFooter.astro';
       <article><span>3</span><div><h2>Vérification</h2><p>Le site officiel et la source tarifaire sont contrôlés. Une vérification automatique complète ce travail éditorial sans remplacer la lecture humaine lorsqu’un résultat est ambigu.</p></div></article>
       <article><span>4</span><div><h2>Suivi et archivage</h2><p>Une source inaccessible place l’offre « À vérifier ». Seule une disparition certaine retire automatiquement l’offre du catalogue ; sa fiche demeure consultable dans les archives.</p></div></article>
     </section>
+    <section class="score-methodology" id="score-gratuitpourlesdevs">
+      <header><small>INDICE ÉDITORIAL TRANSPARENT</small><h2>Le Score GratuitPourLesDevs</h2><p>Une note sur 100 qui mesure la qualité de la formule gratuite, pas la qualité générale du produit. Le détail complet reste visible sur chaque fiche : aucun bonus caché, aucun partenariat et aucune pondération commerciale.</p></header>
+      <div class="score-formula">
+        <article><span>25 pts</span><h3>Gratuit permanent</h3><p>25 points si le quota n’a pas de date de fin annoncée, 5 points si l’avantage est temporaire.</p></article>
+        <article><span>20 pts</span><h3>Accès sans carte</h3><p>20 points lorsque l’inscription ne demande aucun moyen de paiement, sinon 0.</p></article>
+        <article><span>25 pts</span><h3>Utilité du quota</h3><p>Appréciation éditoriale par paliers : 5 pour découvrir, 10 pour prototyper, 15 pour un projet réel, 20 pour un quota généreux et 25 pour une offre exceptionnelle dans sa catégorie.</p></article>
+        <article><span>15 pts</span><h3>Sécurité de facturation</h3><p>15 points sans risque identifié, 8 si une carte est nécessaire sans dépassement automatique documenté, 0 lorsqu’un dépassement peut être facturé.</p></article>
+        <article><span>10 pts</span><h3>Vérification récente</h3><p>10 points jusqu’à 90 jours, 7 jusqu’à 180 jours, 3 jusqu’à un an, puis 0.</p></article>
+        <article><span>5 pts</span><h3>Sources officielles</h3><p>2 points pour la source tarifaire et 3 points supplémentaires lorsqu’une documentation officielle distincte est disponible.</p></article>
+      </div>
+      <aside><strong>Ce que le score ne note pas encore</strong><p>L’usage commercial n’entre pas dans cette première version : les conditions ne sont pas encore structurées de façon assez homogène pour attribuer des points sans créer de fausse précision. Ce critère sera ajouté après un audit dédié.</p></aside>
+    </section>
     <section class="content-callout"><div><h2>Vous avez repéré un changement ?</h2><p>Indiquez l’offre et la source concernées depuis le formulaire interne.</p></div><a class="outline-button" href="/contact/?objet=erreur">Transmettre l’information</a></section>
   </main>
   <SiteFooter />
