@@ -1,6 +1,6 @@
 # Gratuit pour les devs
 
-Catalogue francophone d’offres SaaS, PaaS et IaaS disposant d’une formule gratuite utile aux développeurs, DevOps et Infradev.
+Catalogue francophone de services cloud, API et outils pour développeurs réellement utilisables gratuitement, avec quotas, restrictions et conditions vérifiés.
 
 ## Développement
 
