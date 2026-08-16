@@ -91,3 +91,16 @@ footer{min-height:92px;display:grid;grid-template-columns:1fr auto auto;align-it
 .comparison-quota-best{position:relative;color:var(--green);background:color-mix(in srgb,var(--green) 9%,var(--surface));font-weight:750}.comparison-quota-best::after{content:'Plus élevé';display:block;width:max-content;margin-top:6px;padding:3px 5px;border-radius:4px;color:var(--green);background:color-mix(in srgb,var(--green) 14%,var(--surface));font:7px var(--mono);text-transform:uppercase}
 [data-theme="dark"] .offer-quota-row>span.is-billed{color:#ff9288}[data-theme="dark"] .offer-quota-row>span.is-blocked{color:#ffd27a}
 @media(max-width:760px){.offer-quota-section{margin-top:38px;padding-top:34px}.offer-quota-section>header{grid-template-columns:1fr;gap:10px}.offer-quota-section h2{font-size:24px}.offer-quota-table{overflow-x:auto}.offer-quota-head,.offer-quota-row{min-width:680px}}
+
+/* Homepage continuity: one discovery surface instead of three stacked bars. */
+.editorial-trust{min-height:0;margin:0 3.6vw 24px;padding:0 4px;border:0;border-radius:0;background:transparent}
+.editorial-trust li i{width:15px;height:15px;font-size:9px}
+.editorial-trust>a{padding-block:5px}
+.catalogue-discovery{padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+.catalogue-discovery .search-shell{height:50px;padding:0 14px;border:1px solid transparent;background:var(--soft)}
+.catalogue-discovery .search-shell:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px rgb(11 69 255/9%)}
+.catalogue-discovery .search-shell svg{width:22px}
+.catalogue-discovery .search-shell input{font-size:15px}
+.catalogue-discovery .quick-filter-bar{margin-top:10px;padding:10px 2px 0;border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.catalogue-discovery .advanced-filters{margin-top:12px}
+@media(max-width:760px){.editorial-trust{margin:0 20px 22px;padding:0;gap:10px}.editorial-trust ul{display:flex;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}.editorial-trust ul::-webkit-scrollbar{display:none}.editorial-trust li{flex:0 0 auto}.editorial-trust>a{padding-top:8px;border-top:0}.catalogue-discovery{padding:10px}.catalogue-discovery .search-shell{height:48px}.catalogue-discovery .quick-filter-bar{margin-top:9px;padding-top:9px}}

@@ -118,51 +118,53 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     </section>
 
     <section class="catalogue" id="catalogue">
-      <label class="search-shell">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
-        <span class="sr-only">Rechercher dans le catalogue</span>
-        <input id="search" type="search" placeholder="Rechercher un outil, une catégorie, une limite…" autocomplete="off" />
-        <kbd>⌘ K</kbd>
-      </label>
+      <section class="catalogue-discovery" aria-label="Rechercher et filtrer les offres">
+        <label class="search-shell">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+          <span class="sr-only">Rechercher dans le catalogue</span>
+          <input id="search" type="search" placeholder="Rechercher un outil, une catégorie, une limite…" autocomplete="off" />
+          <kbd>⌘ K</kbd>
+        </label>
 
-      <section class="quick-filter-bar" aria-labelledby="quick-filter-title">
-        <small id="quick-filter-title">Accès rapides</small>
-        <div class="quick-filter-list">
-          <button type="button" data-quick-filter="score" aria-pressed="false"><span aria-hidden="true">★</span> Meilleurs free tiers</button>
-          <button type="button" data-quick-filter="card" aria-pressed="false"><span aria-hidden="true">✓</span> Sans carte bancaire</button>
-          <button type="button" data-quick-filter="risk" aria-pressed="false"><span aria-hidden="true">●</span> Aucun risque</button>
-          <button type="button" data-quick-filter="permanent" aria-pressed="false"><span aria-hidden="true">∞</span> Formule permanente</button>
-          <button type="button" data-quick-filter="recent" aria-pressed="false"><span aria-hidden="true">↻</span> Vérifiées récemment</button>
-        </div>
-        <a class="quota-explorer-link" href="/explorer/"><span aria-hidden="true">↗</span><strong>Comparer les quotas</strong><small>Stockage, trafic, requêtes…</small></a>
-        <button class="advanced-filters-toggle" id="advanced-filters-toggle" type="button" aria-expanded="false" aria-controls="advanced-filters-panel">
-          <span>Filtres avancés</span><b id="advanced-filter-count" hidden>0</b><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
-        </button>
-      </section>
+        <section class="quick-filter-bar" aria-labelledby="quick-filter-title">
+          <small id="quick-filter-title">Accès rapides</small>
+          <div class="quick-filter-list">
+            <button type="button" data-quick-filter="score" aria-pressed="false"><span aria-hidden="true">★</span> Meilleurs free tiers</button>
+            <button type="button" data-quick-filter="card" aria-pressed="false"><span aria-hidden="true">✓</span> Sans carte bancaire</button>
+            <button type="button" data-quick-filter="risk" aria-pressed="false"><span aria-hidden="true">●</span> Aucun risque</button>
+            <button type="button" data-quick-filter="permanent" aria-pressed="false"><span aria-hidden="true">∞</span> Formule permanente</button>
+            <button type="button" data-quick-filter="recent" aria-pressed="false"><span aria-hidden="true">↻</span> Vérifiées récemment</button>
+          </div>
+          <a class="quota-explorer-link" href="/explorer/"><span aria-hidden="true">↗</span><strong>Comparer les quotas</strong><small>Stockage, trafic, requêtes…</small></a>
+          <button class="advanced-filters-toggle" id="advanced-filters-toggle" type="button" aria-expanded="false" aria-controls="advanced-filters-panel">
+            <span>Filtres avancés</span><b id="advanced-filter-count" hidden>0</b><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
+          </button>
+        </section>
 
-      <section class="advanced-filters" id="advanced-filters-panel" aria-labelledby="filter-title" hidden>
-        <div class="section-intro compact">
-          <div><h2 id="filter-title">Affiner les résultats</h2><p>Combinez catégorie, modèle et conditions de l’offre.</p></div>
-          <div class="tag-filter" data-tag-filter>
-            <div class="tag-filter-heading"><label id="usage-tag-label" for="usage-tag-input">Filtrer par usage</label><span>Les offres doivent contenir tous ces tags</span></div>
-            <div class="tag-combobox">
-              <div class="selected-tags" id="selected-usage-tags"></div>
-              <input id="usage-tag-input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="usage-tag-options" aria-labelledby="usage-tag-label" placeholder="Ajouter un tag…" autocomplete="off" />
-            </div>
-            <div class="tag-suggestions" id="usage-tag-options" role="listbox" aria-labelledby="usage-tag-label" hidden>
-              {usageTags.map((tag, index) => <button id={`usage-tag-option-${index}`} type="button" role="option" aria-selected="false" data-tag={tag}>{tag}</button>)}
-              <p class="tag-empty" hidden>Aucun tag correspondant</p>
+        <section class="advanced-filters" id="advanced-filters-panel" aria-labelledby="filter-title" hidden>
+          <div class="section-intro compact">
+            <div><h2 id="filter-title">Affiner les résultats</h2><p>Combinez catégorie, modèle et conditions de l’offre.</p></div>
+            <div class="tag-filter" data-tag-filter>
+              <div class="tag-filter-heading"><label id="usage-tag-label" for="usage-tag-input">Filtrer par usage</label><span>Les offres doivent contenir tous ces tags</span></div>
+              <div class="tag-combobox">
+                <div class="selected-tags" id="selected-usage-tags"></div>
+                <input id="usage-tag-input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="usage-tag-options" aria-labelledby="usage-tag-label" placeholder="Ajouter un tag…" autocomplete="off" />
+              </div>
+              <div class="tag-suggestions" id="usage-tag-options" role="listbox" aria-labelledby="usage-tag-label" hidden>
+                {usageTags.map((tag, index) => <button id={`usage-tag-option-${index}`} type="button" role="option" aria-selected="false" data-tag={tag}>{tag}</button>)}
+                <p class="tag-empty" hidden>Aucun tag correspondant</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="filter-grid">
-          <CustomSelect id="category-filter" label="Catégorie" options={categoryOptions} searchable />
-          <CustomSelect id="type-filter" label="Modèle de service" options={modelOptions} />
-          <CustomSelect id="card-filter" label="Carte bancaire" options={cardOptions} />
-          <CustomSelect id="permanent-filter" label="Permanence" options={permanenceOptions} />
-          <CustomSelect id="verification-filter" label="Date de vérification" options={verificationOptions} />
-          <button class="reset" type="button">Réinitialiser</button>
-        </div>
+          <div class="filter-grid">
+            <CustomSelect id="category-filter" label="Catégorie" options={categoryOptions} searchable />
+            <CustomSelect id="type-filter" label="Modèle de service" options={modelOptions} />
+            <CustomSelect id="card-filter" label="Carte bancaire" options={cardOptions} />
+            <CustomSelect id="permanent-filter" label="Permanence" options={permanenceOptions} />
+            <CustomSelect id="verification-filter" label="Date de vérification" options={verificationOptions} />
+            <button class="reset" type="button">Réinitialiser</button>
+          </div>
+        </section>
       </section>
 
       <div class="catalogue-heading">
