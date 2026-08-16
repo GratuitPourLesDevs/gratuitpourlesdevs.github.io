@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import DocsSearch from '../../components/docs/DocsSearch.astro';
+import DocsSidebar from '../../components/docs/DocsSidebar.astro';
+import { docsArticles, getDocArticle, getDocIndex } from '../../data/docs';
+
+export function getStaticPaths() {
+  return docsArticles.map((item) => ({ params: { slug: item.slug } }));
+}
+
+const slug = Astro.params.slug ?? '';
+const current = getDocArticle(slug)!;
+const currentIndex = getDocIndex(slug);
+const previous = docsArticles[currentIndex - 1];
+const next = docsArticles[currentIndex + 1];
+const isStartGuide = slug === 'comment-utiliser-le-site';
+const isBillingGuide = slug === 'risque-de-facturation';
+const isStackGuide = slug === 'stack-100-gratuite';
+const sectionTitle = isStartGuide ? 'Trouver une offre gratuite' : isBillingGuide ? 'Identifier le chemin vers la facture' : isStackGuide ? 'Partir du besoin, pas des outils' : `Comprendre : ${current.title}`;
+const secondSectionTitle = isStartGuide ? 'Lire les bons signaux' : isBillingGuide ? 'Distinguer les niveaux de risque' : isStackGuide ? 'Vérifier les coûts de jonction' : 'Passer à l’action';
+const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
+---
+
+<BaseLayout title={`${current.title} — Documentation GratuitPourLesDevs`} description={pageDescription} ogType="article">
+  <SiteHeader active="docs" />
+  <header class="docs-utility">
+    <a href="/docs/" class="docs-utility-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22V5.5ZM20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22V5.5Z"/></svg><span>Documentation</span></a>
+    <DocsSearch />
+    <button class="docs-nav-toggle" type="button" data-docs-nav-open aria-label="Ouvrir le sommaire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg></button>
+  </header>
+  <main class="docs-article-shell">
+    <DocsSidebar currentSlug={slug} />
+    <article class="docs-article">
+      <nav class="docs-breadcrumb" aria-label="Fil d’Ariane"><a href="/docs/">Documentation</a><span>/</span><span>{current.groupTitle}</span></nav>
+      <header class="docs-article-header"><h1>{isStartGuide ? 'Comment utiliser GratuitPourLesDevs ?' : current.title}</h1><p>{isStartGuide ? 'Trouvez, évaluez et comparez des outils gratuits sans découvrir les limites au moment de la facture.' : current.summary}</p></header>
+
+      <section id="premiere-etape" class="docs-prose-section">
+        <header><span>01</span><div><h2>{sectionTitle}</h2><p>{isStartGuide ? 'Utilisez la recherche et les filtres pour trouver rapidement des outils qui correspondent à votre besoin et proposent un accès gratuit durable.' : isBillingGuide ? 'Une offre gratuite peut rester sans coût, être bloquée à son plafond ou ouvrir un chemin vers une consommation payante. Commencez par repérer le comportement au dépassement.' : isStackGuide ? 'Décrivez les ressources dont votre projet a besoin — calcul, données, stockage, identité, livraison et observation — avant de sélectionner les fournisseurs.' : `Ce guide explique ${current.title.toLocaleLowerCase('fr')} et les informations à vérifier avant de prendre une décision.`}</p></div></header>
+        {isStartGuide ? <div class="docs-product-demo" aria-label="Exemple de recherche dans le catalogue">
+          <div class="docs-demo-controls"><label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input value="PostgreSQL" aria-label="Exemple de recherche" readonly /></label><button type="button" aria-pressed="true">✓ Sans carte bancaire</button><button type="button" aria-pressed="true">✓ Gratuit permanent</button></div>
+          <div class="docs-demo-head"><span>Outil</span><span>Score /100</span><span>Risque</span><span>Dernière vérification</span></div>
+          {[['N', 'Neon', 'PostgreSQL serverless', '92', 'Faible', '12 août 2026'], ['S', 'Supabase', 'Backend open source', '89', 'Faible', '8 août 2026'], ['A', 'Aiven', 'PostgreSQL managé', '78', 'Moyen', '2 août 2026']].map((row, index) => <a class="docs-demo-row" href={index === 0 ? '/offres/neon/' : '/#catalogue'}><span class={`demo-logo demo-logo-${index}`}>{row[0]}</span><span><strong>{row[1]}</strong><small>{row[2]}</small></span><b>{row[3]}</b><em class:list={{ medium: row[4] === 'Moyen' }}><i></i>{row[4]}</em><time>{row[5]}</time><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></a>)}
+        </div> : <div class="docs-checklist">
+          <div><b>1</b><span><strong>Formule et durée</strong><small>Vérifiez qu’il s’agit bien d’un plan gratuit et non d’un simple crédit temporaire.</small></span></div>
+          <div><b>2</b><span><strong>Quota et portée</strong><small>Lisez ensemble le montant, l’unité, la période et le périmètre concerné.</small></span></div>
+          <div><b>3</b><span><strong>Conditions et sources</strong><small>Confirmez les restrictions importantes sur la source officielle liée à la fiche.</small></span></div>
+        </div>}
+        <a class="docs-inline-action" href={isStartGuide ? '/#catalogue' : isBillingGuide ? '/methodologie/#restrictions-cles' : isStackGuide ? '/explorer/' : '/'}>{isStartGuide ? 'Ouvrir le catalogue' : isBillingGuide ? 'Voir la méthodologie' : isStackGuide ? 'Explorer les quotas' : 'Mettre ce guide en pratique'} <span>→</span></a>
+      </section>
+
+      <section id="signaux" class="docs-prose-section">
+        <header><span>02</span><div><h2>{secondSectionTitle}</h2><p>Chaque fiche fait remonter les informations qui changent le plus souvent une décision.</p></div></header>
+        <div class="docs-signals">
+          <div><b>100</b><span><strong>Score /100</strong><small>Mesure la qualité de l’offre gratuite, pas celle du produit.</small></span></div>
+          <div><b>!</b><span><strong>Risque de facturation</strong><small>Indique le risque de dépasser les limites sans s’en rendre compte.</small></span></div>
+          <div><b>↻</b><span><strong>Dernière vérification</strong><small>Date à laquelle l’offre a été contrôlée manuellement.</small></span></div>
+        </div>
+        <aside class="docs-note"><span>i</span><div><strong>À retenir</strong><p>Un score élevé signifie que l’offre gratuite est généreuse, claire et sans piège — pas que l’outil est meilleur que tous les autres pour votre projet.</p></div></aside>
+      </section>
+
+      <section id="verifier" class="docs-prose-section">
+        <header><span>03</span><div><h2>Vérifier avant de choisir</h2><p>Les offres évoluent. Consultez la date de vérification, l’historique et la source officielle avant un choix structurant.</p></div></header>
+        <blockquote><strong>Le bon réflexe</strong><p>Comparez toujours une même ressource, sur une même période et avec une même portée. Un quota plus grand n’est utile que s’il mesure réellement la même chose.</p></blockquote>
+      </section>
+
+      <footer class="docs-article-pagination">{previous ? <a href={`/docs/${previous.slug}/`}><small>← Article précédent</small><strong>{previous.title}</strong></a> : <span></span>}{next ? <a class="next" href={`/docs/${next.slug}/`}><small>Article suivant →</small><strong>{next.title}</strong></a> : <span></span>}</footer>
+    </article>
+    <aside class="docs-toc" aria-label="Sur cette page"><small>SUR CETTE PAGE</small><nav><a class="active" href="#premiere-etape">{sectionTitle}</a><a href="#signaux">{secondSectionTitle}</a><a href="#verifier">Vérifier avant de choisir</a></nav><div><p>Cette page vous a-t-elle aidé ?</p><span><button type="button" data-doc-feedback>Oui</button><button type="button" data-doc-feedback>Non</button></span><small role="status"></small></div></aside>
+  </main>
+  <script>
+    document.querySelectorAll<HTMLButtonElement>('[data-doc-feedback]').forEach((button) => button.addEventListener('click', () => {
+      document.querySelectorAll('[data-doc-feedback]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      const status = button.parentElement?.nextElementSibling;
+      if (status) status.textContent = 'Merci pour votre retour.';
+    }));
+    const sections = [...document.querySelectorAll<HTMLElement>('.docs-prose-section')];
+    const tocLinks = [...document.querySelectorAll<HTMLAnchorElement>('.docs-toc nav a')];
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { tocLinks.forEach((link) => link.classList.toggle('active', link.hash === `#${entry.target.id}`)); } }), { rootMargin: '-18% 0px -70%' });
+    sections.forEach((section) => observer.observe(section));
+  </script>
+</BaseLayout>

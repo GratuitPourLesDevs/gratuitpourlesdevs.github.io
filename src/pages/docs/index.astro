@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import DocsSearch from '../../components/docs/DocsSearch.astro';
+import DocsSidebar from '../../components/docs/DocsSidebar.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { docsGroups } from '../../data/docs';
+
+const featured = [
+  { slug: 'comment-utiliser-le-site', number: '01', title: 'Prendre le site en main', summary: 'Recherche, filtres, score et signaux de risque : le parcours complet en cinq minutes.', action: 'Commencer le guide' },
+  { slug: 'risque-de-facturation', number: '02', title: 'Éviter une facture inattendue', summary: 'Repérez les dépassements facturés, les ressources liées et les conditions qui méritent votre attention.', action: 'Comprendre les risques' },
+  { slug: 'stack-100-gratuite', number: '03', title: 'Composer une stack gratuite', summary: 'Assemblez hébergement, données, authentification et supervision sans créer de coût caché.', action: 'Construire ma stack' },
+];
+---
+
+<BaseLayout title="Documentation — GratuitPourLesDevs" description="Guides, méthodes et tutoriels pour trouver, évaluer et comparer des outils gratuits pour développeurs.">
+  <SiteHeader active="docs" />
+  <header class="docs-utility">
+    <a href="/docs/" class="docs-utility-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22V5.5ZM20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22V5.5Z"/></svg><span>Documentation</span></a>
+    <DocsSearch />
+    <button class="docs-nav-toggle" type="button" data-docs-nav-open aria-label="Ouvrir le sommaire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg></button>
+  </header>
+  <main class="docs-home-shell">
+    <DocsSidebar />
+    <div class="docs-home-content">
+      <header class="docs-home-hero">
+        <div><h1>Utilisez le gratuit.<br /><span>En connaissance de cause.</span></h1><p>Des guides clairs pour trouver le bon outil, comprendre ses vraies limites et construire sans découvrir les conditions au moment de la facture.</p></div>
+        <aside><strong>{docsGroups.reduce((count, group) => count + group.articles.length, 0)}</strong><span>guides pour chercher, décider et construire</span><a href="/docs/comment-utiliser-le-site/">Bien démarrer →</a></aside>
+      </header>
+
+      <section class="docs-featured" aria-labelledby="docs-featured-title">
+        <header><small>PARCOURS RECOMMANDÉS</small><h2 id="docs-featured-title">Commencez par votre objectif.</h2></header>
+        <div>{featured.map((item) => <a href={`/docs/${item.slug}/`}><span>{item.number}</span><div><h3>{item.title}</h3><p>{item.summary}</p><strong>{item.action} <i aria-hidden="true">→</i></strong></div></a>)}</div>
+      </section>
+
+      <section class="docs-directory" aria-labelledby="docs-directory-title">
+        <header><small>TOUTE LA DOCUMENTATION</small><h2 id="docs-directory-title">Explorez par thème.</h2><p>Du premier filtre à la comparaison détaillée, chaque concept du produit a son guide.</p></header>
+        <div class="docs-directory-list">{docsGroups.map((group, index) => <section>
+          <div class="docs-directory-heading"><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{group.title}</h3><p>{group.description}</p></div></div>
+          <ul>{group.articles.map((item) => <li><a href={`/docs/${item.slug}/`}><span>{item.title}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg></a></li>)}</ul>
+        </section>)}</div>
+      </section>
+
+      <section class="docs-contribute"><div><small>UNE INFORMATION A CHANGÉ ?</small><h2>La documentation vit avec le catalogue.</h2><p>Signalez une erreur ou partagez une source officielle : chaque contribution rend le gratuit plus lisible pour tout le monde.</p></div><a class="outline-button" href="/contact/?objet=erreur">Contribuer à la documentation</a></section>
+    </div>
+  </main>
+  <SiteFooter />
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+import { docsArticles } from '../../data/docs';
+const searchPayload = JSON.stringify(docsArticles).replace(/</g, '\\u003c');
+---
+
+<div class="docs-search" data-docs-search>
+  <button class="docs-search-trigger" type="button" aria-haspopup="dialog" aria-controls="docs-search-dialog">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+    <span class="docs-search-long">Rechercher dans la documentation…</span><span class="docs-search-short">Rechercher…</span><kbd>⌘ K</kbd>
+  </button>
+  <dialog class="docs-search-dialog" id="docs-search-dialog" aria-labelledby="docs-search-title">
+    <div class="docs-search-field">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+      <label class="sr-only" id="docs-search-title" for="docs-search-input">Rechercher dans la documentation</label>
+      <input id="docs-search-input" type="search" placeholder="Score, quotas, carte bancaire…" autocomplete="off" />
+      <button type="button" data-docs-search-close aria-label="Fermer la recherche">×</button>
+    </div>
+    <div class="docs-search-results" role="listbox" aria-label="Résultats de recherche"></div>
+    <footer><span><kbd>↑</kbd><kbd>↓</kbd> naviguer</span><span><kbd>↵</kbd> ouvrir</span><span><kbd>esc</kbd> fermer</span></footer>
+  </dialog>
+</div>
+
+<script type="application/json" id="docs-search-data" set:html={searchPayload} is:inline />
+<script>
+  type SearchArticle = { slug: string; title: string; summary: string; groupTitle: string };
+  const dialog = document.querySelector<HTMLDialogElement>('#docs-search-dialog');
+  const input = document.querySelector<HTMLInputElement>('#docs-search-input');
+  const results = document.querySelector<HTMLElement>('.docs-search-results');
+  const articles = JSON.parse(document.querySelector('#docs-search-data')?.textContent ?? '[]') as SearchArticle[];
+  let activeIndex = 0;
+
+  const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr');
+  const render = () => {
+    if (!results || !input) return;
+    const query = normalize(input.value.trim());
+    const matches = articles.filter((item) => !query || normalize(`${item.title} ${item.summary} ${item.groupTitle}`).includes(query)).slice(0, 8);
+    activeIndex = Math.min(activeIndex, Math.max(0, matches.length - 1));
+    results.innerHTML = matches.length ? matches.map((item, index) => `<a role="option" aria-selected="${index === activeIndex}" href="/docs/${item.slug}/"><span><small>${item.groupTitle}</small><strong>${item.title}</strong><em>${item.summary}</em></span><b aria-hidden="true">→</b></a>`).join('') : '<p>Aucun guide ne correspond à cette recherche.</p>';
+    results.querySelectorAll('a').forEach((link, index) => link.addEventListener('pointermove', () => { activeIndex = index; render(); }));
+  };
+  const open = () => { dialog?.showModal(); if (input) input.value = ''; activeIndex = 0; render(); requestAnimationFrame(() => input?.focus()); };
+  document.querySelector('.docs-search-trigger')?.addEventListener('click', open);
+  document.querySelector('[data-docs-search-close]')?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+  input?.addEventListener('input', render);
+  document.addEventListener('keydown', (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLocaleLowerCase() === 'k') { event.preventDefault(); open(); return; }
+    if (!dialog?.open) return;
+    const links = [...(results?.querySelectorAll<HTMLAnchorElement>('a') ?? [])];
+    if (event.key === 'ArrowDown') { event.preventDefault(); activeIndex = Math.min(activeIndex + 1, links.length - 1); render(); }
+    if (event.key === 'ArrowUp') { event.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); render(); }
+    const activeLink = links[activeIndex];
+    if (event.key === 'Enter' && activeLink) { event.preventDefault(); activeLink.click(); }
+  });
+</script>

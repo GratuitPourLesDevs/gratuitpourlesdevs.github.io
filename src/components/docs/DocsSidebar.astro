@@ -1,0 +1,27 @@
+---
+import { docsGroups } from '../../data/docs';
+interface Props { currentSlug?: string; }
+const { currentSlug } = Astro.props;
+---
+
+<aside class="docs-sidebar" id="docs-sidebar" aria-label="Navigation de la documentation">
+  <div class="docs-sidebar-mobile-head"><strong>Sommaire</strong><button type="button" data-docs-nav-close aria-label="Fermer le sommaire">×</button></div>
+  <nav>
+    {docsGroups.map((group, groupIndex) => {
+      const activeGroup = group.articles.some((item) => item.slug === currentSlug);
+      return <details open={activeGroup || groupIndex < 2}>
+        <summary><span>{group.title}</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary>
+        <ul>{group.articles.map((item) => <li><a class:list={{ active: item.slug === currentSlug }} aria-current={item.slug === currentSlug ? 'page' : undefined} href={`/docs/${item.slug}/`}>{item.title}</a></li>)}</ul>
+      </details>;
+    })}
+  </nav>
+</aside>
+<button class="docs-sidebar-backdrop" type="button" data-docs-nav-close aria-label="Fermer le sommaire" tabindex="-1"></button>
+
+<script>
+  const sidebar = document.querySelector('#docs-sidebar');
+  const close = () => { sidebar?.classList.remove('open'); document.body.classList.remove('docs-nav-open'); };
+  document.querySelectorAll('[data-docs-nav-open]').forEach((button) => button.addEventListener('click', () => { sidebar?.classList.add('open'); document.body.classList.add('docs-nav-open'); }));
+  document.querySelectorAll('[data-docs-nav-close]').forEach((button) => button.addEventListener('click', close));
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
+</script>
