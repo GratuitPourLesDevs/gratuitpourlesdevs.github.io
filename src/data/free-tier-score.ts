@@ -1,4 +1,5 @@
 import type { OfferAlertLevel, OfferAlertType } from './offer-alerts';
+import { formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-quotas';
 
 export type FreeTierScoreCriterion = {
   id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
@@ -144,6 +145,9 @@ const getUsageFreedomScore = (offer: ScoredOffer) => {
 export const getFreeTierScore = (id: string, offer: ScoredOffer, referenceDate = new Date()): FreeTierScore => {
   const quotaPoints = QUOTA_SCORES[id];
   if (!quotaPoints) throw new Error(`Score de quota manquant pour l’offre « ${id} ».`);
+  const structuredQuotas = getOfferQuotas(id);
+  if (!structuredQuotas.length) throw new Error(`Quotas structurés manquants pour l’offre « ${id} ».`);
+  const quotaEvidence = structuredQuotas.slice(0, 3).map((quota) => `${quota.label} : ${formatQuotaAmount(quota)} ${formatQuotaPeriod(quota)}`).join(' ; ');
 
   const ageInDays = Math.max(0, Math.floor((referenceDate.getTime() - offer.verifieLe.getTime()) / DAY));
   const freshnessPoints = ageInDays <= 90 ? 5 : ageInDays <= 180 ? 3 : ageInDays <= 365 ? 1 : 0;
@@ -170,7 +174,7 @@ export const getFreeTierScore = (id: string, offer: ScoredOffer, referenceDate =
       label: 'Utilité du quota',
       points: quotaPoints,
       max: 25,
-      detail: `${QUOTA_LEVELS[quotaPoints]} Quota observé : ${offer.formule}`,
+      detail: `${QUOTA_LEVELS[quotaPoints]} Données structurées : ${quotaEvidence}${structuredQuotas.length > 3 ? ` ; +${structuredQuotas.length - 3} autre${structuredQuotas.length > 4 ? 's' : ''}` : ''}.`,
     },
     {
       id: 'restrictions',

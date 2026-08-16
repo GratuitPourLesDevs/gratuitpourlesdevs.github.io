@@ -7,6 +7,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 import { getBillingRisk } from '../data/billing-risk';
 import { getFreeTierScore } from '../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../data/offer-alerts';
+import { assertOfferQuotaCoverage, formatQuotaAmount, formatQuotaMetric, formatQuotaOverage, formatQuotaPeriod, formatQuotaReset, formatQuotaScope, getComparableQuotaValue, getOfferQuotas, getQuotaComparisonKey } from '../data/offer-quotas';
 
 const offerChangeDates = new Map<string, number>();
 try {
@@ -47,6 +48,7 @@ const latestVerification = new Date(Math.max(...entries.map(({ data }) => data.v
 const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }).replace('.', '');
 const getOfferChangeDate = (entry: typeof entries[number]) => offerChangeDates.get(`src/content/offres/${entry.id}.md`) ?? entry.data.verifieLe.getTime();
 const scoreById = new Map(entries.map((entry) => [entry.id, getFreeTierScore(entry.id, entry.data)]));
+assertOfferQuotaCoverage(entries.map((entry) => entry.id));
 const comparisonPayload = JSON.stringify(entries.map((entry) => ({
   id: entry.id,
   name: entry.data.nom,
@@ -69,6 +71,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
   url: entry.data.url,
   documentation: entry.data.documentation,
   source: entry.data.source,
+  quotas: getOfferQuotas(entry.id).map((quota) => { const value = getComparableQuotaValue(quota); return { ...quota, metricLabel: formatQuotaMetric(quota), amountLabel: formatQuotaAmount(quota), periodLabel: formatQuotaPeriod(quota), resetLabel: formatQuotaReset(quota), overageLabel: formatQuotaOverage(quota), scopeLabel: formatQuotaScope(quota), comparisonKey: getQuotaComparisonKey(quota), comparableValue: value === Number.POSITIVE_INFINITY ? 'unlimited' : value }; }),
 }))).replace(/</g, '\\u003c');
 ---
 
@@ -291,10 +294,14 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     const quickFilters = new Set<string>();
     const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
     const rowUsages = new Map(rows.map((row) => [row, (JSON.parse(row.dataset.usages ?? '[]') as string[]).map(normalize)]));
+    type ComparisonQuota = {
+      id: string; metric: string; label: string; amount: number | null; unit: string; period: string; scope: string; reset: string; overage: string; kind?: string; shared?: boolean; notes?: string;
+      metricLabel: string; amountLabel: string; periodLabel: string; resetLabel: string; overageLabel: string; scopeLabel: string; comparisonKey: string; comparableValue: number | 'unlimited' | null;
+    };
     type ComparisonOffer = {
       id: string; name: string; tagline: string; initials: string; color: string; category: string; type: string; plan: string;
       cardRequired: boolean; billingRisk: string; freeTierScore: number; permanent: boolean; usages: string[]; included: string[]; conditions: string[]; restrictions: string[]; alerts: string[];
-      verified: string; url: string; documentation?: string; source: string;
+      verified: string; url: string; documentation?: string; source: string; quotas: ComparisonQuota[];
     };
     const comparisonDataElement = document.querySelector<HTMLScriptElement>('#comparison-data');
     const comparisonOffers = JSON.parse(comparisonDataElement?.textContent ?? '[]') as ComparisonOffer[];
@@ -412,10 +419,12 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       });
       cell.append(list);
     };
-    const comparisonCriteria: Array<{ label: string; get: (offer: ComparisonOffer) => string | string[]; links?: boolean; granular?: boolean }> = [
+    type ComparisonCriterion = { label: string; get: (offer: ComparisonOffer) => string | string[]; links?: boolean; granular?: boolean; quotaKey?: string };
+    const baseComparisonCriteria: ComparisonCriterion[] = [
       { label: 'Catégorie', get: (offer) => offer.category },
       { label: 'Modèle', get: (offer) => offer.type },
       { label: 'Formule gratuite', get: (offer) => offer.plan },
+      { label: 'Quotas normalisés', get: (offer) => offer.quotas.map((quota) => `${quota.label} : ${quota.amountLabel} ${quota.periodLabel} · ${quota.scopeLabel} · ${quota.overageLabel}`) },
       { label: 'Score GratuitPourLesDevs', get: (offer) => `${offer.freeTierScore}/100` },
       { label: 'Risque de facturation', get: (offer) => offer.billingRisk },
       { label: 'Carte bancaire', get: (offer) => offer.cardRequired ? 'Carte requise' : 'Sans carte bancaire' },
@@ -428,6 +437,28 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       { label: 'Dernière vérification', get: (offer) => offer.verified },
       { label: 'Liens', links: true, get: (offer) => [offer.url, offer.documentation ?? '', offer.source] },
     ];
+    const getComparableQuotaCriteria = (offers: ComparisonOffer[]): ComparisonCriterion[] => {
+      const groups = new Map<string, { label: string; offerIds: Set<string> }>();
+      offers.forEach((offer) => offer.quotas.forEach((quota) => {
+        if (quota.comparableValue === null) return;
+        const group = groups.get(quota.comparisonKey) ?? { label: quota.metricLabel, offerIds: new Set<string>() };
+        group.offerIds.add(offer.id);
+        groups.set(quota.comparisonKey, group);
+      }));
+      return [...groups.entries()]
+        .filter(([, group]) => group.offerIds.size >= 2)
+        .map(([quotaKey, group]) => ({
+          label: `Quota comparable · ${group.label}`,
+          quotaKey,
+          get: (offer: ComparisonOffer) => {
+            const quota = getBestMatchingQuota(offer, quotaKey);
+            return quota ? `${quota.label} : ${quota.amountLabel} ${quota.periodLabel}` : 'Non documenté';
+          },
+        }));
+    };
+    const getBestMatchingQuota = (offer: ComparisonOffer, quotaKey: string) => offer.quotas
+      .filter((quota) => quota.comparisonKey === quotaKey && quota.comparableValue !== null)
+      .sort((a, b) => (b.comparableValue === 'unlimited' ? Number.POSITIVE_INFINITY : b.comparableValue ?? -1) - (a.comparableValue === 'unlimited' ? Number.POSITIVE_INFINITY : a.comparableValue ?? -1))[0];
     const renderComparisonTable = () => {
       const offers = selectedComparisonOffers();
       if (!comparisonHead || !comparisonBody) return;
@@ -462,6 +493,8 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       });
       comparisonHead.replaceChildren(headRow);
       const onlyDifferences = differencesOnly?.checked ?? false;
+      const quotaCriteria = getComparableQuotaCriteria(offers);
+      const comparisonCriteria = [...baseComparisonCriteria.slice(0, 4), ...quotaCriteria, ...baseComparisonCriteria.slice(4)];
       const rows = comparisonCriteria.map((criterion) => {
         const values = offers.map(criterion.get);
         const comparableValues = criterion.granular
@@ -490,9 +523,23 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
             cell.append(nav);
           } else if (criterion.granular) appendGranularComparisonValue(cell, value as string[], granularOccurrences, offers.length, onlyDifferences);
           else appendComparisonValue(cell, value);
+          if (criterion.quotaKey) {
+            const quota = offers[index] ? getBestMatchingQuota(offers[index]!, criterion.quotaKey) : undefined;
+            if (quota?.comparableValue !== null && quota?.comparableValue !== undefined) cell.dataset.quotaValue = String(quota.comparableValue);
+          }
           cell.dataset.offer = offers[index]?.id ?? '';
           row.append(cell);
         });
+        if (criterion.quotaKey) {
+          const quotaValues = offers.map((offer) => getBestMatchingQuota(offer, criterion.quotaKey!)?.comparableValue ?? null);
+          const numericValues = quotaValues.filter((value): value is number | 'unlimited' => value !== null).map((value) => value === 'unlimited' ? Number.POSITIVE_INFINITY : value);
+          const best = numericValues.length ? Math.max(...numericValues) : null;
+          [...row.querySelectorAll<HTMLTableCellElement>('td')].forEach((cell, index) => {
+            const raw = quotaValues[index];
+            const numeric = raw === 'unlimited' ? Number.POSITIVE_INFINITY : raw;
+            if (best !== null && numeric === best) { cell.classList.add('comparison-quota-best'); cell.title = 'Quota le plus élevé parmi les offres sélectionnées'; }
+          });
+        }
         return row;
       });
       comparisonBody.replaceChildren(...rows);

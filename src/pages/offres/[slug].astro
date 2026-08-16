@@ -8,6 +8,7 @@ import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
 import { getBillingRisk } from '../../data/billing-risk';
 import { getFreeTierScore } from '../../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../../data/offer-alerts';
+import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, formatQuotaReset, formatQuotaScope, getOfferQuotas } from '../../data/offer-quotas';
 
 type HistoryItem = { timestamp: number; revision?: string };
 type HistoryChange = { champ: string; avant?: string; apres?: string; note?: string };
@@ -117,6 +118,7 @@ const modifiedAt = new Date(historyEvents[0]?.timestamp ?? entry.data.verifieLe.
 const statusLabel = entry.data.statut === 'obsolete' ? 'Archivée' : entry.data.statut === 'a_verifier' ? 'À vérifier' : 'Active';
 const billingRisk = getBillingRisk(entry.data);
 const freeTierScore = entry.data.statut === 'obsolete' ? undefined : getFreeTierScore(entry.id, entry.data);
+const offerQuotas = getOfferQuotas(entry.id);
 const scoreTone = freeTierScore ? (freeTierScore.total >= 85 ? 'excellent' : freeTierScore.total >= 70 ? 'strong' : freeTierScore.total >= 50 ? 'balanced' : 'limited') : undefined;
 const title = `${entry.data.nom} : formule gratuite, quotas et limites`;
 const description = `${entry.data.accroche}. Découvrez la formule gratuite de ${entry.data.nom}, ses quotas, conditions, limites, alternatives et comparaisons.`;
@@ -177,6 +179,14 @@ const jsonLd = [
           <article><small>CE QUI EST INCLUS</small><h2>Les ressources gratuites</h2><ul>{entry.data.inclus.map((item) => <li>{item}</li>)}</ul></article>
           <article><small>CONDITIONS</small><h2>Avant de commencer</h2><ul>{entry.data.conditions.map((item) => <li>{item}</li>)}</ul></article>
           <article class="offer-restrictions" id="limites"><small>LIMITES</small><h2>Les restrictions à connaître</h2><ul>{entry.data.restrictions.map((item) => <li>{item}</li>)}</ul></article>
+        </section>
+
+        <section class="offer-quota-section" aria-labelledby="normalized-quotas-title">
+          <header><div><small>DONNÉES STRUCTURÉES</small><h2 id="normalized-quotas-title">Quotas normalisés</h2></div><p>Ces valeurs servent aux comparaisons automatiques. Le texte éditorial reste disponible pour les nuances propres au fournisseur.</p></header>
+          <div class="offer-quota-table" role="table" aria-label={`Quotas normalisés de ${entry.data.nom}`}>
+            <div class="offer-quota-head" role="row"><span role="columnheader">Ressource</span><span role="columnheader">Volume</span><span role="columnheader">Période</span><span role="columnheader">Portée</span><span role="columnheader">Dépassement</span></div>
+            {offerQuotas.map((quota) => <div class="offer-quota-row" role="row"><strong role="cell">{quota.label}{quota.shared && <small>Partagé</small>}</strong><span role="cell">{formatQuotaAmount(quota)}</span><span role="cell">{formatQuotaPeriod(quota)}<small>Réinit. : {formatQuotaReset(quota)}</small></span><span role="cell">{formatQuotaScope(quota)}</span><span role="cell" class:list={[`is-${quota.overage}`]}>{formatQuotaOverage(quota)}</span>{quota.notes && <p>{quota.notes}</p>}</div>)}
+          </div>
         </section>
 
         {freeTierScore && <section class="offer-score-section" id="score-gratuitpourlesdevs">
