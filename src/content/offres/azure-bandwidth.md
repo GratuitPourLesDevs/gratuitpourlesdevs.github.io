@@ -7,6 +7,11 @@ formule: 100 Go de trafic Internet sortant gratuits par mois dans toutes les ré
 inclus: [100 Go de trafic Internet sortant par mois, Transfert de données entrant gratuit, Transfert au sein d’une même zone de disponibilité gratuit, Transfert d’une origine Azure vers Azure Front Door Standard ou Premium gratuit, Certains transferts d’une origine Azure vers Azure CDN gratuits]
 conditions: [Compte Microsoft, Abonnement Azure actif, Moyen de paiement configuré, Ressources Azure générant le trafic]
 restrictions: [Trafic sortant au-delà de 100 Go par mois facturé au Go, Tarifs variables selon le continent source et le routage choisi, Transferts entre régions Azure généralement facturés, Cas particuliers soumis aux tarifs Azure CDN ExpressRoute ou Peering, Le quota historique de 15 Go pendant 12 mois n’est plus la limite de référence actuelle]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Le trafic Internet sortant dépassant 100 Go par mois est facturé au Go.
 usages: [Réseau, Trafic sortant, Bande passante, Architecture cloud]
 url: https://azure.microsoft.com/en-us/pricing/details/bandwidth/
 documentation: https://learn.microsoft.com/en-us/azure/networking/fundamentals/

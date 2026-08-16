@@ -29,6 +29,11 @@ restrictions:
   - Une facturation minimale de 5 USD par projet s’applique après dépassement du niveau gratuit
   - Un moyen de paiement est demandé avant de poursuivre au-delà des quotas gratuits
   - Les limites du niveau gratuit peuvent évoluer
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Le dépassement d’un quota active la facturation à l’usage pour la ressource concernée.
 usages:
   - Backend d’application
   - Fonctions serverless

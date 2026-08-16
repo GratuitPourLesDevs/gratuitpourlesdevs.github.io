@@ -7,6 +7,11 @@ formule: 10 métriques personnalisées, 10 alarmes standard, 1 million de requê
 inclus: [Métriques de supervision basique envoyées par les services AWS, 10 métriques personnalisées ou de supervision détaillée, 10 métriques d’alarme à résolution standard, 1 million de requêtes API par mois, 5 Go de données pour l’ingestion et l’archivage des logs ainsi que les requêtes Logs Insights, 3 tableaux de bord personnalisés contenant jusqu’à 50 métriques chacun, 1 800 minutes de Live Tail par mois, 100 exécutions de canaris Synthetics par mois]
 conditions: [Compte AWS, Compte de facturation et moyen de paiement configurés, Ressources et journaux envoyés vers CloudWatch]
 restrictions: [Dépassements facturés aux tarifs de la région AWS utilisée, GetMetricData GetInsightRuleReport et GetMetricWidgetImage exclus du million de requêtes gratuites, Alarmes haute résolution et alarmes basées sur des requêtes facturables, Les dimensions distinctes peuvent être comptées comme des métriques séparées, Les fonctions avancées d’observabilité disposent de quotas ou d’essais spécifiques]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Les métriques, logs, alarmes et appels dépassant les quotas sont facturés selon la région AWS.
 usages: [Monitoring, Logs, Alertes]
 url: https://aws.amazon.com/cloudwatch/
 documentation: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html

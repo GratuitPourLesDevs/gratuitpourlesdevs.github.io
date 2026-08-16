@@ -10,6 +10,10 @@ restrictions: [Crédits gratuits agrégés entre toutes les applications Functio
 alertes:
   - type: finance
     niveau: critique
+    libelle: Dépassement facturé
+    detail: Les exécutions et Go-secondes dépassant les crédits gratuits sont facturés à l’usage.
+  - type: finance
+    niveau: critique
     libelle: Stockage facturé séparément
     detail: Le compte de stockage obligatoire et certains services Azure connectés restent facturables.
   - type: operationnel

@@ -16,6 +16,10 @@ alertes:
     niveau: critique
     libelle: Non recommandé en production
     detail: Le niveau Free fonctionne sans SLA et vise surtout le développement et les tests.
+  - type: operationnel
+    niveau: important
+    libelle: Aucun SLA
+    detail: Le plan de contrôle fonctionne en best effort sans garantie contractuelle de disponibilité.
 usages: [Kubernetes, Orchestration de conteneurs, Environnements de développement, Tests d’infrastructure]
 url: https://azure.microsoft.com/en-us/products/kubernetes-service/
 documentation: https://learn.microsoft.com/en-us/azure/aks/free-standard-pricing-tiers

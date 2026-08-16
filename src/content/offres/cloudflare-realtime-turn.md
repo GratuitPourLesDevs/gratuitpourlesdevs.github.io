@@ -27,6 +27,11 @@ restrictions:
   - Pas d’adresse de relais IPv6 malgré la connectivité client IPv6
   - Limites par allocation sur les nouvelles adresses IP le débit de paquets et le débit de données
   - Les identifiants doivent être générés côté serveur et ne doivent pas exposer la clé TURN au client
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Le trafic sortant dépassant le quota mensuel est facturé automatiquement au Go.
 usages:
   - Relais WebRTC
   - Visioconférence et voix sur IP

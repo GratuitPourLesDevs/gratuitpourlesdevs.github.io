@@ -7,6 +7,15 @@ formule: 1 pipeline V1 actif ou 100 minutes d’actions V2 par mois
 inclus: [1 pipeline V1 actif gratuit par mois, 100 minutes d’exécution d’actions gratuites par mois partagées entre tous les pipelines V2 du compte, Pipelines gratuits pendant leurs 30 premiers jours, Approbations manuelles et actions personnalisées V2 non facturées, Intégration avec CodeCommit GitHub CodeBuild CodeDeploy S3 et les services tiers]
 conditions: [Compte AWS, Compte de facturation et moyen de paiement configurés, Sources étapes et actions du pipeline configurées, Services AWS ou tiers nécessaires au workflow accessibles]
 restrictions: [Pipeline V1 supplémentaire actif facturé 1 dollar par mois, "Actions V2 supplémentaires facturées 0,002 dollar par minute d’exécution", Minutes V2 inutilisées non reportées au mois suivant, Durée de chaque action V2 arrondie à la minute supérieure, Stockage et accès aux artefacts S3 ainsi que les services déclenchés facturés séparément]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Les pipelines ou minutes supplémentaires sont facturés dès que le quota gratuit est dépassé.
+  - type: finance
+    niveau: important
+    libelle: Services associés facturables
+    detail: Les artefacts S3 et les services exécutés par le pipeline restent facturés séparément.
 usages: [CI/CD, Orchestration, Déploiement]
 url: https://aws.amazon.com/codepipeline/
 documentation: https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html

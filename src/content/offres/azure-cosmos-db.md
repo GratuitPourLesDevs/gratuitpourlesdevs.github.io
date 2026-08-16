@@ -12,6 +12,10 @@ alertes:
     niveau: critique
     libelle: À activer dès la création
     detail: La remise Free Tier ne peut plus être activée après la création du compte Cosmos DB.
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Le débit et le stockage dépassant 1 000 RU/s et 25 Go sont facturés automatiquement.
   - type: fonctionnel
     niveau: important
     libelle: Mode serverless exclu

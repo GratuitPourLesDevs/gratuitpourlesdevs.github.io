@@ -7,6 +7,15 @@ formule: 50 000 utilisateurs actifs mensuels inclus sans frais
 inclus: [Création d’un locataire externe dédié, Parcours d’inscription et de connexion personnalisables, Comptes locaux par e-mail et mot de passe ou code à usage unique, Fédération avec Google Facebook Apple et Microsoft Entra ID, Fournisseurs personnalisés OIDC SAML et WS-Fed, SSO entre les applications du locataire, Personnalisation de la marque et des langues, Attributs utilisateur standards et personnalisés, Authentification multifacteur par e-mail]
 conditions: [Compte Microsoft, Abonnement Azure actif lié au locataire pour la facturation, Locataire Microsoft Entra configuré comme locataire externe, Applications enregistrées dans le locataire, Fournisseurs sociaux configurés avec leurs propres identifiants]
 restrictions: [Le quota gratuit porte sur 50 000 utilisateurs actifs mensuels et non sur le nombre de comptes stockés, Les utilisateurs uniques authentifiés dans le mois sont agrégés entre les locataires liés au même abonnement, Les utilisateurs actifs au-delà de 50 000 sont facturés, L’authentification SMS est un module complémentaire facturé par tentative, Les modules avancés de gouvernance et de protection peuvent être facturés séparément, Un abonnement Azure de facturation reste nécessaire même lorsque l’usage demeure sous le seuil gratuit, Azure AD B2C n’est plus proposé aux nouveaux clients depuis le 1er mai 2025]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Les utilisateurs actifs mensuels au-delà de 50 000 sont facturés automatiquement.
+  - type: finance
+    niveau: important
+    libelle: SMS facturés séparément
+    detail: L’authentification par SMS est facturée par tentative et n’entre pas dans le quota gratuit.
 usages: [CIAM, Authentification client, SSO, Identités externes]
 url: https://www.microsoft.com/security/business/identity-access/microsoft-entra-external-id
 documentation: https://learn.microsoft.com/entra/external-id/customers/overview-customers-ciam

@@ -7,6 +7,11 @@ formule: Service de gestion des laboratoires gratuit, ressources Azure sous-jace
 inclus: [Création de laboratoires sans frais de service, Création et réutilisation de modèles d’environnement, Ajout de dépôts Git d’artefacts, Installation d’outils scripts et applications après le provisionnement, Politiques de quotas par utilisateur ou par laboratoire, Démarrage et arrêt automatiques des machines, Suivi des coûts via Azure Cost Management]
 conditions: [Compte Microsoft, Abonnement Azure actif avec facturation, Utilisateurs présents dans le locataire Microsoft Entra ID, Autorisations Azure RBAC adaptées, Modèles images réseaux et politiques du laboratoire configurés]
 restrictions: [Machines virtuelles facturées pendant leur exécution, Disques VHD et comptes de stockage facturés séparément, Réseau public adresses IP trafic et services associés susceptibles d’être facturés, Azure Key Vault susceptible d’être facturé pour les dépôts Git privés, Aucun quota de calcul ou de machine virtuelle offert par DevTest Labs, Coûts dépendant des tailles régions durées d’exécution et licences choisies, Arrêt automatique ne supprimant pas nécessairement les coûts de stockage]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Infrastructure facturée séparément
+    detail: Les machines virtuelles, disques, stockages, adresses IP et transferts restent payants.
 usages: [Environnements de test, Gouvernance cloud, Laboratoires]
 url: https://azure.microsoft.com/products/devtest-lab/
 documentation: https://learn.microsoft.com/azure/devtest-labs/devtest-lab-overview

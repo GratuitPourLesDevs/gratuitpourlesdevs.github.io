@@ -7,6 +7,11 @@ formule: 10 Go-mois, 1 million d’opérations de classe A et 10 millions de cla
 inclus: [10 Go-mois de stockage Standard par mois, 1 million d’opérations de classe A par mois, 10 millions d’opérations de classe B par mois, Transfert sortant vers Internet gratuit, Aucun frais de récupération sur le stockage Standard, Suppressions d’objets et de buckets gratuites, API compatible Amazon S3, Accès depuis Cloudflare Workers, Buckets publics et domaines personnalisés, Taille maximale proche de 5 Tio par objet, Nombre d’objets illimité par bucket]
 conditions: [Compte Cloudflare, Souscription R2 activée depuis le tableau de bord, Moyen de paiement configuré, Utilisation de la classe de stockage Standard pour bénéficier du quota gratuit]
 restrictions: [Dépassements de stockage et d’opérations facturés automatiquement, Quota de stockage mesuré en Go-mois selon la moyenne des pics quotidiens, Arrondi de la consommation à l’unité de facturation supérieure, Formule gratuite non applicable à la classe Infrequent Access, Frais de récupération sur les objets Infrequent Access, Durée minimale de stockage de 30 jours en Infrequent Access, Endpoint public r2.dev destiné aux tests et susceptible d’être limité, Envoi en une seule partie limité à environ 5 Gio, Une écriture simultanée par seconde sur un même nom d’objet, Opérations de classe A et B comptabilisées séparément]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Le stockage et les opérations dépassant les quotas gratuits sont facturés automatiquement.
 usages: [Stockage objet, Sauvegarde, Assets statiques, Distribution de médias, Migration S3, Data lake]
 url: https://www.cloudflare.com/developer-platform/products/r2/
 documentation: https://developers.cloudflare.com/r2/

@@ -7,6 +7,11 @@ formule: 5 utilisateurs actifs, 50 Go de stockage et 10 000 requêtes Git par mo
 inclus: [5 utilisateurs actifs par mois, 50 Go de stockage mutualisé par mois, 10 000 requêtes Git mutualisées par mois, Jusqu’à 5 000 dépôts par compte AWS selon le quota de service, Intégration avec IAM CodeBuild CodePipeline et les autres services AWS]
 conditions: [Compte AWS, Compte de facturation et moyen de paiement configurés, Identités IAM ou accès fédéré configurés, Dépôts créés dans une région AWS prenant en charge CodeCommit]
 restrictions: [Chaque identité AWS ou serveur distinct accédant au service pendant le mois compte comme utilisateur actif, Utilisateurs actifs supplémentaires facturés 1 dollar par mois, "Stockage supplémentaire facturé 0,06 dollar par Go et par mois", "Requêtes Git supplémentaires facturées 0,001 dollar chacune", Stockage et requêtes inutilisés non reportés au mois suivant]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Dépassement facturé
+    detail: Les utilisateurs, le stockage et les requêtes Git dépassant les quotas gratuits sont facturés.
 usages: [Git, Dépôts privés, Collaboration]
 url: https://aws.amazon.com/codecommit/
 documentation: https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html
