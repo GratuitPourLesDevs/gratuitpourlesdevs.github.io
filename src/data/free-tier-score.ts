@@ -87,6 +87,7 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   uptimerobot: 15,
   vercel: 20,
   'zoho-apptics': 15,
+  'zoho-assist': 15,
   'zoho-catalyst': 20,
   'zoho-mail': 15,
 };
