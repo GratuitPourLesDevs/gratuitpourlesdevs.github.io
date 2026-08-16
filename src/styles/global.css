@@ -123,3 +123,12 @@ footer{min-height:92px;display:grid;grid-template-columns:1fr auto auto;align-it
 
 .docs-article-header h1{font-size:clamp(39px,3.2vw,48px);letter-spacing:-2.5px}
 @media(max-width:760px){body:has(.docs-utility) .site-header{min-height:68px;height:68px;grid-template-rows:68px}body:has(.docs-utility) .site-header nav{display:none}body:has(.docs-utility) .site-header .outline-button{display:none}body:has(.docs-utility) .brand{font-size:16px}body:has(.docs-utility) .brand>span{display:block}.docs-demo-controls{flex-wrap:wrap;overflow:visible}.docs-demo-controls label{flex:1 0 100%}}
+
+/* Keep documentation available without treating it as a primary product area. */
+.docs-header-link{width:44px;height:44px;display:grid;place-items:center;flex:0 0 auto;border:1px solid var(--line);border-radius:7px;color:var(--ink);background:var(--surface);text-decoration:none}
+.docs-header-link svg{width:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round}
+.docs-header-link:hover,.docs-header-link:focus-visible{color:var(--blue);border-color:var(--blue);background:var(--surface-hover);outline:0}
+.docs-header-link:focus-visible{box-shadow:0 0 0 3px rgb(11 69 255/20%)}
+.docs-header-link.active{color:var(--blue);border-color:var(--blue);background:color-mix(in srgb,var(--blue) 8%,var(--surface))}
+@media(max-width:760px){.docs-header-link{width:40px;height:40px}.docs-header-link svg{width:19px}}
+@media(max-width:560px){.site-header:not(:has(+ .docs-utility)) .brand>span{display:none}}

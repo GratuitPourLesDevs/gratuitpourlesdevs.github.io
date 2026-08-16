@@ -81,13 +81,16 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
       <span>Gratuit<span>PourLesDevs</span></span>
     </a>
-    <nav aria-label="Navigation principale"><a class="active" href="#catalogue">Catalogue</a><a href="/explorer/">Explorateur</a><a href="/comparaisons/">Comparaisons</a><a href="/archives/">Archives</a></nav>
+    <nav aria-label="Navigation principale"><a class="active" href="#catalogue">Catalogue</a><a href="/explorer/">Explorateur</a><a href="/comparaisons/">Comparaisons</a></nav>
     <div class="header-actions">
       <ThemeToggle />
       <button class="favorites-filter" id="favorites-filter" type="button" aria-label="Afficher uniquement les favoris" aria-pressed="false" title="Afficher uniquement les favoris">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg>
       </button>
       <a class="outline-button" href="/contact/?objet=suggestion">Suggérer un outil</a>
+      <a class="docs-header-link" href="/docs/" aria-label="Documentation" title="Documentation">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22V5.5ZM20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22V5.5Z"/></svg>
+      </a>
     </div>
   </header>
 
