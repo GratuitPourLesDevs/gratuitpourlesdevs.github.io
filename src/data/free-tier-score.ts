@@ -1,7 +1,7 @@
-import { getBillingRisk } from './billing-risk';
+import type { OfferAlertLevel, OfferAlertType } from './offer-alerts';
 
 export type FreeTierScoreCriterion = {
-  id: 'permanence' | 'card' | 'quota' | 'billing' | 'freshness' | 'sources';
+  id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
   label: string;
   points: number;
   max: number;
@@ -21,6 +21,12 @@ type ScoredOffer = {
   verifieLe: Date;
   source: string;
   documentation?: string;
+  alertes: Array<{
+    type: OfferAlertType;
+    niveau: OfferAlertLevel;
+    libelle: string;
+    detail: string;
+  }>;
 };
 
 const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
@@ -94,15 +100,53 @@ const QUOTA_LEVELS: Record<number, string> = {
 };
 
 const DAY = 86_400_000;
+const DURATION_ALERT_PATTERN = /gratuit pendant|avantage limité|crédit limité/i;
+const AUTOMATIC_BILLING_PATTERN = /dépassements? facturés?|facturé après expiration/i;
+
+const getUsageFreedomScore = (offer: ScoredOffer) => {
+  const durationAlerts = offer.alertes.filter((alert) => DURATION_ALERT_PATTERN.test(alert.libelle));
+  const relevantAlerts = offer.alertes.filter((alert) => !DURATION_ALERT_PATTERN.test(alert.libelle));
+  const criticalAlerts = relevantAlerts.filter((alert) => alert.niveau === 'critique');
+  const criticalTypes = new Set(criticalAlerts.map((alert) => alert.type));
+  const hasAutomaticBilling = offer.depassementFacture || criticalAlerts.some((alert) => alert.type === 'finance' && AUTOMATIC_BILLING_PATTERN.test(alert.libelle));
+
+  let points = 20;
+  let assessment = 'Aucune restriction décisive n’est actuellement identifiée.';
+
+  if (hasAutomaticBilling) {
+    points = 0;
+    assessment = 'Un dépassement ou la fin de l’avantage peut déclencher une facturation.';
+  } else if (criticalTypes.has('finance') && criticalTypes.size > 1) {
+    points = 0;
+    assessment = 'Une dépendance payante se cumule avec une autre restriction critique.';
+  } else if (criticalTypes.has('finance')) {
+    points = 4;
+    assessment = 'Une ressource ou une dépendance indispensable reste facturée séparément.';
+  } else if (criticalTypes.has('usage')) {
+    points = 8;
+    assessment = 'Une restriction d’usage limite fortement les projets réellement éligibles.';
+  } else if (criticalAlerts.length > 0) {
+    points = 12;
+    assessment = 'Une limitation opérationnelle ou fonctionnelle peut changer la décision d’usage.';
+  } else if (relevantAlerts.length > 0) {
+    points = 16;
+    assessment = 'Des contraintes importantes existent, sans rendre l’offre inutilisable.';
+  }
+
+  const visibleReasons = relevantAlerts.map((alert) => alert.libelle);
+  const reasons = visibleReasons.length ? ` Restrictions prises en compte : ${visibleReasons.join(', ')}.` : '';
+  const durationNote = durationAlerts.length ? ' Les limites de durée sont évaluées dans « Gratuit permanent ».' : '';
+
+  return { points, detail: `${assessment}${reasons}${durationNote}` };
+};
 
 export const getFreeTierScore = (id: string, offer: ScoredOffer, referenceDate = new Date()): FreeTierScore => {
   const quotaPoints = QUOTA_SCORES[id];
   if (!quotaPoints) throw new Error(`Score de quota manquant pour l’offre « ${id} ».`);
 
   const ageInDays = Math.max(0, Math.floor((referenceDate.getTime() - offer.verifieLe.getTime()) / DAY));
-  const freshnessPoints = ageInDays <= 90 ? 10 : ageInDays <= 180 ? 7 : ageInDays <= 365 ? 3 : 0;
-  const billingRisk = getBillingRisk(offer);
-  const billingPoints = billingRisk.level === 'none' ? 15 : billingRisk.level === 'card' ? 8 : 0;
+  const freshnessPoints = ageInDays <= 90 ? 5 : ageInDays <= 180 ? 3 : ageInDays <= 365 ? 1 : 0;
+  const usageFreedom = getUsageFreedomScore(offer);
   const sourcePoints = 2 + (offer.documentation ? 3 : 0);
 
   const criteria: FreeTierScoreCriterion[] = [
@@ -128,17 +172,17 @@ export const getFreeTierScore = (id: string, offer: ScoredOffer, referenceDate =
       detail: `${QUOTA_LEVELS[quotaPoints]} Quota observé : ${offer.formule}`,
     },
     {
-      id: 'billing',
-      label: 'Sécurité de facturation',
-      points: billingPoints,
-      max: 15,
-      detail: billingRisk.detail,
+      id: 'restrictions',
+      label: 'Liberté réelle d’utilisation',
+      points: usageFreedom.points,
+      max: 20,
+      detail: usageFreedom.detail,
     },
     {
       id: 'freshness',
       label: 'Vérification récente',
       points: freshnessPoints,
-      max: 10,
+      max: 5,
       detail: `Vérifié le ${offer.verifieLe.toLocaleDateString('fr-FR')} (${ageInDays} jour${ageInDays > 1 ? 's' : ''}).`,
     },
     {
