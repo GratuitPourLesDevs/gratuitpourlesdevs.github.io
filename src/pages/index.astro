@@ -81,7 +81,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
       <span>Gratuit<span>PourLesDevs</span></span>
     </a>
-    <nav aria-label="Navigation principale"><a class="active" href="#catalogue">Catalogue</a><a href="/comparaisons/">Comparaisons</a><a href="/archives/">Archives</a></nav>
+    <nav aria-label="Navigation principale"><a class="active" href="#catalogue">Catalogue</a><a href="/explorer/">Explorateur</a><a href="/comparaisons/">Comparaisons</a><a href="/archives/">Archives</a></nav>
     <div class="header-actions">
       <ThemeToggle />
       <button class="favorites-filter" id="favorites-filter" type="button" aria-label="Afficher uniquement les favoris" aria-pressed="false" title="Afficher uniquement les favoris">
@@ -134,6 +134,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
           <button type="button" data-quick-filter="permanent" aria-pressed="false"><span aria-hidden="true">∞</span> Formule permanente</button>
           <button type="button" data-quick-filter="recent" aria-pressed="false"><span aria-hidden="true">↻</span> Vérifiées récemment</button>
         </div>
+        <a class="quota-explorer-link" href="/explorer/"><span aria-hidden="true">↗</span><strong>Comparer les quotas</strong><small>Stockage, trafic, requêtes…</small></a>
         <button class="advanced-filters-toggle" id="advanced-filters-toggle" type="button" aria-expanded="false" aria-controls="advanced-filters-panel">
           <span>Filtres avancés</span><b id="advanced-filter-count" hidden>0</b><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
         </button>

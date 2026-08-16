@@ -1,0 +1,231 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { getBillingRisk } from '../data/billing-risk';
+import { getFreeTierScore } from '../data/free-tier-score';
+import {
+  formatQuotaAmount,
+  formatQuotaOverage,
+  formatQuotaPeriod,
+  formatQuotaScope,
+  getComparableQuotaValue,
+  getOfferQuotas,
+} from '../data/offer-quotas';
+
+const priorityMetrics = ['storage', 'bandwidth', 'requests', 'build_time', 'users'];
+const entries = (await getCollection('offres'))
+  .filter(({ data }) => data.statut !== 'obsolete')
+  .sort((a, b) => a.data.nom.localeCompare(b.data.nom, 'fr'));
+const categories = await getCollection('categories');
+const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
+
+const rows = entries.flatMap((entry) => {
+  const billingRisk = getBillingRisk(entry.data);
+  const score = getFreeTierScore(entry.id, entry.data).total;
+  return getOfferQuotas(entry.id)
+    .filter((quota) => priorityMetrics.includes(quota.metric))
+    .map((quota) => ({
+      entry,
+      quota,
+      billingRisk,
+      score,
+      comparableValue: getComparableQuotaValue(quota),
+      category: categoryNames.get(entry.data.categorie) ?? entry.data.categorie,
+    }));
+});
+---
+
+<BaseLayout title="Explorateur de quotas gratuits — GratuitPourLesDevs" description="Comparez les quotas gratuits de stockage, trafic, requêtes, temps de build et utilisateurs selon une période et une portée identiques.">
+  <SiteHeader active="explorer" />
+  <main class="quota-explorer-page">
+    <header class="quota-explorer-hero">
+      <div>
+        <small>EXPLORATEUR DE QUOTAS</small>
+        <h1>Trouvez le quota gratuit qui vous convient.</h1>
+        <p>Choisissez une ressource et un périmètre précis. Le classement ne compare que des valeurs réellement compatibles et garde les conditions de facturation visibles.</p>
+      </div>
+      <aside class="quota-explorer-guide" aria-label="Fonctionnement de l’explorateur">
+        <small>COMMENT ÇA MARCHE ?</small>
+        <ol>
+          <li><b>1</b><span><strong>Choisissez une ressource</strong><em>Stockage, trafic, requêtes, build ou utilisateurs.</em></span></li>
+          <li><b>2</b><span><strong>Comparez le même périmètre</strong><em>La période et la portée restent identiques.</em></span></li>
+          <li><b>3</b><span><strong>Sélectionnez 2 à 4 offres</strong><em>Vous pourrez ensuite consulter leur comparatif détaillé.</em></span></li>
+        </ol>
+      </aside>
+    </header>
+
+    <section class="quota-explorer-controls" aria-labelledby="explorer-controls-title">
+      <div class="quota-explorer-controls-heading">
+        <div><small>VOTRE BESOIN</small><h2 id="explorer-controls-title">Que souhaitez-vous comparer ?</h2></div>
+        <button id="explorer-reset" type="button">Réinitialiser</button>
+      </div>
+      <div class="quota-explorer-filter-grid">
+        <label><span>Ressource</span><select id="explorer-resource"><option value="storage">Stockage</option><option value="bandwidth">Trafic sortant</option><option value="requests">Requêtes</option><option value="build_time">Temps de build</option><option value="users">Utilisateurs</option></select></label>
+        <label><span>Période</span><select id="explorer-period"><option value="month">Par mois</option><option value="day">Par jour</option><option value="week">Par semaine</option><option value="lifetime">Sans limite de durée</option><option value="total">Au total</option><option value="">Toutes — indicatif</option></select></label>
+        <label><span>Portée</span><select id="explorer-scope"><option value="account">Par compte</option><option value="organization">Par organisation</option><option value="project">Par projet</option><option value="user">Par utilisateur</option><option value="service">Par service</option><option value="repository">Par dépôt</option><option value="">Toutes — indicatif</option></select></label>
+        <label><span>Dépassement</span><select id="explorer-overage"><option value="">Indifférent</option><option value="blocked">Bloqué au plafond</option><option value="billed">Facturé</option><option value="not-applicable">Sans objet</option></select></label>
+        <label><span>Carte bancaire</span><select id="explorer-card"><option value="">Indifférent</option><option value="false">Sans carte</option><option value="true">Carte requise</option></select></label>
+        <label><span>Durée de l’offre</span><select id="explorer-permanent"><option value="">Indifférent</option><option value="true">Formule permanente</option><option value="false">Avantage limité</option></select></label>
+      </div>
+    </section>
+
+    <section class="quota-explorer-results" aria-labelledby="explorer-results-title">
+      <header>
+        <div><small id="explorer-comparison-mode">MÊME PÉRIODE ET MÊME PORTÉE</small><h2 id="explorer-results-title"><span id="explorer-result-count">0</span> quotas gratuits</h2><p id="explorer-query-summary" aria-live="polite"></p></div>
+        <div class="quota-explorer-result-actions">
+          <button id="explorer-copy-link" type="button">Copier le lien</button>
+          <a id="explorer-compare-link" href="/" aria-disabled="true"><span>Comparer la sélection</span><b id="explorer-selection-count">0</b></a>
+        </div>
+      </header>
+
+      <div class="quota-explorer-table" role="table" aria-label="Classement des quotas gratuits">
+        <div class="quota-explorer-table-head" role="row"><span>Rang et offre</span><span>Quota normalisé</span><span>Périmètre</span><span>Conditions</span><span>Sélection</span></div>
+        <div id="quota-explorer-rows">
+          {rows.map(({ entry, quota, billingRisk, score, comparableValue, category }) => (
+            <article
+              class="quota-explorer-row"
+              role="row"
+              data-offer-id={entry.id}
+              data-metric={quota.metric}
+              data-period={quota.period}
+              data-scope={quota.scope}
+              data-overage={quota.overage}
+              data-card={String(entry.data.carteRequise)}
+              data-permanent={String(entry.data.permanent)}
+              data-value={comparableValue === Number.POSITIVE_INFINITY ? 'Infinity' : comparableValue ?? ''}
+              data-score={score}
+              data-name={entry.data.nom}
+              hidden={quota.metric !== 'storage' || quota.period !== 'month' || quota.scope !== 'account'}
+            >
+              <div class="quota-explorer-identity" role="cell">
+                <span class="quota-explorer-rank">—</span>
+                <span><small>{category}</small><strong><a href={`/offres/${entry.id}/`}>{entry.data.nom}</a></strong><em>Score {score}/100</em></span>
+              </div>
+              <div class="quota-explorer-quota" role="cell"><strong>{formatQuotaAmount(quota)}</strong><span>{quota.label}</span>{quota.shared && <small>Quota partagé</small>}<i class="quota-explorer-best" hidden>Meilleur quota</i></div>
+              <div role="cell"><strong>{formatQuotaPeriod(quota)}</strong><span>{formatQuotaScope(quota)}</span></div>
+              <div class="quota-explorer-conditions" role="cell"><strong class:list={[`risk-${billingRisk.level}`]}>{billingRisk.shortLabel}</strong><span>{formatQuotaOverage(quota)}</span><small>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</small></div>
+              <div role="cell"><button class="explorer-select-offer" type="button" data-id={entry.id} aria-pressed="false"><span aria-hidden="true">+</span><b>Sélectionner</b></button></div>
+            </article>
+          ))}
+        </div>
+      </div>
+      <div class="quota-explorer-empty" id="quota-explorer-empty" hidden><strong>Aucun quota strictement comparable</strong><p>Élargissez la période ou la portée, ou choisissez une autre ressource. Les résultats indicatifs restent explicitement signalés.</p></div>
+      <p class="quota-explorer-method"><strong>Classement transparent.</strong> Les volumes sont convertis dans une unité commune, puis triés du plus élevé au plus faible. Une valeur illimitée précède les limites numériques. Le score ne départage que deux quotas identiques. <a href="/methodologie/">Consulter la méthodologie →</a></p>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  const byId = <T extends HTMLElement>(selector: string) => document.querySelector<T>(selector)!;
+  const controls: Record<string, HTMLSelectElement> = {
+    resource: byId<HTMLSelectElement>('#explorer-resource'),
+    period: byId<HTMLSelectElement>('#explorer-period'),
+    scope: byId<HTMLSelectElement>('#explorer-scope'),
+    overage: byId<HTMLSelectElement>('#explorer-overage'),
+    card: byId<HTMLSelectElement>('#explorer-card'),
+    permanent: byId<HTMLSelectElement>('#explorer-permanent'),
+  };
+  const rows = [...document.querySelectorAll<HTMLElement>('.quota-explorer-row')];
+  const rowContainer = byId<HTMLElement>('#quota-explorer-rows');
+  const resultCount = byId<HTMLElement>('#explorer-result-count');
+  const resultTitle = byId<HTMLElement>('#explorer-results-title');
+  const querySummary = byId<HTMLElement>('#explorer-query-summary');
+  const comparisonMode = byId<HTMLElement>('#explorer-comparison-mode');
+  const emptyState = byId<HTMLElement>('#quota-explorer-empty');
+  const compareLink = byId<HTMLAnchorElement>('#explorer-compare-link');
+  const selectionCount = byId<HTMLElement>('#explorer-selection-count');
+  const selected = new Set<string>();
+  const defaults: Record<string, string> = { resource: 'storage', period: 'month', scope: 'account', overage: '', card: '', permanent: '' };
+  const resourceLabels: Record<string, string> = { storage: 'stockage', bandwidth: 'trafic sortant', requests: 'requêtes', build_time: 'temps de build', users: 'utilisateurs' };
+
+  const currentFilters = () => Object.fromEntries(Object.entries(controls).map(([key, control]) => [key, control.value]));
+
+  const updateSelection = () => {
+    rows.forEach((row) => {
+      const button = row.querySelector<HTMLButtonElement>('.explorer-select-offer')!;
+      const isSelected = selected.has(row.dataset.offerId!);
+      button.setAttribute('aria-pressed', String(isSelected));
+      button.querySelector('span')!.textContent = isSelected ? '✓' : '+';
+      button.querySelector('b')!.textContent = isSelected ? 'Sélectionnée' : 'Sélectionner';
+    });
+    selectionCount.textContent = String(selected.size);
+    const canCompare = selected.size >= 2;
+    compareLink.setAttribute('aria-disabled', String(!canCompare));
+    compareLink.href = canCompare ? `/?compare=${encodeURIComponent([...selected].join(','))}` : '/';
+  };
+
+  const render = () => {
+    const filters = currentFilters();
+    const strict = Boolean(filters.period && filters.scope);
+    const visible = rows.filter((row) => {
+      const data = row.dataset;
+      return data.metric === filters.resource
+        && (!filters.period || data.period === filters.period)
+        && (!filters.scope || data.scope === filters.scope)
+        && (!filters.overage || data.overage === filters.overage)
+        && (!filters.card || data.card === filters.card)
+        && (!filters.permanent || data.permanent === filters.permanent)
+        && data.value !== '';
+    }).sort((a, b) => {
+      const aValue = Number(a.dataset.value);
+      const bValue = Number(b.dataset.value);
+      return bValue - aValue || Number(b.dataset.score) - Number(a.dataset.score) || (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr');
+    });
+
+    const visibleSet = new Set(visible);
+    rows.forEach((row) => { row.hidden = !visibleSet.has(row); row.querySelector<HTMLElement>('.quota-explorer-best')!.hidden = true; });
+    visible.forEach((row, index) => {
+      row.querySelector<HTMLElement>('.quota-explorer-rank')!.textContent = String(index + 1).padStart(2, '0');
+      if (strict && index === 0) row.querySelector<HTMLElement>('.quota-explorer-best')!.hidden = false;
+      rowContainer.append(row);
+    });
+
+    const params = new URLSearchParams();
+    Object.entries(filters).forEach(([key, value]) => { if (value) params.set(key, value); });
+    history.replaceState(null, '', `${location.pathname}?${params.toString()}`);
+    const offerCount = new Set(visible.map((row) => row.dataset.offerId)).size;
+    resultCount.textContent = String(visible.length);
+    resultTitle.textContent = `${visible.length} quota${visible.length > 1 ? 's' : ''} gratuit${visible.length > 1 ? 's' : ''} dans ${offerCount} offre${offerCount > 1 ? 's' : ''}`;
+    emptyState.hidden = visible.length > 0;
+    comparisonMode.textContent = strict ? 'MÊME PÉRIODE ET MÊME PORTÉE' : 'PÉRIMÈTRES DIFFÉRENTS — À VÉRIFIER';
+    comparisonMode.classList.toggle('indicative', !strict);
+    const periodLabel = controls.period!.selectedOptions[0]!.textContent!.toLocaleLowerCase('fr');
+    const scopeLabel = controls.scope!.selectedOptions[0]!.textContent!.toLocaleLowerCase('fr');
+    const resourceSubject = filters.resource === 'users' ? 'd’utilisateurs' : `de ${resourceLabels[filters.resource ?? 'storage']}`;
+    querySummary.textContent = `Quotas ${resourceSubject} ${periodLabel}, ${scopeLabel}.${strict ? '' : ' Vérifiez le périmètre de chaque ligne avant de conclure.'}`;
+  };
+
+  const params = new URLSearchParams(location.search);
+  Object.entries(controls).forEach(([key, control]) => {
+    const requested = params.get(key);
+    control.value = requested !== null && [...control.options].some((option) => option.value === requested) ? requested : (defaults[key] ?? '');
+    control.addEventListener('change', render);
+  });
+
+  byId<HTMLButtonElement>('#explorer-reset').addEventListener('click', () => {
+    Object.entries(controls).forEach(([key, control]) => { control.value = defaults[key] ?? ''; });
+    render();
+  });
+  byId<HTMLButtonElement>('#explorer-copy-link').addEventListener('click', async (event) => {
+    const button = event.currentTarget as HTMLButtonElement;
+    try {
+      await navigator.clipboard.writeText(location.href);
+      button.textContent = 'Lien copié';
+    } catch {
+      button.textContent = 'Adresse prête à copier';
+    }
+    window.setTimeout(() => { button.textContent = 'Copier le lien'; }, 1800);
+  });
+  rows.forEach((row) => row.querySelector<HTMLButtonElement>('.explorer-select-offer')!.addEventListener('click', () => {
+    const id = row.dataset.offerId!;
+    if (selected.has(id)) selected.delete(id);
+    else if (selected.size < 4) selected.add(id);
+    updateSelection();
+  }));
+  compareLink.addEventListener('click', (event) => { if (selected.size < 2) event.preventDefault(); });
+  render();
+  updateSelection();
+</script>
