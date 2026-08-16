@@ -7,6 +7,15 @@ formule: 1 000 RU/s provisionnées et 25 Go de stockage gratuits pendant toute l
 inclus: [1 000 unités de requête par seconde, 25 Go de stockage, Débit provisionné manuel ou autoscale, Réplication dans une ou plusieurs régions, API NoSQL MongoDB Cassandra Gremlin et Table, Jusqu’à 25 conteneurs dans une base à débit partagé, SLA et haute disponibilité du service standard]
 conditions: [Abonnement Azure actif, Moyen de paiement configuré, Un seul compte Free Tier par abonnement Azure, Activation de la remise Free Tier lors de la création du compte, Mode de capacité avec débit provisionné]
 restrictions: [Le Free Tier ne peut pas être activé après la création du compte, Mode serverless non éligible, Débit au-delà de 1 000 RU/s facturé, Stockage au-delà de 25 Go facturé, Débit gratuit partagé à l’échelle du compte, Ressources et fonctions annexes susceptibles d’être facturées séparément]
+alertes:
+  - type: operationnel
+    niveau: critique
+    libelle: À activer dès la création
+    detail: La remise Free Tier ne peut plus être activée après la création du compte Cosmos DB.
+  - type: fonctionnel
+    niveau: important
+    libelle: Mode serverless exclu
+    detail: Le quota gratuit s’applique au débit provisionné et non au mode serverless.
 usages: [NoSQL, Base de données distribuée, MongoDB, Applications cloud]
 url: https://azure.microsoft.com/en-us/products/cosmos-db/
 documentation: https://learn.microsoft.com/en-us/azure/cosmos-db/free-tier

@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 import { DEPRECATED_USAGE_TAGS, USAGE_TAG_SET } from './data/usage-tags';
+import { OFFER_ALERT_LEVELS, OFFER_ALERT_TYPES } from './data/offer-alerts';
 
 const usageTag = z.string().superRefine((tag, context) => {
   if (USAGE_TAG_SET.has(tag)) return;
@@ -26,6 +27,12 @@ const offres = defineCollection({
     inclus: z.array(z.coerce.string()),
     conditions: z.array(z.coerce.string()),
     restrictions: z.array(z.coerce.string()),
+    alertes: z.array(z.object({
+      type: z.enum(OFFER_ALERT_TYPES),
+      niveau: z.enum(OFFER_ALERT_LEVELS),
+      libelle: z.string().min(3).max(48),
+      detail: z.string().min(10),
+    })).max(4).default([]),
     usages: z.array(usageTag).min(1),
     url: z.url(),
     documentation: z.url().optional(),

@@ -6,6 +6,7 @@ import CustomSelect from '../components/CustomSelect.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { getBillingRisk } from '../data/billing-risk';
 import { getFreeTierScore } from '../data/free-tier-score';
+import { OFFER_ALERT_ICONS } from '../data/offer-alerts';
 
 const offerChangeDates = new Map<string, number>();
 try {
@@ -63,6 +64,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
   included: entry.data.inclus,
   conditions: entry.data.conditions,
   restrictions: entry.data.restrictions,
+  alerts: entry.data.alertes.map((alert) => alert.libelle),
   verified: entry.data.verifieLe.toLocaleDateString('fr-FR'),
   url: entry.data.url,
   documentation: entry.data.documentation,
@@ -167,7 +169,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
                 <span><small class="offer-category">{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><strong><a class="offer-name-link" href={`/offres/${entry.id}/`}>{entry.data.nom}</a></strong><span class="identity-meta"><small>{entry.data.accroche}</small><em>{entry.data.type}</em></span></span>
               </div>
               <p class="offer-plan"><strong>{entry.data.formule}</strong><small>{entry.data.usages.slice(0, 3).join(' · ')}</small><small class="offer-duration">{entry.data.permanent ? 'Formule permanente' : 'Essai limité'}</small></p>
-              <div class="offer-status"><span class:list={['billing-risk-badge', `is-${billingRisk.level}`]}><i aria-hidden="true"></i>{billingRisk.shortLabel}</span><small class="billing-card-state">{entry.data.carteRequise ? 'Carte bancaire requise' : 'Sans carte bancaire'}</small>{entry.data.statut === 'a_verifier' && <small class="needs-review">À vérifier</small>}</div>
+              <div class="offer-status"><span class:list={['billing-risk-badge', `is-${billingRisk.level}`]}><i aria-hidden="true"></i>{billingRisk.shortLabel}</span><small class="billing-card-state">{entry.data.carteRequise ? 'Carte bancaire requise' : 'Sans carte bancaire'}</small>{entry.data.alertes.length > 0 && <div class="offer-key-alerts is-compact" aria-label={`Restrictions clés de ${entry.data.nom}`}>{entry.data.alertes.slice(0, 2).map((alert) => <a class:list={[`is-${alert.type}`, `is-${alert.niveau}`]} href={`/offres/${entry.id}/#limites`} title={alert.detail}><i aria-hidden="true">{OFFER_ALERT_ICONS[alert.type]}</i><span>{alert.libelle}</span></a>)}{entry.data.alertes.length > 2 && <a class="offer-alert-more" href={`/offres/${entry.id}/#limites`}>+{entry.data.alertes.length - 2}</a>}</div>}{entry.data.statut === 'a_verifier' && <small class="needs-review">À vérifier</small>}</div>
               <div class="offer-actions">
                 <button class="favorite" type="button" aria-label={`Ajouter ${entry.data.nom} aux favoris`} data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.8-5.4 2.8 1-6-4.4-4.3 6.1-.9L12 3Z"/></svg></button>
                 <button class="compare-offer" type="button" aria-label={`Ajouter ${entry.data.nom} au comparateur`} aria-pressed="false" data-id={entry.id}><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/><path d="M10 7.5h4M14 16.5h-4M13 5l2.5 2.5L13 10M11 14l-2.5 2.5L11 19"/></svg></button>
@@ -260,7 +262,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     const rowUsages = new Map(rows.map((row) => [row, (JSON.parse(row.dataset.usages ?? '[]') as string[]).map(normalize)]));
     type ComparisonOffer = {
       id: string; name: string; tagline: string; initials: string; color: string; category: string; type: string; plan: string;
-      cardRequired: boolean; billingRisk: string; freeTierScore: number; permanent: boolean; usages: string[]; included: string[]; conditions: string[]; restrictions: string[];
+      cardRequired: boolean; billingRisk: string; freeTierScore: number; permanent: boolean; usages: string[]; included: string[]; conditions: string[]; restrictions: string[]; alerts: string[];
       verified: string; url: string; documentation?: string; source: string;
     };
     const comparisonDataElement = document.querySelector<HTMLScriptElement>('#comparison-data');
@@ -387,6 +389,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       { label: 'Risque de facturation', get: (offer) => offer.billingRisk },
       { label: 'Carte bancaire', get: (offer) => offer.cardRequired ? 'Carte requise' : 'Sans carte bancaire' },
       { label: 'Durée', get: (offer) => offer.permanent ? 'Formule permanente' : 'Essai limité' },
+      { label: 'Restrictions clés', get: (offer) => offer.alerts.length ? offer.alerts : ['Aucune alerte éditoriale prioritaire'] },
       { label: 'Usages', granular: true, get: (offer) => offer.usages },
       { label: 'Inclus', get: (offer) => offer.included },
       { label: 'Conditions', get: (offer) => offer.conditions },

@@ -24,6 +24,15 @@ restrictions:
   - Transfert d’e-mails routage avancé SSO SAML et marque blanche réservés aux offres payantes
   - Offre gratuite disponible uniquement dans certains centres de données et certaines régions
   - Passage à une formule payante nécessaire à partir du sixième utilisateur
+alertes:
+  - type: fonctionnel
+    niveau: critique
+    libelle: Webmail uniquement
+    detail: IMAP, POP et ActiveSync ne sont pas inclus dans le plan gratuit.
+  - type: operationnel
+    niveau: important
+    libelle: Disponibilité régionale limitée
+    detail: Le plan gratuit n’est proposé que dans certains centres de données et certaines régions.
 usages:
   - Messagerie
   - Collaboration

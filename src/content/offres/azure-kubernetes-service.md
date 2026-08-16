@@ -7,6 +7,15 @@ formule: Gestion du cluster AKS gratuite, ressources d’infrastructure facturé
 inclus: [Plan de contrôle Kubernetes managé, Toutes les fonctionnalités AKS actuelles, Jusqu’à 1 000 nœuds pris en charge, Clusters publics ou privés dans les régions compatibles, Mises à niveau et maintenance du plan de contrôle, Intégration avec les services Azure, Niveau Base avec tier Free]
 conditions: [Compte Microsoft, Abonnement Azure actif, Moyen de paiement configuré, Création d’un cluster AKS Standard avec le niveau Free, Paiement des machines virtuelles du stockage du réseau et des autres ressources consommées]
 restrictions: [Aucun SLA de disponibilité assorti de compensations financières, Disponibilité du plan de contrôle en mode best effort, Recommandé pour moins de 10 nœuds, Destiné au développement aux tests à l’apprentissage et à l’évaluation, Non recommandé pour la production, Les nœuds de calcul ne sont pas gratuits, Le stockage les adresses IP et le trafic réseau peuvent être facturés, AKS Automatic utilise le niveau Standard et non le niveau Free]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Infrastructure facturée
+    detail: Les nœuds, le stockage, les adresses IP et le trafic réseau restent facturés.
+  - type: usage
+    niveau: critique
+    libelle: Non recommandé en production
+    detail: Le niveau Free fonctionne sans SLA et vise surtout le développement et les tests.
 usages: [Kubernetes, Orchestration de conteneurs, Environnements de développement, Tests d’infrastructure]
 url: https://azure.microsoft.com/en-us/products/kubernetes-service/
 documentation: https://learn.microsoft.com/en-us/azure/aks/free-standard-pricing-tiers

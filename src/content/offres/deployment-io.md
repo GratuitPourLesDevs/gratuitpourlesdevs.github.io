@@ -7,6 +7,15 @@ formule: 1 utilisateur et 10 jobs par mois avec sites, services et environnement
 inclus: [10 jobs par mois, 1 utilisateur, Sites statiques et services web illimités, Dépôts et environnements illimités, Domaines personnalisés avec HTTPS, Déploiements automatiques sur git push, Environnements de prévisualisation sur les pull requests, Logs de build et d’application, Notifications Slack, Accès MCP pour les agents de développement, Contrôles RBAC et validation humaine des déploiements en production]
 conditions: [Compte Deployment.io gratuit sans carte bancaire, Compte AWS connecté et configuré, Dépôts de code accessibles à la plateforme]
 restrictions: [Les ressources AWS déployées restent facturées par AWS, Une tâche un déploiement ou une récupération de logs consomme un job, Un environnement de prévisualisation consomme un job par service lancé, Les tâches multi-étapes comptent chaque étape comme un job, Limite d’un seul utilisateur sur le plan gratuit, Fonctionnalités SSO SAML et support managé réservés aux offres supérieures]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Ressources AWS facturées
+    detail: Les ressources créées par Deployment.io restent facturées directement par AWS.
+  - type: fonctionnel
+    niveau: important
+    libelle: Un seul utilisateur
+    detail: Le plan gratuit est limité à un seul utilisateur.
 usages: [Déploiement AWS, CI/CD, Agents IA]
 url: https://deployment.io/
 documentation: https://deployment.io/docs/

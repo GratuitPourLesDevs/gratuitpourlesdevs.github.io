@@ -7,6 +7,15 @@ formule: 1 serveur de déploiement, 1 site statique et 5 déploiements par 24 he
 inclus: [1 serveur de déploiement, 1 site statique, 5 déploiements par 24 heures, 50 minutes de build par mois, 1 Go de trafic pour le site statique, Certificats SSL et domaines personnalisés]
 conditions: [Compte Cloud 66 gratuit, Aucune carte bancaire, Infrastructure hébergée chez votre propre fournisseur cloud]
 restrictions: [Les coûts du fournisseur cloud restent à votre charge, Limites strictes sur le nombre de serveurs et de sites, 1 membre d’équipe, Rétention des métriques limitée à 1 heure]
+alertes:
+  - type: finance
+    niveau: critique
+    libelle: Cloud facturé séparément
+    detail: Les ressources du fournisseur cloud connecté restent entièrement à votre charge.
+  - type: fonctionnel
+    niveau: important
+    libelle: Un seul membre d’équipe
+    detail: La formule gratuite limite l’espace de travail à un seul membre.
 usages: [Déploiement cloud, Gestion d’infrastructure, Applications conteneurisées]
 url: https://www.cloud66.com/
 documentation: https://help.cloud66.com/
