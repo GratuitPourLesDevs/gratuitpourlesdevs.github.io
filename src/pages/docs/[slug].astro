@@ -20,8 +20,8 @@ const isCatalogueSearch = slug === 'rechercher-dans-le-catalogue';
 const isBillingGuide = slug === 'risque-de-facturation';
 const isStackGuide = slug === 'stack-100-gratuite';
 const sectionTitle = isIntroductionGuide ? 'Un catalogue éditorial de free tiers' : isStartGuide ? 'Trouver une offre gratuite' : isCatalogueSearch ? 'Formuler une recherche utile' : isBillingGuide ? 'Identifier le chemin vers la facture' : isStackGuide ? 'Partir du besoin, pas des outils' : `Comprendre : ${current.title}`;
-const secondSectionTitle = isIntroductionGuide ? 'Ce que vous trouvez dans le catalogue' : isStartGuide ? 'Lire les bons signaux' : isCatalogueSearch ? 'Combiner recherche et filtres' : isBillingGuide ? 'Distinguer les niveaux de risque' : isStackGuide ? 'Vérifier les coûts de jonction' : 'Passer à l’action';
-const thirdSectionTitle = isIntroductionGuide ? 'Ce que le catalogue exclut' : isCatalogueSearch ? 'Lire et ouvrir les résultats' : 'Vérifier avant de choisir';
+const secondSectionTitle = isIntroductionGuide ? 'Ce que vous trouvez dans le catalogue' : isStartGuide ? 'Affiner avec les filtres' : isCatalogueSearch ? 'Combiner recherche et filtres' : isBillingGuide ? 'Distinguer les niveaux de risque' : isStackGuide ? 'Vérifier les coûts de jonction' : 'Passer à l’action';
+const thirdSectionTitle = isIntroductionGuide ? 'Ce que le catalogue exclut' : isStartGuide ? 'Lire les résultats' : isCatalogueSearch ? 'Lire et ouvrir les résultats' : 'Vérifier avant de choisir';
 const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
 ---
 
@@ -61,6 +61,10 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
           <img src="/docs/recherche-postgresql.png" width="1360" height="400" loading="lazy" alt="Recherche PostgreSQL dans le catalogue avec une offre Neon affichée" />
           <figcaption><span>Exemple réel</span> Une requête précise réduit immédiatement le catalogue aux offres correspondantes.</figcaption>
         </figure>}
+        {isStartGuide && <figure class="docs-figure">
+          <img src="/docs/recherche-postgresql.png" width="1360" height="400" loading="lazy" alt="Catalogue filtré par une recherche PostgreSQL avec un résultat correspondant" />
+          <figcaption><span>Étape 1</span> Commencez par un besoin, une technologie ou un fournisseur ; le compteur de résultats se met à jour immédiatement.</figcaption>
+        </figure>}
         <a class="docs-inline-action" href={isIntroductionGuide ? '/docs/comment-utiliser-le-site/' : isStartGuide || isCatalogueSearch ? '/#catalogue' : isBillingGuide ? '/methodologie/#restrictions-cles' : isStackGuide ? '/explorer/' : '/'}>{isIntroductionGuide ? 'Voir comment utiliser le site' : isStartGuide ? 'Ouvrir le catalogue' : isCatalogueSearch ? 'Essayer dans le catalogue' : isBillingGuide ? 'Voir la méthodologie' : isStackGuide ? 'Explorer les quotas' : 'Mettre ce guide en pratique'} <span>→</span></a>
       </section>
 
@@ -73,6 +77,17 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
             <div><b>!</b><span><strong>Risque de facturation</strong><small>Carte bancaire, dépassement bloqué ou facturé et conditions sensibles sont signalés.</small></span></div>
           </div>
           <aside class="docs-note"><span>i</span><div><strong>Une fiche est une synthèse, pas une copie marketing</strong><p>Elle sépare ce qui est inclus, les conditions d’accès, les restrictions et les liens vers les sources officielles.</p></div></aside>
+        </> : isStartGuide ? <>
+          <div class="docs-checklist">
+            <div><b>1</b><span><strong>Activez les accès rapides</strong><small>« Sans carte bancaire », « Aucun risque », « Formule permanente » et « Vérifiées récemment » couvrent les choix les plus fréquents.</small></span></div>
+            <div><b>2</b><span><strong>Ouvrez les filtres avancés</strong><small>Sélectionnez une catégorie, un modèle SaaS / PaaS / IaaS, une durée de gratuité ou une date de vérification.</small></span></div>
+            <div><b>3</b><span><strong>Ajoutez seulement les critères décisifs</strong><small>Chaque filtre réduit la liste. Gardez les préférences secondaires pour la lecture des fiches afin de ne pas éliminer trop tôt une bonne candidate.</small></span></div>
+          </div>
+          <figure class="docs-figure">
+            <img src="/docs/filtres-combines.png" width="1360" height="330" loading="lazy" alt="Filtres rapides et avancés appliqués au catalogue GratuitPourLesDevs" />
+            <figcaption><span>Étape 2</span> Les boutons bleus sont actifs et le compteur des filtres avancés permet de repérer immédiatement une sélection trop stricte.</figcaption>
+          </figure>
+          <aside class="docs-note"><span>i</span><div><strong>Recherche et filtres se cumulent</strong><p>Si aucun résultat ne reste, retirez le dernier critère ajouté ou utilisez « Réinitialiser » pour repartir du catalogue complet.</p></div></aside>
         </> : isCatalogueSearch ? <>
           <div class="docs-checklist">
             <div><b>A</b><span><strong>Utilisez d’abord les accès rapides</strong><small>Activez « Sans carte bancaire », « Aucun risque », « Formule permanente » ou « Vérifiées récemment » en un clic.</small></span></div>
@@ -103,6 +118,16 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
             <div><b>×</b><span><strong>Les outils sans intérêt développeur identifiable</strong><small>La gratuité seule ne suffit pas : l’outil doit répondre à un besoin concret de conception, livraison ou exploitation.</small></span></div>
           </div>
           <blockquote><strong>Gratuit ne veut pas dire sans condition.</strong><p>Une carte bancaire obligatoire, une limite d’usage commercial ou un dépassement facturé n’excluent pas automatiquement une offre. Ces contraintes doivent en revanche être visibles avant votre décision.</p></blockquote>
+        </> : isStartGuide ? <>
+          <div class="docs-checklist">
+            <div><b>1</b><span><strong>Regardez la formule gratuite</strong><small>Le résumé indique les principaux quotas et précise s’il s’agit d’une formule permanente.</small></span></div>
+            <div><b>2</b><span><strong>Contrôlez la facturation</strong><small>Le niveau de risque et la présence éventuelle d’une carte bancaire sont visibles directement dans la liste.</small></span></div>
+            <div><b>3</b><span><strong>Dépliez le résultat</strong><small>Le chevron révèle les éléments inclus, les conditions, les restrictions et la dernière date de vérification sans perdre vos filtres.</small></span></div>
+          </div>
+          <figure class="docs-figure docs-figure-tall">
+            <img src="/docs/resultat-neon-detail.png" width="1440" height="1100" loading="lazy" alt="Résultat Neon déplié montrant les informations à lire avant de choisir une offre" />
+            <figcaption><span>Étape 3</span> Un résultat déplié permet une première évaluation complète avant d’ouvrir la fiche détaillée.</figcaption>
+          </figure>
         </> : isCatalogueSearch ? <>
           <div class="docs-checklist">
             <div><b>1</b><span><strong>Choisissez le bon ordre</strong><small>Triez par pertinence, score du free tier, modification récente, date de vérification, catégorie, modèle ou nom.</small></span></div>
@@ -149,6 +174,39 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
         </section>
       </>}
 
+      {isStartGuide && <>
+        <section id="ouvrir-fiche" class="docs-prose-section">
+          <header><span>04</span><div><h2>Ouvrir et comprendre une fiche</h2><p>La fiche complète rassemble les données utiles à une décision : quotas normalisés, restrictions, sources, historique et alternatives.</p></div></header>
+          <div class="docs-checklist">
+            <div><b>1</b><span><strong>Reliez le quota à son périmètre</strong><small>Vérifiez l’unité, la période et ce qui partage réellement la limite : compte, projet, membre ou ressource.</small></span></div>
+            <div><b>2</b><span><strong>Lisez conditions et restrictions séparément</strong><small>Les conditions expliquent comment accéder à l’offre ; les restrictions décrivent ce qui limite son usage.</small></span></div>
+            <div><b>3</b><span><strong>Utilisez l’historique et les alternatives</strong><small>Repérez les évolutions récentes et ouvrez les offres voisines si une contrainte est bloquante.</small></span></div>
+          </div>
+          <a class="docs-inline-action" href="/docs/comprendre-une-fiche-en-2-minutes/">Apprendre à lire une fiche <span>→</span></a>
+        </section>
+
+        <section id="conserver-comparer" class="docs-prose-section">
+          <header><span>05</span><div><h2>Conserver et comparer vos candidates</h2><p>Quand plusieurs offres conviennent, transformez les résultats en shortlist au lieu de garder une série d’onglets difficiles à confronter.</p></div></header>
+          <div class="docs-signals">
+            <div><b>☆</b><span><strong>Favoris</strong><small>Conservez les offres intéressantes pour les retrouver rapidement lors d’une prochaine visite.</small></span></div>
+            <div><b>⇄</b><span><strong>Comparateur</strong><small>Placez plusieurs offres côte à côte pour confronter quotas, conditions et risques.</small></span></div>
+            <div><b>↗</b><span><strong>Partage</strong><small>Utilisez une comparaison partageable pour documenter une décision avec votre équipe.</small></span></div>
+          </div>
+          <aside class="docs-note"><span>i</span><div><strong>Comparez un même besoin</strong><p>Une base PostgreSQL et un stockage objet peuvent tous deux afficher des gigaoctets, mais ils ne rendent pas le même service. Comparez d’abord la fonction, puis le quota.</p></div></aside>
+        </section>
+
+        <section id="verifier-choix" class="docs-prose-section">
+          <header><span>06</span><div><h2>Vérifier avant de choisir</h2><p>GratuitPourLesDevs accélère la recherche et la comparaison ; la source officielle reste la référence avant une intégration durable.</p></div></header>
+          <div class="docs-checklist">
+            <div><b>1</b><span><strong>Regardez la date de vérification</strong><small>Plus elle est récente, plus la synthèse reflète probablement l’offre actuellement commercialisée.</small></span></div>
+            <div><b>2</b><span><strong>Ouvrez la documentation officielle</strong><small>Confirmez les limites qui pourraient bloquer votre projet, notamment la facturation, la région et les usages autorisés.</small></span></div>
+            <div><b>3</b><span><strong>Testez avec des garde-fous</strong><small>Activez alertes et plafonds quand le fournisseur le permet, puis observez la consommation réelle avant de dépendre du service.</small></span></div>
+          </div>
+          <blockquote><strong>Le bon résultat est une décision éclairée.</strong><p>Vous devez savoir ce qui est gratuit, jusqu’où, pendant combien de temps et ce qui se passe lorsque la limite est atteinte.</p></blockquote>
+          <a class="docs-inline-action" href="/#catalogue">Commencer dans le catalogue <span>→</span></a>
+        </section>
+      </>}
+
       {isCatalogueSearch && <>
         <section id="trier" class="docs-prose-section">
           <header><span>04</span><div><h2>Trier selon votre priorité</h2><p>Le tri change l’ordre des résultats, jamais les critères de la recherche. Choisissez-le en fonction de la question que vous cherchez à résoudre.</p></div></header>
@@ -183,7 +241,7 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
 
       <footer class="docs-article-pagination">{previous ? <a href={`/docs/${previous.slug}/`}><small>← Article précédent</small><strong>{previous.title}</strong></a> : <span></span>}{next ? <a class="next" href={`/docs/${next.slug}/`}><small>Article suivant →</small><strong>{next.title}</strong></a> : <span></span>}</footer>
     </article>
-    <aside class="docs-toc" aria-label="Sur cette page"><small>SUR CETTE PAGE</small><nav><a class="active" href="#premiere-etape">{sectionTitle}</a><a href="#signaux">{secondSectionTitle}</a><a href="#verifier">{thirdSectionTitle}</a>{isIntroductionGuide && <><a href="#verification">Une vérification éditoriale et datée</a><a href="#difference">Plus qu’un annuaire de liens</a><a href="#pour-qui">À qui s’adresse le site ?</a></>}{isCatalogueSearch && <><a href="#trier">Trier selon votre priorité</a><a href="#sans-resultat">Débloquer une recherche sans résultat</a><a href="#choisir">Passer de la recherche au choix</a></>}</nav><div><p>Cette page vous a-t-elle aidé ?</p><span><button type="button" data-doc-feedback>Oui</button><button type="button" data-doc-feedback>Non</button></span><small role="status"></small></div></aside>
+    <aside class="docs-toc" aria-label="Sur cette page"><small>SUR CETTE PAGE</small><nav><a class="active" href="#premiere-etape">{sectionTitle}</a><a href="#signaux">{secondSectionTitle}</a><a href="#verifier">{thirdSectionTitle}</a>{isIntroductionGuide && <><a href="#verification">Une vérification éditoriale et datée</a><a href="#difference">Plus qu’un annuaire de liens</a><a href="#pour-qui">À qui s’adresse le site ?</a></>}{isStartGuide && <><a href="#ouvrir-fiche">Ouvrir et comprendre une fiche</a><a href="#conserver-comparer">Conserver et comparer</a><a href="#verifier-choix">Vérifier avant de choisir</a></>}{isCatalogueSearch && <><a href="#trier">Trier selon votre priorité</a><a href="#sans-resultat">Débloquer une recherche sans résultat</a><a href="#choisir">Passer de la recherche au choix</a></>}</nav><div><p>Cette page vous a-t-elle aidé ?</p><span><button type="button" data-doc-feedback>Oui</button><button type="button" data-doc-feedback>Non</button></span><small role="status"></small></div></aside>
   </main>
   <script>
     document.querySelectorAll<HTMLButtonElement>('[data-doc-feedback]').forEach((button) => button.addEventListener('click', () => {
