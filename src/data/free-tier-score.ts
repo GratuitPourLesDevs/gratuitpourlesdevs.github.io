@@ -4,6 +4,7 @@ import './offer-quota-overrides';
 import './parsivex-quota';
 import './source-code-hosting-quotas';
 import './api-service-quotas';
+import './data-service-quotas';
 
 export type FreeTierScoreCriterion = {
   id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
@@ -74,6 +75,10 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   brainboard: 15,
   'brave-search-api': 15,
   'browse-ai': 10,
+  calendarific: 15,
+  'canopy-api': 10,
+  'carapi-dev': 10,
+  catchdoms: 10,
   'chrome-remote-desktop': 20,
   'cloud-66': 10,
   'cloudflare-application-services': 20,
@@ -86,7 +91,19 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'cloudflare-workers-kv': 15,
   'cloudflare-workers': 15,
   'cloudflare-zero-trust': 15,
+  cloudmersive: 15,
   codeberg: 20,
+  'comet-ml': 15,
+  'commerce-layer': 20,
+  composio: 20,
+  'conversion-tools': 15,
+  'country-state-city': 5,
+  'coupler-io': 10,
+  craftmypdf: 10,
+  'cube-cloud': 15,
+  curlhub: 20,
+  currencybeacon: 20,
+  customjs: 15,
   'deployment-io': 10,
   framagit: 20,
   gitgud: 20,
