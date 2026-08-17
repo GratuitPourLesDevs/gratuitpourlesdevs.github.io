@@ -262,6 +262,33 @@ OFFER_QUOTAS['zoho-connect'] ??= [
   },
 ];
 
+OFFER_QUOTAS['zoho-meeting'] ??= [
+  {
+    id: 'participants',
+    metric: 'participants',
+    label: 'Participants par réunion ou webinar',
+    amount: 100,
+    unit: 'participant',
+    period: 'session',
+    scope: 'session',
+    reset: 'not-applicable',
+    overage: 'blocked',
+    kind: 'limit',
+  },
+  {
+    id: 'session-duration',
+    metric: 'session_duration',
+    label: 'Durée maximale',
+    amount: 60,
+    unit: 'minute',
+    period: 'session',
+    scope: 'session',
+    reset: 'not-applicable',
+    overage: 'blocked',
+    kind: 'limit',
+  },
+];
+
 const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'amazon-cloudfront': 20,
   'amazon-cloudwatch': 15,
@@ -325,6 +352,7 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'zoho-catalyst': 20,
   'zoho-connect': 15,
   'zoho-mail': 15,
+  'zoho-meeting': 20,
   'zoho-projects': 20,
   'zoho-sprints': 15,
   'zoho-workdrive': 15,
