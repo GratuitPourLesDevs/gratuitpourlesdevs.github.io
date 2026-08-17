@@ -2,6 +2,7 @@ import type { OfferAlertLevel, OfferAlertType } from './offer-alerts';
 import { formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-quotas';
 import './offer-quota-overrides';
 import './parsivex-quota';
+import './source-code-hosting-quotas';
 
 export type FreeTierScoreCriterion = {
   id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
@@ -59,6 +60,7 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'azure-service-bus': 10,
   'azure-static-web-apps': 15,
   'azure-storage-free-services': 10,
+  bitbucket: 20,
   brainboard: 15,
   'chrome-remote-desktop': 20,
   'cloud-66': 10,
@@ -72,12 +74,19 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'cloudflare-workers-kv': 15,
   'cloudflare-workers': 15,
   'cloudflare-zero-trust': 15,
+  codeberg: 20,
   'deployment-io': 10,
+  fragamit: 20,
+  framagit: 20,
+  gitgud: 20,
+  github: 25,
   'github-actions': 20,
+  'gitlab-com': 20,
   'google-ai-studio': 15,
   'google-cloud': 15,
   'google-colab': 15,
   'grafana-cloud': 20,
+  'heptapod-foss': 15,
   'ibm-cloud': 15,
   'infomaniak-public-cloud': 5,
   'kaggle-notebooks': 20,
@@ -86,7 +95,11 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   neon: 15,
   'oracle-cloud': 20,
   parsivex: 10,
+  'pijul-nest': 15,
   'pulumi-cloud': 15,
+  rocketgit: 20,
+  'savannah-gnu': 15,
+  'savannah-nongnu': 15,
   scalr: 15,
   trainercentral: 15,
   uptimerobot: 15,
