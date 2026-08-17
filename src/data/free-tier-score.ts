@@ -76,7 +76,6 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'cloudflare-zero-trust': 15,
   codeberg: 20,
   'deployment-io': 10,
-  fragamit: 20,
   framagit: 20,
   gitgud: 20,
   github: 25,
