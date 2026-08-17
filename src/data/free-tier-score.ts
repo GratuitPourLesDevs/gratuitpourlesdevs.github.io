@@ -3,6 +3,7 @@ import { formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-qu
 import './offer-quota-overrides';
 import './parsivex-quota';
 import './source-code-hosting-quotas';
+import './api-service-quotas';
 
 export type FreeTierScoreCriterion = {
   id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
@@ -34,12 +35,19 @@ type ScoredOffer = {
 };
 
 const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
+  'abstract-api': 15,
+  alphai: 15,
   'amazon-cloudfront': 20,
   'amazon-cloudwatch': 15,
   'amazon-dynamodb': 15,
   'amazon-ses': 5,
   'amazon-sns': 15,
   'amazon-sqs': 15,
+  anyhook: 15,
+  apify: 15,
+  'apitemplate-io': 15,
+  apiverve: 10,
+  'arize-ax': 20,
   'aws-codebuild': 10,
   'aws-codecommit': 15,
   'aws-codepipeline': 10,
@@ -60,8 +68,12 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'azure-service-bus': 10,
   'azure-static-web-apps': 15,
   'azure-storage-free-services': 10,
+  beeceptor: 15,
+  bigdatacloud: 20,
   bitbucket: 20,
   brainboard: 15,
+  'brave-search-api': 15,
+  'browse-ai': 10,
   'chrome-remote-desktop': 20,
   'cloud-66': 10,
   'cloudflare-application-services': 20,
