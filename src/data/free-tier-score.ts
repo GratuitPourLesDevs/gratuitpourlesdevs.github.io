@@ -85,7 +85,7 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'microsoft-entra-id': 20,
   neon: 15,
   'oracle-cloud': 20,
-  parsivex: 5,
+  parsivex: 10,
   'pulumi-cloud': 15,
   scalr: 15,
   trainercentral: 15,
