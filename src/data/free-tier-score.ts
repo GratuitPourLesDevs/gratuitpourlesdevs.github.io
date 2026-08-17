@@ -69,6 +69,34 @@ OFFER_QUOTAS['zoho-sprints'] ??= [
   },
 ];
 
+OFFER_QUOTAS['zoho-workdrive'] ??= [
+  {
+    id: 'users',
+    metric: 'users',
+    label: 'Utilisateurs',
+    amount: 1,
+    unit: 'user',
+    period: 'lifetime',
+    scope: 'account',
+    reset: 'never',
+    overage: 'blocked',
+    kind: 'limit',
+  },
+  {
+    id: 'storage',
+    metric: 'storage',
+    label: 'Stockage',
+    amount: 5,
+    unit: 'GB',
+    period: 'lifetime',
+    scope: 'account',
+    reset: 'never',
+    overage: 'blocked',
+    kind: 'limit',
+    notes: 'Les fichiers Zoho Writer, Sheet et Show natifs ne consomment pas ce quota.',
+  },
+];
+
 const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'amazon-cloudfront': 20,
   'amazon-cloudwatch': 15,
@@ -131,6 +159,7 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'zoho-catalyst': 20,
   'zoho-mail': 15,
   'zoho-sprints': 15,
+  'zoho-workdrive': 15,
 };
 
 const QUOTA_LEVELS: Record<number, string> = {
