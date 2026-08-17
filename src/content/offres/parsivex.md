@@ -1,48 +1,69 @@
 ---
 nom: Parsivex
-accroche: Analyse des gaspillages de coûts AWS à partir d’un compte cloud
+accroche: Analyse des gaspillages de coûts AWS avec un scan gratuit ponctuel
 type: SaaS
 categorie: gestion-cloud
-formule: Offre annoncée comme un scan mensuel gratuit pour un compte AWS, à confirmer
+formule: 1 scan complet gratuit pour 1 compte AWS, sans carte bancaire
 inclus:
-  - Scan annoncé d’un compte AWS
-  - Détection annoncée de ressources EC2 inactives
-  - Détection annoncée de volumes EBS non attachés
-  - Analyse annoncée du dimensionnement RDS
-  - Détection annoncée des snapshots anciens
-  - Analyse annoncée de la consommation des NAT Gateway
-  - Estimation annoncée du gaspillage mensuel total
-  - Répartition annoncée des économies potentielles par catégorie
+  - 1 scan complet des gaspillages AWS
+  - Analyse multi-région
+  - 1 compte AWS
+  - 1 espace de travail
+  - 1 siège d’équipe
+  - Estimation du gaspillage mensuel total
+  - Nombre de findings et répartition par catégorie
 conditions:
   - Compte Parsivex
   - Compte AWS à analyser
-  - Vérification de la méthode d’accès AWS et des permissions requises avant activation
+  - Autoriser Parsivex à lire les ressources nécessaires au diagnostic
+  - Aucune carte bancaire requise
 restrictions:
-  - Les résultats détaillés ressource par ressource seraient réservés aux plans payants selon les informations fournies
-  - Les rescans planifiés seraient réservés aux plans payants selon les informations fournies
-  - Le site officiel n’a pas pu être récupéré lors de la vérification du 17 août 2026
-  - Les quotas et conditions exactes doivent être confirmés sur une source officielle avant publication active
+  - Le scan gratuit est ponctuel et ne se renouvelle pas automatiquement
+  - Les rescans récurrents ou automatisés sont réservés aux plans payants
+  - La liste détaillée complète des findings est réservée aux plans payants
+  - Les scripts de remédiation sont réservés aux plans payants
+  - Les alertes e-mail de nouveau gaspillage sont réservées aux plans payants
+  - Les alertes d’anomalie de coûts et Slack sont réservées aux plans supérieurs
+  - L’export PDF et le partage public de rapports sont réservés aux plans supérieurs
 alertes:
   - type: usage
-    niveau: critique
-    libelle: Offre à vérifier
-    detail: La présence du service et son domaine sont identifiés mais le site officiel n’a pas pu être consulté et aucune source primaire indexée ne confirme actuellement le free tier annoncé.
+    niveau: important
+    libelle: Un seul scan gratuit
+    detail: Le plan Free Scan fournit un diagnostic ponctuel. Les rescans récurrents et automatisés nécessitent une formule payante.
+  - type: fonctionnel
+    niveau: important
+    libelle: Findings détaillés non inclus
+    detail: Le gratuit fournit le nombre de findings et leur répartition par catégorie, mais pas la liste détaillée ressource par ressource.
 usages:
   - Gestion d’infrastructure
   - Architecture cloud
   - Automatisation
 url: https://www.parsivex.com/
-source: https://www.parsivex.com/
+source: https://www.parsivex.com/pricing
 couleur: "#334155"
 initiales: PX
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 80
 verifieLe: 2026-08-17
-verificationNote: "À vérifier : le site officiel parsivex.com n’a pas pu être récupéré et aucune source primaire indexée n’a permis de confirmer le scan mensuel gratuit d’un compte AWS ni les limites annoncées. La fiche reprend uniquement les éléments fournis afin de les conserver dans le workflow éditorial sans les publier comme vérifiés."
+verificationNote: "Plan Free Scan vérifié manuellement à partir d’une capture de la page officielle https://www.parsivex.com/pricing le 17 août 2026. La carte tarifaire indique explicitement One-time full AWS waste scan, Total estimated monthly waste, Finding count and category breakdown, Multi-region scans et No credit card required. Le tableau comparatif affiche aussi 1 compte AWS, 1 workspace et 1 siège. Bien que la ligne Scans per month affiche 1 pour Free, les rescans récurrents/automatisés sont absents et la carte précise One-time : le quota est donc enregistré de manière conservatrice comme 1 scan gratuit au total."
+historique:
+  - date: 2026-08-17
+    type: correction
+    titre: Free Scan confirmé sur la tarification officielle
+    resume: Le statut passe à actif et le quota est corrigé d’un scan mensuel annoncé vers un scan gratuit ponctuel.
+    changements:
+      - champ: statut
+        avant: À vérifier
+        apres: Actif
+      - champ: quota de scans
+        avant: 1 scan mensuel annoncé
+        apres: 1 scan gratuit au total
+        note: La carte tarifaire indique explicitement « One-time full AWS waste scan » et les rescans automatisés sont réservés aux plans payants.
+    source: https://www.parsivex.com/pricing
 ---
 
-Parsivex est présenté comme un outil de détection du gaspillage dans un compte AWS, avec des analyses portant notamment sur EC2, EBS, RDS, les snapshots et les NAT Gateway. Le free tier annoncé fournirait un scan mensuel d’un compte et une synthèse des économies possibles. Ces éléments n’ont toutefois pas pu être confirmés sur une source officielle accessible au moment de la vérification : l’offre reste donc volontairement au statut « à vérifier » et n’est pas considérée comme une offre active vérifiée.
+Parsivex analyse un compte AWS pour repérer des sources potentielles de gaspillage de coûts et fournir une estimation du montant mensuel concerné. Le plan Free Scan permet d’effectuer un diagnostic complet et multi-région d’un compte AWS sans carte bancaire, avec un résumé du nombre de findings et leur répartition par catégorie. Il s’agit toutefois d’un scan ponctuel : les rescans automatisés, la liste détaillée des ressources concernées, les scripts de remédiation et les alertes nécessitent une formule payante.
