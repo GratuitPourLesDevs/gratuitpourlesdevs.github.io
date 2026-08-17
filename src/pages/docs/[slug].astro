@@ -14,13 +14,14 @@ const current = getDocArticle(slug)!;
 const currentIndex = getDocIndex(slug);
 const previous = docsArticles[currentIndex - 1];
 const next = docsArticles[currentIndex + 1];
+const isIntroductionGuide = slug === 'quest-ce-que-gratuitpourlesdevs';
 const isStartGuide = slug === 'comment-utiliser-le-site';
 const isCatalogueSearch = slug === 'rechercher-dans-le-catalogue';
 const isBillingGuide = slug === 'risque-de-facturation';
 const isStackGuide = slug === 'stack-100-gratuite';
-const sectionTitle = isStartGuide ? 'Trouver une offre gratuite' : isCatalogueSearch ? 'Formuler une recherche utile' : isBillingGuide ? 'Identifier le chemin vers la facture' : isStackGuide ? 'Partir du besoin, pas des outils' : `Comprendre : ${current.title}`;
-const secondSectionTitle = isStartGuide ? 'Lire les bons signaux' : isCatalogueSearch ? 'Combiner recherche et filtres' : isBillingGuide ? 'Distinguer les niveaux de risque' : isStackGuide ? 'Vérifier les coûts de jonction' : 'Passer à l’action';
-const thirdSectionTitle = isCatalogueSearch ? 'Lire et ouvrir les résultats' : 'Vérifier avant de choisir';
+const sectionTitle = isIntroductionGuide ? 'Un catalogue éditorial de free tiers' : isStartGuide ? 'Trouver une offre gratuite' : isCatalogueSearch ? 'Formuler une recherche utile' : isBillingGuide ? 'Identifier le chemin vers la facture' : isStackGuide ? 'Partir du besoin, pas des outils' : `Comprendre : ${current.title}`;
+const secondSectionTitle = isIntroductionGuide ? 'Ce que vous trouvez dans le catalogue' : isStartGuide ? 'Lire les bons signaux' : isCatalogueSearch ? 'Combiner recherche et filtres' : isBillingGuide ? 'Distinguer les niveaux de risque' : isStackGuide ? 'Vérifier les coûts de jonction' : 'Passer à l’action';
+const thirdSectionTitle = isIntroductionGuide ? 'Ce que le catalogue exclut' : isCatalogueSearch ? 'Lire et ouvrir les résultats' : 'Vérifier avant de choisir';
 const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
 ---
 
@@ -35,11 +36,15 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
     <DocsSidebar currentSlug={slug} />
     <article class="docs-article">
       <nav class="docs-breadcrumb" aria-label="Fil d’Ariane"><a href="/docs/">Documentation</a><span>/</span><span>{current.groupTitle}</span></nav>
-      <header class="docs-article-header"><h1>{isStartGuide ? 'Comment utiliser GratuitPourLesDevs ?' : current.title}</h1><p>{isStartGuide ? 'Trouvez, évaluez et comparez des outils gratuits sans découvrir les limites au moment de la facture.' : current.summary}</p></header>
+      <header class="docs-article-header"><h1>{isStartGuide ? 'Comment utiliser GratuitPourLesDevs ?' : current.title}</h1><p>{isIntroductionGuide ? 'GratuitPourLesDevs recense, vérifie et compare les formules gratuites utiles aux développeurs — avec leurs vrais quotas, leurs conditions et leurs risques.' : isStartGuide ? 'Trouvez, évaluez et comparez des outils gratuits sans découvrir les limites au moment de la facture.' : current.summary}</p></header>
 
       <section id="premiere-etape" class="docs-prose-section">
-        <header><span>01</span><div><h2>{sectionTitle}</h2><p>{isStartGuide ? 'Utilisez la recherche et les filtres pour trouver rapidement des outils qui correspondent à votre besoin et proposent un accès gratuit durable.' : isCatalogueSearch ? 'Saisissez un nom d’outil, une technologie ou un besoin. La liste se met à jour immédiatement, sans recharger la page.' : isBillingGuide ? 'Une offre gratuite peut rester sans coût, être bloquée à son plafond ou ouvrir un chemin vers une consommation payante. Commencez par repérer le comportement au dépassement.' : isStackGuide ? 'Décrivez les ressources dont votre projet a besoin — calcul, données, stockage, identité, livraison et observation — avant de sélectionner les fournisseurs.' : `Ce guide explique ${current.title.toLocaleLowerCase('fr')} et les informations à vérifier avant de prendre une décision.`}</p></div></header>
-        {isStartGuide ? <div class="docs-product-demo" aria-label="Exemple de recherche dans le catalogue">
+        <header><span>01</span><div><h2>{sectionTitle}</h2><p>{isIntroductionGuide ? 'Le site transforme les pages tarifaires et documentations dispersées en fiches lisibles, comparables et datées.' : isStartGuide ? 'Utilisez la recherche et les filtres pour trouver rapidement des outils qui correspondent à votre besoin et proposent un accès gratuit durable.' : isCatalogueSearch ? 'Saisissez un nom d’outil, une technologie ou un besoin. La liste se met à jour immédiatement, sans recharger la page.' : isBillingGuide ? 'Une offre gratuite peut rester sans coût, être bloquée à son plafond ou ouvrir un chemin vers une consommation payante. Commencez par repérer le comportement au dépassement.' : isStackGuide ? 'Décrivez les ressources dont votre projet a besoin — calcul, données, stockage, identité, livraison et observation — avant de sélectionner les fournisseurs.' : `Ce guide explique ${current.title.toLocaleLowerCase('fr')} et les informations à vérifier avant de prendre une décision.`}</p></div></header>
+        {isIntroductionGuide ? <div class="docs-checklist">
+          <div><b>1</b><span><strong>Une sélection pensée pour les développeurs</strong><small>Hébergement, bases de données, APIs, CI/CD, monitoring, authentification, stockage et autres briques utiles à un projet logiciel.</small></span></div>
+          <div><b>2</b><span><strong>Des offres gratuites, pas seulement des produits</strong><small>Chaque entrée décrit la formule accessible sans paiement : durée, quotas, carte bancaire, dépassement et restrictions.</small></span></div>
+          <div><b>3</b><span><strong>Une information normalisée</strong><small>Les limites sont reformulées dans des unités et des périodes cohérentes afin de faciliter la lecture et la comparaison.</small></span></div>
+        </div> : isStartGuide ? <div class="docs-product-demo" aria-label="Exemple de recherche dans le catalogue">
           <div class="docs-demo-controls"><label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input value="PostgreSQL" aria-label="Exemple de recherche" readonly /></label><button type="button" aria-pressed="true">✓ Sans carte bancaire</button><button type="button" aria-pressed="true">✓ Gratuit permanent</button></div>
           <div class="docs-demo-head"><span>Outil</span><span>Score /100</span><span>Risque</span><span>Dernière vérification</span></div>
           {[['N', 'Neon', 'PostgreSQL serverless', '92', 'Faible', '12 août 2026'], ['S', 'Supabase', 'Backend open source', '89', 'Faible', '8 août 2026'], ['A', 'Aiven', 'PostgreSQL managé', '78', 'Moyen', '2 août 2026']].map((row, index) => <a class="docs-demo-row" href={index === 0 ? '/offres/neon/' : '/#catalogue'}><span class={`demo-logo demo-logo-${index}`}>{row[0]}</span><span><strong>{row[1]}</strong><small>{row[2]}</small></span><b>{row[3]}</b><em class:list={{ medium: row[4] === 'Moyen' }}><i></i>{row[4]}</em><time>{row[5]}</time><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></a>)}
@@ -56,12 +61,19 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
           <img src="/docs/recherche-postgresql.png" width="1360" height="400" loading="lazy" alt="Recherche PostgreSQL dans le catalogue avec une offre Neon affichée" />
           <figcaption><span>Exemple réel</span> Une requête précise réduit immédiatement le catalogue aux offres correspondantes.</figcaption>
         </figure>}
-        <a class="docs-inline-action" href={isStartGuide || isCatalogueSearch ? '/#catalogue' : isBillingGuide ? '/methodologie/#restrictions-cles' : isStackGuide ? '/explorer/' : '/'}>{isStartGuide ? 'Ouvrir le catalogue' : isCatalogueSearch ? 'Essayer dans le catalogue' : isBillingGuide ? 'Voir la méthodologie' : isStackGuide ? 'Explorer les quotas' : 'Mettre ce guide en pratique'} <span>→</span></a>
+        <a class="docs-inline-action" href={isIntroductionGuide ? '/docs/comment-utiliser-le-site/' : isStartGuide || isCatalogueSearch ? '/#catalogue' : isBillingGuide ? '/methodologie/#restrictions-cles' : isStackGuide ? '/explorer/' : '/'}>{isIntroductionGuide ? 'Voir comment utiliser le site' : isStartGuide ? 'Ouvrir le catalogue' : isCatalogueSearch ? 'Essayer dans le catalogue' : isBillingGuide ? 'Voir la méthodologie' : isStackGuide ? 'Explorer les quotas' : 'Mettre ce guide en pratique'} <span>→</span></a>
       </section>
 
       <section id="signaux" class="docs-prose-section">
-        <header><span>02</span><div><h2>{secondSectionTitle}</h2><p>{isCatalogueSearch ? 'La recherche textuelle réduit le catalogue ; les filtres imposent ensuite des critères structurés à chaque résultat restant.' : 'Chaque fiche fait remonter les informations qui changent le plus souvent une décision.'}</p></div></header>
-        {isCatalogueSearch ? <>
+        <header><span>02</span><div><h2>{secondSectionTitle}</h2><p>{isIntroductionGuide ? 'Chaque fiche rassemble ce qu’il faut savoir avant de créer un compte ou d’intégrer un service à votre architecture.' : isCatalogueSearch ? 'La recherche textuelle réduit le catalogue ; les filtres imposent ensuite des critères structurés à chaque résultat restant.' : 'Chaque fiche fait remonter les informations qui changent le plus souvent une décision.'}</p></div></header>
+        {isIntroductionGuide ? <>
+          <div class="docs-signals">
+            <div><b>∞</b><span><strong>Nature de la gratuité</strong><small>Formule permanente, essai limité ou crédit temporaire : la durée est indiquée sans ambiguïté.</small></span></div>
+            <div><b>100</b><span><strong>Quotas exploitables</strong><small>Montants, unités, périodes et périmètres sont présentés ensemble.</small></span></div>
+            <div><b>!</b><span><strong>Risque de facturation</strong><small>Carte bancaire, dépassement bloqué ou facturé et conditions sensibles sont signalés.</small></span></div>
+          </div>
+          <aside class="docs-note"><span>i</span><div><strong>Une fiche est une synthèse, pas une copie marketing</strong><p>Elle sépare ce qui est inclus, les conditions d’accès, les restrictions et les liens vers les sources officielles.</p></div></aside>
+        </> : isCatalogueSearch ? <>
           <div class="docs-checklist">
             <div><b>A</b><span><strong>Utilisez d’abord les accès rapides</strong><small>Activez « Sans carte bancaire », « Aucun risque », « Formule permanente » ou « Vérifiées récemment » en un clic.</small></span></div>
             <div><b>B</b><span><strong>Ouvrez les filtres avancés</strong><small>Affinez par catégorie, modèle SaaS / PaaS / IaaS, permanence, carte bancaire et date de vérification.</small></span></div>
@@ -83,8 +95,15 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
       </section>
 
       <section id="verifier" class="docs-prose-section">
-        <header><span>03</span><div><h2>{thirdSectionTitle}</h2><p>{isCatalogueSearch ? 'Le nombre de résultats confirme immédiatement la portée de votre recherche. Triez ensuite la liste selon le critère qui correspond à votre décision.' : 'Les offres évoluent. Consultez la date de vérification, l’historique et la source officielle avant un choix structurant.'}</p></div></header>
-        {isCatalogueSearch ? <>
+        <header><span>03</span><div><h2>{thirdSectionTitle}</h2><p>{isIntroductionGuide ? 'Le catalogue reste volontairement ciblé afin de ne pas mélanger gratuité durable, promotions et contenus sans rapport avec un usage de développement.' : isCatalogueSearch ? 'Le nombre de résultats confirme immédiatement la portée de votre recherche. Triez ensuite la liste selon le critère qui correspond à votre décision.' : 'Les offres évoluent. Consultez la date de vérification, l’historique et la source officielle avant un choix structurant.'}</p></div></header>
+        {isIntroductionGuide ? <>
+          <div class="docs-checklist">
+            <div><b>×</b><span><strong>Les simples réductions</strong><small>Une remise, un coupon ou un tarif réservé aux nouveaux clients n’est pas une formule gratuite.</small></span></div>
+            <div><b>×</b><span><strong>Les offres impossibles à documenter</strong><small>Une entrée sans source officielle suffisamment précise ne peut pas être présentée comme vérifiée.</small></span></div>
+            <div><b>×</b><span><strong>Les outils sans intérêt développeur identifiable</strong><small>La gratuité seule ne suffit pas : l’outil doit répondre à un besoin concret de conception, livraison ou exploitation.</small></span></div>
+          </div>
+          <blockquote><strong>Gratuit ne veut pas dire sans condition.</strong><p>Une carte bancaire obligatoire, une limite d’usage commercial ou un dépassement facturé n’excluent pas automatiquement une offre. Ces contraintes doivent en revanche être visibles avant votre décision.</p></blockquote>
+        </> : isCatalogueSearch ? <>
           <div class="docs-checklist">
             <div><b>1</b><span><strong>Choisissez le bon ordre</strong><small>Triez par pertinence, score du free tier, modification récente, date de vérification, catégorie, modèle ou nom.</small></span></div>
             <div><b>2</b><span><strong>Lisez les signaux visibles</strong><small>Formule gratuite, permanence, risque de facturation et carte bancaire permettent d’écarter rapidement un résultat inadapté.</small></span></div>
@@ -97,6 +116,38 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
           </figure>
         </> : <blockquote><strong>Le bon réflexe</strong><p>Comparez toujours une même ressource, sur une même période et avec une même portée. Un quota plus grand n’est utile que s’il mesure réellement la même chose.</p></blockquote>}
       </section>
+
+      {isIntroductionGuide && <>
+        <section id="verification" class="docs-prose-section">
+          <header><span>04</span><div><h2>Une vérification éditoriale et datée</h2><p>Les informations importantes sont recherchées dans les sources du fournisseur, puis relues et datées pour rendre leur fraîcheur visible.</p></div></header>
+          <div class="docs-checklist">
+            <div><b>1</b><span><strong>Consulter les sources officielles</strong><small>Pages tarifaires, documentation produit, FAQ et conditions servent à confirmer la formule et ses limites.</small></span></div>
+            <div><b>2</b><span><strong>Croiser les informations</strong><small>Lorsque plusieurs pages se complètent ou se contredisent, la fiche conserve les nuances utiles et les liens permettant de les contrôler.</small></span></div>
+            <div><b>3</b><span><strong>Afficher la date de vérification</strong><small>Vous savez quand l’offre a été contrôlée et pouvez adapter votre niveau de prudence à l’ancienneté des données.</small></span></div>
+          </div>
+          <aside class="docs-note"><span>i</span><div><strong>Les offres évoluent</strong><p>Une vérification n’est jamais une garantie éternelle. L’historique, les archives et les signalements servent à suivre les changements.</p></div></aside>
+        </section>
+
+        <section id="difference" class="docs-prose-section">
+          <header><span>05</span><div><h2>Plus qu’un annuaire de liens</h2><p>GratuitPourLesDevs ne cherche pas seulement à faire découvrir des noms : il aide à comprendre si une offre gratuite peut réellement convenir à un projet.</p></div></header>
+          <div class="docs-signals">
+            <div><b>◎</b><span><strong>Évaluer</strong><small>Le score /100 synthétise la qualité du free tier selon une méthodologie publique.</small></span></div>
+            <div><b>⇄</b><span><strong>Comparer</strong><small>Les quotas normalisés rapprochent les offres sur des dimensions comparables.</small></span></div>
+            <div><b>↻</b><span><strong>Suivre</strong><small>Historique et archives expliquent ce qui a changé ou pourquoi une offre a disparu.</small></span></div>
+          </div>
+          <blockquote><strong>Le meilleur score n’est pas toujours le meilleur choix.</strong><p>La localisation, les technologies supportées, les restrictions ou la progression vers une formule payante peuvent compter davantage pour votre contexte.</p></blockquote>
+        </section>
+
+        <section id="pour-qui" class="docs-prose-section">
+          <header><span>06</span><div><h2>À qui s’adresse GratuitPourLesDevs ?</h2><p>Le catalogue sert aussi bien à découvrir une première stack qu’à auditer les coûts d’un prototype ou à remplacer une brique devenue trop limitée.</p></div></header>
+          <div class="docs-checklist">
+            <div><b>D</b><span><strong>Développeurs et étudiants</strong><small>Construire, apprendre et expérimenter sans engager immédiatement un budget.</small></span></div>
+            <div><b>I</b><span><strong>Indépendants et petites équipes</strong><small>Choisir des services soutenables pour un prototype, un side project ou un produit en démarrage.</small></span></div>
+            <div><b>T</b><span><strong>Équipes techniques</strong><small>Créer une shortlist, comparer les contraintes et vérifier une offre avant de l’introduire dans une architecture.</small></span></div>
+          </div>
+          <a class="docs-inline-action" href="/docs/trouver-son-premier-outil-gratuit/">Trouver votre premier outil gratuit <span>→</span></a>
+        </section>
+      </>}
 
       {isCatalogueSearch && <>
         <section id="trier" class="docs-prose-section">
@@ -132,7 +183,7 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
 
       <footer class="docs-article-pagination">{previous ? <a href={`/docs/${previous.slug}/`}><small>← Article précédent</small><strong>{previous.title}</strong></a> : <span></span>}{next ? <a class="next" href={`/docs/${next.slug}/`}><small>Article suivant →</small><strong>{next.title}</strong></a> : <span></span>}</footer>
     </article>
-    <aside class="docs-toc" aria-label="Sur cette page"><small>SUR CETTE PAGE</small><nav><a class="active" href="#premiere-etape">{sectionTitle}</a><a href="#signaux">{secondSectionTitle}</a><a href="#verifier">{thirdSectionTitle}</a>{isCatalogueSearch && <><a href="#trier">Trier selon votre priorité</a><a href="#sans-resultat">Débloquer une recherche sans résultat</a><a href="#choisir">Passer de la recherche au choix</a></>}</nav><div><p>Cette page vous a-t-elle aidé ?</p><span><button type="button" data-doc-feedback>Oui</button><button type="button" data-doc-feedback>Non</button></span><small role="status"></small></div></aside>
+    <aside class="docs-toc" aria-label="Sur cette page"><small>SUR CETTE PAGE</small><nav><a class="active" href="#premiere-etape">{sectionTitle}</a><a href="#signaux">{secondSectionTitle}</a><a href="#verifier">{thirdSectionTitle}</a>{isIntroductionGuide && <><a href="#verification">Une vérification éditoriale et datée</a><a href="#difference">Plus qu’un annuaire de liens</a><a href="#pour-qui">À qui s’adresse le site ?</a></>}{isCatalogueSearch && <><a href="#trier">Trier selon votre priorité</a><a href="#sans-resultat">Débloquer une recherche sans résultat</a><a href="#choisir">Passer de la recherche au choix</a></>}</nav><div><p>Cette page vous a-t-elle aidé ?</p><span><button type="button" data-doc-feedback>Oui</button><button type="button" data-doc-feedback>Non</button></span><small role="status"></small></div></aside>
   </main>
   <script>
     document.querySelectorAll<HTMLButtonElement>('[data-doc-feedback]').forEach((button) => button.addEventListener('click', () => {
