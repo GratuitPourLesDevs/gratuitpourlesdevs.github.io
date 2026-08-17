@@ -1,5 +1,5 @@
 import type { OfferAlertLevel, OfferAlertType } from './offer-alerts';
-import { formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-quotas';
+import { OFFER_QUOTAS, formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-quotas';
 
 export type FreeTierScoreCriterion = {
   id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
@@ -29,6 +29,45 @@ type ScoredOffer = {
     detail: string;
   }>;
 };
+
+OFFER_QUOTAS['zoho-sprints'] ??= [
+  {
+    id: 'users',
+    metric: 'users',
+    label: 'Utilisateurs',
+    amount: 3,
+    unit: 'user',
+    period: 'lifetime',
+    scope: 'account',
+    reset: 'never',
+    overage: 'blocked',
+    kind: 'limit',
+  },
+  {
+    id: 'projects',
+    metric: 'projects',
+    label: 'Projets',
+    amount: 3,
+    unit: 'project',
+    period: 'lifetime',
+    scope: 'account',
+    reset: 'never',
+    overage: 'blocked',
+    kind: 'limit',
+  },
+  {
+    id: 'storage',
+    metric: 'storage',
+    label: 'Stockage',
+    amount: 500,
+    unit: 'MB',
+    period: 'lifetime',
+    scope: 'account',
+    reset: 'never',
+    overage: 'blocked',
+    kind: 'limit',
+  },
+];
 
 const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'amazon-cloudfront': 20,
@@ -91,6 +130,7 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'zoho-assist': 15,
   'zoho-catalyst': 20,
   'zoho-mail': 15,
+  'zoho-sprints': 15,
 };
 
 const QUOTA_LEVELS: Record<number, string> = {
