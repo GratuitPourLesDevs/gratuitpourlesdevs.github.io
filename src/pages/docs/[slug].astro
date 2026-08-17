@@ -15,10 +15,12 @@ const currentIndex = getDocIndex(slug);
 const previous = docsArticles[currentIndex - 1];
 const next = docsArticles[currentIndex + 1];
 const isStartGuide = slug === 'comment-utiliser-le-site';
+const isCatalogueSearch = slug === 'rechercher-dans-le-catalogue';
 const isBillingGuide = slug === 'risque-de-facturation';
 const isStackGuide = slug === 'stack-100-gratuite';
-const sectionTitle = isStartGuide ? 'Trouver une offre gratuite' : isBillingGuide ? 'Identifier le chemin vers la facture' : isStackGuide ? 'Partir du besoin, pas des outils' : `Comprendre : ${current.title}`;
-const secondSectionTitle = isStartGuide ? 'Lire les bons signaux' : isBillingGuide ? 'Distinguer les niveaux de risque' : isStackGuide ? 'Vérifier les coûts de jonction' : 'Passer à l’action';
+const sectionTitle = isStartGuide ? 'Trouver une offre gratuite' : isCatalogueSearch ? 'Formuler une recherche utile' : isBillingGuide ? 'Identifier le chemin vers la facture' : isStackGuide ? 'Partir du besoin, pas des outils' : `Comprendre : ${current.title}`;
+const secondSectionTitle = isStartGuide ? 'Lire les bons signaux' : isCatalogueSearch ? 'Combiner recherche et filtres' : isBillingGuide ? 'Distinguer les niveaux de risque' : isStackGuide ? 'Vérifier les coûts de jonction' : 'Passer à l’action';
+const thirdSectionTitle = isCatalogueSearch ? 'Lire et ouvrir les résultats' : 'Vérifier avant de choisir';
 const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
 ---
 
@@ -36,37 +38,101 @@ const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
       <header class="docs-article-header"><h1>{isStartGuide ? 'Comment utiliser GratuitPourLesDevs ?' : current.title}</h1><p>{isStartGuide ? 'Trouvez, évaluez et comparez des outils gratuits sans découvrir les limites au moment de la facture.' : current.summary}</p></header>
 
       <section id="premiere-etape" class="docs-prose-section">
-        <header><span>01</span><div><h2>{sectionTitle}</h2><p>{isStartGuide ? 'Utilisez la recherche et les filtres pour trouver rapidement des outils qui correspondent à votre besoin et proposent un accès gratuit durable.' : isBillingGuide ? 'Une offre gratuite peut rester sans coût, être bloquée à son plafond ou ouvrir un chemin vers une consommation payante. Commencez par repérer le comportement au dépassement.' : isStackGuide ? 'Décrivez les ressources dont votre projet a besoin — calcul, données, stockage, identité, livraison et observation — avant de sélectionner les fournisseurs.' : `Ce guide explique ${current.title.toLocaleLowerCase('fr')} et les informations à vérifier avant de prendre une décision.`}</p></div></header>
+        <header><span>01</span><div><h2>{sectionTitle}</h2><p>{isStartGuide ? 'Utilisez la recherche et les filtres pour trouver rapidement des outils qui correspondent à votre besoin et proposent un accès gratuit durable.' : isCatalogueSearch ? 'Saisissez un nom d’outil, une technologie ou un besoin. La liste se met à jour immédiatement, sans recharger la page.' : isBillingGuide ? 'Une offre gratuite peut rester sans coût, être bloquée à son plafond ou ouvrir un chemin vers une consommation payante. Commencez par repérer le comportement au dépassement.' : isStackGuide ? 'Décrivez les ressources dont votre projet a besoin — calcul, données, stockage, identité, livraison et observation — avant de sélectionner les fournisseurs.' : `Ce guide explique ${current.title.toLocaleLowerCase('fr')} et les informations à vérifier avant de prendre une décision.`}</p></div></header>
         {isStartGuide ? <div class="docs-product-demo" aria-label="Exemple de recherche dans le catalogue">
           <div class="docs-demo-controls"><label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input value="PostgreSQL" aria-label="Exemple de recherche" readonly /></label><button type="button" aria-pressed="true">✓ Sans carte bancaire</button><button type="button" aria-pressed="true">✓ Gratuit permanent</button></div>
           <div class="docs-demo-head"><span>Outil</span><span>Score /100</span><span>Risque</span><span>Dernière vérification</span></div>
           {[['N', 'Neon', 'PostgreSQL serverless', '92', 'Faible', '12 août 2026'], ['S', 'Supabase', 'Backend open source', '89', 'Faible', '8 août 2026'], ['A', 'Aiven', 'PostgreSQL managé', '78', 'Moyen', '2 août 2026']].map((row, index) => <a class="docs-demo-row" href={index === 0 ? '/offres/neon/' : '/#catalogue'}><span class={`demo-logo demo-logo-${index}`}>{row[0]}</span><span><strong>{row[1]}</strong><small>{row[2]}</small></span><b>{row[3]}</b><em class:list={{ medium: row[4] === 'Moyen' }}><i></i>{row[4]}</em><time>{row[5]}</time><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg></a>)}
+        </div> : isCatalogueSearch ? <div class="docs-checklist">
+          <div><b>1</b><span><strong>Commencez par un terme précis</strong><small>Essayez par exemple « PostgreSQL », « monitoring », « stockage objet » ou le nom d’un fournisseur.</small></span></div>
+          <div><b>2</b><span><strong>La recherche parcourt toute la fiche</strong><small>Nom, accroche, formule, catégorie, modèle, usages, éléments inclus, conditions et restrictions sont indexés.</small></span></div>
+          <div><b>3</b><span><strong>Raccourcissez si nécessaire</strong><small>La casse et les accents sont ignorés. Si aucun résultat n’apparaît, revenez à un seul mot significatif avant d’ajouter des filtres.</small></span></div>
         </div> : <div class="docs-checklist">
           <div><b>1</b><span><strong>Formule et durée</strong><small>Vérifiez qu’il s’agit bien d’un plan gratuit et non d’un simple crédit temporaire.</small></span></div>
           <div><b>2</b><span><strong>Quota et portée</strong><small>Lisez ensemble le montant, l’unité, la période et le périmètre concerné.</small></span></div>
           <div><b>3</b><span><strong>Conditions et sources</strong><small>Confirmez les restrictions importantes sur la source officielle liée à la fiche.</small></span></div>
         </div>}
-        <a class="docs-inline-action" href={isStartGuide ? '/#catalogue' : isBillingGuide ? '/methodologie/#restrictions-cles' : isStackGuide ? '/explorer/' : '/'}>{isStartGuide ? 'Ouvrir le catalogue' : isBillingGuide ? 'Voir la méthodologie' : isStackGuide ? 'Explorer les quotas' : 'Mettre ce guide en pratique'} <span>→</span></a>
+        {isCatalogueSearch && <figure class="docs-figure">
+          <img src="/docs/recherche-postgresql.png" width="1360" height="400" loading="lazy" alt="Recherche PostgreSQL dans le catalogue avec une offre Neon affichée" />
+          <figcaption><span>Exemple réel</span> Une requête précise réduit immédiatement le catalogue aux offres correspondantes.</figcaption>
+        </figure>}
+        <a class="docs-inline-action" href={isStartGuide || isCatalogueSearch ? '/#catalogue' : isBillingGuide ? '/methodologie/#restrictions-cles' : isStackGuide ? '/explorer/' : '/'}>{isStartGuide ? 'Ouvrir le catalogue' : isCatalogueSearch ? 'Essayer dans le catalogue' : isBillingGuide ? 'Voir la méthodologie' : isStackGuide ? 'Explorer les quotas' : 'Mettre ce guide en pratique'} <span>→</span></a>
       </section>
 
       <section id="signaux" class="docs-prose-section">
-        <header><span>02</span><div><h2>{secondSectionTitle}</h2><p>Chaque fiche fait remonter les informations qui changent le plus souvent une décision.</p></div></header>
-        <div class="docs-signals">
-          <div><b>100</b><span><strong>Score /100</strong><small>Mesure la qualité de l’offre gratuite, pas celle du produit.</small></span></div>
-          <div><b>!</b><span><strong>Risque de facturation</strong><small>Indique le risque de dépasser les limites sans s’en rendre compte.</small></span></div>
-          <div><b>↻</b><span><strong>Dernière vérification</strong><small>Date à laquelle l’offre a été contrôlée manuellement.</small></span></div>
-        </div>
-        <aside class="docs-note"><span>i</span><div><strong>À retenir</strong><p>Un score élevé signifie que l’offre gratuite est généreuse, claire et sans piège — pas que l’outil est meilleur que tous les autres pour votre projet.</p></div></aside>
+        <header><span>02</span><div><h2>{secondSectionTitle}</h2><p>{isCatalogueSearch ? 'La recherche textuelle réduit le catalogue ; les filtres imposent ensuite des critères structurés à chaque résultat restant.' : 'Chaque fiche fait remonter les informations qui changent le plus souvent une décision.'}</p></div></header>
+        {isCatalogueSearch ? <>
+          <div class="docs-checklist">
+            <div><b>A</b><span><strong>Utilisez d’abord les accès rapides</strong><small>Activez « Sans carte bancaire », « Aucun risque », « Formule permanente » ou « Vérifiées récemment » en un clic.</small></span></div>
+            <div><b>B</b><span><strong>Ouvrez les filtres avancés</strong><small>Affinez par catégorie, modèle SaaS / PaaS / IaaS, permanence, carte bancaire et date de vérification.</small></span></div>
+            <div><b>C</b><span><strong>Ajoutez des tags d’usage</strong><small>Plusieurs tags se cumulent : une offre doit posséder chacun des tags sélectionnés pour rester visible.</small></span></div>
+          </div>
+          <aside class="docs-note"><span>i</span><div><strong>Comment les critères se combinent</strong><p>La requête, les filtres et les tags s’appliquent ensemble. Retirez un critère ou utilisez « Réinitialiser » si la sélection devient trop étroite.</p></div></aside>
+          <figure class="docs-figure">
+            <img src="/docs/filtres-combines.png" width="1360" height="330" loading="lazy" alt="Filtres avancés du catalogue avec Sans carte bancaire et Formule permanente activés" />
+            <figcaption><span>Filtres combinés</span> Les pastilles bleues indiquent les critères actifs ; le compteur rappelle combien de filtres avancés sont appliqués.</figcaption>
+          </figure>
+        </> : <>
+          <div class="docs-signals">
+            <div><b>100</b><span><strong>Score /100</strong><small>Mesure la qualité de l’offre gratuite, pas celle du produit.</small></span></div>
+            <div><b>!</b><span><strong>Risque de facturation</strong><small>Indique le risque de dépasser les limites sans s’en rendre compte.</small></span></div>
+            <div><b>↻</b><span><strong>Dernière vérification</strong><small>Date à laquelle l’offre a été contrôlée manuellement.</small></span></div>
+          </div>
+          <aside class="docs-note"><span>i</span><div><strong>À retenir</strong><p>Un score élevé signifie que l’offre gratuite est généreuse, claire et sans piège — pas que l’outil est meilleur que tous les autres pour votre projet.</p></div></aside>
+        </>}
       </section>
 
       <section id="verifier" class="docs-prose-section">
-        <header><span>03</span><div><h2>Vérifier avant de choisir</h2><p>Les offres évoluent. Consultez la date de vérification, l’historique et la source officielle avant un choix structurant.</p></div></header>
-        <blockquote><strong>Le bon réflexe</strong><p>Comparez toujours une même ressource, sur une même période et avec une même portée. Un quota plus grand n’est utile que s’il mesure réellement la même chose.</p></blockquote>
+        <header><span>03</span><div><h2>{thirdSectionTitle}</h2><p>{isCatalogueSearch ? 'Le nombre de résultats confirme immédiatement la portée de votre recherche. Triez ensuite la liste selon le critère qui correspond à votre décision.' : 'Les offres évoluent. Consultez la date de vérification, l’historique et la source officielle avant un choix structurant.'}</p></div></header>
+        {isCatalogueSearch ? <>
+          <div class="docs-checklist">
+            <div><b>1</b><span><strong>Choisissez le bon ordre</strong><small>Triez par pertinence, score du free tier, modification récente, date de vérification, catégorie, modèle ou nom.</small></span></div>
+            <div><b>2</b><span><strong>Lisez les signaux visibles</strong><small>Formule gratuite, permanence, risque de facturation et carte bancaire permettent d’écarter rapidement un résultat inadapté.</small></span></div>
+            <div><b>3</b><span><strong>Ouvrez la fiche avant de décider</strong><small>Consultez les quotas normalisés, les restrictions, l’historique et les sources officielles de l’offre retenue.</small></span></div>
+          </div>
+          <blockquote><strong>Exemple de parcours</strong><p>Recherchez « PostgreSQL », activez « Sans carte bancaire » et « Formule permanente », puis triez par meilleur free tier. Vous obtenez une shortlist ciblée sans confondre pertinence et générosité de l’offre.</p></blockquote>
+          <figure class="docs-figure docs-figure-tall">
+            <img src="/docs/resultat-neon-detail.png" width="1440" height="1100" loading="lazy" alt="Résultat Neon déplié avec formule gratuite, conditions, restrictions et liens vers les sources" />
+            <figcaption><span>Résultat déplié</span> Le chevron à droite révèle les éléments inclus, les conditions, les restrictions et les liens de vérification sans quitter la liste.</figcaption>
+          </figure>
+        </> : <blockquote><strong>Le bon réflexe</strong><p>Comparez toujours une même ressource, sur une même période et avec une même portée. Un quota plus grand n’est utile que s’il mesure réellement la même chose.</p></blockquote>}
       </section>
+
+      {isCatalogueSearch && <>
+        <section id="trier" class="docs-prose-section">
+          <header><span>04</span><div><h2>Trier selon votre priorité</h2><p>Le tri change l’ordre des résultats, jamais les critères de la recherche. Choisissez-le en fonction de la question que vous cherchez à résoudre.</p></div></header>
+          <div class="docs-checklist">
+            <div><b>↗</b><span><strong>Découvrir les offres les plus généreuses</strong><small>Utilisez « Meilleur free tier » pour faire remonter le score GratuitPourLesDevs le plus élevé.</small></span></div>
+            <div><b>↻</b><span><strong>Privilégier les informations fraîches</strong><small>Triez par vérification ou modification récente lorsque la stabilité de l’offre est déterminante.</small></span></div>
+            <div><b>A</b><span><strong>Parcourir méthodiquement</strong><small>Les tris par nom, catégorie ou modèle sont pratiques pour explorer un ensemble sans chercher un gagnant.</small></span></div>
+          </div>
+          <aside class="docs-note"><span>i</span><div><strong>Le tri n’est pas un filtre</strong><p>Une offre moins bien classée peut être la plus adaptée à votre architecture. Le score évalue le free tier, pas l’adéquation technique à votre projet.</p></div></aside>
+        </section>
+
+        <section id="sans-resultat" class="docs-prose-section">
+          <header><span>05</span><div><h2>Débloquer une recherche sans résultat</h2><p>« 0 offre vérifiée » signifie généralement que la combinaison est trop restrictive, pas que le besoin est absent du catalogue.</p></div></header>
+          <div class="docs-checklist">
+            <div><b>1</b><span><strong>Retirez le dernier filtre ajouté</strong><small>Commencez par les tags, puis élargissez la date de vérification ou le modèle de service.</small></span></div>
+            <div><b>2</b><span><strong>Employez un terme plus général</strong><small>Remplacez « base PostgreSQL serverless européenne » par « PostgreSQL », puis affinez avec les filtres.</small></span></div>
+            <div><b>3</b><span><strong>Réinitialisez pour repartir proprement</strong><small>Le bouton « Réinitialiser » efface recherche, filtres rapides, filtres avancés et tags en une seule action.</small></span></div>
+          </div>
+        </section>
+
+        <section id="choisir" class="docs-prose-section">
+          <header><span>06</span><div><h2>Passer de la recherche au choix</h2><p>La liste sert à créer une shortlist. La décision se prend ensuite en confrontant quotas, restrictions et preuves officielles.</p></div></header>
+          <div class="docs-signals">
+            <div><b>1</b><span><strong>Dépliez le résultat</strong><small>Lisez les éléments inclus, les conditions et les restrictions sans perdre votre recherche.</small></span></div>
+            <div><b>2</b><span><strong>Ouvrez la fiche complète</strong><small>Contrôlez les quotas normalisés, l’historique et les alternatives proches.</small></span></div>
+            <div><b>3</b><span><strong>Vérifiez la source</strong><small>Confirmez les limites importantes sur la documentation ou la page tarifaire officielle.</small></span></div>
+          </div>
+          <blockquote><strong>Une recherche réussie produit une shortlist, pas une certitude.</strong><p>Ajoutez les meilleures candidates au comparateur lorsque deux ou trois offres répondent encore à votre besoin.</p></blockquote>
+          <a class="docs-inline-action" href="/#catalogue">Rechercher une offre maintenant <span>→</span></a>
+        </section>
+      </>}
 
       <footer class="docs-article-pagination">{previous ? <a href={`/docs/${previous.slug}/`}><small>← Article précédent</small><strong>{previous.title}</strong></a> : <span></span>}{next ? <a class="next" href={`/docs/${next.slug}/`}><small>Article suivant →</small><strong>{next.title}</strong></a> : <span></span>}</footer>
     </article>
-    <aside class="docs-toc" aria-label="Sur cette page"><small>SUR CETTE PAGE</small><nav><a class="active" href="#premiere-etape">{sectionTitle}</a><a href="#signaux">{secondSectionTitle}</a><a href="#verifier">Vérifier avant de choisir</a></nav><div><p>Cette page vous a-t-elle aidé ?</p><span><button type="button" data-doc-feedback>Oui</button><button type="button" data-doc-feedback>Non</button></span><small role="status"></small></div></aside>
+    <aside class="docs-toc" aria-label="Sur cette page"><small>SUR CETTE PAGE</small><nav><a class="active" href="#premiere-etape">{sectionTitle}</a><a href="#signaux">{secondSectionTitle}</a><a href="#verifier">{thirdSectionTitle}</a>{isCatalogueSearch && <><a href="#trier">Trier selon votre priorité</a><a href="#sans-resultat">Débloquer une recherche sans résultat</a><a href="#choisir">Passer de la recherche au choix</a></>}</nav><div><p>Cette page vous a-t-elle aidé ?</p><span><button type="button" data-doc-feedback>Oui</button><button type="button" data-doc-feedback>Non</button></span><small role="status"></small></div></aside>
   </main>
   <script>
     document.querySelectorAll<HTMLButtonElement>('[data-doc-feedback]').forEach((button) => button.addEventListener('click', () => {

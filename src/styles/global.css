@@ -132,3 +132,12 @@ footer{min-height:92px;display:grid;grid-template-columns:1fr auto auto;align-it
 .docs-header-link.active{color:var(--blue);border-color:var(--blue);background:color-mix(in srgb,var(--blue) 8%,var(--surface))}
 @media(max-width:760px){.docs-header-link{width:40px;height:40px}.docs-header-link svg{width:19px}}
 @media(max-width:560px){.site-header:not(:has(+ .docs-utility)) .brand>span{display:none}}
+
+/* Screenshots used by the task-oriented documentation guides. */
+.docs-figure{margin:22px 0 0 57px;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--surface)}
+.docs-figure img{display:block;width:100%;height:auto}
+.docs-figure figcaption{display:flex;gap:9px;align-items:baseline;padding:11px 13px;border-top:1px solid var(--line);color:var(--muted);font-size:9px;line-height:1.55}
+.docs-figure figcaption span{flex:0 0 auto;color:var(--blue);font:700 8px var(--mono);letter-spacing:.35px;text-transform:uppercase}
+.docs-figure-tall{max-height:580px;overflow:auto}
+.docs-figure-tall figcaption{position:sticky;bottom:0;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(8px)}
+@media(max-width:760px){.docs-figure{margin-left:0}.docs-figure figcaption{display:block}.docs-figure figcaption span{display:block;margin-bottom:4px}.docs-figure-tall{max-height:460px}}
