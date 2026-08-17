@@ -29,12 +29,12 @@ initiales: CD
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 41
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Microsoft confirme une remise permanente couvrant les premières 1 000 RU/s provisionnées et 25 Go de stockage pour un compte Azure Cosmos DB par abonnement. L’option doit être activée à la création et n’est pas proposée en mode serverless."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure Cosmos DB est une base de données NoSQL distribuée conçue pour les applications à faible latence et disponibles mondialement. Son Free Tier suffit pour développer, tester ou exploiter une petite charge de production avec 1 000 RU/s et 25 Go inclus. Les consommations dépassant ces plafonds ainsi que certaines ressources Azure associées restent facturables.

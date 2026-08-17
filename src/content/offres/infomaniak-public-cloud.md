@@ -18,8 +18,8 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 8
-verifieLe: 2026-08-12
-verificationAutomatiqueLe: 2026-08-12
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 

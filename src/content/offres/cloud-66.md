@@ -24,12 +24,12 @@ couleur: "#00a88f"
 initiales: "66"
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 10
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Formule gratuite permanente confirmée sur la page tarifaire officielle."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloud 66 automatise le déploiement, la configuration et la maintenance d’applications sur vos propres comptes cloud, avec une expérience proche d’un PaaS tout en conservant le contrôle des serveurs.

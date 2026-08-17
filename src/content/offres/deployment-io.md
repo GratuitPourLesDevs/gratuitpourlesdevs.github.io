@@ -24,12 +24,12 @@ couleur: "#16a085"
 initiales: DIO
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 15
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Plan Self-serve Free, nombre de jobs et fonctionnalités communes confirmés sur la page tarifaire officielle Deployment.io."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Deployment.io automatise la création d’environnements, les déploiements de sites statiques et de services conteneurisés dans le compte AWS de l’utilisateur. Son intégration MCP permet aussi de piloter ces opérations depuis un agent de développement, avec des limites d’exécution et une validation humaine avant la production.

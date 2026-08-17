@@ -15,12 +15,12 @@ couleur: "#0078d4"
 initiales: SW
 carteRequise: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 42
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Microsoft confirme pour le plan Free dix applications par abonnement, 100 Go de bande passante mensuelle, 500 Mo de stockage total, deux domaines personnalisés et trois environnements de prévisualisation par application."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure Static Web Apps automatise la construction et le déploiement de sites statiques depuis GitHub ou Azure DevOps, puis distribue les fichiers sur le réseau mondial d’Azure. Le plan Free convient aux portfolios, documentations, démonstrations et petites applications Jamstack. Il inclut les domaines personnalisés et SSL, mais ne fournit ni SLA ni dépassement payant automatique de la bande passante.

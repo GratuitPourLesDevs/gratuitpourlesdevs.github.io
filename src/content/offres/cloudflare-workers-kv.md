@@ -24,12 +24,12 @@ couleur: "#f6821f"
 initiales: KV
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 52
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La tarification officielle confirme 100 000 lectures, 1 000 écritures, 1 000 suppressions et 1 000 listages par jour, ainsi que 1 Go de stockage sur le plan gratuit. La documentation des limites confirme 25 Mio par valeur, 1 000 espaces de noms et une écriture par seconde sur une même clé."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudflare Workers KV est un stockage clé-valeur distribué sur le réseau mondial de Cloudflare. Il est particulièrement adapté aux données lues très souvent et modifiées peu fréquemment, comme la configuration, les préférences, les indicateurs de fonctionnalité et les caches persistants. Sa cohérence éventuelle le rend moins adapté aux compteurs, transactions et écritures concurrentes qui exigent une lecture immédiatement à jour.

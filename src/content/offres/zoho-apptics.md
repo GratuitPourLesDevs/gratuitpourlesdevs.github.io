@@ -42,12 +42,12 @@ couleur: "#f0483e"
 initiales: ZA
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 59
-verifieLe: 2026-08-16
-verificationAutomatiqueLe: 2026-08-16
-verificationNote: "La tarification officielle confirme un plan Free Forever sans carte avec 1 projet, 10 applications, 5 000 erreurs, 50 000 engagements, 5 utilisateurs et 30 jours de conservation. Une fois le quota de jetons épuisé, Zoho demande de passer au plan Pro."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Apptics rassemble l’analyse des usages, la surveillance des erreurs et des performances ainsi que les retours intégrés à l’application. Il permet à une petite équipe de suivre jusqu’à dix variantes web ou mobiles d’un même produit dans un tableau de bord commun, avec suffisamment de volume pour instrumenter un prototype ou une application en phase de lancement.

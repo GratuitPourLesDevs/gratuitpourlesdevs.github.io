@@ -21,12 +21,12 @@ initiales: BW
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 40
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Microsoft indique que les 100 premiers Go de trafic Internet sortant sont gratuits chaque mois pour tous les clients et dans toutes les régions Azure. Cette règle permanente remplace avantageusement l’ancienne référence de 15 Go pendant 12 mois."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure Bandwidth couvre les transferts de données vers et depuis les centres de données Azure. Microsoft accorde actuellement les 100 premiers Go de trafic Internet sortant chaque mois, quelle que soit la région Azure, tandis que le trafic entrant reste gratuit. Les échanges entre régions, ainsi que certains chemins passant par CDN, ExpressRoute ou Peering, suivent des grilles tarifaires distinctes.

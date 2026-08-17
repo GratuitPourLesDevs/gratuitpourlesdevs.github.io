@@ -20,12 +20,12 @@ couleur: "#0078d4"
 initiales: AZ
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 35
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Microsoft confirme 5 utilisateurs Basic gratuits, Azure Repos privés illimités, 1 800 minutes mensuelles sur un job hébergé, un job auto-hébergé sans limite de minutes et 2 Gio d’Artifacts par organisation."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure DevOps Services réunit Azure Repos, Pipelines, Boards et Artifacts dans une plateforme hébergée. La formule gratuite couvre une petite équipe de cinq utilisateurs Basic et permet de gérer le code, le travail agile et les déploiements sans abonnement payant tant que les quotas de calcul et de stockage restent respectés.

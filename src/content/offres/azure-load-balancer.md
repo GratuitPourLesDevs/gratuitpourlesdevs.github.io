@@ -25,12 +25,12 @@ initiales: LB
 carteRequise: true
 depassementFacture: true
 permanent: false
-statut: active
+statut: "active"
 vedette: false
 ordre: 38
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Microsoft confirme pour les nouveaux comptes Azure 750 heures de Standard Load Balancer, 15 Go de données traitées et jusqu’à cinq règles pendant 12 mois."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure Standard Load Balancer distribue les flux réseau entre plusieurs machines virtuelles ou services principaux et retire automatiquement les instances défaillantes grâce aux sondes d’intégrité. L’avantage gratuit couvre uniquement le service de répartition pendant la première année du compte : les machines, adresses IP et transferts réseau associés conservent leurs propres règles de facturation.

@@ -15,12 +15,12 @@ couleur: "#f6821f"
 initiales: CQ
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 56
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Depuis février 2026, Queues est inclus dans Workers Free avec 10 000 opérations quotidiennes et 24 heures de rétention. La documentation confirme 10 000 files, des messages de 128 Ko, 5 000 messages par seconde et un backlog de 25 Go par file."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudflare Queues permet de découpler producteurs et consommateurs avec une livraison garantie vers des Workers ou des consommateurs HTTP. Le quota gratuit est exprimé en opérations plutôt qu’en messages : une livraison normale représente généralement une écriture, une lecture et une suppression. Les messages dépassant 64 Ko et les nouvelles tentatives consomment des opérations supplémentaires.

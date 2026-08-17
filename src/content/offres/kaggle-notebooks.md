@@ -15,12 +15,12 @@ couleur: "#20beff"
 initiales: KG
 carteRequise: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 27
 verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Accès gratuit aux GPU Tesla P100, quota hebdomadaire généralement fixé à 30 heures et délai d’inactivité confirmés dans la documentation officielle Kaggle."
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Kaggle Notebooks fournit un environnement Jupyter prêt à l’emploi, étroitement intégré aux jeux de données, modèles et compétitions Kaggle. La plateforme convient à l’exploration de données et à l’entraînement de modèles sans machine locale puissante, mais le quota d’accélérateur est partagé, variable et consommé tant que la session GPU reste active.

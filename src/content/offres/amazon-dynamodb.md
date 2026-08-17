@@ -25,12 +25,12 @@ initiales: DB
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 21
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Quotas mensuels du Free Tier confirmés sur la page tarifaire officielle Amazon DynamoDB."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Amazon DynamoDB est une base NoSQL entièrement gérée pour les modèles clé-valeur et document. Avec 25 RCU et 25 WCU provisionnées, AWS estime que la formule gratuite peut couvrir environ 200 millions de requêtes mensuelles selon la taille des éléments et le type de lecture.

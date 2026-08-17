@@ -25,12 +25,12 @@ initiales: LA
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 22
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Quotas mensuels de requêtes et de calcul confirmés sur la page tarifaire officielle AWS Lambda."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AWS Lambda exécute du code en réponse à des requêtes HTTP, des messages, des changements de données ou d’autres événements sans serveur à administrer. Le quota de calcul dépend à la fois de la mémoire allouée et de la durée des exécutions : un million de requêtes ne signifie donc pas nécessairement un million d’exécutions entièrement gratuites.

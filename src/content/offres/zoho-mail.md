@@ -45,12 +45,12 @@ couleur: "#0f75bc"
 initiales: ZM
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 60
-verifieLe: 2026-08-16
-verificationAutomatiqueLe: 2026-08-16
-verificationNote: "La tarification officielle confirme un plan Free Forever sans carte pour 5 utilisateurs, 5 Go par utilisateur et un domaine. Le plan est limité au webmail, sans IMAP, POP ni ActiveSync, et sa disponibilité dépend du centre de données. La limite de pièce jointe de 25 Mo citée par free-for.dev n’est plus affichée dans les conditions officielles du plan et n’a pas été reprise."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Mail permet à une petite équipe d’utiliser des adresses professionnelles sur son propre domaine sans payer l’hébergement des boîtes mail. Le plan gratuit convient surtout aux structures qui travaillent dans le webmail Zoho : il évite l’administration d’un serveur de messagerie, mais ne permet pas de connecter les boîtes à un client externe via IMAP ou POP.

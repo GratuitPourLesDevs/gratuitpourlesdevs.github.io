@@ -21,12 +21,12 @@ initiales: EG
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 47
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La tarification officielle Microsoft confirme 100 000 opérations gratuites par mois pour Event Grid Basic. Les événements publiés, les tentatives de livraison et certains filtres sont comptabilisés, par tranche de 64 Ko de données. Le catalogue des services Azure gratuits classe cette allocation comme permanente."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure Event Grid distribue des événements entre services Azure, applications et points de terminaison HTTP. Son niveau Basic inclut en permanence 100 000 opérations par mois pour les rubriques personnalisées, système ou partenaires. Le quota ne correspond pas à 100 000 messages garantis : une publication, une tentative de livraison ou un filtrage avancé peut constituer une opération, et un événement dépassant 64 Ko en consomme plusieurs.

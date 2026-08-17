@@ -24,12 +24,12 @@ couleur: "#00a67e"
 initiales: SC
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 17
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Plan gratuit de 50 runs, concurrence et fonctionnalités incluses confirmés sur la page tarifaire et la documentation officielles Scalr."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Scalr fournit une plateforme Terraform Automation and Collaboration Software compatible avec Terraform et OpenTofu. Elle centralise les états, les exécutions, les politiques et les accès tout en permettant un fonctionnement GitOps ; le mode local « state storage only » conserve gratuitement l’état sans décompter de run distant.

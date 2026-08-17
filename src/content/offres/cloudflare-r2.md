@@ -21,12 +21,12 @@ initiales: R2
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 53
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La tarification Cloudflare confirme 10 Go-mois de stockage Standard, 1 million d’opérations de classe A et 10 millions d’opérations de classe B par mois, avec transfert sortant gratuit. La classe Infrequent Access ne bénéficie pas du quota gratuit."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudflare R2 est un stockage objet compatible avec l’API S3, conçu pour conserver et distribuer des fichiers sans frais de transfert sortant. La formule gratuite mensuelle convient aux sauvegardes légères, aux assets statiques et aux petits dépôts de données. R2 reste cependant un service à l’usage : une souscription avec facturation doit être activée et tout dépassement des quotas gratuits est automatiquement facturé.

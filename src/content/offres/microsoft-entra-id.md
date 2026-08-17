@@ -15,12 +15,12 @@ couleur: "#0078d4"
 initiales: EI
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 33
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Microsoft confirme la formule Entra ID Free, ses fonctions MFA, SSO, gestion d’annuaire et synchronisation. La documentation de limites distingue le plafond commercial de 500 000 ressources des quotas opérationnels de 50 000 ou 300 000 objets, extensibles via le support."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Microsoft Entra ID Free est le nouveau nom d’Azure Active Directory Free. Il fournit les fonctions essentielles de gestion des identités pour les applications Microsoft et SaaS, sans confondre son plafond de ressources d’annuaire avec un nombre d’utilisateurs. La formule est incluse dans les abonnements cloud Microsoft compatibles ; les fonctions avancées de sécurité et de gouvernance restent réservées aux licences P1, P2 ou Governance.

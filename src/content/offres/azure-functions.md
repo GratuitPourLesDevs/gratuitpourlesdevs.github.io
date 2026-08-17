@@ -29,12 +29,12 @@ initiales: AF
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 31
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Crédit mensuel de 1 million d’exécutions et 400 000 Go-secondes confirmé dans la tarification officielle Azure Functions pour le plan Consumption."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure Functions exécute du code à la demande en réponse à des appels HTTP, messages, minuteries ou événements provenant d’autres services Azure. Le double quota gratuit couvre le nombre d’exécutions et leur consommation mémoire multipliée par la durée : rester sous un million d’appels ne suffit donc pas si les fonctions sont longues ou fortement dimensionnées.

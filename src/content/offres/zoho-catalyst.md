@@ -50,12 +50,12 @@ initiales: ZC
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 58
-verifieLe: 2026-08-15
-verificationAutomatiqueLe: 2026-08-15
-verificationNote: "La page officielle du Free Tier confirme des quotas mensuels permanents accessibles sans carte, dont 25 000 Go-secondes de fonctions, 15 Go-heures AppSail, 300 000 requêtes d’hébergement, 100 000 appels API, 2 Go de Data Store et 5 Go de fichiers."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Catalyst fournit un environnement full-stack pour construire et exploiter des applications serverless sans assembler séparément le calcul, les API, les données, le stockage et l’hébergement. Ses quotas gratuits se renouvellent chaque mois tant que l’usage reste sous les plafonds définis pour l’ensemble du compte.

@@ -15,12 +15,12 @@ couleur: "#0078d4"
 initiales: AI
 carteRequise: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 44
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Les pages Microsoft confirment des niveaux F0 permanents distincts : 5 000 transactions Vision, 30 000 transactions Face, deux millions de caractères Translator, cinq heures Speech to Text et 5 000 enregistrements Language par mois."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Anciennement regroupées sous le nom Cognitive Services, ces API sont désormais présentées comme Azure AI Services ou Foundry Tools. Elles permettent d’ajouter rapidement OCR, analyse d’images, traduction, transcription, synthèse vocale et traitement du langage à une application. Chaque service doit être créé avec son propre niveau F0 et possède sa définition de transaction, ses limites de débit et ses conditions d’accès.

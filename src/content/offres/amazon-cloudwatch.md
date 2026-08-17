@@ -21,12 +21,12 @@ initiales: CW
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 14
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Quotas permanents de métriques, alarmes, API, journaux et tableaux de bord confirmés sur la page tarifaire officielle Amazon CloudWatch."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Amazon CloudWatch centralise la télémétrie des ressources AWS et des applications : métriques, logs, tableaux de bord et alertes. Son Free Tier permanent suffit pour superviser une petite infrastructure, à condition de surveiller le nombre de dimensions, les requêtes API exclues et les fonctions d’analyse avancées.

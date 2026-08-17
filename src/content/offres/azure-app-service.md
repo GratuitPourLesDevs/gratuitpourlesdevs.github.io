@@ -24,12 +24,12 @@ couleur: "#0078d4"
 initiales: AS
 carteRequise: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 30
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Le plan F1 permanent à 0 dollar, 60 minutes CPU quotidiennes, 1 Go de RAM, 1 Go de stockage et la limite de 10 applications sont confirmés par la tarification et les limites officielles Azure. Les limites indiquent aussi trois minutes CPU sur cinq minutes, 165 Mo de bande passante et l’arrêt temporaire de l’application lorsqu’un quota est dépassé."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure App Service déploie des sites et API sans administrer directement les serveurs, avec intégration aux outils de développement et aux autres services Azure. Le plan F1 convient aux démonstrations, ateliers et petits prototypes intermittents ; ses ressources partagées, ses quotas CPU et réseau et l’absence de domaine personnalisé le rendent inadapté à une application de production. Lorsqu’un quota CPU ou bande passante est atteint, l’application est arrêtée jusqu’à sa réinitialisation et répond temporairement avec une erreur HTTP 403.

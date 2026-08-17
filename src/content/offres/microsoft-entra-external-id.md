@@ -25,12 +25,12 @@ initiales: EX
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 34
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Microsoft confirme que l’offre Basic inclut gratuitement les 50 000 premiers utilisateurs actifs mensuels. Azure AD B2C n’est plus disponible à l’achat pour les nouveaux clients depuis le 1er mai 2025 ; External ID est l’offre actuelle à retenir."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Microsoft Entra External ID est la solution CIAM actuelle de Microsoft pour ajouter l’inscription, la connexion et la gestion des identités externes aux applications grand public ou B2B. Elle succède fonctionnellement à Azure AD B2C pour les nouveaux projets, avec une tarification fondée sur les utilisateurs uniques qui s’authentifient pendant le mois plutôt que sur les comptes simplement présents dans l’annuaire.

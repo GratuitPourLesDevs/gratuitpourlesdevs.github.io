@@ -21,12 +21,12 @@ initiales: SN
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 23
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Quotas permanents de publications et de livraisons confirmés sur les pages officielles AWS Free Tier et Amazon SNS."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Amazon Simple Notification Service distribue un message publié vers plusieurs consommateurs : services AWS, endpoints HTTP/S, applications mobiles ou utilisateurs. La formule gratuite couvre séparément les publications et certains canaux de livraison ; une seule publication envoyée à plusieurs abonnés peut donc consommer plusieurs quotas.

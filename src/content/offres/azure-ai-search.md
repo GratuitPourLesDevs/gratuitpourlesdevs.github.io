@@ -15,12 +15,12 @@ couleur: "#0078d4"
 initiales: SR
 carteRequise: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 45
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Microsoft confirme que le niveau Dedicated Free ne expire pas et fournit 50 Mo de stockage avec trois index. Les limites techniques indiquent également trois indexeurs, trois sources, trois skillsets et 10 000 documents maximum par appel d’indexation."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure AI Search, anciennement Azure Cognitive Search, indexe des contenus structurés ou non structurés et expose des API de recherche textuelle, filtrée et vectorielle. Son niveau Free permanent convient aux tutoriels, prototypes RAG et petits jeux de données. Il ne doit pas être confondu avec une capacité globale de 10 000 documents : ce nombre limite la charge d’un appel d’indexeur, tandis que la capacité réelle est plafonnée à 50 Mo.

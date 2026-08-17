@@ -47,12 +47,12 @@ initiales: RT
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 57
-verifieLe: 2026-08-15
-verificationAutomatiqueLe: 2026-08-15
-verificationNote: "La documentation Cloudflare confirme 1 000 Go mensuels gratuits partagés entre Realtime SFU et TURN, puis 0,05 USD par Go sortant. STUN est gratuit et illimité. Les identifiants TURN temporaires expirent au plus tard après 48 heures."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudflare Realtime TURN relaie le trafic des applications WebRTC lorsque la connexion directe échoue à cause d’un NAT ou d’un pare-feu. Le service fournit plusieurs transports et ports de secours pour les réseaux restrictifs. Le quota gratuit porte uniquement sur le trafic transmis depuis Cloudflare vers les clients et il est partagé avec Realtime SFU.

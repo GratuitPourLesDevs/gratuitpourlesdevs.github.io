@@ -24,12 +24,12 @@ couleur: "#c74634"
 initiales: OC
 carteRequise: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 6
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Quotas Always Free, conditions d’inscription et règles de récupération des instances inactives confirmés dans les documentations officielles Oracle."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Oracle Cloud Free Tier réunit un socle Always Free sans date d’expiration et un crédit d’essai temporaire. Il permet notamment de monter une petite infrastructure complète avec compute AMD ou Arm, volumes, stockage objet, base de données et load balancer, sous réserve de capacité dans la région d’origine.

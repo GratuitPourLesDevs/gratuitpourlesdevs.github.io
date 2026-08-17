@@ -18,9 +18,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 2
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La documentation Cloudflare confirme 100 000 requêtes par jour sur le plan Workers Free, 10 ms de CPU par invocation HTTP, 128 Mo de mémoire, 50 sous-requêtes externes, 1 000 sous-requêtes vers les services Cloudflare et 100 Workers par compte. Les requêtes vers les fichiers statiques sont gratuites et illimitées."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 historique:
   - date: 2026-08-14
     type: correction

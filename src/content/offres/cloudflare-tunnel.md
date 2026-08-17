@@ -15,12 +15,12 @@ couleur: "#f6821f"
 initiales: CT
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 51
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La documentation Cloudflare confirme que TryCloudflare crée gratuitement un sous-domaine aléatoire sans compte ni domaine. Les Quick Tunnels sont temporaires, destinés aux tests, limités à 200 requêtes simultanées et incompatibles avec SSE. Les limites de compte actuelles autorisent jusqu’à 1 000 tunnels nommés et 25 réplicas actifs par tunnel."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudflare Tunnel établit depuis la machine locale une connexion sortante vers le réseau Cloudflare, ce qui évite d’ouvrir un port entrant ou d’exposer directement l’adresse IP du serveur. Un Quick Tunnel permet de partager immédiatement une application locale avec une URL temporaire sur trycloudflare.com. Pour un accès durable, des hostnames personnalisés, plusieurs connecteurs ou des politiques Zero Trust, il faut créer un tunnel nommé dans un compte Cloudflare.

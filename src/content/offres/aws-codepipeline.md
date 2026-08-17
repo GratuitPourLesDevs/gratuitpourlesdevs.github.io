@@ -25,12 +25,12 @@ initiales: CP
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 20
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Free Tier permanent confirmé sur la page tarifaire officielle pour les pipelines V1 et V2."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AWS CodePipeline relie les étapes source, compilation, test, approbation et déploiement d’un workflow de livraison continue. Le type V1 convient à un pipeline classique facturé par pipeline actif, tandis que le type V2 ajoute notamment des déclencheurs et des variables avec une facturation à la minute d’action.

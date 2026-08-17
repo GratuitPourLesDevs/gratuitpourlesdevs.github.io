@@ -29,12 +29,12 @@ initiales: AK
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 46
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Microsoft confirme que le niveau Free rend gratuite la gestion du cluster AKS sans SLA. Les ressources sous-jacentes restent facturées à l’usage. Le niveau est destiné au développement et aux tests, recommandé sous 10 nœuds, mais prend techniquement en charge jusqu’à 1 000 nœuds."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure Kubernetes Service fournit un plan de contrôle Kubernetes administré par Microsoft. Le niveau Free supprime le coût de gestion du cluster et donne accès aux fonctionnalités AKS courantes pour apprendre, prototyper ou tester une infrastructure conteneurisée. Il ne rend toutefois pas le cluster entièrement gratuit : les nœuds de calcul, disques, adresses IP, équilibreurs et flux réseau consommés suivent leur propre tarification Azure.

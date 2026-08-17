@@ -25,12 +25,12 @@ initiales: ST
 carteRequise: true
 depassementFacture: true
 permanent: false
-statut: active
+statut: "active"
 vedette: false
 ordre: 43
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Microsoft liste pour les nouveaux comptes 100 Go Azure Files et deux millions d’opérations, 5 Go Blob Hot avec 20 000 lectures et 10 000 écritures, ainsi que 10 Go Archive Storage pendant 12 mois."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Les avantages Azure Storage destinés aux nouveaux comptes couvrent trois usages complémentaires : les partages de fichiers Azure Files, les objets Blob fréquemment consultés et les données placées en archive. Chaque service possède ses propres quotas de capacité et d’opérations. Une fois les 12 mois écoulés, ou dès qu’un plafond mensuel est dépassé, la tarification standard Azure s’applique.

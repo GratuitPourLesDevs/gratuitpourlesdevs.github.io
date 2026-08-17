@@ -21,12 +21,12 @@ initiales: CF
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 13
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Quotas mensuels permanents et exclusions du Free Tier confirmés dans les pages officielles Amazon CloudFront."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Amazon CloudFront convient à l’hébergement de sites statiques, à l’accélération d’API et à l’exécution de traitements JavaScript légers au plus près des utilisateurs. Cette fiche décrit le Free Tier à l’usage ; AWS propose séparément des forfaits CloudFront à prix fixe dont les quotas sont différents.

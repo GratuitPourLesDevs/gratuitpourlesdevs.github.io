@@ -15,12 +15,12 @@ couleur: "#0078d4"
 initiales: IH
 carteRequise: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 37
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Microsoft confirme une unité IoT Hub F1 gratuite par abonnement, 8 000 messages quotidiens comptabilisés par tranches de 0,5 Ko et jusqu’à 500 identités d’appareils."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure IoT Hub F1 permet de prototyper une architecture IoT bidirectionnelle avec les fonctionnalités du niveau Standard : ingestion de télémétrie, commandes vers les appareils, jumeaux numériques, routage et protocoles spécialisés. Le quota annoncé en messages doit être interprété selon la taille de comptage de 0,5 Ko, et non comme 8 000 charges utiles de taille quelconque.

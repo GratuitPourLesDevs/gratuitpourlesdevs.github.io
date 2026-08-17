@@ -21,12 +21,12 @@ initiales: SQ
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 25
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Million de requêtes mensuelles gratuites confirmé sur la page tarifaire officielle Amazon SQS."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Amazon Simple Queue Service stocke les messages entre producteurs et consommateurs afin d’absorber les pointes de charge et de découpler les composants. Une requête peut transporter jusqu’à dix messages, dans la limite d’un payload total de 1 Mio, mais chaque tranche de 64 Ko reste comptabilisée séparément.

@@ -25,12 +25,12 @@ initiales: CB
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 18
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Free Tier permanent confirmé sur la page tarifaire officielle AWS CodeBuild pour les petits environnements EC2 et Lambda éligibles."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AWS CodeBuild exécute les compilations et les tests dans des environnements gérés, sans serveur de CI à maintenir. La formule gratuite n’expire pas après douze mois et s’adresse aux nouveaux comme aux anciens clients AWS ; les ressources AWS utilisées autour du build peuvent toutefois générer des frais.

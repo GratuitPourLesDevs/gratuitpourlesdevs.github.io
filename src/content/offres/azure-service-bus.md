@@ -25,12 +25,12 @@ initiales: SB
 carteRequise: true
 depassementFacture: true
 permanent: false
-statut: active
+statut: "active"
 vedette: false
 ordre: 48
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "Le catalogue officiel des services Azure gratuits confirme 750 heures et 13 millions d’opérations pour l’unité de base Service Bus Standard, pendant 12 mois. Cet avantage est réservé aux nouveaux clients Azure ; les ressources utilisées après la période gratuite sont facturées au tarif normal."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Azure Service Bus fournit des files et des rubriques de messagerie fiables pour découpler les composants d’une application. L’avantage Azure pour nouveaux clients couvre chaque mois 750 heures d’une unité de base Standard et 13 millions d’opérations pendant un an. Il s’agit d’une allocation temporaire : au terme des 12 mois, le namespace continue de fonctionner et devient facturable selon la tarification Service Bus en vigueur.

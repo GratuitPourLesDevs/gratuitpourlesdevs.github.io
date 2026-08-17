@@ -39,12 +39,12 @@ couleur: "#e42527"
 initiales: ZS
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 61
-verifieLe: 2026-08-16
-verificationAutomatiqueLe: 2026-08-16
-verificationNote: "L’aide officielle confirme 1 technicien, 1 session simultanée et 5 appareils en accès permanent. Les sessions de bureau n’ont pas de limite de durée ou de nombre ; les sessions mobiles sont limitées à 5 sessions de 15 minutes."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Assist convient à une petite équipe qui doit dépanner ponctuellement des utilisateurs ou administrer quelques postes sans présence sur place. La formule gratuite couvre le contrôle distant essentiel sur Windows, macOS et Linux, tout en limitant clairement l’organisation à un technicien, une connexion simultanée et cinq appareils gérés en permanence.

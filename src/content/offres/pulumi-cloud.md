@@ -24,12 +24,12 @@ couleur: "#8a3391"
 initiales: PU
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 16
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Plan Individual gratuit à vie, limites de déploiement, secrets et Pulumi Neo confirmés sur la page tarifaire officielle."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pulumi permet de définir une infrastructure avec TypeScript, Python, Go, C#, Java ou YAML, puis de la déployer sur de nombreux clouds. Le plan Individual convient aux projets personnels et privés ; le CLI open source peut également fonctionner sans Pulumi Cloud avec un backend de stockage autogéré.

@@ -25,12 +25,12 @@ initiales: ZT
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 50
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La tarification Cloudflare confirme un plan Zero Trust Free à 0 dollar pour 50 utilisateurs, avec ZTNA, Secure Web Gateway et jusqu’à 24 heures de rétention des journaux standards. La documentation actuelle fixe la limite générale à 250 emplacements DNS : l’ancienne limite de trois emplacements indiquée par free-for.dev n’est plus d’actualité."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudflare Zero Trust protège l’accès aux applications privées et le trafic Internet des appareils sans VPN réseau traditionnel. Le plan Free combine Cloudflare Access, Gateway, Tunnel et le client Cloudflare One pour une équipe allant jusqu’à 50 utilisateurs. Il convient aux petites équipes et aux preuves de concept, mais la courte conservation des journaux, l’assistance communautaire et l’absence de SLA limitent son usage dans les environnements soumis à des exigences fortes de production ou de conformité.

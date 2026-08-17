@@ -15,12 +15,12 @@ couleur: "#8e75ff"
 initiales: AI
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 29
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Gratuité d’AI Studio, modèles accessibles au Free Tier et conditions de traitement des contenus confirmés dans la tarification officielle Gemini Developer API."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Google AI Studio permet d’essayer rapidement les modèles Gemini, d’ajuster les paramètres et outils d’un prompt puis d’obtenir le code ou la clé nécessaire pour intégrer la Gemini API. Il est adapté au prototypage et aux petits projets, mais pas à la manipulation de données sensibles sur le palier gratuit, dont les contenus peuvent être utilisés pour améliorer les produits Google.

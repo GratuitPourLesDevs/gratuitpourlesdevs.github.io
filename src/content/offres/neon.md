@@ -44,12 +44,12 @@ couleur: "#00bfa5"
 initiales: NE
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 3
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La tarification Neon confirme 100 projets, 100 CU-heures mensuelles et 0,5 Go de stockage par projet, jusqu’à 2 CU, 10 branches simultanées, 5 Go de transfert public, 60 000 utilisateurs Neon Auth et une restauration sur 6 heures ou 1 Go de modifications."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 historique:
   - date: 2026-08-14
     type: correction

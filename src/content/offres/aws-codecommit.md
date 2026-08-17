@@ -21,12 +21,12 @@ initiales: CC
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 19
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Free Tier permanent confirmé sur la page tarifaire officielle ; CodeCommit est de nouveau ouvert aux nouveaux clients depuis le 25 novembre 2025."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AWS CodeCommit héberge des dépôts Git privés avec contrôle d’accès IAM, chiffrement et intégration aux pipelines AWS. Après une période de fermeture aux nouveaux comptes, AWS a rétabli sa disponibilité générale en novembre 2025. La formule gratuite ne s’arrête pas après douze mois, mais les identités techniques utilisées par CodeBuild ou CodePipeline peuvent compter parmi les utilisateurs actifs.

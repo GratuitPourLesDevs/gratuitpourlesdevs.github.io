@@ -15,12 +15,12 @@ couleur: "#f6821f"
 initiales: PG
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 55
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La documentation Cloudflare confirme 500 builds par mois, un build simultané, 100 projets par compte, 100 domaines personnalisés par projet, 20 000 fichiers par site et des prévisualisations illimitées. Les requêtes statiques et la bande passante sont annoncées comme illimitées sur le plan gratuit."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudflare Pages construit et déploie des sites statiques et applications frontend depuis GitHub, GitLab ou Wrangler. Chaque commit peut produire une prévisualisation partageable avant le passage en production. Les fichiers statiques bénéficient de requêtes et d’une bande passante illimitées, tandis que les fonctions dynamiques utilisent les quotas du plan Cloudflare Workers Free.

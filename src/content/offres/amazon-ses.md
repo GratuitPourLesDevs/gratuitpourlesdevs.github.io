@@ -25,12 +25,12 @@ initiales: SE
 carteRequise: true
 depassementFacture: true
 permanent: false
-statut: active
+statut: "active"
 vedette: false
 ordre: 24
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Offre actualisée après le changement tarifaire du 21 juillet 2026 : l’ancien quota de 3 000 messages est remplacé par les crédits AWS Free Tier."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Amazon Simple Email Service fournit des API et une interface SMTP pour envoyer et recevoir des e-mails. L’ancien quota de 3 000 charges de messages par mois n’est plus présenté dans la tarification actuelle : les nouveaux clients utilisent désormais les crédits partagés du programme AWS Free Tier, pendant une durée maximale de six mois sur le plan gratuit.

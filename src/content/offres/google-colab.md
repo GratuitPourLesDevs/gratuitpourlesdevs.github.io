@@ -15,12 +15,12 @@ couleur: "#f9ab00"
 initiales: CO
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 26
-verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-13
-verificationNote: "Gratuité, accès aux GPU et TPU, limites dynamiques et durée maximale des sessions confirmés dans la FAQ officielle Google Colab."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Google Colab permet de créer, exécuter et partager des notebooks Python sans installation locale. Il convient au prototypage, à l’analyse de données et au machine learning, mais sa formule gratuite ne garantit ni un type d’accélérateur ni un volume de calcul : les quotas, les délais d’inactivité et la disponibilité du matériel évoluent selon la capacité du service et l’usage du compte.

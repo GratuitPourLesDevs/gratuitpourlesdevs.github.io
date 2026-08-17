@@ -24,12 +24,12 @@ couleur: "#f6821f"
 initiales: D1
 carteRequise: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 54
-verifieLe: 2026-08-14
-verificationAutomatiqueLe: 2026-08-14
-verificationNote: "La tarification officielle confirme 5 millions de lignes lues, 100 000 lignes écrites par jour et 5 Go de stockage total. Les limites actuelles du plan gratuit autorisent 10 bases de 500 Mo maximum chacune et 7 jours de restauration Time Travel."
+verifieLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-17
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudflare D1 est une base SQL serverless reposant sur la sémantique SQLite et intégrée à Workers et Pages. Elle convient aux API, applications web et architectures qui répartissent les données entre plusieurs petites bases. Le quota de stockage gratuit atteint désormais 5 Go au total, mais chaque base reste limitée à 500 Mo sur le plan Workers Free.
