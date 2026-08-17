@@ -1,6 +1,7 @@
 import type { OfferAlertLevel, OfferAlertType } from './offer-alerts';
 import { formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-quotas';
 import './offer-quota-overrides';
+import './parsivex-quota';
 
 export type FreeTierScoreCriterion = {
   id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
@@ -84,6 +85,7 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'microsoft-entra-id': 20,
   neon: 15,
   'oracle-cloud': 20,
+  parsivex: 5,
   'pulumi-cloud': 15,
   scalr: 15,
   trainercentral: 15,
