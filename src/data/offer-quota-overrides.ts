@@ -1,5 +1,43 @@
 import { OFFER_QUOTAS } from './offer-quotas';
 
+OFFER_QUOTAS['zoho-sprints'] ??= [
+  { id: 'users', metric: 'users', label: 'Utilisateurs', amount: 3, unit: 'user', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'projects', metric: 'projects', label: 'Projets', amount: 3, unit: 'project', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'storage', metric: 'storage', label: 'Stockage', amount: 500, unit: 'MB', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+];
+
+OFFER_QUOTAS['zoho-workdrive'] ??= [
+  { id: 'users', metric: 'users', label: 'Utilisateurs', amount: 1, unit: 'user', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'storage', metric: 'storage', label: 'Stockage', amount: 5, unit: 'GB', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit', notes: 'Les fichiers Zoho Writer, Sheet et Show natifs ne consomment pas ce quota.' },
+];
+
+OFFER_QUOTAS['zoho-projects'] ??= [
+  { id: 'users', metric: 'users', label: 'Utilisateurs', amount: 3, unit: 'user', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'projects', metric: 'projects', label: 'Projets', amount: 3, unit: 'project', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'storage', metric: 'storage', label: 'Stockage', amount: 5, unit: 'GB', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+];
+
+OFFER_QUOTAS['zoho-bugtracker'] ??= [
+  { id: 'users', metric: 'users', label: 'Utilisateurs', amount: 3, unit: 'user', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'projects', metric: 'projects', label: 'Projets', amount: 2, unit: 'project', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'storage', metric: 'storage', label: 'Stockage', amount: 5, unit: 'GB', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'attachment-size', metric: 'attachment_size', label: 'Taille maximale par pièce jointe', amount: 10, unit: 'MB', period: 'lifetime', scope: 'file', reset: 'never', overage: 'blocked', kind: 'limit' },
+];
+
+OFFER_QUOTAS['zoho-connect'] ??= [
+  { id: 'users', metric: 'users', label: 'Utilisateurs', amount: 5, unit: 'user', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'storage', metric: 'storage', label: 'Stockage', amount: 10, unit: 'GB', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'groups', metric: 'groups', label: 'Groupes', amount: 3, unit: 'group', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'boards', metric: 'boards', label: 'Tableaux', amount: 3, unit: 'board', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'manuals', metric: 'manuals', label: 'Manuels', amount: 3, unit: 'manual', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'attachment-size', metric: 'attachment_size', label: 'Taille maximale par document joint', amount: 10, unit: 'MB', period: 'lifetime', scope: 'file', reset: 'never', overage: 'blocked', kind: 'limit' },
+];
+
+OFFER_QUOTAS['zoho-meeting'] ??= [
+  { id: 'participants', metric: 'participants', label: 'Participants par réunion ou webinar', amount: 100, unit: 'participant', period: 'session', scope: 'session', reset: 'not-applicable', overage: 'blocked', kind: 'limit' },
+  { id: 'session-duration', metric: 'session_duration', label: 'Durée maximale', amount: 60, unit: 'minute', period: 'session', scope: 'session', reset: 'not-applicable', overage: 'blocked', kind: 'limit' },
+];
+
 OFFER_QUOTAS['zoho-vault'] ??= [
   { id: 'passwords', metric: 'passwords', label: 'Mots de passe', amount: null, unit: 'password', period: 'lifetime', scope: 'user', reset: 'not-applicable', overage: 'not-applicable', kind: 'unlimited' },
   { id: 'devices', metric: 'devices', label: 'Appareils', amount: null, unit: 'device', period: 'lifetime', scope: 'user', reset: 'not-applicable', overage: 'not-applicable', kind: 'unlimited' },
