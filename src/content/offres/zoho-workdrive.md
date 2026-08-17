@@ -1,7 +1,7 @@
 ---
 nom: Zoho WorkDrive
 accroche: Stockage cloud individuel avec suite bureautique Zoho intégrée
- type: SaaS
+type: SaaS
 categorie: equipe-collaboration
 formule: 5 Go de stockage pour un utilisateur, avec Writer, Sheet et Show intégrés
 inclus:
