@@ -1,4 +1,8 @@
+import { DOCUMENT_SCRAPING_QUOTA_SCORES } from './document-scraping-scores';
+import './document-scraping-quotas';
+
 export const API_UTILITY_QUOTA_SCORES = {
+  ...DOCUMENT_SCRAPING_QUOTA_SCORES,
   'killbait-api': 5,
   kreya: 25,
   loginllama: 15,
