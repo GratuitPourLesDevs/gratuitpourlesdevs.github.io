@@ -1,10 +1,13 @@
 import { API_UTILITY_QUOTA_SCORES } from './api-utility-scores';
 import { IP_JSON_AI_QUOTA_SCORES } from './ip-json-ai-scores';
+import { PACKAGE_HOSTING_QUOTA_SCORES } from './package-hosting-scores';
 import './api-utility-quotas';
+import './package-hosting-quotas';
 
 export const DATA_TOOLS_QUOTA_SCORES = {
   ...API_UTILITY_QUOTA_SCORES,
   ...IP_JSON_AI_QUOTA_SCORES,
+  ...PACKAGE_HOSTING_QUOTA_SCORES,
   'data-fetcher': 15,
   'data-miner': 15,
   'dataimporter-io': 20,
