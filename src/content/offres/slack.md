@@ -20,7 +20,7 @@ alertes: []
 usages:
 - Collaboration
 - Messagerie
-- Intégrations
+- Intégration applicative
 url: https://slack.com/
 source: https://slack.com/pricing
 couleur: '#4A154B'

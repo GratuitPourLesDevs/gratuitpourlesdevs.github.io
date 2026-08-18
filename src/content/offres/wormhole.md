@@ -17,7 +17,7 @@ restrictions:
 alertes: []
 usages:
 - Partage de fichiers
-- Sécurité
+- Communications pair à pair
 url: https://wormhole.app/
 source: https://wormhole.app/
 couleur: '#111827'

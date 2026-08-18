@@ -19,7 +19,7 @@ restrictions:
 alertes: []
 usages:
 - Gestion de projet
-- Service client
+- Engagement utilisateur
 url: https://rightfeature.com/
 source: https://rightfeature.com/pricing
 couleur: '#8B5CF6'

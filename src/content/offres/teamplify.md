@@ -20,7 +20,7 @@ alertes: []
 usages:
 - Collaboration
 - Gestion de projet
-- Intégrations
+- Intégration applicative
 url: https://teamplify.com/
 source: https://teamplify.com/pricing
 couleur: '#7C3AED'

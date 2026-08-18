@@ -20,7 +20,7 @@ alertes: []
 usages:
 - Messagerie
 - Collaboration
-- Intégrations
+- Intégration applicative
 url: https://zulip.com/
 source: https://zulip.com/plans/
 couleur: '#6492FE'

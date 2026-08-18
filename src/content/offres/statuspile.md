@@ -15,7 +15,7 @@ restrictions:
 alertes: []
 usages:
 - Notifications
-- Intégrations
+- Monitoring
 url: https://www.statuspile.com/
 source: https://www.statuspile.com/
 couleur: '#111827'

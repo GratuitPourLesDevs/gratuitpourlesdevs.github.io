@@ -20,7 +20,7 @@ alertes: []
 usages:
 - Messagerie
 - Collaboration
-- Intégrations
+- Intégration applicative
 url: https://twist.com/
 source: https://twist.com/pricing
 couleur: '#6C5CE7'
