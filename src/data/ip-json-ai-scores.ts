@@ -1,3 +1,5 @@
+import './ip-json-ai-quotas';
+
 export const IP_JSON_AI_QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   hex: 15,
   hook0: 15,
