@@ -25,7 +25,7 @@ alertes:
     detail: Le service et son API sont actifs, mais le plafond de 5 000 requêtes mensuelles n’a pas pu être revérifié sur une source tarifaire officielle accessible.
 usages:
   - API
-  - Recherche
+  - Moteur de recherche
   - Données
 url: https://pexafy.com/
 documentation: https://docs.pexafy.com/
