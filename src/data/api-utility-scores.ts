@@ -1,7 +1,10 @@
+import { API_PLATFORM_QUOTA_SCORES } from './api-platform-scores';
 import { DOCUMENT_SCRAPING_QUOTA_SCORES } from './document-scraping-scores';
+import './api-platform-quotas';
 import './document-scraping-quotas';
 
 export const API_UTILITY_QUOTA_SCORES = {
+  ...API_PLATFORM_QUOTA_SCORES,
   ...DOCUMENT_SCRAPING_QUOTA_SCORES,
   'killbait-api': 5,
   kreya: 25,
