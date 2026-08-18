@@ -1,11 +1,11 @@
 ---
-nom: Weights & Biases
+nom: "Weights & Biases"
 accroche: Plateforme MLOps pour suivre les expériences, modèles, datasets et évaluations IA
 type: SaaS
 categorie: supervision
 formule: "Cloud Free avec jusqu’à 5 sièges modèle, 5 Go de stockage par mois et 1 Go d’ingestion Weave par mois"
 inclus: [Jusqu’à 5 sièges pour les fonctions Model, 5 Go de stockage cloud mensuel, 1 Go d’ingestion Weave par mois, Suivi d’expériences, Model Registry et lineage, Évaluations et traces d’applications IA]
-conditions: [Compte W&B gratuit]
+conditions: ["Compte Weights & Biases gratuit"]
 restrictions: [Le quota historique de 100 Go n’est plus celui du plan Cloud Free actuel, Le plan Academic est distinct et peut proposer des quotas différents, Les besoins d’équipe et de stockage supérieurs nécessitent un plan payant]
 alertes:
   - type: fonctionnel
