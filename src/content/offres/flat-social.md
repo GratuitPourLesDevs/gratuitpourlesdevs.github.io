@@ -1,0 +1,38 @@
+---
+nom: flat.social
+accroche: Espaces vidéo spatiaux personnalisables pour réunions et moments sociaux
+type: SaaS
+categorie: equipe-collaboration
+formule: Jusqu’à 5 personnes simultanément avec durée de session illimitée
+inclus:
+  - Jusqu’à 5 participants simultanés
+  - Durée de session illimitée
+  - Audio spatial
+  - Vidéo
+  - Cartes et apparence personnalisables
+  - Bouton d’intégration pour site web
+conditions:
+  - Compte flat.social gratuit
+restrictions:
+  - Le plan gratuit actuel est limité à 5 personnes simultanées et non 8
+  - Les capacités supérieures et fonctions avancées nécessitent les futures offres payantes
+alertes: []
+usages:
+  - Collaboration
+  - Visioconférence et voix sur IP
+url: https://flat.social/
+source: https://flat.social/pricing
+couleur: "#8b5cf6"
+initiales: FS
+carteRequise: false
+depassementFacture: false
+permanent: true
+statut: "active"
+vedette: false
+ordre: 286
+verifieLe: 2026-08-18
+verificationAutomatiqueLe: 2026-08-18
+verificationNote: "Le plan Free actuel est à 5 personnes simultanées avec durée de session illimitée. L’ancienne limite de 8 utilisateurs n’est plus d’actualité."
+---
+
+flat.social remplace la grille classique d’une visioconférence par un espace où les participants se déplacent et discutent selon leur proximité. Le plan gratuit convient à de petits ateliers ou moments sociaux d’équipe.
