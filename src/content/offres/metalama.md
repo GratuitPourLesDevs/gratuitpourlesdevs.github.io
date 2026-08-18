@@ -27,7 +27,7 @@ usages:
 - Automatisation
 - Développement et test
 url: https://www.postsharp.net/metalama
- documentation: https://doc.postsharp.net/metalama/
+documentation: https://doc.postsharp.net/metalama/
 source: https://www.postsharp.net/metalama/pricing
 couleur: '#6D28D9'
 initiales: ME
