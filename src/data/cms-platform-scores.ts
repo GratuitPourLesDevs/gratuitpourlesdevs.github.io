@@ -1,5 +1,5 @@
 export const CMS_PLATFORM_QUOTA_SCORES = {
-  contentful: 20,
+  contentful: 15,
   cosmic: 20,
   crystallize: 15,
   datocms: 20,
