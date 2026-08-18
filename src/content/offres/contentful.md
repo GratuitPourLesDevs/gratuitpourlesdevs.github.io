@@ -1,6 +1,6 @@
 ---
 nom: Contentful
-accroche: Headless CMS API-first avec espace Starter gratuit pour petits projets
+accroche: Headless CMS API-first avec espace Starter gratuit pour apprentissage et tests
 type: SaaS
 categorie: cms
 formule: Free à 0 $ avec 1 Starter Space, 10 utilisateurs et 100k appels API/mois
@@ -16,17 +16,23 @@ inclus:
 - 50 Go de bande passante CDN par mois
 conditions:
 - Compte Contentful
+- Utilisation du plan Free réservée à l’apprentissage, l’exploration et aux tests
 restrictions:
-- Offre Free positionnée pour apprendre, explorer et les petits projets
+- Le plan Free ne doit pas être utilisé pour supporter un cas d’usage commercial
 - Aucun dépassement d’appels API ou de bande passante n’est disponible sur le Free
+- Une fois un quota mensuel atteint, la Delivery API peut être bloquée jusqu’à la fin de la période ou jusqu’à un upgrade
 - 1 seul Starter Space
-alertes: []
+alertes:
+- type: usage
+  niveau: critique
+  libelle: Usage commercial exclu
+  detail: Les conditions actuelles de Contentful réservent le plan Free aux tests et à l’apprentissage et excluent les cas d’usage commerciaux.
 usages:
 - API
 - Données
 - Applications web
 url: https://www.contentful.com/
-source: https://www.contentful.com/pricing/
+source: https://www.contentful.com/help/admin/usage/usage-limit/
 couleur: '#2478CC'
 initiales: CF
 carteRequise: false
@@ -37,7 +43,7 @@ vedette: false
 ordre: 347
 verifieLe: '2026-08-18'
 verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’ancienne offre Community à 5 utilisateurs et 25k records est obsolète. Le Free actuel inclut 10 utilisateurs, 10k records, 25 content types, 100k appels API/mois et 50 Go de CDN/mois.
+verificationNote: Le Free actuel inclut notamment 10 utilisateurs, 100k appels API/mois et 50 Go de CDN/mois. Les conditions de janvier 2026 précisent surtout que ce plan est réservé aux tests et à l’apprentissage et ne doit pas supporter un usage commercial.
 ---
 
-Contentful permet de séparer le contenu du frontend et de le distribuer par API vers un site, une application ou plusieurs canaux. Le plan gratuit suffit pour prototyper et exploiter un petit projet avec une vraie équipe éditoriale.
+Contentful permet de découvrir un workflow headless complet et de tester une intégration API avec plusieurs éditeurs. En revanche, son plan Free actuel doit être considéré comme un environnement d’apprentissage et de validation, pas comme l’hébergement gratuit d’un projet commercial en production.
