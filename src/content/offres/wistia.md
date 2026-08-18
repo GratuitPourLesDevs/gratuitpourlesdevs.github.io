@@ -20,7 +20,7 @@ alertes: []
 usages:
 - Stockage
 - Partage de fichiers
-- Marketing
+- Distribution de médias
 url: https://wistia.com/
 source: https://wistia.com/pricing
 couleur: '#54BBFF'
