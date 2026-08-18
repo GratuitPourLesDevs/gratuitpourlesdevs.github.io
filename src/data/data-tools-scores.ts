@@ -1,13 +1,16 @@
 import { API_UTILITY_QUOTA_SCORES } from './api-utility-scores';
+import { COLLABORATION_SERVICES_QUOTA_SCORES } from './collaboration-services-scores';
 import { COLLABORATION_TOOLS_QUOTA_SCORES } from './collaboration-tools-scores';
 import { IP_JSON_AI_QUOTA_SCORES } from './ip-json-ai-scores';
 import { PACKAGE_HOSTING_QUOTA_SCORES } from './package-hosting-scores';
 import './api-utility-quotas';
+import './collaboration-services-quotas';
 import './collaboration-tools-quotas';
 import './package-hosting-quotas';
 
 export const DATA_TOOLS_QUOTA_SCORES = {
   ...API_UTILITY_QUOTA_SCORES,
+  ...COLLABORATION_SERVICES_QUOTA_SCORES,
   ...COLLABORATION_TOOLS_QUOTA_SCORES,
   ...IP_JSON_AI_QUOTA_SCORES,
   ...PACKAGE_HOSTING_QUOTA_SCORES,
