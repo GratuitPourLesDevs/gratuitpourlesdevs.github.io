@@ -22,7 +22,7 @@ alertes:
     detail: La tarification actuelle affiche 250 recherches gratuites par mois ; les anciennes références à 100 appels ne sont plus à jour.
 usages:
   - API
-  - Recherche
+  - Moteur de recherche
   - Données
 url: https://serpapi.com/
 documentation: https://serpapi.com/search-api
