@@ -3,7 +3,8 @@ nom: GitBook
 accroche: Documentation technique moderne avec synchronisation Git et playground API
 type: SaaS
 categorie: autres-ressources
-formule: Plan gratuit pour développeur individuel\inclus:
+formule: Plan gratuit pour développeur individuel
+inclus:
   - Éditeur par blocs
   - Documentation produit et technique
   - Synchronisation GitHub et GitLab
