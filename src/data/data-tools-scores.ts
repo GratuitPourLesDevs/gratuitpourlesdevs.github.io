@@ -1,6 +1,7 @@
 import { API_UTILITY_QUOTA_SCORES } from './api-utility-scores';
 import { CMS_PLATFORM_QUOTA_SCORES } from './cms-platform-scores';
 import { CODE_GENERATION_QUOTA_SCORES } from './code-generation-scores';
+import { CODE_QUALITY_QUOTA_SCORES } from './code-quality-scores';
 import { COLLABORATION_BATCH_QUOTA_SCORES } from './collaboration-batch-scores';
 import { COLLABORATION_SERVICES_QUOTA_SCORES } from './collaboration-services-scores';
 import { COLLABORATION_TOOLS_QUOTA_SCORES } from './collaboration-tools-scores';
@@ -9,6 +10,7 @@ import { PACKAGE_HOSTING_QUOTA_SCORES } from './package-hosting-scores';
 import './api-utility-quotas';
 import './cms-platform-quotas';
 import './code-generation-quotas';
+import './code-quality-quotas';
 import './collaboration-batch-quotas';
 import './collaboration-services-quotas';
 import './collaboration-tools-quotas';
@@ -18,6 +20,7 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   ...API_UTILITY_QUOTA_SCORES,
   ...CMS_PLATFORM_QUOTA_SCORES,
   ...CODE_GENERATION_QUOTA_SCORES,
+  ...CODE_QUALITY_QUOTA_SCORES,
   ...COLLABORATION_BATCH_QUOTA_SCORES,
   ...COLLABORATION_SERVICES_QUOTA_SCORES,
   ...COLLABORATION_TOOLS_QUOTA_SCORES,
