@@ -1,0 +1,29 @@
+name: Validation temporaire comparatif E-mail responsive
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v7
+      - name: Installer Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - name: Installer les dépendances
+        run: npm ci
+      - name: Construire le site
+        run: npm run build
+      - name: Vérifier le comparatif responsive
+        run: |
+          test -f dist/guides/email/meilleures-offres-gratuites/index.html
+          grep -q 'max-width:980px' dist/guides/email/meilleures-offres-gratuites/index.html
+          grep -q "Quota clé" dist/guides/email/meilleures-offres-gratuites/index.html
