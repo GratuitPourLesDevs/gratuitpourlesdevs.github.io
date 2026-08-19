@@ -1,0 +1,17 @@
+export const LOCALIZATION_PLATFORM_QUOTA_SCORES = {
+  autolocalise: 15,
+  crowdin: 25,
+  "free-po-editor": 20,
+  "lingo-dev": 15,
+  lingohub: 15,
+  localhero: 15,
+  localazy: 15,
+  localit: 20,
+  localizely: 20,
+  loco: 20,
+  poeditor: 20,
+  simplelocalize: 20,
+  texterify: 20,
+  tolgee: 25,
+  transifex: 20,
+} satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
