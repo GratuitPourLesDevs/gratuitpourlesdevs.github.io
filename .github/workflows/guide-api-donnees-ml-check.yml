@@ -3,6 +3,8 @@ name: Validation temporaire guide API données ML
 on:
   push:
     branches: [feat/guide-api-donnees-ml]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
