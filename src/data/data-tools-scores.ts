@@ -7,6 +7,7 @@ import { DEVELOPER_UTILITY_QUOTA_SCORES } from './developer-utility-scores';
 import { SECURITY_PLATFORM_QUOTA_SCORES } from './security-platform-scores';
 import { IDENTITY_ACCESS_QUOTA_SCORES } from './identity-access-scores';
 import { MOBILE_DISTRIBUTION_QUOTA_SCORES } from './mobile-distribution-scores';
+import { INFRA_MANAGEMENT_QUOTA_SCORES } from './infra-management-scores';
 import { TESTING_PLATFORM_QUOTA_SCORES } from './testing-platform-scores';
 import { COLLABORATION_BATCH_QUOTA_SCORES } from './collaboration-batch-scores';
 import { COLLABORATION_SERVICES_QUOTA_SCORES } from './collaboration-services-scores';
@@ -24,6 +25,7 @@ import './security-platform-quotas-more';
 import './identity-access-quotas';
 import './identity-access-quotas-more';
 import './mobile-distribution-quotas';
+import './infra-management-quotas';
 import './testing-platform-quotas';
 import './testing-platform-quotas-more';
 import './collaboration-batch-quotas';
@@ -41,6 +43,7 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   ...SECURITY_PLATFORM_QUOTA_SCORES,
   ...IDENTITY_ACCESS_QUOTA_SCORES,
   ...MOBILE_DISTRIBUTION_QUOTA_SCORES,
+  ...INFRA_MANAGEMENT_QUOTA_SCORES,
   ...TESTING_PLATFORM_QUOTA_SCORES,
   ...COLLABORATION_BATCH_QUOTA_SCORES,
   ...COLLABORATION_SERVICES_QUOTA_SCORES,
