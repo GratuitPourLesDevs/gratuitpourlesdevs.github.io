@@ -62,12 +62,12 @@ const jsonLdPayload = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') :
     <script is:inline>
       (() => {
         const nav = document.querySelector('.site-header nav');
-        if (nav && !nav.querySelector('a[href="/comparatifs/"]')) {
+        if (nav && !nav.querySelector('a[href="/guides/"]')) {
           const link = document.createElement('a');
-          link.href = '/comparatifs/';
+          link.href = '/guides/';
           link.textContent = 'Guides';
           link.className = 'guides-nav-link';
-          if (location.pathname.startsWith('/comparatifs/')) link.classList.add('active');
+          if (location.pathname.startsWith('/guides/')) link.classList.add('active');
           nav.append(link);
         }
       })();
