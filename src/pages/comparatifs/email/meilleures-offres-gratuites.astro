@@ -6,6 +6,10 @@ import SiteFooter from '../../../components/SiteFooter.astro';
 import { getFreeTierScore } from '../../../data/free-tier-score';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, getOfferQuotas, type OfferQuota } from '../../../data/offer-quotas';
 
+if (Astro.url.pathname.startsWith('/comparatifs/')) {
+  return Astro.redirect('/guides/email/meilleures-offres-gratuites/');
+}
+
 const CATEGORY_ID = 'email';
 const MAX_RESULTS = 10;
 
@@ -85,7 +89,7 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL('/', Astro.site).href },
-    { '@type': 'ListItem', position: 2, name: 'Guides', item: new URL('/comparatifs/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: new URL('/guides/', Astro.site).href },
     { '@type': 'ListItem', position: 3, name: `Meilleures offres gratuites ${categoryLabel}`, item: new URL(Astro.url.pathname, Astro.site).href },
   ],
 };
@@ -127,7 +131,7 @@ const getOverageTone = (quota?: OfferQuota) => {
 
   <main class="seo-category-page">
     <nav class="seo-breadcrumb" aria-label="Fil d’Ariane">
-      <a href="/">Accueil</a><span aria-hidden="true">›</span><a href="/comparatifs/">Guides</a><span aria-hidden="true">›</span><strong>{categoryLabel}</strong>
+      <a href="/">Accueil</a><span aria-hidden="true">›</span><a href="/guides/">Guides</a><span aria-hidden="true">›</span><strong>{categoryLabel}</strong>
     </nav>
 
     <section class="seo-hero">
@@ -297,7 +301,7 @@ const getOverageTone = (quota?: OfferQuota) => {
         <p>Approfondissez la comparaison avec les outils déjà disponibles sur GratuitPourLesDevs.</p>
       </header>
       <div class="seo-related-grid">
-        <a href="/comparatifs/"><span>GUIDES</span><strong>Voir toutes les sélections éditoriales</strong><b>→</b></a>
+        <a href="/guides/"><span>GUIDES</span><strong>Voir toutes les sélections éditoriales</strong><b>→</b></a>
         <a href="/"><span>CATALOGUE</span><strong>Voir toutes les offres gratuites</strong><b>→</b></a>
         <a href="/comparaisons/"><span>COMPARAISONS</span><strong>Découvrir les comparaisons publiques</strong><b>→</b></a>
         <a href="/methodologie/"><span>MÉTHODE</span><strong>Comprendre comment les offres sont évaluées</strong><b>→</b></a>
