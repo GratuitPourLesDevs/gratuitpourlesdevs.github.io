@@ -1,6 +1,9 @@
 name: Validation temporaire de la refonte Archives
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - feat/archive-page-redesign
