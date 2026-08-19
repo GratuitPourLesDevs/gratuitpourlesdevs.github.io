@@ -82,7 +82,7 @@ const GUIDE_CONFIGS: Record<string, GuideConfig> = {
 
 const requestedCategoryId = typeof Astro.props.categoryId === 'string' ? Astro.props.categoryId : 'email';
 const CATEGORY_ID = requestedCategoryId in GUIDE_CONFIGS ? requestedCategoryId : 'email';
-const guideConfig = GUIDE_CONFIGS[CATEGORY_ID];
+const guideConfig = GUIDE_CONFIGS[CATEGORY_ID] ?? GUIDE_CONFIGS.email!;
 const MAX_RESULTS = 10;
 
 if (Astro.url.pathname.startsWith('/comparatifs/')) {
