@@ -137,6 +137,7 @@ export const USAGE_TAGS = [
   'Réseau Azure',
   'Routage d’e-mails',
   'Sauvegarde',
+  'Sécurité',
   'Secure Web Gateway',
   'Serverless',
   'SMTP',
