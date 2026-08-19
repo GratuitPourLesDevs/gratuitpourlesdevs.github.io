@@ -1,0 +1,44 @@
+name: Validation temporaire migration Guides SEO
+
+on:
+  push:
+    branches:
+      - feat/migrate-comparatifs-to-guides
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v7
+      - name: Installer Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - name: Installer les dépendances
+        run: npm ci
+      - name: Construire le site
+        run: npm run build
+      - name: Vérifier les nouvelles routes
+        run: |
+          test -f dist/guides/index.html
+          test -f dist/guides/email/meilleures-offres-gratuites/index.html
+      - name: Vérifier les redirections historiques
+        run: |
+          test -f dist/comparatifs/index.html
+          test -f dist/comparatifs/email/meilleures-offres-gratuites/index.html
+          grep -q '/guides' dist/comparatifs/index.html
+          grep -q '/guides/email/meilleures-offres-gratuites/' dist/comparatifs/email/meilleures-offres-gratuites/index.html
+      - name: Vérifier canonical et maillage interne
+        run: |
+          grep -q 'https://gratuitpourlesdevs.fr/guides/email/meilleures-offres-gratuites/' dist/guides/email/meilleures-offres-gratuites/index.html
+          ! grep -R 'href="/comparatifs/' src --include='*.astro'
+          ! grep -R "new URL('/comparatifs/" src --include='*.astro'
+      - name: Vérifier le sitemap
+        run: |
+          grep -R -q 'https://gratuitpourlesdevs.fr/guides/' dist/sitemap*.xml
+          ! grep -R -q 'https://gratuitpourlesdevs.fr/comparatifs' dist/sitemap*.xml
