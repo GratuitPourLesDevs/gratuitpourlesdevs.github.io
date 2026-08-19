@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+---
+
+<BaseLayout
+  title="Guides des meilleurs outils gratuits pour développeurs — GratuitPourLesDevs"
+  description="Retrouvez les sélections éditoriales GratuitPourLesDevs par catégorie : meilleurs free tiers, limites, scores et usages comparés."
+>
+  <SiteHeader active="guides" />
+
+  <main class="guides-page">
+    <nav class="guides-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span aria-hidden="true">›</span><strong>Guides</strong></nav>
+
+    <header class="guides-hero">
+      <small>SÉLECTIONS ÉDITORIALES</small>
+      <h1>Les meilleurs outils gratuits, catégorie par catégorie.</h1>
+      <p>Des guides construits à partir du catalogue GratuitPourLesDevs pour comparer rapidement les offres gratuites les plus intéressantes, leurs scores, leurs limites et leurs usages.</p>
+    </header>
+
+    <section class="guides-directory" aria-labelledby="guides-directory-title">
+      <header><div><small>GUIDES DISPONIBLES</small><h2 id="guides-directory-title">Commencer par une catégorie</h2></div><p>Cette rubrique va s’enrichir progressivement avec les autres catégories du catalogue.</p></header>
+      <div class="guides-grid">
+        <a href="/guides/email/meilleures-offres-gratuites/">
+          <span class="guides-index">01</span>
+          <span class="guides-copy"><small>E-MAIL</small><strong>Les meilleures offres gratuites pour l’e-mail</strong><em>Classement, score, formule gratuite, carte bancaire et usages.</em></span>
+          <b aria-hidden="true">→</b>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .guides-page{width:min(1120px,calc(100% - 7.2vw));min-height:calc(100vh - 174px);margin:0 auto;padding:30px 0 76px}.guides-breadcrumb{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:10px}.guides-breadcrumb a{color:var(--blue);text-decoration:none}.guides-breadcrumb strong{color:var(--ink)}.guides-hero{max-width:860px;padding:58px 0 54px;border-bottom:1px solid var(--line)}.guides-hero>small,.guides-directory>header small{color:var(--blue);font:700 10px var(--mono);letter-spacing:.9px}.guides-hero h1{margin:10px 0 18px;font-size:clamp(46px,5vw,66px);line-height:.99;letter-spacing:-3.5px}.guides-hero p{max-width:760px;margin:0;color:var(--muted);font-size:15px;line-height:1.72}.guides-directory{padding-top:48px}.guides-directory>header{display:grid;grid-template-columns:1fr minmax(280px,420px);gap:30px;align-items:end;margin-bottom:22px}.guides-directory h2{margin:7px 0 0;font-size:27px;letter-spacing:-.8px}.guides-directory>header p{margin:0;color:var(--muted);font-size:11px;line-height:1.55}.guides-grid{border-top:1px solid var(--line)}.guides-grid>a{min-height:128px;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:20px;align-items:center;padding:23px 12px;border-bottom:1px solid var(--line);text-decoration:none}.guides-grid>a:hover{background:var(--surface-hover)}.guides-index{color:var(--blue);font:700 11px var(--mono)}.guides-copy{display:grid;gap:5px}.guides-copy small{color:var(--blue);font:700 8px var(--mono);letter-spacing:.7px}.guides-copy strong{font-size:18px}.guides-copy em{color:var(--muted);font-size:10px;font-style:normal;line-height:1.5}.guides-grid b{color:var(--blue);font-size:25px}@media(max-width:760px){.guides-page{width:calc(100% - 32px);padding:22px 0 54px}.guides-hero{padding:40px 0}.guides-hero h1{font-size:42px;letter-spacing:-2.5px}.guides-directory>header{grid-template-columns:1fr;gap:10px}.guides-grid>a{grid-template-columns:34px 1fr auto;gap:12px;padding:20px 4px}.guides-copy strong{font-size:15px}}
+</style>
