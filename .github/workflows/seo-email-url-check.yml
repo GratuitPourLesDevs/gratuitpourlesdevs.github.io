@@ -1,6 +1,9 @@
 name: Validation temporaire URL SEO E-mail
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - feat/seo-email-url
