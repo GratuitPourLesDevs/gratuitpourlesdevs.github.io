@@ -23,6 +23,7 @@ import { SEARCH_PLATFORM_QUOTA_SCORES } from './search-platform-scores';
 import { EDUCATION_CAREER_QUOTA_SCORES } from './education-career-scores';
 import { EMAIL_SERVICE_QUOTA_SCORES } from './email-service-scores';
 import { FEATURE_FLAG_QUOTA_SCORES } from './feature-flag-scores';
+import { FONT_RESOURCE_QUOTA_SCORES } from './font-resource-scores';
 import './api-utility-quotas';
 import './cms-platform-quotas';
 import './code-generation-quotas';
@@ -51,6 +52,7 @@ import './search-platform-quotas';
 import './education-career-quotas';
 import './email-service-quotas';
 import './feature-flag-quotas';
+import './font-resource-quotas';
 
 export const DATA_TOOLS_QUOTA_SCORES = {
   ...API_UTILITY_QUOTA_SCORES,
@@ -78,6 +80,7 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   ...EDUCATION_CAREER_QUOTA_SCORES,
   ...EMAIL_SERVICE_QUOTA_SCORES,
   ...FEATURE_FLAG_QUOTA_SCORES,
+  ...FONT_RESOURCE_QUOTA_SCORES,
   'data-fetcher': 15,
   'data-miner': 15,
   'dataimporter-io': 20,
