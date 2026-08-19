@@ -5,30 +5,354 @@ import SiteHeader from '../components/SiteHeader.astro';
 
 const categories = await getCollection('categories');
 const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
-const archives = (await getCollection('offres'))
-  .filter(({ data }) => data.statut === 'obsolete')
-  .sort((a, b) => (b.data.verificationAutomatiqueLe?.getTime() ?? b.data.verifieLe.getTime()) - (a.data.verificationAutomatiqueLe?.getTime() ?? a.data.verifieLe.getTime()));
+const rawArchives = (await getCollection('offres'))
+  .filter(({ data }) => data.statut === 'obsolete');
+
+type ArchiveEntry = (typeof rawArchives)[number];
+
+const getCheckedAt = (entry: ArchiveEntry) => entry.data.verificationAutomatiqueLe ?? entry.data.verifieLe;
+const getArchivedAt = (entry: ArchiveEntry) => {
+  const statusChange = [...entry.data.historique]
+    .reverse()
+    .find((event) => event.type === 'statut' && event.changements.some((change) => change.apres?.toLocaleLowerCase('fr-FR').includes('obsolete')));
+  return statusChange?.date ?? getCheckedAt(entry);
+};
+
+const archiveText = (entry: ArchiveEntry) => [
+  entry.data.nom,
+  entry.data.accroche,
+  entry.data.formule,
+  entry.data.verificationNote ?? '',
+].join(' ').toLocaleLowerCase('fr-FR');
+
+const isStoppedService = (entry: ArchiveEntry) => /arrêt|arrêté|fermeture|fermé|sunset|extinction|dépréci|pivot|transfér/.test(archiveText(entry));
+const isRemovedFreeTier = (entry: ArchiveEntry) => /free tier|free forever|gratuit permanent|gratuité permanente|plan gratuit|offre gratuite|quota gratuit/.test(archiveText(entry));
+
+const getReason = (entry: ArchiveEntry) => {
+  const text = archiveText(entry);
+  if (isStoppedService(entry)) return { value: 'service-arrete', label: 'Service arrêté' };
+  if (/payant|tarification|abonnement|essai de \d+ jours|essai \d+ jours/.test(text)) return { value: 'devenu-payant', label: 'Devenu payant' };
+  if (isRemovedFreeTier(entry)) return { value: 'free-tier-supprime', label: 'Free tier supprimé' };
+  return { value: 'autre', label: 'Autre évolution' };
+};
+
+const archives = rawArchives
+  .map((entry) => {
+    const checkedAt = getCheckedAt(entry);
+    const archivedAt = getArchivedAt(entry);
+    const reason = getReason(entry);
+    const categoryName = categoryNames.get(entry.data.categorie) ?? entry.data.categorie;
+    return {
+      entry,
+      checkedAt,
+      archivedAt,
+      reason,
+      categoryName,
+      year: archivedAt.getFullYear(),
+      month: archivedAt.getMonth(),
+    };
+  })
+  .sort((a, b) => b.archivedAt.getTime() - a.archivedAt.getTime());
+
+const categoryOptions = [...new Map(archives.map(({ entry, categoryName }) => [entry.data.categorie, categoryName])).entries()]
+  .sort((a, b) => a[1].localeCompare(b[1], 'fr'));
+const reasonOptions = [...new Map(archives.map(({ reason }) => [reason.value, reason.label])).entries()]
+  .sort((a, b) => a[1].localeCompare(b[1], 'fr'));
+const yearOptions = [...new Set(archives.map(({ year }) => year))].sort((a, b) => b - a);
+const freeTierCount = rawArchives.filter(isRemovedFreeTier).length;
+const stoppedServiceCount = rawArchives.filter(isStoppedService).length;
+
+const yearGroups = yearOptions.map((year) => {
+  const yearEntries = archives.filter((archive) => archive.year === year);
+  const months = [...new Set(yearEntries.map(({ month }) => month))]
+    .sort((a, b) => b - a)
+    .map((month) => ({
+      month,
+      entries: yearEntries.filter((archive) => archive.month === month),
+    }));
+  return { year, entries: yearEntries, months };
+});
+
+const monthLabel = (year: number, month: number) => {
+  const label = new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(new Date(year, month, 1));
+  return label.charAt(0).toUpperCase() + label.slice(1);
+};
 ---
 
 <BaseLayout title="Archives des offres — Gratuit pour les devs" description="Les offres gratuites retirées du catalogue, conservées avec leur dernier état de vérification.">
   <SiteHeader />
 
   <main class="archive-page">
-    <header class="archive-hero"><small>MÉMOIRE DU CATALOGUE</small><h1>Archives</h1><p>Les offres devenues indisponibles restent consultables avec la date et le motif de leur retrait.</p></header>
+    <header class="archive-hero">
+      <small>MÉMOIRE DU CATALOGUE</small>
+      <h1>Archives</h1>
+      <p>Les offres devenues indisponibles restent consultables avec la date et le motif de leur retrait.</p>
+    </header>
+
     {archives.length === 0 ? (
-      <section class="archive-empty"><strong>Aucune offre archivée</strong><p>Toutes les offres suivies sont encore actives ou en attente de vérification.</p></section>
-    ) : (
-      <section class="archive-list" aria-label="Offres archivées">
-        {archives.map((entry) => (
-          <article class="archive-card">
-            <div class="archive-identity"><span class="offer-logo" style={`--logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span><div><small>{categoryNames.get(entry.data.categorie) ?? entry.data.categorie}</small><h2><a href={`/offres/${entry.id}/`}>{entry.data.nom}</a></h2><p>{entry.data.accroche}</p></div></div>
-            <div class="archive-reason"><span>Obsolète</span><p>{entry.data.verificationNote ?? 'Cette offre n’est plus disponible dans le catalogue actif.'}</p><small>Contrôlée le {(entry.data.verificationAutomatiqueLe ?? entry.data.verifieLe).toLocaleDateString('fr-FR')}</small></div>
-            <nav aria-label={`Sources archivées pour ${entry.data.nom}`}><a href={entry.data.url} target="_blank" rel="noreferrer">Ancien site ↗</a><a href={entry.data.source} target="_blank" rel="noreferrer">Dernière source ↗</a></nav>
-          </article>
-        ))}
+      <section class="archive-empty">
+        <strong>Aucune offre archivée</strong>
+        <p>Toutes les offres suivies sont encore actives ou en attente de vérification.</p>
       </section>
+    ) : (
+      <>
+        <section class="archive-stats" aria-label="Statistiques des archives">
+          <article>
+            <span class="archive-stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM3 4h18v3H3zm6 7h6"/></svg>
+            </span>
+            <span><strong>{archives.length}</strong><small>offres archivées</small></span>
+          </article>
+          <article>
+            <span class="archive-stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m6.5 6.5 11 11"/></svg>
+            </span>
+            <span><strong>{freeTierCount}</strong><small>free tiers supprimés</small></span>
+          </article>
+          <article>
+            <span class="archive-stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m9 9 6 6m0-6-6 6"/></svg>
+            </span>
+            <span><strong>{stoppedServiceCount}</strong><small>services arrêtés</small></span>
+          </article>
+        </section>
+
+        <section class="archive-controls" aria-label="Recherche et filtres des archives">
+          <label class="archive-search" for="archive-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+            <span class="sr-only">Rechercher une offre archivée</span>
+            <input id="archive-search" type="search" placeholder="Rechercher une offre archivée…" autocomplete="off" />
+          </label>
+          <div class="archive-filter-row">
+            <label class="archive-select">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+              <span class="sr-only">Filtrer par catégorie</span>
+              <select id="archive-category">
+                <option value="">Toutes les catégories</option>
+                {categoryOptions.map(([value, label]) => <option value={value}>{label}</option>)}
+              </select>
+            </label>
+            <label class="archive-select">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 12 8-8h6l2 2v6l-8 8z"/><circle cx="16.5" cy="7.5" r="1"/></svg>
+              <span class="sr-only">Filtrer par motif</span>
+              <select id="archive-reason-filter">
+                <option value="">Tous les motifs</option>
+                {reasonOptions.map(([value, label]) => <option value={value}>{label}</option>)}
+              </select>
+            </label>
+            <label class="archive-select">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 3v6m8-6v6M4 11h16"/></svg>
+              <span class="sr-only">Filtrer par année</span>
+              <select id="archive-year-filter">
+                <option value="">Toutes les années</option>
+                {yearOptions.map((year) => <option value={year}>{year}</option>)}
+              </select>
+            </label>
+            <label class="archive-select archive-sort">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4v16m0-16L5 7m3-3 3 3m5 13V4m0 16-3-3m3 3 3-3"/></svg>
+              <span class="sr-only">Trier les archives</span>
+              <select id="archive-sort">
+                <option value="recent">Plus récentes</option>
+                <option value="oldest">Plus anciennes</option>
+                <option value="name">Nom A → Z</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <div class="archive-results-heading" aria-live="polite">
+          <strong id="archive-result-count">{archives.length} offres archivées</strong>
+        </div>
+
+        <section id="archive-groups" class="archive-groups" aria-label="Offres archivées">
+          {yearGroups.map((yearGroup, yearIndex) => (
+            <details class="archive-year" data-year-group data-year={yearGroup.year} data-sort={yearGroup.year} open={yearIndex === 0}>
+              <summary>
+                <span class="archive-chevron" aria-hidden="true"></span>
+                <svg class="archive-calendar" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 3v6m8-6v6M4 11h16"/></svg>
+                <strong>{yearGroup.year}</strong>
+                <span>—</span>
+                <span data-year-count>{yearGroup.entries.length} {yearGroup.entries.length > 1 ? 'offres' : 'offre'}</span>
+              </summary>
+              <div class="archive-year-content">
+                {yearGroup.months.map((monthGroup, monthIndex) => (
+                  <details class="archive-month" data-month-group data-month={monthGroup.month} data-sort={monthGroup.month} open={yearIndex === 0 && monthIndex === 0}>
+                    <summary>
+                      <span class="archive-chevron" aria-hidden="true"></span>
+                      <svg class="archive-calendar" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M8 3v6m8-6v6M4 11h16"/></svg>
+                      <strong>{monthLabel(yearGroup.year, monthGroup.month)}</strong>
+                    </summary>
+                    <div class="archive-month-list">
+                      {monthGroup.entries.map(({ entry, checkedAt, archivedAt, reason, categoryName }) => (
+                        <details
+                          class="archive-entry"
+                          data-archive-entry
+                          data-name={entry.data.nom}
+                          data-category={entry.data.categorie}
+                          data-category-label={categoryName}
+                          data-reason={reason.value}
+                          data-year={archivedAt.getFullYear()}
+                          data-date={archivedAt.getTime()}
+                          data-search={`${entry.data.nom} ${entry.data.accroche} ${categoryName} ${entry.data.verificationNote ?? ''}`}
+                          open={entry.data.nom.toLocaleLowerCase('fr-FR').includes('azure pipelines')}
+                        >
+                          <summary class="archive-row">
+                            <span class="archive-logo" style={`--archive-logo-color:${entry.data.couleur}`}>{entry.data.initiales}</span>
+                            <span class="archive-row-name"><strong>{entry.data.nom}</strong></span>
+                            <span class="archive-row-category">{categoryName}</span>
+                            <span class="archive-status">Obsolète</span>
+                            <small>Contrôlée le {checkedAt.toLocaleDateString('fr-FR')}</small>
+                            <span class="archive-chevron archive-row-chevron" aria-hidden="true"></span>
+                          </summary>
+                          <div class="archive-detail">
+                            <h2><a href={`/offres/${entry.id}/`}>{entry.data.nom}</a></h2>
+                            <p class="archive-detail-intro">{entry.data.accroche}</p>
+                            <span class="archive-status">Obsolète</span>
+                            <p class="archive-detail-reason">{entry.data.verificationNote ?? 'Cette offre n’est plus disponible dans le catalogue actif.'}</p>
+                            <small>Contrôlée le {checkedAt.toLocaleDateString('fr-FR')}</small>
+                            <nav aria-label={`Sources archivées pour ${entry.data.nom}`}>
+                              <a href={entry.data.url} target="_blank" rel="noreferrer">Ancien site <span aria-hidden="true">↗</span></a>
+                              <a href={entry.data.source} target="_blank" rel="noreferrer">Dernière source <span aria-hidden="true">↗</span></a>
+                            </nav>
+                          </div>
+                        </details>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </details>
+          ))}
+        </section>
+
+        <section id="archive-filter-empty" class="archive-filter-empty" hidden>
+          <strong>Aucune archive ne correspond à ces critères</strong>
+          <p>Modifiez la recherche ou l’un des filtres pour retrouver davantage d’offres.</p>
+        </section>
+
+        <aside class="archive-transparency">
+          <span aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.6 2.8 8.2 7 10 4.2-1.8 7-5.4 7-10V6z"/></svg>
+          </span>
+          <div><strong>Archives transparentes</strong><small>Une offre retirée n’est jamais effacée de l’historique.</small></div>
+        </aside>
+      </>
     )}
   </main>
 
-  <footer><div class="verified-mark"><span><strong>Archives transparentes</strong><small>Une offre retirée n’est jamais effacée de l’historique.</small></span></div><nav><a href="/methodologie/">Méthodologie</a><a href="/evolutions/">Évolutions</a><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a></nav><span class="terminal-mark" aria-hidden="true">›_</span></footer>
+  <footer class="archive-footer">
+    <a class="archive-footer-brand" href="/" aria-label="GratuitPourLesDevs, accueil"><span aria-hidden="true">{`{ }`}</span><strong>GratuitPourLesDevs</strong></a>
+    <nav aria-label="Navigation de pied de page"><a href="/methodologie/">Méthodologie</a><a href="/evolutions/">Évolutions</a><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a></nav>
+    <a class="archive-github" href="https://github.com/GratuitPourLesDevs/gratuitpourlesdevs.github.io" target="_blank" rel="noreferrer" aria-label="Projet GratuitPourLesDevs sur GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8a9.3 9.3 0 0 0-2.9 18.1c.5.1.6-.2.6-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.7-1.4-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.3 4.6-4.6 4.9.4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5A9.3 9.3 0 0 0 12 2.8Z"/></svg>
+    </a>
+  </footer>
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const search = document.querySelector('#archive-search');
+    const category = document.querySelector('#archive-category');
+    const reason = document.querySelector('#archive-reason-filter');
+    const year = document.querySelector('#archive-year-filter');
+    const sort = document.querySelector('#archive-sort');
+    const groups = document.querySelector('#archive-groups');
+    const resultCount = document.querySelector('#archive-result-count');
+    const empty = document.querySelector('#archive-filter-empty');
+    if (!search || !category || !reason || !year || !sort || !groups || !resultCount || !empty) return;
+
+    const entries = [...groups.querySelectorAll('[data-archive-entry]')];
+    const years = [...groups.querySelectorAll('[data-year-group]')];
+    const normalize = (value) => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr-FR');
+
+    const sortEntries = () => {
+      const mode = sort.value;
+      years.sort((a, b) => {
+        const left = Number(a.dataset.sort);
+        const right = Number(b.dataset.sort);
+        return mode === 'oldest' ? left - right : right - left;
+      }).forEach((group) => groups.append(group));
+
+      years.forEach((yearGroup) => {
+        const yearContent = yearGroup.querySelector('.archive-year-content');
+        const months = [...yearGroup.querySelectorAll(':scope > .archive-year-content > [data-month-group]')];
+        months.sort((a, b) => {
+          const left = Number(a.dataset.sort);
+          const right = Number(b.dataset.sort);
+          return mode === 'oldest' ? left - right : right - left;
+        }).forEach((group) => yearContent?.append(group));
+
+        months.forEach((monthGroup) => {
+          const list = monthGroup.querySelector('.archive-month-list');
+          const monthEntries = [...monthGroup.querySelectorAll(':scope > .archive-month-list > [data-archive-entry]')];
+          monthEntries.sort((a, b) => {
+            if (mode === 'name') return String(a.dataset.name).localeCompare(String(b.dataset.name), 'fr');
+            const left = Number(a.dataset.date);
+            const right = Number(b.dataset.date);
+            return mode === 'oldest' ? left - right : right - left;
+          }).forEach((entry) => list?.append(entry));
+        });
+      });
+    };
+
+    const update = () => {
+      const query = normalize(search.value);
+      const selectedCategory = category.value;
+      const selectedReason = reason.value;
+      const selectedYear = year.value;
+      const filtering = Boolean(query || selectedCategory || selectedReason || selectedYear);
+      let visibleCount = 0;
+
+      entries.forEach((entry) => {
+        const matchesQuery = !query || normalize(entry.dataset.search).includes(query);
+        const matchesCategory = !selectedCategory || entry.dataset.category === selectedCategory;
+        const matchesReason = !selectedReason || entry.dataset.reason === selectedReason;
+        const matchesYear = !selectedYear || entry.dataset.year === selectedYear;
+        const visible = matchesQuery && matchesCategory && matchesReason && matchesYear;
+        entry.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+
+      groups.querySelectorAll('[data-month-group]').forEach((monthGroup) => {
+        const visibleEntries = [...monthGroup.querySelectorAll(':scope > .archive-month-list > [data-archive-entry]')].filter((entry) => !entry.hidden);
+        monthGroup.hidden = visibleEntries.length === 0;
+        if (filtering && visibleEntries.length > 0) monthGroup.open = true;
+      });
+
+      years.forEach((yearGroup) => {
+        const visibleEntries = [...yearGroup.querySelectorAll('[data-archive-entry]')].filter((entry) => !entry.hidden);
+        yearGroup.hidden = visibleEntries.length === 0;
+        const count = yearGroup.querySelector('[data-year-count]');
+        if (count) count.textContent = `${visibleEntries.length} ${visibleEntries.length > 1 ? 'offres' : 'offre'}`;
+        if (filtering && visibleEntries.length > 0) yearGroup.open = true;
+      });
+
+      resultCount.textContent = `${visibleCount} ${visibleCount > 1 ? 'offres archivées' : 'offre archivée'}`;
+      empty.hidden = visibleCount !== 0;
+      groups.hidden = visibleCount === 0;
+      sortEntries();
+    };
+
+    search.addEventListener('input', update);
+    category.addEventListener('change', update);
+    reason.addEventListener('change', update);
+    year.addEventListener('change', update);
+    sort.addEventListener('change', update);
+    sortEntries();
+  })();
+</script>
+
+<style>
+  .archive-page{width:min(1180px,calc(100% - 7.2vw));min-height:calc(100vh - 174px);margin:0 auto;padding:48px 0 42px}.archive-hero{max-width:680px}.archive-hero>small{color:var(--blue);font:700 11px var(--mono);letter-spacing:.7px}.archive-hero h1{margin:8px 0 8px;font-size:clamp(52px,5vw,68px);line-height:1;letter-spacing:-3.5px}.archive-hero p{max-width:620px;margin:0;color:var(--muted);font-size:15px;line-height:1.65}.archive-empty{margin-top:36px;padding:52px;border:1px solid var(--line);border-radius:10px;background:var(--soft);text-align:center}.archive-empty strong{font-size:21px}.archive-empty p{margin:8px 0 0;color:var(--muted)}
+  .archive-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}.archive-stats article{min-height:92px;display:flex;align-items:center;gap:18px;padding:18px 20px;border:1px solid var(--line);border-radius:8px;background:var(--surface);box-shadow:0 4px 14px rgb(20 29 55/3%)}.archive-stat-icon{width:50px;height:50px;display:grid;place-items:center;flex:0 0 auto;border-radius:9px;color:var(--blue);background:rgb(11 69 255/7%)}.archive-stat-icon svg{width:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.archive-stats article>span:last-child{display:grid;gap:2px}.archive-stats strong{font-size:25px;line-height:1}.archive-stats small{color:var(--muted);font-size:12px}
+  .archive-controls{display:grid;gap:12px;margin-top:22px;padding:14px;border:1px solid var(--line);border-radius:9px;background:var(--surface);box-shadow:0 4px 14px rgb(20 29 55/3%)}.archive-search{height:48px;display:flex;align-items:center;gap:12px;padding:0 16px;border:1px solid var(--line);border-radius:7px;background:var(--surface)}.archive-search:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px rgb(11 69 255/8%)}.archive-search svg{width:20px;flex:0 0 auto;fill:none;stroke:#687080;stroke-width:1.8;stroke-linecap:round}.archive-search input{width:100%;height:100%;padding:0;border:0;outline:0;color:var(--ink);background:transparent;font-size:13px}.archive-search input::placeholder{color:#8b909c}.archive-filter-row{display:grid;grid-template-columns:1.1fr 1.1fr 1fr .9fr;gap:10px}.archive-select{height:44px;display:flex;align-items:center;gap:9px;padding:0 12px;border:1px solid var(--line);border-radius:7px;background:var(--surface)}.archive-select:focus-within,.archive-select:hover{border-color:#aeb7cc}.archive-select svg{width:18px;flex:0 0 auto;fill:none;stroke:#4f5665;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.archive-select select{width:100%;height:100%;padding:0 22px 0 0;border:0;outline:0;color:var(--ink);background:transparent;font-size:11px;font-weight:650;cursor:pointer}.archive-sort{margin-left:auto}.archive-results-heading{margin:18px 0 10px}.archive-results-heading strong{color:#5c6270;font-size:12px;font-weight:600}
+  .archive-groups{display:grid;gap:8px}.archive-year{border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}.archive-year>summary,.archive-month>summary{list-style:none;cursor:pointer}.archive-year>summary::-webkit-details-marker,.archive-month>summary::-webkit-details-marker,.archive-entry>summary::-webkit-details-marker{display:none}.archive-year>summary{min-height:54px;display:flex;align-items:center;gap:10px;padding:0 16px}.archive-year>summary:hover{background:var(--surface-hover)}.archive-year>summary strong{font-size:16px}.archive-year>summary>span:not(.archive-chevron){color:var(--muted);font-size:12px}.archive-chevron{width:9px;height:9px;display:inline-block;flex:0 0 auto;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(-45deg);transition:transform .18s}.archive-year[open]>summary .archive-chevron,.archive-month[open]>summary .archive-chevron,.archive-entry[open]>.archive-row .archive-row-chevron{transform:rotate(45deg)}.archive-calendar{width:20px;fill:none;stroke:#596170;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.archive-year-content{padding:0 8px 8px}.archive-month{border:1px solid var(--line);border-radius:7px;overflow:hidden}.archive-month+ .archive-month{margin-top:7px}.archive-month>summary{min-height:48px;display:flex;align-items:center;gap:10px;padding:0 16px;background:linear-gradient(90deg,rgb(11 69 255/4%),transparent)}.archive-month>summary:hover{background:rgb(11 69 255/6%)}.archive-month>summary strong{font-size:14px}.archive-month-list{border-top:1px solid var(--line)}
+  .archive-entry{background:var(--surface)}.archive-entry+ .archive-entry{border-top:1px solid var(--line)}.archive-row{min-height:58px;display:grid;grid-template-columns:52px minmax(145px,.85fr) minmax(230px,1.2fr) 92px 154px 20px;align-items:center;gap:12px;padding:7px 14px;list-style:none;cursor:pointer}.archive-row:hover{background:var(--surface-hover)}.archive-logo{width:38px;height:38px;display:grid;place-items:center;border-radius:7px;color:var(--archive-logo-color);background:color-mix(in srgb,var(--archive-logo-color) 12%,var(--surface));font:800 11px var(--mono)}.archive-row-name{min-width:0}.archive-row-name strong{display:block;overflow:hidden;font-size:13px;text-overflow:ellipsis;white-space:nowrap}.archive-row-category{color:var(--muted);font-size:10px;line-height:1.35}.archive-status{width:max-content;display:inline-block;padding:4px 8px;border:1px solid #ffc8c2;border-radius:5px;color:#bc3328;background:#fff0ee;font-size:9px;font-weight:800}.archive-row>small{color:#737986;font-size:10px}.archive-row-chevron{justify-self:end;color:#29303a}.archive-detail{margin:0 14px 12px 65px;padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--surface-raised);box-shadow:0 5px 18px rgb(18 29 54/3%)}.archive-detail h2{margin:0 0 6px;font-size:15px}.archive-detail h2 a{text-decoration:none}.archive-detail h2 a:hover{color:var(--blue)}.archive-detail-intro{margin:0 0 12px;color:var(--muted);font-size:11px}.archive-detail-reason{max-width:940px;margin:12px 0 8px;color:#3f4653;font-size:11px;line-height:1.55}.archive-detail>small{color:#737986;font-size:9px}.archive-detail nav{display:flex;gap:10px;margin-top:14px}.archive-detail nav a{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--blue);border-radius:6px;color:var(--blue);font-size:10px;font-weight:750;text-decoration:none}.archive-detail nav a:hover{color:#fff;background:var(--blue)}
+  .archive-filter-empty{padding:42px 20px;border:1px dashed var(--line);border-radius:8px;text-align:center}.archive-filter-empty strong{font-size:16px}.archive-filter-empty p{margin:7px 0 0;color:var(--muted);font-size:11px}.archive-transparency{min-height:70px;display:flex;align-items:center;gap:14px;margin-top:18px;padding:13px 16px;border:1px solid rgb(11 69 255/48%);border-radius:8px;background:linear-gradient(90deg,rgb(11 69 255/4%),transparent)}.archive-transparency>span{width:38px;height:38px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgb(11 69 255/14%);border-radius:50%;color:var(--blue);background:var(--surface)}.archive-transparency svg{width:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round}.archive-transparency div{display:grid;gap:3px}.archive-transparency strong{font-size:12px}.archive-transparency small{color:var(--muted);font-size:10px}
+  .archive-footer{min-height:82px;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:40px;padding:14px 3.6vw;border-top:1px solid var(--line)}.archive-footer-brand{display:inline-flex;align-items:center;gap:10px;width:max-content;color:var(--ink);text-decoration:none}.archive-footer-brand>span{color:var(--blue);font:800 19px var(--mono)}.archive-footer-brand strong{font-size:14px}.archive-footer nav{display:flex;gap:34px}.archive-footer nav a{color:#4b505d;font-size:10px;font-weight:600;text-decoration:none}.archive-footer nav a:hover{color:var(--blue)}.archive-github{width:32px;height:32px;display:grid;place-items:center;color:var(--ink)}.archive-github svg{width:22px;fill:currentColor}
+  :global([data-theme="dark"]) .archive-detail-reason{color:#c4c9d2}:global([data-theme="dark"]) .archive-status{color:#ffaaa1;background:#492422;border-color:#6f302d}:global([data-theme="dark"]) .archive-footer nav a{color:#b7bec9}:global([data-theme="dark"]) .archive-stat-icon{background:rgb(111 140 255/10%)}
+  @media(max-width:900px){.archive-row{grid-template-columns:48px minmax(130px,.9fr) minmax(180px,1.1fr) 86px 128px 18px;gap:8px}.archive-row-category{font-size:9px}.archive-row>small{font-size:9px}.archive-filter-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:760px){.archive-page{width:calc(100% - 32px);padding:38px 0 32px}.archive-hero h1{font-size:44px;letter-spacing:-2.5px}.archive-hero p{font-size:14px}.archive-stats{grid-template-columns:1fr;gap:8px}.archive-stats article{min-height:72px}.archive-controls{padding:10px}.archive-filter-row{grid-template-columns:1fr}.archive-select{width:100%}.archive-results-heading{margin-top:15px}.archive-year>summary{padding:0 12px}.archive-year-content{padding:0 5px 5px}.archive-month>summary{padding:0 12px}.archive-row{grid-template-columns:44px minmax(0,1fr) auto 18px;grid-template-areas:"logo name status chevron" "logo category category category" "logo date date date";min-height:86px;padding:10px 12px;gap:3px 9px}.archive-logo{grid-area:logo}.archive-row-name{grid-area:name}.archive-row-category{grid-area:category}.archive-status{grid-area:status}.archive-row>small{grid-area:date}.archive-row-chevron{grid-area:chevron}.archive-detail{margin:0 9px 10px 9px;padding:16px}.archive-detail nav{flex-wrap:wrap}.archive-footer{grid-template-columns:1fr auto;gap:14px;padding:18px 20px}.archive-footer nav{grid-column:1/-1;grid-row:2;display:flex;flex-wrap:wrap;gap:12px 20px}.archive-footer-brand strong{font-size:12px}}
+  @media(max-width:480px){.archive-stats small{font-size:11px}.archive-stat-icon{width:44px;height:44px}.archive-row{grid-template-columns:40px minmax(0,1fr) 18px;grid-template-areas:"logo name chevron" "logo category category" "logo status status" "logo date date"}.archive-row .archive-status{margin-top:3px}.archive-footer-brand strong{display:none}}
+  @media(prefers-reduced-motion:reduce){.archive-chevron{transition:none}}
+</style>
