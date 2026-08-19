@@ -17,6 +17,7 @@ import { COLLABORATION_TOOLS_QUOTA_SCORES } from './collaboration-tools-scores';
 import { IP_JSON_AI_QUOTA_SCORES } from './ip-json-ai-scores';
 import { PACKAGE_HOSTING_QUOTA_SCORES } from './package-hosting-scores';
 import { LOCALIZATION_PLATFORM_QUOTA_SCORES } from './localization-platform-scores';
+import { CRASH_EXCEPTION_QUOTA_SCORES } from './crash-exception-scores';
 import './api-utility-quotas';
 import './cms-platform-quotas';
 import './code-generation-quotas';
@@ -39,6 +40,7 @@ import './collaboration-services-quotas';
 import './collaboration-tools-quotas';
 import './package-hosting-quotas';
 import './localization-platform-quotas';
+import './crash-exception-quotas';
 
 export const DATA_TOOLS_QUOTA_SCORES = {
   ...API_UTILITY_QUOTA_SCORES,
@@ -60,6 +62,7 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   ...IP_JSON_AI_QUOTA_SCORES,
   ...PACKAGE_HOSTING_QUOTA_SCORES,
   ...LOCALIZATION_PLATFORM_QUOTA_SCORES,
+  ...CRASH_EXCEPTION_QUOTA_SCORES,
   'data-fetcher': 15,
   'data-miner': 15,
   'dataimporter-io': 20,

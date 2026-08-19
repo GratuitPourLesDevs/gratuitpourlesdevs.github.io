@@ -1,0 +1,17 @@
+export const CRASH_EXCEPTION_QUOTA_SCORES = {
+  'axiom': 20,
+  'bugsink': 20,
+  'bugsnag': 15,
+  'catchjs': 15,
+  'elmah-io': 20,
+  'embrace': 20,
+  'exceptionless': 15,
+  'glitchtip': 15,
+  'honeybadger': 20,
+  'jam': 15,
+  'memfault': 10,
+  'rollbar': 20,
+  'semaphr': 25,
+  'sentry': 20,
+  'whitespace': 15,
+} satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
