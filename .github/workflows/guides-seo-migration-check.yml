@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - feat/migrate-comparatifs-to-guides
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
