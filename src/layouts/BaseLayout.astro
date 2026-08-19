@@ -53,9 +53,25 @@ const jsonLdPayload = jsonLd ? JSON.stringify(jsonLd).replace(/</g, '\\u003c') :
     <meta name="twitter:description" content={description} />
     {jsonLdPayload && <script type="application/ld+json" set:html={jsonLdPayload} is:inline />}
     <title>{title}</title>
+    <style is:global>
+      @media(max-width:760px){.site-header nav a.guides-nav-link{display:grid!important}}
+    </style>
   </head>
   <body data-comparisons-api="https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev" data-comparisons-api-local="http://127.0.0.1:8787">
     <slot />
+    <script is:inline>
+      (() => {
+        const nav = document.querySelector('.site-header nav');
+        if (nav && !nav.querySelector('a[href="/comparatifs/"]')) {
+          const link = document.createElement('a');
+          link.href = '/comparatifs/';
+          link.textContent = 'Guides';
+          link.className = 'guides-nav-link';
+          if (location.pathname.startsWith('/comparatifs/')) link.classList.add('active');
+          nav.append(link);
+        }
+      })();
+    </script>
     <script is:inline>
       (() => {
         const root = document.documentElement;
