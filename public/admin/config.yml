@@ -77,7 +77,7 @@ collections:
       - { label: Vérification automatique le, name: verificationAutomatiqueLe, widget: datetime, required: false, date_format: YYYY-MM-DD, time_format: false }
       - { label: Note de vérification, name: verificationNote, widget: text, required: false }
       - { label: Mise en avant, name: vedette, widget: boolean, default: false }
-      - { label: Ordre, name: ordre, widget: number, value_type: int, default: 100 }
+      - { label: Priorité de classement (interne), name: ordre, widget: number, value_type: int, default: 100, hint: "Clé de tri interne potentiellement non continue. Ne correspond ni au numéro de l’offre ni au nombre total d’offres du catalogue." }
       - { label: Vérifié le, name: verifieLe, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Pourquoi c'est utile, name: body, widget: markdown }
 
