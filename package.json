@@ -8,6 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "audit:catalogue": "node scripts/audit-catalogue-order.mjs",
     "verify:offers": "node scripts/verify-offers.mjs",
     "verify:offers:dry": "node scripts/verify-offers.mjs --dry-run",
     "test:oauth": "node --test worker/oauth.test.mjs",
