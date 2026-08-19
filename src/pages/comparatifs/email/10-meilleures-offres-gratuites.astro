@@ -1,0 +1,303 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import { getFreeTierScore } from '../../../data/free-tier-score';
+
+const CATEGORY_ID = 'email';
+const MAX_RESULTS = 10;
+
+const category = (await getCollection('categories')).find((entry) => entry.id === CATEGORY_ID);
+const emailOffers = (await getCollection('offres'))
+  .filter(({ data }) => data.categorie === CATEGORY_ID && data.statut !== 'obsolete')
+  .map((entry) => ({ entry, score: getFreeTierScore(entry.id, entry.data) }))
+  .sort((a, b) => b.score.total - a.score.total || a.entry.data.nom.localeCompare(b.entry.data.nom, 'fr'));
+
+const rankedOffers = emailOffers.slice(0, MAX_RESULTS);
+const rankingSize = rankedOffers.length;
+const latestVerification = rankedOffers.length
+  ? new Date(Math.max(...rankedOffers.map(({ entry }) => entry.data.verifieLe.getTime())))
+  : new Date();
+const updatedLabel = latestVerification.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+const categoryLabel = category?.data.nom ?? 'E-mail';
+
+const faqItems = [
+  {
+    question: 'Quel service e-mail gratuit choisir pour un projet de développement ?',
+    answer: 'Le bon choix dépend surtout de votre usage : e-mails transactionnels, campagnes, tests, validation ou boîte mail. Ce classement privilégie les offres gratuites réellement exploitables, durables, documentées et vérifiées récemment.',
+  },
+  {
+    question: 'Ces offres e-mail sont-elles réellement gratuites ?',
+    answer: 'Les offres présentées ici disposent d’un accès gratuit au moment de leur dernière vérification. Certaines sont permanentes, d’autres limitées dans le temps ou soumises à des quotas. Les conditions exactes restent indiquées sur chaque fiche.',
+  },
+  {
+    question: 'Faut-il une carte bancaire pour utiliser ces services ?',
+    answer: 'Pas toujours. Le besoin d’une carte bancaire est affiché dans le comparatif rapide et entre dans le score GratuitPourLesDevs. Une offre sans carte obtient davantage de points sur ce critère.',
+  },
+  {
+    question: 'Quelle différence entre e-mail transactionnel et e-mail marketing ?',
+    answer: 'Un e-mail transactionnel est déclenché par une action ou un événement, par exemple une confirmation de compte ou une réinitialisation de mot de passe. L’e-mail marketing concerne davantage les campagnes, newsletters et communications commerciales.',
+  },
+];
+
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `Les ${rankingSize} meilleures offres gratuites pour l’e-mail`,
+  itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  numberOfItems: rankingSize,
+  itemListElement: rankedOffers.map(({ entry }, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: entry.data.nom,
+    url: new URL(`/offres/${entry.id}/`, Astro.site).href,
+  })),
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Accueil',
+      item: new URL('/', Astro.site).href,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: `Meilleures offres gratuites ${categoryLabel}`,
+      item: new URL(Astro.url.pathname, Astro.site).href,
+    },
+  ],
+};
+
+const pageTitle = `Les ${rankingSize} meilleures offres gratuites e-mail pour les développeurs`;
+const pageDescription = `Comparatif indépendant des ${rankingSize} meilleures offres gratuites d’e-mail pour développeurs : formules, score, carte bancaire, usages et limites vérifiés.`;
+
+const getCompareHref = (index: number) => {
+  const current = rankedOffers[index]?.entry.id;
+  const partner = index === 0 ? rankedOffers[1]?.entry.id : rankedOffers[0]?.entry.id;
+  if (!current || !partner) return '/';
+  return `/?compare=${encodeURIComponent(`${current},${partner}`)}`;
+};
+
+const getKeyPoints = (entry: (typeof rankedOffers)[number]['entry']) => {
+  const source = [...entry.data.inclus, ...entry.data.usages, ...entry.data.conditions];
+  return [...new Set(source)].slice(0, 3);
+};
+---
+
+<BaseLayout
+  title={`${pageTitle} — GratuitPourLesDevs`}
+  description={pageDescription}
+  modifiedTime={latestVerification}
+  jsonLd={[itemListJsonLd, faqJsonLd, breadcrumbJsonLd]}
+>
+  <SiteHeader active="catalogue" />
+
+  <main class="seo-category-page">
+    <nav class="seo-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">›</span><span>Catégories</span><span aria-hidden="true">›</span><strong>{categoryLabel}</strong>
+    </nav>
+
+    <section class="seo-hero">
+      <div class="seo-hero-copy">
+        <small>COMPARATIF CATÉGORIE</small>
+        <h1>Les {rankingSize} meilleures offres gratuites pour l’e-mail</h1>
+        <p>
+          Comparatif indépendant des services d’e-mail gratuits présents dans le catalogue.
+          Envoi transactionnel, campagnes, routage, validation ou test : retrouvez les offres
+          les mieux notées selon notre grille de gratuité, avec leurs limites clairement exposées.
+        </p>
+      </div>
+
+      <aside class="seo-summary" aria-label="Sommaire de la page">
+        <small>DANS CE GUIDE</small>
+        <a href="#top-10">Top {rankingSize} des offres</a>
+        <a href="#comparatif">Comparatif rapide</a>
+        <a href="#methodologie">Méthodologie</a>
+        <a href="#faq">FAQ</a>
+        <a href="#liens-utiles">Autres pages utiles</a>
+      </aside>
+    </section>
+
+    <section class="seo-facts" aria-label="Repères du comparatif">
+      <article><span>01</span><strong>{rankingSize} offres classées</strong><small>Les mieux notées de la catégorie</small></article>
+      <article><span>02</span><strong>{categoryLabel}</strong><small>{category?.data.description ?? 'Services e-mail pour développeurs'}</small></article>
+      <article><span>03</span><strong>Mise à jour {updatedLabel}</strong><small>Basée sur les dernières vérifications</small></article>
+      <article><span>04</span><strong>Classement éditorial</strong><small>Score transparent sur 100 points</small></article>
+    </section>
+
+    <section class="seo-value-grid">
+      <div class="seo-value-card">
+        <header><small>POURQUOI CETTE PAGE ?</small><h2>Décider plus vite, sans masquer les contraintes.</h2></header>
+        <div class="seo-value-points">
+          <article><b>✓</b><span><strong>Sélection transparente</strong><small>Uniquement des offres présentes dans le catalogue et vérifiées.</small></span></article>
+          <article><b>↗</b><span><strong>Gain de temps</strong><small>Plans, score, carte bancaire et usages réunis au même endroit.</small></span></article>
+          <article><b>◇</b><span><strong>Pas de faux “gratuit”</strong><small>Durée, restrictions et risques restent visibles dans les fiches détaillées.</small></span></article>
+        </div>
+      </div>
+      <div class="seo-score-card">
+        <small>COMMENT LIRE LE CLASSEMENT ?</small>
+        <strong>100 points</strong>
+        <p>Le score combine permanence, absence de carte bancaire, utilité du quota, liberté d’utilisation, fraîcheur de la vérification et qualité des sources.</p>
+        <a href="#methodologie">Voir la méthodologie ↓</a>
+      </div>
+    </section>
+
+    <section class="seo-ranking" id="top-10">
+      <header class="seo-section-heading">
+        <div><small>CLASSEMENT</small><h2>Top {rankingSize} des meilleures offres gratuites e-mail</h2></div>
+        <p>Le classement est recalculé depuis les données du catalogue à chaque génération du site.</p>
+      </header>
+
+      <div class="seo-ranking-list">
+        {rankedOffers.map(({ entry, score }, index) => (
+          <article class="seo-offer-row">
+            <span class="seo-rank">{String(index + 1).padStart(2, '0')}</span>
+            <span class="seo-logo" style={`--seo-logo:${entry.data.couleur}`}>{entry.data.initiales}</span>
+
+            <div class="seo-offer-main">
+              <div class="seo-offer-title">
+                <h3><a href={`/offres/${entry.id}/`}>{entry.data.nom}</a></h3>
+                {index === 0 && <em>Meilleur score</em>}
+              </div>
+              <p>{entry.data.accroche}</p>
+            </div>
+
+            <div class="seo-plan">
+              <small>FORMULE GRATUITE</small>
+              <strong>{entry.data.formule}</strong>
+            </div>
+
+            <ul class="seo-key-points">
+              {getKeyPoints(entry).map((point) => <li>{point}</li>)}
+            </ul>
+
+            <div class="seo-score">
+              <strong>{score.total}<span>/100</span></strong>
+              <small>Score gratuit</small>
+            </div>
+
+            <div class="seo-actions">
+              <a class="seo-primary-action" href={`/offres/${entry.id}/`}>Voir l’offre →</a>
+              {rankingSize > 1 && <a class="seo-secondary-action" href={getCompareHref(index)}>Comparer</a>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="seo-comparison" id="comparatif">
+      <header class="seo-section-heading">
+        <div><small>VUE D’ENSEMBLE</small><h2>Comparatif rapide</h2></div>
+        <p>Les informations ci-dessous proviennent directement des fiches du catalogue.</p>
+      </header>
+
+      <div class="seo-table-shell">
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Type</th>
+              <th>Formule gratuite</th>
+              <th>Score</th>
+              <th>Carte bancaire</th>
+              <th>Usage idéal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rankedOffers.map(({ entry, score }) => (
+              <tr>
+                <td><span class="seo-table-logo" style={`--seo-logo:${entry.data.couleur}`}>{entry.data.initiales}</span><a href={`/offres/${entry.id}/`}>{entry.data.nom}</a></td>
+                <td>{entry.data.type}</td>
+                <td>{entry.data.formule}</td>
+                <td><strong>{score.total}/100</strong></td>
+                <td><span class:list={['seo-binary', entry.data.carteRequise ? 'negative' : 'positive']}>{entry.data.carteRequise ? 'Requise' : 'Non requise'}</span></td>
+                <td>{entry.data.usages.slice(0, 2).join(' · ')}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="seo-method-faq">
+      <article class="seo-methodology" id="methodologie">
+        <small>MÉTHODOLOGIE</small>
+        <h2>Un classement explicable, pas une préférence arbitraire.</h2>
+        <p>Chaque offre obtient un score GratuitPourLesDevs sur 100 à partir de six critères déjà utilisés dans le catalogue :</p>
+        <ul>
+          <li><strong>25 pts</strong> — gratuit permanent</li>
+          <li><strong>20 pts</strong> — accès sans carte bancaire</li>
+          <li><strong>25 pts</strong> — utilité réelle du quota</li>
+          <li><strong>20 pts</strong> — liberté réelle d’utilisation</li>
+          <li><strong>5 pts</strong> — fraîcheur de la vérification</li>
+          <li><strong>5 pts</strong> — qualité des sources officielles</li>
+        </ul>
+        <p class="seo-method-note">En cas d’égalité, l’ordre alphabétique départage les offres. Une meilleure position ne signifie pas qu’un outil conviendra à tous les usages : les quotas et contraintes restent déterminants.</p>
+        <a href="/methodologie/">Consulter la méthodologie générale →</a>
+      </article>
+
+      <article class="seo-faq" id="faq">
+        <small>FAQ</small>
+        <h2>Questions fréquentes</h2>
+        <div>
+          {faqItems.map((item, index) => (
+            <details open={index === 0}>
+              <summary>{item.question}<span aria-hidden="true">+</span></summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </article>
+    </section>
+
+    <section class="seo-related" id="liens-utiles">
+      <header class="seo-section-heading">
+        <div><small>POURSUIVRE</small><h2>Autres pages utiles</h2></div>
+        <p>Approfondissez la comparaison avec les outils déjà disponibles sur GratuitPourLesDevs.</p>
+      </header>
+      <div class="seo-related-grid">
+        <a href="/"><span>CATALOGUE</span><strong>Voir toutes les offres gratuites</strong><b>→</b></a>
+        <a href="/explorer/"><span>QUOTAS</span><strong>Explorer et comparer les volumes gratuits</strong><b>→</b></a>
+        <a href="/comparaisons/"><span>COMPARAISONS</span><strong>Découvrir les comparaisons publiques</strong><b>→</b></a>
+        <a href="/methodologie/"><span>MÉTHODE</span><strong>Comprendre comment les offres sont évaluées</strong><b>→</b></a>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .seo-category-page{width:min(1240px,calc(100% - 7.2vw));margin:0 auto;padding:30px 0 70px}
+  .seo-breadcrumb{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:10px}.seo-breadcrumb a{text-decoration:none}.seo-breadcrumb a:hover{color:var(--blue)}.seo-breadcrumb strong{color:var(--ink);font-weight:700}
+  .seo-hero{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(270px,.65fr);gap:58px;align-items:end;padding:42px 0 30px}.seo-hero-copy{max-width:850px}.seo-hero-copy>small,.seo-section-heading small,.seo-methodology>small,.seo-faq>small,.seo-summary>small,.seo-score-card>small,.seo-value-card header>small{color:var(--blue);font:700 9px var(--mono);letter-spacing:.8px}.seo-hero h1{max-width:820px;margin:9px 0 16px;font-size:clamp(44px,5vw,68px);line-height:1.02;letter-spacing:-3.3px}.seo-hero-copy>p{max-width:790px;margin:0;color:var(--muted);font-size:15px;line-height:1.75}.seo-summary{display:grid;align-content:start;gap:0;padding:18px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}.seo-summary>small{margin-bottom:8px}.seo-summary a{padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink);font-size:11px;font-weight:700;text-decoration:none}.seo-summary a:last-child{border-bottom:0}.seo-summary a:hover{color:var(--blue)}
+  .seo-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}.seo-facts article{min-height:88px;display:grid;grid-template-columns:26px minmax(0,1fr);align-content:center;gap:3px 11px;padding:15px 17px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}.seo-facts article>span{grid-row:1/3;color:var(--blue);font:700 10px var(--mono)}.seo-facts strong{font-size:12px}.seo-facts small{color:var(--muted);font-size:9px;line-height:1.45}
+  .seo-value-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.65fr);gap:14px;margin-top:18px}.seo-value-card,.seo-score-card{border:1px solid var(--line);border-radius:9px;background:var(--surface)}.seo-value-card{padding:21px}.seo-value-card header{display:flex;align-items:end;justify-content:space-between;gap:24px}.seo-value-card h2{max-width:560px;margin:5px 0 0;font-size:18px;letter-spacing:-.4px}.seo-value-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}.seo-value-points article{display:flex;gap:10px}.seo-value-points b{width:28px;height:28px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgb(11 69 255/18%);border-radius:7px;color:var(--blue);background:rgb(11 69 255/5%)}.seo-value-points span{display:grid;gap:4px}.seo-value-points strong{font-size:11px}.seo-value-points small{color:var(--muted);font-size:9px;line-height:1.55}.seo-score-card{display:grid;align-content:start;gap:7px;padding:21px;background:linear-gradient(145deg,rgb(11 69 255/6%),var(--surface) 56%)}.seo-score-card>strong{margin-top:6px;color:var(--blue);font-size:30px;letter-spacing:-1.5px}.seo-score-card p{margin:0;color:var(--muted);font-size:10px;line-height:1.6}.seo-score-card a{width:max-content;margin-top:7px;color:var(--blue);font-size:10px;font-weight:750;text-decoration:none}
+  .seo-ranking,.seo-comparison,.seo-related{margin-top:46px}.seo-section-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:15px}.seo-section-heading h2{margin:5px 0 0;font-size:24px;letter-spacing:-.8px}.seo-section-heading>p{max-width:460px;margin:0;color:var(--muted);font-size:10px;line-height:1.55;text-align:right}
+  .seo-ranking-list{border-top:1px solid #bcc2cf}.seo-offer-row{display:grid;grid-template-columns:38px 44px minmax(180px,1.15fr) minmax(170px,.85fr) minmax(170px,.95fr) 78px 112px;align-items:center;gap:12px;min-height:104px;padding:13px 10px;border-bottom:1px solid var(--line)}.seo-offer-row:hover{background:var(--surface-hover)}.seo-rank{color:var(--blue);font:800 12px var(--mono)}.seo-logo,.seo-table-logo{display:grid;place-items:center;color:var(--seo-logo);background:color-mix(in srgb,var(--seo-logo) 12%,var(--surface));font:800 10px var(--mono)}.seo-logo{width:42px;height:42px;border-radius:8px}.seo-offer-main{min-width:0}.seo-offer-title{display:flex;align-items:center;gap:8px}.seo-offer-title h3{margin:0;font-size:14px}.seo-offer-title h3 a{text-decoration:none}.seo-offer-title h3 a:hover{color:var(--blue)}.seo-offer-title em{padding:3px 6px;border-radius:4px;color:var(--blue);background:rgb(11 69 255/8%);font:normal 700 8px var(--mono);white-space:nowrap}.seo-offer-main p{margin:5px 0 0;color:var(--muted);font-size:9px;line-height:1.5}.seo-plan{display:grid;gap:4px}.seo-plan small{color:var(--blue);font:700 7px var(--mono);letter-spacing:.4px}.seo-plan strong{font-size:9px;line-height:1.45}.seo-key-points{display:grid;gap:4px;margin:0;padding:0;list-style:none}.seo-key-points li{position:relative;padding-left:13px;color:#4e5563;font-size:8.5px;line-height:1.35}.seo-key-points li:before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:800}.seo-score{display:grid;gap:2px;text-align:center}.seo-score strong{color:var(--blue);font-size:17px}.seo-score strong span{font-size:9px}.seo-score small{color:var(--muted);font-size:7px}.seo-actions{display:grid;gap:5px}.seo-actions a{min-height:31px;display:grid;place-items:center;padding:5px 8px;border:1px solid var(--blue);border-radius:5px;font-size:8px;font-weight:750;text-decoration:none}.seo-primary-action{color:#fff;background:var(--blue)}.seo-secondary-action{color:var(--blue);background:var(--surface)}
+  .seo-table-shell{overflow-x:auto;border:1px solid var(--line);border-radius:8px}.seo-table-shell table{width:100%;border-collapse:collapse;min-width:920px;font-size:9px}.seo-table-shell th{padding:10px 11px;color:#565d6b;background:var(--soft);font:700 8px var(--mono);text-align:left;text-transform:uppercase}.seo-table-shell td{padding:10px 11px;border-top:1px solid var(--line);vertical-align:middle;line-height:1.45}.seo-table-shell td:first-child{display:flex;align-items:center;gap:8px;font-weight:700}.seo-table-shell td:first-child a{text-decoration:none}.seo-table-logo{width:25px;height:25px;flex:0 0 auto;border-radius:5px;font-size:7px}.seo-binary{display:inline-flex;padding:3px 6px;border-radius:4px;font-size:8px;font-weight:750}.seo-binary.positive{color:var(--green);background:rgb(22 132 91/9%)}.seo-binary.negative{color:#a23b30;background:#fff0ee}
+  .seo-method-faq{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:46px}.seo-methodology,.seo-faq{padding:24px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}.seo-methodology h2,.seo-faq h2{margin:6px 0 12px;font-size:21px;letter-spacing:-.55px}.seo-methodology p{margin:0;color:var(--muted);font-size:10px;line-height:1.65}.seo-methodology ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px;margin:18px 0;padding:0;list-style:none}.seo-methodology li{position:relative;padding-left:15px;font-size:9px}.seo-methodology li:before{content:'✓';position:absolute;left:0;color:var(--blue);font-weight:800}.seo-methodology li strong{color:var(--blue)}.seo-methodology .seo-method-note{padding-top:15px;border-top:1px solid var(--line)}.seo-methodology>a{display:inline-block;margin-top:14px;color:var(--blue);font-size:9px;font-weight:750;text-decoration:none}.seo-faq>div{border-top:1px solid var(--line)}.seo-faq details{border-bottom:1px solid var(--line)}.seo-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;cursor:pointer;font-size:10px;font-weight:700;list-style:none}.seo-faq summary::-webkit-details-marker{display:none}.seo-faq summary span{color:var(--blue);font-size:16px}.seo-faq details[open] summary span{transform:rotate(45deg)}.seo-faq details p{margin:-3px 0 14px;color:var(--muted);font-size:9px;line-height:1.6}
+  .seo-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.seo-related-grid a{min-height:94px;display:grid;grid-template-columns:1fr auto;align-content:center;gap:5px 10px;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);text-decoration:none}.seo-related-grid a:hover{border-color:var(--blue);background:var(--surface-hover)}.seo-related-grid span{grid-column:1;color:var(--blue);font:700 8px var(--mono)}.seo-related-grid strong{grid-column:1;font-size:10px;line-height:1.4}.seo-related-grid b{grid-column:2;grid-row:1/3;align-self:center;color:var(--blue);font-size:17px}
+  :global([data-theme="dark"]) .seo-key-points li{color:#c0c6d0}:global([data-theme="dark"]) .seo-binary.negative{color:#ffaaa1;background:#492422}
+  @media(max-width:1050px){.seo-offer-row{grid-template-columns:32px 42px minmax(170px,1fr) minmax(160px,.9fr) 72px 108px}.seo-key-points{display:none}.seo-facts{grid-template-columns:repeat(2,1fr)}.seo-related-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:760px){.seo-category-page{width:calc(100% - 32px);padding:22px 0 46px}.seo-hero{grid-template-columns:1fr;gap:22px;padding:32px 0 22px}.seo-hero h1{font-size:39px;letter-spacing:-2px}.seo-hero-copy>p{font-size:13px}.seo-summary{grid-template-columns:repeat(2,1fr);gap:0 14px}.seo-summary>small{grid-column:1/-1}.seo-facts{grid-template-columns:1fr}.seo-value-grid,.seo-method-faq{grid-template-columns:1fr}.seo-value-points{grid-template-columns:1fr}.seo-section-heading{align-items:flex-start;flex-direction:column;gap:8px}.seo-section-heading>p{text-align:left}.seo-offer-row{grid-template-columns:32px 40px 1fr 70px;gap:8px;min-height:0;padding:15px 6px}.seo-offer-main{grid-column:3}.seo-plan{grid-column:3;grid-row:2}.seo-score{grid-column:4;grid-row:1}.seo-actions{grid-column:4;grid-row:2}.seo-key-points{display:none}.seo-related-grid{grid-template-columns:1fr}.seo-methodology ul{grid-template-columns:1fr}.seo-ranking,.seo-comparison,.seo-related,.seo-method-faq{margin-top:36px}}
+</style>
