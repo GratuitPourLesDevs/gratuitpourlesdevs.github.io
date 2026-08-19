@@ -25,5 +25,8 @@ jobs:
       - name: Vérifier le comparatif responsive
         run: |
           test -f dist/guides/email/meilleures-offres-gratuites/index.html
-          grep -q 'max-width:980px' dist/guides/email/meilleures-offres-gratuites/index.html
-          grep -q "Quota clé" dist/guides/email/meilleures-offres-gratuites/index.html
+          grep -q '@media (max-width: 980px)' src/pages/guides/email/meilleures-offres-gratuites.astro
+          grep -q "content: 'Quota clé'" src/pages/guides/email/meilleures-offres-gratuites.astro
+          grep -q 'grid-template-columns: repeat(2, minmax(0, 1fr))' src/pages/guides/email/meilleures-offres-gratuites.astro
+          grep -q '@media (max-width: 680px)' src/pages/guides/email/meilleures-offres-gratuites.astro
+          grep -q '<th>Quota clé</th>' src/pages/comparatifs/email/meilleures-offres-gratuites.astro
