@@ -17,9 +17,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Lire les quotas CI/CD via le moteur réel
+      - name: Vérifier la maturité Dépôts de code source
         run: |
-          cat > /tmp/analyze-ci-cd.ts <<'TS'
+          cat > /tmp/analyze-source-code.ts <<'TS'
           import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/offer-quota-overrides.ts';
           import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/parsivex-quota.ts';
           import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/source-code-hosting-quotas.ts';
@@ -30,20 +30,23 @@ jobs:
           import fs from 'node:fs';
           import path from 'node:path';
 
-          const dir='/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/content/offres';
+          const root='/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io';
+          const dir=path.join(root,'src/content/offres');
+          const scoreText=fs.readFileSync(path.join(root,'src/data/free-tier-score.ts'),'utf8');
           const rows=[] as Array<{slug:string,nom:string}>;
           for (const file of fs.readdirSync(dir).filter((f)=>f.endsWith('.md'))) {
             const text=fs.readFileSync(path.join(dir,file),'utf8');
             const cat=text.match(/^categorie:\s*["']?([^\n"']+)/m)?.[1]?.trim();
             const status=text.match(/^statut:\s*["']?([^\n"']+)/m)?.[1]?.trim() ?? 'active';
-            if(cat!=='ci-cd' || status==='obsolete') continue;
+            if(cat!=='depots-code-source' || status==='obsolete') continue;
             const nom=text.match(/^nom:\s*["']?([^\n"']+)/m)?.[1]?.trim() ?? file.replace(/\.md$/,'');
             rows.push({slug:file.replace(/\.md$/,''),nom});
           }
-          console.log(`CI_CD_COUNT=${rows.length}`);
+          console.log(`SOURCE_CODE_COUNT=${rows.length}`);
           for(const row of rows){
             const quotas=getOfferQuotas(row.slug);
-            console.log(`CI_CD=${row.slug}|${row.nom}|${quotas.map(q=>`${q.metric}:${q.label}:${q.amount ?? q.kind}:${q.unit}:${q.period}`).join(';')}`);
+            const hasScore = new RegExp(`['\"]?${row.slug.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}['\"]?\\s*:\\s*(5|10|15|20|25)`).test(scoreText);
+            console.log(`SOURCE_CODE=${row.slug}|${row.nom}|SCORE=${hasScore ? 'yes':'no'}|QUOTAS=${quotas.map(q=>`${q.metric}:${q.label}:${q.amount ?? q.kind}:${q.unit}:${q.period}`).join(';') || '-'}`);
           }
           TS
-          npx --yes tsx /tmp/analyze-ci-cd.ts
+          npx --yes tsx /tmp/analyze-source-code.ts
