@@ -1,0 +1,59 @@
+name: Publier le guide Dépôts de code source
+
+on:
+  push:
+    branches: [feat/guide-ci-cd]
+
+permissions:
+  contents: write
+
+jobs:
+  build-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: feat/guide-ci-cd
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - name: Appliquer la transformation préparée
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from textwrap import dedent
+          text = Path('.github/workflows/analyze-guide-category.yml').read_text()
+          start = text.index("          python - <<'PY'\n") + len("          python - <<'PY'\n")
+          end = text.index("\n          PY", start)
+          code = dedent(text[start:end])
+          exec(compile(code, '<guide-transform>', 'exec'))
+          PY
+      - run: npm ci
+      - run: npm run build
+      - name: Vérifier le guide
+        run: |
+          page=dist/guides/depots-code-source/meilleures-offres-gratuites/index.html
+          test -f "$page"
+          grep -q 'Dépôts / projets' "$page"
+          grep -q 'Collaborateurs' "$page"
+          grep -q '>Stockage<' "$page"
+          grep -q '>CI/CD<' "$page"
+          ! grep -q 'Volume d’envoi' "$page"
+          ! grep -q 'IA / crédits' "$page"
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html = Path('dist/guides/depots-code-source/meilleures-offres-gratuites/index.html').read_text()
+          names = re.findall(r'<h3><a href="/offres/[^\"]+/">([^<]+)</a></h3>', html)
+          assert len(names) == 10, f'10 offres attendues, trouvé {len(names)} : {names}'
+          print('TOP_10_SOURCE_CODE=' + ' | '.join(names))
+          PY
+      - name: Enregistrer les fichiers fonctionnels
+        run: |
+          git config user.name 'GratuitPourLesDevs'
+          git config user.email 'julien.taverne+gratuitpourlesdevs@gmail.com'
+          git add -- src/data/source-code-hosting-quotas.ts src/data/free-tier-score.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/depots-code-source/meilleures-offres-gratuites.astro
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Ajoute le guide Dépôts de code source'
+          git push origin HEAD:feat/guide-ci-cd
