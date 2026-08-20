@@ -24,7 +24,7 @@ OFFER_QUOTAS.metalama ??= [
 ];
 
 OFFER_QUOTAS.supermaven ??= [
-  { id: 'suggestions', metric: 'suggestions', label: 'Suggestions de code', amount: null, unit: 'suggestion', period: 'variable', scope: 'account', reset: 'variable', overage: 'unknown', kind: 'not-published', notes: 'Le Free Tier confirme les suggestions de code mais ne publie pas de quota numérique.' },
+  { id: 'suggestions', metric: 'suggestions', label: 'Autocomplétion gratuite pour utilisateurs existants', amount: null, unit: 'suggestion', period: 'variable', scope: 'account', reset: 'variable', overage: 'unknown', kind: 'not-published', notes: 'Supermaven est en cours d’arrêt depuis l’annonce du 21 novembre 2025. L’éditeur maintient gratuitement l’autocomplétion pour les utilisateurs existants dans un avenir prévisible, sans publier de quota numérique ni garantir l’accès aux nouveaux comptes.' },
 ];
 
 OFFER_QUOTAS.v0 ??= [
