@@ -36,4 +36,4 @@ verificationAutomatiqueLe: '2026-08-20'
 verificationNote: Le plan Free actuel reste utilisable commercialement sans royalties et fournit 100 crédits de build par mois, avec une limite de 8,5 MB pour le JAR utilisateur.
 ---
 
-Codename One — Toolchain open source Java/Kotlin pour créer des applications mobiles cross-platform avec builds cloud et déploiement natif.
+Codename One permet à un développeur Java ou Kotlin de cibler plusieurs plateformes mobiles sans maintenir une application native distincte pour chaque système. Le framework est open source et le plan gratuit autorise les applications commerciales sans royalties, avec 100 crédits de build cloud par mois pour produire les binaires destinés notamment à Android et iOS. Cette enveloppe convient bien au développement et aux publications occasionnelles, mais les builds iOS consomment plusieurs crédits et la taille du JAR utilisateur est limitée à 8,5 MB. C’est donc surtout une option intéressante pour mutualiser une base de code mobile tout en gardant un coût de démarrage nul.

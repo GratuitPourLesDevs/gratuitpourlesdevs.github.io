@@ -44,4 +44,4 @@ verificationAutomatiqueLe: '2026-08-20'
 verificationNote: 'Developer 2026 : 50K Yeps/mois, 300 exécutions/jour, 30s max, 1 concurrence et 3 jours d’historique. L’ancien quota de 1 000 Yeps est périmé.'
 ---
 
-YepCode — Plateforme serverless d’intégration pour connecter APIs et services avec du code, des webhooks, des tâches planifiées et des workflows.
+YepCode est utile pour automatiser des échanges entre APIs et services quand on préfère écrire quelques fonctions en code plutôt que construire un serveur ou utiliser un outil entièrement no-code. Les webhooks, tâches planifiées et workflows s’exécutent dans un environnement serverless, et le plan Developer offre 50 000 secondes d’exécution par mois avec un maximum de 300 lancements par jour. Ce volume convient à de nombreuses automatisations personnelles, synchronisations et traitements ponctuels. Les limites deviennent sensibles pour les workloads plus lourds : 30 secondes maximum par exécution, une seule exécution concurrente et blocage des nouveaux runs lorsque le quota est épuisé jusqu’au prochain reset ou à une montée en gamme.

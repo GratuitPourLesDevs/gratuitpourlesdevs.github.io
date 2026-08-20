@@ -37,4 +37,4 @@ verificationAutomatiqueLe: '2026-08-20'
 verificationNote: 'Le legacy WunderGraph Cloud est archivé : le site WunderGraph précise que ces workflows ne reflètent plus le produit actuel et oriente vers Cosmo.'
 ---
 
-WunderGraph Cloud (legacy) — Ancienne plateforme hébergée WunderGraph pour construire et déployer des APIs, remplacée dans l’offre actuelle par WunderGraph Cosmo.
+WunderGraph Cloud est conservé ici comme référence historique plutôt que comme recommandation actuelle. L’ancien service réunissait génération et déploiement d’APIs, CI/CD, GitHub et HTTPS avec un Free Tier limité à trois projets, 1 GB d’egress et 300 minutes de build par mois, ce qui explique sa présence dans les anciens référentiels d’outils gratuits. Ce produit ne correspond cependant plus à l’offre actuelle de WunderGraph : l’éditeur archive désormais ces workflows et oriente les nouveaux projets vers Cosmo. La fiche reste donc utile pour comprendre ou identifier une ancienne configuration, mais il ne faut pas choisir ce Cloud legacy pour démarrer un nouveau projet.

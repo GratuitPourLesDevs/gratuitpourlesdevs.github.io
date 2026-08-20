@@ -43,4 +43,4 @@ verificationAutomatiqueLe: '2026-08-20'
 verificationNote: Le plan Preview gratuit est toujours proposé. Les anciens plafonds 500 invocations/heure, 2 500/jour et 50 000/mois ne sont plus visibles sur la grille actuelle et ne sont donc pas présentés comme quotas vérifiés.
 ---
 
-Ampt — Plateforme serverless JavaScript sur AWS qui masque la configuration d’infrastructure et fournit un environnement Preview gratuit.
+Ampt est intéressant pour une équipe JavaScript qui veut profiter des services serverless d’AWS sans commencer par écrire et maintenir toute la configuration d’infrastructure. Le Preview gratuit fournit un environnement de développement et un stage permanent auto-pausable, ce qui suffit pour construire une API, un backend ou une petite application et tester le workflow complet de déploiement. Le principal point de vigilance est la visibilité des limites : Ampt ne publie plus les anciens quotas chiffrés d’invocations sur sa grille actuelle, et les domaines personnalisés restent réservés aux offres payantes. Il convient donc surtout au prototypage et à la découverte avant un usage plus engagé en production.
