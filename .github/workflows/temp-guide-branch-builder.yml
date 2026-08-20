@@ -1,14 +1,16 @@
 name: Builder temporaire de Guide
 
 on:
-  push:
-    branches: [feat/guide-source-code]
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: write
 
 jobs:
   build-guide:
+    if: github.head_ref == 'feat/guide-source-code'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
