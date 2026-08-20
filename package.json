@@ -12,6 +12,9 @@
     "verify:offers": "node scripts/verify-offers.mjs",
     "verify:offers:dry": "node scripts/verify-offers.mjs --dry-run",
     "test:oauth": "node --test worker/oauth.test.mjs",
+    "test:account": "node --test worker/account.test.mjs",
+    "test:worker": "node --test worker/*.test.mjs",
+    "migrate:worker": "wrangler d1 migrations apply gratuitpourlesdevs-comparisons --remote --config worker/wrangler.jsonc",
     "deploy:oauth": "wrangler deploy --config worker/wrangler.jsonc"
   },
   "dependencies": {
