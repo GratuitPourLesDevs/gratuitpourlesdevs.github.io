@@ -3,6 +3,8 @@ name: Analyse catégorie Guide
 on:
   push:
     branches: [feat/guide-ci-cd]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
