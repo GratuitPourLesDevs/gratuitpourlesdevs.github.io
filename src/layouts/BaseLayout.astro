@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/account.css';
 
 interface Props {
   title?: string;
@@ -47,6 +48,7 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
     <link rel="stylesheet" href="/pagination-enhancement.css" />
     <script src="/pagination-enhancement.js" defer></script>
     <script src="/catalogue-editorial-enhancement.js" defer></script>
+    <script src="/account-client.js" defer></script>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
@@ -73,6 +75,16 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
           link.className = 'guides-nav-link';
           if (location.pathname.startsWith('/guides/')) link.classList.add('active');
           nav.append(link);
+        }
+        const actions = document.querySelector('.site-header .header-actions');
+        if (actions && !actions.querySelector('.account-header-link')) {
+          const link = document.createElement('a');
+          link.href = '/compte/';
+          link.className = 'account-header-link';
+          if (location.pathname.startsWith('/compte/')) link.classList.add('active');
+          link.innerHTML = '<span data-account-label>Compte</span>';
+          const suggestion = actions.querySelector('.outline-button');
+          actions.insertBefore(link, suggestion ?? actions.firstChild);
         }
       })();
     </script>
