@@ -1,0 +1,250 @@
+(() => {
+  const TOKEN_KEY = 'gpld-account-token';
+  const USER_KEY = 'gpld-account-user';
+  const FAVORITES_KEY = 'gpld-favorites';
+  const apiBase = () => {
+    const body = document.body;
+    const local = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    return (local ? body?.dataset.comparisonsApiLocal : body?.dataset.comparisonsApi) || '';
+  };
+  const getToken = () => { try { return localStorage.getItem(TOKEN_KEY); } catch { return null; } };
+  const getCachedUser = () => { try { return JSON.parse(localStorage.getItem(USER_KEY) || 'null'); } catch { return null; } };
+  const setSession = (token, user) => {
+    try {
+      if (token) localStorage.setItem(TOKEN_KEY, token); else localStorage.removeItem(TOKEN_KEY);
+      if (user) localStorage.setItem(USER_KEY, JSON.stringify(user)); else localStorage.removeItem(USER_KEY);
+    } catch {}
+    updateAccountLink(user);
+    document.dispatchEvent(new CustomEvent('gpld:account-changed', { detail: { user } }));
+  };
+  const clearSession = () => setSession(null, null);
+  const api = async (path, options = {}) => {
+    const base = apiBase();
+    if (!base) throw new Error('API indisponible');
+    const headers = new Headers(options.headers || {});
+    const token = getToken();
+    if (token) headers.set('Authorization', `Bearer ${token}`);
+    if (options.body && !headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
+    const response = await fetch(`${base}${path}`, { ...options, headers });
+    let payload = null;
+    try { payload = await response.json(); } catch {}
+    if (response.status === 401) clearSession();
+    if (!response.ok) {
+      const error = new Error(payload?.error || 'Une erreur est survenue');
+      error.status = response.status;
+      error.payload = payload;
+      throw error;
+    }
+    return payload;
+  };
+  const updateAccountLink = (user = getCachedUser()) => {
+    const link = document.querySelector('.account-header-link');
+    if (!link) return;
+    link.classList.toggle('is-connected', Boolean(user));
+    link.setAttribute('aria-label', user ? `Mon espace — connecté en tant que ${user.login}` : 'Créer un compte ou se connecter');
+    const label = link.querySelector('[data-account-label]');
+    if (label) label.textContent = user ? 'Mon espace' : 'Compte';
+  };
+  const readLocalFavorites = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+      return Array.isArray(value) ? [...new Set(value.filter((id) => typeof id === 'string'))] : [];
+    } catch { return []; }
+  };
+  const writeLocalFavorites = (ids) => {
+    const normalized = [...new Set(ids)];
+    try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(normalized)); } catch {}
+    renderFavoriteControls(new Set(normalized));
+    document.dispatchEvent(new CustomEvent('gpld:favorites-synced', { detail: { ids: normalized } }));
+  };
+  const renderFavoriteControls = (saved) => {
+    document.querySelectorAll('.favorite[data-id], .offer-page-favorite[data-id]').forEach((button) => {
+      const id = button.dataset.id || '';
+      const active = saved.has(id);
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+      if (button.classList.contains('offer-page-favorite')) button.textContent = active ? 'Retirer des favoris' : 'Ajouter aux favoris';
+    });
+  };
+  const syncFavorites = async () => {
+    if (!getToken()) return readLocalFavorites();
+    const payload = await api('/api/account/favorites/import', { method: 'POST', body: JSON.stringify({ offerIds: readLocalFavorites() }) });
+    writeLocalFavorites(payload.offerIds || []);
+    return payload.offerIds || [];
+  };
+  const syncOneFavorite = async (offerId, active) => {
+    if (!getToken()) return;
+    try { await api('/api/account/favorites', { method: 'POST', body: JSON.stringify({ offerId, active }) }); } catch {}
+  };
+  const showToast = (message, { pro = false } = {}) => {
+    let toast = document.querySelector('.account-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'account-toast';
+      toast.setAttribute('role', 'status');
+      document.body.append(toast);
+    }
+    toast.replaceChildren(document.createTextNode(message));
+    if (pro) {
+      const link = document.createElement('a');
+      link.href = '/compte/#pro';
+      link.textContent = 'Découvrir Pro';
+      toast.append(document.createTextNode(' '), link);
+    }
+    toast.classList.add('is-visible');
+    window.clearTimeout(showToast.timer);
+    showToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 4200);
+  };
+  const login = () => new Promise((resolve, reject) => {
+    const base = apiBase();
+    if (!base) { reject(new Error('API de compte indisponible')); return; }
+    const workerOrigin = new URL(base).origin;
+    const returnTo = `${location.pathname}${location.search}${location.hash}`;
+    const popup = window.open(`${base}/account/auth?return_to=${encodeURIComponent(returnTo)}`, 'gpld-account-auth', 'popup=yes,width=620,height=760');
+    if (!popup) { reject(new Error('Autorisez les fenêtres contextuelles pour vous connecter.')); return; }
+    let timeout;
+    const finish = async (event) => {
+      if (event.origin !== workerOrigin || event.source !== popup || typeof event.data !== 'string' || !event.data.startsWith('gpld-account:')) return;
+      window.removeEventListener('message', finish);
+      window.clearTimeout(timeout);
+      const first = event.data.indexOf(':', 'gpld-account:'.length);
+      const status = event.data.slice('gpld-account:'.length, first);
+      let payload = {};
+      try { payload = JSON.parse(event.data.slice(first + 1)); } catch {}
+      if (status !== 'success' || !payload.token) { reject(new Error(payload.message || 'Connexion impossible')); return; }
+      setSession(payload.token, payload.user || null);
+      try { await syncFavorites(); } catch {}
+      resolve(payload.user || null);
+    };
+    window.addEventListener('message', finish);
+    timeout = window.setTimeout(() => {
+      window.removeEventListener('message', finish);
+      reject(new Error('La connexion a expiré.'));
+    }, 5 * 60 * 1000);
+  });
+  const ensureLogin = async () => getToken() ? getCachedUser() : login();
+  const handleLimitError = (error) => {
+    if (error?.payload?.code === 'free_limit') {
+      showToast('Vous avez atteint la limite du compte gratuit.', { pro: true });
+      return true;
+    }
+    return false;
+  };
+  const injectFollowButton = async () => {
+    const favorite = document.querySelector('.offer-page-favorite[data-id]');
+    const nav = favorite?.closest('nav');
+    if (!favorite || !nav || nav.querySelector('.offer-page-follow')) return;
+    const offerId = favorite.dataset.id;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'offer-page-follow';
+    button.dataset.id = offerId;
+    button.textContent = getToken() ? 'Suivre cette offre' : 'Suivre avec un compte gratuit';
+    nav.append(button);
+    let followed = false;
+    if (getToken()) {
+      try { const payload = await api('/api/account/follows'); followed = (payload.offerIds || []).includes(offerId); } catch {}
+    }
+    const render = () => {
+      button.classList.toggle('active', followed);
+      button.setAttribute('aria-pressed', String(followed));
+      button.textContent = followed ? '✓ Offre suivie' : (getToken() ? 'Suivre cette offre' : 'Suivre avec un compte gratuit');
+    };
+    render();
+    button.addEventListener('click', async () => {
+      try {
+        await ensureLogin();
+        followed = !followed;
+        await api('/api/account/follows', { method: 'POST', body: JSON.stringify({ offerId, active: followed }) });
+        render();
+        showToast(followed ? 'Offre ajoutée à votre veille.' : 'Offre retirée de votre veille.');
+      } catch (error) {
+        if (followed) followed = false;
+        render();
+        if (!handleLimitError(error)) showToast(error.message || 'Impossible de modifier la veille.');
+      }
+    });
+  };
+  const injectSaveSearch = () => {
+    const actions = document.querySelector('.quota-explorer-result-actions');
+    if (!actions || actions.querySelector('.account-save-search')) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'account-save-search';
+    button.textContent = 'Sauvegarder la recherche';
+    actions.prepend(button);
+    button.addEventListener('click', async () => {
+      try {
+        await ensureLogin();
+        const summary = document.querySelector('#explorer-query-summary')?.textContent?.trim();
+        await api('/api/account/searches', { method: 'POST', body: JSON.stringify({ name: summary || 'Recherche Explorer', url: `${location.pathname}${location.search}` }) });
+        button.textContent = '✓ Recherche sauvegardée';
+        showToast('Recherche enregistrée dans Mon espace.');
+      } catch (error) {
+        if (!handleLimitError(error)) showToast(error.message || 'Impossible de sauvegarder cette recherche.');
+      }
+    });
+  };
+  const injectSaveComparison = () => {
+    const actions = document.querySelector('.comparison-dialog-actions');
+    if (!actions || actions.querySelector('.account-save-comparison')) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'account-save-comparison';
+    button.textContent = 'Sauvegarder';
+    actions.prepend(button);
+    button.addEventListener('click', async () => {
+      const ids = (new URLSearchParams(location.search).get('compare') || '').split(',').filter(Boolean).slice(0, 4);
+      if (ids.length < 2) { showToast('Sélectionnez au moins deux offres.'); return; }
+      try {
+        await ensureLogin();
+        const names = [...document.querySelectorAll('.comparison-offer-head strong')].map((node) => node.textContent?.trim()).filter(Boolean);
+        const name = names.length >= 2 ? names.join(' × ') : `Comparaison de ${ids.length} offres`;
+        await api('/api/account/comparisons', { method: 'POST', body: JSON.stringify({ name, offerIds: ids }) });
+        button.textContent = '✓ Sauvegardée';
+        showToast('Comparaison enregistrée dans Mon espace.');
+      } catch (error) {
+        if (!handleLimitError(error)) showToast(error.message || 'Impossible de sauvegarder cette comparaison.');
+      }
+    });
+  };
+  const boot = async () => {
+    updateAccountLink();
+    injectSaveSearch();
+    injectSaveComparison();
+    await injectFollowButton();
+    if (getToken()) {
+      try {
+        const payload = await api('/api/account/me');
+        setSession(getToken(), payload.user);
+        await syncFavorites();
+      } catch {}
+    }
+    document.dispatchEvent(new CustomEvent('gpld:account-ready', { detail: { user: getCachedUser() } }));
+  };
+  document.addEventListener('click', (event) => {
+    const button = event.target.closest?.('.favorite[data-id], .offer-page-favorite[data-id]');
+    if (!button) return;
+    window.setTimeout(() => {
+      const offerId = button.dataset.id || '';
+      const active = readLocalFavorites().includes(offerId);
+      void syncOneFavorite(offerId, active);
+    }, 0);
+  });
+  window.GPLDAccount = {
+    api,
+    apiBase,
+    login,
+    logout: async () => {
+      try { if (getToken()) await api('/api/account/logout', { method: 'POST' }); } catch {}
+      clearSession();
+    },
+    ensureLogin,
+    getToken,
+    getUser: getCachedUser,
+    syncFavorites,
+    showToast,
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+  else void boot();
+})();

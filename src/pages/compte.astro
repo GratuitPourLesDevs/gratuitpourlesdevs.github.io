@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout title="Mon espace — GratuitPourLesDevs" description="Synchronisez vos favoris, suivez jusqu’à cinq offres gratuites, sauvegardez vos recherches et comparaisons, et surveillez votre stack.">
+  <SiteHeader />
+  <main class="account-page">
+    <header class="account-hero">
+      <div>
+        <small>MON ESPACE</small>
+        <h1>Votre veille gratuite,<br />au même endroit.</h1>
+        <p>Le catalogue reste public. Le compte sert à mémoriser vos choix : favoris synchronisés, cinq offres suivies, recherches et comparaisons sauvegardées, une stack et un digest hebdomadaire.</p>
+      </div>
+      <aside class="account-login-card" id="account-login-card">
+        <strong>Compte gratuit</strong>
+        <p>Connexion avec GitHub. Aucun mot de passe supplémentaire à gérer.</p>
+        <button class="account-primary" id="account-login" type="button">Continuer avec GitHub</button>
+      </aside>
+      <aside class="account-profile-card" id="account-profile-card" hidden>
+        <div class="account-profile-head"><img id="account-avatar" alt="" /><span><strong id="account-name"></strong><small id="account-login-name"></small></span></div>
+        <div class="account-profile-actions"><button class="account-secondary" id="account-refresh" type="button">Actualiser</button><button class="account-danger" id="account-logout" type="button">Se déconnecter</button></div>
+      </aside>
+    </header>
+
+    <div class="account-loading" id="account-loading">Chargement de votre espace…</div>
+
+    <section class="account-signed-out" id="account-signed-out" hidden>
+      <small>POURQUOI CRÉER UN COMPTE ?</small>
+      <h2>GratuitPourLesDevs se souvient de vous.</h2>
+      <p>Vos favoris actuels seront importés automatiquement lors de la première connexion. Vous pourrez ensuite retrouver votre veille et votre stack depuis vos autres appareils.</p>
+      <button class="account-primary" id="account-login-secondary" type="button">Créer mon compte gratuit</button>
+    </section>
+
+    <div id="account-dashboard" hidden>
+      <section class="account-status-grid" aria-label="Résumé du compte">
+        <article class="account-stat"><strong id="stat-favorites">0</strong><span>favoris synchronisés</span></article>
+        <article class="account-stat"><strong id="stat-follows">0 / 5</strong><span>offres suivies</span></article>
+        <article class="account-stat"><strong id="stat-saved">0 / 6</strong><span>recherches + comparaisons</span></article>
+        <article class="account-stat"><strong id="stat-stack">0 / 1</strong><span>stack personnelle</span></article>
+      </section>
+
+      <section class="account-section">
+        <header><div><small>VOTRE SÉLECTION</small><h2>Favoris et veille</h2></div><p>Un favori sert à retrouver une offre. Une offre suivie entre dans votre veille.</p></header>
+        <div class="account-grid">
+          <article class="account-card"><small>FAVORIS SYNCHRONISÉS</small><h3>Mes favoris</h3><p>Les favoris de ce navigateur sont fusionnés avec votre compte.</p><ul class="account-list" id="favorites-list"></ul></article>
+          <article class="account-card"><small>VEILLE GRATUITE</small><h3>Offres suivies <span class="account-limit" id="follow-limit">0 / 5</span></h3><p>Vous pouvez suivre cinq offres. Les modifications apparaissent dans votre digest.</p><ul class="account-list" id="follows-list"></ul></article>
+        </div>
+      </section>
+
+      <section class="account-section">
+        <header><div><small>À RETROUVER PLUS TARD</small><h2>Recherches et comparaisons</h2></div><p>Sauvegardez-les directement depuis l’Explorateur et le comparateur.</p></header>
+        <div class="account-grid">
+          <article class="account-card"><small>EXPLORATEUR</small><h3>Recherches sauvegardées <span class="account-limit" id="search-limit">0 / 3</span></h3><ul class="account-list" id="searches-list"></ul><p><a href="/explorer/">Ouvrir l’Explorateur →</a></p></article>
+          <article class="account-card"><small>COMPARATEUR</small><h3>Comparaisons sauvegardées <span class="account-limit" id="comparison-limit">0 / 3</span></h3><ul class="account-list" id="comparisons-list"></ul><p><a href="/#catalogue">Créer une comparaison →</a></p></article>
+        </div>
+      </section>
+
+      <section class="account-section">
+        <header><div><small>MA STACK</small><h2>Les services gratuits de votre projet</h2></div><span class="account-limit" id="stack-limit">0 / 1</span></header>
+        <article class="account-card stack-editor">
+          <label>Nom de la stack<input id="stack-name" maxlength="80" value="Ma stack" /></label>
+          <div class="stack-add-row"><label>Ajouter une offre<select id="stack-offer-select"><option value="">Choisir une offre…</option></select></label><button class="account-secondary" id="stack-add" type="button">Ajouter</button></div>
+          <div class="stack-chips" id="stack-chips"></div>
+          <div class="stack-actions"><button class="account-primary" id="stack-save" type="button">Enregistrer ma stack</button><button class="account-danger" id="stack-delete" type="button">Supprimer</button></div>
+        </article>
+      </section>
+
+      <section class="account-section">
+        <header><div><small>DIGEST HEBDOMADAIRE</small><h2>Les changements de votre veille</h2></div><label class="digest-toggle"><input id="digest-enabled" type="checkbox" checked /> Recevoir le digest par e-mail</label></header>
+        <article class="account-card"><p id="digest-email-status"></p><ul class="account-list" id="digest-list"></ul></article>
+      </section>
+
+      <section class="account-section" id="pro">
+        <article class="pro-card">
+          <small>GPLD PRO — INTÉRÊT MESURÉ AVANT LANCEMENT</small>
+          <h2>Ne surveillez plus les offres gratuites vous-même.</h2>
+          <p>Le catalogue restera public. Pro ajoutera surtout de l’automatisation et des capacités de veille supérieures.</p>
+          <ul><li>Offres suivies illimitées</li><li>Alertes immédiates</li><li>Règles d’alerte personnalisées</li><li>Recherches surveillées</li><li>Stacks illimitées</li><li>Historique complet et exports</li><li>Webhooks / Discord / Slack</li><li>Usage IA supérieur</li></ul>
+          <footer><p>Pas de paiement pour le moment : ce bouton sert uniquement à mesurer l’intérêt réel.</p><button class="pro-interest-button" id="pro-interest" type="button">Je serais intéressé par Pro</button></footer>
+        </article>
+      </section>
+    </div>
+  </main>
+  <SiteFooter />
+
+  <script is:inline>
+    const $ = (selector) => document.querySelector(selector);
+    const account = () => window.GPLDAccount;
+    const state = { dashboard: null, catalogue: {}, stackOfferIds: [] };
+    const offer = (id) => state.catalogue[id] || { id, name: id, category: '', score: null };
+    const offerLink = (id) => `/offres/${encodeURIComponent(id)}/`;
+    const emptyItem = (message) => { const li = document.createElement('li'); li.className = 'account-empty'; li.textContent = message; return li; };
+    const setLimit = (selector, value, limit) => { const node = $(selector); if (!node) return; node.textContent = `${value} / ${limit}`; node.classList.toggle('is-full', value >= limit); };
+
+    const renderOfferList = (selector, ids, { removable, follow } = {}) => {
+      const root = $(selector); if (!root) return;
+      if (!ids.length) { root.replaceChildren(emptyItem(follow ? 'Aucune offre suivie pour le moment.' : 'Aucun favori pour le moment.')); return; }
+      root.replaceChildren(...ids.map((id) => {
+        const data = offer(id); const li = document.createElement('li'); const span = document.createElement('span'); const link = document.createElement('a');
+        link.href = offerLink(id); link.textContent = data.name || id; const small = document.createElement('small'); small.textContent = [data.category, data.score != null ? `Score ${data.score}/100` : ''].filter(Boolean).join(' · '); span.append(link, small); li.append(span);
+        if (removable) { const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Retirer'; button.addEventListener('click', () => removeOffer(id, follow)); li.append(button); }
+        return li;
+      }));
+    };
+
+    const removeOffer = async (id, follow) => {
+      try {
+        if (follow) await account().api('/api/account/follows', { method: 'POST', body: JSON.stringify({ offerId: id, active: false }) });
+        else {
+          await account().api('/api/account/favorites', { method: 'POST', body: JSON.stringify({ offerId: id, active: false }) });
+          try { const local = JSON.parse(localStorage.getItem('gpld-favorites') || '[]').filter((value) => value !== id); localStorage.setItem('gpld-favorites', JSON.stringify(local)); } catch {}
+        }
+        await loadDashboard();
+      } catch (error) { account().showToast(error.message || 'Modification impossible.'); }
+    };
+
+    const renderSavedList = (selector, items, type) => {
+      const root = $(selector); if (!root) return;
+      if (!items.length) { root.replaceChildren(emptyItem(type === 'searches' ? 'Aucune recherche sauvegardée.' : 'Aucune comparaison sauvegardée.')); return; }
+      root.replaceChildren(...items.map((item) => {
+        const li = document.createElement('li'); const span = document.createElement('span'); const link = document.createElement('a'); link.href = item.url; link.textContent = item.name; const small = document.createElement('small'); small.textContent = new Date(item.createdAt).toLocaleDateString('fr-FR'); span.append(link, small); const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Supprimer'; button.addEventListener('click', async () => { try { await account().api(`/api/account/${type}?id=${item.id}`, { method: 'DELETE' }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Suppression impossible.'); } }); li.append(span, button); return li;
+      }));
+    };
+
+    const renderStackChips = () => {
+      const chips = $('#stack-chips');
+      if (!state.stackOfferIds.length) { chips.replaceChildren(emptyItem('Ajoutez les services utilisés par votre projet.')); return; }
+      chips.replaceChildren(...state.stackOfferIds.map((id) => { const chip = document.createElement('span'); chip.className = 'stack-chip'; chip.append(document.createTextNode(offer(id).name || id)); const button = document.createElement('button'); button.type = 'button'; button.textContent = '×'; button.setAttribute('aria-label', `Retirer ${offer(id).name || id}`); button.addEventListener('click', () => { state.stackOfferIds = state.stackOfferIds.filter((value) => value !== id); renderStackChips(); }); chip.append(button); return chip; }));
+    };
+    const renderStack = () => {
+      const stack = state.dashboard?.stack; state.stackOfferIds = stack?.offerIds ? [...stack.offerIds] : [];
+      $('#stack-name').value = stack?.name || 'Ma stack'; $('#stack-delete').hidden = !stack; renderStackChips();
+    };
+
+    const renderDigest = () => {
+      const root = $('#digest-list'); const items = state.dashboard?.digest || [];
+      $('#digest-enabled').checked = Boolean(state.dashboard?.user.digestEnabled);
+      $('#digest-email-status').textContent = state.dashboard?.user.emailVerified && state.dashboard?.user.email ? `Digest envoyé à ${state.dashboard.user.email} lorsqu’une offre suivie change.` : 'Aucune adresse e-mail GitHub vérifiée n’est disponible : le digest reste visible ici, mais l’envoi par e-mail est suspendu.';
+      if (!items.length) { root.replaceChildren(emptyItem('Aucun changement récent parmi vos offres suivies.')); return; }
+      root.replaceChildren(...items.map((item) => { const li = document.createElement('li'); const box = document.createElement('span'); box.className = 'digest-item'; const time = document.createElement('time'); time.textContent = new Date(item.latestChangeAt || item.verifiedAt).toLocaleDateString('fr-FR'); const link = document.createElement('a'); link.href = offerLink(item.id); const strong = document.createElement('strong'); strong.textContent = `${item.name} — ${item.latestChangeTitle || 'Offre mise à jour'}`; link.append(strong); const small = document.createElement('small'); small.textContent = item.latestChangeSummary || ''; box.append(time, link, small); li.append(box); return li; }));
+    };
+
+    const renderDashboard = () => {
+      const data = state.dashboard; if (!data) return;
+      $('#account-loading').hidden = true; $('#account-signed-out').hidden = true; $('#account-dashboard').hidden = false; $('#account-login-card').hidden = true; $('#account-profile-card').hidden = false;
+      $('#account-name').textContent = data.user.name; $('#account-login-name').textContent = `@${data.user.login} · compte ${data.user.plan === 'pro' ? 'Pro' : 'gratuit'}`; const avatar = $('#account-avatar'); avatar.src = data.user.avatarUrl || ''; avatar.hidden = !data.user.avatarUrl;
+      $('#stat-favorites').textContent = String(data.favorites.length); $('#stat-follows').textContent = `${data.follows.length} / ${data.limits.follows}`; $('#stat-saved').textContent = `${data.savedSearches.length + data.savedComparisons.length} / ${data.limits.savedSearches + data.limits.savedComparisons}`; $('#stat-stack').textContent = `${data.stack ? 1 : 0} / ${data.limits.stacks}`;
+      setLimit('#follow-limit', data.follows.length, data.limits.follows); setLimit('#search-limit', data.savedSearches.length, data.limits.savedSearches); setLimit('#comparison-limit', data.savedComparisons.length, data.limits.savedComparisons); setLimit('#stack-limit', data.stack ? 1 : 0, data.limits.stacks);
+      renderOfferList('#favorites-list', data.favorites, { removable: true }); renderOfferList('#follows-list', data.follows, { removable: true, follow: true }); renderSavedList('#searches-list', data.savedSearches, 'searches'); renderSavedList('#comparisons-list', data.savedComparisons, 'comparisons'); renderStack(); renderDigest();
+    };
+
+    const renderSignedOut = () => { $('#account-loading').hidden = true; $('#account-dashboard').hidden = true; $('#account-signed-out').hidden = false; $('#account-login-card').hidden = false; $('#account-profile-card').hidden = true; };
+    const loadCatalogue = async () => { const response = await fetch('/offres.json', { headers: { Accept: 'application/json' } }); const payload = await response.json(); state.catalogue = payload.catalogue || {}; const select = $('#stack-offer-select'); const entries = Object.values(state.catalogue).sort((a,b) => (a.name || '').localeCompare(b.name || '', 'fr')); select.replaceChildren(new Option('Choisir une offre…', ''), ...entries.map((item) => new Option(`${item.name}${item.category ? ` — ${item.category}` : ''}`, item.id))); };
+    const loadDashboard = async () => {
+      if (!account()?.getToken()) { renderSignedOut(); return; }
+      $('#account-loading').hidden = false;
+      try { state.dashboard = await account().api('/api/account/dashboard'); renderDashboard(); }
+      catch (error) { if (error.status === 401) renderSignedOut(); else { $('#account-loading').textContent = error.message || 'Impossible de charger votre espace.'; } }
+    };
+    const login = async () => { try { await account().login(); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Connexion impossible.'); } };
+    $('#account-login')?.addEventListener('click', login); $('#account-login-secondary')?.addEventListener('click', login); $('#account-refresh')?.addEventListener('click', loadDashboard);
+    $('#account-logout')?.addEventListener('click', async () => { await account().logout(); renderSignedOut(); });
+    $('#stack-add')?.addEventListener('click', () => { const id = $('#stack-offer-select').value; if (!id || state.stackOfferIds.includes(id)) return; state.stackOfferIds.push(id); renderStackChips(); $('#stack-offer-select').value = ''; });
+    $('#stack-save')?.addEventListener('click', async () => { try { await account().api('/api/account/stack', { method: 'PUT', body: JSON.stringify({ name: $('#stack-name').value, offerIds: state.stackOfferIds }) }); account().showToast('Stack enregistrée.'); await loadDashboard(); } catch (error) { if (error.payload?.code === 'free_limit') account().showToast('Le compte gratuit contient une stack.', { pro: true }); else account().showToast(error.message || 'Impossible d’enregistrer la stack.'); } });
+    $('#stack-delete')?.addEventListener('click', async () => { try { await account().api('/api/account/stack', { method: 'DELETE' }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Suppression impossible.'); } });
+    $('#digest-enabled')?.addEventListener('change', async (event) => { try { await account().api('/api/account/preferences', { method: 'POST', body: JSON.stringify({ digestEnabled: event.target.checked }) }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Préférence non enregistrée.'); } });
+    $('#pro-interest')?.addEventListener('click', async (event) => { const button = event.currentTarget; try { await account().api('/api/account/pro-interest', { method: 'POST' }); button.textContent = '✓ Intérêt enregistré'; button.classList.add('is-recorded'); account().showToast('Merci — cet intérêt sera mesuré avant de décider du lancement de Pro.'); } catch (error) { account().showToast(error.message || 'Impossible d’enregistrer votre intérêt.'); } });
+    const init = async () => { await loadCatalogue().catch(() => {}); await loadDashboard(); if (location.hash === '#pro') $('#pro')?.scrollIntoView({ behavior: 'smooth' }); };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true }); else void init();
+  </script>
+</BaseLayout>
