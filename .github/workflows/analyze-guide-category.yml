@@ -1,52 +1,167 @@
-name: Analyse catégorie Guide
+name: Construire le guide Dépôts de code source
 
 on:
   pull_request:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  analyze:
+  build-guide:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: feat/guide-ci-cd
       - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - name: Vérifier la maturité Dépôts de code source
-        run: |
-          cat > /tmp/analyze-source-code.ts <<'TS'
-          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/offer-quota-overrides.ts';
-          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/parsivex-quota.ts';
-          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/source-code-hosting-quotas.ts';
-          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/api-service-quotas.ts';
-          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/data-service-quotas.ts';
-          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/data-tools-quotas.ts';
-          import { getOfferQuotas } from '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/offer-quotas.ts';
-          import fs from 'node:fs';
-          import path from 'node:path';
 
-          const root='/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io';
-          const dir=path.join(root,'src/content/offres');
-          const scoreText=fs.readFileSync(path.join(root,'src/data/free-tier-score.ts'),'utf8');
-          const rows=[] as Array<{slug:string,nom:string}>;
-          for (const file of fs.readdirSync(dir).filter((f)=>f.endsWith('.md'))) {
-            const text=fs.readFileSync(path.join(dir,file),'utf8');
-            const cat=text.match(/^categorie:\s*["']?([^\n"']+)/m)?.[1]?.trim();
-            const status=text.match(/^statut:\s*["']?([^\n"']+)/m)?.[1]?.trim() ?? 'active';
-            if(cat!=='depots-code-source' || status==='obsolete') continue;
-            const nom=text.match(/^nom:\s*["']?([^\n"']+)/m)?.[1]?.trim() ?? file.replace(/\.md$/,'');
-            rows.push({slug:file.replace(/\.md$/,''),nom});
-          }
-          console.log(`SOURCE_CODE_COUNT=${rows.length}`);
-          for(const row of rows){
-            const quotas=getOfferQuotas(row.slug);
-            const hasScore = new RegExp(`['\"]?${row.slug.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}['\"]?\\s*:\\s*(5|10|15|20|25)`).test(scoreText);
-            console.log(`SOURCE_CODE=${row.slug}|${row.nom}|SCORE=${hasScore ? 'yes':'no'}|QUOTAS=${quotas.map(q=>`${q.metric}:${q.label}:${q.amount ?? q.kind}:${q.unit}:${q.period}`).join(';') || '-'}`);
-          }
-          TS
-          npx --yes tsx /tmp/analyze-source-code.ts
+      - name: Ajouter le guide et les données manquantes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # 1) Normaliser Beanstalk à partir des limites déjà documentées dans sa fiche.
+          quota_path = Path('src/data/source-code-hosting-quotas.ts')
+          quota_text = quota_path.read_text()
+          beanstalk_quota = """
+
+OFFER_QUOTAS.beanstalk ??= [
+  { id: 'users', metric: 'users', label: 'Utilisateurs', amount: 1, unit: 'user', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'repositories', metric: 'repositories', label: 'Dépôts Git ou Subversion', amount: 1, unit: 'repository', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+  { id: 'storage', metric: 'storage', label: 'Stockage', amount: 100, unit: 'MB', period: 'lifetime', scope: 'account', reset: 'never', overage: 'blocked', kind: 'limit' },
+];
+"""
+          if 'OFFER_QUOTAS.beanstalk ??=' not in quota_text:
+              quota_path.write_text(quota_text.rstrip() + beanstalk_quota + '\n')
+
+          score_path = Path('src/data/free-tier-score.ts')
+          score_text = score_path.read_text()
+          if "  beanstalk: 10," not in score_text:
+              anchor = "  beeceptor: 15,\n"
+              assert anchor in score_text, 'Ancre de score Beanstalk introuvable'
+              score_path.write_text(score_text.replace(anchor, "  beanstalk: 10,\n" + anchor, 1))
+
+          # 2) Ajouter la configuration éditoriale et les comparateurs propres à la catégorie.
+          engine_path = Path('src/pages/comparatifs/email/meilleures-offres-gratuites.astro')
+          engine = engine_path.read_text()
+          if "  'depots-code-source': {" not in engine:
+              anchor = "\n};\n\nconst requestedCategoryId"
+              assert anchor in engine, 'Fin de GUIDE_CONFIGS introuvable'
+              config = """
+  'depots-code-source': {
+    categoryLabelFallback: 'Dépôts de code source',
+    fallbackDescription: 'Hébergement de dépôts Git, Mercurial ou Subversion avec collaboration et CI/CD',
+    pageTitle: (rankingSize) => `Les ${rankingSize} meilleurs dépôts de code source gratuits pour les développeurs`,
+    pageDescription: (rankingSize) => `Comparatif indépendant des ${rankingSize} meilleures offres gratuites d’hébergement de code source : dépôts, collaborateurs, stockage, CI/CD, score et limites vérifiés.`,
+    heroTitle: (rankingSize) => `Les ${rankingSize} meilleurs dépôts de code source gratuits`,
+    heroIntro: 'Comparatif indépendant des services d’hébergement de code source présents dans le catalogue. Git, Mercurial ou Subversion, dépôts publics ou privés, travail en équipe et CI/CD : retrouvez les offres gratuites les mieux notées avec leurs limites réellement utiles pour choisir une forge ou un hébergeur de code.',
+    rankingTitle: (rankingSize) => `Top ${rankingSize} des meilleurs hébergements de code source gratuits`,
+    itemListName: (rankingSize) => `Les ${rankingSize} meilleurs dépôts de code source gratuits`,
+    quotaPriority: ['repositories', 'projects', 'users', 'storage', 'package_storage', 'build_time'],
+    comparisonIntro: 'Pour l’hébergement de code, le nombre de dépôts ou projets, la taille de l’équipe, le stockage disponible et le quota CI/CD sont des critères plus utiles qu’un quota générique. Ils sont donc comparés séparément.',
+    comparisonColumns: [
+      { key: 'service', label: 'Service' },
+      { key: 'quota', label: 'Dépôts / projets', metrics: ['repositories', 'projects'] },
+      { key: 'quota', label: 'Collaborateurs', metrics: ['users', 'collaborators', 'members'] },
+      { key: 'quota', label: 'Stockage', metrics: ['storage', 'package_storage', 'codespace_storage'] },
+      { key: 'quota', label: 'CI/CD', metrics: ['build_time', 'pipelines', 'parallelism'] },
+      { key: 'plan', label: 'Formule gratuite' },
+      { key: 'duration', label: 'Gratuité' },
+      { key: 'card', label: 'Carte bancaire' },
+      { key: 'usage', label: 'Usage idéal' },
+    ],
+    faqItems: [
+      {
+        question: 'Quel hébergement Git gratuit choisir pour un projet de développement ?',
+        answer: 'Le choix dépend surtout du nombre de dépôts, du nombre de collaborateurs, du stockage nécessaire et de l’usage de la CI/CD. Le comparatif sépare ces critères afin de distinguer une forge très généreuse pour le code d’une offre plus intéressante pour l’automatisation.',
+      },
+      {
+        question: 'Peut-on héberger gratuitement des dépôts privés ?',
+        answer: 'Plusieurs services du classement autorisent les dépôts privés dans leur offre gratuite, mais les limites de collaborateurs, de stockage ou de CI/CD peuvent différer. La fiche détaillée de chaque offre précise les conditions et restrictions applicables.',
+      },
+      {
+        question: 'La CI/CD est-elle incluse gratuitement avec ces hébergeurs de code ?',
+        answer: 'Cela dépend du service. Certains fournissent un quota mensuel chiffré, d’autres un accès partagé ou non chiffré, et certains se concentrent uniquement sur l’hébergement du code. La colonne CI/CD reprend uniquement les quotas structurés documentés.',
+      },
+      {
+        question: 'Pourquoi comparer séparément dépôts, collaborateurs, stockage et CI/CD ?',
+        answer: 'Ces limites répondent à des besoins différents : héberger plusieurs projets, travailler en équipe, stocker du code ou des artefacts, et automatiser les builds ou déploiements. Les regrouper en un seul quota masquerait les différences importantes entre services.',
+      },
+    ],
+  },
+"""
+              engine_path.write_text(engine.replace(anchor, '\n' + config + "};\n\nconst requestedCategoryId", 1))
+
+          # 3) Créer la route canonique du guide.
+          route_path = Path('src/pages/guides/depots-code-source/meilleures-offres-gratuites.astro')
+          route_path.parent.mkdir(parents=True, exist_ok=True)
+          route_path.write_text("""---
+import CategoryGuidePage from '../../comparatifs/email/meilleures-offres-gratuites.astro';
+---
+
+<CategoryGuidePage categoryId="depots-code-source" />
+""")
+
+          # 4) Référencer le guide dans le hub.
+          hub_path = Path('src/pages/guides/index.astro')
+          hub = hub_path.read_text()
+          if '/guides/depots-code-source/meilleures-offres-gratuites/' not in hub:
+              anchor = """        <a href=\"/guides/api-donnees-ml/meilleures-offres-gratuites/\">
+          <span class=\"guides-index\">02</span>
+          <span class=\"guides-copy\"><small>API, DONNÉES & ML</small><strong>Les meilleures offres gratuites — API, données et machine learning</strong><em>Classement, quotas clés, score, permanence, carte bancaire et usages.</em></span>
+          <b aria-hidden=\"true\">→</b>
+        </a>
+"""
+              assert anchor in hub, 'Carte API/Data/ML introuvable dans le hub'
+              card = anchor + """        <a href=\"/guides/depots-code-source/meilleures-offres-gratuites/\">
+          <span class=\"guides-index\">03</span>
+          <span class=\"guides-copy\"><small>DÉPÔTS DE CODE SOURCE</small><strong>Les meilleurs hébergements de code source gratuits</strong><em>Dépôts, collaborateurs, stockage, CI/CD, score et limites.</em></span>
+          <b aria-hidden=\"true\">→</b>
+        </a>
+"""
+              hub_path.write_text(hub.replace(anchor, card, 1))
+          PY
+
+      - name: Installer et construire le site
+        run: |
+          npm ci
+          npm run build
+
+      - name: Vérifier le guide généré
+        run: |
+          test -f dist/guides/depots-code-source/meilleures-offres-gratuites/index.html
+          test -f dist/guides/email/meilleures-offres-gratuites/index.html
+          test -f dist/guides/api-donnees-ml/meilleures-offres-gratuites/index.html
+          grep -q 'Dépôts / projets' dist/guides/depots-code-source/meilleures-offres-gratuites/index.html
+          grep -q 'Collaborateurs' dist/guides/depots-code-source/meilleures-offres-gratuites/index.html
+          grep -q '>Stockage<' dist/guides/depots-code-source/meilleures-offres-gratuites/index.html
+          grep -q '>CI/CD<' dist/guides/depots-code-source/meilleures-offres-gratuites/index.html
+          ! grep -q 'Volume d’envoi' dist/guides/depots-code-source/meilleures-offres-gratuites/index.html
+          ! grep -q 'IA / crédits' dist/guides/depots-code-source/meilleures-offres-gratuites/index.html
+          grep -q 'Volume d’envoi' dist/guides/email/meilleures-offres-gratuites/index.html
+          grep -q 'IA / crédits' dist/guides/api-donnees-ml/meilleures-offres-gratuites/index.html
+          grep -q 'content:attr(data-label)' src/pages/comparatifs/email/meilleures-offres-gratuites.astro
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html = Path('dist/guides/depots-code-source/meilleures-offres-gratuites/index.html').read_text()
+          names = re.findall(r'<h3><a href="/offres/[^\"]+/">([^<]+)</a></h3>', html)
+          assert len(names) == 10, f'Le guide doit contenir exactement 10 offres, trouvé {len(names)} : {names}'
+          print('TOP_10_SOURCE_CODE=' + ' | '.join(names))
+          PY
+
+      - name: Publier les fichiers validés sur la branche
+        run: |
+          if git diff --quiet -- src/data/source-code-hosting-quotas.ts src/data/free-tier-score.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/depots-code-source/meilleures-offres-gratuites.astro; then
+            echo 'Aucune modification fonctionnelle à publier.'
+            exit 0
+          fi
+          git config user.name 'GratuitPourLesDevs'
+          git config user.email 'julien.taverne+gratuitpourlesdevs@gmail.com'
+          git add -- src/data/source-code-hosting-quotas.ts src/data/free-tier-score.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/depots-code-source/meilleures-offres-gratuites.astro
+          git commit -m 'Ajoute le guide Dépôts de code source'
+          git push origin HEAD:feat/guide-ci-cd
