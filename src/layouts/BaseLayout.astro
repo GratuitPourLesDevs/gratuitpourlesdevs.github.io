@@ -49,6 +49,7 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
     <script src="/pagination-enhancement.js" defer></script>
     <script src="/catalogue-editorial-enhancement.js" defer></script>
     <script src="/account-client.js" defer></script>
+    <script src="/account-delete.js" defer></script>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
@@ -86,6 +87,13 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
           const suggestion = actions.querySelector('.outline-button');
           actions.insertBefore(link, suggestion ?? actions.firstChild);
         }
+        document.querySelectorAll('footer nav').forEach((footerNav) => {
+          if (footerNav.querySelector('a[href="/confidentialite/"]')) return;
+          const link = document.createElement('a');
+          link.href = '/confidentialite/';
+          link.textContent = 'Confidentialité';
+          footerNav.append(link);
+        });
       })();
     </script>
     <script is:inline>
