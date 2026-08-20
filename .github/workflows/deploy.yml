@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -17,12 +17,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  prepare-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Appliquer le patch temporaire du Guide si présent
+        run: |
+          if [ ! -f scripts/_temp_apply_source_code_guide.py ]; then exit 0; fi
+          python scripts/_temp_apply_source_code_guide.py
+          git config user.name 'GratuitPourLesDevs'
+          git config user.email 'julien.taverne+gratuitpourlesdevs@gmail.com'
+          git add -- src/data/source-code-guide.ts src/data/free-tier-score.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/depots-code-source/meilleures-offres-gratuites.astro
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Finalise le guide Dépôts de code source'
+          git push origin HEAD:main
+
   build:
+    needs: prepare-guide
     runs-on: ubuntu-latest
     steps:
       - name: Récupérer le dépôt
         uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
       - name: Installer, vérifier et préparer le site
         uses: withastro/action@v6
