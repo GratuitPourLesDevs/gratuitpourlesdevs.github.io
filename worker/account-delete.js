@@ -18,7 +18,13 @@ function headers(request, env) {
     'Cache-Control': 'no-store, max-age=0',
     'Content-Type': 'application/json; charset=utf-8',
     'X-Content-Type-Options': 'nosniff',
-    ...(origin ? { 'Access-Control-Allow-Origin': origin, Vary: 'Origin' } : {}),
+    ...(origin ? {
+      'Access-Control-Allow-Origin': origin,
+      'Access-Control-Allow-Methods': 'DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Authorization, Content-Type',
+      'Access-Control-Max-Age': '86400',
+      Vary: 'Origin',
+    } : {}),
   };
 }
 
@@ -30,6 +36,7 @@ export async function handleAccountDeleteRequest(request, env) {
   const url = new URL(request.url);
   if (url.pathname !== '/api/account/delete') return null;
   if (allowedOrigin(request, env) === false) return response({ error: 'Origin not allowed' }, 403, request, env);
+  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: headers(request, env) });
   if (request.method !== 'DELETE') return response({ error: 'Method not allowed' }, 405, request, env);
   if (!env.COMPARISONS_DB) return response({ error: 'Account database is not configured' }, 503, request, env);
 
