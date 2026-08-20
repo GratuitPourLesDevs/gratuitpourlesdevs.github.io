@@ -1,5 +1,7 @@
 name: Déployer sur GitHub Pages
 
+# Important : ne pas inclure [skip ci] / [ci skip] dans les commits fusionnés sur main,
+# sinon GitHub ignore entièrement ce workflow déclenché par push.
 on:
   push:
     branches: [main]
