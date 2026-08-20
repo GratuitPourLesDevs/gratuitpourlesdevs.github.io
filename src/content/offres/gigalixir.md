@@ -1,0 +1,46 @@
+---
+nom: Gigalixir
+accroche: PaaS spécialisé historiquement dans Elixir/Phoenix, désormais aussi pour d’autres runtimes, avec une instance et PostgreSQL gratuits.
+type: PaaS
+categorie: paas
+formule: 'Free Tier : 1 replica de 0,5 GB + PostgreSQL gratuit limité à 10 000 lignes'
+inclus:
+- 1 replica d’application
+- 0,5 GB de mémoire maximum
+- 1 base PostgreSQL Free
+- 10 000 lignes de base
+- 2 connexions PostgreSQL concurrentes
+- Domaines personnalisés et SSL
+- Déploiements sans interruption
+conditions:
+- Une carte bancaire est demandée à l’inscription uniquement pour vérification anti-abus
+restrictions:
+- Aucune sauvegarde sur la base Free
+- Les connexions DB inactives sont fermées après 5 minutes
+- Après 30 jours sans déploiement, l’application peut être mise à zéro replica
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Inactivité 30 jours
+  detail: Le Free Tier existe toujours, mais Gigalixir peut mettre l’application à zéro replica si aucun déploiement n’a eu lieu pendant plus de 30 jours.
+usages:
+- Applications web
+- PostgreSQL
+- Hébergement
+- Déploiement cloud
+url: https://gigalixir.com/
+source: https://gigalixir.com/pricing
+couleur: '#7A3E9D'
+initiales: GX
+carteRequise: true
+depassementFacture: false
+permanent: true
+statut: active
+vedette: false
+ordre: 827
+verifieLe: '2026-08-20'
+verificationAutomatiqueLe: '2026-08-20'
+verificationNote: 'Free Tier actuel confirmé : 1 replica 0,5GB, DB 10k lignes / 2 connexions / sans backups. Contrairement à l’ancienne description, une politique d’inactivité à 30 jours existe.'
+---
+
+Gigalixir — PaaS spécialisé historiquement dans Elixir/Phoenix, désormais aussi pour d’autres runtimes, avec une instance et PostgreSQL gratuits.

@@ -1,0 +1,43 @@
+---
+nom: DOM Cloud
+accroche: Hébergement Linux polyvalent avec SSH, bases intégrées, CI/CD GitHub, HTTPS et domaines personnalisés.
+type: PaaS
+categorie: hebergement-web
+formule: 'Free Forever : jusqu’à 3 sites, 1,5 GB de stockage et 2 GB d’egress/mois'
+inclus:
+- Jusqu’à 3 sites
+- 1,5 GB de stockage
+- 2 GB de trafic sortant par mois
+- SSH non-root
+- Bases de données intégrées
+- CI/CD via GitHub
+- HTTPS, firewall et protection bots
+- Domaines personnalisés gratuits
+conditions:
+- Le service utilise une mise en veille et redémarre les applications à l’arrivée de trafic
+restrictions:
+- Le plan gratuit est soumis aux limites de stockage et de trafic réseau
+- Le service est encore présenté comme Beta
+alertes: []
+usages:
+- Hébergement
+- Applications web
+- CI/CD
+- Base de données
+- Accès distant
+url: https://domcloud.co/
+source: https://domcloud.co/
+couleur: '#16A34A'
+initiales: DC
+carteRequise: false
+depassementFacture: false
+permanent: true
+statut: active
+vedette: false
+ordre: 824
+verifieLe: '2026-08-20'
+verificationAutomatiqueLe: '2026-08-20'
+verificationNote: La page 2026 annonce désormais 1,5 GB de stockage, 2GB/mois d’egress et jusqu’à 3 sites, plus généreux que l’ancien 1GB/1GB.
+---
+
+DOM Cloud — Hébergement Linux polyvalent avec SSH, bases intégrées, CI/CD GitHub, HTTPS et domaines personnalisés.
