@@ -134,6 +134,30 @@ function accountErrorPage(env, message, status = 400) {
   return new Response(response.body, { status, headers: response.headers });
 }
 
+function redirectResultPage({ env, session, status, payload }) {
+  const destination = new URL(session.returnTo || '/compte/', env.ALLOWED_ORIGIN);
+  const result = base64url(JSON.stringify({ status, ...payload, returnTo: session.returnTo || '/compte/' }));
+  destination.hash = `gpld-account=${result}`;
+  return new Response(null, {
+    status: 302,
+    headers: {
+      ...securityHeaders(),
+      Location: destination.toString(),
+      'Set-Cookie': `${USER_OAUTH_COOKIE}=; Path=/callback; HttpOnly; Secure; SameSite=Lax; Max-Age=0`,
+    },
+  });
+}
+
+function accountResultPage(env, session, status, payload) {
+  if (session?.flow === 'redirect') return redirectResultPage({ env, session, status, payload });
+  return popupPage({ origin: env.ALLOWED_ORIGIN, status, payload });
+}
+
+function accountFlowErrorPage(env, session, message, status = 400) {
+  if (session?.flow === 'redirect') return redirectResultPage({ env, session, status: 'error', payload: { message } });
+  return accountErrorPage(env, message, status);
+}
+
 function safeReturnTo(value, env) {
   try {
     const url = new URL(value || '/compte/', env.ALLOWED_ORIGIN);
@@ -200,7 +224,13 @@ async function startAccountAuth(request, env) {
   const state = randomString();
   const verifier = randomString(48);
   const callback = `${url.origin}/callback`;
-  const session = await createSignedState({ state, verifier, createdAt: Date.now(), returnTo: safeReturnTo(url.searchParams.get('return_to'), env) }, env.STATE_SECRET);
+  const session = await createSignedState({
+    state,
+    verifier,
+    createdAt: Date.now(),
+    returnTo: safeReturnTo(url.searchParams.get('return_to'), env),
+    flow: url.searchParams.get('flow') === 'redirect' ? 'redirect' : 'popup',
+  }, env.STATE_SECRET);
   const destination = new URL(GITHUB_AUTHORIZE_URL);
   destination.searchParams.set('client_id', env.GITHUB_CLIENT_ID);
   destination.searchParams.set('redirect_uri', callback);
@@ -222,10 +252,10 @@ async function finishAccountAuth(request, env, fetchImpl) {
   const url = new URL(request.url);
   const session = await readSignedState(getCookie(request, USER_OAUTH_COOKIE), env.STATE_SECRET);
   if (!session || Date.now() - session.createdAt > USER_OAUTH_MAX_AGE_SECONDS * 1000) return accountErrorPage(env, 'Session de connexion expirée. Réessayez.', 401);
-  if (!url.searchParams.get('state') || url.searchParams.get('state') !== session.state) return accountErrorPage(env, 'État OAuth invalide.', 401);
+  if (!url.searchParams.get('state') || url.searchParams.get('state') !== session.state) return accountFlowErrorPage(env, session, 'État OAuth invalide.', 401);
   const code = url.searchParams.get('code');
-  if (!code) return accountErrorPage(env, url.searchParams.get('error_description') ?? 'Connexion GitHub refusée.');
-  if (!env.COMPARISONS_DB) return accountErrorPage(env, 'Base des comptes non configurée.', 503);
+  if (!code) return accountFlowErrorPage(env, session, url.searchParams.get('error_description') ?? 'Connexion GitHub refusée.');
+  if (!env.COMPARISONS_DB) return accountFlowErrorPage(env, session, 'Base des comptes non configurée.', 503);
 
   const tokenResponse = await fetchImpl(GITHUB_TOKEN_URL, {
     method: 'POST',
@@ -233,7 +263,7 @@ async function finishAccountAuth(request, env, fetchImpl) {
     body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code, redirect_uri: `${url.origin}/callback`, code_verifier: session.verifier }),
   });
   const tokenData = await tokenResponse.json();
-  if (!tokenResponse.ok || !tokenData.access_token) return accountErrorPage(env, 'GitHub n’a pas délivré de jeton.', 502);
+  if (!tokenResponse.ok || !tokenData.access_token) return accountFlowErrorPage(env, session, 'GitHub n’a pas délivré de jeton.', 502);
 
   const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${tokenData.access_token}`, 'User-Agent': 'GratuitPourLesDevs-Account-OAuth', 'X-GitHub-Api-Version': '2022-11-28' };
   const [userResponse, emailsResponse] = await Promise.all([
@@ -242,7 +272,7 @@ async function finishAccountAuth(request, env, fetchImpl) {
   ]);
   const user = await userResponse.json();
   const emails = emailsResponse.ok ? await emailsResponse.json() : [];
-  if (!userResponse.ok || !user.id || !user.login) return accountErrorPage(env, 'Profil GitHub indisponible.', 502);
+  if (!userResponse.ok || !user.id || !user.login) return accountFlowErrorPage(env, session, 'Profil GitHub indisponible.', 502);
   const primaryEmail = Array.isArray(emails)
     ? emails.find((entry) => entry?.primary && entry?.verified) ?? emails.find((entry) => entry?.verified)
     : null;
@@ -267,7 +297,7 @@ async function finishAccountAuth(request, env, fetchImpl) {
   await env.COMPARISONS_DB.prepare('DELETE FROM account_sessions WHERE expires_at <= ?').bind(now).run();
   await env.COMPARISONS_DB.prepare('INSERT INTO account_sessions (token_hash, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)').bind(tokenHash, userId, now, now + SESSION_MAX_AGE_SECONDS).run();
   const row = await env.COMPARISONS_DB.prepare('SELECT * FROM users WHERE id = ?').bind(userId).first();
-  return popupPage({ origin: env.ALLOWED_ORIGIN, status: 'success', payload: { token: sessionToken, user: publicUser(row), returnTo: session.returnTo || '/compte/' } });
+  return accountResultPage(env, session, 'success', { token: sessionToken, user: publicUser(row), returnTo: session.returnTo || '/compte/' });
 }
 
 function freeLimit(request, env, feature, limit) {

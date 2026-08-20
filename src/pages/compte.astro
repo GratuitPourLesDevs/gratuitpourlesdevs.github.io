@@ -159,7 +159,7 @@ import SiteFooter from '../components/SiteFooter.astro';
       try { state.dashboard = await account().api('/api/account/dashboard'); renderDashboard(); }
       catch (error) { if (error.status === 401) renderSignedOut(); else { $('#account-loading').textContent = error.message || 'Impossible de charger votre espace.'; } }
     };
-    const login = async () => { try { await account().login(); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Connexion impossible.'); } };
+    const login = async () => { try { await account().login({ redirect: true }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Connexion impossible.'); } };
     $('#account-login')?.addEventListener('click', login); $('#account-login-secondary')?.addEventListener('click', login); $('#account-refresh')?.addEventListener('click', loadDashboard);
     $('#account-logout')?.addEventListener('click', async () => { await account().logout(); renderSignedOut(); });
     $('#stack-add')?.addEventListener('click', () => { const id = $('#stack-offer-select').value; if (!id || state.stackOfferIds.includes(id)) return; state.stackOfferIds.push(id); renderStackChips(); $('#stack-offer-select').value = ''; });

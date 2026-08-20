@@ -95,12 +95,85 @@
     window.clearTimeout(showToast.timer);
     showToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 4200);
   };
-  const login = () => new Promise((resolve, reject) => {
+  const oauthUrl = (flow = 'popup') => {
+    const base = apiBase();
+    if (!base) throw new Error('API de compte indisponible');
+    const returnTo = `${location.pathname}${location.search}${location.hash}`;
+    return `${base}/account/auth?return_to=${encodeURIComponent(returnTo)}&flow=${encodeURIComponent(flow)}`;
+  };
+  const showLoginDialog = () => {
+    let dialog = document.querySelector('.account-auth-dialog');
+    if (!dialog) {
+      dialog = document.createElement('dialog');
+      dialog.className = 'account-auth-dialog';
+      dialog.setAttribute('aria-labelledby', 'account-auth-dialog-title');
+
+      const close = document.createElement('button');
+      close.type = 'button';
+      close.className = 'account-auth-dialog-close';
+      close.setAttribute('aria-label', 'Fermer');
+      close.textContent = '×';
+
+      const eyebrow = document.createElement('small');
+      eyebrow.textContent = 'COMPTE GRATUIT';
+      const title = document.createElement('h2');
+      title.id = 'account-auth-dialog-title';
+      title.textContent = 'Continuer avec GitHub';
+      const description = document.createElement('p');
+      description.textContent = 'GitHub va s’ouvrir dans cet onglet. Après autorisation, vous reviendrez automatiquement dans votre espace.';
+      const privacy = document.createElement('p');
+      privacy.className = 'account-auth-dialog-privacy';
+      privacy.textContent = 'Seuls votre profil public et votre adresse e-mail vérifiée sont demandés. Aucun accès à vos dépôts.';
+
+      const actions = document.createElement('div');
+      actions.className = 'account-auth-dialog-actions';
+      const continueLink = document.createElement('a');
+      continueLink.className = 'account-primary';
+      continueLink.textContent = 'Ouvrir GitHub';
+      const cancel = document.createElement('button');
+      cancel.type = 'button';
+      cancel.className = 'account-secondary';
+      cancel.textContent = 'Annuler';
+      actions.append(continueLink, cancel);
+      dialog.append(close, eyebrow, title, description, privacy, actions);
+      document.body.append(dialog);
+      close.addEventListener('click', () => dialog.close());
+      cancel.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+    }
+    dialog.querySelector('a.account-primary').href = oauthUrl('redirect');
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+  };
+  const consumeRedirectSession = () => {
+    const prefix = '#gpld-account=';
+    if (!location.hash.startsWith(prefix)) return false;
+    try {
+      const value = location.hash.slice(prefix.length).replace(/-/g, '+').replace(/_/g, '/');
+      const padded = value + '='.repeat((4 - value.length % 4) % 4);
+      const bytes = Uint8Array.from(atob(padded), (character) => character.charCodeAt(0));
+      const payload = JSON.parse(new TextDecoder().decode(bytes));
+      if (payload.status !== 'success' || !payload.token) throw new Error(payload.message || 'Connexion impossible');
+      setSession(payload.token, payload.user || null);
+      const returnTo = typeof payload.returnTo === 'string' && payload.returnTo.startsWith('/') ? payload.returnTo : `${location.pathname}${location.search}`;
+      history.replaceState({}, '', returnTo);
+      return true;
+    } catch (error) {
+      history.replaceState({}, '', `${location.pathname}${location.search}`);
+      showToast(error.message || 'Connexion impossible.');
+      return false;
+    }
+  };
+  const login = ({ redirect = false } = {}) => {
+    if (redirect) {
+      showLoginDialog();
+      return Promise.resolve(null);
+    }
+    return new Promise((resolve, reject) => {
     const base = apiBase();
     if (!base) { reject(new Error('API de compte indisponible')); return; }
     const workerOrigin = new URL(base).origin;
-    const returnTo = `${location.pathname}${location.search}${location.hash}`;
-    const popup = window.open(`${base}/account/auth?return_to=${encodeURIComponent(returnTo)}`, 'gpld-account-auth', 'popup=yes,width=620,height=760');
+    const popup = window.open(oauthUrl('popup'), 'gpld-account-auth', 'popup=yes,width=620,height=760');
     if (!popup) { reject(new Error('Autorisez les fenêtres contextuelles pour vous connecter.')); return; }
     let timeout;
     const finish = async (event) => {
@@ -121,7 +194,8 @@
       window.removeEventListener('message', finish);
       reject(new Error('La connexion a expiré.'));
     }, 5 * 60 * 1000);
-  });
+    });
+  };
   const ensureLogin = async () => getToken() ? getCachedUser() : login();
   const handleLimitError = (error) => {
     if (error?.payload?.code === 'free_limit') {
@@ -209,6 +283,7 @@
     });
   };
   const boot = async () => {
+    consumeRedirectSession();
     updateAccountLink();
     injectSaveSearch();
     injectSaveComparison();

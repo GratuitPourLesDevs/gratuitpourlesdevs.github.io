@@ -28,6 +28,54 @@ test('account OAuth uses PKCE and user-only GitHub scopes', async () => {
   assert.match(response.headers.get('set-cookie'), /HttpOnly; Secure; SameSite=Lax/);
 });
 
+test('account OAuth accepts the same-tab redirect flow', async () => {
+  const response = await handleAccountRequest(new Request('https://oauth.example/account/auth?return_to=%2Fcompte%2F&flow=redirect'), env);
+  assert.equal(response.status, 302);
+  assert.equal(new URL(response.headers.get('location')).origin, 'https://github.com');
+  assert.match(response.headers.get('set-cookie'), /HttpOnly; Secure; SameSite=Lax/);
+});
+
+test('same-tab OAuth returns the GPLD session in a fragment, not in the query string', async () => {
+  const row = {
+    id: 'github:42', github_login: 'octocat', display_name: 'The Octocat', avatar_url: null,
+    email: 'octocat@example.com', email_verified: 1, plan: 'free', digest_enabled: 0,
+  };
+  const database = {
+    prepare(sql) {
+      return {
+        bind() {
+          return {
+            async run() { return { success: true }; },
+            async first() { return sql.includes('SELECT * FROM users') ? row : null; },
+          };
+        },
+      };
+    },
+  };
+  const redirectEnv = { ...env, COMPARISONS_DB: database };
+  const start = await handleAccountRequest(new Request('https://oauth.example/account/auth?return_to=%2Fcompte%2F&flow=redirect'), redirectEnv);
+  const authorize = new URL(start.headers.get('location'));
+  const cookie = start.headers.get('set-cookie').split(';')[0];
+  const fetchImpl = async (url) => {
+    if (url === 'https://github.com/login/oauth/access_token') return Response.json({ access_token: 'github-access-token' });
+    if (url === 'https://api.github.com/user') return Response.json({ id: 42, login: 'octocat', name: 'The Octocat' });
+    if (url === 'https://api.github.com/user/emails') return Response.json([{ email: 'octocat@example.com', primary: true, verified: true }]);
+    return new Response(null, { status: 404 });
+  };
+  const callback = await handleAccountRequest(new Request(`https://oauth.example/callback?code=temporary-code&state=${authorize.searchParams.get('state')}`, { headers: { Cookie: cookie } }), redirectEnv, fetchImpl);
+  assert.equal(callback.status, 302);
+  const destination = new URL(callback.headers.get('location'));
+  assert.equal(destination.origin, env.ALLOWED_ORIGIN);
+  assert.equal(destination.pathname, '/compte/');
+  assert.equal(destination.search, '');
+  assert.match(destination.hash, /^#gpld-account=/);
+  const payload = JSON.parse(Buffer.from(destination.hash.slice('#gpld-account='.length), 'base64url').toString('utf8'));
+  assert.equal(payload.status, 'success');
+  assert.equal(payload.user.login, 'octocat');
+  assert.ok(payload.token);
+  assert.equal(payload.returnTo, '/compte/');
+});
+
 test('account API exposes CORS preflight only to the site origin', async () => {
   const response = await handleAccountRequest(new Request('https://oauth.example/api/account/me', { method: 'OPTIONS', headers: { Origin: env.ALLOWED_ORIGIN } }), env);
   assert.equal(response.status, 204);
