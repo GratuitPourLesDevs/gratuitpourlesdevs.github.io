@@ -2,7 +2,24 @@
 
 Le lancement du compte gratuit repose sur le Worker Cloudflare et la base D1 déjà utilisés par GratuitPourLesDevs. Le catalogue public reste inchangé : le compte ajoute uniquement de la mémorisation, de la veille et des limites freemium.
 
-## 1. Appliquer la migration D1
+## 1. Créer un OAuth GitHub dédié aux utilisateurs
+
+Ne réutilisez pas l’application OAuth de l’administration. Créez une seconde **GitHub OAuth App** dédiée au compte public, avec comme callback :
+
+```text
+https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev/callback
+```
+
+Puis enregistrez ses identifiants dans les secrets du Worker :
+
+```bash
+npx wrangler secret put ACCOUNT_GITHUB_CLIENT_ID --config worker/wrangler.jsonc
+npx wrangler secret put ACCOUNT_GITHUB_CLIENT_SECRET --config worker/wrangler.jsonc
+```
+
+L’administration conserve ses variables `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` et son scope `public_repo`. Le compte public utilise uniquement le couple `ACCOUNT_GITHUB_*` avec les scopes `read:user user:email`.
+
+## 2. Appliquer la migration D1
 
 ```bash
 npm run migrate:worker
@@ -10,18 +27,18 @@ npm run migrate:worker
 
 La migration `0003_accounts.sql` crée les utilisateurs, sessions GPLD, favoris synchronisés, offres suivies, recherches/comparaisons sauvegardées, stack et mesure d’intérêt pour Pro.
 
-## 2. Déployer le Worker
+## 3. Tester et déployer le Worker
 
 ```bash
 npm run test:worker
 npm run deploy:oauth
 ```
 
-Le même callback GitHub `/callback` est conservé. L’administration continue à demander `public_repo`, tandis que les comptes utilisateurs passent par `/account/auth` et ne demandent que `read:user user:email`. Le token GitHub utilisateur n’est jamais envoyé au site : le navigateur reçoit uniquement un jeton de session opaque propre à GPLD.
+Le même chemin de callback `/callback` est conservé, mais les deux flux OAuth restent isolés par leurs cookies et leurs identifiants GitHub. Le token GitHub utilisateur n’est jamais envoyé au site : après lecture du profil et de l’adresse e-mail vérifiée, le navigateur reçoit uniquement un jeton de session opaque propre à GPLD.
 
-## 3. Digest hebdomadaire
+## 4. Digest hebdomadaire
 
-Le cron est configuré le lundi à `07:00 UTC`. Sans fournisseur e-mail configuré, le digest reste visible dans **Mon espace** mais aucun e-mail n’est envoyé.
+Le cron est configuré le lundi à `07:00 UTC` (09:00 en France métropolitaine pendant l’heure d’été). Sans fournisseur e-mail configuré, le digest reste visible dans **Mon espace** mais aucun e-mail n’est envoyé.
 
 Pour activer l’envoi avec Resend :
 
@@ -34,7 +51,7 @@ npx wrangler secret put DIGEST_FROM_EMAIL --config worker/wrangler.jsonc
 
 Le Worker n’envoie un message que lorsqu’au moins une offre suivie a un changement récent dans les données publiques de `/offres.json`.
 
-## 4. Limites de lancement
+## 5. Limites de lancement
 
 Compte gratuit :
 
@@ -47,7 +64,7 @@ Compte gratuit :
 
 Les dépassements renvoient `409 / free_limit` et l’interface oriente vers le bloc **GPLD Pro** sans paiement.
 
-## 5. Mesurer l’intérêt pour Pro
+## 6. Mesurer l’intérêt pour Pro
 
 Le bouton « Je serais intéressé par Pro » alimente la table `pro_interest`.
 
