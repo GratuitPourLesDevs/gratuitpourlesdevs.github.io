@@ -77,7 +77,7 @@ import SiteFooter from '../components/SiteFooter.astro';
         <header><div><small>MA STACK</small><h2>Les services gratuits de votre projet</h2></div><span class="account-limit" id="stack-limit">0 / 1</span></header>
         <article class="account-card stack-editor">
           <label>Nom de la stack<input id="stack-name" maxlength="80" value="Ma stack" /></label>
-          <div class="stack-add-row"><label>Ajouter une offre<select id="stack-offer-select"><option value="">Choisir une offre…</option></select></label><button class="account-secondary" id="stack-add" type="button">Ajouter</button></div>
+          <div class="stack-add-row"><label>Ajouter une offre<select id="stack-offer-select"><option value="">Choisir une offre…</option></select></label><button class="account-primary stack-add-button" id="stack-add" type="button">Ajouter</button></div>
           <div class="stack-chips" id="stack-chips"></div>
           <div class="stack-actions"><button class="account-primary" id="stack-save" type="button">Enregistrer ma stack</button><button class="account-danger" id="stack-delete" type="button">Supprimer</button></div>
         </article>
@@ -101,6 +101,15 @@ import SiteFooter from '../components/SiteFooter.astro';
   </main>
   <SiteFooter />
 
+  <dialog class="account-confirm-dialog" id="account-remove-dialog" aria-labelledby="account-remove-title" aria-describedby="account-remove-description">
+    <form method="dialog">
+      <small>CONFIRMATION</small>
+      <h2 id="account-remove-title">Retirer cette offre ?</h2>
+      <p id="account-remove-description"></p>
+      <div class="account-confirm-actions"><button class="account-secondary" type="submit" value="cancel">Annuler</button><button class="account-danger" type="submit" value="confirm">Retirer</button></div>
+    </form>
+  </dialog>
+
   <script is:inline>
     const $ = (selector) => document.querySelector(selector);
     const account = () => window.GPLDAccount;
@@ -109,6 +118,17 @@ import SiteFooter from '../components/SiteFooter.astro';
     const offerLink = (id) => `/offres/${encodeURIComponent(id)}/`;
     const emptyItem = (message) => { const li = document.createElement('li'); li.className = 'account-empty'; li.textContent = message; return li; };
     const setLimit = (selector, value, limit) => { const node = $(selector); if (!node) return; node.textContent = `${value} / ${limit}`; node.classList.toggle('is-full', value >= limit); };
+    const confirmRemoval = (id, follow) => new Promise((resolve) => {
+      const dialog = $('#account-remove-dialog');
+      const data = offer(id);
+      const kind = follow ? 'de votre veille' : 'de vos favoris';
+      $('#account-remove-title').textContent = `Retirer ${data.name || id} ?`;
+      $('#account-remove-description').textContent = `${data.name || id} sera retiré ${kind}. Vous pourrez l’ajouter de nouveau à tout moment.`;
+      dialog.returnValue = 'cancel';
+      dialog.addEventListener('close', () => resolve(dialog.returnValue === 'confirm'), { once: true });
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else resolve(window.confirm(`Retirer ${data.name || id} ${kind} ?`));
+    });
 
     const renderOfferList = (selector, ids, { removable, follow } = {}) => {
       const root = $(selector); if (!root) return;
@@ -122,6 +142,7 @@ import SiteFooter from '../components/SiteFooter.astro';
     };
 
     const removeOffer = async (id, follow) => {
+      if (!await confirmRemoval(id, follow)) return;
       try {
         if (follow) await account().api('/api/account/follows', { method: 'POST', body: JSON.stringify({ offerId: id, active: false }) });
         else {

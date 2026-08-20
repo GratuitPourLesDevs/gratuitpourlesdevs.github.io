@@ -13,12 +13,42 @@ import SiteFooter from '../components/SiteFooter.astro';
         <h1>Ce qui change.<br />Et ce qui se prépare.</h1>
         <p>Une vue transparente des fonctionnalités livrées et des sujets encore à l’étude. Les pistes présentées ici n’impliquent pas de date de sortie.</p>
       </div>
-      <aside aria-label="Résumé des évolutions"><strong>3</strong><span>jours d’améliorations documentés</span><strong>1</strong><span>sujet actuellement à l’étude</span></aside>
+      <aside aria-label="Résumé des évolutions"><strong>7</strong><span>jours d’améliorations documentés</span><strong>1</strong><span>sujet actuellement à l’étude</span></aside>
     </header>
 
     <section class="evolutions-section" aria-labelledby="released-title">
       <div class="evolutions-section-heading"><div><small>JOURNAL DES MODIFICATIONS</small><h2 id="released-title">Dernières nouveautés</h2></div><span class="evolution-status delivered">Déployé</span></div>
       <div class="evolution-timeline">
+        <article>
+          <time datetime="2026-08-21">21 août 2026</time>
+          <div class="evolution-day">
+            <div class="evolution-card"><h3>La connexion au compte devient plus fiable</h3><ul><li>Parcours GitHub corrigé avec une redirection complète, sans fenêtre vide au moment de l’authentification.</li><li>Retour automatique vers Mon espace et actualisation immédiate de l’état connecté.</li><li>Actions de compte stabilisées pour actualiser les données, se déconnecter ou supprimer son compte.</li></ul></div>
+            <div class="evolution-card"><h3>Mon espace rejoint pleinement la charte du site</h3><ul><li>Hero rééquilibré, bénéfices du compte mieux hiérarchisés et contenus reformulés pour éviter les répétitions.</li><li>Favoris synchronisés, veille, recherches, comparaisons et stack personnelle présentés dans une interface cohérente.</li><li>Navigation allégée : accès au compte placé dans les actions principales et documentation déplacée dans le pied de page.</li><li>Rendu harmonisé en modes clair et sombre, sur ordinateur comme sur mobile.</li></ul></div>
+          </div>
+        </article>
+        <article>
+          <time datetime="2026-08-20">20 août 2026</time>
+          <div class="evolution-day">
+            <div class="evolution-card"><h3>Les Guides deviennent un véritable parcours éditorial</h3><ul><li>Espace <code>/guides/</code> dédié pour chercher une offre par besoin plutôt que par fournisseur.</li><li>Premiers parcours consacrés à l’e-mail, aux API et données, au machine learning et aux dépôts de code source.</li><li>Comparaisons rapides et sélections issues du catalogue intégrées directement dans les guides.</li><li>Pages conçues pour rester lisibles et actionnables sur mobile.</li></ul></div>
+            <div class="evolution-card"><h3>Un compte gratuit pour prolonger la veille</h3><ul><li>Synchronisation des favoris, suivi de cinq offres, sauvegarde de recherches et comparaisons, et création d’une stack personnelle.</li><li>Digest hebdomadaire proposé uniquement après consentement explicite.</li><li>Connexion GitHub publique séparée de l’administration et suppression du compte disponible en libre-service.</li><li>Politique de confidentialité publiée pour expliquer les données conservées et leur usage.</li></ul></div>
+            <div class="evolution-card"><h3>Le suivi d’usage et de performance est activé</h3><ul><li>Cloudflare Web Analytics chargé sur l’ensemble des pages publiques.</li><li>Mesures agrégées pour comprendre les parcours consultés et surveiller les performances du site.</li><li>Intégration centralisée dans le layout afin que les nouvelles pages soient couvertes automatiquement.</li></ul></div>
+            <div class="evolution-card"><h3>Le catalogue couvre de nouveaux métiers</h3><ul><li>Ajout de familles autour de l’IA et des LLM, des polices, des formulaires, des plateformes applicatives et de la protection CDN.</li><li>Quotas, restrictions et risques de facturation structurés avec les mêmes exigences que le reste du catalogue.</li></ul></div>
+          </div>
+        </article>
+        <article>
+          <time datetime="2026-08-19">19 août 2026</time>
+          <div class="evolution-day">
+            <div class="evolution-card"><h3>Le catalogue s’étend à de nouveaux besoins</h3><ul><li>Nouvelles offres de sécurité, identité, gestion d’appareils, messagerie, logs, traduction, recherche hébergée et observabilité.</li><li>Ajouts dédiés à la formation, à la carrière, aux e-mails transactionnels et aux feature flags.</li><li>Chaque famille reprend les mêmes repères : score, quotas, restrictions clés, sources et historique.</li></ul></div>
+            <div class="evolution-card"><h3>La lecture éditoriale gagne en précision</h3><ul><li>Résumés « En bref » retravaillés pour expliquer plus directement à qui chaque offre convient.</li><li>Clés de classement et audits renforcés pour rendre les sélections plus compréhensibles.</li><li>Archives compactées afin de parcourir plus facilement les offres disparues.</li><li>Premières pages éditoriales optimisées autour des meilleures offres e-mail gratuites.</li></ul></div>
+          </div>
+        </article>
+        <article>
+          <time datetime="2026-08-18">18 août 2026</time>
+          <div class="evolution-day">
+            <div class="evolution-card"><h3>De nouvelles familles d’outils rejoignent le catalogue</h3><ul><li>Couverture étendue aux CMS, plateformes de contenu, générateurs de code et outils de revue de qualité.</li><li>Nouvelles offres d’intégration continue, d’automatisation et de test d’applications.</li><li>Ajouts documentés avec leurs conditions d’usage, limites du plan gratuit et sources officielles.</li></ul></div>
+            <div class="evolution-card"><h3>La navigation reste lisible malgré la croissance</h3><ul><li>Pagination rendue plus compacte pour parcourir un catalogue de plus en plus fourni.</li><li>Scores et quotas harmonisés pour les nouvelles catégories d’outils.</li><li>Restrictions commerciales ou fonctionnelles rendues visibles avant d’ouvrir le détail d’une fiche.</li></ul></div>
+          </div>
+        </article>
         <article>
           <time datetime="2026-08-16">16 août 2026</time>
           <div class="evolution-day">
