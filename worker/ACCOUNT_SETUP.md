@@ -19,13 +19,13 @@ npx wrangler secret put ACCOUNT_GITHUB_CLIENT_SECRET --config worker/wrangler.js
 
 L’administration conserve ses variables `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` et son scope `public_repo`. Le compte public utilise uniquement le couple `ACCOUNT_GITHUB_*` avec les scopes `read:user user:email`.
 
-## 2. Appliquer la migration D1
+## 2. Appliquer les migrations D1
 
 ```bash
 npm run migrate:worker
 ```
 
-La migration `0003_accounts.sql` crée les utilisateurs, sessions GPLD, favoris synchronisés, offres suivies, recherches/comparaisons sauvegardées, stack et mesure d’intérêt pour Pro.
+`0003_accounts.sql` crée les utilisateurs, sessions GPLD, favoris synchronisés, offres suivies, recherches/comparaisons sauvegardées, stack et mesure d’intérêt pour Pro. `0004_digest_opt_in.sql` force le digest e-mail à être désactivé à la création du compte : l’utilisateur doit l’activer explicitement depuis **Mon espace**.
 
 ## 3. Tester et déployer le Worker
 
@@ -38,7 +38,7 @@ Le même chemin de callback `/callback` est conservé, mais les deux flux OAuth 
 
 ## 4. Digest hebdomadaire
 
-Le cron est configuré le lundi à `07:00 UTC` (09:00 en France métropolitaine pendant l’heure d’été). Sans fournisseur e-mail configuré, le digest reste visible dans **Mon espace** mais aucun e-mail n’est envoyé.
+Le cron est configuré le lundi à `07:00 UTC` (09:00 en France métropolitaine pendant l’heure d’été). Le digest e-mail est **opt-in**. Sans fournisseur e-mail configuré, les changements restent visibles dans **Mon espace** mais aucun e-mail n’est envoyé.
 
 Pour activer l’envoi avec Resend :
 
@@ -49,7 +49,7 @@ npx wrangler secret put DIGEST_FROM_EMAIL --config worker/wrangler.jsonc
 
 `DIGEST_FROM_EMAIL` doit contenir une adresse autorisée par le domaine vérifié chez le fournisseur, par exemple `GratuitPourLesDevs <veille@gratuitpourlesdevs.fr>`.
 
-Le Worker n’envoie un message que lorsqu’au moins une offre suivie a un changement récent dans les données publiques de `/offres.json`.
+Le Worker n’envoie un message que si le digest est activé et qu’au moins une offre suivie a un changement récent dans les données publiques de `/offres.json`.
 
 ## 5. Limites de lancement
 
@@ -60,11 +60,15 @@ Compte gratuit :
 - 3 recherches sauvegardées ;
 - 3 comparaisons sauvegardées ;
 - 1 stack (20 services maximum) ;
-- digest hebdomadaire.
+- digest hebdomadaire activable.
 
 Les dépassements renvoient `409 / free_limit` et l’interface oriente vers le bloc **GPLD Pro** sans paiement.
 
-## 6. Mesurer l’intérêt pour Pro
+## 6. Confidentialité et suppression
+
+La page publique `/confidentialite/` décrit les données utilisées par le compte, l’OAuth GitHub, les prestataires techniques et les durées de conservation. Un utilisateur connecté peut supprimer son compte depuis **Mon espace** ; l’action efface côté D1 ses favoris, suivis, sauvegardes, stack, sessions et mesure d’intérêt Pro.
+
+## 7. Mesurer l’intérêt pour Pro
 
 Le bouton « Je serais intéressé par Pro » alimente la table `pro_interest`.
 
