@@ -1,6 +1,7 @@
 import type { OfferAlertLevel, OfferAlertType } from './offer-alerts';
 import { formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-quotas';
 import { DATA_TOOLS_QUOTA_SCORES } from './data-tools-scores';
+import { SOURCE_CODE_GUIDE_QUOTA_SCORES } from './source-code-guide';
 import './offer-quota-overrides';
 import './parsivex-quota';
 import './source-code-hosting-quotas';
@@ -39,6 +40,7 @@ type ScoredOffer = {
 
 const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   ...DATA_TOOLS_QUOTA_SCORES,
+  ...SOURCE_CODE_GUIDE_QUOTA_SCORES,
   'abstract-api': 15,
   alphai: 15,
   'amazon-cloudfront': 20,
