@@ -1,5 +1,6 @@
 import adminWorker, { handleRequest as handleAdminRequest } from './oauth.js';
 import { handleAccountRequest, runWeeklyDigest } from './account.js';
+import { handleAccountDeleteRequest } from './account-delete.js';
 
 function accountEnvironment(env) {
   return {
@@ -10,6 +11,8 @@ function accountEnvironment(env) {
 }
 
 export async function handleRequest(request, env, fetchImpl = fetch) {
+  const deleteResponse = await handleAccountDeleteRequest(request, env);
+  if (deleteResponse) return deleteResponse;
   const accountResponse = await handleAccountRequest(request, accountEnvironment(env), fetchImpl);
   if (accountResponse) return accountResponse;
   return handleAdminRequest(request, env, fetchImpl);
