@@ -1,8 +1,16 @@
 import adminWorker, { handleRequest as handleAdminRequest } from './oauth.js';
 import { handleAccountRequest, runWeeklyDigest } from './account.js';
 
+function accountEnvironment(env) {
+  return {
+    ...env,
+    GITHUB_CLIENT_ID: env.ACCOUNT_GITHUB_CLIENT_ID,
+    GITHUB_CLIENT_SECRET: env.ACCOUNT_GITHUB_CLIENT_SECRET,
+  };
+}
+
 export async function handleRequest(request, env, fetchImpl = fetch) {
-  const accountResponse = await handleAccountRequest(request, env, fetchImpl);
+  const accountResponse = await handleAccountRequest(request, accountEnvironment(env), fetchImpl);
   if (accountResponse) return accountResponse;
   return handleAdminRequest(request, env, fetchImpl);
 }
