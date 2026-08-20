@@ -84,8 +84,7 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
           link.className = 'account-header-link';
           if (location.pathname.startsWith('/compte/')) link.classList.add('active');
           link.innerHTML = '<span data-account-label>Compte</span>';
-          const suggestion = actions.querySelector('.outline-button');
-          actions.insertBefore(link, suggestion ?? actions.firstChild);
+          actions.append(link);
         }
         document.querySelectorAll('footer nav').forEach((footerNav) => {
           if (footerNav.querySelector('a[href="/confidentialite/"]')) return;

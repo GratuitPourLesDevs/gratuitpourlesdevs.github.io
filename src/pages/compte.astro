@@ -8,14 +8,20 @@ import SiteFooter from '../components/SiteFooter.astro';
   <SiteHeader />
   <main class="account-page">
     <header class="account-hero">
-      <div>
+      <div class="account-hero-copy">
         <small>MON ESPACE</small>
         <h1>Votre veille gratuite,<br />au même endroit.</h1>
-        <p>Le catalogue reste public. Le compte sert à mémoriser vos choix : favoris synchronisés, cinq offres suivies, recherches et comparaisons sauvegardées, une stack et un digest hebdomadaire.</p>
+        <p>Votre espace personnel transforme le catalogue en veille continue : moins de vérifications à refaire, davantage de décisions prises avec le bon contexte.</p>
       </div>
       <aside class="account-login-card" id="account-login-card">
-        <strong>Compte gratuit</strong>
-        <p>Connexion avec GitHub. Aucun mot de passe supplémentaire à gérer.</p>
+        <small>COMPTE GRATUIT</small>
+        <strong>Commencez votre veille</strong>
+        <p>Retrouvez vos choix et les changements importants depuis tous vos appareils.</p>
+        <ul class="account-login-benefits" aria-label="Avantages du compte">
+          <li>Sans abonnement</li>
+          <li>Connexion sécurisée avec GitHub</li>
+          <li>Vos favoris actuels sont conservés</li>
+        </ul>
         <button class="account-primary" id="account-login" type="button">Continuer avec GitHub</button>
       </aside>
       <aside class="account-profile-card" id="account-profile-card" hidden>
@@ -27,18 +33,28 @@ import SiteFooter from '../components/SiteFooter.astro';
     <div class="account-loading" id="account-loading">Chargement de votre espace…</div>
 
     <section class="account-signed-out" id="account-signed-out" hidden>
-      <small>POURQUOI CRÉER UN COMPTE ?</small>
-      <h2>GratuitPourLesDevs se souvient de vous.</h2>
-      <p>Vos favoris actuels seront importés automatiquement lors de la première connexion. Vous pourrez ensuite retrouver votre veille et votre stack depuis vos autres appareils.</p>
-      <button class="account-primary" id="account-login-secondary" type="button">Créer mon compte gratuit</button>
+      <header>
+        <div>
+          <small>POURQUOI CRÉER UN COMPTE ?</small>
+          <h2>Votre veille ne reste plus dans un seul navigateur.</h2>
+          <p>Le catalogue reste entièrement public. Le compte ajoute uniquement la continuité et le suivi personnalisé.</p>
+        </div>
+        <button class="account-primary" id="account-login-secondary" type="button">Créer mon compte gratuit</button>
+      </header>
+      <div class="account-benefits">
+        <article><span>01</span><strong>Favoris synchronisés</strong><p>Retrouvez automatiquement les offres que vous avez mises de côté.</p></article>
+        <article><span>02</span><strong>Jusqu’à 5 offres suivies</strong><p>Surveillez leurs changements et alimentez votre digest hebdomadaire.</p></article>
+        <article><span>03</span><strong>Recherches et comparaisons</strong><p>Sauvegardez jusqu’à six analyses pour les reprendre plus tard.</p></article>
+        <article><span>04</span><strong>Une stack personnelle</strong><p>Regroupez les services gratuits qui composent votre environnement.</p></article>
+      </div>
     </section>
 
     <div id="account-dashboard" hidden>
       <section class="account-status-grid" aria-label="Résumé du compte">
-        <article class="account-stat"><strong id="stat-favorites">0</strong><span>favoris synchronisés</span></article>
-        <article class="account-stat"><strong id="stat-follows">0 / 5</strong><span>offres suivies</span></article>
-        <article class="account-stat"><strong id="stat-saved">0 / 6</strong><span>recherches + comparaisons</span></article>
-        <article class="account-stat"><strong id="stat-stack">0 / 1</strong><span>stack personnelle</span></article>
+        <article class="account-stat"><small>01</small><div><strong id="stat-favorites">0</strong><span>favoris synchronisés</span></div></article>
+        <article class="account-stat"><small>02</small><div><strong id="stat-follows">0 / 5</strong><span>offres suivies</span></div></article>
+        <article class="account-stat"><small>03</small><div><strong id="stat-saved">0 / 6</strong><span>recherches + comparaisons</span></div></article>
+        <article class="account-stat"><small>04</small><div><strong id="stat-stack">0 / 1</strong><span>stack personnelle</span></div></article>
       </section>
 
       <section class="account-section">
