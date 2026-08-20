@@ -1,8 +1,6 @@
 name: Analyse catégorie Guide
 
 on:
-  push:
-    branches: [feat/guide-ci-cd]
   pull_request:
     branches: [main]
 
@@ -14,44 +12,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Analyser les catégories
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Lire les quotas CI/CD via le moteur réel
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          from collections import Counter
+          cat > /tmp/analyze-ci-cd.ts <<'TS'
+          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/offer-quota-overrides.ts';
+          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/parsivex-quota.ts';
+          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/source-code-hosting-quotas.ts';
+          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/api-service-quotas.ts';
+          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/data-service-quotas.ts';
+          import '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/data-tools-quotas.ts';
+          import { getOfferQuotas } from '/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/data/offer-quotas.ts';
+          import fs from 'node:fs';
+          import path from 'node:path';
 
-          rows=[]
-          for p in Path('src/content/offres').glob('*.md'):
-              text=p.read_text(errors='ignore')
-              cat=re.search(r'^categorie:\s*["\']?([^\n"\']+)', text, re.M)
-              nom=re.search(r'^nom:\s*["\']?([^\n"\']+)', text, re.M)
-              statut=re.search(r'^statut:\s*["\']?([^\n"\']+)', text, re.M)
-              if not cat: continue
-              category=cat.group(1).strip()
-              status=(statut.group(1).strip() if statut else 'active')
-              if status != 'obsolete':
-                  rows.append((category, p.stem, nom.group(1).strip() if nom else p.stem))
-
-          counts=Counter(r[0] for r in rows)
-          print('TOP_CATEGORIES')
-          for cat,count in counts.most_common(20): print(f'{cat}: {count}')
-
-          quota_text=Path('src/data/offer-quotas.ts').read_text(errors='ignore')
-          candidates=['ci-cd','cdn-protection','supervision','tests','securite-pki','identite-acces','depots-code-source']
-          for category in candidates:
-              target=[r for r in rows if r[0]==category]
-              metrics=Counter(); covered=0
-              print(f'CATEGORY={category}|COUNT={len(target)}')
-              for _,slug,nom in target:
-                  m=re.search(rf"  '{re.escape(slug)}': \[(.*?)(?=\n  '[^']+': \[|\n\}};)" , quota_text, re.S)
-                  found=[]
-                  if m:
-                      found=re.findall(r"metric:\s*'([^']+)'", m.group(1))
-                  if found:
-                      covered += 1
-                      metrics.update(found)
-                  print(f'OFFER={category}|{slug}|{nom}|METRICS={",".join(found) if found else "-"}')
-              print(f'COVERAGE={category}|{covered}/{len(target)}')
-              for metric,count in metrics.most_common(): print(f'METRIC={category}|{metric}|{count}')
-          PY
+          const dir='/home/runner/work/gratuitpourlesdevs.github.io/gratuitpourlesdevs.github.io/src/content/offres';
+          const rows=[] as Array<{slug:string,nom:string}>;
+          for (const file of fs.readdirSync(dir).filter((f)=>f.endsWith('.md'))) {
+            const text=fs.readFileSync(path.join(dir,file),'utf8');
+            const cat=text.match(/^categorie:\s*["']?([^\n"']+)/m)?.[1]?.trim();
+            const status=text.match(/^statut:\s*["']?([^\n"']+)/m)?.[1]?.trim() ?? 'active';
+            if(cat!=='ci-cd' || status==='obsolete') continue;
+            const nom=text.match(/^nom:\s*["']?([^\n"']+)/m)?.[1]?.trim() ?? file.replace(/\.md$/,'');
+            rows.push({slug:file.replace(/\.md$/,''),nom});
+          }
+          console.log(`CI_CD_COUNT=${rows.length}`);
+          for(const row of rows){
+            const quotas=getOfferQuotas(row.slug);
+            console.log(`CI_CD=${row.slug}|${row.nom}|${quotas.map(q=>`${q.metric}:${q.label}:${q.amount ?? q.kind}:${q.unit}:${q.period}`).join(';')}`);
+          }
+          TS
+          npx --yes tsx /tmp/analyze-ci-cd.ts
