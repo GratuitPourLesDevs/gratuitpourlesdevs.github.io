@@ -1,12 +1,15 @@
 {
   "$schema": "../node_modules/wrangler/config-schema.json",
   "name": "gratuitpourlesdevs-oauth",
-  "main": "oauth.js",
+  "main": "index.js",
   "compatibility_date": "2026-08-12",
   "workers_dev": true,
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
+  },
+  "triggers": {
+    "crons": ["0 7 * * 1"]
   },
   "d1_databases": [
     {
