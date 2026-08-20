@@ -1,5 +1,6 @@
 import { API_UTILITY_QUOTA_SCORES } from './api-utility-scores';
 import { CMS_PLATFORM_QUOTA_SCORES } from './cms-platform-scores';
+import { CDN_PROTECTION_QUOTA_SCORES } from './cdn-protection-scores';
 import { CODE_GENERATION_QUOTA_SCORES } from './code-generation-scores';
 import { CODE_QUALITY_QUOTA_SCORES } from './code-quality-scores';
 import { DELIVERY_AUTOMATION_QUOTA_SCORES } from './delivery-automation-scores';
@@ -28,6 +29,7 @@ import { FORM_SERVICE_QUOTA_SCORES } from './form-service-scores';
 import { AI_ENGINEERING_QUOTA_SCORES } from './ai-engineering-scores';
 import './api-utility-quotas';
 import './cms-platform-quotas';
+import './cdn-protection-quotas';
 import './code-generation-quotas';
 import './code-quality-quotas';
 import './delivery-automation-quotas';
@@ -61,6 +63,7 @@ import './ai-engineering-quotas';
 export const DATA_TOOLS_QUOTA_SCORES = {
   ...API_UTILITY_QUOTA_SCORES,
   ...CMS_PLATFORM_QUOTA_SCORES,
+  ...CDN_PROTECTION_QUOTA_SCORES,
   ...CODE_GENERATION_QUOTA_SCORES,
   ...CODE_QUALITY_QUOTA_SCORES,
   ...DELIVERY_AUTOMATION_QUOTA_SCORES,
