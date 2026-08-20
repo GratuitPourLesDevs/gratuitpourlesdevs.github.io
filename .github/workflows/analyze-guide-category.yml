@@ -37,18 +37,21 @@ jobs:
           print('TOP_CATEGORIES')
           for cat,count in counts.most_common(20): print(f'{cat}: {count}')
 
-          target=[r for r in rows if r[0]=='ci-cd']
-          print(f'CI_CD_COUNT={len(target)}')
-          for _,slug,nom in target:
-              print(f'CI_CD_OFFER={slug}|{nom}')
-
           quota_text=Path('src/data/offer-quotas.ts').read_text(errors='ignore')
-          metrics=Counter()
-          for _,slug,_ in target:
-              m=re.search(rf"  '{re.escape(slug)}': \[(.*?)(?=\n  '[^']+': \[|\n\}};)" , quota_text, re.S)
-              if not m: continue
-              for metric in re.findall(r"metric:\s*'([^']+)'", m.group(1)):
-                  metrics[metric]+=1
-          print('CI_CD_QUOTA_METRICS')
-          for metric,count in metrics.most_common(): print(f'{metric}: {count}')
+          candidates=['ci-cd','cdn-protection','supervision','tests','securite-pki','identite-acces','depots-code-source']
+          for category in candidates:
+              target=[r for r in rows if r[0]==category]
+              metrics=Counter(); covered=0
+              print(f'CATEGORY={category}|COUNT={len(target)}')
+              for _,slug,nom in target:
+                  m=re.search(rf"  '{re.escape(slug)}': \[(.*?)(?=\n  '[^']+': \[|\n\}};)" , quota_text, re.S)
+                  found=[]
+                  if m:
+                      found=re.findall(r"metric:\s*'([^']+)'", m.group(1))
+                  if found:
+                      covered += 1
+                      metrics.update(found)
+                  print(f'OFFER={category}|{slug}|{nom}|METRICS={",".join(found) if found else "-"}')
+              print(f'COVERAGE={category}|{covered}/{len(target)}')
+              for metric,count in metrics.most_common(): print(f'METRIC={category}|{metric}|{count}')
           PY
