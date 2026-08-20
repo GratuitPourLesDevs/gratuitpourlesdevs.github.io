@@ -25,15 +25,23 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-      - name: Appliquer le patch temporaire du Guide si présent
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - name: Appliquer et valider le patch temporaire du Guide si présent
         run: |
           if [ ! -f scripts/_temp_apply_source_code_guide.py ]; then exit 0; fi
           python scripts/_temp_apply_source_code_guide.py
+          npm ci
+          npm run build
+          python scripts/_temp_validate_source_code_guide.py > _temp_source_code_guide_report.txt
+          cat _temp_source_code_guide_report.txt
           git config user.name 'GratuitPourLesDevs'
           git config user.email 'julien.taverne+gratuitpourlesdevs@gmail.com'
-          git add -- src/data/source-code-guide.ts src/data/free-tier-score.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/depots-code-source/meilleures-offres-gratuites.astro
+          git add -- _temp_source_code_guide_report.txt src/data/source-code-guide.ts src/data/free-tier-score.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/depots-code-source/meilleures-offres-gratuites.astro
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'Finalise le guide Dépôts de code source'
+          git commit -m 'Valide le guide Dépôts de code source'
           git push origin HEAD:main
 
   build:
