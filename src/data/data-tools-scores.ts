@@ -32,6 +32,7 @@ import { AUTOMATION_BACKEND_QUOTA_SCORES } from './automation-backend-scores';
 import { LOW_CODE_PLATFORM_QUOTA_SCORES } from './low-code-platform-scores';
 import { HOSTING_PLATFORM_QUOTA_SCORES } from './hosting-platform-scores';
 import { DNS_SERVICE_QUOTA_SCORES } from './dns-service-scores';
+import { STORAGE_COMPUTE_QUOTA_SCORES } from './storage-compute-additions';
 import './api-utility-quotas';
 import './cms-platform-quotas';
 import './cdn-protection-quotas';
@@ -109,6 +110,7 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   ...LOW_CODE_PLATFORM_QUOTA_SCORES,
   ...HOSTING_PLATFORM_QUOTA_SCORES,
   ...DNS_SERVICE_QUOTA_SCORES,
+  ...STORAGE_COMPUTE_QUOTA_SCORES,
   'data-fetcher': 15,
   'data-miner': 15,
   'dataimporter-io': 20,
