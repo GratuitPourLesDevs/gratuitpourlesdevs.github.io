@@ -114,8 +114,9 @@ import SiteFooter from '../components/SiteFooter.astro';
     const $ = (selector) => document.querySelector(selector);
     const account = () => window.GPLDAccount;
     const state = { dashboard: null, catalogue: {}, stackOfferIds: [] };
-    const offer = (id) => state.catalogue[id] || { id, name: id, category: '', score: null };
+    const offer = (id) => state.catalogue[id] || { id, name: id, category: '', score: null, freeTier: '', cardRequired: null, permanent: null };
     const offerLink = (id) => `/offres/${encodeURIComponent(id)}/`;
+    const formatOfferDate = (value) => value ? new Date(value).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
     const emptyItem = (message) => { const li = document.createElement('li'); li.className = 'account-empty'; li.textContent = message; return li; };
     const setLimit = (selector, value, limit) => { const node = $(selector); if (!node) return; node.textContent = `${value} / ${limit}`; node.classList.toggle('is-full', value >= limit); };
     const confirmRemoval = (id, follow) => new Promise((resolve) => {
@@ -134,9 +135,19 @@ import SiteFooter from '../components/SiteFooter.astro';
       const root = $(selector); if (!root) return;
       if (!ids.length) { root.replaceChildren(emptyItem(follow ? 'Aucune offre suivie pour le moment.' : 'Aucun favori pour le moment.')); return; }
       root.replaceChildren(...ids.map((id) => {
-        const data = offer(id); const li = document.createElement('li'); const span = document.createElement('span'); const link = document.createElement('a');
-        link.href = offerLink(id); link.textContent = data.name || id; const small = document.createElement('small'); small.textContent = [data.category, data.score != null ? `Score ${data.score}/100` : ''].filter(Boolean).join(' · '); span.append(link, small); li.append(span);
-        if (removable) { const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Retirer'; button.addEventListener('click', () => removeOffer(id, follow)); li.append(button); }
+        const data = offer(id); const li = document.createElement('li'); li.className = 'account-offer-item';
+        const header = document.createElement('header'); const title = document.createElement('a'); title.href = offerLink(id); title.textContent = data.name || id; header.append(title);
+        if (data.score != null) { const score = document.createElement('strong'); score.className = 'account-offer-score'; score.textContent = `${data.score}/100`; score.setAttribute('aria-label', `Score GratuitPourLesDevs : ${data.score} sur 100`); header.append(score); }
+        const category = document.createElement('small'); category.textContent = data.category || 'Offre gratuite';
+        const summary = document.createElement('p'); summary.className = 'account-offer-summary'; summary.textContent = data.freeTier || 'Consultez la fiche pour connaître le quota gratuit et ses conditions.';
+        const facts = document.createElement('div'); facts.className = 'account-offer-facts';
+        if (data.cardRequired != null) { const payment = document.createElement('span'); payment.textContent = data.cardRequired ? 'Carte requise' : 'Sans carte'; facts.append(payment); }
+        if (data.permanent != null) { const duration = document.createElement('span'); duration.textContent = data.permanent ? 'Formule permanente' : 'Durée limitée'; facts.append(duration); }
+        const footer = document.createElement('footer'); const date = document.createElement('span'); date.className = 'account-offer-date';
+        date.textContent = follow && data.latestChangeAt ? `${data.latestChangeTitle || 'Dernière évolution'} · ${formatOfferDate(data.latestChangeAt)}` : `Vérifiée le ${formatOfferDate(data.verifiedAt)}`;
+        const actions = document.createElement('nav'); const view = document.createElement('a'); view.href = offerLink(id); view.textContent = 'Voir la fiche'; actions.append(view);
+        if (removable) { const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Retirer'; button.addEventListener('click', () => removeOffer(id, follow)); actions.append(button); }
+        footer.append(date, actions); li.append(header, category, summary, facts, footer);
         return li;
       }));
     };
@@ -189,7 +200,7 @@ import SiteFooter from '../components/SiteFooter.astro';
     };
 
     const renderSignedOut = () => { $('#account-loading').hidden = true; $('#account-dashboard').hidden = true; $('#account-signed-out').hidden = false; $('#account-login-card').hidden = false; $('#account-profile-card').hidden = true; };
-    const loadCatalogue = async () => { const response = await fetch('/offres.json', { headers: { Accept: 'application/json' } }); const payload = await response.json(); state.catalogue = payload.catalogue || {}; const select = $('#stack-offer-select'); const entries = Object.values(state.catalogue).sort((a,b) => (a.name || '').localeCompare(b.name || '', 'fr')); select.replaceChildren(new Option('Choisir une offre…', ''), ...entries.map((item) => new Option(`${item.name}${item.category ? ` — ${item.category}` : ''}`, item.id))); };
+    const loadCatalogue = async () => { const response = await fetch('/offres.json?v=20260821-account-offer-cards', { headers: { Accept: 'application/json' } }); const payload = await response.json(); state.catalogue = payload.catalogue || {}; const select = $('#stack-offer-select'); const entries = Object.values(state.catalogue).sort((a,b) => (a.name || '').localeCompare(b.name || '', 'fr')); select.replaceChildren(new Option('Choisir une offre…', ''), ...entries.map((item) => new Option(`${item.name}${item.category ? ` — ${item.category}` : ''}`, item.id))); };
     const loadDashboard = async () => {
       if (!account()?.getToken()) { renderSignedOut(); return; }
       $('#account-loading').hidden = false;
