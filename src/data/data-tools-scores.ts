@@ -30,6 +30,7 @@ import { AI_ENGINEERING_QUOTA_SCORES } from './ai-engineering-scores';
 import { APP_PLATFORM_QUOTA_SCORES } from './app-platform-scores';
 import { AUTOMATION_BACKEND_QUOTA_SCORES } from './automation-backend-scores';
 import { LOW_CODE_PLATFORM_QUOTA_SCORES } from './low-code-platform-scores';
+import { HOSTING_PLATFORM_QUOTA_SCORES } from './hosting-platform-scores';
 import './api-utility-quotas';
 import './cms-platform-quotas';
 import './cdn-protection-quotas';
@@ -67,6 +68,8 @@ import './app-platform-quotas-more';
 import './automation-backend-quotas';
 import './automation-backend-quotas-more';
 import './low-code-platform-quotas';
+import './hosting-platform-quotas';
+import './hosting-platform-quotas-more';
 
 export const DATA_TOOLS_QUOTA_SCORES = {
   ...API_UTILITY_QUOTA_SCORES,
@@ -101,6 +104,7 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   ...APP_PLATFORM_QUOTA_SCORES,
   ...AUTOMATION_BACKEND_QUOTA_SCORES,
   ...LOW_CODE_PLATFORM_QUOTA_SCORES,
+  ...HOSTING_PLATFORM_QUOTA_SCORES,
   'data-fetcher': 15,
   'data-miner': 15,
   'dataimporter-io': 20,

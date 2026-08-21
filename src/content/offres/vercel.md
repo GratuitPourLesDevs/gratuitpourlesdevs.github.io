@@ -1,31 +1,49 @@
 ---
 nom: Vercel
-accroche: Déploiement continu pour applications web
+accroche: Plateforme de déploiement frontend et full-stack avec CDN, previews et intégration profonde à Next.js.
 type: PaaS
 categorie: paas
-formule: 1 M d’invocations, 100 Go de transfert et 6 000 min de build
-inclus: [1 million d’invocations, 100 Go de transfert, 6 000 minutes de build, Déploiements continus]
-conditions: [Compte Vercel gratuit, Aucune carte bancaire, Usage personnel et non commercial]
-restrictions: [Plan Hobby réservé aux projets non commerciaux, Quotas mensuels]
+formule: 'Hobby : 1 développeur, 100 Go de Fast Data Transfer, 1 M d’Edge Requests et quotas serverless mensuels'
+inclus:
+- Déploiements illimités
+- 100 Go de Fast Data Transfer par mois
+- 1 million d’Edge Requests par mois
+- 1 million d’invocations Functions par mois
+- 4 heures de CPU actif Functions par mois
+- 360 GB-heures de mémoire Functions par mois
+- 1 Go de Blob Storage
+- Déploiements de preview
+- Domaines personnalisés, SSL, CDN et protection DDoS
+conditions:
+- Usage personnel et non commercial uniquement sur Hobby
+restrictions:
+- Les usages commerciaux nécessitent un plan supérieur
+- Les quotas Hobby sont des plafonds et l’usage supplémentaire ne s’achète pas sur ce plan
+- 1 seul siège développeur
 alertes:
-  - type: usage
-    niveau: critique
-    libelle: Usage non commercial
-    detail: Le plan Hobby est réservé aux projets personnels et non commerciaux.
-usages: [Hébergement, CI/CD, Serverless]
+- type: fonctionnel
+  niveau: important
+  libelle: Usage non commercial uniquement
+  detail: Le plan Hobby de Vercel est réservé aux projets personnels et non commerciaux.
+usages:
+- Déploiement cloud
+- Applications web
+- Fonctions serverless
+- Prévisualisation de pull request
 url: https://vercel.com/
 documentation: https://vercel.com/docs
-source: https://vercel.com/docs/plans/hobby
-couleur: "#000000"
+source: https://vercel.com/pricing
+couleur: '#000000'
 initiales: VE
 carteRequise: false
+depassementFacture: false
 permanent: true
-statut: "active"
+statut: active
 vedette: false
 ordre: 5
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verifieLe: '2026-08-21'
+verificationAutomatiqueLe: '2026-08-21'
+verificationNote: 'Hobby 2026 vérifié : 1 développeur, 100 Go Fast Data Transfer, 1M Edge Requests, quotas Functions et déploiements illimités. Le plan est réservé aux usages personnels non commerciaux.'
 ---
 
-Vercel permet de publier rapidement un site ou une application web directement depuis un dépôt Git, avec des aperçus automatiques pour chaque modification. Le plan Hobby est particulièrement utile pour les portfolios, prototypes, démonstrations techniques et projets open source qui ont besoin d’un hébergement mondial sans infrastructure à administrer.
+Vercel est particulièrement confortable pour développer un projet Next.js ou un frontend moderne avec une preview automatique à chaque branche ou pull request. Les quotas Hobby de trafic, requêtes et fonctions sont suffisamment élevés pour de nombreux projets personnels réels, pas seulement une page de test. L’intégration CDN, TLS et fonctions évite aussi d’assembler plusieurs briques au départ. La contrainte déterminante n’est pas seulement technique : le plan Hobby est explicitement réservé à un usage personnel non commercial, ce qui exclut un produit ou site d’entreprise même peu fréquenté.
