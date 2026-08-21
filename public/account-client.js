@@ -63,7 +63,14 @@
       const active = saved.has(id);
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', String(active));
-      if (button.classList.contains('offer-page-favorite')) button.textContent = active ? 'Retirer des favoris' : 'Ajouter aux favoris';
+      if (button.classList.contains('offer-page-favorite')) {
+        const label = button.querySelector('[data-action-label]');
+        const action = active ? 'Retirer des favoris' : 'Ajouter aux favoris';
+        if (label) label.textContent = active ? 'Favori ✓' : 'Favoris';
+        else button.textContent = action;
+        button.setAttribute('aria-label', action);
+        button.setAttribute('title', action);
+      }
     });
   };
   const syncFavorites = async () => {
@@ -211,9 +218,9 @@
     const offerId = favorite.dataset.id;
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'offer-page-follow';
+    button.className = 'offer-page-follow offer-compact-action';
     button.dataset.id = offerId;
-    button.textContent = getToken() ? 'Suivre cette offre' : 'Suivre avec un compte gratuit';
+    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.5"/></svg><span data-action-label>Suivre</span>';
     nav.append(button);
     let followed = false;
     if (getToken()) {
@@ -222,7 +229,11 @@
     const render = () => {
       button.classList.toggle('active', followed);
       button.setAttribute('aria-pressed', String(followed));
-      button.textContent = followed ? '✓ Offre suivie' : (getToken() ? 'Suivre cette offre' : 'Suivre avec un compte gratuit');
+      const action = followed ? 'Ne plus suivre cette offre' : (getToken() ? 'Suivre cette offre' : 'Suivre avec un compte gratuit');
+      const label = button.querySelector('[data-action-label]');
+      if (label) label.textContent = followed ? 'Suivie ✓' : 'Suivre';
+      button.setAttribute('aria-label', action);
+      button.setAttribute('title', action);
     };
     render();
     button.addEventListener('click', async () => {

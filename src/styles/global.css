@@ -136,3 +136,11 @@ footer{min-height:92px;display:grid;grid-template-columns:1fr auto auto;align-it
 .docs-figure-tall{max-height:580px;overflow:auto}
 .docs-figure-tall figcaption{position:sticky;bottom:0;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(8px)}
 @media(max-width:760px){.docs-figure{margin-left:0}.docs-figure figcaption{display:block}.docs-figure figcaption span{display:block;margin-bottom:4px}.docs-figure-tall{max-height:460px}}
+
+/* Offer actions: one primary CTA followed by three compact, equal actions. */
+.offer-plan-card nav{grid-template-columns:repeat(3,minmax(0,1fr))}
+.offer-plan-card nav a,.offer-plan-card nav button{min-width:0;padding:8px 10px}
+.offer-plan-card nav .offer-compact-action{display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.offer-plan-card nav .offer-compact-action svg{width:17px;height:17px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.7}
+.offer-plan-card nav .offer-page-favorite.active svg{fill:currentColor}
+.offer-plan-card nav .offer-page-follow.active{color:var(--green);border-color:color-mix(in srgb,var(--green) 60%,var(--line));background:color-mix(in srgb,var(--green) 9%,var(--surface))}
