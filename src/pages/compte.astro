@@ -61,20 +61,20 @@ import SiteFooter from '../components/SiteFooter.astro';
         <header><div><small>VOTRE SÉLECTION</small><h2>Favoris et veille</h2></div><p>Un favori sert à retrouver une offre. Une offre suivie entre dans votre veille.</p></header>
         <div class="account-grid">
           <article class="account-card"><small>FAVORIS SYNCHRONISÉS</small><h3>Mes favoris</h3><p>Les favoris de ce navigateur sont fusionnés avec votre compte.</p><ul class="account-list" id="favorites-list"></ul></article>
-          <article class="account-card"><small>VEILLE GRATUITE</small><h3>Offres suivies <span class="account-limit" id="follow-limit">0 / 5</span></h3><p>Vous pouvez suivre cinq offres. Les modifications apparaissent dans votre digest.</p><ul class="account-list" id="follows-list"></ul></article>
+          <article class="account-card account-card--with-limit"><small>VEILLE GRATUITE</small><h3>Offres suivies <span class="account-limit account-limit--prominent" id="follow-limit">0 / 5</span></h3><p>Vous pouvez suivre cinq offres. Les modifications apparaissent dans votre digest.</p><ul class="account-list" id="follows-list"></ul></article>
         </div>
       </section>
 
       <section class="account-section">
         <header><div><small>À RETROUVER PLUS TARD</small><h2>Recherches et comparaisons</h2></div><p>Sauvegardez-les directement depuis l’Explorateur et le comparateur.</p></header>
         <div class="account-grid">
-          <article class="account-card"><small>EXPLORATEUR</small><h3>Recherches sauvegardées <span class="account-limit" id="search-limit">0 / 3</span></h3><ul class="account-list" id="searches-list"></ul><p><a href="/explorer/">Ouvrir l’Explorateur →</a></p></article>
-          <article class="account-card"><small>COMPARATEUR</small><h3>Comparaisons sauvegardées <span class="account-limit" id="comparison-limit">0 / 3</span></h3><ul class="account-list" id="comparisons-list"></ul><p><a href="/#catalogue">Créer une comparaison →</a></p></article>
+          <article class="account-card account-card--with-limit"><small>EXPLORATEUR</small><h3>Recherches sauvegardées <span class="account-limit account-limit--prominent" id="search-limit">0 / 3</span></h3><ul class="account-list" id="searches-list"></ul><p><a href="/explorer/">Ouvrir l’Explorateur →</a></p></article>
+          <article class="account-card account-card--with-limit"><small>COMPARATEUR</small><h3>Comparaisons sauvegardées <span class="account-limit account-limit--prominent" id="comparison-limit">0 / 3</span></h3><ul class="account-list" id="comparisons-list"></ul><p><a href="/#catalogue">Créer une comparaison →</a></p></article>
         </div>
       </section>
 
       <section class="account-section">
-        <header><div><small>MA STACK</small><h2>Les services gratuits de votre projet</h2></div><span class="account-limit" id="stack-limit">0 / 1</span></header>
+        <header class="account-section-heading--with-limit"><div><small>MA STACK</small><h2>Les services gratuits de votre projet</h2></div><span class="account-limit account-limit--prominent" id="stack-limit">0 / 1</span></header>
         <article class="account-card stack-editor">
           <label>Nom de la stack<input id="stack-name" maxlength="80" value="Ma stack" /></label>
           <div class="stack-add-row"><label>Ajouter une offre<select id="stack-offer-select"><option value="">Choisir une offre…</option></select></label><button class="account-primary stack-add-button" id="stack-add" type="button">Ajouter</button></div>
@@ -187,7 +187,17 @@ import SiteFooter from '../components/SiteFooter.astro';
       $('#digest-enabled').checked = Boolean(state.dashboard?.user.digestEnabled);
       $('#digest-email-status').textContent = state.dashboard?.user.emailVerified && state.dashboard?.user.email ? `Digest envoyé à ${state.dashboard.user.email} lorsqu’une offre suivie change.` : 'Aucune adresse e-mail GitHub vérifiée n’est disponible : le digest reste visible ici, mais l’envoi par e-mail est suspendu.';
       if (!items.length) { root.replaceChildren(emptyItem('Aucun changement récent parmi vos offres suivies.')); return; }
-      root.replaceChildren(...items.map((item) => { const li = document.createElement('li'); const box = document.createElement('span'); box.className = 'digest-item'; const time = document.createElement('time'); time.textContent = new Date(item.latestChangeAt || item.verifiedAt).toLocaleDateString('fr-FR'); const link = document.createElement('a'); link.href = offerLink(item.id); const strong = document.createElement('strong'); strong.textContent = `${item.name} — ${item.latestChangeTitle || 'Offre mise à jour'}`; link.append(strong); const small = document.createElement('small'); small.textContent = item.latestChangeSummary || ''; box.append(time, link, small); li.append(box); return li; }));
+      root.replaceChildren(...items.map((item) => {
+        const data = offer(item.id); const li = document.createElement('li'); li.className = 'account-offer-item account-digest-item';
+        const header = document.createElement('header'); const title = document.createElement('a'); title.href = offerLink(item.id); title.textContent = item.name || data.name || item.id; header.append(title);
+        if (data.score != null) { const score = document.createElement('strong'); score.className = 'account-offer-score'; score.textContent = `${data.score}/100`; score.setAttribute('aria-label', `Score GratuitPourLesDevs : ${data.score} sur 100`); header.append(score); }
+        const category = document.createElement('small'); category.textContent = data.category || 'Offre suivie';
+        const changeTitle = document.createElement('strong'); changeTitle.className = 'account-digest-title'; changeTitle.textContent = item.latestChangeTitle || 'Offre mise à jour';
+        const summary = document.createElement('p'); summary.className = 'account-offer-summary'; summary.textContent = item.latestChangeSummary || 'Consultez la fiche pour découvrir les dernières informations vérifiées.';
+        const footer = document.createElement('footer'); const date = document.createElement('time'); date.className = 'account-offer-date'; date.dateTime = item.latestChangeAt || item.verifiedAt || ''; date.textContent = `Mis à jour le ${formatOfferDate(item.latestChangeAt || item.verifiedAt)}`;
+        const actions = document.createElement('nav'); const view = document.createElement('a'); view.href = offerLink(item.id); view.textContent = 'Voir la fiche'; actions.append(view); footer.append(date, actions);
+        li.append(header, category, changeTitle, summary, footer); return li;
+      }));
     };
 
     const renderDashboard = () => {
