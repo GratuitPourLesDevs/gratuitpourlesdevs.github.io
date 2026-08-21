@@ -1,0 +1,40 @@
+---
+nom: "SeaTable"
+accroche: "Base collaborative de type tableur avec tables liées, automatisations, scripts et API."
+type: SaaS
+categorie: services-donnees-manages
+formule: "Free : jusqu’à 25 utilisateurs et 10 000 lignes"
+inclus:
+- "Jusqu’à 25 utilisateurs"
+- "Bases et tables illimitées"
+- "10 000 lignes"
+- "2 Go de fichiers"
+- "1 mois de snapshots"
+- "3 000 appels API par mois"
+- "100 automatisations"
+- "Exécutions JavaScript illimitées et quota de scripts Python"
+conditions:
+- "Création d’un compte SeaTable Cloud"
+restrictions:
+- "La limite actuelle est de 10 000 lignes, et non 2 000"
+- "Historique de snapshots limité à un mois"
+- "Les quotas API, automatisations et scripts restent limités sur Free"
+alertes: []
+usages: ["Base de données", "Collaboration", "Automatisation", "API"]
+url: https://seatable.com/
+documentation: https://seatable.com/help/
+source: https://seatable.com/pricing/
+couleur: "#FF8000"
+initiales: ST
+carteRequise: false
+depassementFacture: false
+permanent: true
+statut: active
+vedette: false
+ordre: 939
+verifieLe: '2026-08-21'
+verificationAutomatiqueLe: '2026-08-21'
+verificationNote: "Le plan gratuit actuel annonce jusqu’à 25 utilisateurs, 10 000 lignes, 2 Go de fichiers et 3 000 appels API mensuels. L’ancienne limite de 2 000 lignes est obsolète."
+---
+
+SeaTable reprend l’interface familière d’un tableur tout en ajoutant relations, automatisations, scripts et API. Avec 10 000 lignes et jusqu’à 25 utilisateurs sur Free, il peut couvrir des outils internes et bases collaboratives plus conséquents que ne le laissait penser l’ancienne limite de 2 000 lignes.
