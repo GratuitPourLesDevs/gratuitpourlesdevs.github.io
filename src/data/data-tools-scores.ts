@@ -28,6 +28,7 @@ import { FONT_RESOURCE_QUOTA_SCORES } from './font-resource-scores';
 import { FORM_SERVICE_QUOTA_SCORES } from './form-service-scores';
 import { AI_ENGINEERING_QUOTA_SCORES } from './ai-engineering-scores';
 import { APP_PLATFORM_QUOTA_SCORES } from './app-platform-scores';
+import { AUTOMATION_BACKEND_QUOTA_SCORES } from './automation-backend-scores';
 import './api-utility-quotas';
 import './cms-platform-quotas';
 import './cdn-protection-quotas';
@@ -62,6 +63,8 @@ import './form-service-quotas';
 import './ai-engineering-quotas';
 import './app-platform-quotas';
 import './app-platform-quotas-more';
+import './automation-backend-quotas';
+import './automation-backend-quotas-more';
 
 export const DATA_TOOLS_QUOTA_SCORES = {
   ...API_UTILITY_QUOTA_SCORES,
@@ -94,6 +97,7 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   ...FORM_SERVICE_QUOTA_SCORES,
   ...AI_ENGINEERING_QUOTA_SCORES,
   ...APP_PLATFORM_QUOTA_SCORES,
+  ...AUTOMATION_BACKEND_QUOTA_SCORES,
   'data-fetcher': 15,
   'data-miner': 15,
   'dataimporter-io': 20,
