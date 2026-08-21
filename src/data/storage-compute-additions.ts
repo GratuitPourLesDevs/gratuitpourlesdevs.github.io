@@ -1,4 +1,5 @@
 import { OFFER_QUOTAS } from './offer-quotas';
+import { MANAGED_DATA_ADDITIONS_QUOTA_SCORES } from './managed-data-additions';
 
 OFFER_QUOTAS['4everland'] ??= [
   { id: 'ipfs-storage', metric: 'storage', label: 'Stockage IPFS', amount: 6, unit: 'GB', period: 'month', scope: 'account', reset: 'monthly', overage: 'billed', kind: 'limit' },
@@ -28,4 +29,5 @@ export const STORAGE_COMPUTE_QUOTA_SCORES = {
   'backblaze-b2': 20,
   filebase: 15,
   modal: 20,
-} as const;
+  ...MANAGED_DATA_ADDITIONS_QUOTA_SCORES,
+} satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
