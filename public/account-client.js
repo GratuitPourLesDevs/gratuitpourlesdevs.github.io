@@ -2,6 +2,7 @@
   const TOKEN_KEY = 'gpld-account-token';
   const USER_KEY = 'gpld-account-user';
   const FAVORITES_KEY = 'gpld-favorites';
+  const PENDING_STACK_KEY = 'gpld-pending-stack-offer';
   const apiBase = () => {
     const body = document.body;
     const local = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
@@ -250,6 +251,82 @@
       }
     });
   };
+  const injectStackButton = async () => {
+    const favorite = document.querySelector('.offer-page-favorite[data-id]');
+    const nav = favorite?.closest('nav');
+    if (!favorite || !nav || nav.querySelector('.offer-page-stack-action')) return;
+    const offerId = favorite.dataset.id;
+    const offerName = favorite.dataset.offerName || 'cette offre';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'offer-page-stack-action';
+    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 8 8-4 8 4-8 4-8-4Z"/><path d="m4 12 8 4 8-4M4 16l8 4 8-4"/></svg><span><strong data-stack-action-label>Ajouter à votre stack</strong><small data-stack-name>Compte gratuit</small></span><em data-stack-occupancy>Connexion requise</em>';
+    nav.append(button);
+
+    let stackState = null;
+    const render = () => {
+      const connected = Boolean(getToken() && stackState);
+      const stack = stackState?.stack;
+      const name = stack?.name || 'Ma stack';
+      const offerIds = stack?.offerIds || [];
+      const count = offerIds.length;
+      const pro = stackState?.user?.plan === 'pro';
+      const limit = pro ? null : Number(stackState?.limits?.stackOffers || 10);
+      const present = offerIds.includes(offerId);
+      const full = connected && !pro && count >= limit;
+      const label = button.querySelector('[data-stack-action-label]');
+      const nameNode = button.querySelector('[data-stack-name]');
+      const occupancy = button.querySelector('[data-stack-occupancy]');
+
+      if (label) label.textContent = !connected ? 'Ajouter à votre stack' : present ? `Déjà dans ${name}` : full ? `${name} est complète` : `Ajouter à ${name}`;
+      if (nameNode) nameNode.textContent = connected ? name : 'Compte gratuit';
+      if (occupancy) occupancy.textContent = connected ? `${count} / ${pro ? '∞' : limit} offre${count > 1 ? 's' : ''}` : 'Connexion requise';
+      button.classList.toggle('active', present);
+      button.classList.toggle('is-full', full);
+      button.disabled = present || full;
+      button.setAttribute('aria-label', !connected ? `Se connecter pour ajouter ${offerName} à une stack` : present ? `${offerName} est déjà dans ${name}` : full ? `${name} a atteint sa limite de ${limit} offres` : `Ajouter ${offerName} à ${name}`);
+    };
+    const refresh = async () => {
+      if (!getToken()) { stackState = null; render(); return null; }
+      try { stackState = await api('/api/account/dashboard'); }
+      catch { stackState = null; }
+      render();
+      return stackState;
+    };
+
+    render();
+    await refresh();
+    const addToStack = async () => {
+      try {
+        const dashboard = await refresh();
+        if (!dashboard) return;
+        const stack = dashboard.stack;
+        const offerIds = stack?.offerIds ? [...stack.offerIds] : [];
+        if (offerIds.includes(offerId)) return;
+        const saved = await api('/api/account/stack', { method: 'PUT', body: JSON.stringify({ name: stack?.name || 'Ma stack', offerIds: [...offerIds, offerId] }) });
+        stackState.stack = saved;
+        render();
+        showToast(`${offerName} a été ajouté à ${saved.name}.`);
+      } catch (error) {
+        if (!handleLimitError(error)) showToast(error.message || 'Impossible d’ajouter cette offre à la stack.');
+        await refresh();
+      }
+    };
+    button.addEventListener('click', async () => {
+      if (!getToken()) {
+        try { sessionStorage.setItem(PENDING_STACK_KEY, offerId); } catch {}
+        await login({ redirect: true });
+        return;
+      }
+      await addToStack();
+    });
+    let pendingOfferId = null;
+    try { pendingOfferId = sessionStorage.getItem(PENDING_STACK_KEY); } catch {}
+    if (getToken() && pendingOfferId === offerId) {
+      try { sessionStorage.removeItem(PENDING_STACK_KEY); } catch {}
+      if (!button.disabled) await addToStack();
+    }
+  };
   const injectSaveSearch = () => {
     const actions = document.querySelector('.quota-explorer-result-actions');
     if (!actions || actions.querySelector('.account-save-search')) return;
@@ -299,6 +376,7 @@
     injectSaveSearch();
     injectSaveComparison();
     await injectFollowButton();
+    await injectStackButton();
     if (getToken()) {
       try {
         const payload = await api('/api/account/me');
