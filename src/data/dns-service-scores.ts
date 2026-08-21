@@ -21,4 +21,8 @@ export const DNS_SERVICE_QUOTA_SCORES = {
   zilore: 25,
   zoneedit: 20,
   zonomi: 15,
+  'digitalplat-domains': 20,
+  dnshe: 20,
+  'isroot-in': 15,
+  'pp-ua': 20,
 } satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
