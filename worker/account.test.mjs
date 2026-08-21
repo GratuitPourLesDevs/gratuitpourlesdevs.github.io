@@ -90,5 +90,47 @@ test('account API rejects requests without a GPLD session', async () => {
 });
 
 test('free launch limits stay explicit', () => {
-  assert.deepEqual(FREE_LIMITS, { follows: 5, savedSearches: 3, savedComparisons: 3, stacks: 1 });
+  assert.deepEqual(FREE_LIMITS, { follows: 5, savedSearches: 3, savedComparisons: 3, stacks: 1, stackOffers: 10 });
+});
+
+function accountDatabase(plan, updates = []) {
+  return {
+    prepare(sql) {
+      return {
+        bind(...values) {
+          return {
+            async first() {
+              if (sql.includes('FROM account_sessions')) return { id: 'github:42', github_login: 'qa', display_name: 'QA', plan, digest_enabled: 0 };
+              if (sql.includes('FROM user_stacks')) return { id: 1 };
+              return null;
+            },
+            async run() { updates.push({ sql, values }); return { success: true }; },
+          };
+        },
+      };
+    },
+  };
+}
+
+test('free accounts cannot save more than ten offers in their stack', async () => {
+  const offerIds = Array.from({ length: 11 }, (_, index) => `offer-${index + 1}`);
+  const response = await handleAccountRequest(new Request('https://oauth.example/api/account/stack', {
+    method: 'PUT', headers: { Origin: env.ALLOWED_ORIGIN, Authorization: 'Bearer qa-session', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: 'Stack QA', offerIds }),
+  }), { ...env, COMPARISONS_DB: accountDatabase('free') });
+  assert.equal(response.status, 409);
+  assert.deepEqual(await response.json(), { error: 'Limite du compte gratuit atteinte', code: 'free_limit', feature: 'stackOffers', limit: 10, upgrade: 'pro' });
+});
+
+test('Pro accounts can save more than ten offers in a stack', async () => {
+  const offerIds = Array.from({ length: 11 }, (_, index) => `offer-${index + 1}`);
+  const updates = [];
+  const fetchImpl = async () => Response.json({ offers: offerIds, catalogue: {} });
+  const response = await handleAccountRequest(new Request('https://oauth.example/api/account/stack', {
+    method: 'PUT', headers: { Origin: env.ALLOWED_ORIGIN, Authorization: 'Bearer qa-session', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: 'Stack Pro', offerIds }),
+  }), { ...env, COMPARISONS_DB: accountDatabase('pro', updates) }, fetchImpl);
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).offerIds.length, 11);
+  assert.ok(updates.some(({ sql }) => sql.includes('UPDATE user_stacks')));
 });

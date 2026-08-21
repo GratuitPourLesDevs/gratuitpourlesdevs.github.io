@@ -59,10 +59,12 @@ Compte gratuit :
 - 5 offres suivies ;
 - 3 recherches sauvegardées ;
 - 3 comparaisons sauvegardées ;
-- 1 stack (20 services maximum) ;
+- 1 stack (10 offres maximum) ;
 - digest hebdomadaire activable.
 
 Les dépassements renvoient `409 / free_limit` et l’interface oriente vers le bloc **GPLD Pro** sans paiement.
+
+GPLD Pro lève ces deux limites : le nombre de stacks et le nombre d’offres qu’elles contiennent sont illimités.
 
 ## 6. Confidentialité et suppression
 

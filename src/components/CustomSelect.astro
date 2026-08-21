@@ -9,9 +9,18 @@ interface Props {
   label: string;
   options: SelectOption[];
   searchable?: boolean;
+  searchLabel?: string;
+  searchPlaceholder?: string;
 }
 
-const { id, label, options, searchable = false } = Astro.props;
+const {
+  id,
+  label,
+  options,
+  searchable = false,
+  searchLabel = 'Rechercher une catégorie',
+  searchPlaceholder = 'Rechercher une catégorie…',
+} = Astro.props;
 ---
 
 <div class="filter-field custom-select-field" data-control={id} data-searchable={String(searchable)}>
@@ -22,7 +31,7 @@ const { id, label, options, searchable = false } = Astro.props;
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
     </button>
     <div class="custom-select-popover" id={`${id}-popover`} hidden>
-      {searchable && <label class="custom-select-search"><span class="sr-only">Rechercher une catégorie</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input type="search" placeholder="Rechercher une catégorie…" autocomplete="off" /></label>}
+      {searchable && <label class="custom-select-search"><span class="sr-only">{searchLabel}</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input type="search" placeholder={searchPlaceholder} autocomplete="off" /></label>}
       <div class="custom-select-options" role="listbox" aria-labelledby={`${id}-label`}>
         {options.map((option, index) => <button type="button" role="option" data-value={option.value} data-option-label={option.label} aria-selected={index === 0}><span>{option.label}</span><b aria-hidden="true">✓</b></button>)}
       </div>

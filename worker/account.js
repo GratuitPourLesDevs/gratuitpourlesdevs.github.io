@@ -5,7 +5,7 @@ const GITHUB_EMAILS_URL = 'https://api.github.com/user/emails';
 const USER_OAUTH_COOKIE = 'gpld_user_oauth';
 const USER_OAUTH_MAX_AGE_SECONDS = 600;
 const SESSION_MAX_AGE_SECONDS = 30 * 24 * 60 * 60;
-const FREE_LIMITS = Object.freeze({ follows: 5, savedSearches: 3, savedComparisons: 3, stacks: 1 });
+const FREE_LIMITS = Object.freeze({ follows: 5, savedSearches: 3, savedComparisons: 3, stacks: 1, stackOffers: 10 });
 const encoder = new TextEncoder();
 let offerCache = { expiresAt: 0, ids: new Set(), payload: null };
 
@@ -179,7 +179,7 @@ async function fetchOfferPayload(env, fetchImpl) {
 async function validateOfferIds(env, fetchImpl, value, { min = 0, max = 50 } = {}) {
   if (!Array.isArray(value)) return null;
   const ids = [...new Set(value.map((id) => String(id).trim()).filter((id) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)))];
-  if (ids.length !== value.length || ids.length < min || ids.length > max) return null;
+  if (ids.length !== value.length || ids.length < min || (Number.isFinite(max) && ids.length > max)) return null;
   await fetchOfferPayload(env, fetchImpl);
   if (ids.some((id) => !offerCache.ids.has(id))) return null;
   return ids;
@@ -382,7 +382,9 @@ async function createSavedComparison(request, env, fetchImpl, user) {
 
 async function saveStack(request, env, fetchImpl, user) {
   const payload = await request.json().catch(() => null);
-  const offerIds = await validateOfferIds(env, fetchImpl, payload?.offerIds ?? [], { min: 0, max: 20 });
+  const submittedOfferIds = payload?.offerIds ?? [];
+  if (user.row.plan !== 'pro' && Array.isArray(submittedOfferIds) && submittedOfferIds.length > FREE_LIMITS.stackOffers) return freeLimit(request, env, 'stackOffers', FREE_LIMITS.stackOffers);
+  const offerIds = await validateOfferIds(env, fetchImpl, submittedOfferIds, { min: 0, max: user.row.plan === 'pro' ? null : FREE_LIMITS.stackOffers });
   if (!offerIds) return json({ error: 'Stack invalide' }, 400, corsHeaders(request, env));
   const name = cleanName(payload?.name, 'Ma stack');
   const existing = await env.COMPARISONS_DB.prepare('SELECT id FROM user_stacks WHERE user_id = ? ORDER BY id LIMIT 1').bind(user.row.id).first();
