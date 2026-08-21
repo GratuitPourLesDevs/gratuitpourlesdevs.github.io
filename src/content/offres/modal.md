@@ -22,7 +22,7 @@ restrictions:
 - Rétention des logs limitée à 1 jour sur Starter
 - Certaines fonctions avancées sont réservées aux plans Team ou Enterprise
 alertes: []
-usages: [IA / ML, Serverless, Déploiement]
+usages: [IA, Machine learning, Serverless, Déploiement]
 url: https://modal.com/
 documentation: https://modal.com/docs
 source: https://modal.com/pricing
