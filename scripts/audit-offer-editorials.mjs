@@ -4,169 +4,84 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const OFFERS_DIR = path.join(ROOT, 'src/content/offres');
 const DATA_DIR = path.join(ROOT, 'src/data');
-
 const read = (p) => fs.readFileSync(p, 'utf8');
 const normalize = (s) => s.replace(/\s+/g, ' ').trim();
-const stripMarkdown = (s) => normalize(
-  s.replace(/```[\s\S]*?```/g, ' ')
-    .replace(/`([^`]+)`/g, '$1')
-    .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    .replace(/^#{1,6}\s+/gm, '')
-    .replace(/[*_~>|]/g, ' ')
-);
 
 function parseFrontmatterAndBody(content) {
   const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
-  if (!match) return { frontmatter: '', body: stripMarkdown(content), rawBody: content };
-  return { frontmatter: match[1], body: stripMarkdown(match[2]), rawBody: match[2].trim() };
+  if (!match) return { frontmatter: '', body: normalize(content) };
+  return { frontmatter: match[1], body: normalize(match[2].replace(/[`*_~>|]/g, ' ')) };
 }
 
 function scalar(frontmatter, key) {
   const m = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
-  if (!m) return '';
-  return m[1].trim().replace(/^['"]|['"]$/g, '');
+  return m ? m[1].trim().replace(/^['"]|['"]$/g, '') : '';
 }
 
 function parseEditorialMap(file) {
   const src = read(path.join(DATA_DIR, file));
   const out = new Map();
-  const re = /^\s*(?:'([^']+)'|([A-Za-z0-9_-]+)):\s*"((?:[^"\\]|\\.)*)",?\s*$/gm;
+  const re = /^\s*"([^"]+)":\s*"((?:[^"\\]|\\.)*)",?\s*$|^\s*'([^']+)':\s*"((?:[^"\\]|\\.)*)",?\s*$|^\s*([A-Za-z0-9_-]+):\s*"((?:[^"\\]|\\.)*)",?\s*$/gm;
   for (const m of src.matchAll(re)) {
-    const id = m[1] ?? m[2];
-    let value = m[3];
-    try { value = JSON.parse(`"${value}"`); } catch { /* keep raw */ }
+    const id = m[1] ?? m[3] ?? m[5];
+    const raw = m[2] ?? m[4] ?? m[6];
+    let value = raw;
+    try { value = JSON.parse(`"${raw}"`); } catch {}
     out.set(id, value);
   }
   return out;
 }
 
-function parseGeneratedIds() {
-  const src = read(path.join(DATA_DIR, 'offer-editorial.ts'));
-  const block = src.match(/GENERATED_EDITORIAL_OFFER_IDS\s*=\s*new Set<string>\(\[([\s\S]*?)\]\);/);
-  if (!block) return new Set();
-  return new Set([...block[1].matchAll(/'([^']+)'/g)].map((m) => m[1]));
-}
-
 const custom = new Map([
   ...parseEditorialMap('project-management-editorials.ts'),
   ...parseEditorialMap('storage-media-editorials.ts'),
+  ...parseEditorialMap('audited-offer-editorials.ts'),
 ]);
-const genericIds = parseGeneratedIds();
 
-const contextRe = /\b(lorsqu|quand|pour\b|par exemple|afin de|dans\b|si l[’']on|si vous|au moment de|pendant|avant de|après|usage|cas d[’']usage|projet|équipe|développeur|freelance|application|site|api|backend|frontend|infrastructure)\b/i;
-const benefitRe = /\b(évite|éviter|simplif|réduit|réduire|gagn|accél|facilit|automat|centralis|sécuris|protèg|protéger|remplac|économis|dispense|permet|aide|sans\b|confortable|pratique|utile|intéressant|pertinent|amélior|optimis|allège|délègue|déléguer|rapidement|facilement)\b/i;
+const contextRe = /\b(lorsqu|quand|pour\b|par exemple|afin de|dans\b|si l[’']on|si vous|projet|équipe|développeur|freelance|application|site|api|backend|frontend|infrastructure)\b/i;
+const benefitRe = /\b(évite|simplif|réduit|gagn|accél|facilit|automat|centralis|sécuris|protèg|remplac|économis|permet|aide|sans\b|utile|intéressant|pertinent|amélior|optimis|délègue|rapidement)\b/i;
 const explanatoryRe = /\b(utile|permet|aide|sert|pratique|convient|facilite|simplifie|évite|réduit|automatise|centralise|accélère|sécurise|protège|remplace|intéressant|pertinent)\b/i;
 const bulkGenericRe = /(reste intéressant pour le développement, les tests ou les petits usages|Le référentiel historique le présente avec|La fiche est donc marquée « à vérifier » afin de conserver cette ressource)/i;
 
-function words(text) {
-  return new Set((text.toLocaleLowerCase('fr-FR').match(/[\p{L}\p{N}]{4,}/gu) ?? []).filter((w) => !['avec','dans','pour','sans','plus','cette','comme','entre','service','gratuit','offre'].includes(w)));
-}
-
-function overlap(a, b) {
-  const aw = words(a), bw = words(b);
-  if (!aw.size || !bw.size) return 0;
-  let common = 0;
-  for (const w of aw) if (bw.has(w)) common++;
-  return common / Math.min(aw.size, bw.size);
-}
-
-function auditText(text, accroche, source) {
+function auditMarkdown(text, accroche) {
   const clean = normalize(text);
   const sentences = clean.split(/(?<=[.!?])\s+/).filter((s) => s.length >= 25);
-
-  if (source === 'custom') {
-    return { ok: true, reasons: [], length: clean.length, sentences: sentences.length, text: clean, score: 10 };
-  }
-
-  if (source === 'generic-generated') {
-    return {
-      ok: false,
-      reasons: ['génération mécanique à remplacer par un vrai cas d’usage'],
-      length: clean.length,
-      sentences: sentences.length,
-      text: clean,
-      score: 0,
-    };
-  }
-
-  const reasons = [];
   let score = 0;
-  if (clean.length >= 170) score += 2;
-  else if (clean.length >= 130) score += 1;
-  else reasons.push(`texte trop court (${clean.length} caractères)`);
-
-  if (sentences.length >= 2) score += 2;
-  else reasons.push(`moins de 2 phrases explicatives (${sentences.length})`);
-
-  if (contextRe.test(clean)) score += 1;
-  else reasons.push('pas de situation ou cas d’usage concret détecté');
-
-  if (benefitRe.test(clean)) score += 1;
-  else reasons.push('bénéfice concret insuffisamment explicité');
-
-  if (explanatoryRe.test(clean)) score += 1;
-  else reasons.push('formulation principalement descriptive');
-
-  if (bulkGenericRe.test(clean)) {
-    score -= 3;
-    reasons.push('texte issu d’un ancien gabarit générique');
-  }
-
-  const similarity = overlap(clean, accroche);
-  if (similarity >= 0.9 && clean.length < 300) {
-    score -= 2;
-    reasons.push(`quasi-répétition de l’accroche (${Math.round(similarity * 100)} % de recouvrement lexical)`);
-  } else if (similarity >= 0.78 && clean.length < 240) {
-    score -= 1;
-    reasons.push(`trop proche de l’accroche (${Math.round(similarity * 100)} % de recouvrement lexical)`);
-  }
-
-  const ok = score >= 5 && !bulkGenericRe.test(clean);
-  return { ok, reasons: ok ? [] : reasons, length: clean.length, sentences: sentences.length, text: clean, score };
+  const reasons = [];
+  if (clean.length >= 170) score += 2; else if (clean.length >= 130) score += 1; else reasons.push('texte trop court');
+  if (sentences.length >= 2) score += 2; else reasons.push('moins de 2 phrases explicatives');
+  if (contextRe.test(clean)) score += 1; else reasons.push('pas de cas d’usage concret détecté');
+  if (benefitRe.test(clean)) score += 1; else reasons.push('bénéfice concret insuffisant');
+  if (explanatoryRe.test(clean)) score += 1; else reasons.push('formulation principalement descriptive');
+  if (bulkGenericRe.test(clean)) { score -= 3; reasons.push('ancien gabarit générique'); }
+  const keyWords = (s) => new Set((s.toLocaleLowerCase('fr-FR').match(/[\p{L}\p{N}]{4,}/gu) ?? []).filter((w) => !['avec','dans','pour','sans','plus','cette','comme','service','gratuit','offre'].includes(w)));
+  const a = keyWords(clean), b = keyWords(accroche);
+  let common = 0; for (const w of a) if (b.has(w)) common++;
+  const overlap = Math.min(a.size, b.size) ? common / Math.min(a.size, b.size) : 0;
+  if (overlap >= .9 && clean.length < 300) { score -= 2; reasons.push('quasi-répétition de l’accroche'); }
+  return { ok: score >= 5 && !bulkGenericRe.test(clean), reasons, length: clean.length, sentences: sentences.length, score };
 }
 
-const files = fs.readdirSync(OFFERS_DIR).filter((f) => f.endsWith('.md')).sort();
 const results = [];
-for (const file of files) {
+for (const file of fs.readdirSync(OFFERS_DIR).filter((f) => f.endsWith('.md')).sort()) {
   const id = file.slice(0, -3);
-  const content = read(path.join(OFFERS_DIR, file));
-  const { frontmatter, body, rawBody } = parseFrontmatterAndBody(content);
+  const { frontmatter, body } = parseFrontmatterAndBody(read(path.join(OFFERS_DIR, file)));
   const nom = scalar(frontmatter, 'nom') || id;
   const accroche = scalar(frontmatter, 'accroche');
   const statut = scalar(frontmatter, 'statut');
-  let source = 'markdown';
-  let text = body;
   if (custom.has(id)) {
-    source = 'custom';
-    text = custom.get(id);
-  } else if (genericIds.has(id)) {
-    source = 'generic-generated';
+    const text = custom.get(id);
+    const sentences = normalize(text).split(/(?<=[.!?])\s+/).filter(Boolean);
+    const ok = text.length >= 170 && sentences.length >= 2 && sentences.length <= 4;
+    results.push({ id, nom, statut, source: 'custom', ok, reasons: ok ? [] : ['éditorial dédié hors format'], length: text.length, sentences: sentences.length });
+  } else {
+    results.push({ id, nom, statut, source: 'markdown', ...auditMarkdown(body, accroche) });
   }
-  const audit = auditText(text, accroche, source);
-  results.push({ id, nom, accroche, statut, source, frontmatter, rawBody, ...audit });
 }
 
 const failing = results.filter((r) => !r.ok);
-const bySource = Object.fromEntries(['custom','generic-generated','markdown'].map((source) => [source, {
-  total: results.filter((r) => r.source === source).length,
-  aCorriger: failing.filter((r) => r.source === source).length,
-}]));
-const reasonCounts = {};
-for (const row of failing) for (const reason of row.reasons) reasonCounts[reason] = (reasonCounts[reason] ?? 0) + 1;
-
-const report = {
-  generatedAt: new Date().toISOString(),
-  totalOffers: results.length,
-  conformes: results.length - failing.length,
-  aCorriger: failing.length,
-  bySource,
-  reasonCounts,
-  failing: failing.map(({ id, nom, accroche, statut, source, reasons, length, sentences, score, frontmatter, rawBody }) => ({
-    id, nom, accroche, statut, source, reasons, length, sentences, score, frontmatter, rawBody,
-  })),
-};
-
+const bySource = Object.fromEntries(['custom','markdown'].map((source) => [source, { total: results.filter((r) => r.source === source).length, aCorriger: failing.filter((r) => r.source === source).length }]));
+const report = { generatedAt: new Date().toISOString(), totalOffers: results.length, conformes: results.length - failing.length, aCorriger: failing.length, bySource, failing };
 fs.mkdirSync(path.join(ROOT, '.tmp'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, '.tmp/editorial-audit.json'), JSON.stringify(report, null, 2));
 console.log(`AUDIT_TOTAL=${report.totalOffers}`);
