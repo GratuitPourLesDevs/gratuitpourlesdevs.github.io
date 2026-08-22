@@ -36,6 +36,7 @@ const custom = new Map([
   ...parseEditorialMap('project-management-editorials.ts'),
   ...parseEditorialMap('storage-media-editorials.ts'),
   ...parseEditorialMap('audited-offer-editorials.ts'),
+  ...parseEditorialMap('audited-offer-editorials-followup.ts'),
 ]);
 
 const contextRe = /\b(lorsqu|quand|pour\b|par exemple|afin de|dans\b|si l[’']on|si vous|projet|équipe|développeur|freelance|application|site|api|backend|frontend|infrastructure)\b/i;
