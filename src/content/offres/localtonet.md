@@ -20,7 +20,15 @@ restrictions:
 - "Bande passante limitée à 1 Go par mois"
 - "Les tunnels gratuits ont un timeout de 30 minutes"
 - "Les tunnels illimités, domaines personnalisés et absence de timeout sont payants"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Timeout de 30 minutes
+  detail: Les tunnels gratuits expirent après 30 minutes et doivent être relancés.
+- type: usage
+  niveau: important
+  libelle: 1 Go de trafic par mois
+  detail: La bande passante gratuite est limitée à 1 Go par mois pour un seul tunnel.
 usages: ["Tunnel sécurisé", "Accès distant", "Webhook local", "API", "Réseau"]
 url: https://localtonet.com/
 documentation: https://localtonet.com/documents

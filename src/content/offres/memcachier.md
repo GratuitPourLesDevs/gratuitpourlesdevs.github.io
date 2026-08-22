@@ -15,7 +15,11 @@ restrictions:
 - "25 Mo maximum sur l’offre gratuite"
 - "Capacité adaptée aux tests et petits caches seulement"
 - "Les capacités, performances et fonctions avancées augmentent avec les plans payants"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Cache limité à 25 Mo
+  detail: La capacité gratuite maximale est de 25 Mo, adaptée uniquement aux petits caches et aux tests.
 usages: ["Mise en cache", "Backend d’application", "Développement et test"]
 url: https://www.memcachier.com/
 documentation: https://www.memcachier.com/documentation

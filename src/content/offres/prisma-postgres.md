@@ -19,7 +19,15 @@ restrictions:
 - "Les quotas sont partagés entre les bases du compte"
 - "Le plan gratuit est présenté comme destiné à l’évaluation et aux petits projets"
 - "Les sauvegardes quotidiennes et capacités supérieures sont associées aux plans payants"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Quotas partagés entre les bases
+  detail: Les opérations et le stockage du plan gratuit sont des allocations partagées entre les bases du compte.
+- type: fonctionnel
+  niveau: important
+  libelle: Sauvegardes quotidiennes payantes
+  detail: Les sauvegardes quotidiennes ne font pas partie du plan Free et nécessitent une offre supérieure.
 usages: ["PostgreSQL", "Serverless", "Base de données", "Développement et test"]
 url: https://www.prisma.io/postgres
 documentation: https://www.prisma.io/docs/postgres

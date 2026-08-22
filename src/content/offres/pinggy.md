@@ -17,7 +17,15 @@ restrictions:
 - "Chaque tunnel gratuit expire après 60 minutes"
 - "Une nouvelle URL aléatoire est attribuée après reconnexion"
 - "Les sous-domaines persistants et domaines personnalisés sont réservés au plan Pro"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Tunnel limité à 60 minutes
+  detail: Chaque tunnel gratuit expire après une heure et doit être recréé.
+- type: fonctionnel
+  niveau: important
+  libelle: URL modifiée à la reconnexion
+  detail: Le sous-domaine gratuit est aléatoire et une nouvelle URL est attribuée après reconnexion.
 usages: ["Tunnel sécurisé", "Webhook local", "Développement et test", "Accès distant"]
 url: https://pinggy.io/
 documentation: https://pinggy.io/docs/

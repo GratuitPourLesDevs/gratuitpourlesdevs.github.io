@@ -21,7 +21,15 @@ restrictions:
 - "Aucun usage supplémentaire n’est autorisé au-delà du crédit sur le plan Free"
 - "Le plan Free affiche une page intermédiaire sur les endpoints HTTP/S"
 - "Les domaines personnalisés sont réservés aux offres supérieures"
-alertes: []
+alertes:
+- type: usage
+  niveau: critique
+  libelle: Crédit gratuit non renouvelable
+  detail: Les 5 $ de crédit sont accordés une seule fois, valables un an et ne se renouvellent pas chaque mois.
+- type: fonctionnel
+  niveau: important
+  libelle: Page intermédiaire sur HTTP/S
+  detail: Les endpoints HTTP/S du plan Free affichent une page intermédiaire ngrok avant l’application exposée.
 usages: ["Tunnel sécurisé", "Webhook local", "Développement et test", "API", "Accès distant"]
 url: https://ngrok.com/
 documentation: https://ngrok.com/docs/

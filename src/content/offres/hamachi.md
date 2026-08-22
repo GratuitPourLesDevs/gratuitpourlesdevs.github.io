@@ -15,7 +15,11 @@ restrictions:
 - "Le niveau gratuit est limité à 5 ordinateurs dans un réseau"
 - "Les réseaux de 6 ordinateurs ou plus nécessitent une offre payante"
 - "Les fonctions de gestion avancée dépendent des offres commerciales"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: 5 ordinateurs maximum
+  detail: Un réseau gratuit Hamachi est limité à cinq ordinateurs ; le sixième nécessite une offre payante.
 usages: ["VPN applicatif", "Réseau", "Accès distant", "Sécurité"]
 url: https://www.vpn.net/
 source: https://www.vpn.net/

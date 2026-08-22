@@ -20,7 +20,11 @@ restrictions:
 - "La limite actuelle est de 20 stacks, et non 10"
 - "Taille maximale d’upload limitée sur Free"
 - "Automatisations, historique et applications additionnelles nécessitent des plans supérieurs"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Automatisations et historique limités
+  detail: Le plan Free limite les exécutions d’automatisation et l’historique ; des capacités supérieures nécessitent un plan payant.
 usages: ["Base de données", "Collaboration", "Automatisation", "Productivité"]
 url: https://stackby.com/
 documentation: https://help.stackby.com/

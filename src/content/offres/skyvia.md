@@ -19,7 +19,11 @@ restrictions:
 - "L’ancienne mention « tous les plans gratuits pendant la bêta » est obsolète"
 - "Chaque module Skyvia possède ses propres quotas gratuits"
 - "Les cadences, historiques et volumes augmentent sur les plans payants"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Quotas distincts selon le module
+  detail: Data Integration, Automation, Backup, Query et Connect possèdent chacun leurs propres limites gratuites ; elles ne se cumulent pas en un quota global.
 usages: ["Intégration cloud", "Automatisation", "Sauvegarde", "Données"]
 url: https://skyvia.com/
 documentation: https://docs.skyvia.com/

@@ -18,7 +18,15 @@ restrictions:
 - "Choix de régions et de fournisseurs cloud limité sur Free"
 - "Pas de haute disponibilité sur le cluster à nœud unique"
 - "Les clusters gratuits inactifs peuvent être suspendus après environ une semaine puis supprimés après une période d’inactivité prolongée"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: critique
+  libelle: Inactivité pouvant mener à la suppression
+  detail: Un cluster Free inactif peut être suspendu puis supprimé après une période d’inactivité prolongée.
+- type: fonctionnel
+  niveau: important
+  libelle: Pas de haute disponibilité
+  detail: Le cluster gratuit est mono-nœud et ne fournit pas de haute disponibilité.
 usages: ["Recherche vectorielle", "RAG", "IA", "Base de données"]
 url: https://qdrant.tech/
 documentation: https://qdrant.tech/documentation/cloud/

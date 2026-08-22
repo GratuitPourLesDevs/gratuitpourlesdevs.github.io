@@ -21,7 +21,11 @@ restrictions:
 - "Pas de haute disponibilité ni de SLA 99,99 %"
 - "Pas de VPC, IP statique ni support payant sur Free"
 - "Les services gratuits inactifs peuvent être mis hors tension et réactivés ensuite"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Services inactifs mis hors tension
+  detail: Un service gratuit inactif peut être arrêté automatiquement et devra être réactivé avant de redevenir disponible.
 usages: ["Base de données", "PostgreSQL", "Mise en cache", "Développement et test"]
 url: https://aiven.io/
 documentation: https://aiven.io/docs/

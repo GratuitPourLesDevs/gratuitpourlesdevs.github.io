@@ -18,7 +18,15 @@ restrictions:
 - "Limites strictes sur le nombre de nœuds et de relations"
 - "Pas de sauvegardes avancées ni de SLA de production sur Free"
 - "Les instances gratuites inactives peuvent être mises en pause"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Instance inactive mise en pause
+  detail: Une instance AuraDB Free inactive peut être automatiquement mise en pause.
+- type: fonctionnel
+  niveau: important
+  libelle: Pas de SLA de production
+  detail: Le niveau gratuit ne fournit ni SLA de production ni les sauvegardes avancées des offres supérieures.
 usages: ["Base de données", "Données", "Recherche", "Développement et test"]
 url: https://neo4j.com/cloud/aura/
 documentation: https://neo4j.com/docs/aura/

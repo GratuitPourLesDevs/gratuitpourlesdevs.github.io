@@ -14,7 +14,11 @@ conditions:
 restrictions:
 - "TURN est un service distinct facturé au volume de données relayé"
 - "Les jetons et identifiants TURN passent par l’API Network Traversal"
-alertes: []
+alertes:
+- type: finance
+  niveau: important
+  libelle: TURN n’est pas gratuit
+  detail: Seul STUN est gratuit ; le relais TURN est un service distinct facturé au volume de données relayé.
 usages: ["Traversée de NAT et de pare-feu", "Réseau", "Communications pair à pair"]
 url: https://www.twilio.com/en-us/stun-turn
 documentation: https://www.twilio.com/docs/stun-turn/api

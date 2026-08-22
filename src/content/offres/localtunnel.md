@@ -15,7 +15,15 @@ conditions:
 restrictions:
 - "Aucun quota de trafic ni SLA n’est publié pour le service public"
 - "Le sous-domaine demandé n’est pas garanti et dépend de sa disponibilité"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Aucun SLA ni quota publié
+  detail: Le service public ne publie ni engagement de disponibilité ni plafond de trafic garanti.
+- type: fonctionnel
+  niveau: important
+  libelle: Sous-domaine non garanti
+  detail: Le sous-domaine demandé dépend de sa disponibilité et n’est pas garanti sur le service public.
 usages: ["Tunnel sécurisé", "Webhook local", "Développement et test", "API"]
 url: https://theboroer.github.io/localtunnel-www/
 documentation: https://github.com/localtunnel/localtunnel

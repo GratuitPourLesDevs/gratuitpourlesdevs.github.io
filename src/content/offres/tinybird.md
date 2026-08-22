@@ -21,7 +21,15 @@ restrictions:
 - "Capacité de calcul et nombre de requêtes limités"
 - "Les quotas Free sont appliqués au niveau de l’organisation"
 - "Les besoins de production soutenue nécessitent généralement un plan supérieur"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Quota partagé par organisation
+  detail: Les 1 000 requêtes API quotidiennes et les autres limites Free s’appliquent au niveau de l’organisation, pas séparément à chaque projet.
+- type: operationnel
+  niveau: important
+  libelle: Infrastructure partagée
+  detail: Le niveau Free utilise une capacité de calcul partagée et limitée, peu adaptée à une charge de production soutenue.
 usages: ["Données", "API", "Serverless", "Base de données"]
 url: https://www.tinybird.co/
 documentation: https://www.tinybird.co/docs

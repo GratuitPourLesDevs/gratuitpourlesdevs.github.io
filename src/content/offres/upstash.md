@@ -18,7 +18,11 @@ restrictions:
 - "Le nombre de connexions simultanées cité dans d’anciennes fiches n’est plus utilisé comme quota principal public"
 - "La base Free est limitée en taille, commandes et bande passante"
 - "Les volumes supérieurs nécessitent une offre payante"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Trois plafonds à surveiller
+  detail: Le niveau Free est plafonné simultanément en taille de base, nombre de commandes et bande passante mensuelle.
 usages: ["Mise en cache", "Serverless", "Base de données", "API"]
 url: https://upstash.com/
 documentation: https://upstash.com/docs/redis

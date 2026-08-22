@@ -18,7 +18,11 @@ restrictions:
 - "La limite actuelle est de 1 000 enregistrements par base, et non 1 200"
 - "Extensions et plusieurs fonctions avancées de vues et de personnalisation indisponibles sur Free"
 - "Le quota API est partagé au niveau du workspace"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Quota API partagé
+  detail: Les 1 000 appels API mensuels sont partagés entre les bases et usages du workspace, pas alloués séparément à chaque base.
 usages: ["Base de données", "Collaboration", "API", "Productivité"]
 url: https://airtable.com/
 documentation: https://support.airtable.com/

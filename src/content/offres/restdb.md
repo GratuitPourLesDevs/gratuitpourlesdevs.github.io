@@ -20,7 +20,15 @@ restrictions:
 - "Le plafond quotidien de 500 appels API s’ajoute à la limite d’un appel par seconde"
 - "Taille maximale de fichier limitée sur le plan gratuit"
 - "Snapshots manuels mais pas de sauvegarde automatique sur Free"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Pas de sauvegarde automatique
+  detail: Le plan Free permet des snapshots manuels mais n’inclut pas de sauvegarde automatique.
+- type: usage
+  niveau: important
+  libelle: Double limite API
+  detail: Les appels API sont limités à la fois à 500 par jour et à un appel par seconde.
 usages: ["NoSQL", "API", "Backend d’application", "Base de données"]
 url: https://restdb.io/
 documentation: https://restdb.io/docs/

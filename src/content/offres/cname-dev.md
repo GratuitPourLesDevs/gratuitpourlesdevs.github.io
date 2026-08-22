@@ -14,7 +14,11 @@ conditions:
 restrictions:
 - "Aucun quota chiffré ni SLA gratuit n’est publié sur la page publique"
 - "Les limites opérationnelles peuvent évoluer selon le service"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Quotas et SLA non documentés
+  detail: Aucun plafond chiffré ni engagement de disponibilité gratuit n’est publié ; les limites opérationnelles peuvent donc évoluer.
 usages: ["Tunnel sécurisé", "Accès distant", "Réseau", "API"]
 url: https://cname.dev/
 source: https://cname.dev/

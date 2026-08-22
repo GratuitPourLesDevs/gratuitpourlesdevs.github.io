@@ -15,7 +15,11 @@ restrictions:
 - "La connexion gratuite est limitée à 4 heures continues par jour"
 - "Le trafic gratuit est limité à 500 Mo par jour"
 - "Les sous-domaines personnalisés et connexions sans limite de temps sont payants"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: 4 h et 500 Mo par jour
+  detail: Le niveau gratuit limite chaque journée à 4 heures de connexion continue et 500 Mo de trafic.
 usages: ["Tunnel sécurisé", "Accès distant", "Développement et test", "Applications web"]
 url: https://conveyor.cloud/
 source: https://conveyor.cloud/Home/Pricing

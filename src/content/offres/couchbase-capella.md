@@ -21,7 +21,11 @@ restrictions:
 - "Le cluster gratuit est destiné à l’évaluation, au développement et aux petits projets"
 - "La capacité exacte peut varier selon le cloud et la documentation du fournisseur"
 - "Les clusters gratuits inactifs peuvent être arrêtés selon la politique Capella"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Cluster inactif susceptible d’être arrêté
+  detail: Le niveau gratuit est soumis à une politique d’inactivité et un cluster inutilisé peut être arrêté.
 usages: ["NoSQL", "Base de données", "Recherche vectorielle", "Applications cloud"]
 url: https://www.couchbase.com/products/capella/
 documentation: https://docs.couchbase.com/cloud/

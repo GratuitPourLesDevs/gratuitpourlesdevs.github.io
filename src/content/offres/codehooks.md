@@ -21,7 +21,11 @@ restrictions:
 - "Le plan gratuit actuel inclut 1 développeur, et non 2"
 - "Le stockage de base gratuit actuel est de 150 Mo, et non 5 Go"
 - "Les sauvegardes automatisées et fonctions de production avancées nécessitent un plan supérieur"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Pas de sauvegardes automatisées
+  detail: Les sauvegardes automatisées ne sont pas incluses dans le plan de développement gratuit.
 usages: ["Backend d’application", "NoSQL", "API serverless", "Fonctions serverless"]
 url: https://codehooks.io/
 documentation: https://codehooks.io/docs/

@@ -20,7 +20,11 @@ restrictions:
 - "Ressources partagées"
 - "10 Mo maximum par base sur le plan gratuit"
 - "Le niveau gratuit convient surtout à l’apprentissage, aux tests et aux très petits jeux de données"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: 10 Mo maximum par base
+  detail: Chaque base gratuite est limitée à 10 Mo, ce qui réserve l’offre aux tests et très petits jeux de données.
 usages: ["Base de données", "PostgreSQL", "MongoDB", "Développement et test"]
 url: https://filess.io/
 documentation: https://filess.io/

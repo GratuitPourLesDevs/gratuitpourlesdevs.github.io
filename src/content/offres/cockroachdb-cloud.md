@@ -19,7 +19,11 @@ restrictions:
 - "La consommation dépassant les allocations gratuites relève de la tarification à l’usage du plan Basic"
 - "Certaines fonctions réseau, observabilité et sécurité avancées nécessitent Standard ou Advanced"
 - "Le quota gratuit se renouvelle mensuellement"
-alertes: []
+alertes:
+- type: finance
+  niveau: critique
+  libelle: Dépassement facturé à l’usage
+  detail: Au-delà des Request Units et du stockage gratuits, la consommation du plan Basic relève de la tarification à l’usage.
 usages: ["Base de données distribuée", "Base de données relationnelle", "Applications cloud", "Haute disponibilité"]
 url: https://www.cockroachlabs.com/
 documentation: https://www.cockroachlabs.com/docs/cockroachcloud/

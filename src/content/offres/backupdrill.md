@@ -20,7 +20,15 @@ restrictions:
 - "Après l’essai de 30 jours, un compte non abonné bascule automatiquement sur Free"
 - "Le plan gratuit n’effectue qu’un restore drill, pas des drills récurrents"
 - "Les objets stockés dans votre bucket peuvent générer des coûts chez votre fournisseur de stockage"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Un seul test de restauration
+  detail: Le plan Free exécute un restore drill sur la première sauvegarde mais ne couvre pas les tests de restauration récurrents.
+- type: finance
+  niveau: important
+  libelle: Stockage externe potentiellement payant
+  detail: Les sauvegardes utilisent votre propre bucket ; son stockage ou son trafic peut être facturé par le fournisseur choisi.
 usages: ["Sauvegarde", "PostgreSQL", "Stockage objet", "Développement et test"]
 url: https://backupdrill.com/
 documentation: https://backupdrill.com/docs/quickstart

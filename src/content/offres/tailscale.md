@@ -18,7 +18,15 @@ restrictions:
 - "Le plan gratuit vise les usages personnels"
 - "Les ressources taguées au-delà de l’allocation incluse et certaines fonctions d’entreprise sont payantes"
 - "Les anciens comptes peuvent conserver des plans Personal historiques différents"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Plan réservé à l’usage personnel
+  detail: La formule Personal gratuite vise les usages personnels ; les besoins professionnels relèvent des offres adaptées.
+- type: finance
+  niveau: important
+  libelle: Certaines ressources au-delà du quota sont payantes
+  detail: Les ressources taguées au-delà de l’allocation incluse et certaines fonctions d’entreprise nécessitent une offre payante.
 usages: ["VPN applicatif", "Zero Trust", "Réseau", "Accès distant", "Sécurité"]
 url: https://tailscale.com/
 documentation: https://tailscale.com/kb/

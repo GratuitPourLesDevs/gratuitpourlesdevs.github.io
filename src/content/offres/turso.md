@@ -20,7 +20,15 @@ restrictions:
 - "Les anciennes valeurs de 500 bases, 9 Go et 1 milliard de lectures ne correspondent plus au plan actuel"
 - "Les quotas de lecture, écriture, stockage et synchronisation sont partagés au niveau du compte"
 - "Les capacités de production avancées nécessitent une offre payante"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Quotas partagés au niveau du compte
+  detail: Stockage, lectures, écritures et synchronisation sont des allocations partagées entre les bases du compte.
+- type: fonctionnel
+  niveau: important
+  libelle: Restauration point-in-time limitée à 1 jour
+  detail: Le niveau Free ne conserve qu’une journée de restauration point-in-time.
 usages: ["Base SQL serverless", "Edge", "Base de données", "Développement et test"]
 url: https://turso.tech/
 documentation: https://docs.turso.tech/

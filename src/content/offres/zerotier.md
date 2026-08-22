@@ -16,7 +16,15 @@ conditions:
 restrictions:
 - "Le plan Personal actuel est limité à 10 appareils et 1 réseau"
 - "Les besoins professionnels et davantage de réseaux ou d’appareils nécessitent une offre payante"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: 10 appareils et 1 réseau maximum
+  detail: Le plan Personal gratuit est limité à dix appareils, un seul réseau et un administrateur réseau.
+- type: usage
+  niveau: important
+  libelle: Usage personnel
+  detail: Le plan Personal est destiné à l’usage personnel ; les besoins professionnels relèvent d’une formule payante.
 usages: ["VPN applicatif", "Réseau", "Accès distant", "Communications pair à pair", "Sécurité"]
 url: https://www.zerotier.com/
 documentation: https://docs.zerotier.com/

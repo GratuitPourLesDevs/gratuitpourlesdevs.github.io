@@ -17,7 +17,11 @@ restrictions:
 - "Les limites actuelles sont supérieures aux anciennes valeurs de 3 Mo en écriture et 30 Mo en lecture"
 - "Rétention limitée à 30 jours sur le niveau gratuit Serverless"
 - "Les limites dépendent de la génération du service InfluxDB ; cette fiche suit l’offre Cloud Serverless actuelle"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Rétention limitée à 30 jours
+  detail: Les données du niveau Cloud Serverless gratuit ne sont conservées que pendant 30 jours.
 usages: ["Base de données", "Télémétrie", "Monitoring", "Données"]
 url: https://www.influxdata.com/
 documentation: https://docs.influxdata.com/influxdb/cloud-serverless/
