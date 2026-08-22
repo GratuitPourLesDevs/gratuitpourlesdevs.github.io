@@ -1,3 +1,6 @@
+import { PROJECT_MANAGEMENT_EDITORIALS } from './project-management-editorials';
+import { STORAGE_MEDIA_EDITORIALS } from './storage-media-editorials';
+
 type OfferEditorialStatus = 'active' | 'a_verifier' | 'obsolete';
 
 type OfferEditorialData = {
@@ -9,6 +12,11 @@ type OfferEditorialData = {
   usages: string[];
   statut: OfferEditorialStatus;
   verificationNote?: string;
+};
+
+const CUSTOM_OFFER_EDITORIALS: Record<string, string> = {
+  ...PROJECT_MANAGEMENT_EDITORIALS,
+  ...STORAGE_MEDIA_EDITORIALS,
 };
 
 export const GENERATED_EDITORIAL_OFFER_IDS = new Set<string>([
@@ -124,6 +132,9 @@ export function getGeneratedOfferEditorial(
   offerId: string,
   data: OfferEditorialData,
 ): string | undefined {
+  const customEditorial = CUSTOM_OFFER_EDITORIALS[offerId];
+  if (customEditorial) return customEditorial;
+
   if (!GENERATED_EDITORIAL_OFFER_IDS.has(offerId)) return undefined;
 
   const role = clean(data.accroche);
