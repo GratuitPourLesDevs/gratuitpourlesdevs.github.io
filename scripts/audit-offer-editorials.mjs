@@ -18,8 +18,8 @@ const stripMarkdown = (s) => normalize(
 
 function parseFrontmatterAndBody(content) {
   const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
-  if (!match) return { frontmatter: '', body: stripMarkdown(content) };
-  return { frontmatter: match[1], body: stripMarkdown(match[2]) };
+  if (!match) return { frontmatter: '', body: stripMarkdown(content), rawBody: content };
+  return { frontmatter: match[1], body: stripMarkdown(match[2]), rawBody: match[2].trim() };
 }
 
 function scalar(frontmatter, key) {
@@ -75,12 +75,10 @@ function auditText(text, accroche, source) {
   const clean = normalize(text);
   const sentences = clean.split(/(?<=[.!?])\s+/).filter((s) => s.length >= 25);
 
-  // Les textes personnalisés ont déjà été relus selon la règle éditoriale.
   if (source === 'custom') {
     return { ok: true, reasons: [], length: clean.length, sentences: sentences.length, text: clean, score: 10 };
   }
 
-  // Les anciens éditoriaux générés mécaniquement sont le principal héritage à éliminer.
   if (source === 'generic-generated') {
     return {
       ok: false,
@@ -124,7 +122,6 @@ function auditText(text, accroche, source) {
     reasons.push(`trop proche de l’accroche (${Math.round(similarity * 100)} % de recouvrement lexical)`);
   }
 
-  // Il faut cumuler plusieurs signaux faibles avant de demander une réécriture.
   const ok = score >= 5 && !bulkGenericRe.test(clean);
   return { ok, reasons: ok ? [] : reasons, length: clean.length, sentences: sentences.length, text: clean, score };
 }
@@ -134,7 +131,7 @@ const results = [];
 for (const file of files) {
   const id = file.slice(0, -3);
   const content = read(path.join(OFFERS_DIR, file));
-  const { frontmatter, body } = parseFrontmatterAndBody(content);
+  const { frontmatter, body, rawBody } = parseFrontmatterAndBody(content);
   const nom = scalar(frontmatter, 'nom') || id;
   const accroche = scalar(frontmatter, 'accroche');
   const statut = scalar(frontmatter, 'statut');
@@ -147,7 +144,7 @@ for (const file of files) {
     source = 'generic-generated';
   }
   const audit = auditText(text, accroche, source);
-  results.push({ id, nom, statut, source, ...audit });
+  results.push({ id, nom, accroche, statut, source, frontmatter, rawBody, ...audit });
 }
 
 const failing = results.filter((r) => !r.ok);
@@ -165,7 +162,9 @@ const report = {
   aCorriger: failing.length,
   bySource,
   reasonCounts,
-  failing: failing.map(({ id, nom, statut, source, reasons, length, sentences, score }) => ({ id, nom, statut, source, reasons, length, sentences, score })),
+  failing: failing.map(({ id, nom, accroche, statut, source, reasons, length, sentences, score, frontmatter, rawBody }) => ({
+    id, nom, accroche, statut, source, reasons, length, sentences, score, frontmatter, rawBody,
+  })),
 };
 
 fs.mkdirSync(path.join(ROOT, '.tmp'), { recursive: true });
@@ -174,5 +173,4 @@ console.log(`AUDIT_TOTAL=${report.totalOffers}`);
 console.log(`AUDIT_OK=${report.conformes}`);
 console.log(`AUDIT_FIX=${report.aCorriger}`);
 console.log(`AUDIT_BY_SOURCE=${JSON.stringify(report.bySource)}`);
-console.log('AUDIT_REASON_COUNTS=' + JSON.stringify(report.reasonCounts));
 console.log('AUDIT_FAILING_IDS=' + failing.map((r) => r.id).join(','));
