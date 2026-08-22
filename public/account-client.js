@@ -293,6 +293,30 @@
     actionList?.append(button);
 
     let stackState = null;
+    const confirmStackRemoval = (stackName) => new Promise((resolve) => {
+      const dialog = document.createElement('dialog');
+      dialog.className = 'account-confirm-dialog offer-stack-confirm-dialog';
+      dialog.setAttribute('aria-labelledby', 'offer-stack-confirm-title');
+      dialog.setAttribute('aria-describedby', 'offer-stack-confirm-description');
+      dialog.innerHTML = `<form method="dialog"><small>CONFIRMATION</small><h2 id="offer-stack-confirm-title"></h2><p id="offer-stack-confirm-description"></p><div class="account-confirm-actions"><button class="account-secondary" type="submit" value="cancel">Annuler</button><button class="account-danger" type="submit" value="confirm">Retirer</button></div></form>`;
+      dialog.querySelector('#offer-stack-confirm-title').textContent = `Retirer ${offerName} ?`;
+      dialog.querySelector('#offer-stack-confirm-description').textContent = `${offerName} sera retiré de ${stackName}. Vous pourrez l’ajouter de nouveau à tout moment.`;
+      document.body.append(dialog);
+      dialog.addEventListener('close', () => {
+        const confirmed = dialog.returnValue === 'confirm';
+        dialog.remove();
+        resolve(confirmed);
+      }, { once: true });
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close('cancel');
+      });
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else {
+        const confirmed = window.confirm(`Retirer ${offerName} de ${stackName} ?`);
+        dialog.remove();
+        resolve(confirmed);
+      }
+    });
     const render = () => {
       renderOfferAccountActions(panel);
       const connected = Boolean(getToken() && stackState);
@@ -308,13 +332,14 @@
       const nameNode = button.querySelector('[data-stack-name]');
       const occupancy = button.querySelector('[data-stack-occupancy]');
 
-      if (label) label.textContent = !connected ? 'Ajouter à votre stack' : present ? `Déjà dans ${name}` : full ? `${name} est complète` : `Ajouter à ${name}`;
+      if (label) label.textContent = !connected ? 'Ajouter à votre stack' : present ? `Retirer de ${name}` : full ? `${name} est complète` : `Ajouter à ${name}`;
       if (nameNode) nameNode.textContent = connected ? name : 'Compte gratuit';
       if (occupancy) occupancy.textContent = connected ? `${count} / ${pro ? '∞' : limit} offre${count > 1 ? 's' : ''}` : 'Connexion requise';
       button.classList.toggle('active', present);
+      button.classList.toggle('is-remove-action', present);
       button.classList.toggle('is-full', full);
-      button.disabled = present || full;
-      button.setAttribute('aria-label', !connected ? `Se connecter pour ajouter ${offerName} à une stack` : present ? `${offerName} est déjà dans ${name}` : full ? `${name} a atteint sa limite de ${limit} offres` : `Ajouter ${offerName} à ${name}`);
+      button.disabled = full && !present;
+      button.setAttribute('aria-label', !connected ? `Se connecter pour ajouter ${offerName} à une stack` : present ? `Retirer ${offerName} de ${name}` : full ? `${name} a atteint sa limite de ${limit} offres` : `Ajouter ${offerName} à ${name}`);
     };
     const refresh = async () => {
       if (!getToken()) { stackState = null; render(); return null; }
@@ -326,19 +351,22 @@
 
     render();
     await refresh();
-    const addToStack = async () => {
+    const updateStack = async () => {
       try {
         const dashboard = await refresh();
         if (!dashboard) return;
         const stack = dashboard.stack;
         const offerIds = stack?.offerIds ? [...stack.offerIds] : [];
-        if (offerIds.includes(offerId)) return;
-        const saved = await api('/api/account/stack', { method: 'PUT', body: JSON.stringify({ name: stack?.name || 'Ma stack', offerIds: [...offerIds, offerId] }) });
+        const present = offerIds.includes(offerId);
+        const stackName = stack?.name || 'Ma stack';
+        if (present && !await confirmStackRemoval(stackName)) return;
+        const nextOfferIds = present ? offerIds.filter((id) => id !== offerId) : [...offerIds, offerId];
+        const saved = await api('/api/account/stack', { method: 'PUT', body: JSON.stringify({ name: stackName, offerIds: nextOfferIds }) });
         stackState.stack = saved;
         render();
-        showToast(`${offerName} a été ajouté à ${saved.name}.`);
+        showToast(present ? `${offerName} a été retiré de ${saved.name}.` : `${offerName} a été ajouté à ${saved.name}.`);
       } catch (error) {
-        if (!handleLimitError(error)) showToast(error.message || 'Impossible d’ajouter cette offre à la stack.');
+        if (!handleLimitError(error)) showToast(error.message || 'Impossible de modifier cette stack.');
         await refresh();
       }
     };
@@ -348,13 +376,13 @@
         await login({ redirect: true });
         return;
       }
-      await addToStack();
+      await updateStack();
     });
     let pendingOfferId = null;
     try { pendingOfferId = sessionStorage.getItem(PENDING_STACK_KEY); } catch {}
     if (getToken() && pendingOfferId === offerId) {
       try { sessionStorage.removeItem(PENDING_STACK_KEY); } catch {}
-      if (!button.disabled) await addToStack();
+      if (!button.disabled) await updateStack();
     }
   };
   const injectSaveSearch = () => {
