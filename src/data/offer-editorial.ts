@@ -1,4 +1,5 @@
 import { AUDITED_OFFER_EDITORIALS } from './audited-offer-editorials';
+import { AUDITED_OFFER_EDITORIALS_FOLLOWUP } from './audited-offer-editorials-followup';
 import { PROJECT_MANAGEMENT_EDITORIALS } from './project-management-editorials';
 import { STORAGE_MEDIA_EDITORIALS } from './storage-media-editorials';
 
@@ -17,6 +18,7 @@ const CUSTOM_OFFER_EDITORIALS: Record<string, string> = {
   ...PROJECT_MANAGEMENT_EDITORIALS,
   ...STORAGE_MEDIA_EDITORIALS,
   ...AUDITED_OFFER_EDITORIALS,
+  ...AUDITED_OFFER_EDITORIALS_FOLLOWUP,
 };
 
 /**
