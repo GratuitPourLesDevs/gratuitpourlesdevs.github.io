@@ -212,6 +212,17 @@
     }
     return false;
   };
+  const ensureOfferAccountActions = (nav) => {
+    let panel = nav.querySelector('.offer-account-actions');
+    if (panel) return panel;
+    panel = document.createElement('section');
+    panel.className = 'offer-account-actions';
+    panel.innerHTML = '<small>MON ESPACE</small><div class="offer-account-action-list"></div><button class="offer-account-login-action" type="button"><span><strong>Connectez-vous pour personnaliser cette offre</strong><small>Suivez ses changements et ajoutez-la à votre stack.</small></span><em>Se connecter →</em></button>';
+    nav.append(panel);
+    panel.querySelector('.offer-account-login-action')?.addEventListener('click', () => login({ redirect: true }));
+    return panel;
+  };
+  const renderOfferAccountActions = (panel) => panel.classList.toggle('is-connected', Boolean(getToken()));
   const injectFollowButton = async () => {
     const favorite = document.querySelector('.offer-page-favorite[data-id]');
     const nav = favorite?.closest('nav');
@@ -219,20 +230,35 @@
     const offerId = favorite.dataset.id;
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'offer-page-follow offer-compact-action';
+    const panel = ensureOfferAccountActions(nav);
+    const actionList = panel.querySelector('.offer-account-action-list');
+    button.className = 'offer-page-follow offer-account-action';
     button.dataset.id = offerId;
-    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.5"/></svg><span data-action-label>Suivre</span>';
-    nav.append(button);
+    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.5"/></svg><span><strong data-action-label>Suivre les changements</strong><small data-action-context>Veille du compte</small></span><em data-follow-occupancy>0 / 5 offres</em>';
+    actionList?.append(button);
     let followed = false;
+    let followedCount = 0;
+    let followedLimit = 5;
     if (getToken()) {
-      try { const payload = await api('/api/account/follows'); followed = (payload.offerIds || []).includes(offerId); } catch {}
+      try {
+        const payload = await api('/api/account/follows');
+        const followedIds = payload.offerIds || [];
+        followed = followedIds.includes(offerId);
+        followedCount = followedIds.length;
+        followedLimit = payload.limit ?? '∞';
+      } catch {}
     }
     const render = () => {
+      renderOfferAccountActions(panel);
       button.classList.toggle('active', followed);
       button.setAttribute('aria-pressed', String(followed));
       const action = followed ? 'Ne plus suivre cette offre' : (getToken() ? 'Suivre cette offre' : 'Suivre avec un compte gratuit');
       const label = button.querySelector('[data-action-label]');
-      if (label) label.textContent = followed ? 'Suivie ✓' : 'Suivre';
+      const context = button.querySelector('[data-action-context]');
+      const occupancy = button.querySelector('[data-follow-occupancy]');
+      if (label) label.textContent = followed ? 'Offre suivie' : 'Suivre les changements';
+      if (context) context.textContent = followed ? 'Présente dans votre veille' : 'Veille du compte';
+      if (occupancy) occupancy.textContent = `${followedCount} / ${followedLimit} offre${followedCount > 1 ? 's' : ''}`;
       button.setAttribute('aria-label', action);
       button.setAttribute('title', action);
     };
@@ -242,6 +268,7 @@
         await ensureLogin();
         followed = !followed;
         await api('/api/account/follows', { method: 'POST', body: JSON.stringify({ offerId, active: followed }) });
+        followedCount += followed ? 1 : -1;
         render();
         showToast(followed ? 'Offre ajoutée à votre veille.' : 'Offre retirée de votre veille.');
       } catch (error) {
@@ -255,16 +282,19 @@
     const favorite = document.querySelector('.offer-page-favorite[data-id]');
     const nav = favorite?.closest('nav');
     if (!favorite || !nav || nav.querySelector('.offer-page-stack-action')) return;
+    const panel = ensureOfferAccountActions(nav);
+    const actionList = panel.querySelector('.offer-account-action-list');
     const offerId = favorite.dataset.id;
     const offerName = favorite.dataset.offerName || 'cette offre';
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'offer-page-stack-action';
+    button.className = 'offer-page-stack-action offer-account-action';
     button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 8 8-4 8 4-8 4-8-4Z"/><path d="m4 12 8 4 8-4M4 16l8 4 8-4"/></svg><span><strong data-stack-action-label>Ajouter à votre stack</strong><small data-stack-name>Compte gratuit</small></span><em data-stack-occupancy>Connexion requise</em>';
-    nav.append(button);
+    actionList?.append(button);
 
     let stackState = null;
     const render = () => {
+      renderOfferAccountActions(panel);
       const connected = Boolean(getToken() && stackState);
       const stack = stackState?.stack;
       const name = stack?.name || 'Ma stack';

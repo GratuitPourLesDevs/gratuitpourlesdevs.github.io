@@ -8,7 +8,6 @@ import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
 import { getBillingRisk } from '../../data/billing-risk';
 import { getFreeTierScore } from '../../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../../data/offer-alerts';
-import { getGeneratedOfferEditorial } from '../../data/offer-editorial';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, formatQuotaReset, formatQuotaScope, getOfferQuotas } from '../../data/offer-quotas';
 
 type HistoryItem = { timestamp: number; revision?: string };
@@ -49,7 +48,6 @@ const entry = offers.find((offer) => offer.id === offerId);
 if (!entry) throw new Error(`Offre introuvable : ${offerId}`);
 
 const { Content } = await render(entry);
-const generatedEditorial = getGeneratedOfferEditorial(entry.id, entry.data);
 const categoryName = categoryNames.get(entry.data.categorie) ?? entry.data.categorie;
 const activeOffers = offers.filter((offer) => offer.data.statut !== 'obsolete' && offer.id !== entry.id);
 const sharedUsageCount = (candidate: typeof entry) => candidate.data.usages.filter((tag) => entry.data.usages.includes(tag)).length;
@@ -161,7 +159,7 @@ const jsonLd = [
           <small>{categoryName}</small><h1>{entry.data.nom}</h1><p>{entry.data.accroche}</p>
           <div class="offer-page-tags"><span>{entry.data.type}</span><span>{statusLabel}</span>{entry.data.usages.slice(0, 3).map((tag) => <span>{tag}</span>)}</div>
           <section class="offer-hero-plan"><small>FORMULE GRATUITE</small><strong>{entry.data.formule}</strong></section>
-          <section class="offer-editorial"><small>EN BREF</small><h2>Pourquoi {entry.data.nom} est utile</h2>{generatedEditorial ? <p>{generatedEditorial}</p> : <Content />}</section>
+          <section class="offer-editorial"><small>EN BREF</small><h2>Pourquoi {entry.data.nom} est utile</h2><Content /></section>
         </div>
       </div>
       <aside class="offer-plan-card" aria-label="Score et conditions de l’offre">
