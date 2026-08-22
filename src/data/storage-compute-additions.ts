@@ -1,6 +1,7 @@
 import { OFFER_QUOTAS } from './offer-quotas';
 import { MANAGED_DATA_ADDITIONS_QUOTA_SCORES } from './managed-data-additions';
 import { TUNNEL_NETWORK_QUOTA_SCORES } from './tunnel-network-additions';
+import { PROJECT_MANAGEMENT_QUOTA_SCORES } from './project-management-additions';
 
 OFFER_QUOTAS['4everland'] ??= [
   { id: 'ipfs-storage', metric: 'storage', label: 'Stockage IPFS', amount: 6, unit: 'GB', period: 'month', scope: 'account', reset: 'monthly', overage: 'billed', kind: 'limit' },
@@ -32,4 +33,5 @@ export const STORAGE_COMPUTE_QUOTA_SCORES = {
   modal: 20,
   ...MANAGED_DATA_ADDITIONS_QUOTA_SCORES,
   ...TUNNEL_NETWORK_QUOTA_SCORES,
+  ...PROJECT_MANAGEMENT_QUOTA_SCORES,
 } satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
