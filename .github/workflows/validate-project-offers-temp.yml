@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - ajout-gestion-projet-2026-08-22
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -12,8 +15,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Récupérer le dépôt
+      - name: Récupérer la branche source
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Installer Node.js
         uses: actions/setup-node@v6
@@ -58,5 +63,5 @@ jobs:
             echo "Aucun changement fonctionnel à committer."
           else
             git commit -m "Ajoute 56 outils de gestion de projet"
-            git push
+            git push origin HEAD:ajout-gestion-projet-2026-08-22
           fi
