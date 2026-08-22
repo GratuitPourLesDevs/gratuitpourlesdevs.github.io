@@ -65,3 +65,5 @@ jobs:
             git commit -m "Ajoute 56 outils de gestion de projet"
             git push origin HEAD:ajout-gestion-projet-2026-08-22
           fi
+
+# Relance après activation du workflow sur main.
