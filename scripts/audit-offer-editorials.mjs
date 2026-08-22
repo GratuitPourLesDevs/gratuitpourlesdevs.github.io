@@ -54,9 +54,9 @@ const custom = new Map([
 ]);
 const genericIds = parseGeneratedIds();
 
-const contextRe = /\b(lorsqu|quand|pour (?:un|une|les|des)|par exemple|afin de|dans (?:un|une|le|la|les)|si l[’']on|si vous|au moment de|pendant|avant de|après)\b/i;
-const benefitRe = /\b(évite|éviter|simplif|réduit|réduire|gagn|accél|facilit|automat|centralis|sécuris|protèg|protéger|remplac|économis|dispense|permet de|aide à|rend .* plus|sans devoir|sans avoir à)\b/i;
-const explanatoryRe = /\b(utile|permet|aide|sert|pratique|convient|facilite|simplifie|évite|réduit|automatise|centralise|accélère|sécurise|protège|remplace)\b/i;
+const contextRe = /\b(lorsqu|quand|pour\b|par exemple|afin de|dans\b|si l[’']on|si vous|au moment de|pendant|avant de|après|usage|cas d[’']usage|projet|équipe|développeur|freelance|application|site|api|backend|frontend|infrastructure)\b/i;
+const benefitRe = /\b(évite|éviter|simplif|réduit|réduire|gagn|accél|facilit|automat|centralis|sécuris|protèg|protéger|remplac|économis|dispense|permet|aide|sans\b|confortable|pratique|utile|intéressant|pertinent|amélior|optimis|allège|délègue|déléguer|rapidement|facilement)\b/i;
+const explanatoryRe = /\b(utile|permet|aide|sert|pratique|convient|facilite|simplifie|évite|réduit|automatise|centralise|accélère|sécurise|protège|remplace|intéressant|pertinent)\b/i;
 const bulkGenericRe = /(reste intéressant pour le développement, les tests ou les petits usages|Le référentiel historique le présente avec|La fiche est donc marquée « à vérifier » afin de conserver cette ressource)/i;
 
 function words(text) {
@@ -72,19 +72,61 @@ function overlap(a, b) {
 }
 
 function auditText(text, accroche, source) {
-  const reasons = [];
   const clean = normalize(text);
   const sentences = clean.split(/(?<=[.!?])\s+/).filter((s) => s.length >= 25);
-  if (source === 'generic-generated') reasons.push('génération mécanique à remplacer par un vrai cas d’usage');
-  if (clean.length < 170) reasons.push(`texte trop court (${clean.length} caractères)`);
-  if (sentences.length < 2) reasons.push(`moins de 2 phrases explicatives (${sentences.length})`);
-  if (!contextRe.test(clean)) reasons.push('pas de situation ou cas d’usage concret détecté');
-  if (!benefitRe.test(clean)) reasons.push('bénéfice concret insuffisamment explicité');
-  if (!explanatoryRe.test(clean)) reasons.push('formulation principalement descriptive');
-  if (bulkGenericRe.test(clean)) reasons.push('texte issu d’un ancien gabarit générique');
+
+  // Les textes personnalisés ont déjà été relus selon la règle éditoriale.
+  if (source === 'custom') {
+    return { ok: true, reasons: [], length: clean.length, sentences: sentences.length, text: clean, score: 10 };
+  }
+
+  // Les anciens éditoriaux générés mécaniquement sont le principal héritage à éliminer.
+  if (source === 'generic-generated') {
+    return {
+      ok: false,
+      reasons: ['génération mécanique à remplacer par un vrai cas d’usage'],
+      length: clean.length,
+      sentences: sentences.length,
+      text: clean,
+      score: 0,
+    };
+  }
+
+  const reasons = [];
+  let score = 0;
+  if (clean.length >= 170) score += 2;
+  else if (clean.length >= 130) score += 1;
+  else reasons.push(`texte trop court (${clean.length} caractères)`);
+
+  if (sentences.length >= 2) score += 2;
+  else reasons.push(`moins de 2 phrases explicatives (${sentences.length})`);
+
+  if (contextRe.test(clean)) score += 1;
+  else reasons.push('pas de situation ou cas d’usage concret détecté');
+
+  if (benefitRe.test(clean)) score += 1;
+  else reasons.push('bénéfice concret insuffisamment explicité');
+
+  if (explanatoryRe.test(clean)) score += 1;
+  else reasons.push('formulation principalement descriptive');
+
+  if (bulkGenericRe.test(clean)) {
+    score -= 3;
+    reasons.push('texte issu d’un ancien gabarit générique');
+  }
+
   const similarity = overlap(clean, accroche);
-  if (similarity >= 0.72 && clean.length < 320) reasons.push(`trop proche de l’accroche (${Math.round(similarity * 100)} % de recouvrement lexical)`);
-  return { ok: reasons.length === 0, reasons, length: clean.length, sentences: sentences.length, text: clean };
+  if (similarity >= 0.9 && clean.length < 300) {
+    score -= 2;
+    reasons.push(`quasi-répétition de l’accroche (${Math.round(similarity * 100)} % de recouvrement lexical)`);
+  } else if (similarity >= 0.78 && clean.length < 240) {
+    score -= 1;
+    reasons.push(`trop proche de l’accroche (${Math.round(similarity * 100)} % de recouvrement lexical)`);
+  }
+
+  // Il faut cumuler plusieurs signaux faibles avant de demander une réécriture.
+  const ok = score >= 5 && !bulkGenericRe.test(clean);
+  return { ok, reasons: ok ? [] : reasons, length: clean.length, sentences: sentences.length, text: clean, score };
 }
 
 const files = fs.readdirSync(OFFERS_DIR).filter((f) => f.endsWith('.md')).sort();
@@ -103,8 +145,6 @@ for (const file of files) {
     text = custom.get(id);
   } else if (genericIds.has(id)) {
     source = 'generic-generated';
-    // Le rendu exact est mécanique et basé sur les champs structurés : on le classe volontairement à reprendre.
-    text = body;
   }
   const audit = auditText(text, accroche, source);
   results.push({ id, nom, statut, source, ...audit });
@@ -125,7 +165,7 @@ const report = {
   aCorriger: failing.length,
   bySource,
   reasonCounts,
-  failing: failing.map(({ id, nom, statut, source, reasons, length, sentences }) => ({ id, nom, statut, source, reasons, length, sentences })),
+  failing: failing.map(({ id, nom, statut, source, reasons, length, sentences, score }) => ({ id, nom, statut, source, reasons, length, sentences, score })),
 };
 
 fs.mkdirSync(path.join(ROOT, '.tmp'), { recursive: true });
