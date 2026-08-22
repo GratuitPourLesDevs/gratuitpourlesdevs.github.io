@@ -5,9 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'src/data/offer-editorial.ts'
-      - 'src/data/project-management-editorials.ts'
-      - 'src/data/storage-media-editorials.ts'
+      - 'src/data/**'
 
 permissions:
   contents: read
