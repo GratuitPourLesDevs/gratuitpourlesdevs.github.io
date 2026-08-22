@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - ajout-gestion-projet-2026-08-22
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -15,7 +18,7 @@ jobs:
       - name: Récupérer la branche source
         uses: actions/checkout@v6
         with:
-          ref: ajout-gestion-projet-2026-08-22
+          ref: ${{ github.head_ref || 'ajout-gestion-projet-2026-08-22' }}
 
       - name: Installer Node.js
         uses: actions/setup-node@v6
@@ -49,6 +52,7 @@ jobs:
         run: npm run build
 
       - name: Enregistrer le lot validé
+        if: github.event_name == 'push'
         run: |
           git config user.name "GratuitPourLesDevs Bot"
           git config user.email "julien.taverne+gratuitpourlesdevs@gmail.com"
