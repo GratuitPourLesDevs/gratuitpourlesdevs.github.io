@@ -1,0 +1,38 @@
+---
+nom: "WebhookRelay"
+accroche: "Service de réception et routage de webhooks vers plusieurs destinations, avec outils de sécurisation et d’intégration."
+type: SaaS
+categorie: tunnels-webrtc-websockets
+formule: "Free Starter : 150 webhooks par mois, 1 entrée et 2 sorties"
+inclus:
+- "150 webhooks par mois"
+- "1 entrée webhook"
+- "Jusqu’à 2 destinations"
+- "Webhooks sécurisés"
+- "Intégration MCP"
+- "Aucune carte bancaire requise"
+conditions:
+- "Création d’un compte WebhookRelay gratuit"
+restrictions:
+- "Aucun tunnel bidirectionnel n’est inclus dans le plan Free Starter actuel"
+- "Les domaines personnalisés, davantage de destinations et les tunnels nécessitent une offre payante"
+- "Le quota de webhooks est limité à 150 par mois"
+alertes: []
+usages: ["Webhook local", "API", "Intégration applicative", "Tests"]
+url: https://webhookrelay.com/
+documentation: https://webhookrelay.com/docs/
+source: https://webhookrelay.com/pricing/
+couleur: "#2563EB"
+initiales: WR
+carteRequise: false
+depassementFacture: false
+permanent: true
+statut: active
+vedette: false
+ordre: 961
+verifieLe: '2026-08-22'
+verificationAutomatiqueLe: '2026-08-22'
+verificationNote: "Le Free Starter actuel comprend 150 webhooks/mois, 1 entrée et 2 sorties mais 0 tunnel bidirectionnel. L’ancienne description d’un tunnel localhost gratuit n’est plus retenue."
+---
+
+WebhookRelay sert à recevoir un webhook puis à le distribuer vers une ou plusieurs destinations, notamment pour les intégrations et environnements de test. Son plan gratuit reste utile pour de petits volumes mais son positionnement a évolué : les tunnels bidirectionnels ne sont plus inclus gratuitement. La fiche reflète donc le service de webhook actuel plutôt que l’ancienne offre de tunnel.
