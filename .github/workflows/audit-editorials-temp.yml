@@ -1,0 +1,32 @@
+name: Audit éditorial global temporaire
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'scripts/audit-offer-editorials.mjs'
+      - 'src/content/offres/**'
+      - 'src/data/*editorial*'
+      - 'src/data/*EDITORIAL*'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer la PR
+        uses: actions/checkout@v6
+      - name: Installer Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Auditer les  sections Pourquoi c’est utile
+        run: node scripts/audit-offer-editorials.mjs
+      - name: Publier le rapport
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-audit
+          path: .tmp/editorial-audit.json
