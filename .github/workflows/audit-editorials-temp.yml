@@ -23,8 +23,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: Auditer les  sections Pourquoi c’est utile
+          cache: npm
+      - name: Installer les dépendances
+        run: npm ci
+      - name: Auditer les sections Pourquoi c’est utile
         run: node scripts/audit-offer-editorials.mjs
+      - name: Construire le site
+        run: npm run build
       - name: Publier le rapport
         uses: actions/upload-artifact@v4
         with:
