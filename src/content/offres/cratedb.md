@@ -21,7 +21,11 @@ restrictions:
 - "Pas de SLA de production sur Free"
 - "Les ressources et fonctions de production avancées nécessitent une offre payante"
 - "Les clusters gratuits inactifs peuvent être suspendus ou supprimés selon la politique d’inactivité"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: critique
+  libelle: Inactivité pouvant mener à la suppression
+  detail: Un cluster gratuit inactif peut être suspendu ou supprimé selon la politique d’inactivité du service.
 usages: ["Base de données relationnelle", "Données", "Développement et test", "Applications cloud"]
 url: https://cratedb.com/
 documentation: https://cratedb.com/docs/

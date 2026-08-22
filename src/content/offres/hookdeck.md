@@ -18,7 +18,15 @@ restrictions:
 - "Au-delà de 10 000 événements, les événements continuent d’être reçus mais le tableau de bord peut être verrouillé jusqu’à la période suivante ou une mise à niveau"
 - "En cas de dépassement excessif, Hookdeck se réserve le droit d’arrêter le traitement"
 - "Les fonctions d’observabilité avancées et SLA sont réservées aux offres supérieures"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: critique
+  libelle: Tableau de bord verrouillable au quota
+  detail: Après 10 000 événements, les événements peuvent continuer à arriver mais le tableau de bord peut être verrouillé jusqu’au prochain cycle ou à une mise à niveau.
+- type: operationnel
+  niveau: important
+  libelle: Traitement susceptible d’être arrêté
+  detail: En cas de dépassement excessif, Hookdeck se réserve le droit d’interrompre le traitement des événements.
 usages: ["Webhook local", "API", "Monitoring", "Tests", "Intégration applicative"]
 url: https://hookdeck.com/
 documentation: https://hookdeck.com/docs

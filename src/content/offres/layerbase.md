@@ -20,7 +20,15 @@ restrictions:
 - "Les bases gratuites peuvent se mettre en veille lorsqu’elles sont inactives"
 - "MySQL n’est plus listé parmi les moteurs gratuits actuels"
 - "Les seuils de trafic relèvent de la politique d’usage équitable et peuvent entraîner une limitation plutôt qu’une facturation"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Mise en veille après inactivité
+  detail: Les bases gratuites peuvent se mettre en veille lorsqu’elles ne reçoivent plus d’activité.
+- type: usage
+  niveau: important
+  libelle: Limitation possible du trafic
+  detail: Les seuils de trafic relèvent d’une politique d’usage équitable et peuvent entraîner une limitation du service.
 usages: ["Base de données", "PostgreSQL", "Mise en cache", "Développement et test"]
 url: https://layerbase.com/
 documentation: https://layerbase.com/docs

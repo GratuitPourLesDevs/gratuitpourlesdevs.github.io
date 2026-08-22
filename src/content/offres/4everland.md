@@ -17,7 +17,11 @@ conditions:
 restrictions:
 - Le quota Arweave gratuit actuel est de 100 Mo au total
 - Les ressources consommées au-delà des quotas gratuits peuvent devenir payantes
-alertes: []
+alertes:
+- type: finance
+  niveau: critique
+  libelle: Dépassement potentiellement facturé
+  detail: Les ressources consommées au-delà des quotas gratuits peuvent devenir payantes selon la tarification 4EVERLAND.
 usages: [Stockage, API, Hébergement]
 url: https://www.4everland.org/
 documentation: https://docs.4everland.org/storage/bucket

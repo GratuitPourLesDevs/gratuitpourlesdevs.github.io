@@ -19,7 +19,11 @@ restrictions:
 - Le stockage au-delà des 10 Go gratuits est facturé
 - L’egress au-delà du volume gratuit peut être facturé selon la destination
 - Certaines transactions API deviennent payantes au-delà de leurs quotas quotidiens
-alertes: []
+alertes:
+- type: finance
+  niveau: critique
+  libelle: Dépassements facturés
+  detail: Le stockage, l’egress et certaines transactions deviennent payants au-delà des allocations gratuites applicables.
 usages: [Stockage, API, Sauvegarde]
 url: https://www.backblaze.com/b2/
 documentation: https://www.backblaze.com/docs/cloud-storage

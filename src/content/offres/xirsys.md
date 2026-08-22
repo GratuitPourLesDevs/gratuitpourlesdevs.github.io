@@ -17,7 +17,15 @@ restrictions:
 - "La bande passante TURN gratuite est plafonnée et le relais s’arrête lorsque l’allocation mensuelle est consommée"
 - "Après la période initiale de 30 jours, l’accès mondial, le routage géographique et les identifiants TURN statiques nécessitent une offre payante"
 - "Le compte gratuit permanent est limité à une région de test"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: critique
+  libelle: TURN s’arrête au quota
+  detail: Lorsque les 500 Mo mensuels de TURN sont consommés, le relais est interrompu jusqu’au renouvellement du quota ou à une mise à niveau.
+- type: fonctionnel
+  niveau: important
+  libelle: Production complète limitée à 30 jours
+  detail: Après 30 jours, le compte Developer gratuit revient à une seule région de test et perd plusieurs fonctions de production.
 usages: ["Traversée de NAT et de pare-feu", "Réseau", "Communications pair à pair", "API"]
 url: https://xirsys.com/
 documentation: https://docs.xirsys.com/

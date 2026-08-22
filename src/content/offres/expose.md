@@ -16,7 +16,15 @@ conditions:
 restrictions:
 - "Le plan Hobby applique une limite de temps aux tunnels sans valeur chiffrée publiée sur la tarification actuelle"
 - "Les URL persistantes, domaines personnalisés et réseau mondial sont réservés aux plans payants"
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Durée de tunnel limitée
+  detail: Les tunnels Hobby ont une durée limitée, mais la durée exacte n’est plus publiée sur la tarification actuelle.
+- type: fonctionnel
+  niveau: important
+  libelle: URL persistantes payantes
+  detail: Les URL persistantes, domaines personnalisés et l’accès au réseau mondial nécessitent une offre payante.
 usages: ["Tunnel sécurisé", "Webhook local", "Développement et test", "Accès distant"]
 url: https://expose.dev/
 documentation: https://expose.dev/docs/introduction

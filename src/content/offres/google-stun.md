@@ -12,7 +12,15 @@ conditions:
 restrictions:
 - "Aucun quota ni SLA public n’est documenté pour cet endpoint"
 - "Un relais TURN peut être nécessaire lorsque la connexion directe n’est pas possible"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Aucun quota ni SLA publié
+  detail: L’endpoint STUN est public et documenté mais Google ne publie ni quota d’usage ni engagement de disponibilité pour ce service.
+- type: fonctionnel
+  niveau: important
+  libelle: TURN peut rester nécessaire
+  detail: STUN ne remplace pas un relais TURN lorsque les contraintes NAT ou pare-feu empêchent une connexion directe.
 usages: ["Traversée de NAT et de pare-feu", "Réseau", "Communications pair à pair"]
 url: https://webrtc.org/getting-started/peer-connections
 documentation: https://webrtc.org/getting-started/peer-connections

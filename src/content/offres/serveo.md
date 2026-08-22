@@ -14,7 +14,11 @@ conditions:
 restrictions:
 - "Aucune grille de quotas ou SLA gratuit exploitable n’est actuellement publiée"
 - "Certaines fonctions ou certains ports publics peuvent dépendre des règles opérationnelles du service"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Quotas et SLA non documentés
+  detail: Serveo ne publie actuellement ni grille de quotas gratuite fiable ni engagement de disponibilité exploitable.
 usages: ["Tunnel sécurisé", "Accès distant", "Webhook local", "Développement et test"]
 url: https://serveo.net/
 source: https://serveo.net/

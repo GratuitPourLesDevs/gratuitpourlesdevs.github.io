@@ -19,7 +19,15 @@ restrictions:
 - "La limite actuelle est de 10 000 lignes, et non 2 000"
 - "Historique de snapshots limité à un mois"
 - "Les quotas API, automatisations et scripts restent limités sur Free"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Snapshots conservés 1 mois
+  detail: L’historique de snapshots du plan Free est limité à un mois.
+- type: usage
+  niveau: important
+  libelle: API limitée à 3 000 appels/mois
+  detail: Le quota API gratuit est plafonné à 3 000 appels par mois.
 usages: ["Base de données", "Collaboration", "Automatisation", "API"]
 url: https://seatable.com/
 documentation: https://seatable.com/help/

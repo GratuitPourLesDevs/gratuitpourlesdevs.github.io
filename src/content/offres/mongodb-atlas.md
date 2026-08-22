@@ -18,7 +18,15 @@ restrictions:
 - "Ressources de calcul partagées"
 - "Capacité et performances limitées par rapport aux clusters dédiés"
 - "Certaines fonctions réseau, sauvegarde et sécurité avancées nécessitent un niveau payant"
-alertes: []
+alertes:
+- type: operationnel
+  niveau: important
+  libelle: Ressources de calcul partagées
+  detail: Le cluster M0 partage RAM et vCPU ; ses performances et sa capacité ne sont pas celles d’un cluster dédié.
+- type: fonctionnel
+  niveau: important
+  libelle: Sauvegardes avancées payantes
+  detail: Plusieurs fonctions de sauvegarde, réseau et sécurité avancées nécessitent un niveau Atlas payant.
 usages: ["MongoDB", "NoSQL", "Base de données", "Applications cloud"]
 url: https://www.mongodb.com/atlas
 documentation: https://www.mongodb.com/docs/atlas/

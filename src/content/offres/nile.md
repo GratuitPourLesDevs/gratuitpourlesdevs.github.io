@@ -21,7 +21,15 @@ restrictions:
 - "Le stockage supplémentaire est payant"
 - "Pas de SLA sur le plan gratuit"
 - "Certaines fonctions annoncées comme backups ou placement global restent réservées ou en cours de déploiement"
-alertes: []
+alertes:
+- type: finance
+  niveau: critique
+  libelle: Dépassement facturé si billing activé
+  detail: Lorsque la facturation est activée, les query tokens et le stockage consommés au-delà des allocations gratuites deviennent payants.
+- type: fonctionnel
+  niveau: important
+  libelle: Pas de SLA
+  detail: Le plan Free ne fournit pas de SLA et certaines fonctions de sauvegarde ou de placement restent réservées.
 usages: ["PostgreSQL", "Architecture multi-tenant", "Serverless", "Recherche vectorielle"]
 url: https://www.thenile.dev/
 documentation: https://www.thenile.dev/docs

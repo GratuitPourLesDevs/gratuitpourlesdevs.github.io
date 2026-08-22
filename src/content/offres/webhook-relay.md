@@ -17,7 +17,15 @@ restrictions:
 - "Aucun tunnel bidirectionnel n’est inclus dans le plan Free Starter actuel"
 - "Les domaines personnalisés, davantage de destinations et les tunnels nécessitent une offre payante"
 - "Le quota de webhooks est limité à 150 par mois"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: critique
+  libelle: Aucun tunnel gratuit
+  detail: Le Free Starter actuel ne comprend plus de tunnel bidirectionnel ; les tunnels nécessitent une offre payante.
+- type: usage
+  niveau: important
+  libelle: 150 webhooks par mois
+  detail: Le plan gratuit est limité à 150 webhooks mensuels, une entrée et deux destinations.
 usages: ["Webhook local", "API", "Intégration applicative", "Tests"]
 url: https://webhookrelay.com/
 documentation: https://webhookrelay.com/docs/

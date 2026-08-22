@@ -17,7 +17,15 @@ conditions:
 restrictions:
 - "Le site officiel ne publie pas de quota général chiffré de machines ou de réseaux exploitable pour tous les usages"
 - "L’accès complet à un bureau distant peut nécessiter le produit Radmin distinct"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Client officiel Windows uniquement
+  detail: Le client Radmin VPN officiellement proposé est destiné à Windows.
+- type: operationnel
+  niveau: important
+  libelle: Aucun plafond général publié
+  detail: Le fournisseur ne publie pas de limite universelle chiffrée de machines ou de réseaux applicable à tous les usages.
 usages: ["VPN applicatif", "Réseau", "Accès distant", "Sécurité", "Jeux en ligne temps réel"]
 url: https://www.radmin-vpn.com/
 documentation: https://www.radmin-vpn.com/help/

@@ -16,7 +16,15 @@ conditions:
 restrictions:
 - "Les domaines personnalisés ou stables sont associés à une offre payante"
 - "Aucun quota chiffré de trafic ou de durée n’est publié pour le niveau gratuit"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Domaine stable payant
+  detail: Les domaines personnalisés ou stables nécessitent une offre payante ; le niveau gratuit utilise les domaines du service.
+- type: operationnel
+  niveau: important
+  libelle: Quotas non publiés
+  detail: Aucun quota chiffré de trafic ou de durée n’est publié pour le niveau gratuit.
 usages: ["Tunnel sécurisé", "Accès distant", "Webhook local", "Développement et test"]
 url: https://localhost.run/
 documentation: https://localhost.run/docs/

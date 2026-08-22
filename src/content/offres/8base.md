@@ -20,7 +20,11 @@ restrictions:
 - "Un seul membre d’équipe sur le plan gratuit"
 - "Les quotas de calcul, de stockage, de bande passante et d’API restent limités"
 - "Les fonctions de cycle de développement avancé et certains contrôles d’entreprise sont réservés aux offres payantes"
-alertes: []
+alertes:
+- type: fonctionnel
+  niveau: important
+  libelle: Un seul membre d’équipe
+  detail: Le plan Free limite l’espace de travail à un seul membre d’équipe, même si l’application peut gérer plusieurs utilisateurs finaux.
 usages: ["Backend d’application", "API", "Serverless", "Base de données"]
 url: https://www.8base.com/
 documentation: https://docs.8base.com/

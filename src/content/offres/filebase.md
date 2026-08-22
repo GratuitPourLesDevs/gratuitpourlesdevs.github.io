@@ -18,7 +18,11 @@ conditions:
 restrictions:
 - Les 5 Go sont partagés entre les usages Object Storage et IPFS
 - Les capacités avancées et volumes supérieurs nécessitent une formule payante
-alertes: []
+alertes:
+- type: usage
+  niveau: important
+  libelle: Stockage mutualisé
+  detail: Les 5 Go gratuits sont partagés entre Object Storage et IPFS ; ils ne constituent pas deux allocations séparées.
 usages: [Stockage, API, CDN]
 url: https://filebase.com/
 documentation: https://docs.filebase.com/

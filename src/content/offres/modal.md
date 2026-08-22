@@ -21,7 +21,15 @@ restrictions:
 - Les ressources consommées au-delà des crédits gratuits sont facturées selon leur usage
 - Rétention des logs limitée à 1 jour sur Starter
 - Certaines fonctions avancées sont réservées aux plans Team ou Enterprise
-alertes: []
+alertes:
+- type: finance
+  niveau: critique
+  libelle: Calcul facturé après les crédits
+  detail: Une fois les 30 $ de crédits mensuels consommés, les ressources supplémentaires sont facturées à l’usage.
+- type: fonctionnel
+  niveau: important
+  libelle: Logs conservés 1 jour
+  detail: Le plan Starter limite la rétention des logs à une journée.
 usages: [IA, Machine learning, Serverless, Déploiement]
 url: https://modal.com/
 documentation: https://modal.com/docs
