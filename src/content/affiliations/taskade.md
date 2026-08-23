@@ -13,10 +13,14 @@ seuilPaiement: 50 $
 devise: USD
 paiement: PayPal
 frequencePaiement: Mensuelle
-offres: [taskade]
+offres:
+  - taskade
+urlAffiliee: https://www.taskade.com/?via=h40bbk
+liensOffres: []
 deepLink: true
-verifieLe: '2026-08-22'
+subId: true
+verifieLe: 2026-08-22
 source: https://www.taskade.com/learn/account/partnerships
-prochaineVerification: '2026-11-22'
+prochaineVerification: 2026-11-22
 priorite: 10
 ---
