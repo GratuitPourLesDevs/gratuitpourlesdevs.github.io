@@ -1,9 +1,8 @@
 ---
 import '../styles/global.css';
 import '../styles/account.css';
-import { execFileSync } from 'node:child_process';
-import { getCollection } from 'astro:content';
 import SiteFooter from '../components/SiteFooter.astro';
+import { getOffersUpdatedMetadata } from '../lib/offers-updated';
 
 interface Props {
   title?: string;
@@ -28,40 +27,7 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
   ? JSON.stringify({ token: cloudflareWebAnalyticsToken })
   : undefined;
 
-let offersUpdatedAt: Date | undefined;
-let offersUpdatedHasExactTime = false;
-try {
-  const gitDate = execFileSync(
-    'git',
-    ['log', '-1', '--format=%cI', '--grep=Vérification automatique des offres'],
-    { encoding: 'utf8' },
-  ).trim();
-  if (gitDate) {
-    offersUpdatedAt = new Date(gitDate);
-    offersUpdatedHasExactTime = true;
-  }
-} catch {
-  // En dehors d'un clone Git complet, les métadonnées des offres servent de repli.
-}
-
-if (!offersUpdatedAt) {
-  const offerEntries = await getCollection('offres');
-  const verificationDates = offerEntries
-    .map(({ data }) => data.verificationAutomatiqueLe?.getTime())
-    .filter((value): value is number => typeof value === 'number' && Number.isFinite(value));
-  if (verificationDates.length) offersUpdatedAt = new Date(Math.max(...verificationDates));
-}
-
-const offersUpdatedIso = offersUpdatedAt?.toISOString() ?? '';
-const offersUpdatedLabel = offersUpdatedAt
-  ? new Intl.DateTimeFormat('fr-FR', {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
-      ...(offersUpdatedHasExactTime ? { hour: '2-digit', minute: '2-digit' } : {}),
-      timeZone: 'Europe/Paris',
-    }).format(offersUpdatedAt)
-  : '';
+const offersUpdated = await getOffersUpdatedMetadata();
 ---
 
 <!doctype html>
@@ -108,8 +74,8 @@ const offersUpdatedLabel = offersUpdatedAt
   <body
     data-comparisons-api="https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev"
     data-comparisons-api-local="http://127.0.0.1:8787"
-    data-offers-updated-label={offersUpdatedLabel}
-    data-offers-updated-iso={offersUpdatedIso}
+    data-offers-updated-label={offersUpdated.label}
+    data-offers-updated-iso={offersUpdated.iso}
   >
     <slot />
     <SiteFooter />

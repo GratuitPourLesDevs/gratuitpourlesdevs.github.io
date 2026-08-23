@@ -8,6 +8,7 @@ import { getBillingRisk } from '../data/billing-risk';
 import { getFreeTierScore } from '../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../data/offer-alerts';
 import { assertOfferQuotaCoverage, formatQuotaAmount, formatQuotaMetric, formatQuotaOverage, formatQuotaPeriod, formatQuotaReset, formatQuotaScope, getComparableQuotaValue, getOfferQuotas, getQuotaComparisonKey } from '../data/offer-quotas';
+import { getOffersUpdatedMetadata } from '../lib/offers-updated';
 
 const offerChangeDates = new Map<string, number>();
 try {
@@ -44,8 +45,7 @@ const usageTags = [...new Map(entries
 const activeOffers = entries.filter(({ data }) => data.statut === 'active').length;
 const coveredCategories = new Set(entries.map(({ data }) => data.categorie)).size;
 const withoutCard = entries.filter(({ data }) => !data.carteRequise).length;
-const latestVerification = new Date(Math.max(...entries.map(({ data }) => data.verifieLe.getTime())));
-const latestVerificationLabel = latestVerification.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' }).replace('.', '');
+const offersUpdated = await getOffersUpdatedMetadata();
 const getOfferChangeDate = (entry: typeof entries[number]) => offerChangeDates.get(`src/content/offres/${entry.id}.md`) ?? entry.data.verifieLe.getTime();
 const scoreById = new Map(entries.map((entry) => [entry.id, getFreeTierScore(entry.id, entry.data)]));
 assertOfferQuotaCoverage(entries.map((entry) => entry.id));
@@ -102,7 +102,10 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
         <div><strong>{activeOffers}</strong><span>offres actives</span></div>
         <div><strong>{coveredCategories}</strong><span>catégories couvertes</span></div>
         <div><strong>{withoutCard}</strong><span>sans carte bancaire</span></div>
-        <div><strong>{latestVerificationLabel}</strong><span>dernière vérification</span></div>
+        <div>
+          <strong>{offersUpdated.shortDateLabel}</strong>
+          <span>{offersUpdated.timeLabel ? `mise à jour des offres · ${offersUpdated.timeLabel}` : 'mise à jour des offres'}</span>
+        </div>
       </aside>
     </section>
 
