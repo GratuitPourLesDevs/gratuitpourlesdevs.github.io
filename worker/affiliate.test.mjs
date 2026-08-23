@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { handleAffiliateRequest } from './affiliate.js';
+
+test('ignore les routes sans rapport avec affiliation', async () => { const response = await handleAffiliateRequest(new Request('https://worker.test/health'), {}); assert.equal(response, null); });
+test('répond aux pré-requêtes CORS du module affiliation', async () => { const request = new Request('https://worker.test/api/affiliate/event',{method:'OPTIONS',headers:{Origin:'https://gratuitpourlesdevs.fr'}}); const response=await handleAffiliateRequest(request,{ALLOWED_ORIGIN:'https://gratuitpourlesdevs.fr'}); assert.equal(response.status,204); assert.equal(response.headers.get('Access-Control-Allow-Origin'),'https://gratuitpourlesdevs.fr'); });
+test('refuse une origine non autorisée', async () => { const request=new Request('https://worker.test/api/affiliate/event',{method:'POST',headers:{Origin:'https://evil.example','Content-Type':'application/json'},body:JSON.stringify({eventType:'click'})}); const response=await handleAffiliateRequest(request,{ALLOWED_ORIGIN:'https://gratuitpourlesdevs.fr',ANALYTICS_SECRET:'secret',COMPARISONS_DB:{}}); assert.equal(response.status,403); });
+test('signale une configuration de tracking absente', async () => { const request=new Request('https://worker.test/api/affiliate/event',{method:'POST',headers:{Origin:'https://gratuitpourlesdevs.fr','Content-Type':'application/json'},body:JSON.stringify({eventType:'click',program:'proton',campaign:'proton-confidentialite',offer:'proton-drive',placement:'fiche',pagePath:'/offres/proton-drive/'})}); const response=await handleAffiliateRequest(request,{ALLOWED_ORIGIN:'https://gratuitpourlesdevs.fr'}); assert.equal(response.status,503); });

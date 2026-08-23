@@ -108,3 +108,104 @@ collections:
     summary: "{{nom}} · {{verificationNote}}"
     sortable_fields: [nom, type, verificationAutomatiqueLe, verifieLe]
     fields: *offer_fields
+
+  - name: affiliations
+    label: "💰 Affiliation"
+    label_singular: Programme d'affiliation
+    folder: src/content/affiliations
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    identifier_field: nom
+    summary: "{{nom}} · {{statut}} · {{commission}}"
+    sortable_fields: [nom, statut, priorite, verifieLe]
+    fields:
+      - { label: Nom du programme, name: nom, widget: string }
+      - { label: Fournisseur, name: fournisseur, widget: string }
+      - { label: Type de programme, name: typeProgramme, widget: select, options: [{label: Affiliation, value: affiliation}, {label: Referral, value: referral}, {label: Partenaire B2B, value: partenaire}] }
+      - { label: Réseau / plateforme, name: reseau, widget: string, hint: "Direct, AWIN, CJ, Dub, PartnerStack, Trackdesk..." }
+      - { label: URL d'inscription, name: urlInscription, widget: string }
+      - { label: URL du dashboard affilié, name: urlDashboard, widget: string, required: false }
+      - { label: URL des conditions, name: urlConditions, widget: string, required: false }
+      - label: Statut
+        name: statut
+        widget: select
+        default: opportunite
+        options:
+          - { label: Opportunité, value: opportunite }
+          - { label: Candidature à faire, value: candidature_a_faire }
+          - { label: Candidature envoyée, value: candidature_envoyee }
+          - { label: En attente, value: en_attente }
+          - { label: Actif, value: active }
+          - { label: En pause, value: pause }
+          - { label: Refusé, value: refusee }
+          - { label: À revalider, value: a_revalider }
+          - { label: Terminé, value: terminee }
+      - { label: Modèle de rémunération, name: remunerationMode, widget: select, options: [CPA, CPL, pourcentage, recurrent, hybride, credits] }
+      - { label: Commission, name: commission, widget: string }
+      - { label: Durée de commission, name: dureeCommission, widget: string, required: false }
+      - { label: Cookie (jours), name: cookieJours, widget: number, value_type: int, min: 0, required: false }
+      - { label: Seuil de paiement, name: seuilPaiement, widget: string, required: false }
+      - { label: Devise, name: devise, widget: string, default: EUR }
+      - { label: Paiement, name: paiement, widget: string, required: false }
+      - { label: Fréquence de paiement, name: frequencePaiement, widget: string, required: false }
+      - label: Offres GPLD liées
+        name: offres
+        widget: list
+        field: { label: Offre, name: offre, widget: relation, collection: offres, search_fields: [nom, accroche], display_fields: [nom], value_field: "{{slug}}" }
+      - { label: URL affiliée générique, name: urlAffiliee, widget: string, required: false, hint: "Ne renseigner qu'après acceptation. Tant que ce champ et les liens par offre sont vides, rien n'est publié." }
+      - label: Liens affiliés par offre
+        name: liensOffres
+        widget: list
+        required: false
+        fields:
+          - { label: Offre, name: offre, widget: relation, collection: offres, search_fields: [nom, accroche], display_fields: [nom], value_field: "{{slug}}" }
+          - { label: URL affiliée, name: url, widget: string }
+      - { label: Deep links autorisés, name: deepLink, widget: boolean, default: false }
+      - { label: SubID / tracking secondaire, name: subId, widget: boolean, default: false }
+      - { label: Code promo, name: codePromo, widget: string, required: false }
+      - { label: Avantage utilisateur, name: avantageUtilisateur, widget: text, required: false }
+      - { label: Vérifié le, name: verifieLe, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Source officielle, name: source, widget: string }
+      - { label: Prochaine vérification, name: prochaineVerification, widget: datetime, required: false, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Note interne, name: noteInterne, widget: text, required: false }
+      - { label: Priorité commerciale, name: priorite, widget: number, value_type: int, default: 100, hint: "Plus la valeur est faible, plus le programme est prioritaire. Ce score ne modifie jamais le classement éditorial." }
+
+  - name: campagnes
+    label: "📣 Campagnes"
+    label_singular: Campagne d'affiliation
+    folder: src/content/campagnes
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    identifier_field: nom
+    summary: "{{nom}} · {{statut}} · priorité {{priorite}}"
+    sortable_fields: [nom, statut, priorite, dateDebut, dateFin]
+    fields:
+      - { label: Nom interne, name: nom, widget: string }
+      - { label: Programme, name: programme, widget: relation, collection: affiliations, search_fields: [nom, fournisseur], display_fields: [nom, statut], value_field: "{{slug}}" }
+      - label: Offres GPLD
+        name: offres
+        widget: list
+        field: { label: Offre, name: offre, widget: relation, collection: offres, search_fields: [nom, accroche], display_fields: [nom], value_field: "{{slug}}" }
+      - { label: Titre public, name: titrePublic, widget: string }
+      - { label: Texte public, name: textePublic, widget: text }
+      - { label: CTA, name: cta, widget: string }
+      - { label: Badge, name: badge, widget: string, default: "Sélection partenaire" }
+      - { label: Statut, name: statut, widget: select, default: brouillon, options: [{label: Brouillon, value: brouillon}, {label: Active, value: active}, {label: Pause, value: pause}, {label: Terminée, value: terminee}] }
+      - { label: Début, name: dateDebut, widget: datetime, required: false, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Fin, name: dateFin, widget: datetime, required: false, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Priorité d'affichage, name: priorite, widget: number, value_type: int, default: 100 }
+      - { label: Placements, name: placements, widget: select, multiple: true, options: [{label: Accueil, value: accueil}, {label: Catalogue / catégorie, value: catalogue}, {label: Fiche offre, value: fiche}, {label: Guide, value: guide}, {label: Comparatif, value: comparatif}] }
+      - label: Catégories ciblées
+        name: categories
+        widget: list
+        required: false
+        field: { label: Catégorie, name: categorie, widget: relation, collection: categories, search_fields: [nom, nomSource], display_fields: [nom], value_field: "{{slug}}" }
+      - { label: URL de campagne spécifique, name: urlDestination, widget: string, required: false, hint: "Surcharge facultative de l'URL affiliée du programme." }
+      - { label: Avantage utilisateur, name: avantageUtilisateur, widget: text, required: false }
+      - { label: Mention transparence, name: disclosure, widget: string, default: "Lien affilié · aucun surcoût · soutient GratuitPourLesDevs" }

@@ -46,8 +46,10 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/pagination-enhancement.css" />
+    <link rel="stylesheet" href="/affiliate.css" />
     <script src="/pagination-enhancement.js" defer></script>
     <script src="/catalogue-editorial-enhancement.js" defer></script>
+    <script src="/affiliate-enhancement.js" defer></script>
     <script src="/account-client.js?v=20260822-reversible-stack-action" defer></script>
     <script src="/account-delete.js?v=20260822-confirm-account-deletion" defer></script>
     <meta property="og:title" content={title} />
@@ -86,12 +88,18 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
           link.innerHTML = '<span data-account-label>Compte</span>';
           actions.append(link);
         }
+        const footerLinks = [
+          ['/confidentialite/', 'Confidentialité'],
+          ['/partenariats/', 'Partenariats & affiliation'],
+        ];
         document.querySelectorAll('footer nav').forEach((footerNav) => {
-          if (footerNav.querySelector('a[href="/confidentialite/"]')) return;
-          const link = document.createElement('a');
-          link.href = '/confidentialite/';
-          link.textContent = 'Confidentialité';
-          footerNav.append(link);
+          for (const [href, label] of footerLinks) {
+            if (footerNav.querySelector(`a[href="${href}"]`)) continue;
+            const link = document.createElement('a');
+            link.href = href;
+            link.textContent = label;
+            footerNav.append(link);
+          }
         });
       })();
     </script>

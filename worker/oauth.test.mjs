@@ -38,6 +38,12 @@ test('auth rejects unknown sites', async () => {
   assert.equal(response.status, 403);
 });
 
+test('auth rejects unknown popup origins', async () => {
+  const response = await handleRequest(new Request('https://oauth.example/auth?provider=github&site_id=gratuitpourlesdevs.fr&origin=https%3A%2F%2Fevil.example'), env);
+  assert.equal(response.status, 403);
+  assert.deepEqual(await response.json(), { error: 'Unauthorized origin' });
+});
+
 test('auth uses state, PKCE and the reduced public_repo scope', async () => {
   const response = await handleRequest(new Request('https://oauth.example/auth?provider=github&site_id=gratuitpourlesdevs.fr&scope=repo'), env);
   assert.equal(response.status, 302);
@@ -71,6 +77,23 @@ test('callback returns the exact Decap handshake for an allowed user', async () 
   assert.match(response.headers.get('set-cookie'), /Max-Age=0/);
   assert.equal(calls.length, 2);
   assert.match(calls[0].options.body, /code_verifier/);
+});
+
+test('callback sends the OAuth result back to an allowed localhost opener', async () => {
+  const localOrigin = 'http://127.0.0.1:4336';
+  const start = await handleRequest(new Request(`https://oauth.example/auth?provider=github&site_id=gratuitpourlesdevs.fr&origin=${encodeURIComponent(localOrigin)}`), env);
+  const redirect = new URL(start.headers.get('location'));
+  const cookie = start.headers.get('set-cookie').split(';')[0];
+  const fetchMock = async (url) => url.includes('/access_token')
+    ? Response.json({ access_token: 'local-secret-token' })
+    : Response.json({ login: 'GratuitPourLesDevs' });
+  const callback = new Request(`https://oauth.example/callback?code=temporary-code&state=${redirect.searchParams.get('state')}`, { headers: { Cookie: cookie } });
+  const response = await handleRequest(callback, env, fetchMock);
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(html, /http:\/\/127\.0\.0\.1:4336/);
+  assert.match(html, /authorization:github:success:/);
+  assert.match(html, /local-secret-token/);
 });
 
 test('Cloudflare execution context is not used as the outbound fetch function', async () => {
