@@ -4,7 +4,7 @@ fournisseur: UptimeRobot
 typeProgramme: affiliation
 reseau: Direct
 urlInscription: https://uptimerobot.com/affiliate/
-statut: candidature_a_faire
+statut: active
 remunerationMode: recurrent
 commission: 20 % récurrent à vie
 dureeCommission: À vie
