@@ -92,6 +92,12 @@ function allowedApiOrigin(request, env) {
   return false;
 }
 
+function allowedPopupOrigin(origin, env) {
+  if (!origin) return env.ALLOWED_ORIGIN;
+  if (origin === env.ALLOWED_ORIGIN || /^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/.test(origin)) return origin;
+  return null;
+}
+
 function apiHeaders(request, env) {
   const origin = allowedApiOrigin(request, env);
   return origin ? {
@@ -259,11 +265,13 @@ async function startAuth(request, env) {
   const url = new URL(request.url);
   if (url.searchParams.get('provider') !== 'github') return json({ error: 'Unsupported provider' }, 400);
   if (url.searchParams.get('site_id') !== env.ALLOWED_SITE_ID) return json({ error: 'Unauthorized site' }, 403);
+  const popupOrigin = allowedPopupOrigin(url.searchParams.get('origin'), env);
+  if (!popupOrigin) return json({ error: 'Unauthorized origin' }, 403);
 
   const state = randomString();
   const verifier = randomString(48);
   const callback = `${url.origin}/callback`;
-  const session = await createSession({ state, verifier, createdAt: Date.now() }, env.STATE_SECRET);
+  const session = await createSession({ state, verifier, popupOrigin, createdAt: Date.now() }, env.STATE_SECRET);
   const destination = new URL(GITHUB_AUTHORIZE_URL);
   destination.searchParams.set('client_id', env.GITHUB_CLIENT_ID);
   destination.searchParams.set('redirect_uri', callback);
@@ -287,9 +295,11 @@ async function finishAuth(request, env, fetchImpl) {
   const url = new URL(request.url);
   const session = await readSession(getCookie(request, COOKIE_NAME), env.STATE_SECRET);
   if (!session || Date.now() - session.createdAt > MAX_AGE_SECONDS * 1000) return errorPage(env.ALLOWED_ORIGIN, 'Session OAuth expirée. Réessayez.', 401);
-  if (!url.searchParams.get('state') || url.searchParams.get('state') !== session.state) return errorPage(env.ALLOWED_ORIGIN, 'État OAuth invalide.', 401);
+  const popupOrigin = allowedPopupOrigin(session.popupOrigin, env);
+  if (!popupOrigin) return errorPage(env.ALLOWED_ORIGIN, 'Origine OAuth invalide.', 401);
+  if (!url.searchParams.get('state') || url.searchParams.get('state') !== session.state) return errorPage(popupOrigin, 'État OAuth invalide.', 401);
   const code = url.searchParams.get('code');
-  if (!code) return errorPage(env.ALLOWED_ORIGIN, url.searchParams.get('error_description') ?? 'Autorisation GitHub refusée.');
+  if (!code) return errorPage(popupOrigin, url.searchParams.get('error_description') ?? 'Autorisation GitHub refusée.');
 
   const tokenResponse = await fetchImpl(GITHUB_TOKEN_URL, {
     method: 'POST',
@@ -297,16 +307,16 @@ async function finishAuth(request, env, fetchImpl) {
     body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code, redirect_uri: `${url.origin}/callback`, code_verifier: session.verifier }),
   });
   const tokenData = await tokenResponse.json();
-  if (!tokenResponse.ok || !tokenData.access_token) return errorPage(env.ALLOWED_ORIGIN, 'GitHub n’a pas délivré de jeton.', 502);
+  if (!tokenResponse.ok || !tokenData.access_token) return errorPage(popupOrigin, 'GitHub n’a pas délivré de jeton.', 502);
 
   const userResponse = await fetchImpl(GITHUB_USER_URL, {
     headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${tokenData.access_token}`, 'User-Agent': 'GratuitPourLesDevs-Decap-OAuth', 'X-GitHub-Api-Version': '2022-11-28' },
   });
   const user = await userResponse.json();
   const allowed = env.ALLOWED_GITHUB_LOGINS.split(',').map((login) => login.trim().toLowerCase()).filter(Boolean);
-  if (!userResponse.ok || !allowed.includes(String(user.login ?? '').toLowerCase())) return errorPage(env.ALLOWED_ORIGIN, 'Ce compte GitHub n’est pas autorisé.', 403);
+  if (!userResponse.ok || !allowed.includes(String(user.login ?? '').toLowerCase())) return errorPage(popupOrigin, 'Ce compte GitHub n’est pas autorisé.', 403);
 
-  return popupPage({ origin: env.ALLOWED_ORIGIN, status: 'success', payload: { token: tokenData.access_token, provider: 'github' } });
+  return popupPage({ origin: popupOrigin, status: 'success', payload: { token: tokenData.access_token, provider: 'github' } });
 }
 
 export async function handleRequest(request, env, fetchImpl = fetch) {
