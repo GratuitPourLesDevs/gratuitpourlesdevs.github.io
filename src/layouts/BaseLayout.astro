@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 import '../styles/account.css';
+import { execFileSync } from 'node:child_process';
+import { getCollection } from 'astro:content';
+import SiteFooter from '../components/SiteFooter.astro';
 
 interface Props {
   title?: string;
@@ -24,6 +27,41 @@ const cloudflareWebAnalyticsToken = import.meta.env.CLOUDFLARE_WEB_ANALYTICS_TOK
 const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
   ? JSON.stringify({ token: cloudflareWebAnalyticsToken })
   : undefined;
+
+let offersUpdatedAt: Date | undefined;
+let offersUpdatedHasExactTime = false;
+try {
+  const gitDate = execFileSync(
+    'git',
+    ['log', '-1', '--format=%cI', '--grep=Vérification automatique des offres'],
+    { encoding: 'utf8' },
+  ).trim();
+  if (gitDate) {
+    offersUpdatedAt = new Date(gitDate);
+    offersUpdatedHasExactTime = true;
+  }
+} catch {
+  // En dehors d'un clone Git complet, les métadonnées des offres servent de repli.
+}
+
+if (!offersUpdatedAt) {
+  const offerEntries = await getCollection('offres');
+  const verificationDates = offerEntries
+    .map(({ data }) => data.verificationAutomatiqueLe?.getTime())
+    .filter((value): value is number => typeof value === 'number' && Number.isFinite(value));
+  if (verificationDates.length) offersUpdatedAt = new Date(Math.max(...verificationDates));
+}
+
+const offersUpdatedIso = offersUpdatedAt?.toISOString() ?? '';
+const offersUpdatedLabel = offersUpdatedAt
+  ? new Intl.DateTimeFormat('fr-FR', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+      ...(offersUpdatedHasExactTime ? { hour: '2-digit', minute: '2-digit' } : {}),
+      timeZone: 'Europe/Paris',
+    }).format(offersUpdatedAt)
+  : '';
 ---
 
 <!doctype html>
@@ -64,10 +102,17 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
     <title>{title}</title>
     <style is:global>
       @media(max-width:760px){.site-header nav a.guides-nav-link{display:grid!important}}
+      body > footer:not(:last-of-type){display:none!important}
     </style>
   </head>
-  <body data-comparisons-api="https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev" data-comparisons-api-local="http://127.0.0.1:8787">
+  <body
+    data-comparisons-api="https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev"
+    data-comparisons-api-local="http://127.0.0.1:8787"
+    data-offers-updated-label={offersUpdatedLabel}
+    data-offers-updated-iso={offersUpdatedIso}
+  >
     <slot />
+    <SiteFooter />
     <script is:inline>
       (() => {
         const nav = document.querySelector('.site-header nav');
@@ -88,19 +133,25 @@ const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
           link.innerHTML = '<span data-account-label>Compte</span>';
           actions.append(link);
         }
-        const footerLinks = [
-          ['/confidentialite/', 'Confidentialité'],
-          ['/partenariats/', 'Partenariats & affiliation'],
-        ];
-        document.querySelectorAll('footer nav').forEach((footerNav) => {
-          for (const [href, label] of footerLinks) {
-            if (footerNav.querySelector(`a[href="${href}"]`)) continue;
-            const link = document.createElement('a');
-            link.href = href;
-            link.textContent = label;
-            footerNav.append(link);
-          }
-        });
+
+        const canonicalFooter = document.querySelector('body > footer.site-footer:last-of-type');
+        const footerUpdated = canonicalFooter?.querySelector('.footer-updated');
+        const offersUpdatedLabel = document.body.dataset.offersUpdatedLabel;
+        const offersUpdatedIso = document.body.dataset.offersUpdatedIso;
+        if (footerUpdated && offersUpdatedLabel && offersUpdatedIso) {
+          const time = document.createElement('time');
+          time.dateTime = offersUpdatedIso;
+          time.textContent = offersUpdatedLabel;
+          footerUpdated.replaceChildren(document.createTextNode('Dernière mise à jour des offres : '), time);
+        }
+
+        const footerLegal = canonicalFooter?.querySelector('.footer-legal');
+        if (footerLegal && !footerLegal.querySelector('a[href="/partenariats/"]')) {
+          const link = document.createElement('a');
+          link.href = '/partenariats/';
+          link.textContent = 'Partenariats & affiliation';
+          footerLegal.append(link);
+        }
       })();
     </script>
     <script is:inline>
