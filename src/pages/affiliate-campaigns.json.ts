@@ -1,12 +1,15 @@
 import { getCollection } from 'astro:content';
+import { getFreeTierScore } from '../data/free-tier-score';
 
 export const prerender = true;
 
 const today = new Date();
 const offers = await getCollection('offres');
+const categories = await getCollection('categories');
 const programs = await getCollection('affiliations');
 const campaigns = await getCollection('campagnes');
 const offersById = new Map(offers.map((offer) => [offer.id, offer]));
+const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
 const programsById = new Map(programs.map((program) => [program.id, program]));
 
 type AffiliateProgram = (typeof programs)[number];
@@ -41,7 +44,11 @@ const payload = campaigns
         tagline: offer.data.accroche,
         initials: offer.data.initiales,
         color: offer.data.couleur,
-        category: offer.data.categorie,
+        category: categoryNames.get(offer.data.categorie) ?? offer.data.categorie,
+        score: getFreeTierScore(offer.id, offer.data).total,
+        formula: offer.data.formule,
+        usages: offer.data.usages,
+        officialUrl: offer.data.url,
         href: `/go/${campaign.id}/${offer.id}/`,
       }];
     });

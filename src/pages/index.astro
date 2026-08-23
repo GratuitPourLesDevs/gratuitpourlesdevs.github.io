@@ -167,6 +167,8 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
         </section>
       </section>
 
+      <div class="catalogue-results-layout">
+        <div class="catalogue-results-main">
       <div class="catalogue-heading">
         <h2><span id="result-count">{offers.length}</span> offres vérifiées</h2>
         <button class="favorites-filter-indicator" id="favorites-filter-indicator" type="button" aria-label="Désactiver le filtre favoris" hidden>
@@ -229,6 +231,9 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
           <button id="next-page" type="button" aria-label="Page suivante"><span>Suivant</span> →</button>
         </div>
       </nav>
+        </div>
+        <aside class="catalogue-partner-slot" id="catalogue-partner-slot" aria-label="Sélection partenaire" hidden></aside>
+      </div>
     </section>
   </main>
 
