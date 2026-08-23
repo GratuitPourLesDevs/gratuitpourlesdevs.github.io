@@ -1,5 +1,525 @@
-<footer>
-  <div class="verified-mark"><span><strong>Un catalogue documenté</strong><small>Chaque quota renvoie vers sa source officielle.</small></span></div>
-  <nav aria-label="Navigation secondaire"><a href="/docs/">Documentation</a><a href="/archives/">Archives</a><a href="/methodologie/">Méthodologie</a><a href="/evolutions/">Évolutions</a><a href="/contact/?objet=erreur">Signaler une erreur</a><a href="/a-propos/">À propos</a><a href="/contact/">Contact</a></nav>
-  <span class="terminal-mark" aria-hidden="true">›_</span>
+---
+import { execFileSync } from 'node:child_process';
+
+let lastUpdatedAt = new Date();
+try {
+  const gitDate = execFileSync('git', ['log', '-1', '--format=%cI'], { encoding: 'utf8' }).trim();
+  if (gitDate) lastUpdatedAt = new Date(gitDate);
+} catch {
+  // En dehors d'un clone Git, la date de build sert de repli.
+}
+
+const lastUpdatedLabel = new Intl.DateTimeFormat('fr-FR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  timeZone: 'Europe/Paris',
+}).format(lastUpdatedAt);
+const lastUpdatedIso = lastUpdatedAt.toISOString();
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <section class="footer-cta" aria-labelledby="footer-cta-title">
+    <div class="footer-cta-inner">
+      <div>
+        <small>VEILLE GRATUITE</small>
+        <h2 id="footer-cta-title">Gardez vos free tiers à l'œil.</h2>
+        <p>Favoris synchronisés, suivi des changements et digest hebdomadaire.</p>
+      </div>
+      <a class="footer-cta-button" href="/compte/">Créer mon compte gratuit <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <div class="footer-main">
+    <section class="footer-brand" aria-label="GratuitPourLesDevs">
+      <a class="footer-brand-link" href="/" aria-label="Gratuit pour les devs, accueil">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
+        <span>Gratuit<span>PourLesDevs</span></span>
+      </a>
+      <p class="footer-tagline">Les bons outils pour développer.<br /><strong>Avant la facture.</strong></p>
+      <p class="footer-description">Services cloud, API et outils pour développeurs réellement utilisables gratuitement — quotas, restrictions et conditions vérifiés.</p>
+      <ul class="footer-trust" aria-label="Engagements éditoriaux">
+        <li><span aria-hidden="true">✓</span> Sources officielles</li>
+        <li><span aria-hidden="true">✓</span> Offres revérifiées</li>
+      </ul>
+    </section>
+
+    <section class="footer-column">
+      <h2>Découvrir</h2>
+      <nav aria-label="Découvrir GratuitPourLesDevs">
+        <a href="/">Catalogue</a>
+        <a href="/explorer/">Explorateur</a>
+        <a href="/comparaisons/">Comparaisons</a>
+        <a href="/guides/">Guides</a>
+        <a href="/archives/">Archives</a>
+      </nav>
+    </section>
+
+    <section class="footer-column">
+      <h2>Ressources</h2>
+      <nav aria-label="Ressources GratuitPourLesDevs">
+        <a href="/docs/">Documentation</a>
+        <a href="/methodologie/">Méthodologie</a>
+        <a href="/evolutions/">Évolutions</a>
+        <a href="/a-propos/">À propos</a>
+      </nav>
+    </section>
+
+    <section class="footer-column">
+      <h2>Participer</h2>
+      <nav aria-label="Participer à GratuitPourLesDevs">
+        <a class="footer-featured-link" href="/contact/?objet=suggestion">Suggérer un outil <span aria-hidden="true">+</span></a>
+        <a href="/contact/?objet=erreur">Signaler une erreur</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://github.com/GratuitPourLesDevs/gratuitpourlesdevs.github.io" target="_blank" rel="noopener noreferrer">GitHub <span class="external-mark" aria-hidden="true">↗</span></a>
+      </nav>
+    </section>
+
+    <section class="footer-column">
+      <h2>Mon espace</h2>
+      <nav aria-label="Mon espace GratuitPourLesDevs">
+        <a href="/compte/">Mon compte gratuit</a>
+        <a href="/compte/#account-dashboard">Favoris &amp; veille</a>
+        <a href="/compte/#pro">GPLD Pro</a>
+      </nav>
+    </section>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="footer-copyright">
+        <span>© {currentYear} GratuitPourLesDevs</span>
+        <small>Un projet indépendant pour les développeurs.</small>
+      </div>
+      <nav class="footer-legal" aria-label="Informations du site">
+        <a href="/confidentialite/">Confidentialité</a>
+        <a href="/a-propos/">À propos</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="footer-meta">
+        <span class="footer-updated">Dernière mise à jour générale : <time datetime={lastUpdatedIso}>{lastUpdatedLabel}</time></span>
+        <span class="footer-terminal" aria-hidden="true">gpld ›_</span>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<style>
+  .site-footer {
+    min-height: 0;
+    display: block;
+    padding: 0;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--surface);
+  }
+
+  .footer-cta {
+    border-bottom: 1px solid var(--line);
+    background: var(--soft);
+  }
+
+  .footer-cta-inner,
+  .footer-main,
+  .footer-bottom-inner {
+    width: min(1400px, calc(100% - 8.4vw));
+    margin: 0 auto;
+  }
+
+  .footer-cta-inner {
+    min-height: 148px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 28px 0;
+  }
+
+  .footer-cta small,
+  .footer-column h2 {
+    color: var(--blue);
+    font: 600 10px var(--mono);
+    letter-spacing: .8px;
+    text-transform: uppercase;
+  }
+
+  .footer-cta h2 {
+    margin: 6px 0 4px;
+    font-size: clamp(23px, 2vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+
+  .footer-cta p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .footer-cta-button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    padding: 0 20px;
+    border: 1.5px solid var(--blue);
+    border-radius: 7px;
+    color: #fff;
+    background: var(--blue);
+    font-size: 12px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+
+  .footer-cta-button span {
+    font-size: 17px;
+    transition: transform .15s ease;
+  }
+
+  .footer-cta-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgb(11 69 255 / 15%);
+  }
+
+  .footer-cta-button:hover span {
+    transform: translateX(3px);
+  }
+
+  .footer-main {
+    display: grid;
+    grid-template-columns: minmax(270px, 1.55fr) repeat(4, minmax(120px, .72fr));
+    gap: clamp(30px, 4vw, 62px);
+    padding: 58px 0 50px;
+  }
+
+  .footer-brand {
+    max-width: 390px;
+  }
+
+  .footer-brand-link {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -.9px;
+    text-decoration: none;
+  }
+
+  .footer-brand-link > span > span {
+    color: var(--blue);
+  }
+
+  .footer-brand-link svg {
+    width: 32px;
+    fill: none;
+    stroke: var(--blue);
+    stroke-width: 2.2;
+    stroke-linejoin: round;
+  }
+
+  .footer-tagline {
+    margin: 23px 0 12px;
+    font-size: 17px;
+    line-height: 1.45;
+    letter-spacing: -.35px;
+  }
+
+  .footer-tagline strong {
+    color: var(--blue);
+  }
+
+  .footer-description {
+    max-width: 365px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .footer-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 19px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-trust li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .footer-trust li span {
+    width: 17px;
+    height: 17px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgb(22 132 91 / 35%);
+    border-radius: 50%;
+    color: var(--green);
+    background: rgb(22 132 91 / 8%);
+    font-size: 9px;
+  }
+
+  .footer-column h2 {
+    margin: 4px 0 20px;
+    font-size: 9px;
+  }
+
+  .footer-column nav {
+    display: grid;
+    gap: 13px;
+  }
+
+  .footer-column a,
+  .footer-legal a {
+    width: fit-content;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .15s ease, transform .15s ease;
+  }
+
+  .footer-column a:hover,
+  .footer-legal a:hover {
+    color: var(--blue);
+  }
+
+  .footer-column a:hover {
+    transform: translateX(2px);
+  }
+
+  .footer-column .footer-featured-link {
+    color: var(--blue);
+    font-weight: 750;
+  }
+
+  .footer-featured-link span {
+    margin-left: 4px;
+    font: 700 14px var(--mono);
+  }
+
+  .external-mark {
+    margin-left: 3px;
+    font-size: 10px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--line);
+    background: var(--canvas);
+  }
+
+  .footer-bottom-inner {
+    min-height: 88px;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto minmax(370px, 1fr);
+    align-items: center;
+    gap: 32px;
+    padding: 18px 0;
+  }
+
+  .footer-copyright {
+    display: grid;
+    gap: 4px;
+  }
+
+  .footer-copyright span {
+    font-size: 11px;
+    font-weight: 750;
+  }
+
+  .footer-copyright small,
+  .footer-updated {
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .footer-legal a {
+    font-size: 9px;
+  }
+
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  .footer-updated {
+    text-align: right;
+  }
+
+  .footer-updated time {
+    color: var(--ink);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .footer-terminal {
+    flex: 0 0 auto;
+    padding: 8px 11px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--blue);
+    background: var(--surface);
+    font: 500 13px var(--mono);
+    white-space: nowrap;
+  }
+
+  .footer-terminal::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: .9em;
+    margin-left: 1px;
+    background: currentColor;
+    vertical-align: -.08em;
+    animation: footer-cursor 1.15s steps(1) infinite;
+  }
+
+  .footer-cta-button:focus-visible,
+  .footer-brand-link:focus-visible,
+  .footer-column a:focus-visible,
+  .footer-legal a:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 4px;
+    border-radius: 3px;
+  }
+
+  [data-theme="dark"] .footer-trust li span {
+    border-color: rgb(89 212 166 / 34%);
+    background: rgb(89 212 166 / 10%);
+  }
+
+  @keyframes footer-cursor {
+    0%, 48% { opacity: 1; }
+    49%, 100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer-terminal::after { animation: none; }
+    .footer-cta-button,
+    .footer-cta-button span,
+    .footer-column a { transition: none; }
+  }
+
+  @media (max-width: 1120px) {
+    .footer-main {
+      grid-template-columns: minmax(280px, 1.4fr) repeat(2, minmax(150px, 1fr));
+    }
+
+    .footer-brand {
+      grid-row: span 2;
+    }
+
+    .footer-bottom-inner {
+      grid-template-columns: 1fr auto;
+    }
+
+    .footer-meta {
+      grid-column: 1 / -1;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-updated {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .footer-cta-inner,
+    .footer-main,
+    .footer-bottom-inner {
+      width: min(100% - 40px, 620px);
+    }
+
+    .footer-cta-inner {
+      min-height: 0;
+      display: grid;
+      gap: 20px;
+      padding: 32px 0;
+    }
+
+    .footer-cta-button {
+      width: 100%;
+    }
+
+    .footer-main {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 38px 26px;
+      padding: 42px 0;
+    }
+
+    .footer-brand {
+      max-width: none;
+      grid-column: 1 / -1;
+      grid-row: auto;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .footer-description {
+      max-width: 520px;
+    }
+
+    .footer-bottom-inner {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 24px 0;
+    }
+
+    .footer-legal {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .footer-meta {
+      grid-column: auto;
+      align-items: flex-start;
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .footer-main {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+      grid-column: auto;
+    }
+
+    .footer-meta {
+      display: grid;
+    }
+
+    .footer-terminal {
+      width: fit-content;
+    }
+  }
+</style>
