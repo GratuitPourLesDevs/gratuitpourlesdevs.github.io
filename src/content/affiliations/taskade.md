@@ -4,7 +4,7 @@ fournisseur: Taskade
 typeProgramme: affiliation
 reseau: Direct
 urlInscription: https://www.taskade.com/learn/account/partnerships
-statut: candidature_a_faire
+statut: active
 remunerationMode: recurrent
 commission: 50 % récurrent à vie
 dureeCommission: À vie
