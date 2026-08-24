@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 258
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle actuelle confirme un Free Tier à 1 000 appels API sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zenscrape simplifie les appels de scraping en centralisant proxy et rendu navigateur. Les 1 000 appels gratuits sont adaptés au prototypage ou à une petite collecte périodique.

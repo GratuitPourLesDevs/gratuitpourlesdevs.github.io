@@ -21,12 +21,12 @@ initiales: S
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1061
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "L’outil est gratuit et génère plusieurs formats et résolutions optimisés en lot."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SlingSite prépare localement les déclinaisons modernes d’images et vidéos destinées au web.

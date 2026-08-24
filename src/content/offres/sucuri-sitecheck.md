@@ -24,12 +24,12 @@ initiales: SS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 478
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: SiteCheck reste un scanner web distant gratuit ; la fiche précise qu’il ne réalise pas une analyse interne du serveur.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Sucuri SiteCheck est référencé avec les limites gratuites vérifiées le 2026-08-19.

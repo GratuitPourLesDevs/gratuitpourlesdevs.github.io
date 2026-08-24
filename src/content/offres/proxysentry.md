@@ -30,9 +30,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 226
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel affiche un plan Developer gratuit à 10 000 requêtes/mois sans carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ProxySentry aide à ajouter un signal de risque réseau à une authentification, une inscription ou une transaction. Son quota gratuit permet de tester ce contrôle sur un petit service sans dépendre d’un abonnement dès le prototype.

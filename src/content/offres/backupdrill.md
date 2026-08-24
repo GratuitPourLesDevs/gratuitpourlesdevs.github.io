@@ -38,12 +38,12 @@ initiales: BD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 924
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La page officielle confirme un plan Free à 0 $ avec 1 projet, des sauvegardes hebdomadaires, 3 snapshots dans la console et un restore drill sur la première sauvegarde. Le compte commence par 30 jours d’essai complet sans carte puis revient sur Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 BackupDrill vise un point souvent oublié des sauvegardes : vérifier qu’elles restaurent réellement. Le service exporte les données Supabase vers un bucket S3-compatible que vous contrôlez et peut inclure les fichiers Storage ; le plan gratuit couvre un projet avec une sauvegarde hebdomadaire et un premier test de restauration.

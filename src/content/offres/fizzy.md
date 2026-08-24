@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 285
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Fizzy est présenté comme entièrement gratuit. Sa FAQ précise une limite de 1 000 cartes créées et le site annonce 1 Go de stockage, avec API, webhooks et code open source."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Fizzy mise sur un Kanban volontairement léger, avec API et webhooks pour l’automatisation. Sa limite porte sur le nombre cumulé de cartes créées, pas seulement sur les cartes encore visibles.

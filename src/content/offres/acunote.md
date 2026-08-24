@@ -28,12 +28,12 @@ initiales: "A"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 964
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page officielle confirme un plan Free pour une personne ou une petite équipe jusqu’à 5 utilisateurs, accessible après un essai complet de 30 jours sans carte. Elle indique aussi que SSL n’est pas inclus sur Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Acunote combine gestion Scrum, backlog, sprints et intégrations de développement. La formule gratuite reste destinée aux individus et petites équipes jusqu’à cinq personnes après l’essai initial.

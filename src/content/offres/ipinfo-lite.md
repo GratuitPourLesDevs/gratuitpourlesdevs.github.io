@@ -35,9 +35,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 191
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "IPinfo recommande désormais Lite : requêtes authentifiées illimitées, données pays/continent/ASN, sans carte et avec attribution."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 IPinfo Lite remplace avantageusement l’ancien free tier à 50 000 requêtes pour les usages qui n’ont pas besoin de précision ville : le nombre de requêtes est désormais illimité, avec pays, continent et ASN, y compris pour un usage commercial sous attribution.

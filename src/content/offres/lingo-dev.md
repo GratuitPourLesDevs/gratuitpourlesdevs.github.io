@@ -38,12 +38,12 @@ initiales: LD
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 553
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le CLI reste open source Apache-2.0 et supporte le BYO LLM. Le pricing 2026 du service managé est passé à un Sandbox à base 0 $ avec consommation payante.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Lingo.dev apporte une approche très orientée développeur : son CLI et ses outils CI/CD automatisent la localisation des fichiers du projet et peuvent fonctionner avec un LLM que vous fournissez vous-même. Le code est open source sous Apache-2.0, ce qui rend l’outillage gratuit, mais il ne faut plus présenter l’ancien quota de 10 000 mots/mois comme un Free Tier actuel. Les traductions utilisant un fournisseur IA externe ou le moteur managé peuvent générer des coûts.

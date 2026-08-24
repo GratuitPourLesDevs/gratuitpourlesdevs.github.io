@@ -38,12 +38,12 @@ initiales: SQ
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 355
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Starter Free confirmé : 20k appels API, 2 Go de trafic, 500 Mo de stockage, 2 contributeurs et attribution Powered By. L’auto-hébergement reste gratuit sous MIT.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Squidex offre deux chemins intéressants : un petit plan Cloud gratuit ou une installation open source totalement maîtrisée. Pour le Cloud, l’attribution obligatoire et la tarification du trafic supplémentaire sont les deux points à surveiller.

@@ -39,9 +39,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 145
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan Free officiel vérifié après redirection de customjs.io vers customjs.space : 20 requêtes/jour et 600/mois, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CustomJS rassemble plusieurs briques d’automatisation derrière une API : exécution JavaScript, génération PDF, captures d’écran, scraping, formulaires, hébergement HTML et réception d’e-mails. Le Free est plus riche que le seul ancien service PDF, mais son pool principal reste limité à 20 appels par jour.

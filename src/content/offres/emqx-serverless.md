@@ -34,12 +34,12 @@ initiales: EM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 525
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel comprend 1 M session-minutes/mois, 1 GiB de trafic et 1 M de rule actions/mois,
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   sans carte bancaire.
 ---
 

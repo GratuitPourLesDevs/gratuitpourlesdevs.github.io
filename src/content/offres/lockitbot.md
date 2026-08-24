@@ -28,12 +28,12 @@ initiales: LB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 299
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Plan Free vérifié : 2 ressources et locks illimités. La grille tarifaire indique également l’accès sans limite de membres/utilisateurs.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Lockitbot évite les collisions lorsqu’une équipe partage des environnements de développement, des salles ou des serveurs. Les réservations sont gérées depuis Slack et peuvent aussi être automatisées par API.

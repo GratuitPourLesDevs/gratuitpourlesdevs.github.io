@@ -21,12 +21,12 @@ initiales: WTD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 254
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le compte gratuit et l’absence de carte sont confirmés, mais l’ancien quota public de 25 000 tokens/mois n’a pas pu être revérifié précisément."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 What The Diff automatise la documentation et la lecture des pull requests avec l’IA. La fiche reste volontairement à vérifier tant que le fournisseur ne réaffiche pas clairement le quota exact associé à son compte gratuit.

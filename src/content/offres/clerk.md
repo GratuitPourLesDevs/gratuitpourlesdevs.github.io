@@ -36,12 +36,12 @@ initiales: CL
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 489
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Hobby actuel confirme 50 000 MRU par application, applications illimitées et 3 sièges dashboard.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Clerk est référencé avec les limites gratuites vérifiées le 2026-08-19.

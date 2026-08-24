@@ -34,12 +34,12 @@ initiales: CI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 490
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Freemium actuel confirme 100 utilisateurs, 1 realm et MAU illimités.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloud-IAM est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -24,8 +24,8 @@ statut: "a_verifier"
 vedette: false
 ordre: 684
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : jusqu’à 3 adresses temporaires par jour selon la description historique."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Inboxes App rapproche l’e-mail temporaire du navigateur en permettant de créer des adresses jetables depuis une extension, puis de les supprimer une fois le scénario terminé. C’est utile pour tester des inscriptions, invitations ou confirmations sans polluer une vraie boîte. La description historique fixe le niveau gratuit à trois nouvelles adresses temporaires par jour. Comme cette limite n’est pas suffisamment documentée sur une source actuelle, elle est conservée comme repère à revalider plutôt que comme quota garanti.

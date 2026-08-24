@@ -42,9 +42,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 92
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le catalogue officiel confirme un free tier pour chaque API. Les pages IP, e-mail et téléphone confirment respectivement 1 000, 100 et 100 requêtes gratuites, sans carte pour les offres vérifiées."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Abstract API regroupe de nombreuses API prêtes à intégrer pour enrichir, valider ou transformer des données sans maintenir soi-même les bases et services correspondants. Le gratuit est pratique pour prototyper, mais il faut vérifier le quota de l’API choisie et surtout tenir compte de l’interdiction d’usage commercial sur les plans Free.

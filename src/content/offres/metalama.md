@@ -34,12 +34,12 @@ initiales: ME
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 362
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’ancien modèle Metalama Free limité par un nombre d’aspects n’est plus la référence actuelle. Metalama Open Source est gratuit sous MIT et Metalama Community ajoute gratuitement les outils Visual Studio pour les individus, le non-commercial et les entreprises jusqu’à 3 utilisateurs.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Metalama permet de déplacer une partie du code répétitif vers des aspects exécutés lors de la compilation afin de garder le code métier plus lisible. Son passage à un cœur open source MIT rend aujourd’hui l’offre gratuite nettement plus large que l’ancien modèle limité à quelques aspects.

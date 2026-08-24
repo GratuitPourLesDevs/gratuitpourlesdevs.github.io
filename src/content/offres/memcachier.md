@@ -29,12 +29,12 @@ initiales: MC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 932
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Les ressources officielles MemCachier continuent d’indiquer un plan gratuit de 25 Mo. Les éléments historiques non clairement documentés aujourd’hui, comme un nombre précis de proxy servers, ne sont pas utilisés comme quota principal."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MemCachier fournit Memcached sous forme de service, ce qui permet d’ajouter rapidement une couche de cache à une application. Les 25 Mo gratuits sont modestes mais suffisants pour valider une intégration, accélérer un petit prototype ou apprendre les stratégies de cache sans gérer Memcached soi-même.

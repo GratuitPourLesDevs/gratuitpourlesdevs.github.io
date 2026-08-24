@@ -38,12 +38,12 @@ initiales: CF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 347
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel inclut notamment 10 utilisateurs, 100k appels API/mois et 50 Go de CDN/mois. Les conditions de janvier 2026 précisent surtout que ce plan est réservé aux tests et à l’apprentissage et ne doit pas supporter un usage commercial.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 429."
 ---
 
 Contentful permet de découvrir un workflow headless complet et de tester une intégration API avec plusieurs éditeurs. En revanche, son plan Free actuel doit être considéré comme un environnement d’apprentissage et de validation, pas comme l’hébergement gratuit d’un projet commercial en production.

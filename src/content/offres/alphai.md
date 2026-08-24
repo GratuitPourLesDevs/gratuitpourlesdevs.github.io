@@ -44,9 +44,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 93
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La documentation officielle confirme 20 requêtes/minute, 100/jour, une clé gratuite, aucune carte bancaire et un usage Free d’évaluation non commercial."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 alphai fournit un flux de news financières déjà enrichi pour éviter de refaire toute la chaîne d’analyse côté application. Les articles sont reliés aux tickers, scorés et accompagnés d’une analyse d’impact ; les dépôts SEC Form 4 sont aussi transformés en événements structurés. Le quota gratuit convient surtout à un prototype ciblé plutôt qu’à l’ingestion exhaustive du flux.

@@ -32,9 +32,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 214
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La grille officielle Free confirme 100 requêtes, une clé API et 10 requêtes/minute."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Numlookupapi valide et enrichit les numéros de téléphone via une API mondiale. Le Free est modeste mais suffisant pour tester une intégration ou alimenter un petit workflow de validation.

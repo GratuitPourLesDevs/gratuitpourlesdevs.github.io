@@ -27,12 +27,12 @@ initiales: RV
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 382
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan Open Source & Personal est annoncé gratuit à vie pour les dépôts publics et personnels privés.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Reviewable améliore le workflow de revue GitHub avec une interface dédiée. Les dépôts publics et les dépôts privés personnels bénéficient de revues illimitées gratuitement.

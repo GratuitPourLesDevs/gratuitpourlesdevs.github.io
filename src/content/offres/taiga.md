@@ -27,12 +27,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1004
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Depuis le retour des plans payants, Gratis inclut 1 projet public, 1 projet privé, 10 Mo de stockage et des utilisateurs illimités. Les limites sont appliquées aux nouveaux utilisateurs depuis 2025 et aux anciens depuis 2026."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Taiga reste gratuit et open source, avec un SaaS qui a réintroduit des limites de projets en 2025. Le plan Gratis conserve néanmoins des utilisateurs illimités et couvre un projet public plus un projet privé.

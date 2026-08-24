@@ -33,12 +33,12 @@ initiales: B2
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 918
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Backblaze confirme que les 10 premiers Go de stockage B2 sont toujours gratuits. Le service est compatible S3, ne demande pas de carte bancaire pour démarrer et inclut également plusieurs quotas gratuits de transfert et de transactions."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Backblaze B2 est une alternative simple à Amazon S3 pour stocker des sauvegardes, médias, artefacts de build ou fichiers applicatifs. Sa compatibilité avec l’API S3 permet de réutiliser de nombreux SDK, outils et logiciels existants en changeant principalement l’endpoint et les identifiants. Le niveau gratuit permanent de 10 Go est particulièrement intéressant pour les petits projets et les environnements de test. Il faut toutefois surveiller le stockage, les téléchargements sortants et certaines classes de requêtes lorsque l’usage commence à dépasser les quotas inclus.

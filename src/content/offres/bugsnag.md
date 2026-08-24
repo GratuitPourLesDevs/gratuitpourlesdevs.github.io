@@ -30,12 +30,12 @@ initiales: 'BN'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: 'active'
+statut: "active"
 vedette: false
 ordre: 567
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Le Free actuel inclut 7 500 événements/mois et 1M spans/mois ; l’ancienne référence à 2 000 erreurs est obsolète.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 BugSnag rassemble le suivi des erreurs et une partie de l’observabilité des performances sur de nombreuses plateformes web, mobiles et backend. Son plan Free convient surtout à un développeur seul : il inclut 7 500 événements d’erreur et 1 million de spans chaque mois. La limite structurante est la collaboration à un seul utilisateur, complétée par une rétention courte de 7 jours.

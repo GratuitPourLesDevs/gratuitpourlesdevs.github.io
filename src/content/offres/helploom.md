@@ -25,12 +25,12 @@ initiales: "H"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 981
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free Forever actuel annonce 30 active threads par mois et 3 team seats, sans carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Helploom fournit un live chat simple et une boîte de support pour les petits volumes. Le plan gratuit permanent couvre trois personnes et trente conversations actives mensuelles.

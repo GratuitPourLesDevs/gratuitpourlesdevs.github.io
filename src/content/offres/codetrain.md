@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 639
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Le pricing actuel affiche Free à 0 $, 10 lessons/mois sur dépôts publics, sans carte ; l’agent cœur est open source."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CodeTrain prend le contrepied des assistants qui produisent directement la solution : il découpe une tâche en étapes, pose des questions, vérifie ce que l’apprenant écrit et fait progresser la leçon uniquement quand le code fonctionne. Le plan gratuit permet dix leçons par mois construites à partir de dépôts publics et ne demande pas de carte bancaire. Pour aller au-delà, le projet propose aussi un agent cœur open source utilisable localement, tandis que les dépôts privés et certaines fonctions avancées sont réservés aux offres payantes.

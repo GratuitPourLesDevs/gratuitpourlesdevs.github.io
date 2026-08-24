@@ -35,9 +35,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 288
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free Forever actuel confirme 1 site, messages illimités, Gmail threading, 30 jours d’historique et aucune carte bancaire requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GhostChat ajoute un support conversationnel à un site avec un script léger et une approche centrée sur la confidentialité. Son quota de messages illimité rend le Free Tier intéressant pour un petit site ou un projet personnel.

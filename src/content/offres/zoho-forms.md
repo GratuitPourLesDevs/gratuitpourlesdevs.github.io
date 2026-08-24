@@ -45,9 +45,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 76
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "La tarification officielle confirme 1 utilisateur, 3 formulaires, 500 soumissions mensuelles et 200 Mo. Le plan gratuit n’a pas de limite de durée annoncée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Forms est un constructeur de formulaires en ligne qui reste intéressant pour les développeurs grâce à ses webhooks et intégrations disponibles dès le plan gratuit. Trois formulaires peuvent recevoir jusqu’à cinq cents soumissions par mois, avec des vues illimitées et 200 Mo pour les fichiers envoyés. C’est suffisant pour des formulaires de contact, inscriptions, retours utilisateurs ou petits workflows connectés à une API.

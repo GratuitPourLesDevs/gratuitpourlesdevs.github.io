@@ -27,12 +27,12 @@ initiales: "C"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 969
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free est officiellement maintenu en 2026 et autorise des utilisateurs illimités. La page de prix affiche toutefois 6 feuilles dans les highlights et 1 dans son tableau comparatif ; la fiche retient 1 par prudence."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cacoo permet de construire et commenter des diagrammes en équipe depuis le navigateur. Le plan Free reste permanent, mais la page tarifaire 2026 est incohérente sur le nombre exact de feuilles incluses.

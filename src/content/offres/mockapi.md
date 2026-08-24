@@ -33,12 +33,12 @@ initiales: MA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 207
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel affiche toujours 1 projet et 2 ressources sur le plan Free."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 MockAPI permet de mettre en place rapidement des endpoints REST factices avec génération de données et relations simples. Le quota gratuit est petit mais suffisant pour un prototype frontend ou un exercice pédagogique.

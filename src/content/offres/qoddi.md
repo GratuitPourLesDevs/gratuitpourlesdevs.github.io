@@ -34,12 +34,12 @@ initiales: QD
 carteRequise: true
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 881
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Pricing actuel vérifié : 3 sites statiques gratuits, 512 Mo RAM, CPU partagé et bande passante illimitée. Carte requise pour vérifier le compte standard.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Qoddi peut servir de point de déploiement simple pour plusieurs frontends statiques lorsque l’on veut rester dans un environnement PaaS capable d’évoluer ensuite vers du compute payant. Les trois sites gratuits, Git et la bande passante illimitée suffisent pour des vitrines, documentations ou frontends séparés. Le Free est aujourd’hui plus étroit que les anciennes descriptions du service, car il ne couvre plus un backend dynamique généraliste. Il faut également accepter la vérification du compte par moyen de paiement avant de créer les ressources gratuites.

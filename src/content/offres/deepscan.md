@@ -27,12 +27,12 @@ initiales: DS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 373
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel indique 100 sièges, jusqu’à 1 000 projets publics et aucun projet privé.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DeepScan recherche des erreurs d’exécution et problèmes de qualité dans les projets JavaScript et TypeScript. Le gratuit reste réservé aux projets publics.

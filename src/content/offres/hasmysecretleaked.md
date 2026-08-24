@@ -24,12 +24,12 @@ initiales: H
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 458
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le service reste gratuit et sa base continue de croître ; la page actuelle annonce 29 millions de secrets détectés en 2025. Le quota CLI exact n’est pas affiché.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 HasMySecretLeaked est référencé avec les limites gratuites vérifiées le 2026-08-19.

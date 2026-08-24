@@ -32,12 +32,12 @@ initiales: LL
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 202
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle confirme 1 000 checks gratuits par mois et l’absence de carte bancaire."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 LoginLlama ajoute une couche de scoring de risque au moment de la connexion afin de décider si une authentification doit être autorisée, renforcée par MFA ou bloquée. Le quota gratuit suffit pour un petit produit ou un environnement de test.

@@ -33,12 +33,12 @@ initiales: KI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 493
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel est passé à 10 500 MAU, contre 7 500 dans la description historique.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Kinde est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -31,12 +31,12 @@ initiales: WR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 540
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free n’a pas de limite de durée sous 10 000 abonnés et inclut push, in-browser messaging, sites,
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   API et intégrations sans quota.
 ---
 

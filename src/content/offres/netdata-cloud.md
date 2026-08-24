@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 605
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Community Cloud gratuit jusqu’à 5 nodes, avec restriction d’usage non commercial ; l’agent reste open source."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Netdata collecte des métriques système très détaillées en temps réel et les visualise via son agent open source et son service Cloud. Le plan Community Cloud permet de centraliser jusqu’à cinq nœuds gratuitement, mais cette gratuité est destinée à l’usage non commercial ; pour un lab personnel c’est très complet, tandis qu’une exploitation commerciale doit être évaluée séparément.

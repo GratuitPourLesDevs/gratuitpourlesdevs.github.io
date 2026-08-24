@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 657
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free Tier vérifié le 19 août 2026 sur une source officielle. Free : 1 000 e-mails par mois, sans carte bancaire"
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AhaSend — API et SMTP d’e-mail transactionnel pour applications et services. Le niveau gratuit vérifié en août 2026 est le suivant : 1 000 e-mails par mois, sans carte bancaire. C’est une option utile pour les développeurs et petits projets qui veulent commencer sans abonnement, avec une vraie infrastructure d’envoi transactionnel plutôt qu’un simple sandbox. Le principal plafond à surveiller est le volume mensuel de 1 000 messages.

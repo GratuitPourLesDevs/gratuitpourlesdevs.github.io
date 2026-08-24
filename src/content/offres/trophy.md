@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 246
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page Pricing dédiée a été retenue comme source principale avec 1 000 MAU. Des pages secondaires encore à 100 MAU sont signalées."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Trophy fournit les briques de gamification communes sous forme d’API et de composants, ce qui évite de reconstruire points, séries et classements. La grille tarifaire dédiée est utilisée comme référence pour le quota actuel.

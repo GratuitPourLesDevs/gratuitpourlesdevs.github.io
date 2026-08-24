@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 130
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan Free officiel vérifié : 500 appels par mois avec attribution obligatoire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Calendarific fournit une API de calendriers de jours fériés internationaux. Son plan gratuit convient à un prototype, un calendrier interne ou une petite application, à condition d’accepter l’attribution obligatoire et des données historiques et futures plus limitées que sur les offres payantes.

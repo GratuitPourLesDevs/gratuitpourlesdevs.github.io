@@ -23,12 +23,12 @@ initiales: MC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 1045
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free actuel confirme 15 fichiers/jour, 100 Mo par fichier et huit fichiers par lot ; la limite quotidienne peut être réduite selon l’usage."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 MConverter couvre de nombreux formats et permet de traiter plusieurs fichiers à la fois.

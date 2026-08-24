@@ -37,12 +37,12 @@ initiales: PP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 936
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Le plan Free actuel offre 100 000 opérations, 500 Mo de stockage et 50 bases. L’ancienne limite de 5 bases est obsolète."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Prisma Postgres est un PostgreSQL managé conçu pour fonctionner naturellement avec Prisma ORM tout en restant accessible aux clients SQL. Son architecture serverless cherche à éliminer les cold starts ; le plan gratuit a récemment été porté à 50 bases, tout en gardant 500 Mo de stockage total et 100 000 opérations mensuelles.

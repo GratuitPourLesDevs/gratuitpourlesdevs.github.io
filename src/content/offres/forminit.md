@@ -31,12 +31,12 @@ initiales: F
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 752
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Free vérifié le 20 août 2026 : 1 formulaire, 100 soumissions/mois et 100 Mo de stockage ; Getform a été renommé Forminit.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Forminit — Backend headless de formulaires, anciennement Getform, avec validation et fichiers. Free : 1 formulaire et 100 soumissions/mois. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

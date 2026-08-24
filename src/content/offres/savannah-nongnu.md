@@ -40,9 +40,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 91
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Savannah non-GNU est toujours actif et accepte les projets de logiciel libre indépendants du projet GNU après examen de conformité. Aucun quota commercial chiffré n’est publié."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Savannah non-GNU utilise la même infrastructure collaborative que GNU Savannah mais accueille les logiciels libres qui ne font pas partie du projet GNU. La contrepartie de cette gratuité est une vraie sélection éditoriale : le projet doit être libre, pouvoir fonctionner dans un environnement libre et être approuvé avant création. Pour un projet éligible, la forge fournit gratuitement dépôt de code, suivi de bugs, tâches et outils communautaires.

@@ -23,12 +23,12 @@ initiales: "PP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 998
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site officiel confirme un service 100 % gratuit, sans inscription, avec utilisateurs, équipes, sessions, rounds et votes illimités."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 point.poker permet de lancer immédiatement une estimation collective sans compte. L’absence de quotas sur les participants, sessions et votes en fait une option particulièrement simple pour les équipes agiles.

@@ -34,12 +34,12 @@ initiales: CK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 388
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel conserve les snippets publics illimités, 40 dossiers et 20 favoris. Les snippets privés sont réservés à Pro.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 CodeKeep sert de bibliothèque personnelle et partageable pour conserver des extraits de code, les classer et les transformer en captures prêtes à partager. Le plan gratuit est réellement exploitable pour du contenu public, mais la confidentialité des snippets nécessite le plan Pro.

@@ -17,12 +17,12 @@ initiales: TIO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 244
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La documentation officielle du plan Free indique 500 requêtes/jour, 25/heure et 3/seconde."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Tomorrow.io donne accès à une API météo exploitable pour un prototype ou une petite application, avec des limites simultanées quotidiennes, horaires et par seconde qu’il faut respecter côté cache et orchestration.

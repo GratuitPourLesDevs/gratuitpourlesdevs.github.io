@@ -35,9 +35,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 135
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan MLOps Free officiel vérifié : 1 utilisateur ; quota d’usage décrit comme généreux sans plafond détaillé publié."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Comet ML permet de tracer les expériences de machine learning, versionner des datasets et gérer un registre de modèles. Le plan individuel reste gratuit, mais Comet ne publie plus un simple quota du type « deux modèles » : la limite la plus claire est aujourd’hui un utilisateur, tandis que les autres plafonds du free tier ne sont pas détaillés.

@@ -20,12 +20,12 @@ initiales: "MA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 691
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : 120 requêtes par heure selon la description historique."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mailcheck.ai fournit une API spécialisée dans la détection des domaines d’e-mail temporaires, utile pour empêcher des inscriptions jetables ou améliorer la qualité d’une base utilisateur. Le référentiel historique mentionne 120 requêtes gratuites par heure, un volume qui conviendrait à de petits services et à des formulaires modérément fréquentés. Comme cette limite n’est pas suffisamment confirmée par une source officielle publique actuelle, elle reste explicitement marquée à revalider avant de dimensionner une intégration dessus.

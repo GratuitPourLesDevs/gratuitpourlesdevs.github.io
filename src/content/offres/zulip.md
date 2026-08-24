@@ -28,12 +28,12 @@ initiales: ZU
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 345
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre Cloud Free et disponibilité de la version open source revérifiées le 18 août 2026.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zulip structure les discussions avec un modèle de sujets plus proche de l’e-mail que d’un chat linéaire. Le cloud gratuit est pratique, tandis que l’édition open source permet un contrôle complet en auto-hébergement.

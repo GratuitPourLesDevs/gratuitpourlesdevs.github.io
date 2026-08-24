@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 584
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free actuel : 10 monitors, 10 heartbeats, 1 status page et intervalle de 3 minutes."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Better Stack Uptime couvre la disponibilité des sites et API, les heartbeats de tâches planifiées et le traitement opérationnel d’un incident dans le même produit. Le plan gratuit est déjà exploitable pour un petit parc avec dix monitors, dix heartbeats et une page de statut, à une fréquence minimale de trois minutes ; les besoins d’astreinte ou de fréquence plus agressifs passent ensuite aux offres payantes.

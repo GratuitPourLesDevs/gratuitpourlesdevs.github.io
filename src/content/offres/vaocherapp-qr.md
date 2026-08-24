@@ -21,12 +21,12 @@ initiales: VQ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1067
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le générateur reste accessible gratuitement ; aucun plafond chiffré n’est publié."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 VaocherApp fournit un générateur QR simple avec options de style, couleur et logo.

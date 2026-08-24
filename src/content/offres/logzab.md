@@ -28,12 +28,12 @@ initiales: LZ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 546
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le pricing officiel confirme l’Always Free à 1 000 audit logs/mois, jusqu’à 5 apps et 1 mois de rétention.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LogZab est référencé avec les limites gratuites vérifiées le 19 août 2026.

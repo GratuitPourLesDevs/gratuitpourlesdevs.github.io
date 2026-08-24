@@ -27,12 +27,12 @@ initiales: G
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 457
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Starter reste gratuit jusqu’à 25 développeurs, avec scan temps réel et quotas historiques/API publiés.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GitGuardian est référencé avec les limites gratuites vérifiées le 2026-08-19.

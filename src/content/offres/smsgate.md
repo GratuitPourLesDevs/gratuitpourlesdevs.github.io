@@ -36,12 +36,12 @@ initiales: SG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 537
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La documentation annonce le local totalement gratuit sans limites et le cloud gratuit sous fair
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   use, avec notification recommandée au-delà de 10k/jour.
 ---
 

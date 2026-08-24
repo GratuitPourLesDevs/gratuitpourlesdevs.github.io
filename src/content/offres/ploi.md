@@ -29,12 +29,12 @@ initiales: P
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 518
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le pricing officiel 2026 confirme un plan gratuit à 1 serveur, 1 site et 5 déploiements de site par mois.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Ploi permet de gérer gratuitement un petit serveur web et un site, ce qui convient bien à un projet personnel ou de démonstration.

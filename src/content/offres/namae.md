@@ -31,12 +31,12 @@ initiales: NA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 390
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le dépôt open source Apache-2.0 reste public et non archivé, mais le service hébergé namae.dev n’a pas pu être validé automatiquement et son périmètre actuel doit être reconfirmé.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Namae vise à éviter les recherches manuelles répétitives au moment de baptiser un nouveau projet. Le code source reste disponible, mais l’état fonctionnel du service hébergé et la liste exacte des plateformes interrogées méritent une nouvelle vérification avant de considérer l’offre comme pleinement active.

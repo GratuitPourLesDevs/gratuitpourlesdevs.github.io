@@ -38,12 +38,12 @@ initiales: LB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 931
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La formule gratuite actuelle annonce 2 bases et 5 Go de stockage total. Les moteurs gratuits sont PostgreSQL, MariaDB, Redis, Valkey, DuckDB, SQLite, libSQL et TypeDB ; MySQL n’est plus inclus dans cette liste."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Layerbase regroupe plusieurs moteurs SQL, clé/valeur et analytiques derrière une expérience de base managée. Les deux bases gratuites et les 5 Go partagés offrent une vraie marge pour des projets personnels, avec une mise en veille automatique et une politique de débit à respecter.

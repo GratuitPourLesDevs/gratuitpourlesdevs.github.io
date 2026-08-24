@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 706
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Service hébergé vérifié à 3 000 e-mails/mois et projet open source auto-hébergeable."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Reloop combine une API/SMTP transactionnelle hébergée et un projet open source que l’on peut auto-héberger. Le niveau hébergé gratuit annonce 3 000 e-mails par mois sans carte, ce qui constitue déjà un volume intéressant pour une petite application. L’option self-hosted offre en plus une voie de sortie si l’on préfère garder la maîtrise de l’infrastructure. Les anciennes sous-limites concernant le quota journalier, le domaine ou l’agent inbox n’étant pas suffisamment confirmées, elles ne sont pas présentées comme des faits actuels.

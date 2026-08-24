@@ -30,12 +30,12 @@ initiales: SS
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: active
+statut: "active"
 vedette: false
 ordre: 436
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’URL actuelle de l’outil est /check-ssr/. Crawlably présente le plan bêta à 0 $ avec checks manuels illimités et sans signup.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Le SSR Checker aide à vérifier ce qu’un serveur livre réellement avant l’exécution JavaScript. Il est particulièrement utile pour diagnostiquer des pages dont le contenu diffère entre HTML serveur et rendu navigateur.

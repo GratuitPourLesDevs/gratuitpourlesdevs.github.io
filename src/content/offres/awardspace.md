@@ -29,12 +29,12 @@ initiales: AS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 866
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Free actuel vérifié : 1 Go de disque, 5 Go de trafic mensuel, PHP/MySQL, sous-domaine et absence de publicité.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AwardSpace convient bien à un petit site PHP qui doit rester en ligne sans publicité injectée par l’hébergeur. Le couple 1 Go de stockage et 5 Go de trafic mensuel est suffisant pour une vitrine, un projet étudiant ou un prototype avec une petite base MySQL. Le sous-domaine et l’installateur permettent aussi de démarrer sans acheter immédiatement un nom de domaine. Il faut toutefois garder en tête que les ressources et services avancés restent nettement plus limités que sur un hébergement payant.

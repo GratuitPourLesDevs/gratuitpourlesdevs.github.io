@@ -33,12 +33,12 @@ initiales: GL
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 422
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel publie 5 grid starts, une parallélisation de 2 et une limite de 2 heures par grid start.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Gridlastic fournit un Selenium Grid isolé qui s’adapte aux demandes de tests. Le plan gratuit actuel sert surtout à expérimenter le service avant de passer à un volume de CI plus important.

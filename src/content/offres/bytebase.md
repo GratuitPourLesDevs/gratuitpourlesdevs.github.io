@@ -32,12 +32,12 @@ initiales: BB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 397
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’édition Free actuelle est limitée à 20 utilisateurs et 10 instances de base de données, avec les fonctions essentielles de Database DevOps.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Bytebase applique les pratiques Git et CI/CD aux changements de bases de données. Son édition gratuite est généreuse pour une petite équipe, tant que le parc reste sous 10 instances.

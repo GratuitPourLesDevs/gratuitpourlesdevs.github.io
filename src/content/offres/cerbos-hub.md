@@ -28,12 +28,12 @@ initiales: CH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 488
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le PoC Free actuel est limité à 100 principals actifs/mois, avec 2 développeurs et 2 PDP simultanés.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cerbos Hub est référencé avec les limites gratuites vérifiées le 2026-08-19.

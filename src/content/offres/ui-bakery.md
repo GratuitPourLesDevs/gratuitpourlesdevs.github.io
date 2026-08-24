@@ -33,12 +33,12 @@ initiales: UI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 864
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Le plan actuel ne reprend plus l’ancien plafond de 5 utilisateurs : apps et connexions de données illimitées, utilisateurs publics illimités ; self-hosted Free disponible.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 UI Bakery est adapté aux équipes qui veulent aller vite avec du drag-and-drop tout en pouvant injecter du JavaScript, du Python ou du SQL lorsque le visuel ne suffit plus. Le Free ne limite ni le nombre d’applications ni les connexions de données et autorise des utilisateurs publics illimités, ce qui est intéressant pour des prototypes partageables ou des petits outils. Il faut toutefois bien distinguer les utilisateurs publics des fonctions de collaboration interne et de gouvernance, davantage contraintes selon le mode Cloud ou self-hosted.

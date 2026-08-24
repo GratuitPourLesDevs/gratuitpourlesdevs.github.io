@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 693
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free Tier mis à jour après le changement du 16 juin 2026 : 250 abonnés actifs, 2 500 e-mails/mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MailerLite couvre newsletters, formulaires, automatisations, landing pages et petits sites. Son Free Tier a fortement changé en juin 2026 : il est désormais limité à 250 abonnés actifs et 2 500 e-mails par mois, avec deux sièges, trois automatisations et trois formulaires. Les anciennes références à 1 000 abonnés et 12 000 messages ne sont donc plus valables. Le niveau actuel reste utile pour démarrer une liste ou tester l’outil, mais il est nettement moins généreux qu’auparavant.

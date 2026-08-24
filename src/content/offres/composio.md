@@ -38,9 +38,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 137
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan Totally Free officiel vérifié : 20 000 tool calls/mois, dont quota séparé de 1 000 Pro Tool calls, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Composio sert de couche d’intégration entre des agents IA et des applications externes, en gérant notamment l’authentification et l’exposition des outils. Son quota gratuit de 20 000 appels standards par mois est généreux pour du prototypage, avec une enveloppe distincte pour les outils plus coûteux.

@@ -25,12 +25,12 @@ initiales: "M"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 994
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La FAQ 2026 confirme que MeuScrum est totalement gratuit, sans paiement après une période d’essai ni pour des modules supplémentaires."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 MeuScrum reste un service entièrement gratuit dédié aux pratiques Scrum et Kanban. Le site indique explicitement qu’aucun paiement n’est demandé pour continuer à utiliser les modules.

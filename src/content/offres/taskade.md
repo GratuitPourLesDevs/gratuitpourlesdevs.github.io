@@ -34,12 +34,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1005
-verifieLe: '2026-08-23'
-verificationAutomatiqueLe: '2026-08-23'
-verificationNote: "Le pricing officiel actuel confirme un plan Free permanent à 0 $, sans carte, avec 1 utilisateur, 3 apps Genesis, 1 agent, 3 automatisations et 6 000 crédits IA ponctuels. Certaines pages Learn récentes mentionnent encore 2 sièges ; la fiche retient volontairement la grille tarifaire officielle, plus directement applicable au plan commercial courant."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Taskade propose désormais un plan Free Forever centré sur la création d’apps, les agents IA et les automatisations. La grille tarifaire officielle confirme un accès permanent sans carte bancaire, mais limité à un utilisateur et à une allocation IA initiale qui ne se renouvelle pas mensuellement. Le plan gratuit reste donc pertinent pour découvrir Taskade, gérer des projets personnels et construire quelques automatisations ou apps avant de passer éventuellement à une offre payante.

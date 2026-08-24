@@ -39,9 +39,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 215
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La documentation officielle confirme 25 000 requêtes/mois, 500/jour/IP, 1 Mo par fichier, 3 pages PDF et l’absence de carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 OCR.Space est une API OCR simple pour extraire du texte depuis des images ou des PDF. Son quota mensuel est très généreux, mais la taille de fichier et le nombre de pages PDF constituent les limites principales du plan gratuit.

@@ -38,12 +38,12 @@ initiales: RD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 938
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Le plan Development Free actuel autorise 3 utilisateurs et 2 500 enregistrements, avec 1 appel API par seconde et surtout un plafond supplémentaire de 500 appels par jour."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 restdb.io génère une API REST directement à partir d’une base NoSQL structurée et fournit une interface d’administration prête à l’emploi. Le plan gratuit est adapté à un prototype ou une petite application interne, mais le plafond quotidien de 500 appels API devient rapidement la contrainte principale.

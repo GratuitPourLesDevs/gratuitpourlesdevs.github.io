@@ -24,12 +24,12 @@ initiales: "G"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 978
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "GForge annonce toujours les 5 premiers utilisateurs SaaS gratuits et une gratuité pour les projets open source ; l’édition auto-hébergée Free reste également disponible."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GForge réunit suivi des tickets, dépôts et outils de pilotage pour équipes techniques. Les cinq premiers utilisateurs du SaaS restent gratuits, avec un traitement favorable des projets open source.

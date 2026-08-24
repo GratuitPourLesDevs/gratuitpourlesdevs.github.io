@@ -20,12 +20,12 @@ initiales: "MA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 697
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : 1 500 appels API mensuels selon l’ancienne description."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mailsac est orienté tests automatisés : il fournit des adresses de réception, une API et des flux temps réel qui permettent à une suite de tests d’attendre un message, lire un code ou vérifier le contenu d’un e-mail. Le référentiel historique mentionne aussi des inboxes publiques et un plafond de 1 500 appels API par mois dans le niveau gratuit. Ce chiffre n’étant pas suffisamment confirmé actuellement, la fiche reste « à vérifier » tout en décrivant l’usage technique réel du service.

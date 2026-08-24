@@ -26,12 +26,12 @@ initiales: TH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 327
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’ancien quota de 5 utilisateurs et 3 portfolios n’est plus celui de la tarification actuelle ; la fiche retient 10 utilisateurs et 100 Mo de stockage.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : fetch failed."
 ---
 
 Teamhood est particulièrement adapté aux équipes qui aiment piloter le travail avec Kanban et Gantt. L’ancien quota de 5 utilisateurs et 3 portfolios n’est plus celui affiché par la tarification actuelle.

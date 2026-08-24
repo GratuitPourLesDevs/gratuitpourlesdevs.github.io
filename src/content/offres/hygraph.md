@@ -37,12 +37,12 @@ initiales: HY
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 351
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Hobby est gratuit pour toujours et sans carte. Quotas actuels : 3 sièges, 1 000 entrées, 500k appels API, 100 Go de trafic assets et stockage assets illimité.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hygraph est intéressant lorsqu’on veut partir directement sur une architecture GraphQL avec édition collaborative. Son Free Tier est généreux en stockage d’assets, tout en gardant des limites nettes sur les entrées, les appels API et le trafic.

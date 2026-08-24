@@ -26,12 +26,12 @@ initiales: "Z"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1018
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle annonce Free for everyone jusqu’à 50 utilisateurs, 1 team workspace, 1 organisation GitHub, 2 repositories et 250 issues."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ZenHub a élargi son plan gratuit au-delà des seuls projets open source. Le free tier actuel peut accueillir jusqu’à cinquante personnes mais limite le nombre de dépôts et d’issues suivis.

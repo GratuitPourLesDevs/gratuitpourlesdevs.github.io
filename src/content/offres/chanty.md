@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 276
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "L’ancienne limite de 10 membres est obsolète. La tarification actuelle affiche jusqu’à 5 membres, 20 Go par équipe et 10 intégrations."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Chanty rassemble chat, appels individuels et petites tâches dans une interface d’équipe. Le plan gratuit reste utilisable pour une très petite équipe, mais son plafond de cinq membres est désormais la contrainte principale.

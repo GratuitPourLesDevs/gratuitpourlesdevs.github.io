@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 256
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Wolfram confirme pour Cloud Basic 200 Mo de stockage, 5 000 Cloud Credits/mois et des objets cloud temporaires."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Wolfram Cloud Basic donne accès à la puissance du Wolfram Language et de sa base de connaissances depuis un navigateur. Son principal frein est la licence : il convient à l’apprentissage et aux projets personnels, pas au développement commercial d’une organisation.

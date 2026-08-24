@@ -45,9 +45,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 70
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "La grille tarifaire actuelle indique 500 Mo pour Notebook Essential. Une page marketing Zoho mentionne encore 2 Go gratuits ; la page de tarification, plus récente et détaillée, est retenue comme référence."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Notebook est une alternative légère aux applications de prise de notes comme Evernote. Le plan Essential permet de synchroniser ses notes entre le Web, les ordinateurs et les mobiles, de travailler hors ligne et de partager des contenus sans abonnement. La formule gratuite reste adaptée aux notes essentiellement textuelles, mais son stockage et la taille des pièces jointes sont nettement plus limités que sur les offres payantes.

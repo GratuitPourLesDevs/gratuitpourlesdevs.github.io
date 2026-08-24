@@ -26,12 +26,12 @@ initiales: SD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 385
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La grille actuelle propose 3 sièges gratuits et confirme l’utilisation open source gratuite sans limite de dépôts publics ou contributeurs.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SemanticDiff réduit le bruit des diffs classiques en comprenant les changements structurels du code. Son plan Free accepte aussi les petits projets privés.

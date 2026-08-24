@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 690
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Email API Free vérifié : 3 000 e-mails/mois, 100/jour, 3 domaines, 30 jours de logs."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MailChannels Email API fournit deux voies d’intégration, REST et SMTP, pour envoyer des messages transactionnels. Son niveau gratuit autorise 3 000 e-mails par mois avec un plafond de 100 par jour, jusqu’à trois domaines et 30 jours de logs. C’est un bon volume pour tester une application ou faire tourner un petit service à trafic régulier. Le plan gratuit ne propose pas d’overage : une application qui dépasse durablement ces plafonds doit donc passer à une offre supérieure plutôt que compter sur une facturation automatique.

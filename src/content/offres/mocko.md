@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 210
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La documentation officielle confirme Mocko Cloud avec hôte *.free.mockoapp.net et une version open source ; aucun quota numérique Cloud n’est publié."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mocko permet de mélanger endpoints mockés et backend réel grâce à un proxy sélectif. Le Cloud fournit une URL publique gratuite, tandis que la version open source peut être utilisée localement ou auto-hébergée sans quota imposé par le service.

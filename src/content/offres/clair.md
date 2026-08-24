@@ -32,12 +32,12 @@ initiales: C
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 779
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Accès Student vérifié le 20 août 2026 : fonctionnalités Starter et application mobile, sous réserve d’une vérification annuelle du statut étudiant."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Clair — Référence clinique assistée par IA. L’accès Student reprend gratuitement les fonctionnalités du plan Starter sous condition d’éligibilité.

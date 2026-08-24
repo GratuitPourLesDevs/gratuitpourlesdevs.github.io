@@ -38,12 +38,12 @@ initiales: SB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 356
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’ancienne offre Community à 250 Go et locales illimitées est obsolète. Starter Free est aujourd’hui à 100 Go de trafic, 100k API, 2 locales et 1 siège inclus.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Storyblok combine un headless CMS classique avec un éditeur visuel apprécié des équipes contenu. Le Starter permet réellement de publier gratuitement, mais il cible surtout un développeur ou éditeur unique et un projet de taille modérée.

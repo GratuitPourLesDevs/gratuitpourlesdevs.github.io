@@ -20,12 +20,12 @@ initiales: KI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 1043
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le service gratuit reste accessible, mais la limite historique de 1 Mo n’est plus clairement affichée sur la page publique actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Kraken.io propose une interface gratuite de compression d’images, avec certaines limites à revalider.

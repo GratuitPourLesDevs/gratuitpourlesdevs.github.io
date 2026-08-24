@@ -32,9 +32,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 277
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification actuelle présente les outils développeur comme gratuits sans limite ; les modules URL Tracker et Webhook Receiver possèdent des quotas séparés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DevToolLab regroupe de nombreux petits outils que l’on utilise ponctuellement pendant le développement. Le traitement local de la majorité des utilitaires est particulièrement pratique pour éviter d’envoyer inutilement des données vers un serveur.

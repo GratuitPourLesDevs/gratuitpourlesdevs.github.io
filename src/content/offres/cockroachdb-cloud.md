@@ -33,12 +33,12 @@ initiales: CR
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 925
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La tarification actuelle du plan Basic annonce 50 millions de RU et 10 Gio de stockage gratuits par mois. La valeur historique exprimée en équivalent de 15 $ n’est pas utilisée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CockroachDB Cloud fournit une base SQL distribuée conçue pour la résilience et la montée en charge. Le plan Basic utilise des Request Units et du stockage à la demande, avec une allocation mensuelle gratuite suffisamment élevée pour de petits services ou des environnements de développement, mais la consommation supplémentaire devient payante.

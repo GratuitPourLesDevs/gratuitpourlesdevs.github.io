@@ -24,12 +24,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1012
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Toggl Track confirme un plan Free jusqu’à 5 utilisateurs. Toggl Plan a évolué vers Toggl 2.0, dont le plan Free actuel accepte jusqu’à 3 utilisateurs et des projets illimités."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Toggl couvre désormais le suivi du temps et la planification avec deux niveaux gratuits légèrement différents. Track reste gratuit pour cinq personnes, tandis que Toggl 2.0 combine tracking et planning pour trois utilisateurs.

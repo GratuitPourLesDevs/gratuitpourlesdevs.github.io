@@ -37,12 +37,12 @@ initiales: AW
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 817
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Grille 2026 vérifiée : 2 projets, 1 DB, 1 bucket et 2 fonctions/projet. L’ancien quota free-for.dev (projets illimités, 3 buckets, 5 fonctions, sans pause) est obsolète.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Appwrite évite de reconstruire les briques backend classiques d’une application : authentification, base de données, stockage de fichiers, fonctions serverless et temps réel sont disponibles dans un même service et via des SDK cohérents. Le Free Tier reste suffisamment dimensionné pour un prototype sérieux ou une petite application, avec deux projets, 75 000 utilisateurs actifs mensuels, 2 GB de stockage et 750 000 exécutions. Il faut toutefois intégrer deux contraintes dans l’architecture : les projets gratuits sont mis en pause après une semaine d’inactivité et les plafonds ne peuvent pas être dépassés temporairement par de l’overage. Appwrite est donc très pratique pour accélérer un MVP, à condition de surveiller ces limites avant une mise en production régulière.

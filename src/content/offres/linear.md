@@ -25,12 +25,12 @@ initiales: "L"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 991
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free actuel conserve les membres illimités, 250 issues actives, 2 équipes et une limite d’upload de 10 Mo."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Linear met l’accent sur la rapidité du suivi produit et logiciel. Son plan gratuit accepte autant de membres que nécessaire mais plafonne les issues actives et le nombre d’équipes.

@@ -28,12 +28,12 @@ initiales: IN
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 464
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Internet.nl continue de proposer gratuitement ses tests de site, e-mail et connexion pour les standards Internet modernes.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Internet.nl est référencé avec les limites gratuites vérifiées le 2026-08-19.

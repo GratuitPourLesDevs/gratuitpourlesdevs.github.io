@@ -27,12 +27,12 @@ initiales: L
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 785
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Developer Free vérifié le 20 août 2026 : 50 000 événements/mois, 2 utilisateurs et quotas de scénarios, simulations et évaluations."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LangWatch — Plateforme LLMOps open source avec 50 000 événements mensuels sur son plan Developer gratuit.

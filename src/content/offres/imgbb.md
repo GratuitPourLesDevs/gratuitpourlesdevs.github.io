@@ -22,12 +22,12 @@ initiales: I
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1039
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page officielle confirme 32 Mo maximum par image pour l’hébergement gratuit."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ImgBB permet d’héberger rapidement des images et d’obtenir des liens directement réutilisables.

@@ -20,12 +20,12 @@ initiales: "PT"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 610
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Ancienne gratuité 5 utilisateurs connue, mais quota actuel insuffisamment confirmé."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 PagerTree organise la réception, le routage et l’escalade d’alertes vers les personnes d’astreinte, avec une interface plus légère que de grosses plateformes d’incident management. Une offre gratuite jusqu’à cinq utilisateurs est historiquement référencée, mais la grille actuelle n’est pas assez explicite pour garantir encore cette limite ; la fiche reste donc à vérifier.

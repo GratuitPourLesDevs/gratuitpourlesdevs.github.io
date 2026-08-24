@@ -20,12 +20,12 @@ initiales: "AN"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 661
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : 3 000 e-mails par mois gratuits pour l’API transactionnelle et les broadcasts. Les limites actuelles ne sont pas suffisamment confirmées par une source officielle publique."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Anypost — API d’e-mail transactionnel et de diffusion pour intégrer l’envoi dans une application. Le référentiel historique le présente avec 3 000 e-mails par mois gratuits pour l’API transactionnelle et les broadcasts. Le service reste intéressant pour le développement, les tests ou les petits usages liés à l’e-mail, mais sa documentation publique actuelle ne permet pas de garantir proprement ces limites en août 2026. La fiche est donc marquée « à vérifier » afin de conserver cette ressource tout en évitant de transformer une ancienne promesse gratuite en information actuelle.

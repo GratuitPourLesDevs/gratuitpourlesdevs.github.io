@@ -27,12 +27,12 @@ initiales: D
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "obsolete"
 vedette: false
 ordre: 452
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Datree confirme toujours son CLI open source et indique qu’un plan SaaS gratuit est disponible ; aucun quota SaaS chiffré n’est affiché.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Site officiel indisponible (HTTP 404)."
 ---
 
 Datree est référencé avec les limites gratuites vérifiées le 2026-08-19.

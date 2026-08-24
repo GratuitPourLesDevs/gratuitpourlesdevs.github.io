@@ -24,12 +24,12 @@ initiales: QS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 477
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: SSL Labs continue de présenter SSL Server Test comme un service en ligne gratuit pour analyser tout serveur SSL/TLS public.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Qualys SSL Labs est référencé avec les limites gratuites vérifiées le 2026-08-19.

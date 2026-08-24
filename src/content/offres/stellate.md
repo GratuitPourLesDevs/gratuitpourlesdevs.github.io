@@ -37,12 +37,12 @@ initiales: SL
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 810
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Pricing vérifié en août 2026 : Free à 0 $, 100 000 requêtes/mois, services et sièges illimités, 1 jour
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   de rétention ; aucune carte n’est requise à l’inscription.'
 ---
 

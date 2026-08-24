@@ -22,12 +22,12 @@ initiales: CC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 447
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: L’outil CT Search est explicitement gratuit ; la surveillance continue des certificats n’est pas incluse.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CertObserver CT Search est référencé avec les limites gratuites vérifiées le 2026-08-19.

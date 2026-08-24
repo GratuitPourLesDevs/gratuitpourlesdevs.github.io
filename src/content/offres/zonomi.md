@@ -30,12 +30,12 @@ initiales: ZO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 912
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'La page Zonomi confirme 1 zone, 1 M de requêtes/mois, API, DDNS et DNSSEC, mais affiche simultanément 10 et 20 enregistrements gratuits. Le quota conservateur de 10 est utilisé jusqu’à clarification.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zonomi est intéressant pour automatiser gratuitement le DNS d’un petit projet grâce à son API, tout en conservant Dynamic DNS et DNSSEC. Une zone et un million de requêtes mensuelles suffisent largement à un domaine personnel, un labo ou un petit service en production. Le point de vigilance vient directement de la documentation du fournisseur : la même page affiche actuellement deux limites différentes pour le nombre d’enregistrements du plan Free. La fiche retient donc dix enregistrements, la valeur la plus restrictive, et reste marquée à vérifier plutôt que de présenter comme certaine une limite ambiguë.

@@ -33,12 +33,12 @@ initiales: AP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 836
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Le Free 2026 n’est plus présenté comme 5 000 tâches/mois : il utilise des crédits quotidiens avec hard cap. La Community Edition reste gratuite et sans plafond de runs.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Activepieces est intéressant quand on veut automatiser des processus applicatifs sans enfermer toute la logique dans un éditeur propriétaire. Le Cloud Free permet de construire des flows et des agents avec un quota de crédits renouvelé chaque jour, tandis que la Community Edition donne une vraie porte de sortie auto-hébergée sans limite de runs. C’est donc un bon choix pour prototyper des intégrations, traiter des webhooks ou orchestrer des tâches récurrentes. Il faut surtout surveiller le quota quotidien du Cloud : une fois épuisé, les exécutions suivantes sont bloquées jusqu’au renouvellement.

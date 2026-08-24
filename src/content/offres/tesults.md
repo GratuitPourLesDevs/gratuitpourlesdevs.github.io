@@ -31,12 +31,12 @@ initiales: TE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 439
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'La tarification actuelle clarifie le Free : 100 cas/run, 5 targets, 10 listes/runs, 50 Go total et 100k uploads total. Le programme OSS peut offrir un Standard gratuit sur candidature.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Tesults reçoit les résultats de nombreux frameworks de test et les rend consultables par cible, build et campagne. Le Free est durable mais ses limites de targets et de cas par run le destinent aux petites équipes.

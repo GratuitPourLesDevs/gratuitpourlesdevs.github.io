@@ -36,12 +36,12 @@ initiales: ZI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 507
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel utilise 100 DAU, 3 identity providers et 5 000 Management API requests ; l’ancien quota de
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   25k requêtes authentifiées n’est plus la métrique tarifaire.
 ---
 

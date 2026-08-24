@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 180
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free officiel indique 2 000 requêtes/jour, sans carte, avec usage non commercial uniquement."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 IPWho fournit une API simple de géolocalisation IP avec un quota quotidien confortable pour un prototype ou service personnel. La restriction non commerciale doit toutefois être prise en compte avant toute intégration en production.

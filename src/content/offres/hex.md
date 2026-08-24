@@ -32,9 +32,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 172
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle Community confirme 5 projets, 5 notebooks, calcul Small et 5 applications publiées."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hex permet d’explorer des données dans des notebooks collaboratifs puis de transformer les analyses en applications et contenus partageables. Le plan Community convient aux projets personnels ou petits travaux data, avec une limite claire de cinq projets.

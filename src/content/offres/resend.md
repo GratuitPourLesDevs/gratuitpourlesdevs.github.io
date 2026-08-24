@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 707
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié : 3 000 e-mails/mois, 100/jour, 1 domaine, logs 30 jours."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Resend est une API transactionnelle conçue avec une expérience très orientée développeur. Le plan gratuit permet 3 000 e-mails par mois, au maximum 100 par jour, sur un domaine, avec 30 jours de conservation des données et jusqu’à 10 000 exécutions d’automatisations mensuelles. C’est suffisant pour un side project ou une petite application en production. Les dépassements pay-as-you-go ne sont pas disponibles sur le Free : si les volumes augmentent, il faut passer explicitement à un plan payant.

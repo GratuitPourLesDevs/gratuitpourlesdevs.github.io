@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 294
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "L’URL HeySpace redirige aujourd’hui vers TimeCamp Planner. L’existence d’un plan Free après essai est confirmée, mais le plafond historique de 5 utilisateurs n’est pas repris comme quota vérifié faute de grille actuelle explicite."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TimeCamp Planner a repris le positionnement de HeySpace autour des tâches et de la communication d’équipe. La fiche utilise le produit actuel plutôt que de maintenir une offre HeySpace devenue obsolète.

@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 147
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Pricing officiel : Starter gratuit à 500 pages/mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Data Miner est une extension de navigateur pour extraire des données structurées depuis des pages web. Son quota est correct mais son comportement en cas de dépassement mérite d’être visible : le compte Free peut être verrouillé plutôt que simplement attendre le prochain reset.

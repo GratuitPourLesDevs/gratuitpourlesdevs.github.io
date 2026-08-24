@@ -37,12 +37,12 @@ initiales: ST
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 939
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Le plan gratuit actuel annonce jusqu’à 25 utilisateurs, 10 000 lignes, 2 Go de fichiers et 3 000 appels API mensuels. L’ancienne limite de 2 000 lignes est obsolète."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 SeaTable reprend l’interface familière d’un tableur tout en ajoutant relations, automatisations, scripts et API. Avec 10 000 lignes et jusqu’à 25 utilisateurs sur Free, il peut couvrir des outils internes et bases collaboratives plus conséquents que ne le laissait penser l’ancienne limite de 2 000 lignes.

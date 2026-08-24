@@ -27,12 +27,12 @@ initiales: HE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 895
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Le portail Free DNS est actif en 2026 et confirme DNS autoritatif, IPv4/IPv6, domaines multiples, DNS secondaire et Dynamic DNS. Aucun quota chiffré actuel n’est affiché.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hurricane Electric Free DNS est utile pour gérer gratuitement les enregistrements d’un domaine tout en profitant d’une excellente culture réseau IPv4/IPv6. Le service prend aussi en charge les zones inverses, le DNS secondaire et des mises à jour Dynamic DNS, y compris pour des enregistrements TXT utilisés par certains workflows ACME. C’est particulièrement pratique pour des labos réseau, des serveurs auto-hébergés ou plusieurs domaines techniques. Son interface reste toutefois marquée « Open Beta » et la page publique ne publie plus de plafond chiffré clair, ce qui invite à ne pas dimensionner un service critique sur une hypothèse de quota historique.

@@ -28,12 +28,12 @@ initiales: TB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 334
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le niveau Nano gratuit actuel inclut 5 Go, 512 Mo de RAM, 0,5 CPU, utilisateurs et previews illimités.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Tugboat crée un environnement de prévisualisation pour tester une branche ou une pull request avant fusion. Le Nano gratuit est adapté aux petits sites et aux validations fonctionnelles légères.

@@ -33,12 +33,12 @@ initiales: WS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 442
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Les docs mises à jour en 2026 divergent entre 50 et 100 requêtes pour le Free. Par prudence le quota structuré retient 50 ; l’expiration à 7 jours est confirmée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Webhook.site est l’un des moyens les plus rapides pour voir ce qu’un service envoie réellement à un webhook ou à une adresse e-mail temporaire. Le Free est parfait pour du debug ponctuel, mais pas pour stocker des données sensibles ou durables.

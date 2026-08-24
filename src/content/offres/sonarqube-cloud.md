@@ -29,12 +29,12 @@ initiales: SQ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 387
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le produit est désormais présenté sous le nom SonarQube Cloud. Le Free actuel annonce 5 utilisateurs, 50k lignes privées et des projets publics illimités.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SonarCloud a évolué vers SonarQube Cloud. Le nouveau Free Tier accepte désormais de petits projets privés en plus des projets publics, avec un plafond de 50 000 lignes.

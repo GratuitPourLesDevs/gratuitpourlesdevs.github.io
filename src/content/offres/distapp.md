@@ -36,12 +36,12 @@ initiales: DA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 513
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le pricing actuel confirme 2 apps, 1 organisation, 100 Mo de stockage et 100 Mo par upload. L’auto-hébergement
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   est documenté ; les téléchargements illimités ne sont pas confirmés par le pricing.
 ---
 

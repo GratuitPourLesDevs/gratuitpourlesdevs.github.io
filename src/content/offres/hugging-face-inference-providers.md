@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 176
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "L’ancien quota en caractères n’est plus actuel : la documentation officielle attribue 0,10 $ de crédits mensuels aux utilisateurs Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hugging Face Inference Providers donne une API commune pour tester de nombreux modèles et fournisseurs sans gérer chaque intégration séparément. Le crédit gratuit actuel est toutefois surtout adapté à la découverte et à de très petits prototypes.

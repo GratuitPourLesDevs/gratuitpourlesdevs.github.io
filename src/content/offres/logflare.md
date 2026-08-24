@@ -30,12 +30,12 @@ initiales: LF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 544
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le pricing officiel 2026 confirme 12,96 M événements/mois, 3 jours de rétention, sources illimitées et 5 événements/s en moyenne.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Logflare est référencé avec les limites gratuites vérifiées le 19 août 2026.

@@ -32,12 +32,12 @@ initiales: TS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 960
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La nouvelle tarification Personal est gratuite à vie avec jusqu’à 6 utilisateurs et des appareils utilisateurs illimités. L’ancienne limite de 3 utilisateurs et 100 appareils n’est plus actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Tailscale crée un réseau privé mesh en s’appuyant sur WireGuard et automatise une grande partie des opérations traditionnellement associées à un VPN. Il convient aussi bien aux machines personnelles qu’aux serveurs, environnements de développement ou petits homelabs. Le nouveau plan Personal est sensiblement plus généreux qu’auparavant avec six utilisateurs et un nombre illimité d’appareils utilisateurs.

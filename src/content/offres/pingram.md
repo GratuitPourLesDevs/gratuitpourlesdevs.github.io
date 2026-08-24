@@ -30,12 +30,12 @@ initiales: P
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 532
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Pingram, anciennement NotificationAPI, publie 3 000 e-mails/mois, 100 SMS/mois, 100 minutes d’appel
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   et un numéro local en Free.
 ---
 

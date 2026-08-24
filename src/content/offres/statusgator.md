@@ -16,12 +16,12 @@ initiales: "SG"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 624
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free Forever : 3 monitors, 1 board, 1 admin, 100 subscribers, 10 notifications/mois et 1 mois d’historique."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 StatusGator évite de consulter manuellement les pages de statut de chaque fournisseur en agrégeant leurs incidents et en les présentant dans un board commun. Le Free Forever permet de suivre trois services et de partager un board avec jusqu’à cent abonnés ; la limite la plus vite atteinte sera souvent celle des dix notifications mensuelles.

@@ -42,9 +42,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 95
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle confirme un plan Free à 0 $, 5 $ de crédits mensuels, 0,20 $ par compute unit et aucune carte bancaire requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Apify permet de transformer des tâches de collecte web ou d’automatisation en Actors déclenchables depuis une interface, une API ou des intégrations. Le free tier est suffisamment flexible pour tester des scrapers réels, mais son volume dépend directement du coût de l’Actor et des ressources consommées.

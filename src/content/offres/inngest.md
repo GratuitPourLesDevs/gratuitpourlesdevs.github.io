@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 178
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Hobby officiel confirme 50k exécutions/mois, 500k événements/mois, 5 de concurrence et aucune carte requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Inngest permet d’écrire des fonctions durables et workflows pilotés par événements sans déployer soi-même la mécanique de queues, retries et orchestration. Son plan Hobby couvre déjà une petite application réelle avec des quotas mensuels substantiels.

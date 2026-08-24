@@ -20,12 +20,12 @@ initiales: "FS"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 739
 verifieLe: "2026-08-20"
-verificationAutomatiqueLe: "2026-08-20"
-verificationNote: "Catalogue actif vérifié le 20 août 2026. Font Squirrel se présente comme une sélection de polices gratuites de qualité pour usage commercial, avec les licences détaillées par police."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Font Squirrel facilite la recherche de polices gratuites adaptées à un projet professionnel en mettant l’accent sur les licences commerciales. Le site propose également des informations de licence et, lorsque cela est permis, des Webfont Kits pour simplifier l’intégration dans un site.

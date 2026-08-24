@@ -48,8 +48,8 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 80
-verifieLe: 2026-08-17
-verificationNote: "Plan Free Scan vérifié manuellement à partir d’une capture de la page officielle https://www.parsivex.com/pricing le 17 août 2026. La carte tarifaire indique explicitement One-time full AWS waste scan, Total estimated monthly waste, Finding count and category breakdown, Multi-region scans et No credit card required. Le tableau comparatif affiche aussi 1 compte AWS, 1 workspace et 1 siège. Bien que la ligne Scans per month affiche 1 pour Free, les rescans récurrents/automatisés sont absents et la carte précise One-time : le quota est donc enregistré de manière conservatrice comme 1 scan gratuit au total."
+verifieLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 historique:
   - date: 2026-08-17
     type: correction
@@ -64,6 +64,7 @@ historique:
         apres: 1 scan gratuit au total
         note: La carte tarifaire indique explicitement « One-time full AWS waste scan » et les rescans automatisés sont réservés aux plans payants.
     source: https://www.parsivex.com/pricing
+verificationAutomatiqueLe: 2026-08-24
 ---
 
 Parsivex analyse un compte AWS pour repérer des sources potentielles de gaspillage de coûts et fournir une estimation du montant mensuel concerné. Le plan Free Scan permet d’effectuer un diagnostic complet et multi-région d’un compte AWS sans carte bancaire, avec un résumé du nombre de findings et leur répartition par catégorie. Il s’agit toutefois d’un scan ponctuel : les rescans automatisés, la liste détaillée des ressources concernées, les scripts de remédiation et les alertes nécessitent une formule payante.

@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 162
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "API Free officielle : 15 req/min, sans carte ni période d’essai."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Earnings Feed expose les dépôts SEC avec une latence annoncée inférieure à une minute après leur acceptation. Le Free est surtout limité par son débit de 15 requêtes par minute plutôt que par un quota quotidien publié.

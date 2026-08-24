@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 289
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La grille actuelle maintient une offre à 0 $ pour les développeurs individuels ; la collaboration d’équipe fait partie des offres supérieures."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GitBook facilite la publication de documentation développeur avec prévisualisations, synchronisation Git et composants dédiés aux API. Le Free Tier cible surtout l’auteur individuel plutôt qu’une équipe de rédacteurs.

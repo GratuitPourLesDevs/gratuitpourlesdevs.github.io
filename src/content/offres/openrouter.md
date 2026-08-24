@@ -30,12 +30,12 @@ initiales: O
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 790
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Free tier vérifié le 20 août 2026 : 50 requêtes/jour par défaut sur les modèles gratuits ; la disponibilité des modèles varie."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 OpenRouter — API unifiée vers de nombreux modèles IA. Les modèles marqués gratuits sont utilisables sans coût d’inférence OpenRouter mais restent soumis à des limites quotidiennes et de disponibilité.

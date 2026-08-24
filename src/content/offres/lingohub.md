@@ -34,12 +34,12 @@ initiales: LH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 554
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La grille 2026 commence à 45 €/mois pour les offres standard et propose séparément un Sponsored Plan gratuit pour Open Source et non-profits.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LingoHub centralise les chaînes, la mémoire de traduction, les glossaires et les contrôles qualité afin de faire travailler développeurs et traducteurs dans le même workflow. Il n’existe plus de plan général gratuit à trois utilisateurs : la gratuité actuelle passe par un Sponsored Plan sur demande, notamment pour les projets open source et les organisations à but non lucratif. C’est donc une excellente option pour les projets éligibles, mais pas un Free Tier librement accessible à tous.

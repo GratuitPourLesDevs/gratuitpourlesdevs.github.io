@@ -30,12 +30,12 @@ initiales: PF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 306
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Fonctions et API vérifiées dans la documentation officielle. Aucun quota chiffré de l’instance publique n’est publié.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Pastefy est un Pastebin moderne qui ajoute chiffrement client, dossiers et API. Son code open source est aussi un bon filet de sécurité pour les équipes qui veulent migrer ensuite vers une instance maîtrisée.

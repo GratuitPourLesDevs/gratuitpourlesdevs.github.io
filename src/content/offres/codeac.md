@@ -31,12 +31,12 @@ initiales: CA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 367
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le gratuit Open-source est confirmé à 0 $ pour toujours avec dépôts publics illimités. Le traitement exact des dépôts privés reste ambigu sur la grille actuelle.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Codeac automatise les contrôles de qualité et de sécurité sur le code applicatif et l’Infrastructure as Code. L’offre open source reste gratuite sans limite publiée sur les dépôts publics.

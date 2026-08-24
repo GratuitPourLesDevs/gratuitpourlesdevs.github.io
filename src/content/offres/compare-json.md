@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 154
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Outil gratuit officiel, sans inscription, traitement JSON local dans le navigateur."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Compare JSON compare la structure des objets plutôt que leur simple représentation textuelle. Comme le traitement principal est local au navigateur, il n’y a pas de quota SaaS à consommer ni de JSON envoyé au serveur pour le diff.

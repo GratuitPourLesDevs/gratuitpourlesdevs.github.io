@@ -27,12 +27,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1007
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La formule Free actuelle comprend 5 utilisateurs et jusqu’à 5 projets, avec 100 Mo de stockage. L’ancienne limite de 2 projets est obsolète."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Teamwork Free fournit les vues et fonctions essentielles pour piloter quelques projets avec une petite équipe. Le nombre de projets a augmenté par rapport aux anciennes descriptions du free tier.

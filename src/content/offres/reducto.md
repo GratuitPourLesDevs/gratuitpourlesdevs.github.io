@@ -38,9 +38,9 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 227
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification Standard indique jusqu’aux 15 000 premiers crédits gratuits, puis 0,015 $/crédit : il ne s’agit pas d’un quota mensuel permanent."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Reducto vise les documents difficiles à transformer en données propres : PDF, scans, présentations et feuilles de calcul. Les 15 000 crédits offrent une vraie phase d’évaluation, mais ce n’est pas un free tier mensuel permanent.

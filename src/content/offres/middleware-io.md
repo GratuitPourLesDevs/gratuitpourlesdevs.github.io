@@ -20,12 +20,12 @@ initiales: "MW"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 603
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Les sources officielles actuelles sont contradictoires sur le Free Forever et ses quotas ; revalidation nécessaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Middleware.io réunit logs, métriques d’infrastructure et APM afin de relier un symptôme applicatif à son contexte système. Le service a historiquement proposé un Free Forever, mais les pages officielles actuelles ne sont pas cohérentes entre cette documentation et une logique d’essai puis pay-as-you-go ; la fiche reste donc volontairement à vérifier et n’affiche pas l’ancien million de logs comme quota garanti.

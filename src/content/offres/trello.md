@@ -26,12 +26,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1013
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle indique 10 collaborateurs et 10 boards par workspace, cartes illimitées, 10 Mo par fichier et 250 command runs mensuels."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Trello Free reste très accessible pour de petites équipes avec cartes illimitées et dix tableaux par workspace. Les anciens libellés sur les Personal Boards ne correspondent plus au modèle tarifaire actuel.

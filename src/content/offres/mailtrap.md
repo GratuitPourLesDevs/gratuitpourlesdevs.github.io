@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 698
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Email API/SMTP Free vérifié : 4 000 e-mails/mois, 150/jour, 1 domaine, logs 3 jours."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mailtrap a évolué d’un outil de sandbox vers une plateforme comprenant aussi un véritable service d’envoi. Pour Email API/SMTP, le Free Tier actuel autorise 4 000 e-mails par mois avec un maximum de 150 par jour, un domaine, un utilisateur et trois jours de logs. C’est suffisamment concret pour développer puis faire fonctionner un petit service transactionnel. Mailtrap propose aussi des produits Marketing et Sandbox, mais leurs quotas sont distincts : cette fiche ne mélange volontairement pas leurs différentes limites.

@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 620
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free actuel centré sur 1 serveur avec jusqu’à 50 métriques par serveur."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Simple Observability cherche à réduire le temps de configuration nécessaire pour centraliser métriques et logs d’un serveur dans un même tableau de bord. Le gratuit est volontairement ciblé sur une seule machine, avec jusqu’à cinquante métriques, ce qui le rend pertinent pour tester la plateforme ou superviser un VPS personnel sans complexité supplémentaire.

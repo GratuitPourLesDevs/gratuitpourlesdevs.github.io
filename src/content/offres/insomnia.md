@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 177
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La grille Essentials actuelle confirme projets illimités, Git Sync jusqu’à 3 utilisateurs et 1 000 requêtes de mock/mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Insomnia couvre le cycle de travail API depuis la requête interactive jusqu’à l’automatisation CI/CD. Son plan Essentials est particulièrement intéressant pour un développeur ou une petite équipe grâce aux projets illimités et au Git Sync gratuit.

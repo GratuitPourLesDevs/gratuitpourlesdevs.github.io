@@ -24,12 +24,12 @@ initiales: '360'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 481
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le site actuel annonce 150+ plateformes, et non les 90+ de la description historique.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 360username permet de vérifier rapidement si un même pseudo est utilisé sur de nombreux réseaux et services. Le service reste entièrement gratuit et sans création de compte.

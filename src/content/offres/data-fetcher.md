@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 146
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan Free officiel vérifié : 100 runs et 10 000 response records par mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Data Fetcher ajoute à Airtable une interface proche de Postman pour appeler des API et injecter leurs réponses dans des tables sans développer de connecteur spécifique. Le plan gratuit est permanent mais chaque pagination ou traitement par enregistrement peut consommer plusieurs runs.

@@ -28,12 +28,12 @@ initiales: ST
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 433
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le quota 10 crawls/jour reste cité par des annuaires récents, mais le domaine officiel n’était pas vérifiable automatiquement. Fiche marquée à vérifier.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : fetch failed."
 ---
 
 seotest.me est conservé dans le catalogue avec prudence : la proposition d’audit SEO gratuit est connue, mais le quota exact actuel n’a pas pu être recoupé directement sur le site officiel.

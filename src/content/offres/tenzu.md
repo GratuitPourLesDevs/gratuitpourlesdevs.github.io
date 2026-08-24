@@ -22,12 +22,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 1009
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page officielle de pricing est bloquée à la vérification automatisée. Le référentiel free-for.dev actuel indique toujours que les utilisateurs peuvent contribuer 0 et qu’il n’existe pas de paywall fonctionnel."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Tenzu se présente comme une alternative légère pour équipes agiles, financée par contributions volontaires. Faute d’accès automatisé à la page tarifaire officielle, la fiche reste volontairement marquée à vérifier.

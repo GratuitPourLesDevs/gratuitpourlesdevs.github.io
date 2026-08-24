@@ -29,12 +29,12 @@ initiales: PC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 535
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Sandbox reste gratuit avec 100 connexions simultanées, 200 000 messages/jour et channels illimités.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pusher Channels est référencé avec les limites gratuites vérifiées le 19 août 2026.

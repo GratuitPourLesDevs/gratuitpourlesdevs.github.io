@@ -27,12 +27,12 @@ initiales: "J"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 985
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free 2026 reste limité à 10 utilisateurs, avec 2 Go de stockage et 100 exécutions d’automatisation mensuelles."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Jira Free fournit les briques essentielles du suivi agile pour une petite équipe, avec Scrum, Kanban, backlog et automatisations de base. Les contrôles d’administration restent volontairement limités.

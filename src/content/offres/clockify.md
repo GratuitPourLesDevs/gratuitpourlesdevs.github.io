@@ -24,12 +24,12 @@ initiales: "C"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 971
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification 2026 indique désormais jusqu’à 5 utilisateurs sur Free. L’ancienne mention d’utilisateurs illimités est obsolète."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Clockify permet de suivre gratuitement le temps d’une petite équipe sur autant de projets et d’entrées que nécessaire. L’ancien positionnement avec utilisateurs illimités n’est plus actuel.

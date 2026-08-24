@@ -30,12 +30,12 @@ initiales: OAD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 216
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel est actif et permet de créer visuellement schemas, paths et security schemes puis d’exporter en JSON ou YAML."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 OpenAPI Definition Designer fournit une interface visuelle légère pour dessiner une définition OpenAPI 3 sans écrire tout le YAML à la main. Il est surtout utile pour prototyper rapidement des contrats d’API simples.

@@ -28,12 +28,12 @@ initiales: CO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 946
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification officielle confirme un plan Free à 0 $/mois avec sous-domaines aléatoires, 4 h/jour de connexion continue et 500 Mo de trafic par jour."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Conveyor facilite le test d’applications web locales depuis d’autres appareils en s’intégrant directement à Visual Studio et IIS Express. Son tunnel public évite de déployer une version de démonstration uniquement pour tester un smartphone, une tablette ou partager un travail temporairement. Le plan gratuit convient aux sessions de développement courtes grâce à ses quotas journaliers clairement publiés.

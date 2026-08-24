@@ -32,12 +32,12 @@ initiales: WP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 358
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre Free confirmée à 0 $/mois pour toujours, sans carte, avec 1 serveur, 2 sites, SSL gratuit et cron jobs illimités.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 WPJack automatise surtout l’installation et la gestion de WordPress sur une infrastructure qui vous appartient. Le logiciel de gestion est gratuit dans la limite de deux sites, mais il ne rend évidemment pas le serveur cloud lui-même gratuit.

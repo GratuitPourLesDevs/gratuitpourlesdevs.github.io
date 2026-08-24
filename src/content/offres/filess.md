@@ -34,12 +34,12 @@ initiales: FI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 929
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La formule gratuite actuelle confirme 2 bases avec 10 Mo par base et le choix entre MySQL, MariaDB, PostgreSQL et MongoDB, sans limite de durée annoncée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Filess.io offre de minuscules instances de plusieurs moteurs populaires sans coût récurrent. Les 10 Mo par base excluent les usages de production sérieux, mais le service reste pratique pour des exercices, démonstrations, tests d’intégration et projets dont les données sont très petites.

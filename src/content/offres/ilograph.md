@@ -28,12 +28,12 @@ initiales: "I"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 984
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free actuel annonce des diagrammes publics illimités et des diagrammes privés illimités visibles uniquement par soi-même. L’ancienne mention de 3 viewers privés n’est plus actuelle."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Ilograph est conçu pour explorer une infrastructure selon plusieurs angles plutôt que comme un dessin figé. Le niveau gratuit permet de créer autant de diagrammes que nécessaire, mais le partage privé est réservé aux offres supérieures.

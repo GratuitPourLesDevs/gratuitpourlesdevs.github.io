@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 743
-verifieLe: "2026-08-20"
-verificationAutomatiqueLe: "2026-08-20"
-verificationNote: "Service actif vérifié le 20 août 2026. Fontshare confirme que toutes ses polices sont gratuites pour un usage personnel et commercial, sous sa Free Font License ou une licence open source."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Fontshare est une bibliothèque de polices de qualité professionnelle lancée par Indian Type Foundry. Sa particularité est d’annoncer l’ensemble de son catalogue comme gratuit pour les usages personnels et commerciaux, tout en conservant des règles de licence propres aux familles open source ou propriétaires gratuites.

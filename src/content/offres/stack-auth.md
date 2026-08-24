@@ -35,12 +35,12 @@ initiales: HX
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 503
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Stack Auth redirige désormais vers Hexclave. Le Free est 10 000 comptes auth, et non 10k MAU.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hexclave (ex-Stack Auth) est référencé avec les limites gratuites vérifiées le 2026-08-19.

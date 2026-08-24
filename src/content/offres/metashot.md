@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 263
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle affiche 1 000 images/mois, 2 clés API et 3 templates personnalisés sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MetaShot automatise la production de visuels Open Graph 1200×630 à partir de paramètres et de templates, ce qui évite de générer manuellement les previews pour chaque page ou contenu partagé.

@@ -32,9 +32,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 181
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La documentation et les conditions officielles confirment 1 000 requêtes/jour et une limite dure sur le plan Free non commercial."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ipgeolocation.io expose des données de localisation et réseau à partir d’une adresse IP. Le quota quotidien est exploitable pour de petits projets, mais le plan gratuit n’est pas destiné à une utilisation commerciale.

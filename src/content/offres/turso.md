@@ -38,12 +38,12 @@ initiales: TU
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 943
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La tarification actuelle a changé : Free comprend 100 bases, 5 Go de stockage, 500 millions de lignes lues et 10 millions écrites par mois. Les anciennes valeurs 500/9 Go/1 milliard sont obsolètes."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Turso apporte une expérience SQLite managée et distribuée pour les applications edge et serverless. Le plan gratuit reste généreux en nombre de bases et en lectures, mais ses quotas actuels sont inférieurs à plusieurs anciennes descriptions encore diffusées en ligne.

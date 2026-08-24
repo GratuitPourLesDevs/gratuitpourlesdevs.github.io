@@ -33,12 +33,12 @@ initiales: SA
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 520
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: En août 2026, plusieurs pages officielles décrivent encore un Free/ServerAvatar Lite à 1 serveur et 1 application, mais le pricing principal n’affiche que des plans payants et un essai de 4 jours. Disponibilité à revalider.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ServerAvatar est conservé avec un statut à vérifier en raison de la contradiction entre sa documentation et sa page de tarification principale.

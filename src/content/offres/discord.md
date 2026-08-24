@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 278
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Discord confirme que les fonctions de base sont gratuites. Les limites de compte standard retenues sont notamment 100 serveurs et 10 Mo par fichier ; aucun nombre d’utilisateurs illimité n’est revendiqué dans cette fiche."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Discord est largement utilisé pour les communautés techniques et les équipes informelles grâce à ses salons texte et vocaux, ses appels vidéo et son écosystème de bots. Le service de base est gratuit, avec certaines limites relevées par Nitro.

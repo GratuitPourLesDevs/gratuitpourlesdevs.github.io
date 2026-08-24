@@ -24,12 +24,12 @@ initiales: TK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 325
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre revérifiée le 18 août 2026 à partir du site officiel.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Talky est utile lorsqu’on veut lancer un petit appel vidéo sans créer un workspace ou gérer des invitations complexes. Un lien de salon suffit pour démarrer.

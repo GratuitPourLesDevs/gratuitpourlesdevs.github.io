@@ -37,12 +37,12 @@ initiales: CV
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 840
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Les anciens 1M records / 5M calls ne correspondent plus aux limites actuelles. Free 2026 : 0,5 GB DB, 1M function calls/mois, 1 GB files et 1–6 développeurs.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Convex est particulièrement utile pour les interfaces qui doivent se mettre à jour en temps réel : la base, les fonctions et les abonnements réactifs sont conçus comme un ensemble cohérent. Un million d’appels de fonctions par mois suffit à faire tourner un prototype sérieux ou une petite application, tout en profitant de transactions ACID et de la recherche intégrée. Le modèle évite beaucoup de plomberie entre base, API et WebSockets. La limite à connaître est la taille du Free Tier : 0,5 GB de base et des plafonds durs signifient qu’une application qui grossit doit être surveillée avant de toucher les limites.

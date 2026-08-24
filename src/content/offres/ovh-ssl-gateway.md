@@ -28,12 +28,12 @@ initiales: OV
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 805
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: OVHcloud propose toujours un SSL Gateway Free avec certificat Let’s Encrypt, Anti-DDoS et un mois de métriques
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   pour les sites à faible trafic.
 ---
 

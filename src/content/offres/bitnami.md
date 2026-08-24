@@ -31,12 +31,12 @@ initiales: B
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 514
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le 19 août 2026, Bitnami confirme qu’une partie de Secure Images reste gratuite pour les usages non-production et uniquement sur le tag latest. L’ancien Developer Plan Cloud Hosting à 1 micro-instance n’est plus actuel.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Bitnami reste utile aux développeurs via ses images applicatives préconfigurées. La fiche est volontairement basée sur le modèle Secure Images actuel et non sur l’ancien service Bitnami Cloud Hosting.

@@ -20,12 +20,12 @@ initiales: "XI"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 632
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Le Free Tier général historique a disparu de la grille ; des plans gratuits spéciaux existent encore mais leurs conditions doivent être qualifiées."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Xitoring couvre la disponibilité de services, le monitoring de serveurs Linux/Windows et la publication d’une page de statut. L’ancienne formule générale à vingt uptime monitors et cinq serveurs n’est plus visible dans la grille standard, désormais payante ; des programmes gratuits spéciaux subsistent pour certains profils, ce qui justifie de conserver la fiche en vérification plutôt que de l’archiver complètement.

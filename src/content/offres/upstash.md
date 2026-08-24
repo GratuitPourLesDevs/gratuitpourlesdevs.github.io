@@ -32,12 +32,12 @@ initiales: UP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 944
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Le plan Redis gratuit actuel confirme 256 Mo de données, 500 000 commandes mensuelles et 10 Go de bande passante. L’ancienne limite de 20 connexions simultanées n’est pas reprise faute d’être un quota public actuel."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Upstash transforme Redis en service serverless accessible par protocole Redis ou API REST. Le plan gratuit convient aux caches, sessions, rate limits et petits backends, avec des plafonds mensuels simples sur les commandes et la bande passante ainsi qu’une base limitée à 256 Mo.

@@ -24,12 +24,12 @@ initiales: "WC"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1015
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le positionnement actuel est CAD Rooms. La documentation officielle confirme un plan gratuit à 5 conversions de fichiers par mois ; l’ancienne offre de projets illimités et 3 Go n’est plus retenue."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Wikifactory a déplacé son offre vers CAD Rooms et les workflows d’ingénierie. La gratuité actuelle ne correspond plus à l’ancien plan de projets : elle porte notamment sur cinq conversions CAD mensuelles.

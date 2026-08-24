@@ -38,12 +38,12 @@ initiales: LN
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 951
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page officielle actuelle confirme 1 tunnel HTTP/TCP/UDP, 1 Go de bande passante mensuelle et un timeout de 30 minutes sur le plan Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Localtonet couvre davantage de protocoles qu’un simple tunnel HTTP et peut servir pour des applications web, bases de données, SSH, RDP, jeux ou flux UDP. Le plan gratuit suffit pour des tests ponctuels et inclut déjà plusieurs fonctions de sécurité et d’inspection. Ses limites de trafic et de durée le destinent toutefois clairement au développement et aux démonstrations plutôt qu’à un service permanent.

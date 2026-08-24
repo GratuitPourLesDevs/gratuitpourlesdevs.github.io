@@ -24,8 +24,8 @@ statut: "a_verifier"
 vedette: false
 ordre: 717
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : service historiquement gratuit d’e-mail temporaire."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Temp-Mail.org génère une adresse jetable utilisable immédiatement pour recevoir des messages, sans qu’il soit nécessaire de créer un compte de messagerie classique. C’est pratique pour tester rapidement une confirmation d’inscription ou éviter d’utiliser une vraie adresse dans un scénario éphémère. Une boîte temporaire n’est évidemment pas adaptée à des données sensibles ou à une identité durable. Le service est historiquement gratuit, mais ses limites et sa politique de conservation actuelles doivent être revalidées ; la fiche le signale donc explicitement.

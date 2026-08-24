@@ -25,12 +25,12 @@ initiales: PS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1053
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Chart Studio a fermé le 31 octobre 2025 ; la fiche reflète le nouveau plan Free Plotly Studio/Cloud 2026."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Plotly a remplacé Chart Studio par Studio et Cloud, avec une formule gratuite recentrée sur une application publiée.

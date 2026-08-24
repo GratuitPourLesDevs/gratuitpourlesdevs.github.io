@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 729
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Starter Cloud vérifié le 19 août 2026 : 3 utilisateurs, 1 projet, flags/expériences/trafic illimités ; warehouse managé gratuit jusqu’à 1 M d’événements/mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GrowthBook réunit feature flags, expérimentation et analyse statistique dans une plateforme open source disponible en cloud ou en auto-hébergement. Le plan Cloud Starter gratuit permet jusqu’à trois utilisateurs et un projet avec un nombre illimité de feature flags, d’expériences et de trafic. Pour les équipes utilisant le data warehouse managé de GrowthBook, le niveau gratuit inclut jusqu’à un million d’événements par mois ; l’utilisation de son propre warehouse permet de conserver un modèle plus indépendant du volume de trafic.

@@ -25,12 +25,12 @@ initiales: UF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 336
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’offre actuelle vérifiée indique 2 personas et 1 collaborateur invité, sans carte et sans expiration fixe ; l’ancien quota 3 personas / 2 collaborateurs n’est plus retenu.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Userforge aide à garder les personas et besoins utilisateurs visibles pendant la conception d’un produit. L’offre gratuite actuelle est plus petite que l’ancien quota souvent cité de 3 personas et 2 collaborateurs.

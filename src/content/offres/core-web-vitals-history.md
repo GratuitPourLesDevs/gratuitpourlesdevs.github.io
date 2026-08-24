@@ -16,12 +16,12 @@ initiales: "CW"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 586
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Outil public accessible gratuitement ; aucun quota chiffré n’est publié."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Core Web Vitals History sert à observer l’évolution des indicateurs d’expérience utilisateur d’une URL ou d’un site au fil du temps, sans déployer de sonde dans l’application. C’est surtout un outil de diagnostic ponctuel et de suivi SEO/performance ; son accès est public et gratuit, mais aucune capacité de requêtes ni garantie de service n’est publiée.

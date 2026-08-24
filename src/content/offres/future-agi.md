@@ -29,12 +29,12 @@ initiales: FA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 781
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Free tier vérifié le 20 août 2026 avec quotas mensuels de gateway, évaluations et simulations, membres/projets illimités et 50 Go de stockage."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Future AGI — Plateforme open source pour évaluer, observer et sécuriser des applications et agents IA, avec un Free Tier particulièrement généreux.

@@ -33,12 +33,12 @@ initiales: SQ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 409
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel autorise dépôts publics/privés et utilisateurs illimités, 2 environnements concurrents et 30 VM-heures/mois à 1 Go, ou 15 h à 2 Go.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Squash Labs crée un environnement temporaire accessible par URL pour tester une branche avant fusion. Le plan gratuit est particulièrement intéressant pour les previews, avec un quota de compute mensuel partagé entre les environnements.

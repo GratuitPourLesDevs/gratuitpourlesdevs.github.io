@@ -30,12 +30,12 @@ initiales: FA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 756
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Page tarifaire actuelle vérifiée le 20 août 2026 : jusqu’à 5 formulaires et réponses illimitées. D’anciennes pages d’aide mentionnent encore 100 réponses/mois.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 forms.app — Constructeur de formulaires et sondages avec logique conditionnelle, scoring et IA. Free : jusqu’à 5 formulaires et réponses illimitées. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

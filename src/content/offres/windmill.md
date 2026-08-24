@@ -28,12 +28,12 @@ initiales: WM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 340
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La fiche retient la Community Edition auto-hébergée actuelle plutôt que l’ancienne formulation liée aux workspaces cloud non premium.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Windmill transforme des scripts Python, TypeScript et autres en workflows ou outils internes. Sa Community Edition est particulièrement généreuse si l’équipe accepte de l’auto-héberger.

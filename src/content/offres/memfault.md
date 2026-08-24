@@ -32,12 +32,12 @@ initiales: 'MF'
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: 'active'
+statut: "active"
 vedette: false
 ordre: 575
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'La grille 2026 remplace les anciennes offres partenaires à 100 appareils par 10 appareils de développement gratuits pour les équipes Nordic éligibles.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Memfault apporte aux produits embarqués et IoT des outils de crash reporting, télémétrie et diagnostic à distance sur des flottes réelles. La gratuité actuelle est beaucoup plus ciblée que les anciennes offres partenaires : la grille Developer annonce jusqu’à 10 appareils de développement sans frais pour les équipes travaillant sur des solutions Nordic low-power wireless. Au-delà de ce seuil, ou pour des appareils de production, le service passe au pay-as-you-go ; les anciennes annonces à 100 appareils ne doivent donc plus être prises comme règle générale.

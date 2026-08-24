@@ -34,12 +34,12 @@ initiales: SB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 941
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La page de tarification actuelle affiche 20 stacks sur Free, avec 1 500 lignes et 2 Go de pièces jointes par stack. L’ancienne valeur de 10 stacks n’est plus retenue."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 StackBy combine feuille de calcul, base structurée, intégrations externes et automatisations. Le plan gratuit est assez large pour organiser plusieurs petits workflows collaboratifs, avec désormais 20 stacks mais des limites plus serrées sur le nombre de lignes, les automatisations et l’historique.

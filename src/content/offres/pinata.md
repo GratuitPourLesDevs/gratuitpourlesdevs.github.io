@@ -25,12 +25,12 @@ initiales: P
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1052
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle confirme 1 Go, 500 fichiers, 10 Go de bande passante et 10 000 requêtes sur Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pinata simplifie le stockage de fichiers et l’exposition via IPFS et gateway.

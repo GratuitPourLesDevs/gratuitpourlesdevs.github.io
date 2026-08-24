@@ -25,12 +25,12 @@ initiales: "S"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1001
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Les pages officielles actuelles affichent Free à 0 $/utilisateur pour 10 personnes ou moins. L’ancienne mention 3 projets et 5 membres n’est plus retenue faute de confirmation actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Sflow couvre plusieurs usages — développement, support, marketing et ventes — avec une formule gratuite pour les petites équipes. Le plafond actuel est de dix personnes, supérieur à l’ancienne description free-for.dev.

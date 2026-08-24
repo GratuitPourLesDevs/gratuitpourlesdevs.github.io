@@ -26,12 +26,12 @@ initiales: "Y"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1016
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page officielle actuelle confirme Starter à 0 $ jusqu’à 3 utilisateurs, projets illimités et un essai initial de 30 jours pour utilisateurs illimités."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Yodiz conserve un plan Starter très complet pour trois personnes, sans limite du nombre de projets. Les équipes peuvent tester d’abord le service avec davantage d’utilisateurs puis revenir au plan gratuit.

@@ -36,12 +36,12 @@ initiales: CO
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 348
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Le Free actuel est bien plus détaillé que l’ancienne description : 1 Bucket, 2 membres, 1 000 objets, quotas API et médias, plus 1 agent et 1 workflow.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cosmic convient aux projets qui veulent un CMS API-first simple avec une couche d’automatisation et d’IA déjà intégrée. Le plan gratuit est utilisable pour un petit projet, mais les quotas de consommation doivent être surveillés.

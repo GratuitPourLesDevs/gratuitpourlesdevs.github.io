@@ -29,12 +29,12 @@ initiales: CSC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 139
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Source primaire inaccessible (erreur 502). Quota de 100 requêtes/jour cohérent avec une source secondaire récente, mais non validé officiellement."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Country-State-City Microservice API expose des données géographiques structurées sur les pays, subdivisions, villes et codes postaux. Le quota annoncé de 100 requêtes quotidiennes paraît toujours référencé récemment, mais la source officielle n’a pas pu être chargée au moment de la vérification : la fiche reste donc volontairement à revérifier.

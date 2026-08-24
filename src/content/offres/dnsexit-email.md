@@ -20,12 +20,12 @@ initiales: "DE"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 672
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : 2 adresses gratuites et 100 Mo de stockage selon la description historique."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DNSExit Email va plus loin qu’un simple alias en proposant historiquement de vraies boîtes sur un domaine personnalisé, accessibles en IMAP, POP3 et SMTP. La description de référence mentionne deux adresses gratuites avec 100 Mo de stockage, ce qui peut convenir à un domaine de test ou à quelques adresses fonctionnelles. Ces valeurs n’étant plus suffisamment claires dans la documentation publique actuelle, elles sont conservées comme référence à revalider avant un usage durable.

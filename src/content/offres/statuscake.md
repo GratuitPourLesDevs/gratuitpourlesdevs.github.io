@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 623
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "La grille tarifaire récente indique 10 uptime monitors à 5 minutes, plus 1 Page Speed monitor quotidien."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 StatusCake surveille la disponibilité et quelques signaux de performance web avec une interface conçue pour gérer plusieurs tests. La grille gratuite récente permet dix monitors uptime toutes les cinq minutes ainsi qu’un contrôle Page Speed quotidien ; ces valeurs remplacent les anciennes mentions plus restrictives que l’on trouve encore parfois sur d’autres pages du produit.

@@ -37,12 +37,12 @@ initiales: C
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 551
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Crowdin confirme une licence gratuite pour les projets Open Source éligibles avec un nombre illimité de projets, chaînes et membres.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Crowdin est particulièrement utile aux projets open source qui veulent centraliser leurs traductions, accueillir une communauté de traducteurs et automatiser la synchronisation avec le code. Sa licence Open Source est exceptionnellement généreuse avec projets, chaînes et membres illimités, mais elle n’est accordée qu’après demande aux projets réellement ouverts, actifs et non commerciaux répondant aux critères de Crowdin.

@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 212
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle confirme JSON/CSV, CORS, absence de signup, clé et rate limit, ainsi que la licence CC BY 4.0."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 NASdisks met à disposition un dataset directement consommable depuis un navigateur ou un notebook pour comparer des disques NAS. L’absence de clé et de rate limit publié en fait une ressource très simple à intégrer, sous réserve de respecter les obligations d’attribution.

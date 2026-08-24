@@ -32,12 +32,12 @@ initiales: LZ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 556
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le pricing 2026 limite le Free à 200 clés source, avec sièges et langues illimités. L’ancienne référence à 1 000 clés a été corrigée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Localazy fournit un véritable espace de localisation collaboratif avec outils développeur, mémoire de traduction et prise en charge de nombreux frameworks et formats. Son Free actuel convient surtout aux petits produits : il accepte 200 clés source, mais laisse les sièges, langues et traductions illimités. C’est nettement moins que l’ancienne référence à 1 000 chaînes ; une fois la limite atteinte, les changements ne peuvent plus être publiés sans augmenter la capacité.

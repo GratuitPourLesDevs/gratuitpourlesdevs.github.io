@@ -30,12 +30,12 @@ initiales: C
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 449
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel est passé à 2 membres et 10 dépôts ; la source initiale 1 utilisateur / 2 repos était obsolète.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Corgea est référencé avec les limites gratuites vérifiées le 2026-08-19.

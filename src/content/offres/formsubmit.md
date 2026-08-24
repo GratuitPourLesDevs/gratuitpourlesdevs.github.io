@@ -25,12 +25,12 @@ initiales: F
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 759
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: Service Free Forever vérifié le 20 août 2026 ; aucun plafond chiffré public fiable n’a été trouvé, donc aucun volume n’est inventé.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 FormSubmit — Endpoint gratuit pour envoyer les soumissions de formulaires HTML par e-mail sans backend. Free Forever : endpoint de formulaire sans inscription, quota public non chiffré. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

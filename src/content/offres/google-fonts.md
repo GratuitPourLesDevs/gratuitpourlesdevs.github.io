@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 744
-verifieLe: "2026-08-20"
-verificationAutomatiqueLe: "2026-08-20"
-verificationNote: "Service vérifié le 20 août 2026 : Google confirme que les familles Google Fonts sont sous licences open source et utilisables dans des projets personnels ou commerciaux, avec intégration web par feuille de style."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Google Fonts fournit un catalogue de familles open source que l’on peut télécharger ou charger directement dans une page web via une feuille de style. Pour les développeurs, Google propose aussi une API de métadonnées afin d’interroger dynamiquement les familles, variantes et sous-ensembles disponibles.

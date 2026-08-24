@@ -38,12 +38,12 @@ initiales: TR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 412
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel inclut 5 $ de compute/mois, 20 concurrences en production, tâches illimitées, 5 membres, 10 schedules et 1 jour de logs.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Trigger.dev vise les traitements qui doivent survivre aux erreurs, attendre longtemps ou exécuter des agents IA sans timeout classique. Le Free Tier combine une allocation mensuelle en dollars avec des limites fonctionnelles explicites.

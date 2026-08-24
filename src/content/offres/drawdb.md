@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 160
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Éditeur gratuit et open source confirmé ; aucun compte requis, stockage local en mode Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 drawDB est un éditeur visuel de schémas SQL qui fonctionne directement dans le navigateur. Le cœur de l’outil est gratuit et open source ; seules les fonctions cloud, équipe et collaboration temps réel nécessitent Pro.

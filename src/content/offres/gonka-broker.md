@@ -24,12 +24,12 @@ initiales: GB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 782
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Quota vérifié le 20 août 2026 : au moins 1 million de tokens gratuits par mois, avec remise à zéro au premier jour du mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Gonka Broker — API compatible OpenAI vers le réseau GPU décentralisé Gonka, avec au moins un million de tokens gratuits chaque mois.

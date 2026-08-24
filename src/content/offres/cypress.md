@@ -31,12 +31,12 @@ initiales: CY
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 420
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Cypress App reste open source. Le Cloud Free actuel annonce 50 utilisateurs, 500 test results/mois et 100 prompt executions/mois ; l’OSS éligible dispose d’un programme séparé.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cypress reste utilisable gratuitement en local sans limite artificielle via son runner open source. Le service Cloud ajoute partage, historique et analytics, avec un quota gratuit plus limité.

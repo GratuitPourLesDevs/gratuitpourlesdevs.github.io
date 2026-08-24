@@ -23,12 +23,12 @@ initiales: DT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 375
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le service est accessible gratuitement sans inscription et indique que les comparaisons sont traitées côté client.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 DiffText permet de comparer instantanément deux blocs de texte ou de code. Les données restent dans le navigateur et aucun compte n’est requis.

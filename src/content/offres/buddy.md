@@ -37,12 +37,12 @@ initiales: BU
 carteRequise: true
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 395
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La grille actuelle remplace les anciens 5 projets/120 exécutions par un modèle à 1 siège, 1 concurrence et quotas GB-minutes/CPU-minutes.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Buddy conserve un plan Free mais son modèle de quotas a changé. La limite principale n’est plus un nombre de projets ou d’exécutions : le service mesure désormais les ressources de pipeline et de sandbox consommées.

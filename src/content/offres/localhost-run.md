@@ -34,12 +34,12 @@ initiales: LR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 950
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page officielle confirme l’absence de téléchargement et d’inscription, le HTTPS automatique et un niveau gratuit permanent. Aucun quota chiffré public n’est affiché."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 localhost.run transforme une simple commande SSH en tunnel public vers un serveur local. Il est pratique pour partager une démonstration, tester un webhook ou accéder ponctuellement à une application derrière un NAT sans installer d’agent supplémentaire. Le service promet que ses domaines gratuits resteront gratuits, tandis que les domaines personnalisés et stables relèvent d’une souscription.

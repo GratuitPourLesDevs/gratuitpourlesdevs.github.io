@@ -27,12 +27,12 @@ initiales: CO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 372
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Coveralls Cloud reste gratuit pour les dépôts publics ; un abonnement est nécessaire pour suivre des dépôts privés.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Coveralls visualise l’évolution de la couverture et aide à repérer les zones non testées. L’utilisation des dépôts publics reste gratuite.

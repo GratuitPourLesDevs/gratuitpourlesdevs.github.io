@@ -29,12 +29,12 @@ initiales: KA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 423
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Katalon Studio continue à fonctionner gratuitement avec ses fonctions cœur après l’essai. Les offres cloud et avancées suivent désormais une tarification séparée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Katalon Studio reste une porte d’entrée gratuite pour concevoir et exécuter des tests sur plusieurs types d’applications. La valeur gratuite se situe aujourd’hui surtout dans le Studio local, pas dans l’ensemble de la plateforme cloud.

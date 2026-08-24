@@ -35,12 +35,12 @@ initiales: CH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 926
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Les limites publiques actuelles du plan de développement gratuit sont nettement différentes de l’ancienne fiche : 150 Mo de base, 1 Go de fichiers, 60 appels par minute et 1 développeur."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Codehooks permet de construire un backend JavaScript sans gérer de serveur, avec fonctions, stockage NoSQL, jobs et files de traitement. Il reste adapté au développement et aux petits prototypes, mais les anciennes mentions de 5 Go de base et de deux développeurs ne correspondent plus au plan gratuit actuel.

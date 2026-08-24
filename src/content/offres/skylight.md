@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 622
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Le Hobby gratuit couvre les 100 000 premières requêtes mensuelles pour Rails."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Skylight aide à comprendre où une application web passe son temps en mettant en évidence les endpoints lents et les portions de code coûteuses. Son offre Hobby gratuite est particulièrement intéressante pour un petit projet Rails avec jusqu’à 100 000 requêtes mensuelles ; au-delà, ou pour d’autres besoins de plateforme, il faut regarder la tarification correspondante.

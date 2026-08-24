@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 218
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La grille officielle Free confirme 100 PDF par mois, un modèle, un utilisateur et aucune carte bancaire requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 PDF-API.io permet de produire des documents PDF à partir de modèles visuels ou de HTML sans maintenir un moteur de rendu. Son quota gratuit suffit pour de petits volumes de factures, certificats, rapports ou documents transactionnels.

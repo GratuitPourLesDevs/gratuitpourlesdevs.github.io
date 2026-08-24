@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 261
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La grille actuelle affiche seulement 300 crédits/mois, une clé API et 10 req/min sur Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zipcodestack reste exploitable gratuitement pour des tests de validation postale, mais son quota a été très fortement réduit par rapport aux anciennes offres Free souvent référencées.

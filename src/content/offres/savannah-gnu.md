@@ -38,12 +38,12 @@ initiales: SG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 90
 verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Savannah reste la forge collaborative du projet GNU. L’hébergement est gratuit mais soumis à l’approbation du projet et à des critères stricts de logiciel libre."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : délai dépassé."
 ---
 
 GNU Savannah fournit une infrastructure de développement collaborative pour les logiciels appartenant au projet GNU : dépôts de code, suivi de bugs et tâches, listes de diffusion et autres outils historiques du développement libre. Il ne s’agit pas d’une forge gratuite généraliste : l’admission du projet et sa conformité aux principes du logiciel libre font partie intégrante de l’offre.

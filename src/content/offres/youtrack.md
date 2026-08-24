@@ -29,12 +29,12 @@ initiales: "Y"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1017
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le cloud Free actuel couvre jusqu’à 10 utilisateurs et 30 Go. JetBrains précise que les instances gratuites inactives sont automatiquement supprimées après environ 3,5 mois, avec conservation temporaire d’une sauvegarde."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 YouTrack Cloud Free offre quasiment toutes les fonctions du produit à une équipe de dix personnes, avec un stockage très confortable. La principale vigilance concerne la suppression des instances restées inactives.

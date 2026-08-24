@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 245
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free actuel indique 1 dashboard API, 250 000 requêtes et 7 jours de rétention ; le quota bloque l’analyse Treblle mais pas l’API cliente."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Treblle ajoute une couche d’observabilité spécialisée API sans changer le comportement du service surveillé. Son quota gratuit est assez large pour suivre une API de développement ou un petit service en production.

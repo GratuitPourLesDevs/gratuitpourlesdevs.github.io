@@ -25,12 +25,12 @@ initiales: W
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 774
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: Offre gratuite vérifiée le 2026-08-20.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Web3Forms — Backend de formulaires pour sites statiques et JAMstack avec API sans serveur. Free : formulaires illimités et 250 soumissions/mois. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

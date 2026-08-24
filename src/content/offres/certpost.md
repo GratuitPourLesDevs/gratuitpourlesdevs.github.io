@@ -26,12 +26,12 @@ initiales: C
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 448
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le site actuel annonce 3 certificats gratuits à vie, sans carte, avec contrôles quotidiens et alertes.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CertPost est référencé avec les limites gratuites vérifiées le 2026-08-19.

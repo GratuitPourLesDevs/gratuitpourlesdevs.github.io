@@ -29,12 +29,12 @@ initiales: QT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 311
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Plan Starter vérifié : jusqu’à 10 utilisateurs, projets et timers illimités, sans carte.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Quidlo Timesheets couvre les besoins simples de suivi du temps sans limiter le nombre de projets. Le plafond de dix utilisateurs le destine surtout aux petites équipes, freelances regroupés ou associations.

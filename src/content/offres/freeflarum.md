@@ -33,12 +33,12 @@ initiales: FF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 871
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Le vieux plafond de 250 utilisateurs n’est plus pertinent. La politique actuelle fonctionne en fair use ; les très gros forums doivent migrer et une limite haute de 20 000 utilisateurs est documentée.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 FreeFlarum permet de lancer une communauté Flarum complète sans administrer soi-même PHP, la base de données, les sauvegardes ou TLS. C’est particulièrement utile pour tester Flarum, démarrer un forum associatif ou faire grandir une petite communauté avant de financer son propre hébergement. Les données restent exportables, ce qui réduit le risque d’enfermement. Le service est toutefois financé par les dons et fonctionne en fair use : lorsqu’un forum devient très actif ou très volumineux, l’objectif est de le faire migrer vers une infrastructure dédiée.

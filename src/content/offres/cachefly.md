@@ -31,12 +31,12 @@ initiales: CF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 798
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: La page tarifaire publiée en juillet 2026 indique un Developer Account gratuit avec 100 Go, sans carte bancaire
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   et sans limite de durée ; l’ancienne promotion 5 To n’est pas retenue comme quota courant.
 ---
 

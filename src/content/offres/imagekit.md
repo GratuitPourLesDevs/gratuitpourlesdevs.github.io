@@ -25,12 +25,12 @@ initiales: I
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1038
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Forever Free actuel fournit 20 Go de bande passante, 3 Go de DAM et 500 unités vidéo par mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ImageKit combine CDN, optimisation à la volée et gestion de médias dans un niveau gratuit adapté aux petits projets.

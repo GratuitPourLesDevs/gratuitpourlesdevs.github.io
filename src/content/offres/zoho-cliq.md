@@ -46,9 +46,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 74
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "La grille tarifaire actuelle confirme 100 Go par organisation, 10 000 messages recherchables, 100 participants par groupe et canal, ainsi que des réunions jusqu’à 100 participants pendant 60 minutes."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Cliq est une plateforme de messagerie d’équipe qui combine discussions, canaux, appels, réunions et outils d’intégration. Son plan gratuit est particulièrement intéressant pour une petite organisation grâce aux 100 Go de stockage partagés, aux nombreuses primitives développeur et aux réunions intégrées. Les principales limites portent sur la profondeur de recherche dans l’historique, la taille des groupes et canaux et certaines fonctions de gouvernance réservées aux offres payantes.

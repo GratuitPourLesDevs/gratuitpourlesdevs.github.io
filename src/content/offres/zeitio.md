@@ -29,12 +29,12 @@ initiales: ZT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 347
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre gratuite revérifiée le 18 août 2026 à partir de la tarification officielle.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Zeitio combine suivi du temps et facturation avec un Free Tier adapté au freelance qui gère seulement quelques clients et projets actifs.

@@ -30,9 +30,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 198
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel confirme un service gratuit/open source mais les APIs publiques sont supprimées quotidiennement et le quota d’appels n’est pas chiffré."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 JSONing est utile pour simuler rapidement une réponse REST pendant un développement frontend ou un test d’intégration. Pour un mock durable ou à fort trafic, mieux vaut auto-héberger le projet ou utiliser une solution avec persistance garantie.

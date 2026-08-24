@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 612
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Open beta gratuite avec URLs illimitées et contrôles toutes les minutes ; condition de compte à surveiller."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pingbreak propose une surveillance uptime très directe avec contrôles fréquents et notifications vers plusieurs outils de collaboration. L’open beta annonce des URLs sans petit plafond fixe et un intervalle d’une minute, ce qui est inhabituellement généreux ; en contrepartie, le statut beta et le parcours de création de compte imposent de considérer cette gratuité comme susceptible d’évoluer.

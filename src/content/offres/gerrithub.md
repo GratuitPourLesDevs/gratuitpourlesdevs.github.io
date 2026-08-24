@@ -30,12 +30,12 @@ initiales: GH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 377
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’instance GerritHub répond avec une version Gerrit récente, mais aucune grille de prix publique exploitable n’a été trouvée ; statut laissé à vérifier.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 GerritHub fournit une instance Gerrit connectée à GitHub. Le service est bien actif, mais sa gratuité et ses quotas actuels ne sont pas suffisamment documentés pour être marqués comme vérifiés.

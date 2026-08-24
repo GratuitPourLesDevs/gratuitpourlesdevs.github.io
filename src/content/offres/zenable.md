@@ -27,12 +27,12 @@ initiales: Z
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 796
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Plan Free vérifié le 20 août 2026 : 1 000 crédits agent/jour et 15 revues de PR/semaine ; les anciens chiffres 100 appels MCP et 25 PR/jour ne sont plus ceux du tableau tarifaire actuel."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zenable — Guardrails Policy as Code pour équipes utilisant des assistants de développement IA, avec crédits agent et revues de PR gratuits.

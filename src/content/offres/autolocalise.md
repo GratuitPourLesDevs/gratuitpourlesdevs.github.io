@@ -34,12 +34,12 @@ initiales: AL
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 550
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le pricing actuel confirme 10 000 caractères/mois, 1 projet et 100+ langues. La mention « langues illimitées » a été corrigée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AutoLocalise évite de maintenir à la main une multitude de fichiers de traduction : ses SDKs récupèrent et localisent le contenu de l’application pendant le développement ou l’exécution. Le Free est adapté à un prototype ou à une petite application avec 10 000 caractères comptabilisés par mois et un seul projet. Le point à surveiller est le mode de calcul : le volume source est multiplié par le nombre de langues cibles, ce qui peut consommer rapidement le quota.

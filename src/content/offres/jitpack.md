@@ -38,9 +38,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 265
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "JitPack indique explicitement que le service reste toujours gratuit pour l’open source ; les abonnements servent aux dépôts privés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 JitPack transforme directement un dépôt Git public en dépendance Maven exploitable dans Gradle, Maven ou d’autres outils JVM. C’est particulièrement pratique pour distribuer une bibliothèque Android ou Java sans gérer soi-même un dépôt d’artefacts.

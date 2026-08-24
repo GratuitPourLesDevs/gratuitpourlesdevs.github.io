@@ -30,12 +30,12 @@ initiales: CH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 418
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Hobby actuel publie 10 uptime monitors, 1 000 Browser checks, 10 000 API checks et 6 locations.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Checkly combine tests Playwright, contrôles API et surveillance synthétique. Son plan gratuit est suffisamment fourni pour superviser un petit service tout en gardant les checks dans le code.

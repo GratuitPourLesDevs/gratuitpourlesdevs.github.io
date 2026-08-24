@@ -29,12 +29,12 @@ initiales: CB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 417
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Basic actuel annonce 100 URL par crawl avec crawls et sites illimités.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Checkbot transforme le navigateur en outil d’audit technique pour repérer rapidement des erreurs SEO, des problèmes de performance et des mauvaises pratiques de sécurité.

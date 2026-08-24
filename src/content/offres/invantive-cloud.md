@@ -35,9 +35,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 179
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Les pages officielles Free confirment l’absence de limite utilisateurs et de frais d’entrée pour une sélection de connecteurs, sous fair use."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Invantive Cloud expose de nombreuses sources sous une couche commune exploitable depuis des outils BI et d’intégration. Le gratuit est intéressant lorsque le connecteur visé fait partie de la sélection Free, mais il ne faut pas assimiler le catalogue complet aux plateformes gratuites.

@@ -34,12 +34,12 @@ initiales: RM
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 406
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La grille actuelle confirme 400 vCPU-min/mois, 800 GB-min/mois, 10 concurrences et des runners jusqu’à 12 vCPU/32 Go, avec dépassement facturé.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 RunMyJob fournit des runners puissants et élastiques sans changer les workflows GitHub Actions ou GitLab CI. Son Free Tier est chiffré en ressources compute, avec facturation au-delà de l’allocation.

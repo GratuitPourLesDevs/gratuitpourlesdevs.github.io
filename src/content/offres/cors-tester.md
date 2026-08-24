@@ -26,12 +26,12 @@ initiales: CT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 419
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le testeur est accessible gratuitement et ne publie pas de quota chiffré ni de formule payante pour cet outil.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CORS Tester permet de reproduire rapidement une requête cross-origin et de vérifier si les en-têtes retournés par une API sont cohérents avec le domaine, la méthode et les credentials utilisés.

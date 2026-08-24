@@ -36,12 +36,12 @@ initiales: TG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 391
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le service annonce toujours les dépôts publics gratuits et le privé à 3 $/mois après 3 jours d’essai. La détection actuelle documentée porte sur TODO ; FIXME et les phrases personnalisées restent annoncés comme à venir.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 tickgit fait remonter le travail latent directement depuis les commentaires TODO du code et exploite l’historique Git pour donner du contexte sur leur évolution. Le service hébergé reste gratuit pour les dépôts publics, tandis que le CLI open source permet aussi une utilisation locale.

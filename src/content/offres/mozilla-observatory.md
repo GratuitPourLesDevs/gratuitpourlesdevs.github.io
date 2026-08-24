@@ -26,12 +26,12 @@ initiales: MH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 468
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La fiche utilise le produit actuel MDN HTTP Observatory. L’ancien Mozilla Observatory a été sunset en octobre 2024 ; l’API v2 HTTP reste active.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 MDN HTTP Observatory est référencé avec les limites gratuites vérifiées le 2026-08-19.

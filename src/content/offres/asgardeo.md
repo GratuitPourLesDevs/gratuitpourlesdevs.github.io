@@ -35,12 +35,12 @@ initiales: AG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 483
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free B2C actuel est passé de 1 000 à 7 500 MAU ; les limites B2B/B2E sont distinctes.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Asgardeo est la plateforme CIAM managée de WSO2. Le Free B2C est désormais assez généreux pour un petit produit réel, mais il faut bien distinguer les quotas B2B et B2E.

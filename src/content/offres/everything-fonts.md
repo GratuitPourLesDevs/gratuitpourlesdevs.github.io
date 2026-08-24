@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 737
-verifieLe: "2026-08-20"
-verificationAutomatiqueLe: "2026-08-20"
-verificationNote: "Service actif vérifié le 20 août 2026. Les outils web sont gratuits avec des limites de taille ; le générateur @font-face affiche 0,4 Mo pour les visiteurs non inscrits."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Everything Fonts regroupe plusieurs utilitaires typographiques accessibles depuis le navigateur. Il est pratique pour générer un kit @font-face, convertir des formats ou optimiser une police sans installer d’outil local. Le niveau gratuit reste surtout adapté aux petits fichiers à cause des plafonds d’upload.

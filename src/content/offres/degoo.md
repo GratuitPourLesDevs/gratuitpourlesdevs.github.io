@@ -27,12 +27,12 @@ initiales: D
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1024
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le niveau gratuit actuel annonce 20 Go, trois appareils et une politique d’inactivité de 90 jours."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Degoo convient au stockage personnel à condition de tenir compte de sa politique d’inactivité sur les comptes gratuits.

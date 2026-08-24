@@ -26,12 +26,12 @@ initiales: MD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1048
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le niveau gratuit annonce un bucket de 1 Mo avec scavenger après 72 heures d’inactivité."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MantleDB vise les petits scripts qui ont besoin d’un stockage JSON jetable et sans inscription.

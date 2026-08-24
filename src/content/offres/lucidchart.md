@@ -25,12 +25,12 @@ initiales: "L"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 992
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free actuel annonce 3 documents éditables, 60 formes par document et 100 modèles de base."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Lucidchart Free permet de créer quelques diagrammes collaboratifs sans abonnement. Le nombre de documents et d’éléments par document en fait surtout une formule d’appoint ou de découverte.

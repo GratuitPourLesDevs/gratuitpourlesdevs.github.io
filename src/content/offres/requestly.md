@@ -31,12 +31,12 @@ initiales: RQ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 432
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'La tarification actuelle a évolué : le Free met en avant projets locaux illimités, 3 Team Projects, 10 collaborateurs et 100 Collection Runs plutôt qu’une simple limite de 10 règles.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Requestly est une boîte à outils de débogage HTTP : redirections, headers, mocks, API client et enregistrement de sessions. Son cœur local reste très généreux pour le développement quotidien.

@@ -27,12 +27,12 @@ initiales: "S"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1003
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle confirme jusqu’à 10 utilisateurs, 1 team et 1 workspace sur le plan Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Shortcut s’adresse aux équipes produit et développement qui veulent relier tickets, roadmap et documentation. Le plan gratuit suffit à une équipe de dix personnes dans un workspace unique.

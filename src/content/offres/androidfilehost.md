@@ -22,12 +22,12 @@ initiales: AF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1020
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site officiel annonce Unlimited Everything pour le nombre de fichiers, la vitesse, la bande passante et les téléchargements."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AndroidFileHost est une plateforme d’hébergement particulièrement utilisée par l’écosystème Android pour distribuer APK, ROM, kernels et modifications.

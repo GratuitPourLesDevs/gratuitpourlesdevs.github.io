@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 730
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié le 19 août 2026 : 500 K requêtes/mois, flags illimités, 3 environnements, 3 projets, 3 sièges et 12 SDKs ; A/B testing réservé au Pro."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Rollgate est une plateforme de feature flags hébergée en Allemagne et orientée vers les équipes qui souhaitent une résidence des données européenne. Le plan Free est gratuit sans limite de durée, sans carte bancaire, et comprend 500 000 requêtes par mois, des flags illimités, trois environnements, trois projets, trois sièges et les douze SDKs. Les fonctions de release plus avancées sont toutefois payantes : les changements planifiés et le rollback en un clic arrivent au niveau Starter, tandis que les tests A/B sont proposés à partir du plan Pro.

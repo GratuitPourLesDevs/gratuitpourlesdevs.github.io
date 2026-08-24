@@ -32,12 +32,12 @@ initiales: FB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 919
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Filebase présente son offre comme un véritable free tier et non comme un essai : 5 Go mutualisés, 10 Go de bande passante IPFS, egress objet gratuit, 1 IPNS, 1 Site + CDN et 1 Gateway + CDN, sans carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Filebase permet de travailler avec du stockage objet classique et IPFS depuis une même plateforme, tout en conservant des workflows compatibles avec Amazon S3. Le niveau gratuit est adapté aux démonstrations, prototypes Web3, petits sites et tests d’intégration grâce aux 5 Go de stockage inclus et aux services complémentaires IPNS, Site et Gateway. L’absence de carte bancaire et le caractère permanent du free tier rendent l’offre particulièrement accessible pour expérimenter. La principale limite à garder en tête est que les 5 Go sont mutualisés entre le stockage objet et IPFS.

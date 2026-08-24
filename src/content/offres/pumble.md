@@ -31,12 +31,12 @@ initiales: PU
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 310
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Free Forever actuel : utilisateurs, canaux et historique illimités, 10 Go de stockage par workspace et 3 apps/intégrations.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pumble est l’un des Free Tiers de chat d’équipe les plus larges grâce à l’historique et au nombre d’utilisateurs non plafonnés. Les restrictions se déplacent surtout vers le stockage et les fonctions de réunion avancées.

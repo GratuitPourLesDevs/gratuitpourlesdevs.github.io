@@ -28,12 +28,12 @@ initiales: "E"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 976
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle indique 2 tableaux publics par mois, participants illimités et 1 enquête par tableau. L’ancienne valeur de 3 tableaux n’est plus actuelle."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 EasyRetro facilite les rétrospectives de sprint sans limiter le nombre de participants. Le niveau gratuit a été réduit à deux tableaux publics mensuels.

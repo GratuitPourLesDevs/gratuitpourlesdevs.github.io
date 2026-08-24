@@ -26,12 +26,12 @@ initiales: ZI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 910
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'La grille Zilore actuelle confirme 5 domaines gratuits, 1 000 records par domaine, 10 M de requêtes, TTL minimum 15 minutes et 5 snapshots par domaine.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zilore offre un vrai palier gratuit de DNS autoritatif assez généreux pour héberger plusieurs domaines sans surveiller chaque requête. Cinq domaines, mille enregistrements par domaine et dix millions de requêtes donnent de la marge à des projets bien plus importants qu’un simple prototype. L’Anycast et les snapshots apportent en plus des fonctions intéressantes pour la disponibilité et la récupération après une mauvaise modification. Le TTL minimum de quinze minutes reste toutefois moins adapté aux scénarios où les changements DNS doivent se propager très rapidement.

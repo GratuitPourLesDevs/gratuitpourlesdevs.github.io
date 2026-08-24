@@ -24,12 +24,12 @@ initiales: "KT"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 988
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La grille actuelle confirme 2 boards et 2 utilisateurs gratuits, sans pièces jointes ni stockage de fichiers."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Kanban Tool conserve un plan gratuit très simple pour binômes ou usages personnels. Ses deux boards et deux utilisateurs suffisent pour tester un flux Kanban sans fichiers.

@@ -28,12 +28,12 @@ initiales: TS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 438
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La grille actuelle publie 200 sessions sur le Free. La mention historique de 450 résultats/mois n’est plus à jour.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Testspace rassemble les résultats produits par les pipelines et permet aussi de décrire des tests manuels dans le dépôt. Son plan gratuit est particulièrement adapté aux projets publics et aux comptes GitHub personnels.

@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 279
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free actuel conserve les guides instantanés illimités et les lecteurs privés illimités. L’ancienne mention d’enregistrement d’écran gratuit est obsolète : la vidéo est une fonction Pro."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Dubble accélère la rédaction de procédures en transformant une séquence d’actions en guide illustré. C’est pratique pour documenter un onboarding, une recette ou une procédure d’administration sans rédiger chaque étape à la main.

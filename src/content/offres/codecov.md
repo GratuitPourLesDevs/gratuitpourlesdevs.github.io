@@ -28,12 +28,12 @@ initiales: CV
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 368
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Developer Free actuel permet des dépôts privés illimités pour 1 utilisateur, avec 250 uploads de couverture privés par mois.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Codecov centralise les rapports de couverture et les affiche dans les pull requests. Le Developer Free est désormais plus large que l’ancienne limite d’un seul dépôt privé.

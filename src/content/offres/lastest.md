@@ -28,12 +28,12 @@ initiales: LA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 425
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Cloud Free actuel confirme 1 projet, 500 runner-minutes et 1 concurrent run, sans carte bancaire.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Lastest fournit un workflow de vérification visuelle qui associe captures, runners et validation des changements. Le Free cloud suffit pour un petit projet avec une CI raisonnable.

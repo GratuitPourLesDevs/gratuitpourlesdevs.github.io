@@ -39,12 +39,12 @@ initiales: MO
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 920
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La page de tarification Modal affiche actuellement un plan Starter à 0 $ avec 30 $ de crédits de calcul gratuits chaque mois, 3 sièges, 100 conteneurs et 10 GPU simultanés. L’ancienne mention de comptes limités à 5 $ n’est pas retenue faute de correspondre à la tarification publique actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Modal est une infrastructure serverless conçue pour lancer rapidement des workloads Python, IA et machine learning sur CPU ou GPU sans gérer directement de serveurs. Les fonctions et conteneurs démarrent à la demande et la facturation porte sur le temps réellement consommé, ce qui convient bien aux traitements ponctuels, pipelines ML, inférences et prototypes nécessitant occasionnellement des GPU puissants. Le plan Starter inclut actuellement 30 $ de calcul gratuits chaque mois, ce qui permet de tester de vrais workloads. Il faut néanmoins surveiller la consommation lorsque les crédits sont épuisés, car les ressources supplémentaires suivent alors la tarification à l’usage.

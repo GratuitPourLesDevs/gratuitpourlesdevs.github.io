@@ -28,12 +28,12 @@ initiales: LY
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 558
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free général 2026 inclut 250 clés, 1 projet et utilisateurs/langues illimités sans carte. Localizely propose aussi une offre Open Source dédiée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Localizely permet de gérer les chaînes d’applications web ou mobiles avec un éditeur partagé et des outils de traduction machine, sans imposer de coût par utilisateur ou par langue sur son Free. Le plan gratuit général comprend 250 clés et un projet avec utilisateurs et langues illimités, sans carte bancaire. Les projets open source éligibles peuvent en plus demander une offre gratuite dédiée, tandis que l’API et certaines fonctions avancées restent payantes sur le plan standard.

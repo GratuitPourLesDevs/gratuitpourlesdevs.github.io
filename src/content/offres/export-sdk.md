@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 163
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Forever Free officiel : 250 pages/mois, 3 templates, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Export SDK combine un éditeur visuel de templates et une API de génération PDF. Le quota gratuit est comptabilisé en pages, ce qui peut réduire le nombre réel de documents lorsque ceux-ci comportent plusieurs pages.

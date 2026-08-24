@@ -33,12 +33,12 @@ initiales: OO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 548
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Cloud Free a été supprimé en juin 2025. Le gratuit actuel est l’Open Source self-hosted ; l’Enterprise self-hosted est annoncé gratuit jusqu’à 50 Go ingérés/jour.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 OpenObserve est référencé avec les limites gratuites vérifiées le 19 août 2026.

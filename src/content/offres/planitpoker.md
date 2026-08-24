@@ -23,12 +23,12 @@ initiales: "P"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 997
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site officiel propose toujours un Quick Play et des comptes gratuits. Aucun quota numérique public fiable n’est affiché."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 PlanITPoker fournit un outil d’estimation agile spécialisé, utilisable rapidement sans déployer de logiciel. Les équipes peuvent lancer une session de vote et importer des éléments de backlog.

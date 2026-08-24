@@ -34,9 +34,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 133
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan Free et essai Pro de 7 jours vérifiés sur la tarification officielle ; l’API et MCP sont des fonctions Pro."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CatchDoms centralise des domaines expirés, en enchère ou proches de leur suppression et les enrichit avec des indicateurs SEO. Le plan gratuit reste utilisable après l’essai Pro, mais il est principalement orienté consultation : l’accès programmatique REST et MCP n’est pas un avantage gratuit permanent.

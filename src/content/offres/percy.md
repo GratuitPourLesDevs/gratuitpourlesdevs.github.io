@@ -28,12 +28,12 @@ initiales: PE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 429
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel confirme 5 000 screenshots/mois avec membres et projets illimités.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Percy ajoute des comparaisons visuelles automatisées aux tests existants pour repérer les changements d’interface involontaires. Le quota gratuit convient déjà à un petit projet ou une bibliothèque de composants.

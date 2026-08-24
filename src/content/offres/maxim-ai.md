@@ -39,9 +39,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 204
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La grille officielle confirme un plan Developer Free Forever jusqu’à 3 sièges, 1 workspace, 10k logs/mois et 3 jours de rétention."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Maxim AI centralise l’expérimentation, l’évaluation et l’observabilité des applications génératives et agents. Son plan gratuit est particulièrement intéressant pour une petite équipe qui veut instrumenter jusqu’à 10 000 logs mensuels.

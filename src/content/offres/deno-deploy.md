@@ -39,12 +39,12 @@ initiales: DD
 carteRequise: true
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 823
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Plan Free 2026 : 1M requêtes/mois, 20GB egress, 20 apps, 50 domaines, 15h CPU, 350 GB-h mémoire. Les anciens chiffres 100K/jour et 100 GiB/mois sont obsolètes.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Deno Deploy est une solution particulièrement pratique pour publier des APIs, sites ou services JavaScript/TypeScript proches des utilisateurs sans administrer de serveurs ni construire séparément la couche edge. Le Free Tier est suffisamment généreux pour de vrais petits projets : un million de requêtes et 20 GB de trafic sortant par mois, jusqu’à 20 applications, du compute, du KV et du stockage. La vérification de l’organisation par carte est nécessaire pour bénéficier de tous les plafonds gratuits, et un dépassement de ressources met l’application en pause jusqu’au prochain cycle plutôt que de laisser la consommation dériver. Cela en fait un environnement intéressant pour des workloads edge à coût maîtrisé, à condition de surveiller les quotas.

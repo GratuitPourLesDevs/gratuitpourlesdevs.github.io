@@ -22,12 +22,12 @@ initiales: PC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1051
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "pCloud annonce jusqu’à 10 Go gratuits ; une partie de la capacité se débloque via le tutoriel et les invitations."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 pCloud propose un stockage cloud gratuit dont la capacité maximale s’obtient progressivement.

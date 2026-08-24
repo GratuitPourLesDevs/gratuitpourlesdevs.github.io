@@ -30,12 +30,12 @@ initiales: H
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 460
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Community actuel est gratuit pour usage personnel ; l’ancienne formulation « web edition illimitée » a été remplacée par la restriction de licence réellement publiée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 HimitsuShell est référencé avec les limites gratuites vérifiées le 2026-08-19.

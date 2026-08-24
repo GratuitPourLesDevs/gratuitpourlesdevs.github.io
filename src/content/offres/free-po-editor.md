@@ -24,12 +24,12 @@ initiales: PO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 552
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La page officielle propose toujours directement l’éditeur PO gratuit ; aucun quota d’utilisation n’est publié.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Free PO Editor est une solution simple quand le besoin se limite à modifier rapidement un fichier GNU gettext `.po` sans installer d’application ni mettre en place une plateforme de localisation. On dépose le fichier dans le navigateur, on corrige ou complète les traductions puis on récupère le fichier mis à jour. Il ne remplace pas un TMS collaboratif, mais il est pratique pour une retouche ponctuelle et aucun quota d’usage n’est publié.

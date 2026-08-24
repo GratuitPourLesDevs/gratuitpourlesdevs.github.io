@@ -26,12 +26,12 @@ initiales: TG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 329
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre revérifiée le 18 août 2026 à partir de la FAQ officielle.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Telegram est pratique pour les communautés et petites équipes qui veulent combiner messagerie, bots et transfert de gros fichiers. Son API permet aussi d’automatiser notifications et workflows simples.

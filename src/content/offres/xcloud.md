@@ -29,12 +29,12 @@ initiales: XC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 521
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La comparaison officielle Free vs Pro mise à jour le 22 juin 2026 confirme 1 serveur et 10 sites sur le plan Free.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 xCloud propose un vrai point d’entrée gratuit pour gérer un serveur auto-hébergé et plusieurs sites depuis une interface centralisée.

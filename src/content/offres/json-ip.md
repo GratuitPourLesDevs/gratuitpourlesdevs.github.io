@@ -25,9 +25,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 194
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel présente JSON IP comme un service gratuit à requêtes illimitées, sans inscription, avec CORS."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 JSON IP permet de connaître l’adresse IP publique vue par Internet depuis du JavaScript navigateur ou un backend. Son absence de compte et de quota en fait un utilitaire pratique pour diagnostics et détection de changement d’adresse.

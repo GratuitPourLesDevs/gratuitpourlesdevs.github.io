@@ -25,12 +25,12 @@ initiales: "C"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 973
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free actuel est gratuit à vie jusqu’à 10 utilisateurs, avec 2 Go de stockage et pages/espaces illimités."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Confluence Free suffit à une petite équipe pour centraliser documentation et connaissances sans limite de pages. Les contrôles de permissions et le support restent plus simples que sur les offres payantes.

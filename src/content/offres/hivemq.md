@@ -30,12 +30,12 @@ initiales: HM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 528
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le plan Serverless Free confirme 100 connexions MQTT, 10 GiB de trafic/mois, sans carte bancaire.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 HiveMQ Cloud Serverless est référencé avec les limites gratuites vérifiées le 19 août 2026.

@@ -28,12 +28,12 @@ initiales: MDB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 875
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'MDB GO annonce toujours un hébergement gratuit, mais les anciens quotas 500 Mo RAM / 1 Go disque / TTL 2 semaines ne sont pas confirmés sur une page tarifaire officielle actuelle.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MDB GO reste intéressant comme environnement tout-en-un pour publier rapidement un projet construit avec l’écosystème MDB, y compris lorsqu’il comporte un backend ou une base de données. Le site officiel continue d’annoncer un hébergement gratuit et des fonctionnalités comme SFTP, SSL et domaines personnalisés. C’est suffisant pour conserver l’offre dans le catalogue, mais pas pour recycler les anciennes limites chiffrées comme si elles étaient toujours garanties. Avant d’en faire un socle de projet, il faut donc vérifier les quotas réellement affichés dans le compte au moment de l’inscription.

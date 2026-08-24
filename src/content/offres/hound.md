@@ -25,12 +25,12 @@ initiales: HO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 381
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La tarification actuelle confirme « free for public repos » ; les plans privés sont payants selon le nombre de revues.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hound commente automatiquement les pull requests lorsqu’il détecte des écarts aux règles de style. Les dépôts publics restent gratuits.

@@ -36,12 +36,12 @@ initiales: MK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 403
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel offre 1000 crédits/mois, 2 scénarios actifs, intervalle minimal de 15 min, 512 Mo de transfert et 1 Mo de Data Store. L’ancienne mention 100 Mo est obsolète.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Make permet de relier des services sans écrire toute la plomberie d’intégration. Son plan gratuit est suffisant pour des automatisations modestes, mais les anciennes « operations » sont désormais comptabilisées en crédits.

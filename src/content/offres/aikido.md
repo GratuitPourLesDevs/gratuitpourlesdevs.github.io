@@ -31,12 +31,12 @@ initiales: AS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 445
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel confirme 2 utilisateurs, 10 repos, 2 images, 1 domaine, 1 cloud, 10 AI AutoFixes/mois et 250k requêtes protégées/mois.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Aikido regroupe plusieurs contrôles AppSec dans une seule interface et conserve un Free Tier permanent réellement exploitable pour de petits projets.

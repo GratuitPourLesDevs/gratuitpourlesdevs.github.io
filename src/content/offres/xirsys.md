@@ -35,12 +35,12 @@ initiales: XI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 962
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page tarifaire Developer publie toujours STUN illimité et 500 Mo de TURN mensuel. La FAQ 2026 précise désormais un essai production de 30 jours puis un compte gratuit permanent avec 1 région de test, 2 channels et 25 WebSockets simultanés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Xirsys fournit les briques STUN et TURN utilisées par WebRTC lorsque les clients doivent traverser NAT et pare-feu. Les connexions STUN directes restent gratuites et illimitées, tandis que le relais TURN consomme une allocation mensuelle plafonnée. Les nouveaux comptes bénéficient en plus d’un accès production étendu pendant trente jours avant de revenir automatiquement au niveau Developer permanent.

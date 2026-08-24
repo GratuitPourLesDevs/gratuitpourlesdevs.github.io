@@ -31,12 +31,12 @@ initiales: AR
 carteRequise: false
 depassementFacture: true
 permanent: false
-statut: active
+statut: "active"
 vedette: false
 ordre: 486
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La tarification actuelle confirme les 1 000 premiers appels facturables gratuits ; ce n’est pas un quota
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   mensuel réinitialisé.
 ---
 

@@ -30,12 +30,12 @@ initiales: TX
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 562
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free Cloud 2026 confirme 1 utilisateur, 1 projet et 2 langues, avec clés et traductions illimitées ainsi que l’API/CLI.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Texterify se distingue par un Free qui ne limite ni le nombre de clés ni le nombre de traductions : pour une petite application bilingue, on peut donc travailler sans surveiller le volume de texte. En contrepartie, le compte gratuit est strictement limité à un utilisateur, un projet et deux langues. L’API et le CLI restent inclus, ce qui le rend intéressant pour un workflow développeur simple.

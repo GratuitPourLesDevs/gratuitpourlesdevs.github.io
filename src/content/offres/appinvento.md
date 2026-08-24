@@ -30,12 +30,12 @@ initiales: AI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 359
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan Free actuel confirme 3 projets, 5 tables, 0 commit, API illimitées, routes illimitées et un addon Google. La page tarifaire indique également qu’aucune carte n’est requise pour démarrer.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Appinvento permet de générer rapidement un backend sans écrire toute l’infrastructure à la main. Son plan gratuit est surtout intéressant pour prototyper plusieurs petites API, avec une vraie liberté sur le nombre de routes, mais des limites nettes sur le schéma de données et le versionnement.

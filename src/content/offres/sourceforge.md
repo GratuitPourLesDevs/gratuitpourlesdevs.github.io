@@ -30,12 +30,12 @@ initiales: SF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 886
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'SourceForge reste gratuit pour l’open source avec réseau de miroirs et bande passante de téléchargement illimitée. Depuis mai 2025, Project Web ne prend plus en charge PHP/CGI/.htaccess et doit être considéré comme statique.'
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 SourceForge reste pertinent pour un projet open source qui distribue des binaires ou archives volumineuses et veut éviter de financer lui-même le trafic de téléchargement. Son réseau de miroirs et ses outils de projet complètent les dépôts de code, ce qui en fait davantage qu’un simple hébergement Git. Les pages sourceforge.io peuvent également servir de vitrine ou documentation statique. En revanche, ce n’est plus une plateforme d’hébergement PHP : le Project Web moderne doit être pensé comme un espace statique dédié aux projets open source.

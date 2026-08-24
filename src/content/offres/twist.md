@@ -28,12 +28,12 @@ initiales: TW
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 335
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre gratuite revérifiée le 18 août 2026 à partir de la tarification et de la FAQ officielles.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Twist privilégie les discussions structurées et asynchrones plutôt que le flux permanent d’un chat classique. Le Free Tier peut convenir à une grande communauté, mais l’historique d’un mois est sa principale limite.

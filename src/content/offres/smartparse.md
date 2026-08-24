@@ -35,9 +35,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 236
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free Intro confirme jusqu’à 300 Processing Units avec browser uploads, quarantine, circuit breakers et notifications ; aucun renouvellement mensuel explicite n’a été retenu."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SmartParse vise les imports et migrations où des données CSV doivent être nettoyées puis envoyées vers une API. Les mécanismes de quarantaine et de circuit breaker sont utiles pour éviter qu’un lot invalide ne dégrade une migration complète.

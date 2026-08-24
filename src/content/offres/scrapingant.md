@@ -34,9 +34,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 232
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel confirme 10 000 crédits gratuits chaque mois sans carte ; le coût varie selon les fonctions de scraping activées."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ScrapingAnt fournit une couche d’abstraction pour charger des pages JavaScript et gérer les difficultés habituelles du scraping web. Le pool de 10 000 crédits permet de prototyper des collectes régulières sans maintenir un navigateur headless ni un parc de proxies.

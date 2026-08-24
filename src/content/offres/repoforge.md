@@ -41,9 +41,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 268
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle confirme 100 Mo de stockage, packages publics illimités, gratuit permanent et restriction aux projets open source non commerciaux."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 RepoForge convient aux petits projets open source qui veulent publier leurs artefacts via des outils standards sans gérer leur propre registre. Son stockage gratuit est assez limité, et l’interdiction d’usage commercial est une contrainte importante à prendre en compte.

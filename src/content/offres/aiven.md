@@ -35,12 +35,12 @@ initiales: AI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 923
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Les offres gratuites Aiven actuelles sont sans limite de durée et sans carte. PostgreSQL et MySQL disposent de 1 CPU, 1 Go de RAM et 1 Go de stockage ; la capacité de stockage a été ramenée de 5 Go à 1 Go en 2025."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Aiven propose plusieurs moteurs open source sous forme de services managés. Pour PostgreSQL et MySQL, le niveau gratuit fournit une petite VM dédiée avec sauvegardes et observabilité, adaptée à l’apprentissage, aux démonstrations et aux petits prototypes ; les services inactifs peuvent toutefois être arrêtés automatiquement.

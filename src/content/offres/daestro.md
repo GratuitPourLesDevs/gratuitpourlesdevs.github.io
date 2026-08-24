@@ -32,12 +32,12 @@ initiales: DA
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 822
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Free actuel vérifié : 10 jobs concurrents, 2 spawns, 1 cloud, 1 registry, self-hosted compute, 1 cron, 500 MB de logs/métriques et 1 jour de rétention.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Daestro est utile quand le besoin n’est pas d’héberger une application en continu, mais d’exécuter et d’orchestrer des traitements batch, des workers ou des tâches planifiées sur différentes ressources de calcul. Le plan gratuit autorise jusqu’à dix jobs simultanés, deux créations de compute, un fournisseur cloud, un registre de conteneurs et un cron, tout en permettant aussi d’utiliser du compute auto-hébergé. Cela suffit pour automatiser des traitements de données, des builds ou des workloads ponctuels sans construire son propre orchestrateur. En revanche, la gratuité concerne Daestro : les machines ou services lancés chez AWS, GCP ou un autre fournisseur restent facturés par ce dernier.

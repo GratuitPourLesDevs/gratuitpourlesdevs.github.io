@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 272
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Community est Free Forever avec accès public, utilisateurs, historique et intégrations illimités. Les groupes privés Team sont distincts."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Braid privilégie des conversations d’équipe mieux structurées que le chat continu traditionnel. Son offre hébergée gratuite est généreuse mais publique ; pour garder le contrôle des données, la version open source peut aussi être auto-hébergée.

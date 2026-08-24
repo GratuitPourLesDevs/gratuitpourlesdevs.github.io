@@ -34,12 +34,12 @@ initiales: QA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 430
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La grille actuelle ne reprend plus l’ancien plafond de 3 utilisateurs. Elle publie 2 projets, 500 Mo, 30 jours d’historique et 5k API results/mois, avec une audience Free explicitement ciblée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Qase centralise cas de test, campagnes et résultats automatisés. Son offre gratuite reste exploitable pour apprendre ou gérer un petit projet, mais l’éditeur limite clairement le profil des utilisateurs visés.

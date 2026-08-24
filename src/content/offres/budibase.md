@@ -38,12 +38,12 @@ initiales: BU
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 856
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: Le Cloud managé n’est plus gratuit ; l’édition open source auto-hébergée reste gratuite avec 1 workspace et apps/utilisateurs/automatisations illimités.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Budibase est intéressant lorsque l’on veut un builder low-code sans confier l’hébergement de l’application à un SaaS tiers. L’édition open source peut être installée sur sa propre infrastructure et ne limite ni les applications ni les utilisateurs, ce qui est très généreux pour des outils internes. En contrepartie, le « gratuit » porte sur le logiciel : serveurs, mises à jour, sauvegardes, supervision et disponibilité deviennent votre responsabilité. C’est donc excellent pour une équipe à l’aise avec Docker ou Kubernetes, moins pour quelqu’un qui cherche du zéro-ops.

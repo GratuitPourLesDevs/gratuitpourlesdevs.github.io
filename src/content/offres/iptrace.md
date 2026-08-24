@@ -25,9 +25,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 193
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle annonce un compte gratuit jusqu’à 50 000 lookups par mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 IPTrace vise une intégration simple de la géolocalisation IP et des données ASN. Avec 50 000 appels mensuels, son free tier couvre déjà un petit service actif ou plusieurs prototypes.

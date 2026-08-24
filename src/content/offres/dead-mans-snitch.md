@@ -16,12 +16,12 @@ initiales: "DS"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 589
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "The Lone Snitch reste gratuit pour un seul snitch."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Dead Man’s Snitch répond à un problème simple mais important : savoir qu’une tâche planifiée n’a pas tourné alors que l’absence de sortie ressemble normalement à du silence. Le niveau gratuit fournit un snitch, suffisant pour sécuriser un backup, un import ou un cron critique unique sans installer une plateforme de monitoring complète.

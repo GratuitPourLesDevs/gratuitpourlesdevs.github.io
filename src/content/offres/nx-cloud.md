@@ -35,12 +35,12 @@ initiales: NX
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 405
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Hobby actuel est de 50k crédits/mois, 5 contributeurs et 10 connexions CI concurrentes. Les anciennes limites 150k/30 contributeurs ne sont plus actuelles.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Nx Cloud accélère surtout les monorepos en évitant de recalculer ce qui peut être réutilisé et en distribuant les tâches CI. Le plan Hobby reste intéressant, mais son quota actuel est plus resserré qu’auparavant.

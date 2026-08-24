@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 681
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free Tier vérifié : forwarding entrant illimité pour domaines personnalisés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Forward Email est une solution open source de transfert pour domaines personnalisés. Le niveau gratuit permet d’utiliser un nombre illimité de domaines et de recevoir des messages sans limite annoncée, avec catch-all, plusieurs destinataires et pièces jointes jusqu’à 50 Mo. C’est particulièrement intéressant pour créer gratuitement des alias comme support@ ou contact@ qui redirigent vers une boîte existante. Il faut en revanche distinguer ce forwarding gratuit de l’envoi SMTP sortant et de l’hébergement complet de boîte, qui sont payants.

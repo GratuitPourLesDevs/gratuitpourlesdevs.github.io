@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 734
-verifieLe: "2026-08-20"
-verificationAutomatiqueLe: "2026-08-20"
-verificationNote: "Catalogue actif vérifié le 20 août 2026. Les téléchargements sont accessibles gratuitement, mais les licences varient selon les polices ; Befonts recommande de contrôler chaque licence avant usage commercial."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Befonts rassemble de nombreuses polices téléchargeables et distingue notamment les fontes destinées à un usage personnel de celles autorisées pour un usage commercial. L’accès au catalogue est gratuit, mais la gratuité du téléchargement ne signifie pas automatiquement que tous les usages sont permis : la licence de chaque police reste la référence.

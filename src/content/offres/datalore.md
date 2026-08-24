@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 149
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Cloud Free officiel vérifié : 120 CPU S hours et 10 Go de stockage."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Datalore fournit un environnement de notebooks hébergé par JetBrains avec un quota mensuel de calcul explicite. Le Free est adapté aux analyses personnelles et prototypes, mais pas aux CPU/GPU avancés ni aux besoins d’équipe étendus.

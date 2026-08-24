@@ -24,12 +24,12 @@ initiales: "C"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 974
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page de tarification actuelle affiche 3 projets, utilisateurs illimités, jusqu’à 3 collaborateurs pour certaines fonctions et 1 Go de stockage."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Crosswork propose un niveau gratuit adapté aux petits portefeuilles de projets, sans plafond global d’utilisateurs annoncé. Certaines limites de collaboration restent néanmoins propres au plan Free.

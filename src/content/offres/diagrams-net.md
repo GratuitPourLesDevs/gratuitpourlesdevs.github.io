@@ -24,12 +24,12 @@ initiales: "DN"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 975
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le projet reste gratuit et open source. Il peut fonctionner sans compte et stocke les fichiers localement ou via le fournisseur cloud choisi."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 diagrams.net est l’un des outils les plus simples pour dessiner gratuitement des architectures, flux ou UML sans dépendre d’un stockage propriétaire. Les fichiers restent sous le contrôle de l’utilisateur.

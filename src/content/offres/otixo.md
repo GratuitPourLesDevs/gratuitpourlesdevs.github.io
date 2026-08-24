@@ -21,12 +21,12 @@ initiales: O
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 1049
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Les limites exactes du plan Basic ne sont pas clairement exposées sur une page tarifaire publique récente."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Otixo centralise plusieurs fournisseurs cloud dans une interface unique ; ses limites gratuites doivent être surveillées.

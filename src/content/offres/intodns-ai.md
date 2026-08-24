@@ -28,12 +28,12 @@ initiales: IA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 465
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le site annonce maintenant plus de 60 contrôles et une utilisation Free Forever sans inscription ; l’ancienne mention 40+ a été actualisée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 IntoDNS.ai est référencé avec les limites gratuites vérifiées le 2026-08-19.

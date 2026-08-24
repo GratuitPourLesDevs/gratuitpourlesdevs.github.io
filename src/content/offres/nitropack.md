@@ -29,12 +29,12 @@ initiales: N
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1046
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le quota historique de 5 000 pages vues est obsolète : le plan Free actuel affiche 1 000 pages vues et 1 Go CDN/mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 NitroPack automatise l’optimisation frontend et le CDN pour les petits sites, avec arrêt des optimisations au quota gratuit.

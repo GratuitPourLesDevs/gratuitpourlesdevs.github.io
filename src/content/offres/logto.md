@@ -30,12 +30,12 @@ initiales: LG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 495
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free Cloud actuel est passé à 50 000 MAU et 50 000 access tokens/mois ; plusieurs fonctions autrefois
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   gratuites ont changé de plan.
 ---
 

@@ -30,12 +30,12 @@ initiales: LA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 787
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Vérifié le 20 août 2026 : plateforme sans marge et crédits gratuits visibles, mais l’affirmation FLUX.1 schnell gratuit à vie et illimité n’a pas pu être confirmée comme garantie générale."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Lumenfall.ai — Gateway média IA sans abonnement ni marge de plateforme annoncée. Le volume réellement gratuit reste à surveiller, d’où le statut à vérifier.

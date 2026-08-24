@@ -35,12 +35,12 @@ initiales: PX
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 220
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "L’existence de l’API, des 9 sources et de la recherche gratuite est confirmée. Le quota de 5 000 requêtes/mois fourni dans la source initiale reste à confirmer."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pexafy évite d’intégrer séparément plusieurs banques d’images en normalisant la recherche et les métadonnées derrière une seule API. La fiche reste toutefois en vérification tant que le quota API gratuit exact n’est pas confirmé par une grille tarifaire officielle accessible.

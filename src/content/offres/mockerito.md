@@ -34,9 +34,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 208
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle Free Public APIs confirme 200+ endpoints sur 9 domaines, sans signup, clé API ni carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Les APIs publiques de Mockerito fournissent des données réalistes pour prototyper et tester des frontends sans backend. Elles sont gratuites sans inscription, tandis que le constructeur de mocks personnalisés est un produit distinct.

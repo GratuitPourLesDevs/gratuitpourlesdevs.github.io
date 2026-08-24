@@ -28,12 +28,12 @@ initiales: U
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1066
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "L’ancien quota 3 000 uploads / 3 Go / 3 Go est obsolète ; le plan actuel affiche 1 000 opérations, 5 Go de trafic et 1 Go de stockage."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Uploadcare regroupe upload, traitement et CDN dans une API média, avec quotas mensuels clairement définis.

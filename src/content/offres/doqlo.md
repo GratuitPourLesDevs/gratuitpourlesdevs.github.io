@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 159
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Pricing officiel visible sur la page produit : 100 output PDFs/mois et Public API sur Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Doqlo automatise le remplissage en masse de formulaires PDF à partir de CSV. Son plan gratuit couvre aussi l’API publique, ce qui le rend utilisable dans un petit pipeline automatisé sans abonnement.

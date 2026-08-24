@@ -30,12 +30,12 @@ initiales: HS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 529
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le pricing actuel conserve un plan Free à 200 SMS envoyés ou reçus par mois sans carte bancaire.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 httpSMS est référencé avec les limites gratuites vérifiées le 19 août 2026.

@@ -26,12 +26,12 @@ initiales: VD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 337
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan Free actuel affiche 1 membre, reporters illimités et 5 Go ; la FAQ indique que les projets ne sont pas limités.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Visual Debug permet à un client ou testeur de signaler un problème directement sur une page. Le modèle avec reporters illimités est intéressant quand une seule personne centralise les retours.

@@ -34,12 +34,12 @@ initiales: BR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 394
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan Hobby actuel annonce 300 crédits/mois, 1 application privée, 1 membre, 5 concurrences et 90 minutes maximum par build.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Bitrise propose une chaîne CI/CD très orientée mobile. Son plan gratuit a évolué vers un modèle en crédits : il est adapté à un projet personnel ou à un prototype, mais il ne faut plus raisonner en nombre fixe de builds.

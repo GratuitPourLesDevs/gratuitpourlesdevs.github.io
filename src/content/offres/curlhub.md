@@ -24,12 +24,12 @@ initiales: CH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 143
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Free tier officiel vérifié : 10 000 requêtes par mois."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 CurlHub agit comme un point de passage pour observer les requêtes HTTP et comme un request bin simple. Avec 10 000 requêtes gratuites mensuelles, il est pratique pour déboguer des webhooks, callbacks et intégrations API sans installer d’outil supplémentaire.

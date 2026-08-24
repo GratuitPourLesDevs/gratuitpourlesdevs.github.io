@@ -23,12 +23,12 @@ initiales: R
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1058
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La description source P2P file syncing était erronée : Redbooth est un outil de gestion de projet, classé dans tickets-projets."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Redbooth est un outil de gestion de projet et non un service de synchronisation P2P de fichiers.

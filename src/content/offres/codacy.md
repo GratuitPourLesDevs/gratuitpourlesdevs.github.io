@@ -30,12 +30,12 @@ initiales: CD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 366
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'L’ancienne description « dépôts publics et privés illimités gratuitement » n’est plus exacte : le privé cloud est payant après essai.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Codacy aide à détecter les problèmes de qualité et de sécurité avant fusion. Son gratuit actuel est surtout pertinent pour l’IDE individuel et l’open source.

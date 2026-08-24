@@ -27,11 +27,12 @@ initiales: PM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 185
-verifieLe: 2026-08-18
-verificationNote: "Page officielle GeoIP non récupérable/indexée lors de la vérification ; quota volontairement non publié dans le catalogue."
+verifieLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationAutomatiqueLe: 2026-08-24
 ---
 
 Proxmint annonce un outil GeoIP simple basé sur MaxMind GeoLite2. La fiche est conservée en attente de vérification plutôt que de présenter comme certains des quotas ou garanties que la page officielle n’a pas permis de confirmer.

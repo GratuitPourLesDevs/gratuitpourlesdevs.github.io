@@ -34,12 +34,12 @@ initiales: RZ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 313
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Free plan vérifié : 3 sièges, 1 projet, 5 fonctionnalités actives/mois, BYO AI key et aucune carte requise.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 REEZN déplace une partie de la revue en amont du développement : les spécifications sont discutées avant que le code ne soit produit. Le quota mensuel de cinq fonctionnalités permet surtout d’évaluer la méthode sur un petit produit ou une équipe pilote.

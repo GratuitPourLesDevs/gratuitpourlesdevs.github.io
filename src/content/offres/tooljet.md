@@ -37,12 +37,12 @@ initiales: TJ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 863
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Free 2026 : 2 builders, 50 end users, 2 apps, 1 workspace, 100 crédits IA/mois, sources externes illimitées et 5 tables ToolJet DB.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ToolJet est un bon compromis lorsqu’on veut construire rapidement une interface métier tout en gardant la possibilité de connecter beaucoup de sources externes. Cinquante utilisateurs finaux gratuits permettent de tester un outil auprès d’une équipe réelle, ce qui est plus généreux que nombre de concurrents. Le plafond est côté construction : deux builders et deux applications. Il convient donc très bien à un petit portefeuille d’outils internes, mais moins à une organisation qui veut multiplier les applications low-code.

@@ -32,12 +32,12 @@ initiales: KY
 carteRequise: true
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 874
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Le vieux quota de 550 h/mois n’est plus la présentation actuelle. Koyeb propose 1 service Free 512 Mo/0,1 vCPU/2 Go et une petite base PostgreSQL ; carte requise pour validation.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Koyeb est pratique pour mettre en ligne une petite API ou application serveur sans payer une instance complète pendant la phase de développement. Le service Free fournit assez de mémoire et de disque pour un prototype réel, avec en plus une petite base PostgreSQL et le support des domaines personnalisés. Il est donc plus polyvalent qu’un hébergement statique pur. En revanche, l’instance se met en veille après inactivité, les régions sont limitées et Koyeb positionne explicitement ce palier pour le test et le hobby plutôt que pour une production critique.

@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 607
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Le Free actuel est à 3 monitors avec intervalle de 3 minutes."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 OnlineOrNot réunit la surveillance d’URLs, d’API et de tâches planifiées avec des pages de statut et plusieurs canaux d’alerte. Le niveau gratuit permet trois monitors contrôlés toutes les trois minutes ; il reste suffisant pour quelques services critiques, mais l’ancienne référence à cinq checks n’est plus la limite actuelle.

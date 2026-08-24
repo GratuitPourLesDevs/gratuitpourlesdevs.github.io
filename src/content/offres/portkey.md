@@ -26,12 +26,12 @@ initiales: P
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 792
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Developer Free Forever vérifié le 20 août 2026 : 10 000 logs/mois ; le gateway peut continuer au-delà mais l’observabilité peut être dégradée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Portkey — AI Gateway et observabilité pour applications GenAI, avec 10 000 logs enregistrés par mois sur le plan Developer gratuit.

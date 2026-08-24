@@ -27,12 +27,12 @@ initiales: WB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 339
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre Free actuelle revérifiée le 18 août 2026.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Whereby est pratique pour lancer une petite réunion via un simple lien sans demander aux participants d’installer une application. Le Free Tier reste cependant limité à quatre personnes.

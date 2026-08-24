@@ -45,9 +45,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 79
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "La comparaison officielle actuelle confirme un plan gratuit à vie pour un utilisateur, avec clients illimités, un type d’événement, un espace de travail et un calendrier synchronisé. Zoho précise qu’aucune carte bancaire n’est demandée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Bookings est une alternative gratuite aux outils de prise de rendez-vous pour un indépendant ou un petit projet. Le plan gratuit autorise un nombre illimité de clients et de rendez-vous, propose la synchronisation bidirectionnelle d’un calendrier et peut créer des liens de réunion en ligne. Sa principale contrainte est structurelle : un seul utilisateur, un seul type d’événement et un seul calendrier synchronisé.

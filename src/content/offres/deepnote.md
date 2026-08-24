@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 153
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Free actuel : 3 éditeurs, 5 projets, machines Basic illimitées 5 Go RAM / 2 vCPU."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Deepnote est un environnement de notebooks collaboratifs orienté data science. Les machines Basic restent généreuses, mais le nombre de projets Free est désormais limité à cinq : l’ancienne promesse de projets personnels illimités est obsolète.

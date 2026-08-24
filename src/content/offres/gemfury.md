@@ -36,8 +36,8 @@ statut: "a_verifier"
 vedette: false
 ordre: 264
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "L’hébergement public et les formats pris en charge sont confirmés. En revanche, la documentation Billing actuelle indique qu’après l’essai le compte est facturé ; l’ancien plan public gratuit permanent n’a pas pu être reconfirmé."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Gemfury reste une plateforme complète d’hébergement de packages multi-écosystèmes. La fiche est conservée en vérification car la disponibilité d’un vrai plan public gratuit permanent n’est plus clairement établie par la documentation tarifaire actuelle.

@@ -40,9 +40,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 239
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free confirme 50 000 messages/mois, 200 msg/s, 30 jours de rétention et aucun moyen de paiement requis à l’inscription ; les messages supplémentaires ont un tarif à l’usage."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Svix fournit toute la mécanique difficile des webhooks sortants : signatures, retries, monitoring et gestion des endpoints consommateurs. Le quota gratuit est particulièrement large, mais il faut surveiller la facturation à l’usage si un moyen de paiement est activé.

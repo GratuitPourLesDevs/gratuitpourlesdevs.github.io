@@ -40,9 +40,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 87
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "L’offre publique foss.heptapod.net est toujours proposée gratuitement aux projets FOSS, avec hébergement Git ou Mercurial et runners CI/CD. Aucun quota numérique de ressources n’est publié."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Heptapod est un fork de GitLab Community Edition dont la particularité est d’ajouter une prise en charge de Mercurial en plus de Git. L’instance foss.heptapod.net offre cette forge gratuitement aux projets libres publics, avec CI/CD et fonctions de gestion de projet. C’est une option rare pour une équipe qui souhaite continuer à utiliser Mercurial sans renoncer à une expérience de forge proche de GitLab.

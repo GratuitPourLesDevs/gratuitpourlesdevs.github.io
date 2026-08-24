@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 709
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free Forever vérifié : 2 500 abonnés, 15 000 e-mails/mois, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Sender possède l’un des Free Tiers marketing les plus généreux de ce lot : jusqu’à 2 500 abonnés et 15 000 e-mails par mois, avec newsletters, automatisations et formulaires, sans carte bancaire. Le plan est donc capable d’accompagner une vraie petite audience et pas seulement une phase de test. Il est limité à un siège et conserve le branding Sender, mais pour un projet qui accepte cette contrepartie, le volume gratuit est particulièrement intéressant par rapport aux offres qui ont réduit leurs quotas en 2026.

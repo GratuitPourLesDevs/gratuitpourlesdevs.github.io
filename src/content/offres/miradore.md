@@ -33,12 +33,12 @@ initiales: M
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 517
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Miradore limite le plan Free à 50 appareils depuis le 11 septembre 2024. La documentation 2026 confirme toujours ce plafond.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Miradore reste un Free Tier solide pour les petites flottes, mais l’ancienne promesse d’appareils illimités est obsolète.

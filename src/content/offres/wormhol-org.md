@@ -25,12 +25,12 @@ initiales: WH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 342
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Les conditions officielles indiquent des fichiers jusqu’à 5 Go et pas de limite de nombre annoncée ; la conservation est temporaire, au maximum trois jours.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 wormhol.org est un service minimaliste de transfert temporaire : il accepte de nombreux fichiers jusqu’à 5 Go chacun, puis les supprime après quelques jours.

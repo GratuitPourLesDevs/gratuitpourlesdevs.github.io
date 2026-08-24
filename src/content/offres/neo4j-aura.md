@@ -36,12 +36,12 @@ initiales: N4
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 934
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Les communications Neo4j les plus récentes sur AuraDB Free indiquent jusqu’à 200 000 nœuds et 400 000 relations. Ces limites remplacent les valeurs plus anciennes encore visibles sur certaines pages."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Neo4j AuraDB met à disposition une base de graphes native sans installation ni exploitation de cluster. Le niveau gratuit convient aux prototypes de recommandation, cartographie de relations, knowledge graphs et apprentissage de Cypher, tant que le graphe reste sous les limites de taille.

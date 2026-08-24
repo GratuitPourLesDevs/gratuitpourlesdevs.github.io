@@ -36,12 +36,12 @@ initiales: 'CJ'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: 'active'
+statut: "active"
 vedette: false
 ordre: 568
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'CatchJS offre toujours une souscription aux projets open source. Le plan Development associé est limité à 1 000 erreurs/mois et 1 domaine.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CatchJS est spécialisé dans le diagnostic des erreurs JavaScript côté navigateur, avec des informations destinées à reproduire les problèmes frontend. Il n’existe pas de Free Tier général permanent, mais les projets open source peuvent demander gratuitement l’équivalent du plan Development : 1 000 erreurs et 1 000 appels de log par mois, un domaine et trois mois de rétention. Une incohérence subsiste dans la documentation : la page tarifaire mentionne les screenshots, tandis que le tableau de quotas indique zéro screenshot quotidien sur Development.

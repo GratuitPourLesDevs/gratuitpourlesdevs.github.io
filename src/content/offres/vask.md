@@ -37,12 +37,12 @@ initiales: V
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 541
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel est 500k broadcasts/mois + 100 connexions sur apps illimitées ; les Terms confirment
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   que les apps Free peuvent être utilisées en production.
 ---
 

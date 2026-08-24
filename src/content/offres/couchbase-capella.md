@@ -35,12 +35,12 @@ initiales: CB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 927
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Capella propose désormais un niveau gratuit permanent à un nœud, sans carte. La documentation officielle indique 8 Go de stockage pour certaines configurations Free ; d’autres pages cloud peuvent afficher une capacité légèrement différente selon le fournisseur."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Couchbase Capella transforme Couchbase en service DBaaS entièrement managé et ajoute recherche, requêtes SQL++ et fonctions orientées applications. Le cluster gratuit à nœud unique sert surtout au prototypage et à l’apprentissage ; il n’offre pas la haute disponibilité d’un cluster de production.

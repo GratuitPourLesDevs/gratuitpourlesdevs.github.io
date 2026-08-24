@@ -24,12 +24,12 @@ initiales: S
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1060
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free actuel confirme 500 Mo de stockage, 2 Go de transfert et trois utilisateurs."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Sirv combine stockage, transformations dynamiques et diffusion CDN pour les médias web.

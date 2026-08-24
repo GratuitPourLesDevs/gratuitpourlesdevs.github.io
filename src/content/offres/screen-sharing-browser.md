@@ -25,12 +25,12 @@ initiales: SS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 317
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre revérifiée le 18 août 2026 à partir des pages officielles du service.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Screen Sharing via Browser permet de montrer rapidement son écran à un collègue ou à un client sans imposer l’installation d’un logiciel. C’est pratique pour une démonstration, un dépannage ou une revue rapide.

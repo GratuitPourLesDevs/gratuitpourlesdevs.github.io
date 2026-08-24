@@ -30,12 +30,12 @@ initiales: LT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 494
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La limite Free actuelle est 3 utilisateurs ; l’ancien chiffre de 10 est obsolète.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LoginTC est référencé avec les limites gratuites vérifiées le 2026-08-19.

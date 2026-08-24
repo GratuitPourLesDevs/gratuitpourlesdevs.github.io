@@ -30,12 +30,12 @@ initiales: PI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 499
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Community actuel confirme 1 000 MAU, 20 tenants et des requêtes d’autorisation illimitées.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Permit.io est référencé avec les limites gratuites vérifiées le 2026-08-19.

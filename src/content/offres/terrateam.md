@@ -34,12 +34,12 @@ initiales: TT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 411
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel est clairement documenté à 50 runs sur 30 jours, 3 utilisateurs et 1 runner privé, tout en donnant accès au produit complet.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Terrateam automatise les plans et apply IaC directement depuis le cycle de pull request. Le Free Tier est simple à évaluer : toutes les fonctions sont présentes, mais le volume est plafonné.

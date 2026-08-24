@@ -20,12 +20,12 @@ initiales: "PM"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 613
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "La gratuité subsiste mais les anciens chiffres 5 monitors / 10 minutes nécessitent une nouvelle confirmation."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pingmeter surveille des services réseau au-delà du simple HTTP grâce au support HTTPS, SSH et de ports TCP personnalisés. Un niveau gratuit est toujours identifiable, mais les anciens chiffres de cinq monitors et dix minutes ne sont pas assez clairement confirmés par la grille publique actuelle ; ils ne sont donc pas présentés ici comme des quotas 2026 garantis.

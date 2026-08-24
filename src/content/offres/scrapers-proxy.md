@@ -30,12 +30,12 @@ initiales: SP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 231
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La fiche est conservée en vérification : le service est référencé mais les limites du free tier n’ont pas pu être confirmées sur une source primaire accessible."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Scraper's Proxy vise à simplifier le scraping de sites protégés en prenant en charge les proxies et le rendu côté navigateur. Tant que sa grille gratuite n’est pas directement vérifiable, l’offre reste volontairement marquée à vérifier.

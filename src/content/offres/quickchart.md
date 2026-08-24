@@ -21,12 +21,12 @@ initiales: QC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1057
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "QuickChart conserve un niveau gratuit pour générer graphiques et QR codes ; certains plafonds dépendent du type d’API."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 QuickChart transforme des configurations de graphiques ou QR codes en images faciles à intégrer.

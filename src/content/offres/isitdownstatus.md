@@ -24,8 +24,8 @@ statut: "a_verifier"
 vedette: false
 ordre: 599
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "API publique confirmée, mais quota et périmètre chiffré actuel insuffisamment documentés."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 429."
 ---
 
 IsItDownStatus expose une API JSON destinée à récupérer l’état opérationnel de services tiers connus, ce qui peut servir à enrichir un dashboard interne ou différencier une panne locale d’un incident fournisseur. L’accès public est annoncé sans authentification, mais le quota et le nombre exact de services couverts ne sont pas assez documentés pour être présentés comme des limites contractuelles ; la fiche reste donc à vérifier.

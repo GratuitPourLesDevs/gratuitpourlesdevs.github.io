@@ -37,9 +37,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 224
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Hobby Free forever confirme 2 utilisateurs, 1 workspace, 5 déploiements et 500 minutes Serverless par mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Prefect Cloud fournit le plan de contrôle d’orchestration sans imposer de maintenir soi-même l’interface, les schedules et l’observabilité. Le quota Hobby est suffisant pour plusieurs workflows personnels ou une petite automatisation de données.

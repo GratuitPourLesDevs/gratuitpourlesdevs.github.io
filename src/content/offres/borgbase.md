@@ -23,12 +23,12 @@ initiales: BB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 1022
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan gratuit actuel confirme 10 Go et deux dépôts sans carte bancaire."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 BorgBase simplifie les sauvegardes hors site pour les utilisateurs de BorgBackup et borgmatic.

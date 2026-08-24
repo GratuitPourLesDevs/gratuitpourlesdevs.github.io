@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 654
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "The Odin Project réaffirme que son curriculum complet est entièrement gratuit et open source ; aucun certificat de complétion n’est délivré."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 The Odin Project propose un parcours cohérent pour apprendre le développement web sans passer d’un tutoriel isolé à l’autre. Après les fondamentaux HTML, CSS, JavaScript, Git et outils développeur, l’apprenant peut poursuivre vers un parcours Full Stack JavaScript ou Ruby on Rails en réalisant de nombreux projets. Le curriculum est entièrement gratuit et open source, avec une communauté active autour de l’apprentissage. Sa philosophie privilégie les compétences et le portfolio : aucun certificat officiel n’est délivré à la fin du cursus.

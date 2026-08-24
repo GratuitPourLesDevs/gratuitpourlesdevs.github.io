@@ -31,12 +31,12 @@ initiales: AU
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 485
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'L’ancien plafond de 5 000 MAU est obsolète : le Free actuel annonce des MAU illimités.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Authgear est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -34,12 +34,12 @@ initiales: BS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 545
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Logtail est devenu Better Stack Logs. Le Free 2026 inclut 3 Go de logs/mois avec 3 jours de rétention.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Better Stack Logs (ex-Logtail) est référencé avec les limites gratuites vérifiées le 19 août 2026.

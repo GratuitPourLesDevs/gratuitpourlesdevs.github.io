@@ -30,12 +30,12 @@ initiales: NI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 908
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Le Free 2026 ne fournit plus les 3 hostnames souvent cités historiquement : la page actuelle annonce 1 hostname et 1 update client, avec confirmation obligatoire tous les 30 jours.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 No-IP reste un moyen très accessible de rendre joignable un NAS, un serveur domestique ou un équipement réseau derrière une adresse IP dynamique. Son client de mise à jour maintient automatiquement un hostname No-IP vers l’adresse publique actuelle, sans carte bancaire. En revanche, le Free est devenu nettement moins généreux que les anciennes descriptions encore présentes sur le Web : il ne comprend plus qu’un seul hostname. Il faut également le confirmer tous les 30 jours, ce qui en fait une solution correcte pour un usage personnel mais moins confortable pour un service que l’on veut complètement oublier une fois configuré.

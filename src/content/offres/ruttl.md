@@ -31,12 +31,12 @@ initiales: RU
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 316
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Valeurs non ambiguës retenues : 1 projet, 5 pages, 1 Go de stockage et 10 commentaires dans le tableau de comparaison. La page utilise plusieurs formulations pour utilisateurs/invités ; aucun quota d’équipe ferme n’est donc publié ici.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ruttl centralise les retours directement sur une interface, une image ou un PDF. Cela évite les captures annotées éparpillées dans les chats, mais le Free Tier reste adapté à un petit projet de validation plutôt qu’à une agence entière.

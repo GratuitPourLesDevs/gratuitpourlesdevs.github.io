@@ -25,12 +25,12 @@ initiales: TM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 331
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre Free Forever revérifiée le 18 août 2026.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TimeCamp est une option généreuse pour une équipe qui veut simplement suivre le temps sans payer par utilisateur. Les fonctions de gestion et de reporting les plus avancées restent dans les offres payantes.

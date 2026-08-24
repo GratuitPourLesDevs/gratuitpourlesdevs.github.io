@@ -45,9 +45,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 84
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "GitGud est actif et autorise les dépôts publics et privés. Les conditions indiquent un stockage de projet non plafonné pour le code et le développement ; aucun quota actuel de nombre de dépôts n’est publié, donc l’ancienne affirmation « dépôts illimités » n’est pas reprise comme quota vérifié."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GitGud propose une expérience proche d’une instance GitLab complète : dépôts privés, tickets, tableaux, Pages, pipelines et registre de conteneurs. Le service est particulièrement généreux sur le stockage lié au développement, mais ses conditions interdisent explicitement les détournements en stockage de masse ou en CDN. Le CI gratuit existe également, avec une activation manuelle afin de protéger les ressources partagées.

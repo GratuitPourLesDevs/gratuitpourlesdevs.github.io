@@ -33,12 +33,12 @@ initiales: VA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 441
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Le cœur Vaadin reste open source et utilisable commercialement. L’ancienne promesse de 5 ans de maintenance gratuite est obsolète : la comparaison actuelle annonce 6 mois sur Free.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Vaadin permet de construire des applications web riches en restant côté Java ou TypeScript avec un ensemble de composants et d’outils intégrés. Le framework est réellement gratuit, mais la durée de maintenance sans abonnement s’est fortement réduite.

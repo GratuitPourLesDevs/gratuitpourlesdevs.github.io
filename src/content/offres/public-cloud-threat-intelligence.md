@@ -28,12 +28,12 @@ initiales: PC
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 471
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La ressource est conservée à titre de référence, mais l’accès actuel au site, au dépôt historique et à l’API doit être revalidé.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Public Cloud Threat Intelligence est référencé avec les limites gratuites vérifiées le 2026-08-19.

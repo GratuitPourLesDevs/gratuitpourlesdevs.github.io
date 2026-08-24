@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 235
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free officiel confirme 500 crédits/mois, sans carte, 1 membre, 7 jours de logs et 1 req/s. Le mapping actuel varie de 1 à plusieurs crédits selon l’API."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Geekflare API regroupe plusieurs besoins techniques courants derrière une seule clé : scraping, screenshots, DNS, TLS et performance. Le système de crédits rend le quota plus ou moins généreux selon le type d’appel utilisé.

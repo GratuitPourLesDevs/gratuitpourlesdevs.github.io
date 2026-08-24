@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 628
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free non commercial : 25 serveurs, 25 uptime monitors et 7 jours de métriques."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SyAgent propose gratuitement aux usages non commerciaux un suivi de serveurs et de disponibilité avec plusieurs canaux de notification. Les plafonds de vingt-cinq serveurs et vingt-cinq uptime monitors sont généreux pour un homelab ou une infrastructure associative ; la restriction structurante n’est donc pas le volume, mais le caractère non commercial de l’utilisation.

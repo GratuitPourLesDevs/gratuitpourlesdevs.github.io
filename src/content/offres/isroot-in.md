@@ -31,12 +31,12 @@ initiales: IR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 915
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La FAQ confirme la gratuité, une validité d’un an et l’absence de limites d’usage annoncées. Elle précise aussi que les nameservers personnalisés ne sont pas encore disponibles ; les conditions réservent le service aux usages personnels, éducatifs et non commerciaux."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 isroot.in donne une adresse lisible à un prototype, un portfolio ou un projet étudiant sans avoir à acheter un domaine. La gestion DNS intégrée suffit pour les enregistrements courants et le service annonce ne pas appliquer de quota d’usage, ce qui est confortable pour du développement et des démonstrations. La formule est toutefois pensée pour les usages personnels, éducatifs et non commerciaux. Le point à vérifier avant de choisir cette solution est la compatibilité avec l’hébergement visé : les nameservers personnalisés ne sont pas encore disponibles et certains PaaS dépendant de la Public Suffix List peuvent refuser ce type de sous-domaine.

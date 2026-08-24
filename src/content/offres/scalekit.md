@@ -36,12 +36,12 @@ initiales: SK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 502
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'La page pricing Auth for SaaS actuelle est retenue comme source de vérité : 25k MAU et 25 organisations.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Scalekit est référencé avec les limites gratuites vérifiées le 2026-08-19.

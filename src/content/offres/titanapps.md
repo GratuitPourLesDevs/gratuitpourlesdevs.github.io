@@ -26,12 +26,12 @@ initiales: "TS"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1010
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Les conditions TitanApps confirment l’existence de Free Licenses. La documentation Smart Checklist précise 5 templates et 20 items par checklist pour l’édition Free Jira Cloud."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TitanApps propose plusieurs extensions pour Jira et monday.com. La gratuité la plus clairement documentée concerne Smart Checklist Free pour Jira Cloud, avec des limites explicites sur les modèles et éléments.

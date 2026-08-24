@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 742
-verifieLe: "2026-08-20"
-verificationAutomatiqueLe: "2026-08-20"
-verificationNote: "Service actif vérifié le 20 août 2026. Font Sensei se décrit comme un sélecteur de Google Fonts par tags et documente explicitement ses catégories CJK en chinois, japonais et coréen."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Font Sensei ajoute une couche de découverte au catalogue Google Fonts. Au lieu de chercher uniquement par nom ou grande famille typographique, on peut parcourir des tags visuels et linguistiques, y compris des catégories spécifiques aux écritures chinoises, japonaises et coréennes.

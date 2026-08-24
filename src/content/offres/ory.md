@@ -32,12 +32,12 @@ initiales: OR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 498
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Developer actuel est défini par 2 environnements de développement et 1 membre ; les anciens quotas DAU/permission
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   checks sont obsolètes.
 ---
 

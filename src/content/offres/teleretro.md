@@ -28,12 +28,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1008
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La formule Free actuelle inclut 3 retros au total, des membres illimités, 1 équipe et 1 Pulse survey. Chaque rétro gratuite est accessible 14 jours avant archivage."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TeleRetro permet de tester les rétrospectives collaboratives avec autant de membres que nécessaire, mais son quota gratuit est une allocation totale de trois sessions et non un quota récurrent.

@@ -29,12 +29,12 @@ initiales: MI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 301
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Plan Free actuel : membres illimités, 3 tableaux éditables et 10 crédits IA par mois.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Miro est particulièrement utile pour les ateliers d’architecture, brainstormings, parcours utilisateurs et rétrospectives. Le Free Tier permet une vraie collaboration, mais les trois tableaux éditables imposent de recycler ou archiver régulièrement les espaces de travail.

@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 158
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Site officiel : 50 crédits gratuits/mois, 20 templates, previews sandbox illimitées, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DocPenny transforme des templates HTML/CSS/Liquid en PDF et sait générer des lots via JSONL. Le quota gratuit est exprimé en crédits : chaque PDF consomme au minimum un crédit et un crédit couvre jusqu’à 5 Mo de sortie.

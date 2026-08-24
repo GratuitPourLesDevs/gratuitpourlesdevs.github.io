@@ -26,12 +26,12 @@ initiales: ST
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 323
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre revérifiée le 18 août 2026 à partir de la tarification officielle.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Stickies convient aux ateliers visuels simples, aux moodboards et au brainstorming. Les trois murs gratuits permettent de conserver quelques espaces actifs sans abonnement.

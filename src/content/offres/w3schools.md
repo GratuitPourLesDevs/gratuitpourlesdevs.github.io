@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 655
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Les tutoriels publics HTML, CSS, JavaScript, SQL, Python et autres restent gratuits ; les certifications sont proposées séparément à titre payant."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 W3Schools reste une ressource pratique pour retrouver rapidement la syntaxe d’une technologie, tester un exemple puis modifier le code directement dans le navigateur. Ses tutoriels publics couvrent notamment HTML, CSS, JavaScript, SQL, Python et de nombreuses autres technologies utilisées en développement. Cette partie apprentissage et référence reste gratuite. Il faut en revanche distinguer ces contenus des certifications W3Schools : obtenir un certificat officiel est une prestation payante, et non une composante du Free Tier.

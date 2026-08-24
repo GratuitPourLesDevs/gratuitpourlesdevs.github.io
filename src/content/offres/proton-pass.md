@@ -32,12 +32,12 @@ initiales: PP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 308
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Plan Free vérifié : logins/appareils illimités, 10 alias, passkeys et partage limité. Correction importante : l’authenticator 2FA intégré n’est pas inclus gratuitement.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Proton Pass couvre déjà gratuitement les besoins essentiels d’un gestionnaire de mots de passe moderne, y compris les passkeys et les alias e-mail. Le principal point à ne pas confondre avec les plans payants est l’authenticator TOTP intégré.

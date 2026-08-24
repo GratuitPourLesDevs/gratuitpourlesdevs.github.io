@@ -28,12 +28,12 @@ initiales: R
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 793
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Offre vérifiée le 20 août 2026 : un document de démonstration gratuit et usage BYOK sans abonnement de plateforme, hors coût de l’API externe."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ReportGPT — Assistant de rédaction IA avec un document de démonstration gratuit et un mode BYOK sans abonnement de plateforme.

@@ -34,12 +34,12 @@ initiales: IOA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 511
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le service est toujours gratuit et sans limite d’uploads. La FAQ actuelle indique 2 jours en invité
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   et 8 jours connecté ; une autre page affiche encore 60 jours.
 ---
 

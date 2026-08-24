@@ -45,9 +45,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 64
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "La table tarifaire officielle actuelle affiche 3 projets et 5 Go de stockage. Une page marketing Zoho mentionne encore 2 projets ; la table tarifaire a été retenue comme référence la plus actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Projects est un outil de gestion de projet en ligne qui permet de structurer les tâches, suivre les échéances et collaborer au sein d’une petite équipe. Son plan gratuit actuel convient à une petite équipe ou à quelques projets personnels grâce à trois utilisateurs, trois projets et 5 Go de stockage. Il inclut notamment les tâches et sous-tâches, les diagrammes de Gantt, les projets privés et plusieurs fonctions de collaboration, avec des limitations sur les fonctions avancées réservées aux offres payantes.

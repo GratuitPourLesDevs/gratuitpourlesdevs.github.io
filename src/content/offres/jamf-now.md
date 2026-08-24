@@ -28,12 +28,12 @@ initiales: JN
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 516
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Jamf confirme en août 2026 que Jamf Now permet de gérer jusqu’à 3 appareils gratuitement pour une durée illimitée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Jamf Now fournit une porte d’entrée gratuite et permanente au MDM Apple pour de très petites flottes.

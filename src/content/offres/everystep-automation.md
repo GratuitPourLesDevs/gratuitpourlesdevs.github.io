@@ -26,12 +26,12 @@ initiales: EA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 421
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan gratuit actuel correspond au EveryStep Web Recorder. Les fonctions de monitoring et d’automatisation gérées sont payantes ou proposées en essai.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : fetch failed."
 ---
 
 EveryStep permet d’enregistrer un parcours réalisé dans le navigateur et de le convertir en script réutilisable. Le recorder reste gratuit, tandis que l’exploitation continue dans le cloud appartient aux offres payantes.

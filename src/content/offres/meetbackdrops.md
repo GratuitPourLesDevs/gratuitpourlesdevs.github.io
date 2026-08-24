@@ -22,12 +22,12 @@ initiales: MB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 324
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La fiche distingue les ressources gratuites sans inscription des éditions HD et contenus premium payants ; l’ancien énoncé « 1 000+ fonds tous gratuits » n’est pas retenu.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MeetBackdrops fournit des arrière-plans prêts à l’emploi pour les visioconférences. La partie gratuite est utile pour professionnaliser rapidement un appel sans créer de compte, mais le catalogue comprend aussi des contenus payants.

@@ -20,12 +20,12 @@ initiales: "WR"
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 724
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free Wraps vérifié : 5 000 événements/mois, 1 workflow, contacts illimités ; coûts AWS séparés."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Wraps fournit une couche d’automatisation e-mail au-dessus d’AWS SES, avec CLI, SDK TypeScript, workflows et suivi des événements. Le plan Wraps lui-même est gratuit jusqu’à 5 000 événements suivis par mois, avec un workflow, contacts illimités et 10 générations IA mensuelles. Mais « Wraps gratuit » ne signifie pas « e-mail entièrement gratuit » : l’envoi est réalisé par AWS SES et les ressources AWS associées restent facturées séparément. C’est donc un bon outil gratuit d’orchestration, pas un quota d’envoi sans coût.

@@ -26,12 +26,12 @@ initiales: "K"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 986
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification officielle actuelle confirme 1 utilisateur, boards et cartes illimités et des uploads de 10 Mo sur Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Kan propose une expérience Kanban volontairement minimaliste avec un code open source. Le cloud gratuit est généreux sur les boards et cartes mais reste strictement individuel.

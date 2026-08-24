@@ -32,9 +32,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 144
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "CurrencyScoop redirige vers CurrencyBeacon. Plan Free actuel vérifié : 5 000 requêtes et rafraîchissement horaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CurrencyScoop a évolué vers CurrencyBeacon. Le service fournit toujours une API de devises avec 5 000 requêtes gratuites, des taux actuels et historiques et la conversion de monnaies ; la principale limite du Free est une actualisation horaire plutôt que temps réel.

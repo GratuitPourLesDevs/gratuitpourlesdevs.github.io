@@ -25,12 +25,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 1014
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle indique 2 calendriers actifs, 3 colonnes Someday et 2 couleurs personnalisées sur Free."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Tweek privilégie une organisation hebdomadaire très simple plutôt qu’un outil de projet complexe. Le plan gratuit convient aux usages personnels avec quelques calendriers et colonnes supplémentaires.

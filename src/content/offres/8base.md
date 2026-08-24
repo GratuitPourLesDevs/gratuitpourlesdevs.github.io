@@ -34,12 +34,12 @@ initiales: 8B
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 921
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La tarification officielle confirme actuellement 2 500 lignes, 0,5 Go de fichiers, 1 GB-heure de calcul, 2 Go de bande passante et 100 000 appels GraphQL par mois sur le plan Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 8base combine une base de données managée, une API GraphQL générée automatiquement et des fonctions serverless dans un environnement orienté JavaScript. Le plan gratuit suffit pour prototyper un backend complet ou une petite application, avec des quotas distincts sur les lignes, les fichiers, le calcul et les appels GraphQL.

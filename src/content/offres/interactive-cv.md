@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 648
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Le pricing actuel affiche Free $0 sans carte : 3 job matches, 3 tailored resumes, 3 interviews, 5 cover letters, 2 translations et 4 premium templates, avec export et partage interactif inclus."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Interactive CV associe un éditeur de CV à des outils de candidature pilotés par IA : analyse d’une offre, adaptation du CV, simulation d’entretien, lettres de motivation, traduction et partage du profil via un lien interactif avec fonctions de chat ou de voix. Le plan gratuit ne demande pas de carte et inclut l’export du CV ainsi qu’un ensemble utile de crédits pour tester ces fonctions, par exemple trois adaptations à une offre et trois simulations d’entretien. Les fonctions IA les plus coûteuses ne sont donc pas illimitées, mais le niveau gratuit est suffisamment complet pour préparer plusieurs candidatures sans abonnement.

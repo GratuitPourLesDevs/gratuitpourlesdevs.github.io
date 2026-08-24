@@ -25,12 +25,12 @@ initiales: SC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1062
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page officielle Free confirme 5 Go, cinq appareils, trois liens protégés et trois dossiers partagés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Sync.com propose un espace gratuit chiffré avec quelques fonctions de partage sécurisé.

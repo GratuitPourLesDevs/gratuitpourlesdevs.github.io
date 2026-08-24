@@ -32,12 +32,12 @@ initiales: AH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 508
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le site officiel confirme 5 apps, 50 téléchargements mensuels, 100 Mo par fichier et des liens
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
   persistants ; nettoyage possible après 90 jours d’inactivité.
 ---
 

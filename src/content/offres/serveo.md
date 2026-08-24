@@ -27,12 +27,12 @@ initiales: SE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 957
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Serveo reste référencé comme service de tunnel SSH sans installation. Faute de grille tarifaire et de quotas publics fiables, la fiche n’affirme pas l’ancienne promesse 'sans limites'."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Serveo exploite le port forwarding SSH pour rediriger une adresse publique vers un service exécuté sur localhost. Cette approche est intéressante pour les démonstrations et tests rapides puisqu’elle évite l’installation d’un agent propriétaire. Les limites exactes du service public n’étant pas clairement documentées aujourd’hui, la fiche conserve une description volontairement prudente plutôt que l’ancienne mention de service sans limites.

@@ -26,12 +26,12 @@ initiales: "B"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 967
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free actuel est revenu avec 1 projet, jusqu’à 20 utilisateurs et 1 Go de stockage. L’ancienne limite de 3 projets n’est plus actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Basecamp propose à nouveau un plan gratuit permanent pour une équipe travaillant sur un projet. Il inclut les fonctions centrales de coordination, de discussion et de partage de fichiers.

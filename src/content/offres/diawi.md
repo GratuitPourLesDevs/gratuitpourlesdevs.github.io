@@ -32,12 +32,12 @@ initiales: D
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 509
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La grille actuelle distingue le gratuit sans compte (20 Mo, 1 jour, 2 installations) du compte
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   Free (50 Mo, 3 jours, 10 installations).
 ---
 

@@ -25,12 +25,12 @@ initiales: "G"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 979
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La grille actuelle du plan Free annonce 5 fichiers de diagrammes et 40 objets par diagramme, avec export PNG."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Gleek transforme une description textuelle en diagramme UML ou de données, ce qui convient bien aux développeurs qui préfèrent écrire plutôt que dessiner. Le plan Free reste limité en nombre de fichiers et d’objets.

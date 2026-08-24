@@ -33,12 +33,12 @@ initiales: 'EM'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: 'active'
+statut: "active"
 vedette: false
 ordre: 570
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Le Free actuel confirme 1M sessions/an, 5 utilisateurs et 3 jours de rétention ; les caps bloquent l’ingestion plutôt que de facturer.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Embrace observe les sessions réelles d’applications mobiles et web afin de relier crashs, exceptions et problèmes de performance au parcours utilisateur. Le Free est dimensionné pour une petite application ou un environnement de développement : jusqu’à 1 million de sessions par an et 5 utilisateurs. La contrepartie est une rétention de seulement 3 jours ; lorsque le plafond annuel ou le nombre d’utilisateurs est atteint, Embrace bloque l’ingestion ou l’ajout d’utilisateurs jusqu’à un éventuel upgrade.

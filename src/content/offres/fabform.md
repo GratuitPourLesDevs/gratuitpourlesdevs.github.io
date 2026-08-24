@@ -26,12 +26,12 @@ initiales: F
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 745
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Plan Free actuel vérifié le 20 août 2026 : formulaires, réponses et questions illimités ; l’ancienne limite de 250 soumissions/mois n’est plus d’actualité.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 FabForm — Backend de formulaires avec automatisations et intégrations pour développeurs. Free : formulaires, réponses et questions illimités. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

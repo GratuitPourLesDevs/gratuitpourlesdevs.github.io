@@ -27,12 +27,12 @@ initiales: FF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 747
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Plan gratuit vérifié le 20 août 2026 : 25 soumissions de feedback au total, sans limite de durée.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 feedback.fish — Widget simple de collecte de feedback avec intégrations React et Vue. Free : 25 retours au total. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

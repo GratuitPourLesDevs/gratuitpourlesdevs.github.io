@@ -29,12 +29,12 @@ initiales: HX
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 900
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'La documentation HexDNS affiche les trois premières zones à 0 GBP/mois, puis 1 GBP par zone/mois au-delà, avec DNSSEC et Dynamic DNS.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 HexDNS est une option intéressante pour héberger gratuitement quelques domaines avec des fonctions que certains fournisseurs réservent aux plans payants. Les trois premières zones sont gratuites et bénéficient notamment de DNSSEC, Dynamic DNS, ANAME, CDS et mises à jour RFC 2136. Cela couvre confortablement un petit portefeuille de domaines techniques ou personnels avec une bonne capacité d’automatisation. À partir de la quatrième zone, le service devient payant, ce qui rend la frontière du Free très simple à comprendre.

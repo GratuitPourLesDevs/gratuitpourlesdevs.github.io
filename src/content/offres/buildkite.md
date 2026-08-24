@@ -36,12 +36,12 @@ initiales: BK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 396
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan Personal actuel est gratuit pour 1 utilisateur avec 3 jobs concurrents, 500 vCPU-minutes Linux/mois et 50k exécutions de tests/mois.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Buildkite combine orchestration cloud et agents exécutés dans votre infrastructure. Le plan Personal reste gratuit, mais ses quotas sont nettement différents des anciennes grilles souvent reprises dans les listes de Free Tiers.

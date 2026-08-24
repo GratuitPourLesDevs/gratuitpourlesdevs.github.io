@@ -36,12 +36,12 @@ initiales: N
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 531
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Cloud Free 2026 inclut 10 000 workflow runs/mois, 20 workflows, 2 environnements, 24 h de rétention
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   et 3 membres.
 ---
 

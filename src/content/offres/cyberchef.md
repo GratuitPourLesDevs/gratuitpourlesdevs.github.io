@@ -25,12 +25,12 @@ initiales: C
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 451
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: CyberChef reste open source et utilisable gratuitement sans quota ; l’application s’exécute principalement côté client.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 CyberChef est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -25,12 +25,12 @@ initiales: "B"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 966
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La documentation tarifaire actuelle confirme 1 projet, 10 utilisateurs, 5 documents et 100 Mo de stockage sur le plan Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Backlog réunit tickets, wiki et dépôts de code dans une même plateforme. Le plan Free convient à une petite équipe travaillant sur un seul projet.

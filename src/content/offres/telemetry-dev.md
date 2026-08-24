@@ -26,12 +26,12 @@ initiales: TD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 794
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Plan Free vérifié le 20 août 2026 : 10 000 spans/mois, 7 jours de rétention, 1 projet et 2 sièges, sans carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 telemetry.dev — Observabilité OpenTelemetry pour IA et LLM avec 10 000 spans mensuels, un projet et deux sièges gratuits.

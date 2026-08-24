@@ -33,12 +33,12 @@ initiales: MA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 496
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La page pricing actuelle annonce 25 000 MAU ; une FAQ officielle secondaire semble conserver l’ancienne
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   limite de 1 000.
 ---
 

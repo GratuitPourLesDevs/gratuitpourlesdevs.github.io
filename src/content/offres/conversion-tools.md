@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 138
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Free Forever enregistré vérifié : 10 conversions/jour, 100/mois, fichiers 20 Mo et aucune carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Conversion Tools propose des conversions de fichiers via interface web et API pour de nombreux formats. L’ancien quota de 30 conversions par jour et 300 par mois n’est plus actuel : le compte gratuit enregistré dispose désormais de 10 conversions quotidiennes, avec un maximum de 100 sur le mois.

@@ -35,12 +35,12 @@ initiales: WS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 813
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: Service gratuit pour tous, open source et diffusé via Cloudflare. La FAQ actuelle précise une limite de
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   2 500 requêtes non cachées par 10 minutes et par IP.
 ---
 

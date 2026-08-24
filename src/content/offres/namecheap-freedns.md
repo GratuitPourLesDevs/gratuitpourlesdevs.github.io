@@ -27,12 +27,12 @@ initiales: NC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 905
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'FreeDNS est toujours proposé gratuitement pour des domaines enregistrés chez des tiers. La page actuelle confirme DDNS, redirections et DNS secondaire, mais ne publie plus clairement l’ancien message « sans limite de domaines ».'
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Namecheap FreeDNS est utile lorsqu’on possède déjà un domaine chez un autre registrar mais que l’on souhaite confier gratuitement sa zone DNS à une interface simple et connue. Le service inclut les types d’enregistrements usuels, le Dynamic DNS, les redirections d’URL et d’e-mail ainsi que le fonctionnement en DNS secondaire. Il permet donc de séparer proprement l’achat du domaine de son hébergement DNS sans migrer le registrar. Les fonctions de sécurité et de disponibilité les plus avancées, notamment DNSSEC et les garanties PremiumDNS, restent en revanche réservées aux offres payantes.

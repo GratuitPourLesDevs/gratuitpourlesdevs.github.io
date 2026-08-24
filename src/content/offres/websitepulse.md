@@ -29,12 +29,12 @@ initiales: WP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 443
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La page Tools maintient une collection de diagnostics gratuits. Elle est distincte de l’offre de monitoring continu, principalement payante après essai.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 WebSitePulse regroupe plusieurs petits outils utiles pour diagnostiquer rapidement DNS, ports, disponibilité, e-mails ou chargement d’une page. La gratuité porte sur ces contrôles ponctuels plutôt que sur une supervision permanente.

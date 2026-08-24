@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 209
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La grille officielle Starter confirme 500 requêtes/jour, 1 projet, 4 endpoints et 2 réponses par endpoint."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mockfly héberge des mocks API configurables directement dans le cloud. Son Starter gratuit est suffisamment dimensionné pour des prototypes et des tests d’intégration légers.

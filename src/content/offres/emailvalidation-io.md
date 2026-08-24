@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 678
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free Tier vérifié : 100 crédits par mois et accès API."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Emailvalidation.io permet de vérifier des adresses avant un envoi ou une inscription afin de réduire les rebonds et les données invalides. Le compte gratuit fournit 100 crédits par mois et donne accès à l’API, avec une clé dédiée ; le service inclut aussi des fonctions de recherche d’e-mails. Pour tester une intégration ou valider un petit volume, ce quota est suffisant. Il faut néanmoins regarder le coût en crédits de chaque opération, certaines recherches étant plus gourmandes qu’une simple validation.

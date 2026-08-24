@@ -36,12 +36,12 @@ initiales: CR
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 349
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’ancien quota de 1 000 items est obsolète. Particle inclut aujourd’hui 100 items, 5 Go de trafic et 25k appels API/mois, avec metering payant au-delà.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Crystallize combine gestion de contenu, PIM et commerce dans un backend GraphQL. Son offre gratuite est fonctionnellement riche, mais son modèle de dépassement facturable impose davantage de vigilance que les free tiers à coupure nette.

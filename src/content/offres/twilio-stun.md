@@ -28,12 +28,12 @@ initiales: TW
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 958
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Twilio indique officiellement que STUN est gratuit dans toutes les régions et décrit les recherches STUN comme illimitées. L’URI globale documentée est stun:global.stun.twilio.com:3478 ; TURN reste payant."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Le serveur STUN de Twilio aide un client WebRTC à connaître l’adresse IP et le port publics que son NAT lui attribue afin de tenter une connexion pair à pair directe. Twilio publie ce composant STUN comme gratuit et illimité, alors que le relais TURN n’est utilisé qu’en secours et reste facturé au trafic. L’URI STUN est conservée dans la fiche, tandis que le lien principal pointe vers une page HTTPS utilisable par le catalogue.

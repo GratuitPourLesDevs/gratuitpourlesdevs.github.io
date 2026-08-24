@@ -29,12 +29,12 @@ initiales: I
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 462
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Le Free actuel est exprimé en identités (humaines ou machines), pas simplement en développeurs : 5 identités, projets illimités, 3 environnements, 10 syncs.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Infisical est référencé avec les limites gratuites vérifiées le 2026-08-19.

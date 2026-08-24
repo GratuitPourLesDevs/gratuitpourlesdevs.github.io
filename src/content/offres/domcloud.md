@@ -32,12 +32,12 @@ initiales: DC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 824
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: La page 2026 annonce désormais 1,5 GB de stockage, 2GB/mois d’egress et jusqu’à 3 sites, plus généreux que l’ancien 1GB/1GB.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DOM Cloud est intéressant pour héberger gratuitement de petits sites ou applications qui ont besoin de davantage qu’un simple hébergement statique : accès SSH, bases de données, déploiement depuis GitHub, HTTPS et domaines personnalisés sont réunis dans le même environnement Linux. Le plan Free Forever permet jusqu’à trois sites avec 1,5 GB de stockage et 2 GB de trafic sortant mensuel, ce qui convient bien à des projets personnels, démonstrations ou applications à faible trafic. Les applications peuvent être mises en veille lorsqu’elles sont inactives puis redémarrer à la prochaine visite, et le service se présente toujours comme Beta. Il offre donc beaucoup de fonctionnalités pour zéro euro, mais avec des garanties opérationnelles plus modestes qu’un hébergement de production classique.

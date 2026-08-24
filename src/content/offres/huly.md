@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 295
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Common à 0 $ confirme utilisateurs et objets Huly illimités, 10 Go de stockage par workspace et 10 Go de trafic vidéo/audio."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Huly regroupe dans une même plateforme plusieurs briques que les équipes assemblent souvent séparément : tickets, projets, messagerie, documents et appels. Son plan Common est particulièrement généreux grâce aux utilisateurs illimités.

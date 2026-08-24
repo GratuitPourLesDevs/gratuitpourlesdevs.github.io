@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 257
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Community officiel indique 30 000 appels/mois mais impose des API publiques sur une infrastructure partagée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 WrapAPI est pratique pour encapsuler une page web derrière une API sans écrire tout le scraper soi-même. Le quota est généreux mais le modèle Community ne convient pas à une extraction privée ou confidentielle.

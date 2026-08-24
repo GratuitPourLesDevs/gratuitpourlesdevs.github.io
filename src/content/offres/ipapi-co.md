@@ -30,9 +30,9 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 189
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Les pages officielles indiquent 1 000/jour et 30 000/mois, mais utilisent l’intitulé Free Trial ; permanence volontairement marquée false."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ipapi.co propose un accès très simple à la géolocalisation IP et peut être testé sans inscription. Le catalogue le marque toutefois comme non permanent car la tarification actuelle emploie explicitement la notion de Free Trial.

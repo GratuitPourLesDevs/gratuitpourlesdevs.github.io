@@ -36,12 +36,12 @@ initiales: ST
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 843
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Maker Account actuel : équipe ≤5, financement <100K USD, revenu <10K USD/mois. Chat bénéficie d’un plafond spécifique de 2 000 MAU et 100 connexions concurrentes.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Le Maker Account de Stream peut faire gagner beaucoup de temps à une petite équipe qui doit ajouter du chat, des feeds ou de la vidéo sans construire une infrastructure temps réel complète. Pour un projet éligible, la limite de 2 000 MAU sur le chat permet déjà de tester un vrai usage public, avec des plafonds durs qui évitent les factures inattendues. L’offre est donc généreuse, mais elle est volontairement réservée aux très petites structures. Il faut revalider l’éligibilité dès que l’équipe, le financement ou le revenu progresse.

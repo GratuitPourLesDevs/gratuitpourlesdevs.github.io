@@ -28,12 +28,12 @@ initiales: SF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 318
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La fiche retient la Community Edition open source et auto-hébergée. Le cloud 1 Go actuellement proposé par Seafile correspond à un essai de 30 jours et n’est donc pas présenté comme Free Tier permanent.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Seafile Community Edition est surtout intéressant pour les équipes qui veulent garder la maîtrise de leurs fichiers. Le logiciel peut être auto-hébergé sans abonnement, contrairement à l’ancienne offre cloud gratuite de 1 Go qui n’est plus permanente.

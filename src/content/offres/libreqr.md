@@ -21,12 +21,12 @@ initiales: LQ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1044
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site officiel confirme les QR statiques permanents, personnalisables et sans limite de scans."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LibreQR permet de créer des QR codes statiques sans suivi ni conservation des données côté serveur.

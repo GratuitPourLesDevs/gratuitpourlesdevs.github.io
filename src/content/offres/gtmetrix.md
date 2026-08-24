@@ -34,12 +34,12 @@ initiales: GT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 379
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel annonce 5 tests/mois pendant 3 mois, 1 URL monitorée et 5 crédits API d’essai non renouvelables.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 GTmetrix analyse la vitesse d’un site et fournit des métriques Web Vitals ainsi que des recommandations. Le compte Basic conserve un monitoring gratuit mais le quota de tests manuels est désormais temporaire.

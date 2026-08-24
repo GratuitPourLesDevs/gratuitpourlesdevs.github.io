@@ -29,12 +29,12 @@ initiales: CC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 839
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Free public cloud vérifié : 1 000 utilisateurs, 5 GB de stockage et 1 mois de rétention. La fiche ne reprend pas les anciennes promesses non chiffrées d’usage illimité.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ConnectyCube évite de développer soi-même toute la couche de communication d’une application : identité des utilisateurs, chat, médias et appels P2P peuvent être intégrés via ses SDKs. Le plafond de 1 000 utilisateurs et les 5 GB de stockage donnent de la place pour tester un vrai parcours ou lancer un petit produit communautaire. C’est particulièrement utile pour un prototype mobile ayant besoin de voix ou vidéo sans bâtir son propre backend temps réel. Les besoins de conférences plus avancées ou de rétention longue poussent toutefois rapidement vers les offres payantes.

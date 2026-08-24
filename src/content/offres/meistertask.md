@@ -24,12 +24,12 @@ initiales: "M"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 993
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "L’aide officielle actuelle indique jusqu’à 3 projets sur Basic, avec tâches illimitées. Une page marketing est moins précise, la limite de 3 projets est retenue."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MeisterTask Basic fournit un espace de gestion de tâches simple et visuel avec tâches illimitées. Le principal plafond du niveau gratuit reste le nombre de projets.

@@ -36,12 +36,12 @@ initiales: HD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 949
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle du plan Developer indique 10 000 événements/mois, 100 000 requêtes écartées, 3 jours de rétention et 1 utilisateur. L’ancienne description à 100 000 événements n’est plus retenue."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hookdeck centralise les webhooks et événements avant leur livraison aux applications, avec inspection, rejeu et routage. C’est utile pour développer des intégrations, observer les erreurs et éviter de perdre des événements lors des tests. Le plan Developer reste permanent et sans carte bancaire, mais son quota principal actuel est de dix mille événements mensuels.

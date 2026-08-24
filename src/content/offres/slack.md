@@ -28,12 +28,12 @@ initiales: SK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 321
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre revérifiée le 18 août 2026. Le quota d’applications varie entre certaines pages/localisations Slack ; il n’est pas figé comme limite chiffrée dans la fiche.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Slack reste utilisable gratuitement pour la communication quotidienne d’une équipe, mais le principal compromis est l’historique limité. Pour un projet qui doit conserver toutes ses décisions sur plusieurs années, il faut prévoir un autre canal d’archivage.

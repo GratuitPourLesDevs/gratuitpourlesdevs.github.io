@@ -43,9 +43,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 69
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Zoho a annoncé la fin de vie de ShowTime au profit de TrainerCentral. Le plan gratuit actuel de TrainerCentral comprend 3 cours, 10 apprenants actifs par mois et 5 Go, mais pas de classe virtuelle en direct."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TrainerCentral est le successeur que Zoho a introduit pour remplacer progressivement Zoho ShowTime dans son offre de formation. Le plan gratuit actuel vise surtout la création et la diffusion de cours asynchrones : un formateur peut publier jusqu’à trois cours, inscrire autant d’apprenants qu’il le souhaite et accueillir dix apprenants actifs par mois avec 5 Go de stockage. La visioconférence de type classe virtuelle, autrefois au cœur de ShowTime, est désormais réservée aux formules payantes.

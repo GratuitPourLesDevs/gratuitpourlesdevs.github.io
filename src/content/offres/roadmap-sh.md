@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 653
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "roadmap.sh continue de publier gratuitement ses roadmaps communautaires par rôle et par compétence ainsi que des guides associés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 roadmap.sh répond à une question très fréquente quand on apprend seul : « qu’est-ce que je dois étudier ensuite ? ». Les roadmaps organisent visuellement les compétences et concepts à connaître pour des rôles comme frontend, backend ou DevOps, ainsi que pour de nombreuses technologies particulières. Les parcours et guides publics sont gratuits et alimentés par la communauté open source. Ils sont surtout utiles comme boussole : la pratique reste à compléter par des cours, de la documentation et de vrais projets.

@@ -20,12 +20,12 @@ initiales: "SM"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 708
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : tests historiquement annoncés gratuits et illimités, sans inscription."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SendBridge Mail Tester génère une adresse vers laquelle envoyer un message, puis produit un diagnostic de délivrabilité couvrant SPF, DKIM, DMARC, score spam, listes RBL, reverse DNS et contenu. Le rapport partageable est pratique pour transmettre un diagnostic à une équipe ou un client. Le référentiel indique des tests gratuits et illimités sans inscription ; l’outil reste pertinent, mais l’absence totale de limite n’étant pas suffisamment confirmée actuellement, cette partie est signalée « à vérifier ».

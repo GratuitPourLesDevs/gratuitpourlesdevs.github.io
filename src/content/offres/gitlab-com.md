@@ -45,9 +45,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 86
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Plan GitLab Free vérifié : 5 utilisateurs sur les namespaces privés, 400 minutes de calcul mensuelles et 10 Gio de stockage par projet. La limite de cinq utilisateurs est désormais appliquée aux namespaces privés Free concernés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GitLab.com rassemble gestion du code, pipelines, registre de conteneurs, Pages et suivi de projet dans une même plateforme. Son plan Free reste très complet techniquement, avec 400 minutes de calcul CI/CD par mois et 10 Gio de stockage par projet. Pour un projet privé, la contrainte structurante est désormais la limite de cinq utilisateurs du namespace gratuit.

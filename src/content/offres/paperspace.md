@@ -38,9 +38,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 266
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification Paperspace Gradient confirme le plan Free à 0 $, les projets publics, 5 Go de stockage et les instances Basic ; les autres instances sont facturées selon leur tarif horaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Paperspace Gradient fournit un environnement cloud de machine learning accessible sans abonnement fixe. Le Free est intéressant pour expérimenter avec des notebooks et de petites charges, à condition de rester sur les instances Basic et d’accepter que les projets soient publics.

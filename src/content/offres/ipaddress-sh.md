@@ -23,12 +23,12 @@ initiales: IPSH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 187
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel documente un service public gratuit et plusieurs formats mais ne publie pas de quota chiffré."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 ipaddress.sh fait une seule chose : retourner l’adresse IP publique du client ou serveur qui l’appelle. Il est pratique dans des scripts et diagnostics réseau, mais l’absence de quota et de SLA publiés invite à ne pas en dépendre pour un service critique.

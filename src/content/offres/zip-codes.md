@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 260
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free actuel confirme 2 500 crédits/jour, 60 req/min, une clé API et aucune carte requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ZIP-Codes.com propose un quota quotidien particulièrement confortable pour des applications centrées sur les États-Unis et le Canada, tout en donnant accès à des endpoints d’enrichissement plus coûteux en crédits.

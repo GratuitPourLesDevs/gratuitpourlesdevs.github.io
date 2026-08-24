@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 242
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle indique 1 000 requêtes par jour sur le plan Free permanent."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 The IP API fournit les informations de localisation et de réseau nécessaires à la personnalisation, l’analyse de trafic ou au contrôle géographique d’une application, avec un quota quotidien confortable pour un petit projet.

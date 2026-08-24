@@ -34,9 +34,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 132
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan Free officiel vérifié : 100 requêtes mensuelles partagées entre les endpoints, sans carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CarAPI.dev regroupe plusieurs API automobiles derrière un quota unique : décodage VIN, historique, kilométrage, inspections, données de marché, véhicules volés et autres services selon la couverture disponible. Les 100 appels mensuels gratuits sont utiles pour évaluer les données ou construire un petit prototype.

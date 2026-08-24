@@ -27,12 +27,12 @@ initiales: SG
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 475
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le service répond, mais les quotas du Free Tier fournis par l’ancienne source ne sont pas suffisamment vérifiables aujourd’hui.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Smart Grow Vault est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -27,12 +27,12 @@ initiales: HZ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 901
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Hetzner a supprimé l’ancien dns.hetzner.com en mai 2026, mais son remplaçant dans Hetzner Console reste entièrement gratuit avec API et 25 zones par défaut.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hetzner DNS reste une excellente option gratuite pour héberger les zones DNS d’un projet, mais son point d’entrée a changé en 2026. L’ancien DNS Console a été retiré et les zones sont désormais gérées directement dans Hetzner Console, avec une nouvelle API REST et jusqu’à 25 zones par défaut. Cette intégration est pratique si l’on utilise déjà Hetzner Cloud, tout en restant utilisable gratuitement pour des domaines hébergés ailleurs. Le principal recul actuel est l’absence de DNSSEC dans le nouveau système, point à considérer pour les domaines où la chaîne de confiance DNS est indispensable.

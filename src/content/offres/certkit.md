@@ -26,12 +26,12 @@ initiales: C
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 446
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Community affiche désormais 2 certificats, 1 agent, 1 utilisateur et 3 moniteurs SSL ; l’ancienne mention de 3 certificats a été corrigée.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CertKit est référencé avec les limites gratuites vérifiées le 2026-08-19.

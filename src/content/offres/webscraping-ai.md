@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 251
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "L’offre gratuite actuelle annonce 2 000 crédits mensuels, 2 connexions concurrentes et aucune carte requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 WebScraping.AI combine navigateur headless, proxies et extraction IA derrière une seule API. Le nombre réel de pages gratuites dépend des options activées car les opérations les plus coûteuses consomment plusieurs crédits.

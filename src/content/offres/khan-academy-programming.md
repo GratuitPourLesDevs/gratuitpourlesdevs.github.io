@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 649
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "La section Computing/Computer Programming reste accessible gratuitement et couvre les fondamentaux du développement web, de JavaScript et de SQL."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 La section programmation de Khan Academy est adaptée à quelqu’un qui veut comprendre les fondamentaux avant de passer à des frameworks ou projets plus complexes. Les leçons associent explications et exercices interactifs autour de JavaScript, HTML/CSS, SQL et de concepts de programmation plus généraux. L’accès aux contenus pédagogiques reste gratuit ; créer un compte sert surtout à conserver sa progression et retrouver plus facilement les exercices déjà réalisés.

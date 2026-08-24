@@ -36,12 +36,12 @@ initiales: FC
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 826
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: Le plan Single user reste à 0 $, autorise les usages hobby et commerciaux sur dépôts personnels et ne limite ni projets, ni environnements, ni déploiements. AWS est séparément facturé.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Flightcontrol est pertinent pour un développeur qui veut conserver ses applications et données dans son propre compte AWS tout en évitant de gérer seul le provisioning, les déploiements et une partie de l’infrastructure. En mono-utilisateur sur des dépôts personnels, la couche Flightcontrol est gratuite et ne limite ni le nombre de projets, ni les environnements, ni les déploiements, ce qui permet d’exploiter un workflow proche d’un PaaS tout en restant chez AWS. La gratuité s’arrête cependant à la plateforme : EC2, Fargate, RDS, load balancers, NAT, stockage et trafic sont facturés directement par AWS. C’est donc une excellente option pour simplifier AWS, mais pas une solution d’hébergement à coût nul en elle-même.

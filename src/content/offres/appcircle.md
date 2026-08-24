@@ -32,12 +32,12 @@ initiales: AC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 392
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Starter est toujours gratuit. Les limites 20 builds/mois, 30 min/build et 1 concurrence sont confirmées par la grille actuelle.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Appcircle couvre toute la chaîne Mobile DevOps, du build à la publication sur les stores. Le Starter actuel reste pertinent pour un petit projet mobile, avec des quotas clairement publiés.

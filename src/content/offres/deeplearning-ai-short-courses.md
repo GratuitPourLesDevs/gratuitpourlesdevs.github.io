@@ -24,8 +24,8 @@ statut: "a_verifier"
 vedette: false
 ordre: 640
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Les pages de cours indiquent actuellement un accès gratuit limité dans le temps pendant la bêta ; statut à surveiller."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Les Short Courses de DeepLearning.AI permettent de tester rapidement des techniques d’IA générative très actuelles : agents, RAG, prompt engineering, vector databases, LLMOps ou outils de partenaires. Beaucoup de cours combinent vidéos courtes et exemples de code pratiques. L’accès est actuellement gratuit, mais DeepLearning.AI précise désormais qu’il s’agit d’une gratuité limitée à la phase bêta de sa plateforme ; les évaluations notées et certains accomplissements relèvent par ailleurs de PRO. La fiche reste donc volontairement à vérifier plutôt que de présenter cet accès comme gratuit pour toujours.

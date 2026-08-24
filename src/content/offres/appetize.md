@@ -33,12 +33,12 @@ initiales: AP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 413
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel annonce 1 utilisateur, 2 appareils actifs maximum, 30 minutes mensuelles et une limite de 3 minutes par session.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Appetize permet de lancer une application mobile dans un navigateur sans installer de simulateur local. Le plan gratuit reste pratique pour des vérifications ponctuelles, mais ses sessions très courtes le destinent surtout aux tests rapides.

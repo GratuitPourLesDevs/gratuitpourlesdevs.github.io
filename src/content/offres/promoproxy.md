@@ -30,12 +30,12 @@ initiales: PP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 806
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: La grille publique actuelle confirme 0 ¥/mois, jusqu’à 5 utilisateurs, 3 Go de données par jour et les fonctions
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   essentielles de sécurité.
 ---
 

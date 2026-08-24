@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 638
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Le site annonce 1 469+ questions sur deux certifications, MIT licensed, sans publicité, paywall ni inscription obligatoire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CloudCertPrep sert à préparer des certifications AWS avec de vraies sessions d’entraînement plutôt qu’une simple liste de QCM. Le service propose actuellement plus de 1 050 questions pour AWS Certified Cloud Practitioner CLF-C02 et plus de 419 pour AWS Certified AI Practitioner AIF-C01, avec examens chronométrés, entraînement par domaine, explications détaillées et répétition espacée. Tout le contenu est gratuit et open source sous licence MIT ; un compte n’est nécessaire que pour mémoriser durablement la progression et personnaliser les révisions.

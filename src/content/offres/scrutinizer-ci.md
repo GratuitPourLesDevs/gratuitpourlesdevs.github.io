@@ -29,12 +29,12 @@ initiales: SC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 384
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La grille tarifaire confirme la gratuité des dépôts open source et indique des dépôts et utilisateurs illimités.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Scrutinizer combine inspection continue et CI. Les projets open source peuvent l’utiliser sans frais avec un nombre illimité de dépôts et d’utilisateurs.

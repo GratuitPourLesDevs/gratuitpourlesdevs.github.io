@@ -34,12 +34,12 @@ initiales: 'BS'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: 'active'
+statut: "active"
 vedette: false
 ordre: 566
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Le Free hébergé a été triplé en février 2026 : 15 000 événements/mois, 5 000 retenus, 1 utilisateur.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Bugsink vise les équipes qui veulent un suivi d’erreurs simple tout en conservant la compatibilité avec les SDK Sentry. Le service hébergé accepte désormais 15 000 événements par mois gratuitement, avec un utilisateur ; 5 000 de ces événements sont conservés pendant 30 jours. Pour ceux qui préfèrent maîtriser l’hébergement, Bugsink peut aussi être déployé sur sa propre infrastructure, ce qui déplace surtout la limite vers les ressources et l’exploitation du serveur.

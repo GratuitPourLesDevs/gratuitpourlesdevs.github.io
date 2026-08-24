@@ -23,12 +23,12 @@ initiales: SP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 322
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le service est actif ; aucun plafond chiffré de pages de statut suivies n’est publié sur la page accessible.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 StatusPile sert de tableau de bord de dépendances : au lieu de visiter une dizaine de pages de statut, on peut suivre en un même endroit les services externes dont son application dépend.

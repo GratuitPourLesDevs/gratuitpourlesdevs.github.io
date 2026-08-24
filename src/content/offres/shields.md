@@ -26,12 +26,12 @@ initiales: SH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 386
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le service public est actif en 2026, open source et financé par dons ; aucune grille tarifaire ni quota commercial n’est publiée.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Shields.io génère les badges de statut et de métadonnées que l’on retrouve dans de nombreux README. Le service public reste gratuit et peut aussi être auto-hébergé.

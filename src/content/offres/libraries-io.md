@@ -39,12 +39,12 @@ initiales: LI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 389
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La page actuelle liste 31 gestionnaires de paquets, et non 32. L’API est décrite comme limitée et soumise à un rate limit sans quota public chiffré.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Libraries.io agrège les métadonnées de l’écosystème open source pour retrouver des packages et suivre les dépendances utilisées par un projet. La recherche web reste largement accessible, mais il faut distinguer ces données collectées automatiquement des informations enrichies et validées proposées séparément par Tidelift.

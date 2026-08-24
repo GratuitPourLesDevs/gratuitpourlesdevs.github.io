@@ -32,12 +32,12 @@ initiales: MG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 404
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel couvre l’open source sans limite d’utilisateurs et les équipes privées jusqu’à 5 contributeurs actifs, avec le produit complet mais 24 h de rétention Insights.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mergify automatise les règles de fusion et la file de merge autour de GitHub. Sa gratuité n’est plus limitée aux seuls dépôts publics : une petite équipe privée peut également utiliser le produit complet jusqu’à cinq contributeurs actifs.

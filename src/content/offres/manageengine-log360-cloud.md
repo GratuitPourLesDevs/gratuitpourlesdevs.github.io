@@ -30,12 +30,12 @@ initiales: ME
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 547
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le site officiel français 2026 affiche 50 Go gratuits, 15 jours de rétention du stockage et 7 jours de rétention de recherche, sans carte bancaire.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ManageEngine Log360 Cloud est référencé avec les limites gratuites vérifiées le 19 août 2026.

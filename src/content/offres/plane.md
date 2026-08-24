@@ -25,12 +25,12 @@ initiales: "P"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 996
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification 2026 du cloud Free indique jusqu’à 12 utilisateurs. L’ancienne description à membres illimités et 1 000 issues ne correspond plus au cloud actuel ; la Community Edition reste auto-hébergeable."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Plane est une alternative open source moderne aux outils de suivi produit traditionnels. Le cloud gratuit actuel couvre douze utilisateurs, tandis que l’édition communautaire peut être auto-hébergée sans plafond de membres.

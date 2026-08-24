@@ -34,12 +34,12 @@ initiales: NC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 804
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: La page officielle 2026 confirme 50 Go/mois, DDoS de base et SSL personnalisé, mais reste contradictoire
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
   sur le caractère Free Forever/trial et l’éligibilité Early Access.
 ---
 

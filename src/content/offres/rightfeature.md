@@ -27,12 +27,12 @@ initiales: RF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 346
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Starter est affiché comme Forever Free avec 1 produit, 1 board et 1 membre d’équipe.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 RightFeature aide un développeur ou une très petite équipe à centraliser les demandes et à les transformer en roadmap. Le Free Tier est surtout adapté à un produit unique.

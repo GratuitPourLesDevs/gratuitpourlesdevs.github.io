@@ -37,12 +37,12 @@ initiales: LO
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 402
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Le Free actuel a évolué : 12 vCPU et 24 Go de RAM gérés gratuitement, utilisateurs illimités et fonctionnalités complètes. Le cloud sous-jacent reste payant.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LocalOps se place entre une PaaS et votre propre infrastructure cloud : l’outil standardise les environnements et le déploiement tout en laissant les ressources dans votre compte. Son nouveau Free Tier est bien plus généreux que l’ancienne limite à un utilisateur et un environnement.

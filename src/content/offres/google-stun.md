@@ -30,12 +30,12 @@ initiales: GS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 959
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La documentation WebRTC officielle utilise toujours stun:stun.l.google.com:19302 dans son exemple de connexion pair à pair. Aucun quota public n’est indiqué."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Google fournit un endpoint STUN fréquemment utilisé dans les exemples WebRTC. Il aide les applications à établir leur configuration réseau pour les connexions pair à pair. Comme aucun quota ni engagement de service public n’est publié, la fiche le présente comme une ressource publique plutôt que comme une offre gratuite garantie.

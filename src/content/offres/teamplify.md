@@ -28,12 +28,12 @@ initiales: TP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 328
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre revérifiée le 18 août 2026 à partir de la tarification officielle.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Teamplify ajoute une couche de visibilité sur le fonctionnement d’une petite équipe : standups, analytics et absences. Le Free Tier vise clairement les groupes de cinq personnes ou moins.

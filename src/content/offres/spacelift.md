@@ -35,12 +35,12 @@ initiales: SP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 408
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel est présenté avec 2 utilisateurs et 1 worker public. L’ancien quota public de 200 minutes/mois n’est plus affiché et n’est donc pas repris comme fait.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Spacelift apporte workflows, politique et collaboration autour de l’IaC. Le plan gratuit existe toujours pour une petite équipe, mais le quota de compute n’est plus chiffré publiquement comme dans les anciennes grilles.

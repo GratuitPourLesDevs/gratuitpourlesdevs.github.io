@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 225
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Starter officiel est à 0 $ forever pour 5 utilisateurs et 1 workspace, avec dashboards et charts illimités."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Preset Cloud rend Apache Superset accessible sans installation ni maintenance. Il est particulièrement intéressant pour une petite équipe qui veut explorer des bases SQL et publier des dashboards sans déployer sa propre stack BI.

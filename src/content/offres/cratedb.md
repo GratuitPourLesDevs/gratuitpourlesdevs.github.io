@@ -35,12 +35,12 @@ initiales: CD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 928
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Le plan gratuit CrateDB Cloud actuel est sans carte et fournit un cluster à un nœud avec 2 vCPU, 2 Go de RAM et 8 Go de stockage, ainsi qu’une sauvegarde quotidienne."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CrateDB est une base SQL distribuée orientée analytique temps réel et données volumineuses. Son plan cloud gratuit fournit un petit cluster partagé mais réellement managé, suffisant pour expérimenter les requêtes SQL, l’ingestion et les tableaux de bord sans installer l’infrastructure.

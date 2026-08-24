@@ -36,12 +36,12 @@ initiales: QD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 937
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Qdrant Cloud conserve un cluster gratuit à nœud unique avec 0,5 vCPU, 1 Go de RAM et 4 Go de disque, sans carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Qdrant est spécialisé dans le stockage et la recherche de vecteurs pour embeddings, moteurs sémantiques et RAG. Le cluster gratuit offre assez de ressources pour des prototypes réels et de petits corpus, mais son nœud unique et sa politique d’inactivité le distinguent d’un environnement de production permanent.

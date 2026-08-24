@@ -42,9 +42,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 98
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle 2026 confirme AX Free avec 25k spans/mois, 1 Go/mois, 15 jours de rétention, utilisateurs et évaluations illimités. L’ancien quota de deux modèles n’est plus la métrique actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Arize AX cible désormais l’observabilité des applications IA et agents plutôt qu’un simple nombre de modèles supervisés. Le plan gratuit est généreux pour instrumenter un prototype ou une petite application avec tracing, évaluations et suivi de coûts, à condition d’accepter une rétention courte de quinze jours.

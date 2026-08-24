@@ -25,12 +25,12 @@ initiales: T
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1065
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free Forever actuel confirme 3 Go de CDN, un workspace, un domaine et un utilisateur."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TwicPics fournit une optimisation d’images à la volée avec transformations illimitées sur son petit niveau gratuit.

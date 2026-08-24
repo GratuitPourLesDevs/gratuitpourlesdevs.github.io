@@ -38,12 +38,12 @@ initiales: 'AX'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: 'active'
+statut: "active"
 vedette: false
 ordre: 565
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Le Personal 2026 est gratuit à vie sans carte : 500 Go/mois de chargement, 25 Go stockés, 10 GB-hours/mois et 30 jours de rétention.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Axiom centralise des logs et événements pour les explorer avec son moteur de requête et déclencher des monitors. Son Personal est très généreux pour un projet individuel : jusqu’à 500 Go de données peuvent être chargés chaque mois, avec 10 GB-hours de calcul de requêtes, 3 datasets et 3 monitors. La nuance importante est le stockage : les 500 Go ne sont pas une capacité persistante ; l’allocation Always Free est de 25 Go, avec 30 jours de rétention maximum et un seul utilisateur.

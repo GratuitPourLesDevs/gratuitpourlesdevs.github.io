@@ -22,12 +22,12 @@ initiales: G
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1034
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La formule gratuite vidéo affiche 60 minutes et 100 Go de streaming ; l’optimisation d’images conserve 30 Go par mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Gumlet propose une chaîne média complète couvrant traitement, hébergement et diffusion CDN.

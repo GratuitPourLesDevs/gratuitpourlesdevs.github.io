@@ -16,12 +16,12 @@ initiales: "SU"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 625
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Hacker : 1k browser checks, 20k API checks, 3 régions et 30 jours de rétention."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : fetch failed."
 ---
 
 SupaGuard exécute des scénarios synthétiques dans un navigateur et des contrôles API afin de détecter une régression avant les utilisateurs. Le plan Hacker offre un volume intéressant — mille checks navigateur et vingt mille checks API par mois — avec trois régions et trente jours de rétention ; certaines promesses historiques comme le self-healing complet ne sont plus attribuées au niveau gratuit.

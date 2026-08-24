@@ -33,12 +33,12 @@ initiales: SF
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 407
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Shipfox est toujours actif mais son site a pivoté vers une plateforme de workflows et agents. La page pricing historique renvoie 404 et les 3000 minutes gratuites ne sont plus confirmables.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Shipfox reste un service actif et documente encore son intégration avec GitHub Actions, mais son offre commerciale a changé. La fiche est volontairement marquée à vérifier afin de ne pas transformer un ancien quota gratuit en information actuelle.

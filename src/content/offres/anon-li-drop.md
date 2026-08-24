@@ -22,12 +22,12 @@ initiales: AD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1021
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La documentation officielle confirme 5 Go par fichier, expiration jusqu’à 3 jours et chiffrement côté client."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 anon.li Drop fournit un partage temporaire adapté aux fichiers sensibles grâce à un chiffrement effectué avant l’envoi au serveur.

@@ -32,12 +32,12 @@ initiales: ST
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 809
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: Le CDN Git/npm reste actif et gratuit. L’ancien endpoint /img/ est explicitement désactivé sur la page officielle
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   actuelle.
 ---
 

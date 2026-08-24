@@ -35,12 +35,12 @@ initiales: RV
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 956
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Radmin VPN est toujours présenté officiellement comme entièrement gratuit, sans publicité ni fonction payante, avec AES-256. Le site indique aussi l’absence de limite du nombre de joueurs, mais ne publie pas de plafond général de pairs."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Radmin VPN crée un réseau Ethernet virtuel entre des machines distantes, notamment pour le travail à distance, les jeux LAN ou l’accès à des ressources réseau. Le produit est annoncé comme entièrement gratuit et sans fonctionnalités payantes, ce qui le distingue de nombreux VPN freemium. La fiche ne transforme pas l’absence de limite gaming en promesse de pairs illimités pour tous les usages, car le fournisseur ne publie pas un quota général équivalent.

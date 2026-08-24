@@ -27,12 +27,12 @@ initiales: PG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 428
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: PageGym confirme encore un usage gratuit avec limites, mais sa page de pricing accessible ne publie plus les anciens plafonds chiffrés transmis dans la source initiale.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 PageGym se distingue des simples audits Lighthouse en analysant réellement le comportement de chargement dans un navigateur. La gratuité demeure, mais ses quotas exacts doivent être consultés dans l’interface plutôt que supposés depuis d’anciennes listes.

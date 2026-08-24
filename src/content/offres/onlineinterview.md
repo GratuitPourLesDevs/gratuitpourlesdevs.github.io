@@ -28,12 +28,12 @@ initiales: OI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 304
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Plateforme toujours présentée comme gratuite ; la page officielle indique jusqu’à 3 utilisateurs simultanés dans une salle.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 OnlineInterview.io regroupe dans une seule page les éléments essentiels d’un entretien de développement à distance : code exécutable, visioconférence et tableau blanc. Il évite de combiner plusieurs outils pendant un exercice technique.

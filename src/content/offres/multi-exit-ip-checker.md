@@ -25,12 +25,12 @@ initiales: ME
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 211
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel confirme que les vérifications sont exécutées dans le navigateur et qu’aucune donnée d’IP checking n’est stockée par l’outil."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Multi-Exit IP Address Checker permet de voir comment une même connexion apparaît depuis différents nœuds et services. C’est particulièrement pratique pour tester des règles DNS géographiques, VPN, proxies et scénarios de routage.

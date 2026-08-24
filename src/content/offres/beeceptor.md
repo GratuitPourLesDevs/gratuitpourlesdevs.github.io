@@ -44,9 +44,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 99
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle confirme le plan gratuit permanent à 50 requêtes/jour par endpoint, 3 règles, endpoint public et aucune carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Beeceptor permet de monter très vite une API factice pour débloquer un frontend, simuler des erreurs ou observer des requêtes entrantes. Son plan gratuit suffit bien aux tests manuels et petits prototypes, avec la contrepartie importante d’un endpoint public et d’un quota quotidien.

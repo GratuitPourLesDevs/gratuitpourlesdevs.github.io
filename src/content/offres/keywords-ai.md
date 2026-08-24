@@ -26,12 +26,12 @@ initiales: KA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 783
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Plan Free vérifié le 20 août 2026 : 2 000 logs/mois ; l’ancienne mention de 10 000 requêtes gratuites n’est plus le quota actuel."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Keywords AI — Gateway et observabilité LLM. Le plan Free actuel repose sur 2 000 logs mensuels plutôt que sur l’ancien quota de 10 000 requêtes.

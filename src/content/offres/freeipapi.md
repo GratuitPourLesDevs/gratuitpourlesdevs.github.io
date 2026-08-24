@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 170
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Free actuel : 60 req/min, aucun compte ni API key requis, commercial autorisé."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 FreeIPAPI fournit directement un endpoint de géolocalisation sans inscription. Le plan gratuit n’annonce pas de plafond journalier ou mensuel : la contrainte principale est un rate limit de 60 requêtes par minute.

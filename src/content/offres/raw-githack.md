@@ -29,12 +29,12 @@ initiales: RG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 807
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Service actif vérifié en août 2026 : proxy de cache gratuit pour GitHub, Bitbucket, GitLab, Gitea et Codeberg,
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   diffusé via Cloudflare, sans SLA formel.'
 ---
 

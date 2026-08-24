@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 641
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "La page officielle affiche un sample course gratuit limité à Python Click et Flask-RESTX ; le full course est à 1 690 $."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DevNet Academy vise la préparation avancée au CCIE Automation, anciennement Cisco Certified DevNet Expert. Sa partie réellement gratuite est un sample course qui donne accès à deux leçons : création d’applications CLI avec Python Click et création d’API avec Flask-RESTX. C’est utile pour évaluer la pédagogie et apprendre ces deux briques sans payer, mais il ne faut pas confondre cet échantillon avec le cursus complet du blueprint CCIE Automation, qui reste une offre payante.

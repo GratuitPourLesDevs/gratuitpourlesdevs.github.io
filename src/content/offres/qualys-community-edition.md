@@ -29,12 +29,12 @@ initiales: QC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 473
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Qualys continue d’afficher Community Edition parmi ses services gratuits et documente les limites 16 actifs internes, 3 externes et 1 application web.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Qualys Community Edition est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -27,12 +27,12 @@ initiales: IS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 463
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La tarification du 13 août 2026 confirme 100 crédits offerts à la création du compte et 20 crédits par inspection sous le seuil, soit 5 inspections initiales.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 inspect.software est référencé avec les limites gratuites vérifiées le 2026-08-19.

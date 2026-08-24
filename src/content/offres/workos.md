@@ -37,12 +37,12 @@ initiales: WO
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 506
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: AuthKit inclut actuellement jusqu’à 1 million de MAU gratuits ; la production nécessite toutefois des informations
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
   de facturation.
 ---
 

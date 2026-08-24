@@ -44,9 +44,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 73
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "La comparaison tarifaire et la documentation officielles confirment un plan gratuit à vie limité à 3 agents avec tickets e-mail et base de connaissances privée. Zoho Assist est déjà référencé séparément sur le site."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Desk permet de mettre en place un petit service de support sans abonnement : trois agents peuvent recevoir et traiter des tickets par e-mail ou formulaire web, partager une base de connaissances interne et automatiser quelques actions courantes. Il s’intègre dans l’écosystème Zoho, notamment avec Zoho Assist déjà référencé séparément sur GratuitPourLesDevs pour la téléassistance.

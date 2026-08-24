@@ -21,12 +21,12 @@ initiales: E
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 1027
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La limite historique de 5 000 URL/mois à 15 req/s n’est pas clairement exposée sur la tarification publique actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Embedly transforme des URL en contenus enrichis et métadonnées exploitables dans les applications.

@@ -24,12 +24,12 @@ initiales: "C"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 972
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle confirme 1 utilisateur sur Free et une taille maximale de dessin de 12 × 15 composants."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudcraft simplifie la représentation visuelle d’architectures cloud avec des composants AWS et Azure. Le niveau gratuit actuel vise un usage individuel et des diagrammes de taille limitée.

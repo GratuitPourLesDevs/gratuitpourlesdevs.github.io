@@ -26,9 +26,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 183
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle indique 100 requêtes gratuites par jour par clé API et une vérification de l’adresse e-mail."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 IP.City fournit une API de géolocalisation simple avec un quota gratuit pensé pour le développement. Les 100 appels quotidiens conviennent à des tests et petites intégrations, mais deviennent vite limitants en production.

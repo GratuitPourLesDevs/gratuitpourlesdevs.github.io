@@ -38,9 +38,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 140
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan Free officiel vérifié : 1 utilisateur, 1 compte, 1 source, 1 destination, 100 lignes/run et refresh manuel."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Coupler.io copie et synchronise des données entre de nombreuses applications et destinations analytiques. Le plan gratuit est utilisable durablement mais reste très manuel : il convient à un petit flux ponctuel plutôt qu’à une pipeline de données réellement automatisée.

@@ -23,12 +23,12 @@ initiales: P
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1050
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Free actuel affiche 2 Go de stockage et 10 Go de bande passante ; les dépôts privés sont réservés aux offres payantes."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Packagecloud fournit des registres de paquets managés adaptés aux pipelines CI/CD et aux projets publics.

@@ -31,12 +31,12 @@ initiales: PR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 352
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’ancienne description à appels API illimités est obsolète. Le Free actuel inclut 4M appels API/mois, 100 Go de CDN/mois et 2 locales, sans overages.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Prismic propose un free tier particulièrement confortable pour un site personnel ou un prototype grâce à ses documents et assets illimités et à un quota API élevé. La principale limite structurelle est le siège unique.

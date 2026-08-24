@@ -29,12 +29,12 @@ initiales: S
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 476
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel annonce développeurs et repos illimités, 1 000 scans/mois, 500 appels API/heure, 3 membres et 70+ types de risques.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Socket est référencé avec les limites gratuites vérifiées le 2026-08-19.

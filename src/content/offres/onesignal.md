@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 700
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié : 10 000 envois e-mail/mois, avec push mobile illimité."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 OneSignal est surtout connu pour les notifications push, mais sa plateforme inclut aussi l’e-mail et des parcours d’automatisation multicanaux. Le plan gratuit autorise 10 000 envois e-mail par mois et conserve le push mobile illimité, avec des fonctions d’analytics et d’automatisation de base. Pour un développeur qui veut coordonner push et e-mail dans un même outil, le Free Tier est donc assez généreux. Les capacités les plus avancées de segmentation, orchestration et analyse restent toutefois payantes.

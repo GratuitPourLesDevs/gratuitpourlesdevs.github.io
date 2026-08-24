@@ -23,12 +23,12 @@ initiales: DS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1025
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle confirme 10 livraisons/24 h, 2 Go/fichier, 5 Go simultanés et trois jours de rétention."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 dlvr.sh vise les échanges temporaires de fichiers déclenchés par des outils d’automatisation et des agents.

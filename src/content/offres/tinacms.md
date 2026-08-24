@@ -35,12 +35,12 @@ initiales: TI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 357
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Free confirmé à 0 $ pour toujours avec 2 utilisateurs, 2 rôles, 1 projet, documents illimités et assets jusqu’à 100 Mo.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TinaCMS est particulièrement adapté aux sites dont le contenu doit rester versionné dans Git. Le plan gratuit couvre bien le workflow éditorial de base, tandis que les fonctions cloud avancées restent payantes.

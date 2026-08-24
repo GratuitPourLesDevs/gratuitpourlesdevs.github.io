@@ -24,12 +24,12 @@ initiales: "K"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 987
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page tarifaire maintient un plan Free sans limite de durée avec boards et tâches illimités ; plusieurs fonctions avancées restent Premium."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 KanbanFlow fournit gratuitement le cœur d’un tableau Kanban avec tâches illimitées et un minuteur Pomodoro intégré. Les besoins d’analyse et d’intégration poussés demandent Premium.

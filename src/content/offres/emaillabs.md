@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 675
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Startup Free vérifié : 9 000 e-mails/mois, 300/jour, SMTP et API ; inscription avec vérification."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 EmailLabs fournit une infrastructure d’envoi transactionnel accessible par SMTP et API, complétée par une API d’événements et des outils de suivi de délivrabilité. Le plan Startup gratuit autorise 9 000 e-mails par mois avec un maximum de 300 par jour et conserve les logs pendant un jour. Le volume est intéressant pour une petite application, mais l’inscription est plus encadrée que chez certains concurrents : des informations d’entreprise et une vérification téléphonique sont demandées.

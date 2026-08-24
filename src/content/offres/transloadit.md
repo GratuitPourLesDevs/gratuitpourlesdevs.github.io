@@ -28,12 +28,12 @@ initiales: T
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1064
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "L’ancien quota de 2 Go est obsolète : le plan Community actuel fournit 5 Go par mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Transloadit fournit un pipeline média complet, mais son niveau Community conserve des limitations visibles sur les sorties.

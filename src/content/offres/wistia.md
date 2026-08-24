@@ -28,12 +28,12 @@ initiales: WS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 341
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’ancien quota de 25 vidéos est obsolète. La grille actuelle exprime le Free en 25 Go de stockage pour 1 utilisateur, sans carte bancaire.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Wistia peut héberger gratuitement une petite vidéothèque tout en fournissant un player et des statistiques de base. L’ancien quota exprimé en 25 vidéos a été remplacé par un quota de stockage de 25 Go.

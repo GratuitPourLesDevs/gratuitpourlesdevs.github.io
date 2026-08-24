@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 694
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié : 500 e-mails/mois, 100/jour, 100 requêtes API/jour."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MailerSend propose API, SMTP, templates, webhook et routage entrant dans une offre pensée pour les e-mails transactionnels. Le niveau gratuit est modeste mais exploitable pour un prototype : 500 messages par mois, 100 par jour et 100 appels API quotidiens, avec un domaine, un template, un webhook et une route entrante. L’activité n’est conservée que 24 heures et le Free est bloquant plutôt que facturé en dépassement, ce qui évite les mauvaises surprises mais impose de surveiller les quotas.

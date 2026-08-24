@@ -25,12 +25,12 @@ initiales: "H"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 983
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site officiel confirme toujours un démarrage gratuit. Les limites de 100 Mo, utilisateurs/projets/boards illimités sont encore reprises par des sources tarifaires 2025-2026, mais la grille officielle détaillée n’est plus publiquement exposée de façon claire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hygger reste accessible gratuitement pour piloter des projets agiles avec un grand nombre de membres et de boards. Le stockage reste limité et la documentation tarifaire publique actuelle manque de précision.

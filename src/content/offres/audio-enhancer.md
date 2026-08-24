@@ -28,12 +28,12 @@ initiales: AE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 777
 verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Service gratuit vérifié le 20 août 2026 : pas de compte requis et fichiers jusqu’à 50 Mo ; aucun quota de traitements n’est publié."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : fetch failed."
 ---
 
 Audio Enhancer — Outil IA gratuit pour réduire le bruit et l’écho dans les fichiers audio. Le service fonctionne sans compte et accepte des fichiers jusqu’à 50 Mo.

@@ -20,12 +20,12 @@ initiales: "CP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 667
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free forever vérifié : 1 domaine, utilisateurs illimités, sans carte."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Canny Pigeons surveille la configuration DMARC d’un domaine et complète les rapports par des alertes de dérive DNS et des informations sur les IP observées. Le plan gratuit est permanent, ne demande pas de carte et couvre un domaine avec un nombre illimité de coéquipiers. C’est particulièrement intéressant pour sécuriser gratuitement un premier domaine d’envoi et détecter une mauvaise configuration ou une source inattendue. Le passage au payant devient surtout nécessaire pour superviser plusieurs domaines.

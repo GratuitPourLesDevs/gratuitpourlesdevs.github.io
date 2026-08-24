@@ -34,12 +34,12 @@ initiales: TB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 437
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le programme OSS actuel annonce des tests automatisés illimités et 2 tests concurrents. Les anciens chiffres de concurrence plus élevés ne sont pas retenus.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TestingBot donne accès à un large parc de navigateurs et d’appareils pour exécuter des suites de tests distantes. La gratuité est très généreuse, mais exclusivement destinée aux projets open source répondant aux critères du programme.

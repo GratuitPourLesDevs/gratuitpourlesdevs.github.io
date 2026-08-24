@@ -21,12 +21,12 @@ initiales: I
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 1036
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La formule gratuite actuelle fournit 10 Go de stockage."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 Icedrive offre un espace cloud gratuit simple pour stocker et partager des fichiers.

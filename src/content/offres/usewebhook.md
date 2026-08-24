@@ -29,12 +29,12 @@ initiales: UW
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 440
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La FAQ actuelle confirme un usage sans compte, plusieurs URLs, 20 requêtes récentes par URL et un body maximal de 10 kB.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 UseWebhook fournit un endpoint temporaire immédiatement exploitable pour examiner les payloads reçus, les rejouer ou les faire suivre vers un serveur local. C’est un outil simple et très pratique pendant le développement d’intégrations.

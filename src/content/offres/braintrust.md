@@ -25,12 +25,12 @@ initiales: B
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 778
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Starter vérifié le 20 août 2026 : l’ancienne limite de 1 000 lignes d’évaluation privées par semaine n’est plus la présentation actuelle du plan."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Braintrust — Plateforme d’évaluation, de prompts et de données pour applications d’IA générative. Le plan Starter gratuit utilise désormais des quotas de données, scores et crédits modèles.

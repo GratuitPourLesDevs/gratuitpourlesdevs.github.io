@@ -24,12 +24,12 @@ initiales: HS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 175
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle confirme 100 lookups/jour sur Free, sans carte ni frais de mise en place."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 HS Ping expose une API spécialisée pour retrouver des classifications douanières HS et HTS. Les 100 recherches quotidiennes suffisent pour prototyper une intégration commerce ou logistique sans moyen de paiement.

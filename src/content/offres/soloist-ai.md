@@ -34,12 +34,12 @@ initiales: SO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 354
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free est confirmé à 0 $ sans carte, avec 3 sites publiés et 1 éditeur supplémentaire. Le domaine personnalisé n’est pas retenu comme bénéfice vérifié à cause d’une contradiction entre pricing et support.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Solo permet de générer rapidement un site simple sans gérer de CMS ni d’hébergement. Il est surtout adapté à une présence web légère ; la question du domaine personnalisé mérite d’être vérifiée avant de bâtir une offre professionnelle dessus.

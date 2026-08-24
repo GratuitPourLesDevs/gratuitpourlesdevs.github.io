@@ -29,12 +29,12 @@ initiales: PA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 791
 verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Vérifié le 20 août 2026 : API toujours gratuite et open source avec ressources gratuites, mais une clé API est désormais requise et le quota gratuit exact n’est pas chiffré clairement."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Pollinations.AI — API open source de génération multimodale. L’ancienne promesse sans inscription ni clé API n’est plus exacte pour les requêtes de génération.

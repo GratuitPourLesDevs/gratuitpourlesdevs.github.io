@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 184
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free officiel confirme 50k géolocalisations/mois, 500 WHOIS et 50 recherches de domaines hébergés avec attribution."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 IP2Location.io combine géolocalisation IP et quelques fonctions liées aux domaines dans un même plan gratuit. Son quota mensuel de 50 000 appels IP est nettement au-dessus de nombreux concurrents, avec en contrepartie une attribution obligatoire.

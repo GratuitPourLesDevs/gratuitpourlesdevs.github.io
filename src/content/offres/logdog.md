@@ -29,12 +29,12 @@ initiales: LD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 543
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La FAQ officielle confirme un plan Free permanent à 100 Mo/mois sans carte bancaire.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LogDog est référencé avec les limites gratuites vérifiées le 19 août 2026.

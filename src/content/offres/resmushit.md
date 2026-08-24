@@ -21,12 +21,12 @@ initiales: RI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 1059
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le service reste présenté comme API gratuite d’optimisation d’images."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : fetch failed."
 ---
 
 reSmush.it fournit une API de compression largement intégrée dans les CMS.

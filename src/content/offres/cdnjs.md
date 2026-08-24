@@ -25,12 +25,12 @@ initiales: CJ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 799
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: cdnjs confirme être un CDN gratuit, public et open source, opéré avec l’infrastructure Cloudflare et servant
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   plus de 250 milliards de requêtes par mois.
 ---
 

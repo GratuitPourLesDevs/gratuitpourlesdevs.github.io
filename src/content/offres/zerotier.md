@@ -34,12 +34,12 @@ initiales: ZT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 963
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification Personal actuelle est gratuite à vie avec 10 appareils, 1 réseau et 1 administrateur. L’ancienne offre à 25 clients et réseaux illimités est obsolète."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ZeroTier crée un réseau virtuel chiffré entre machines distribuées et peut remplacer un VPN classique pour des usages personnels, homelabs ou petits environnements distants. Les clients se comportent comme s’ils partageaient un réseau commun tout en communiquant à travers internet. Depuis la nouvelle tarification, le plan Personal reste gratuit à vie mais est limité à dix appareils et un seul réseau.

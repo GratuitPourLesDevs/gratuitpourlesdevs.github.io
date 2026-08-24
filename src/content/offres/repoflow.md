@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 267
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Cloud Free officiel confirme 10 Go de stockage, 10 Go de bande passante mensuelle, 100 packages, 1 workspace, utilisateurs illimités et aucune carte bancaire requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 RepoFlow fournit un registre multi-format suffisamment généreux pour des projets personnels et de petites chaînes CI/CD. Le fait de compter les packages uniques plutôt que chaque version permet de publier plusieurs releases sans consommer rapidement le plafond de 100 packages.

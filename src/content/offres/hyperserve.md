@@ -22,12 +22,12 @@ initiales: H
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1035
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site officiel 2026 confirme 50 vidéos, 1 Go par fichier, 250 Go de bande passante et l’accès API complet."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hyperserve permet d’ajouter rapidement des fonctions vidéo à une application sans gérer soi-même le transcodage.

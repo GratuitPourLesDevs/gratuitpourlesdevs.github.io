@@ -32,12 +32,12 @@ initiales: LM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 426
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La grille actuelle ne confirme plus l’ancien quota de 50 utilisateurs concurrents / 60 minutes. Le Free est désormais présenté autour du mobile local et de 10–25 managed AI runs.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Loadmill a fait évoluer son positionnement vers l’automatisation assistée par IA. La fiche retient donc le Free actuel au lieu de réutiliser l’ancien quota de test de charge devenu trompeur.

@@ -30,9 +30,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 192
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "L’offre officielle confirme 50/jour sans clé ou 1 000/jour avec une clé Free, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 IPLocate associe géolocalisation et données de sécurité réseau dans le même endpoint. Le plan gratuit avec clé permet 1 000 appels quotidiens et donne accès aux mêmes grandes familles de données que les offres payantes, à plus faible volume.

@@ -25,12 +25,12 @@ initiales: HI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 459
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'La description initiale a été précisée : Pwned Passwords reste gratuit sans clé, tandis que plusieurs endpoints de l’API HIBP v3 nécessitent un abonnement.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Have I Been Pwned est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -45,9 +45,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 97
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "APIVerve est actif. La tarification officielle actuelle remplace l’ancien quota de 50 tokens par 100 crédits/mois, 5 requêtes/minute, sans carte, avec attribution et usage non commercial."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 APIVerve simplifie l’accès à un grand nombre de petites API utilitaires en centralisant l’authentification et la facturation derrière une seule clé. Le free tier actuel est nettement plus limité en volume qu’autrefois, mais reste utile pour tester rapidement plusieurs endpoints sans créer autant de comptes fournisseurs.

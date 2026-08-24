@@ -32,9 +32,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 281
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Element confirme que l’application est gratuite et open source, avec possibilité d’utiliser Matrix.org sans frais ou d’auto-héberger son serveur. Les quotas dépendent du serveur Matrix choisi."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Element fournit une alternative ouverte aux messageries propriétaires grâce au protocole Matrix. Son principal intérêt est de pouvoir choisir son serveur, fédérer plusieurs organisations et conserver une option d’auto-hébergement.

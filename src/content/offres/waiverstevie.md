@@ -30,12 +30,12 @@ initiales: W
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 773
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Vérifié le 20 août 2026 : documentation/API toujours accessible ; quota exact du plan gratuit à confirmer, l’écosystème commercial semblant avoir évolué vers WaiverCat.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 WaiverStevie — Plateforme de signature électronique orientée développeurs avec API et webhooks. Plan développeur gratuit à confirmer : API disponible, documents filigranés. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

@@ -36,12 +36,12 @@ initiales: DH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 401
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel est à 1 projet, 3 déploiements/jour, 5 serveurs, 1 concurrence, 30 build-minutes/mois et 1 utilisateur.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DeployHQ simplifie le déploiement continu depuis un dépôt Git. Le plan gratuit est adapté à un petit site ou projet personnel, mais son quota actuel est de trois déploiements quotidiens.

@@ -35,12 +35,12 @@ initiales: GX
 carteRequise: true
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 827
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Free Tier actuel confirmé : 1 replica 0,5GB, DB 10k lignes / 2 connexions / sans backups. Contrairement à l’ancienne description, une politique d’inactivité à 30 jours existe.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Gigalixir reste une option simple pour mettre en ligne une petite application Elixir/Phoenix sans administrer soi-même le runtime, le déploiement et PostgreSQL. Le Free Tier fournit un replica de 0,5 GB ainsi qu’une base gratuite limitée à 10 000 lignes et deux connexions simultanées, ce qui convient à un projet personnel, une démonstration ou un prototype connecté à une vraie base. Il faut en revanche accepter des contraintes fortes : aucune sauvegarde de la base gratuite et possibilité de mise à zéro du replica après 30 jours sans nouveau déploiement. Ce niveau gratuit est donc utile pour apprendre et valider une application, mais demande davantage de prudence dès que les données deviennent importantes.

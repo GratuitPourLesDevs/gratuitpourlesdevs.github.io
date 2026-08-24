@@ -51,9 +51,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 82
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Codeberg vérifié comme forge communautaire Forgejo destinée aux projets libres. Les seuils de stockage et la limite initiale de dépôts sont des garde-fous de ressources et peuvent faire l’objet d’une demande d’augmentation."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Codeberg est une alternative communautaire aux grandes forges commerciales, opérée par une organisation à but non lucratif et basée sur Forgejo. L’offre est particulièrement intéressante pour un projet libre : dépôt Git, tickets, gestion de projet, Pages, CI et services complémentaires sont disponibles sans abonnement. En contrepartie, Codeberg applique une politique d’usage stricte afin que ses ressources restent consacrées au logiciel libre plutôt qu’à l’hébergement privé généraliste.

@@ -36,12 +36,12 @@ initiales: PP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 916
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "NIC.UA affiche actuellement 0 ₴ pour l’inscription et le renouvellement sur un an. La zone impose une activation par téléphone, limite les nouvelles inscriptions à 3 sur 30 jours et autorise les nameservers personnalisés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 .PP.UA est l’une des rares options permettant d’obtenir gratuitement un véritable nom de domaine délégué, plutôt qu’un simple sous-domaine de service. Il peut utiliser ses propres nameservers et des glue records, ce qui laisse beaucoup plus de liberté pour tester un hébergement, une infrastructure DNS ou même un petit site public. L’inscription comme le renouvellement annuel sont à 0 ₴, avec une limite raisonnable de trois nouveaux noms sur trente jours. Il faut en revanche accepter l’activation par téléphone et surtout l’absence de confidentialité WHOIS : les coordonnées du titulaire restent publiques.

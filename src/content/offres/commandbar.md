@@ -21,12 +21,12 @@ initiales: "CA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 635
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "La documentation actuelle confirme les fonctionnalités Spotlight/Actions et les tiers Growth/Enterprise, mais pas l’ancien Free Tier à 1 000 MAU ; revalidation nécessaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CommandBar, désormais présenté sous la marque Command AI, ajoute à une application une interface de recherche et d’assistance capable de retrouver du contenu, de naviguer dans le produit et de déclencher des actions. L’idée reste très pertinente pour rendre des fonctions difficiles à découvrir accessibles depuis une barre de recherche unifiée. En revanche, l’ancien Free Tier souvent décrit comme gratuit jusqu’à 1 000 utilisateurs actifs mensuels n’est plus documenté clairement dans les pages publiques actuelles ; la fiche reste donc volontairement à vérifier plutôt que d’afficher cette ancienne limite comme une garantie 2026.

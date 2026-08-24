@@ -28,12 +28,12 @@ initiales: F
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 751
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Tarification actuelle vérifiée le 20 août 2026 : formulaires et réponses illimités sur le plan Free.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Formester — Constructeur de formulaires et backend avec logique, scoring et paiements. Free : formulaires et réponses illimités. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

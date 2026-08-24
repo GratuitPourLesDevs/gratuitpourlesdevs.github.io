@@ -29,12 +29,12 @@ initiales: RE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 431
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel est passé à 5 tests Android, 5 iOS et 5 Web, avec runs illimités ; l’ancien quota de 10 + 10 n’est plus à jour.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Repeato enregistre et rejoue des interactions en s’appuyant sur la reconnaissance visuelle plutôt que sur des sélecteurs fragiles. Les runs sont illimités, mais la bibliothèque gratuite reste volontairement petite.

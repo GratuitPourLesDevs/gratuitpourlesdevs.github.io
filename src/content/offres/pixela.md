@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 221
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le site officiel indique que le service est gratuit et que toutes les opérations sont réalisées par API ; aucun quota numérique général n’est publié."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pixela est pratique pour stocker des métriques quotidiennes très simples et obtenir immédiatement une visualisation de type heatmap. Il convient aux trackers personnels, indicateurs de progression et petites métriques techniques sans déployer de base ni de front de visualisation.

@@ -38,9 +38,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 228
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free officiel confirme 50 Go traités/mois, 4 vCPU, 5 Go-mois de stockage et une carte avec vérification remboursée de 5 $."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Rendi expose FFmpeg derrière une API REST et évite de gérer workers, codecs et scaling. Son quota de calcul est généreux pour des prototypes média, mais l’activation du plan gratuit nécessite tout de même une carte bancaire.

@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 646
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Le curriculum public et les certifications vérifiées freeCodeCamp restent gratuits ; la plateforme maintient son modèle open source et non lucratif."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 freeCodeCamp combine cours, exercices interactifs et projets suffisamment complets pour construire progressivement un portfolio technique. Le curriculum couvre notamment HTML/CSS, JavaScript, bibliothèques frontend, Python, bases relationnelles, backend et API, avec des certifications obtenues en réalisant les projets demandés. Contrairement à beaucoup de plateformes de formation qui réservent le certificat à un abonnement, le cœur du curriculum et les certifications vérifiées de freeCodeCamp restent gratuits.

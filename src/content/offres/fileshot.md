@@ -24,12 +24,12 @@ initiales: FI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1029
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification 2026 propose désormais 50 Go au total, 10 Go par fichier et 90 jours sur Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 FileShot chiffre les fichiers dans le navigateur avant envoi et propose aussi un mode de transfert direct P2P.

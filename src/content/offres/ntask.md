@@ -26,12 +26,12 @@ initiales: "N"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 995
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La grille actuelle confirme Basic Free Forever avec 5 membres, 100 Mo de stockage et workspaces/tâches illimités."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 nTask Basic couvre gratuitement l’organisation quotidienne d’une petite équipe avec tâches, réunions, temps et suivi des problèmes. Les vues de pilotage projet plus avancées passent sur les offres payantes.

@@ -26,12 +26,12 @@ initiales: CVS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 383
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le service Coverity Scan reste actif et annonce explicitement l’analyse gratuite des projets open source.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Coverity Scan met la technologie d’analyse statique Coverity à disposition des projets open source. Des projets actifs sont encore analysés en 2026.

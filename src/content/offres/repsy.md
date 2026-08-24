@@ -35,12 +35,12 @@ initiales: RP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 269
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle actuelle annonce 20 Go de stockage gratuit et la prise en charge de Docker, Maven, npm, PyPI, Go, Cargo, NuGet, Helm et RubyGems. La documentation Maven confirme la création de dépôts publics et privés."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Repsy est devenu nettement plus généreux que l’ancienne offre à 1 Go : le service annonce désormais 20 Go gratuits et couvre de nombreux formats de packages. C’est une option intéressante pour centraliser plusieurs écosystèmes dans un même registre sans héberger soi-même l’infrastructure.

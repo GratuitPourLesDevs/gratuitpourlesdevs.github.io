@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 206
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle actuelle indique 5 editor seats sur Starter, contre 1 dans les anciennes descriptions, avec démarrage sans carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mintlify permet de publier une documentation développeur moderne avec recherche, playground API, authentification et support MCP. Le Starter actuel est nettement plus généreux qu’auparavant grâce à cinq sièges éditeur.

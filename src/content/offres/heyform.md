@@ -29,12 +29,12 @@ initiales: H
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 762
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Vérifié le 20 août 2026 : édition communautaire AGPL-3.0 auto-hébergeable ; le cloud officiel n’a plus de Free Tier permanent.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 HeyForm — Constructeur de formulaires open source auto-hébergeable ; le cloud officiel est désormais payant. Community : auto-hébergement AGPL-3.0 gratuit ; cloud officiel payant avec essai. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

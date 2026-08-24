@@ -30,12 +30,12 @@ initiales: "F"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 977
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle maintient projets, utilisateurs et stockage de fichiers illimités, avec une limite de 10 Mo par fichier sur Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Freedcamp reste particulièrement généreux sur les fondamentaux : projets, membres et stockage de fichiers ne sont pas plafonnés. Les restrictions portent surtout sur la taille des fichiers et les modules avancés.

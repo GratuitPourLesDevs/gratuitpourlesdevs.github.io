@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 287
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page Plans actuelle remplace les anciennes mentions d’utilisateurs et canaux illimités : Starter Free vise 1 à 20 membres, 10 000 messages consultables, 10 canaux publics et 5 Go par équipe."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Flock propose les fonctions classiques d’une messagerie de travail pour une petite équipe. Le Free Tier est aujourd’hui clairement dimensionné pour vingt personnes maximum et un historique de recherche limité.

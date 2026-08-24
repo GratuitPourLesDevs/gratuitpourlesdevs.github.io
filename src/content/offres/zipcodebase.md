@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 259
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free actuel offre 5 000 recherches/mois mais est marqué Private Use Only dans la grille tarifaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zipcodebase fournit une base postale mondiale simple à intégrer. Son quota technique est intéressant, mais sa restriction d’usage privé exclut directement les applications commerciales sur le plan gratuit.

@@ -25,12 +25,12 @@ initiales: GH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 800
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Documentation Google mise à jour en juillet 2026 : CDN mondial actif pour une sélection de bibliothèques
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   open source, avec HTTPS, CORS et mise en cache.'
 ---
 

@@ -26,12 +26,12 @@ initiales: LD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 904
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'La grille LuaDNS actuelle confirme 3 domaines, 30 records, TTL minimum 5 minutes et requêtes mensuelles illimitées, avec API et DNSSEC.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LuaDNS est une offre gratuite particulièrement complète pour quelques domaines techniques : API, DNSSEC, statistiques et DNS secondaire sont inclus sans devoir passer immédiatement à un abonnement. Les trois domaines et trente enregistrements suffisent à héberger un portfolio, un petit SaaS et quelques environnements annexes, tandis que les requêtes DNS ne sont pas plafonnées. L’API permet en plus d’intégrer les changements de zones dans des scripts ou une chaîne de déploiement. La limite principale est donc moins le trafic que le nombre de domaines et d’enregistrements disponibles sur le plan gratuit.

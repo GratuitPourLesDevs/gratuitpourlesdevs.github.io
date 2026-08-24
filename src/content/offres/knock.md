@@ -29,12 +29,12 @@ initiales: K
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 530
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Developer plan reste gratuit jusqu’à 10 000 messages/mois ; le pricing 2026 mentionne également
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   500 utilisateurs de Guides.
 ---
 

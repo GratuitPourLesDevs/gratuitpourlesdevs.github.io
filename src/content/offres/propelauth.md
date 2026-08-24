@@ -35,12 +35,12 @@ initiales: PA
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 501
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le produit est actif et documente un compte gratuit, mais les limites historiques de 200 utilisateurs /
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
   10k e-mails ne sont plus suffisamment vérifiables.
 ---
 

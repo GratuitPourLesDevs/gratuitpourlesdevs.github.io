@@ -39,12 +39,12 @@ initiales: NG
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: active
+statut: "active"
 vedette: false
 ordre: 954
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification ngrok actuelle a remplacé l’ancien free tier par un plan à 0 $ avec 5 $ de crédit unique, 3 endpoints, 1 Go de transfert et 20 000 requêtes HTTP/S mensuelles."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ngrok est l’un des services de tunnel les plus connus pour publier temporairement une application locale derrière une URL sécurisée. Il combine tunnels, inspection du trafic, politiques d’accès et outils pour les webhooks. Son modèle gratuit a toutefois changé : il repose désormais sur un crédit d’usage unique de cinq dollars, ce qui le rend moins permanent que les anciens free tiers souvent encore décrits en ligne.

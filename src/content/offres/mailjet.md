@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 696
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié : 6 000 e-mails/mois, 200/jour, 1 000 contacts, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mailjet permet d’envoyer des e-mails transactionnels ou marketing via API et SMTP, avec webhooks pour suivre les événements. Le niveau gratuit comprend 6 000 e-mails par mois et 1 000 contacts, sans carte bancaire. Comme chez plusieurs concurrents, le chiffre mensuel ne raconte pas toute l’histoire : le plan impose aussi un maximum de 200 envois par jour. Cela convient à un trafic régulier ou à une petite newsletter, mais pas à une campagne de plusieurs milliers de messages envoyée d’un coup.

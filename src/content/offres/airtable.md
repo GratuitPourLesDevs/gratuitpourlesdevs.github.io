@@ -32,12 +32,12 @@ initiales: AT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 922
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La documentation Airtable actuelle indique 1 000 enregistrements par base, 1 000 appels API par workspace et par mois et 1 Go de pièces jointes par base. L’ancienne limite de 1 200 lignes n’est plus retenue."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Airtable mélange l’ergonomie d’un tableur avec des relations, des vues et une API utilisables comme petite couche de données collaborative. Le plan Free reste pratique pour des prototypes, catalogues internes et outils simples, mais sa limite actuelle de 1 000 enregistrements par base est plus basse que l’ancienne valeur souvent citée.

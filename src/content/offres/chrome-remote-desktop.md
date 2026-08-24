@@ -19,7 +19,7 @@ statut: "a_verifier"
 vedette: false
 ordre: 28
 verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-17
+verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 

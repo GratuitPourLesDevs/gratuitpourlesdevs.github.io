@@ -24,12 +24,12 @@ initiales: DU
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 492
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Duo Free reste limité à 10 utilisateurs ; les fonctions avancées des éditions supérieures ne sont pas incluses.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Duo Free est référencé avec les limites gratuites vérifiées le 2026-08-19.

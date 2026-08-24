@@ -29,12 +29,12 @@ initiales: PE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 560
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel confirme 1 000 chaînes au total, projets illimités, jusqu’à 5 contributeurs et aucune carte bancaire. Une offre Open Source dédiée peut lever la limite.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 POEditor est un TMS très accessible pour les équipes de développement : il gère de nombreux formats, offre une API et permet de connecter le workflow de traduction au code. Le Free permanent autorise 1 000 chaînes réparties sur un nombre illimité de projets et jusqu’à cinq contributeurs, sans carte bancaire. Pour un logiciel open source sous licence OSI, une demande spécifique peut même supprimer la limite de chaînes.

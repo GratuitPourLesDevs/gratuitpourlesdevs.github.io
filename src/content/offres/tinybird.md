@@ -39,12 +39,12 @@ initiales: TB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 942
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Le plan Free actuel reste sans limite de durée annoncée et comprend 10 Go de stockage, 1 000 requêtes par jour et 0,25 vCPU partagé."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Tinybird s’appuie sur ClickHouse pour transformer rapidement des flux de données et des requêtes SQL en endpoints HTTP. Les 10 Go de stockage et 1 000 requêtes quotidiennes du plan Free suffisent pour construire des prototypes d’analytics temps réel et de petites API de données.

@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 247
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification actuelle remplace l’ancien illimité par 200 requêtes/jour et 6 000/mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 UniRateAPI reste utile pour intégrer des taux actuels de nombreuses devises et cryptomonnaies, mais son Free Tier est désormais mesuré et doit être mis en cache pour éviter rapidement les limites journalières.

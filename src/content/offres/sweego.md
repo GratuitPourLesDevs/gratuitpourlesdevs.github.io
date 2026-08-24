@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 715
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié : 100 e-mails/jour, domaines illimités, 5 templates, webhook, sandbox, logs 7 jours."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Sweego est une API européenne d’e-mail transactionnel accessible aussi en SMTP. Le Free Tier permet 100 envois par jour sans carte bancaire, avec domaines illimités, cinq templates, webhook, sandbox et sept jours de logs. Cela représente un ensemble très complet pour un petit backend ou une phase de lancement, surtout si le trafic est régulier. La contrainte essentielle est quotidienne : les 100 messages non utilisés ne s’accumulent pas pour permettre une grosse campagne plus tard dans le mois.

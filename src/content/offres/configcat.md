@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 727
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Forever Free vérifié le 19 août 2026 : 10 flags/settings par produit, 2 environnements, 2 produits, 5 M de config JSON downloads/mois et équipe illimitée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ConfigCat propose un plan Forever Free sans carte bancaire, avec une approche où les SDK téléchargent puis mettent en cache la configuration afin d’évaluer les flags localement. Le plan gratuit actuel comprend deux produits — et non un seul comme dans certaines anciennes descriptions — avec dix feature flags ou settings par produit, deux environnements par produit et cinq millions de téléchargements de configuration par mois. La politique de facturation actuelle prévoit toutefois des frais en cas de dépassement de certains quotas, ce qui mérite une surveillance en production.

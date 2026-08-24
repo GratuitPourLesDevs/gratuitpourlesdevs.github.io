@@ -36,12 +36,12 @@ initiales: PB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 219
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle actuelle remplace l’ancien quota de 500 documents par 100 documents/mois, 20 requêtes/minute et 2 Mo par PDF."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 PDFBolt expose une API simple pour transformer des pages ou données en PDF. Le Free reste adapté aux prototypes et petits services internes, mais son quota actuel est nettement inférieur aux anciennes descriptions du service.

@@ -26,12 +26,12 @@ initiales: M
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 467
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le plan Free actuel confirme open source illimité, 1 projet fermé et 10 analyses/jour.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Meterian est référencé avec les limites gratuites vérifiées le 2026-08-19.

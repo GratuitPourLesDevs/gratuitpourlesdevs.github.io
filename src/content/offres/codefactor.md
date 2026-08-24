@@ -30,12 +30,12 @@ initiales: CF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 369
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'L’ancienne limite d’un dépôt privé gratuit est obsolète : Community affiche actuellement 0 dépôt privé.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CodeFactor automatise l’analyse de code et les retours sur pull requests. Son plan gratuit reste généreux pour l’open source mais ne couvre plus les dépôts privés.

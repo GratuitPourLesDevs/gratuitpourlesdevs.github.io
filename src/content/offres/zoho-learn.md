@@ -46,9 +46,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 71
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Zoho Wiki est désormais présenté comme Zoho Learn. Le plan gratuit actuel de Learn comprend 5 utilisateurs, 3 espaces, 5 manuels, 5 cours, 1 Go de stockage et 2 parcours d’apprentissage."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Learn combine une base de connaissances collaborative et un outil de formation interne. Il constitue aujourd’hui la continuité la plus pertinente de l’ancien Zoho Wiki : une petite équipe de cinq personnes peut documenter ses procédures dans des espaces et manuels, tout en créant quelques cours structurés. Le plan gratuit est suffisamment complet pour une petite documentation interne ou un projet pédagogique limité, avec des plafonds explicites sur les espaces, contenus et stockage.

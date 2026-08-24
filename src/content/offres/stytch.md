@@ -35,12 +35,12 @@ initiales: ST
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 504
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le B2B Free actuel confirme 10 000 MAU, organisations illimitées, 5 SSO/SCIM et 1 000 M2M tokens.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Stytch est référencé avec les limites gratuites vérifiées le 2026-08-19.

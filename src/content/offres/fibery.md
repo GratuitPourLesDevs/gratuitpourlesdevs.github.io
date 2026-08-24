@@ -35,9 +35,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 283
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "L’ancienne offre gratuite limitée à un utilisateur est obsolète. Le plan actuel vise les petites équipes jusqu’à 10 utilisateurs avec 10 bases, entités illimitées et 1 Go de fichiers."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Fibery combine gestion de projet, documentation et données structurées dans un même espace. Son plan gratuit actuel est suffisamment généreux pour qu’une petite équipe construise un véritable workspace partagé.

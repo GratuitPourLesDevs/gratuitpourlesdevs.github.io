@@ -37,9 +37,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 134
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Free Tier officiel vérifié : 600 appels/mois, 1 appel/s, fichier max 3,5 Mo et région Amérique du Nord."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cloudmersive rassemble de nombreuses API prêtes à l’emploi pour convertir des documents, analyser des fichiers, détecter des menaces et automatiser des traitements. Son Free Tier ne périme pas, mais il est clairement positionné comme une formule d’évaluation avec un plafond de taille de fichier et une implantation régionale limitée.

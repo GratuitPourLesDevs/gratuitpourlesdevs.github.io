@@ -26,12 +26,12 @@ initiales: PE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 307
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La page officielle indique que Pendulums est toujours gratuit sans limites, avec projets et utilisateurs illimités par projet.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pendulums est un outil de time tracking simple qui ne pénalise pas l’ajout de collaborateurs. Son caractère open source et l’absence de quota annoncé le rendent intéressant pour les petites équipes et projets associatifs.

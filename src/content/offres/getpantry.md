@@ -20,12 +20,12 @@ initiales: G
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 1032
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le service est référencé comme API JSON gratuite ; le site officiel était indisponible lors de la vérification automatique du 22 août 2026."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GetPantry fournit un stockage JSON minimaliste pratique pour des prototypes et petites applications.

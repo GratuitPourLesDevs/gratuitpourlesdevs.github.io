@@ -31,12 +31,12 @@ initiales: HV
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 872
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Free actuel vérifié : 1 Go de stockage, 100k requêtes/mois, 50 déploiements/mois ; 50 Mo et 500 fichiers par site. Les domaines personnalisés sont payants.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Harvis est pensé pour les développeurs qui veulent publier un build statique depuis le terminal ou une CI sans ajouter de configuration d’hébergement. Son quota gratuit combine stockage, requêtes, déploiements et collecte de formulaires, ce qui couvre plus qu’un simple serveur de fichiers. Pour un portfolio, une documentation ou une petite landing page reliée à GitHub Actions, l’ensemble est confortable. Le point à anticiper est le domaine personnalisé, absent du Free, ainsi que les limites par site et sur les soumissions de formulaires.

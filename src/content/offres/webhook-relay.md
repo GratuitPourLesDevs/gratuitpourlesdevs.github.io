@@ -35,12 +35,12 @@ initiales: WR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 961
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le Free Starter actuel comprend 150 webhooks/mois, 1 entrée et 2 sorties mais 0 tunnel bidirectionnel. L’ancienne description d’un tunnel localhost gratuit n’est plus retenue."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 WebhookRelay sert à recevoir un webhook puis à le distribuer vers une ou plusieurs destinations, notamment pour les intégrations et environnements de test. Son plan gratuit reste utile pour de petits volumes mais son positionnement a évolué : les tunnels bidirectionnels ne sont plus inclus gratuitement. La fiche reflète donc le service de webhook actuel plutôt que l’ancienne offre de tunnel.

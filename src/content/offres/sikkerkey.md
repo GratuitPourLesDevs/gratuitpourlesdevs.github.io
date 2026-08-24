@@ -30,12 +30,12 @@ initiales: S
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 474
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Le Developer 2026 est beaucoup plus généreux que l’ancienne description : 10 machines et projets/secrets/lectures illimités, avec 1 mois d’audit.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SikkerKey est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -33,12 +33,12 @@ initiales: 'GT'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: 'active'
+statut: "active"
 vedette: false
 ordre: 572
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Le Hosted Free est toujours 1 000 événements/mois avec projets et membres illimités ; le dépassement est throttlé puis bloqué.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GlitchTip propose un suivi d’erreurs open source qui réutilise l’écosystème des SDK Sentry et peut être consommé en SaaS ou auto-hébergé. Son hébergement gratuit est particulièrement souple sur l’organisation avec projets et membres illimités, mais il est limité à 1 000 événements mensuels. Le dépassement n’entraîne pas de facture automatique : GlitchTip réduit progressivement le trafic accepté puis bloque les événements lorsque la consommation dépasse environ deux fois le quota.

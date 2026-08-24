@@ -41,9 +41,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 77
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "La tarification officielle confirme un plan gratuit mono-utilisateur avec 5 enveloppes par mois. Après l’essai de 14 jours, Zoho indique une bascule automatique vers ce plan gratuit."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Sign apporte les fonctions essentielles de signature électronique sans abonnement pour un usage occasionnel. Un utilisateur peut envoyer jusqu’à cinq enveloppes par mois, gérer l’ordre des signatures, relancer les destinataires et conserver une piste d’audit. Le quota est modeste mais suffisant pour signer ponctuellement des contrats, validations ou documents administratifs sans construire sa propre infrastructure de signature.

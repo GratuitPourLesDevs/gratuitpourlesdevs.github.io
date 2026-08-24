@@ -34,12 +34,12 @@ initiales: DP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 374
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Les plans 2026 distinguent Individual gratuit (public + privé, analyses illimitées) et Open Source gratuit (public, 1 000 analyses et 1 000 formatages mensuels).
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DeepSource analyse les changements de code pour détecter problèmes de sécurité, performance et maintenabilité. Le plan Individual gratuit accepte aussi les dépôts privés.

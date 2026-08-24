@@ -23,12 +23,12 @@ initiales: TT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 1063
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Les limites web 20 images par lot et 5 Mo par image sont confirmées ; le quota API historique est à revalider."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TinyPNG reste un outil populaire pour compresser les images, en interface web ou via API.

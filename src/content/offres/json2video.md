@@ -34,9 +34,9 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 196
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free actuel offre 600 crédits non renouvelables à l’inscription, sans carte, avec watermark et limite de durée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 JSON2Video permet de décrire une vidéo de façon structurée puis de la générer par API, ce qui se prête bien aux contenus automatisés. Le gratuit sert surtout à tester le workflow puisque les 600 crédits ne se renouvellent pas.

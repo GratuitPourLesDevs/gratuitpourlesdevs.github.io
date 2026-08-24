@@ -29,12 +29,12 @@ initiales: PN
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 534
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le plan Free Forever actuel annonce 200 MAU ou jusqu’à 1 M de transactions/mois, 1 GiB de stockage
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   sur 7 jours et 5 fonctions de test.
 ---
 

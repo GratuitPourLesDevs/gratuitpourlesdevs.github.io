@@ -35,12 +35,12 @@ initiales: RD
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 883
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Free actuel vérifié : web service 750 h/mois avec spin-down, PostgreSQL 1 Go expirant après 30 jours, Key Value et static sites. Aucun moyen de paiement requis pour tester les Free instances.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Render est particulièrement pratique pour mettre en ligne un petit stack complet depuis Git : frontend statique, API et services de données peuvent cohabiter sur la même plateforme. Les 750 heures mensuelles couvrent un service gratuit sur le mois, mais l’instance s’endort lorsqu’elle n’est pas sollicitée, ce qui implique un démarrage à froid. La base PostgreSQL gratuite est excellente pour une démo ou un test d’intégration, mais son expiration après 30 jours empêche de la traiter comme une base gratuite durable. C’est donc un très bon environnement de prototype, pas un hébergement gratuit sans contraintes pour une production sensible.

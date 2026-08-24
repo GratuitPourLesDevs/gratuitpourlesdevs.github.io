@@ -21,12 +21,12 @@ initiales: P
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1054
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Une page officielle Podio toujours en ligne confirme un démarrage gratuit jusqu’à 5 utilisateurs."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Podio associe gestion de projet, tâches et collaboration dans des espaces de travail personnalisables.

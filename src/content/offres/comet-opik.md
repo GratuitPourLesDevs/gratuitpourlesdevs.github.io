@@ -25,12 +25,12 @@ initiales: CO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 780
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Offre Cloud Free et édition open source vérifiées le 20 août 2026 : 25 000 spans/mois, 10 membres et 60 jours de rétention."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Comet Opik — Plateforme open source de tracing et d’évaluation LLM avec une offre Cloud gratuite et une édition auto-hébergeable.

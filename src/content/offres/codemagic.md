@@ -35,12 +35,12 @@ initiales: CM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 400
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le compte personnel conserve 500 minutes macOS M2 gratuites par mois, 1 concurrence, 120 minutes maximum par build et 30 jours de rétention.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Codemagic reste très pertinent pour automatiser les builds et releases mobiles. Les 500 minutes gratuites sont cependant liées au compte personnel et ne doivent pas être interprétées comme un quota d’équipe.

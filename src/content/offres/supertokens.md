@@ -32,12 +32,12 @@ initiales: SU
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 505
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le cœur du Cloud reste gratuit sous 5 000 MAU ; l’auto-hébergement du cœur reste gratuit sans limite d’utilisateurs.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SuperTokens est référencé avec les limites gratuites vérifiées le 2026-08-19.

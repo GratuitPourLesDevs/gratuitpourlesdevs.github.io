@@ -20,12 +20,12 @@ initiales: "ZE"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 725
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : 200 e-mails/jour historiquement annoncés depuis une adresse partagée @msgwing.com, sans plan payant."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ZeroSMTP est un projet qui documente l’usage d’un relais SMTP gratuit basé sur une adresse partagée du domaine msgwing.com, avec des exemples prêts à l’emploi dans de nombreux langages et pour plusieurs systèmes. Cette approche peut simplifier un test ou un équipement qui doit seulement expédier quelques notifications, mais elle ne permet pas de présenter son propre domaine d’expédition. Le dépôt annonce historiquement 200 e-mails par jour sans plan payant ; disponibilité et quota actuels restent à revalider avant tout usage réel.

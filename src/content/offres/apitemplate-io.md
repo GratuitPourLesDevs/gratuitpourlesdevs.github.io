@@ -39,9 +39,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 96
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page de tarification et la documentation officielle confirment 50 PDF/images par mois, 3 templates, l’accès REST API et l’absence de carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 APITemplate.io automatise la création de documents et d’images à partir de modèles dynamiques. Il peut servir pour des factures, certificats, rapports ou visuels sociaux sans reconstruire un moteur de rendu dans l’application, avec un quota gratuit de 50 générations mensuelles.

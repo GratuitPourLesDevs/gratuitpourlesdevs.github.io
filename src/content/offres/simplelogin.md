@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 712
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié : 10 alias, bande passante illimitée, réponse via alias ; domaines personnalisés Premium."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SimpleLogin est une solution open source d’alias e-mail, également auto-hébergeable, qui permet de masquer son adresse réelle derrière des alias désactivables. Le Free Tier comprend 10 alias, une boîte de destination, une bande passante illimitée et la possibilité de répondre aux messages reçus via un alias. Il faut toutefois distinguer « répondre » d’« initier » : démarrer un nouvel e-mail vers un contact avec son alias ainsi que l’usage de domaines personnalisés font partie du Premium.

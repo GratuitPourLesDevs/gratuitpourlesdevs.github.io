@@ -35,9 +35,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 222
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free officiel confirme 1 000 hooks/mois, 3 projets, 7 jours de logs, 20 livraisons concurrentes et aucune carte requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Posthook permet de déléguer la planification et la fiabilité des webhooks différés. Il évite d’implémenter soi-même une file persistante, un scheduler et un mécanisme de retry pour les actions à exécuter plus tard.

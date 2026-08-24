@@ -28,12 +28,12 @@ initiales: LI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 298
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Free Forever vérifié : 10 utilisateurs, 4 workspaces et 2 000 favoris.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Linkinize transforme une simple collection de favoris en base de liens partagée. Les workspaces et tags conviennent bien aux équipes qui veulent centraliser documentation, ressources techniques et veille.

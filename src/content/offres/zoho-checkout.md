@@ -44,9 +44,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 72
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "La grille tarifaire actuelle affiche 3 pages et 50 paiements au total. Une FAQ Zoho encore en ligne indique 1 page ; la grille tarifaire est retenue comme référence, et la divergence est signalée dans les restrictions."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoho Checkout permet de créer rapidement des pages de paiement hébergées sans développer tout le parcours de facturation soi-même. La formule gratuite est intéressante pour un petit produit, un prototype commercial ou quelques premiers clients : elle gère les paiements ponctuels et récurrents avec Stripe. Son principal frein est que les cinquante paiements gratuits constituent un quota global et non un volume renouvelé chaque mois.

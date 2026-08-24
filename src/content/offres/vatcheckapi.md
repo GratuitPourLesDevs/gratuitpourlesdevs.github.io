@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 248
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan gratuit officiel confirme 150 validations mensuelles, une clé API et 10 requêtes/minute."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 VATCheckAPI apporte une validation TVA directement exploitable dans un formulaire, un ERP léger ou un workflow d’onboarding client, avec un quota adapté aux petits volumes.

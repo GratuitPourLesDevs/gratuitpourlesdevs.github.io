@@ -28,12 +28,12 @@ initiales: DK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 280
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free actuel est limité à 2 participants simultanés et indique explicitement l’absence d’appels vidéo gratuits."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 503."
 ---
 
 Duckly permet de travailler à deux sur le même contexte de développement sans partager uniquement une vidéo de l’écran. Le quota gratuit convient surtout au pair programming ponctuel.

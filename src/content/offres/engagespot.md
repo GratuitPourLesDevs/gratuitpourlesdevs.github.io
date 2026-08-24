@@ -35,12 +35,12 @@ initiales: ES
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 527
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Launch est Free Forever avec 10 000 event triggers/mois, canaux et workflows illimités, 2 environnements
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   et 2 membres.
 ---
 

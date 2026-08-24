@@ -25,12 +25,12 @@ initiales: TL
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 332
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La fiche retient l’application gratuite et le caractère open source ; aucun plafond hébergé non publié n’est transformé en promesse d’illimité.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 tldraw est à la fois un tableau blanc web et une base open source pour construire ses propres expériences de dessin. C’est utile pour les diagrammes rapides, ateliers et prototypes collaboratifs.

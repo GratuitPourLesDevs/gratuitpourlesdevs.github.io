@@ -20,12 +20,12 @@ initiales: NP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 1047
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le service gratuit reste accessible ; aucun quota chiffré fiable n’est publié."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 npoint.io est pratique pour exposer rapidement un petit document JSON sans mettre en place de backend.

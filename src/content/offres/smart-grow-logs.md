@@ -35,12 +35,12 @@ initiales: SG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 549
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Sources récentes de juin-août 2026 concordantes : 3 000 logs/jour, 1 projet, 2 apps, 1 utilisateur, 2 alertes et 7 jours de rétention. Page officielle non récupérable par le crawler.'
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Smart Grow Logs est référencé avec les limites gratuites vérifiées le 19 août 2026.

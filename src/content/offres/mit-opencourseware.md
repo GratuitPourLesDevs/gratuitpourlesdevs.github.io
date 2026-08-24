@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 651
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "MIT OpenCourseWare annonce toujours les matériaux de plus de 2 500 cours, librement accessibles sans inscription ; aucun crédit ou certificat MIT n’est délivré."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 MIT OpenCourseWare ouvre gratuitement une très grande partie du patrimoine pédagogique du MIT : supports de cours, notes, exercices, examens, lectures et parfois vidéos. Avec plus de 2 500 cours publiés, la ressource couvre aussi bien l’informatique et les mathématiques que l’ingénierie, les sciences ou l’économie. Aucun compte n’est nécessaire et il n’y a pas de calendrier imposé ; en contrepartie, OCW n’est pas une inscription officielle au MIT et ne délivre ni crédits académiques ni certificat de réussite.

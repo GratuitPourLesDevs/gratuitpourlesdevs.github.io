@@ -32,12 +32,12 @@ initiales: LB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 858
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'La description free-for.dev est devenue obsolète : le Free affiche désormais 3 600 secondes d’exécution/mois ; 10 000 secondes sont incluses dans Pro.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 lil’bots est pratique pour automatiser une petite tâche ou assembler un agent IA sans commencer par créer tout un projet, gérer les secrets et câbler chaque API. Les bots sont illimités et l’environnement fournit déjà des briques orientées IA et automatisation, ce qui rend l’expérimentation très rapide. Le coût réel du Free se mesure toutefois en temps d’exécution : les 3 600 secondes mensuelles sont partagées entre les bots. C’est confortable pour des scripts courts ou des prototypes, moins pour des traitements longs ou fréquents.

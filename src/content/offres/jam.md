@@ -31,12 +31,12 @@ initiales: 'JM'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: 'active'
+statut: "active"
 vedette: false
 ordre: 574
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'Le Free actuel n’est plus illimité : 30 Jams/mois, 5 Recording Links, 5 creators et viewers illimités.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Jam accélère la remontée d’un bug en capturant en une action le contexte navigateur : vidéo, console, réseau, appareil et actions utilisateur, puis en envoyant le rapport vers des outils comme Jira ou Linear. Le Free reste pratique pour une petite équipe avec 30 Jams et 5 Recording Links par mois, 5 créateurs et des viewers illimités. La mention historique “Jams illimités” n’est plus correcte : l’illimité commence désormais au plan Team.

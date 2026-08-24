@@ -33,12 +33,12 @@ initiales: BE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 415
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free cloud actuel est réservé aux projets publics et publie une limite de 65 535 métriques/jour, 1 job bare-metal concurrent et 5 min/job.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Bencher ajoute une couche de suivi de performance aux tests afin de repérer les ralentissements avant leur mise en production. Le projet est aussi disponible en open source pour l’auto-hébergement.

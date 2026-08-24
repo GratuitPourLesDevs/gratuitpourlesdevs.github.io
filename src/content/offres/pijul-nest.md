@@ -35,9 +35,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 88
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Pijul.org présente The Nest comme sa plateforme officielle d’hébergement gratuit. Aucun quota actuel n’étant publié, l’ancienne affirmation « illimité » n’est pas utilisée comme quota vérifié."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pijul est un système de contrôle de version distribué qui modélise les changements comme des patches plutôt que de reprendre exactement le modèle de Git. The Nest est sa plateforme officielle d’hébergement. Elle constitue surtout une alternative intéressante pour expérimenter ou travailler réellement avec Pijul ; faute de plafond chiffré publié actuellement, la fiche ne présente pas l’hébergement comme illimité.

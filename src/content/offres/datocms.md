@@ -32,12 +32,12 @@ initiales: DA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 350
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan Free est annoncé gratuit pour toujours, sans carte, avec 2 éditeurs, 300 records, 10 Go de trafic et 100k appels API/mois ; aucun overage n’est autorisé.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DatoCMS fournit une API GraphQL et une interface éditoriale adaptée aux petits sites et prototypes. Son comportement au quota est à connaître : le service privilégie la coupure temporaire plutôt qu’une facture surprise.

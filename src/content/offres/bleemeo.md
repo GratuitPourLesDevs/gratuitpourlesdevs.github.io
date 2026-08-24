@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 585
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free actuel : 3 serveurs, 5 uptime monitors, métriques 60 s et rétention métriques de 1 jour."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Bleemeo fournit une vue centralisée des métriques de serveurs, de la disponibilité de services et des alertes opérationnelles. Son plan gratuit est intéressant pour un mini-lab ou quelques serveurs personnels avec trois machines et cinq contrôles uptime ; la principale contrainte est la rétention très courte des métriques, limitée à une journée.

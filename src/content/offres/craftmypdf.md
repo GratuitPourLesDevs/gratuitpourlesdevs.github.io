@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 141
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Plan Free officiel vérifié : 50 PDF/images par mois et 3 modèles. L’ancien quota de 100 PDF/mois est obsolète."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CraftMyPDF permet de construire des modèles visuels puis de générer des PDF ou images par API et outils d’automatisation. Le plan gratuit actuel a été réduit à 50 générations mensuelles, tout en conservant trois modèles et l’accès REST API.

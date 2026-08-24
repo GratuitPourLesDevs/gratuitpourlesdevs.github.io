@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 240
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle confirme 1 000 crédits API gratuits par mois et aucune carte bancaire requise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Tavily fournit une couche de recherche web directement exploitable par des agents IA et des pipelines RAG. Son système de crédits permet de prototyper une recherche augmentée réelle, en gardant à l’esprit qu’une recherche Advanced consomme davantage qu’une recherche Basic.

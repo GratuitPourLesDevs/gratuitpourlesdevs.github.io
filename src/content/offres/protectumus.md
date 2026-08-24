@@ -29,12 +29,12 @@ initiales: P
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 470
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le site conserve plusieurs outils gratuits, mais l’ancien périmètre Free de protection PHP n’a pas pu être confirmé précisément en 2026.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Protectumus est référencé avec les limites gratuites vérifiées le 2026-08-19.

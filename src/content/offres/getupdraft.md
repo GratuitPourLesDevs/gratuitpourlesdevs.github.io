@@ -30,12 +30,12 @@ initiales: UP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 510
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le pricing actuel confirme 1 projet, 3 builds, 500 Mo et 100 installations mensuelles, avec testeurs
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   et utilisateurs illimités.
 ---
 

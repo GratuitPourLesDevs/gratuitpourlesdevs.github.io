@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 630
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Basic : 5 monitors à 3 minutes, 1 status page, 1 serveur, 7 jours haute résolution et 3 mois d’historique."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 UptimeToolbox réunit un petit quota de contrôles externes et le suivi d’un serveur avec une page de statut, ce qui évite d’assembler plusieurs services pour un projet modeste. Le Basic gratuit comprend cinq monitors toutes les trois minutes et un serveur ; son historique de plusieurs mois apporte davantage de recul que beaucoup de Free Tiers concurrents.

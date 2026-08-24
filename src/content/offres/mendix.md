@@ -37,12 +37,12 @@ initiales: ME
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 860
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Free 2026 : utilisateurs applicatifs illimités, 0,5 GiB DB, 1 GiB fichiers, 0,5 vCPU ; Free Apps en veille après inactivité.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mendix permet de découvrir un environnement low-code d’entreprise avec un vrai déploiement cloud sans commencer par une licence payante. Le plan Free est suffisamment complet pour une démonstration, un prototype ou une petite application personnelle et n’impose pas de plafond d’utilisateurs aux Free Apps standards. Il ne faut toutefois pas le confondre avec une offre de production gratuite : ressources partagées, mise en sommeil après inactivité, absence de SLA et capacités opérationnelles réduites en font surtout un environnement d’apprentissage et de validation.

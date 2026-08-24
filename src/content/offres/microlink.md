@@ -34,9 +34,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 205
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle affiche désormais 25 requêtes par jour sur Free, sans carte bancaire."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Microlink transforme une URL en données exploitables : métadonnées normalisées, aperçu, screenshot ou contenu rendu. Le Free convient surtout aux prototypes et petits volumes avec son plafond quotidien actuel de 25 appels.

@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 735
-verifieLe: "2026-08-20"
-verificationAutomatiqueLe: "2026-08-20"
-verificationNote: "Service vérifié le 20 août 2026 : Bunny Fonts reste gratuit, open source, sans collecte de données personnelles ni logs, et compatible avec le format d’API CSS de Google Fonts."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Bunny Fonts permet de charger des polices web open source sans faire transiter les visiteurs par l’infrastructure Google Fonts. Le service est conçu comme un remplacement compatible avec l’API CSS de Google Fonts et met en avant une politique sans tracking ni journalisation des requêtes.

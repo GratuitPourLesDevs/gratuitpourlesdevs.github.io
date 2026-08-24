@@ -38,9 +38,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 142
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Free Tier officiel vérifié : 1 000 requêtes/jour, 2 déploiements et 5 workbooks."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cube Cloud fournit une couche sémantique et une API analytique entre les sources de données et les applications. Son offre gratuite est suffisamment large pour développer et montrer un petit projet, avec un plafond clair de 1 000 requêtes quotidiennes sur chaque déploiement partagé.

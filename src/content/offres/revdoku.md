@@ -29,12 +29,12 @@ initiales: RV
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 884
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Revdoku est un ajout récent de 2026. Les quotas 2 Go / 2 sites / 25 Mo DB / 3 connexions IA sont référencés publiquement mais pas consolidés sur une page tarifaire officielle indexée ; statut à vérifier.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Revdoku répond à un besoin assez nouveau : transformer directement la sortie d’un agent IA en ressource web partageable sans passer par une chaîne de déploiement traditionnelle. Pour des rapports, mini-sites, dashboards exportés ou livrables clients, la combinaison stockage, protection par mot de passe et petite base peut éviter beaucoup de plomberie. Le Free annoncé est déjà suffisant pour expérimenter ce workflow avec plusieurs agents. Comme les limites détaillées ne sont pas encore facilement vérifiables sur une page officielle publique, il reste prudent de les contrôler dans le compte avant d’en dépendre pour un processus durable.

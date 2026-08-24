@@ -33,12 +33,12 @@ initiales: SK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 940
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Skyvia n’est plus une bêta où tous les plans seraient gratuits. La plateforme maintient plusieurs vrais plans Free ; la fiche prend Data Integration comme référence principale avec 10 000 enregistrements par mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Skyvia réunit plusieurs outils de circulation et d’exploitation de données dans une même plateforme. Le catalogue gratuit est aujourd’hui structuré par produit plutôt que par une bêta globale : intégration de données, automatisation, sauvegarde, requêtes et endpoints disposent chacun de petits quotas gratuits.

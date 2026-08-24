@@ -27,12 +27,12 @@ initiales: DD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 456
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: 'dotenvx remplace l’ancien workflow dotenv-vault : il est explicitement gratuit et open source et chiffre les .env en place.'
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Dotenvx (Dotenv) est référencé avec les limites gratuites vérifiées le 2026-08-19.

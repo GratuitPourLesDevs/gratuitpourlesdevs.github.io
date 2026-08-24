@@ -23,12 +23,12 @@ initiales: "H"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 982
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La formule Forever Free actuelle comprend 1 board par mois, anonymous surveys et guest link sharing."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 HeyRetro couvre gratuitement une rétrospective mensuelle avec partage invité et sondages anonymes. Il vise donc surtout les équipes avec un rythme de rétro modéré.

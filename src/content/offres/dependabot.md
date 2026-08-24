@@ -27,12 +27,12 @@ initiales: D
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 453
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Dependabot est désormais une fonctionnalité GitHub. Les version updates sont disponibles pour tous les dépôts GitHub ; l’ancien site autonome n’est plus la référence.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Dependabot est référencé avec les limites gratuites vérifiées le 2026-08-19.

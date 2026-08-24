@@ -33,9 +33,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 282
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free actuel est fortement limité : 50 notes, 1 carnet, 1 appareil synchronisé et 1 Go de stockage."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Evernote reste utilisable gratuitement pour un petit volume de notes, mais son Free Tier est désormais bien plus restrictif qu’autrefois. Il convient surtout à un usage léger ou à l’évaluation du produit.

@@ -39,12 +39,12 @@ initiales: FG
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 83
 verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "Framagit est toujours actif et annonce une limite de 42 projets par compte, avec dépôts publics ou privés, CI et Pages. L’inscription est modérée contre le spam."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Framagit est la forge Git de Framasoft, construite sur GitLab Community Edition. Elle combine hébergement de code, tickets, merge requests, CI et Pages dans un service communautaire gratuit. Sa limite de 42 projets par compte est généreuse pour des projets personnels ou associatifs, mais Framagit reste un service mutualisé : il ne doit pas être détourné en stockage de masse ou en infrastructure de calcul intensive.

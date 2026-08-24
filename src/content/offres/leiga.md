@@ -27,12 +27,12 @@ initiales: "L"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 990
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle confirme 10 utilisateurs, 20 champs personnalisés, 2 Go de stockage, 5 minutes par vidéo et 20 automatisations/utilisateur/mois."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Leiga associe gestion de projet et automatisations assistées par IA pour les petites équipes. Le free tier actuel couvre dix utilisateurs avec des quotas explicites de stockage et d’automatisation.

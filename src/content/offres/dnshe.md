@@ -32,12 +32,12 @@ initiales: DH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 914
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Depuis décembre 2025, les nouveaux comptes disposent de 3 quotas gratuits de base et de 2 quotas de parrainage. Depuis janvier 2026, les nouveaux noms sont valables un an et renouvelables gratuitement sans limite de renouvellements."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DNSHE est intéressant pour obtenir plusieurs adresses publiques gratuites tout en conservant une vraie gestion DNS et une API exploitable par des scripts. Les trois inscriptions immédiatement disponibles suffisent pour quelques projets personnels, environnements de test ou démonstrations, avec deux emplacements supplémentaires accessibles par parrainage. L’API permet en plus d’automatiser l’enregistrement, les renouvellements et les changements DNS. Le compromis du modèle 2026 est qu’un nouveau nom doit être renouvelé chaque année, même si ce renouvellement reste gratuit et peut être automatisé.

@@ -27,12 +27,12 @@ initiales: DP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 896
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'La documentation DNSPod actuelle confirme un plan Free activé par défaut, avec records et sous-domaines illimités, API, 2 URL forwards et TTL minimum 600 s.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 DNSPod est intéressant lorsqu’on veut un DNS autoritatif gratuit avec une vraie API et des fonctions de routage plus riches qu’un simple gestionnaire d’enregistrements. Le plan Free ne limite ni le nombre d’enregistrements ni les sous-domaines, et permet déjà des opérations en masse ainsi que du routage selon certaines zones géographiques. Cela convient bien à un projet qui doit automatiser ses DNS ou tester une stratégie de répartition simple. Les plans payants restent nécessaires pour un TTL plus agressif, des SLA et des options de routage ou de protection plus poussées.

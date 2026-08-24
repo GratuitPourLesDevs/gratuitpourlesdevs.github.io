@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 203
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free Forever officiel confirme 100 crédits par jour, un an d’historique et des données actions/options retardées de 24 h."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Market Data propose une API financière exploitable gratuitement pour des side projects, backtests courts et prototypes. La contrepartie principale est l’absence de prix temps réel sur le Free Forever.

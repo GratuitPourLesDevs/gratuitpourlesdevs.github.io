@@ -30,9 +30,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 286
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free actuel est à 5 personnes simultanées avec durée de session illimitée. L’ancienne limite de 8 utilisateurs n’est plus d’actualité."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 flat.social remplace la grille classique d’une visioconférence par un espace où les participants se déplacent et discutent selon leur proximité. Le plan gratuit convient à de petits ateliers ou moments sociaux d’équipe.

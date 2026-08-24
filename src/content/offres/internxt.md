@@ -22,12 +22,12 @@ initiales: ID
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1042
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "L’ancien quota de 10 Go est obsolète : la tarification Internxt affiche désormais 1 Go gratuit à vie."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Internxt Drive met l’accent sur la confidentialité avec chiffrement zero-knowledge et code open source.

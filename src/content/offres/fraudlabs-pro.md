@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 169
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Micro Free : 500 queries/mois, ventes <25k USD/mois, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 FraudLabs Pro évalue les commandes e-commerce et renvoie un score de fraude accompagné de règles configurables. Le quota gratuit est correct pour une petite boutique, mais l’éligibilité dépend explicitement d’un chiffre d’affaires mensuel inférieur à 25 000 dollars.

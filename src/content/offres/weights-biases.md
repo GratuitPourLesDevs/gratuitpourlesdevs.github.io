@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 252
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Cloud Free actuel indique jusqu’à 5 sièges Model, 5 Go/mois de stockage et 1 Go/mois d’ingestion Weave."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Weights & Biases centralise le suivi des expériences et des artefacts ML ainsi que l’observabilité des applications IA. Le plan gratuit reste pertinent pour un projet personnel, mais son stockage cloud est désormais bien inférieur aux anciens quotas souvent cités.

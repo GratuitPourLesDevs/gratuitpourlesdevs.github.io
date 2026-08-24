@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 250
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Free actuel offre 10 000 appels/mois sans carte mais impose un usage non commercial et une attribution."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 WeatherXu offre un quota généreux pour expérimenter avec des données météo. Sa principale contrainte n’est pas technique mais juridique : le plan gratuit ne convient pas à une application commerciale.

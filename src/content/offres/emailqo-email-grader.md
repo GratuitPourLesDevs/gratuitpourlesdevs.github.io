@@ -20,12 +20,12 @@ initiales: "EE"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 676
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : grader historiquement gratuit sans inscription, avec score sur 100."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 EmailQo Email Infrastructure Grader inspecte un domaine pour repérer les problèmes susceptibles de nuire à la délivrabilité : SPF, DKIM, DMARC et configuration du serveur de messagerie sont regroupés dans un diagnostic synthétique. Le référentiel historique décrit un test gratuit sans inscription avec une note sur 100, pratique avant une mise en production ou après un changement DNS. L’accès gratuit actuel n’étant pas suffisamment documenté, la fiche reste marquée « à vérifier ».

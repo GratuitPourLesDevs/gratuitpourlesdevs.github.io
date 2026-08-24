@@ -29,12 +29,12 @@ initiales: AR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 414
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan Hobby actuel conserve 5 000 screenshots et les intégrations CI. La mention historique de projets illimités n’est pas reprise faute de confirmation explicite.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Argos automatise la détection de régressions visuelles en comparant des captures produites par les tests. Son quota gratuit de 5 000 screenshots par mois est déjà confortable pour un projet personnel ou une petite base de composants.

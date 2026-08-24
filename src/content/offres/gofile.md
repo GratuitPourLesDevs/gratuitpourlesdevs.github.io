@@ -26,12 +26,12 @@ initiales: G
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1033
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le stockage gratuit est éphémère ; la documentation actuelle indique une rétention par défaut autour de dix jours, prolongeable par l’activité."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GoFile combine partage web et API, mais son espace gratuit doit être considéré comme temporaire.

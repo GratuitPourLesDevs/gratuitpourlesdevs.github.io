@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 595
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Les comptes gratuits peuvent suivre jusqu’à 20 checks."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Healthchecks.io vérifie qu’un cron ou une tâche d’arrière-plan envoie bien son signal à la fréquence attendue, et alerte lorsqu’il manque. Avec vingt checks gratuits, le service couvre déjà de nombreux backups, imports, synchronisations ou tâches planifiées d’un petit projet ; il est particulièrement utile lorsque le problème à détecter est justement l’absence d’exécution.

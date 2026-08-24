@@ -20,12 +20,12 @@ initiales: "AM"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 662
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : service annoncé entièrement gratuit, avec inboxes programmables, domaines personnalisés, JMAP et MCP. Les limites actuelles ne sont pas suffisamment confirmées par une source officielle publique."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Atomic Mail — Service de boîtes e-mail programmables pensé pour les agents IA et les intégrations automatisées. Le référentiel historique le présente comme entièrement gratuit, avec inboxes programmables, domaines personnalisés, JMAP et MCP. Le positionnement est particulièrement intéressant pour les agents et workflows qui ont besoin d’une vraie identité e-mail programmable, mais l’offre publique actuelle n’a pas pu être vérifiée suffisamment précisément. La fiche reste donc « à vérifier » plutôt que de garantir une gratuité totale qui pourrait avoir évolué.

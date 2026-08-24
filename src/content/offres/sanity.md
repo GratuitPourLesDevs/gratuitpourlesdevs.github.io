@@ -38,12 +38,12 @@ initiales: SA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 353
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Les anciens quotas de 500k CDN, 10 Go de bande passante et 5 Go d’assets sont obsolètes. Le Free actuel passe à 1M CDN, 250k API, 100 Go assets et 100 Go bande passante.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Sanity combine un datastore de contenu temps réel, un studio personnalisable et des APIs performantes. Son quota gratuit est très généreux, mais il faut accepter des datasets publics et un modèle de rôles plus limité.

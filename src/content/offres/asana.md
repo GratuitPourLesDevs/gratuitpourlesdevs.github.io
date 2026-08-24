@@ -25,12 +25,12 @@ initiales: "A"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 965
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Asana indique que Personal reste gratuit à vie. Depuis le 12/11/2025, les nouveaux comptes sont limités à 2 utilisateurs ; certains comptes plus anciens peuvent conserver 10 utilisateurs."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Asana Personal couvre la planification quotidienne et les projets simples avec tâches et projets illimités. Depuis novembre 2025, les nouveaux comptes gratuits sont limités à deux utilisateurs.

@@ -32,12 +32,12 @@ initiales: RC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 315
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Les offres gratuites actuelles sont self-managed : Starter à 0 $ jusqu’à 50 utilisateurs et Community open source sans plafond d’utilisateurs pour un jeu de fonctions plus basique.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Rocket.Chat est pertinent lorsque l’équipe veut garder la maîtrise de son infrastructure de communication. Le gratuit n’est pas un SaaS managé : il faut administrer son serveur, mais cela donne davantage de contrôle sur les données et l’intégration.

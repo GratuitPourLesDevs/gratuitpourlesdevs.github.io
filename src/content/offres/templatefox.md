@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 241
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle confirme 60 PDF gratuits par mois sans carte. L’ancien quota de 3 templates n’est pas repris faute de confirmation actuelle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TemplateFox permet de fabriquer des documents PDF à partir de modèles visuels alimentés par des données JSON. Le quota gratuit suffit pour automatiser une petite génération documentaire ou valider une intégration avant passage à l’échelle.

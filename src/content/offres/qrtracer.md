@@ -21,12 +21,12 @@ initiales: QT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 1056
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le service gratuit est actif mais ne publie pas de plafond chiffré suffisamment explicite."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 QRtracer ajoute des fonctions d’analyse et de personnalisation à la création de QR codes.

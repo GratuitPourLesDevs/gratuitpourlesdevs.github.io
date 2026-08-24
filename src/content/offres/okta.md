@@ -33,12 +33,12 @@ initiales: OK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 497
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Developer Edition historique a été remplacé par l’Integrator Free Plan, limité à 10 utilisateurs actifs.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Okta Integrator Free Plan est référencé avec les limites gratuites vérifiées le 2026-08-19.

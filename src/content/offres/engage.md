@@ -32,12 +32,12 @@ initiales: E
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 526
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le plan Free reste à 1 000 active users/mois avec 2 membres, 3 listes, 2 automatisations et 1
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   000 destinataires max par campagne.
 ---
 

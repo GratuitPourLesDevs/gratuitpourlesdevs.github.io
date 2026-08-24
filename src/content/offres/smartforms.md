@@ -26,12 +26,12 @@ initiales: SD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 767
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Forever Free vérifié le 20 août 2026 : 50 soumissions/mois et 250 Mo de bande passante mensuelle.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 smartforms.dev — Backend de formulaires avec anti-spam, notifications et intégrations Slack/Telegram. Forever Free : 50 soumissions/mois et 250 Mo de bande passante. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

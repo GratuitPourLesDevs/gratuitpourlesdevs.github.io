@@ -29,12 +29,12 @@ initiales: D
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 455
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Developer actuel annonce 3 utilisateurs gratuits ; l’ancienne mention de 5 utilisateurs a été corrigée. La grille détaille aussi 10 projets, 4 environnements et 5 syncs.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Doppler est référencé avec les limites gratuites vérifiées le 2026-08-19.

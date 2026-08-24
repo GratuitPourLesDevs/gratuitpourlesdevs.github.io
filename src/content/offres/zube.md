@@ -25,12 +25,12 @@ initiales: "Z"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1019
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page de pricing actuelle confirme Free à 0 $, jusqu’à 4 projets et 4 utilisateurs, avec intégration GitHub."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zube se concentre sur la coordination d’équipes qui utilisent déjà GitHub Issues. Le plan Free reste clairement défini à quatre projets et quatre utilisateurs.

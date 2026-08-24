@@ -27,12 +27,12 @@ initiales: UP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 812
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: UNPKG est actif en 2026, distribue tout ce qui est publié sur npm et s’appuie sur le réseau edge mondial
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
   de Cloudflare.
 ---
 

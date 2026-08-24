@@ -25,12 +25,12 @@ initiales: DP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 913
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "La plateforme confirme une inscription gratuite, plusieurs namespaces publics et la possibilité de connecter des nameservers externes. Aucun plafond numérique universel n’est publié."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 DigitalPlat Domains est pratique pour donner rapidement une adresse publique à un projet sans acheter immédiatement un domaine ni accepter l’hébergement imposé par un fournisseur. Le vrai intérêt est la portabilité : le nom peut pointer vers les nameservers, le CDN ou l’hébergeur de son choix. Les plusieurs namespaces disponibles permettent aussi de sélectionner une adresse adaptée à un prototype, un projet communautaire ou une démonstration. Il faut simplement garder à l’esprit qu’il s’agit d’un sous-domaine dépendant des règles du namespace et qu’aucun quota maximal de noms gratuits n’est garanti publiquement.

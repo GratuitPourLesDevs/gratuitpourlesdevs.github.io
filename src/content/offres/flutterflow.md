@@ -33,12 +33,12 @@ initiales: FF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 842
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Free actuel vérifié : 2 projets, 5 requêtes IA à vie, 10 Lite credits, 2 endpoints API, Firebase/Supabase et publication web. Le téléchargement de code reste payant.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 FlutterFlow est utile pour transformer rapidement une maquette en application Flutter interactive sans écrire toute l’interface à la main. Le Free donne accès au cœur du builder, à deux projets et aux intégrations de données, ce qui suffit pour prototyper un parcours complet et le publier sur le web. Il est aussi pertinent pour tester Flutter avant de décider si l’on veut maintenir le code soi-même. La limite structurante arrive au moment de sortir de la plateforme : récupérer le code, générer un APK, utiliser un domaine personnalisé ou déployer directement sur les stores nécessite un abonnement.

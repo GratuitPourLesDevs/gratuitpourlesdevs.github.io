@@ -35,12 +35,12 @@ initiales: GC
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 801
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Plan FREE vérifié le 20 août 2026 : 1 To de trafic, tarification des requêtes au-delà de 1 milliard et
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   Managed DNS gratuit. Gcore indique qu’aucune carte n’est requise pour démarrer.'
 ---
 

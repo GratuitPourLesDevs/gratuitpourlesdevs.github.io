@@ -34,9 +34,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 273
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Free actuel est permanent et inclut 1 type d’événement, 1 calendrier connecté et un nombre illimité de réunions planifiées."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Calendly évite les allers-retours pour fixer un rendez-vous : le développeur partage ses disponibilités et laisse l’invité choisir un créneau compatible avec son calendrier.

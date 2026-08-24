@@ -36,9 +36,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 173
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Developer officiel est gratuit à vie, sans carte, avec 100 événements/jour et dépassement bloqué."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hook0 fournit une couche de livraison de webhooks prête à l’emploi : signature, retries, historique et abonnements. Le gratuit cloud est suffisant pour un side-project et la version self-hosted permet de supprimer le plafond imposé par Hook0 en prenant en charge sa propre infrastructure.

@@ -35,12 +35,12 @@ initiales: CA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 523
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Little Lemur est toujours gratuit avec 1 M messages/mois, 20 connexions, 100 queues et 10 000
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
   messages en attente.
 ---
 

@@ -25,12 +25,12 @@ initiales: WO
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 343
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre revérifiée le 18 août 2026 ; les fichiers au-delà de 5 Go sont envoyés directement en pair-à-pair plutôt que stockés sur le service.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Wormhole combine chiffrement de bout en bout et transfert temporaire. Pour les fichiers très volumineux, le pair-à-pair évite de devoir les stocker entièrement sur le service.

@@ -27,12 +27,12 @@ initiales: "T"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1011
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan gratuit actuel conserve 5 projets personnels, 5 personnes par projet, 5 Mo par fichier, 3 filtres et 7 jours d’historique."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Todoist Beginner reste une bonne base pour organiser quelques projets personnels et les partager avec un petit groupe. Les quotas sont surtout sensibles sur les projets, collaborateurs et pièces jointes.

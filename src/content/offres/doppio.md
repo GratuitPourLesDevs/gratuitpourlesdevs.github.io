@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 157
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Basic Free officiel : 400 documents/mois, 1 template, sans carte et sans limite de durée."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Doppio gère Chromium pour produire des PDF et captures d’écran sans maintenir Puppeteer soi-même. Son Basic gratuit est particulièrement intéressant pour les petits volumes grâce aux 400 documents mensuels et à l’hébergement européen.

@@ -30,12 +30,12 @@ initiales: RTD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 882
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'Read the Docs Community reste gratuit pour l’open source et les projets communautaires publics. L’offre est financée notamment par la publicité et ne publie pas un quota numérique universel de builds.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Read the Docs évite de bricoler soi-même toute la chaîne publication/versionnement d’une documentation technique. Pour un projet open source, chaque version peut être construite automatiquement depuis Git et les pull requests peuvent disposer de previews, ce qui rend la revue documentaire beaucoup plus fluide. Le service gratuit est suffisamment complet pour devenir l’hébergement principal d’une documentation publique. Il faut simplement accepter que Community soit réservé au contenu public et puisse afficher de la publicité, tandis que dépôts privés et fonctions d’entreprise passent par l’offre commerciale.

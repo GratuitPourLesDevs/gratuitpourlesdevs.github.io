@@ -20,12 +20,12 @@ initiales: "MT"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 687
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : 20 tests gratuits par mois selon le référentiel historique."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Mail-Tester est un diagnostic de délivrabilité très pratique : on envoie un message à l’adresse générée et l’outil examine ensuite authentification DNS, contenu, réputation et signaux susceptibles de déclencher du spam. Il aide donc autant lors du premier paramétrage d’un domaine que pour analyser une campagne qui arrive mal en boîte de réception. La référence historique indique 20 tests gratuits par mois ; ce quota n’étant pas suffisamment confirmé actuellement, il est explicitement marqué à revalider.

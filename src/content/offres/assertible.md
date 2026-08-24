@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 583
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Le plan Personal gratuit couvre 2 services, 10 tests par service et 1 000 résultats."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Assertible permet de transformer des assertions sur une API en contrôles automatisés exécutés régulièrement, ce qui aide à détecter une régression sans attendre qu’un utilisateur la signale. Son Personal gratuit est calibré pour de petits projets avec deux services web et dix tests par service, tout en conservant jusqu’à 1 000 résultats pour suivre les échecs récents.

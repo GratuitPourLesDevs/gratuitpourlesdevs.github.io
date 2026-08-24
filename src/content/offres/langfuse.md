@@ -25,12 +25,12 @@ initiales: L
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 784
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Plan Hobby vérifié le 20 août 2026 : 50 000 unités/mois, 30 jours de données et 2 utilisateurs ; l’auto-hébergement open source reste disponible."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Langfuse — Plateforme open source d’ingénierie LLM pour tracer, évaluer et améliorer les applications IA, disponible en Cloud Hobby et en auto-hébergement.

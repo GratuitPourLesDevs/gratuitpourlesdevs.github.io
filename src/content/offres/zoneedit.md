@@ -25,12 +25,12 @@ initiales: ZE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 911
-verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: 'ZoneEdit indique encore accepter les utilisateurs Free et publie un quota de 250 000 requêtes/mois avec Dynamic DNS. Le nombre exact de zones gratuites n’est plus clairement exposé.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ZoneEdit reste utile pour un petit domaine qui a besoin à la fois de DNS autoritatif classique et de Dynamic DNS. Le quota publié de 250 000 requêtes mensuelles couvre de nombreux sites personnels et environnements techniques, tandis que les redirections URL et e-mail évitent d’ajouter des services séparés pour certains besoins simples. Les deux serveurs de production annoncés dans des datacenters distincts apportent une redondance minimale appréciable. La limite moins confortable en 2026 est surtout documentaire : la page Free ne rend plus très clair le nombre de zones incluses, donc il vaut mieux vérifier ce point au moment de l’inscription.

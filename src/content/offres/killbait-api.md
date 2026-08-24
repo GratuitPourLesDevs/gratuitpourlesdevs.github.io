@@ -34,8 +34,8 @@ statut: "a_verifier"
 vedette: false
 ordre: 200
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le service officiel est actif, mais la page /api/doc nécessite JavaScript. Les quotas 1/heure et 10/jour proviennent de la description fournie et restent à confirmer sur une source officielle lisible."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 KillBait API aide à évaluer des URLs d’articles pour repérer des formulations potentiellement clickbait et classer le contenu. Le service semble adapté à une fréquence de publication modérée, mais les quotas exacts restent volontairement marqués à vérifier tant que la documentation dynamique n’est pas lisible de manière fiable.

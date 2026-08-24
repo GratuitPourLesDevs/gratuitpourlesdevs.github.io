@@ -34,9 +34,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 290
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le plan Community actuel annonce 50 PR/mois, utilisateurs illimités, 2 dépôts, 7 jours d’historique et 2 règles d’alertes partagées."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GitDailies donne une vue synthétique de l’activité de développement sans demander aux membres de remplir un rapport manuel. Le Free Tier convient à une petite équipe ou à deux dépôts actifs.

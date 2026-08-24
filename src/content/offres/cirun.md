@@ -34,12 +34,12 @@ initiales: CR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 399
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le plan Open Source est gratuit pour les dépôts publics avec runners illimités ; le coût du compute cloud sous-jacent reste séparé.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Cirun permet d’utiliser son propre cloud comme flotte de runners GitHub Actions. Pour l’open source la couche Cirun est gratuite, mais elle ne rend évidemment pas gratuites les machines provisionnées chez le fournisseur cloud.

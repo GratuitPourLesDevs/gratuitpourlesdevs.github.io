@@ -28,12 +28,12 @@ initiales: "B"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 968
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La formule Free actuelle conserve les utilisateurs illimités et 5 Go de stockage. L’aide Bitrix24 précise qu’un compte gratuit peut être supprimé après 50 jours consécutifs d’inactivité."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Bitrix24 offre un espace de travail très large sans plafond d’utilisateurs sur la formule gratuite. Le compromis principal est le stockage limité et une politique d’inactivité à surveiller.

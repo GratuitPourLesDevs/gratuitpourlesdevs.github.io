@@ -33,12 +33,12 @@ initiales: HD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 380
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La FAQ indique explicitement un coût de zéro ; le site reste toutefois en Public Beta et ne publie aucun quota chiffré.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Holistic.dev examine le SQL et le schéma pour détecter des problèmes avant la production, sans connexion directe aux données. L’éditeur indique que le service est actuellement gratuit.

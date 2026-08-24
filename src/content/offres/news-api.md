@@ -37,9 +37,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 213
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle confirme 100 requêtes/jour, 24 h de retard, historique d’un mois et usage limité au développement/test."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 News API fournit un accès JSON simple à l’actualité pour prototyper des agrégateurs, tableaux de bord ou expériences de recherche. Son plan gratuit ne doit toutefois pas être utilisé pour un service de production publié.

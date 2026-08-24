@@ -34,12 +34,12 @@ initiales: CR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 370
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Les limites actuelles sont 150 fichiers par revue, 3 revues CLI/h et 1 revue IDE/h sur Free ; l’ancienne valeur 200 fichiers/h est obsolète.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CodeRabbit ajoute une couche de revue IA aux workflows Git. Le gratuit a évolué : il conserve les résumés de PR et les revues IDE/CLI, tandis que l’open source bénéficie d’un plan dédié.

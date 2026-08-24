@@ -33,12 +33,12 @@ initiales: US
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 435
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La documentation 2026 confirme Snippets comme playground public gratuit sans setup. L’ancienne limite de 3 minutes n’est pas reprise faute de confirmation actuelle.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 UI-licious Snippets permet de tester rapidement une interaction web avec une syntaxe proche d’un scénario utilisateur. C’est surtout utile pour reproduire et partager un bug sans créer de projet de test complet.

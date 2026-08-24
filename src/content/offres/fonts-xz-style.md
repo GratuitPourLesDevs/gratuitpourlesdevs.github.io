@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 741
-verifieLe: "2026-08-20"
-verificationAutomatiqueLe: "2026-08-20"
-verificationNote: "Service actif vérifié le 20 août 2026 : xz/fonts est gratuit, open source, sert uniquement des polices open source et migre actuellement sa distribution vers bunny.net."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 xz/fonts est une alternative légère pour intégrer des polices web open source sans les héberger soi-même. Les familles sont servies par CSS via un CDN ; le projet est activement maintenu et annonce une migration d’infrastructure vers bunny.net sans déprécier les liens existants.

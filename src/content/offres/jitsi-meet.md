@@ -28,12 +28,12 @@ initiales: JM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 300
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Service gratuit vérifié. Les conditions actuelles de meet.jit.si imposent un maximum agrégé de 25 Active End Points par mois ; Jitsi recommande JaaS ou l’auto-hébergement pour l’intégration de production.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Jitsi Meet est excellent pour lancer rapidement une visioconférence sans inscription. Sa nature open source permet aussi de basculer vers un déploiement auto-hébergé lorsque le service public meet.jit.si devient trop limité.

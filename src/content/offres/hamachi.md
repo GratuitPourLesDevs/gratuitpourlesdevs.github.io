@@ -28,12 +28,12 @@ initiales: HA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 948
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site officiel indique actuellement que Hamachi est gratuit jusqu’à 5 ordinateurs dans un réseau. L’ancienne formulation sur des réseaux gratuits illimités n’est pas reprise."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Hamachi crée un réseau privé virtuel qui donne à des machines distantes l’impression d’être sur un même réseau local. Cela peut servir à accéder à des ressources internes, relier quelques postes distants ou tester des applications réseau sans mettre en place un VPN traditionnel. Le niveau gratuit reste adapté aux très petits groupes avec sa limite officielle de cinq ordinateurs par réseau.

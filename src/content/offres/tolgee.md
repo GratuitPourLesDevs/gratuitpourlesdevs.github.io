@@ -39,12 +39,12 @@ initiales: TG
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 563
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Cloud Free actuel comprend 500 clés et 3 sièges sans carte. Le self-hosted gratuit autorise les clés illimitées et jusqu’à 10 sièges.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Tolgee offre deux chemins gratuits intéressants : un Cloud sans carte avec 500 clés et trois sièges, ou une version auto-hébergée gratuite avec un nombre illimité de clés et jusqu’à dix sièges. Ses SDKs et son approche contextuelle en font une solution complète pour intégrer la localisation directement dans une application. L’auto-hébergement demande cependant d’assumer l’infrastructure, et sur le Cloud un dépassement peut devenir facturable si une carte a été ajoutée.

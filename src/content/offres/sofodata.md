@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 237
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La page officielle Free affiche 2 APIs, 2 500 appels, 10 Mo de stockage et 1 appel/seconde."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Sofodata transforme rapidement un CSV en endpoint REST exploitable par un prototype ou une petite application. Cela évite de créer une base et un backend uniquement pour exposer un jeu de données tabulaire de petite taille.

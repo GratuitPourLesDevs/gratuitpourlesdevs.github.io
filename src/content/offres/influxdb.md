@@ -31,12 +31,12 @@ initiales: ID
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 930
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: '2026-08-21'
-verificationNote: "Les limites actuelles du service Cloud Serverless sont retenues : 5 Mo d’écriture et 300 Mo de lecture par fenêtre de 5 minutes. Les anciennes valeurs 3/30 Mo ne sont plus utilisées."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 InfluxDB est spécialisé dans les séries temporelles, métriques et télémétries. Le niveau Cloud Serverless gratuit autorise un débit suffisant pour des petits systèmes de monitoring, des capteurs ou des prototypes, avec une fenêtre de rétention limitée qui évite d’accumuler indéfiniment les données.

@@ -27,12 +27,12 @@ initiales: M
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 788
-verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-08-20
-verificationNote: "Developer Free Forever vérifié le 20 août 2026 : 10 000 logs/mois, 3 sièges, 1 workspace et 3 jours de rétention."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Maxim — Plateforme d’évaluation et d’observabilité LLM avec 10 000 logs mensuels sur son plan Developer gratuit.

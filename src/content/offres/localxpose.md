@@ -35,12 +35,12 @@ initiales: LX
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 953
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle du Starter confirme 2 tunnels HTTP/HTTPS actifs, SSL/TLS et sous-domaines uniques sans carte bancaire. L’ancienne limite publique de 15 minutes n’est plus affichée et n’est donc pas retenue."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 LocalXpose transforme une application locale en endpoint public sécurisé tout en ajoutant des contrôles utiles comme l’authentification, le filtrage IP et le rate limiting. Le niveau gratuit permet aujourd’hui deux tunnels HTTP/HTTPS actifs. La tarification mentionne toujours des limites de temps mais sans publier la durée, ce qui rend l’ancienne valeur de quinze minutes trop fragile pour être conservée.

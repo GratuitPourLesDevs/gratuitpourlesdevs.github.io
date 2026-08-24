@@ -20,12 +20,12 @@ initiales: "AK"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 582
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "La gratuité est annoncée, mais les limites historiques fournies par free-for.dev ne sont plus assez clairement documentées."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AlertKick combine plusieurs besoins opérationnels habituellement séparés : surveillance d’un serveur Linux via eBPF, contrôles uptime, alertes d’astreinte et pages de statut. Un niveau gratuit est toujours mis en avant, mais les limites historiques souvent citées ne sont pas suffisamment confirmées par la grille publique actuelle ; la fiche documente donc le service sans figer des quotas potentiellement périmés.

@@ -36,12 +36,12 @@ initiales: A0
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 484
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le Free actuel confirme 25 000 MAU, 5 organisations, 1 domaine personnalisé et 1 connexion Enterprise.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Auth0 est référencé avec les limites gratuites vérifiées le 2026-08-19.

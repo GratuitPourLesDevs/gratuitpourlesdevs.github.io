@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 165
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Free officiel : 300 requests/day, REST API et Python SDK."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Financial Data fournit plusieurs familles de données financières via REST et un SDK Python. Le Free permet surtout d’accéder aux données de marché de base ; les données temps réel, news et jeux avancés commencent sur les offres payantes.

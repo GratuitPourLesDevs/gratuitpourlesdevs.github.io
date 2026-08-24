@@ -17,12 +17,12 @@ initiales: DAR
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 152
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Free officiel : 10 MAU et tracking jusqu’à 4 visages."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 DeepAR fournit un SDK de réalité augmentée pour intégrer des filtres et effets de visage dans des applications mobiles ou web. Le plan gratuit est surtout un quota de développement et de démonstration avec dix utilisateurs actifs mensuels.

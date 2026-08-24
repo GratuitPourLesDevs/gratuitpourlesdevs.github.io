@@ -20,9 +20,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 168
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Suite gratuite active : 60+ outils, fonctions principales 100 % client-side, sans inscription."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Format JSON Online regroupe un grand nombre d’outils de formatage, validation, comparaison et conversion. Les utilitaires JSON principaux travaillent localement dans le navigateur, ce qui évite d’envoyer les données au serveur.

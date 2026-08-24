@@ -37,9 +37,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 201
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La tarification officielle confirme un plan Free permanent pour les particuliers avec gRPC, REST, GraphQL et WebSocket, sans login requis pour télécharger l’application."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Kreya est un client API desktop orienté confidentialité : les projets restent locaux et peuvent être versionnés dans Git. Son support gRPC est particulièrement complet grâce à l’import par reflection serveur ou fichiers protobuf.

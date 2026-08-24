@@ -28,12 +28,12 @@ initiales: LI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 557
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: La grille actuelle confirme 2 utilisateurs, 500 clés pour tous les projets, 100 Mo de stockage et 10 000 tokens IA par mois.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Localit réunit dans une même interface les traductions manuelles, l’assistance IA et la synchronisation avec GitHub, GitLab ou Bitbucket. Le Free est assez concret pour un petit produit ou un prototype avec deux utilisateurs, 500 clés partagées entre les projets, 100 Mo de stockage et 10 000 tokens d’AI Assistant chaque mois. Les fonctionnalités de collaboration plus poussées sont réservées aux formules supérieures.

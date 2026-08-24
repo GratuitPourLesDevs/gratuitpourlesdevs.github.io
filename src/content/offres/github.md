@@ -48,9 +48,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 85
-verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-17
-verificationNote: "GitHub Free vérifié : dépôts publics et privés illimités, collaborateurs illimités, 2 000 minutes Actions mensuelles pour les dépôts privés, quotas Codespaces et Packages, et accès à Copilot Free."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 GitHub Free couvre bien davantage que l’hébergement Git : gestion des issues et projets, automatisation CI/CD, Pages, packages, environnements Codespaces et assistance IA peuvent être utilisés sans abonnement dans leurs quotas respectifs. Les dépôts eux-mêmes et le nombre de collaborateurs ne constituent pas la limite principale ; ce sont surtout les ressources de calcul, de stockage et les fonctionnalités avancées qui différencient les plans payants.

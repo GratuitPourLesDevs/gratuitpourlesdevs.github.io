@@ -30,12 +30,12 @@ initiales: KE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 424
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Le Free actuel ne se limite plus à l’OSS : Playground annonce 30 suites, 100 runs, 5 000 integrations et 5 crédits IA par mois.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Keploy capture le comportement réel d’API pour produire des tests et des mocks reproductibles. L’édition open source peut être utilisée localement tandis que le Playground apporte un petit quota cloud mensuel.

@@ -25,12 +25,12 @@ initiales: BC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 797
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Service actif vérifié le 20 août 2026 : BootstrapCDN est maintenu sous l’organisation jsDelivr et sert
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
   Bootstrap, Font Awesome, Bootswatch et Bootstrap Icons.'
 ---
 

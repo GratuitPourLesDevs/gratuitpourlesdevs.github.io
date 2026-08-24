@@ -31,9 +31,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 291
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La documentation actuelle décrit Gitter comme entièrement gratuit pour les conversations publiques et privées. L’ancien plafond gratuit de 25 utilisateurs n’est plus pertinent depuis la migration vers Matrix/Element."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Gitter reste une porte d’entrée pratique vers les communautés de développeurs, tout en reposant désormais sur Matrix. Les anciennes limitations de son offre historique ne doivent donc plus être utilisées comme référence.

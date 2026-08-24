@@ -20,12 +20,12 @@ initiales: "IE"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 682
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : 15 e-mails de test par jour historiquement annoncés."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Imitate Email fournit une boîte de réception de test destinée aux environnements build, QA et CI/CD. Elle permet de valider qu’une application produit bien les bons messages sans risquer de les envoyer à de vraies personnes, ce qui est pratique pour automatiser les scénarios d’inscription, de reset de mot de passe ou de notification. Le référentiel historique annonce 15 e-mails de test gratuits par jour ; ce plafond n’étant pas assez clairement confirmé actuellement, la fiche reste « à vérifier ».

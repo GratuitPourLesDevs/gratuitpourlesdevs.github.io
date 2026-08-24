@@ -22,12 +22,12 @@ initiales: D
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "active"
 vedette: false
 ordre: 1026
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site confirme le service gratuit et le chiffrement côté client, mais pas le plafond historique de 1 Go."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Dropshare privilégie la confidentialité avec chiffrement local et absence d’accès serveur au contenu en clair.

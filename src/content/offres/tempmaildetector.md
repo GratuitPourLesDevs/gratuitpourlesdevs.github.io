@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 718
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié : 200 lookups/mois, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 TempMailDetector est une API simple pour détecter si le domaine d’une adresse appartient à un fournisseur d’e-mails temporaires. Le niveau gratuit fournit 200 recherches par mois sans demander de carte bancaire, ce qui convient à un petit formulaire, une preuve de concept ou une validation complémentaire lors d’une inscription. L’outil raisonne principalement au niveau du domaine : il est donc pertinent pour repérer les services jetables connus, mais ne remplace pas à lui seul une validation complète de l’existence d’une boîte.

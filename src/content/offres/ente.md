@@ -27,12 +27,12 @@ initiales: E
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1028
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La tarification actuelle confirme 10 Go gratuits à vie ; les comptes gratuits utilisent une seule réplique."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Ente offre une alternative orientée confidentialité pour les photos et vidéos, avec chiffrement de bout en bout.

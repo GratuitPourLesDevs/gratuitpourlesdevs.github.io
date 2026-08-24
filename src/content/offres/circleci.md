@@ -37,12 +37,12 @@ initiales: CI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 398
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le Free actuel est basé sur 30k crédits/mois, 5 utilisateurs actifs et 30 concurrences ; l’open source peut obtenir jusqu’à 400k crédits/mois.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 CircleCI propose toujours un Free Tier complet, mais la métrique fiable est désormais le crédit. Les « minutes gratuites » dépendent donc du type de machine réellement choisi.

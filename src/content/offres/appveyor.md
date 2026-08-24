@@ -33,12 +33,12 @@ initiales: AV
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 393
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: L’offre open source reste gratuite avec projets publics illimités, 1 job concurrent, 5 jobs auto-hébergés et 60 minutes maximum par job.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 AppVeyor reste une option CI/CD intéressante pour les projets open source, notamment dans les environnements Windows. La gratuité permanente est liée au caractère public du projet.

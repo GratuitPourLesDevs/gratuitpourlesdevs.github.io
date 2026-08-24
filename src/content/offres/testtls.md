@@ -25,12 +25,12 @@ initiales: TC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 479
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: TestTLS se présente toujours comme un scanner TLS en ligne gratuit et supporte les services sur ports personnalisés.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : fetch failed."
 ---
 
 TestTLS.com est référencé avec les limites gratuites vérifiées le 2026-08-19.

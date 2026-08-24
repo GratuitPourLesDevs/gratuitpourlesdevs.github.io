@@ -20,12 +20,12 @@ initiales: "LX"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 650
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "LabEx met actuellement en avant Linux Journey comme ressource toujours gratuite, open source, sans inscription et avec terminal Linux navigateur."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : HTTP 403."
 ---
 
 LabEx mise sur l’apprentissage par manipulation : au lieu de simplement lire une commande Linux, l’apprenant peut l’exécuter dans un terminal directement ouvert dans le navigateur. La plateforme couvre beaucoup de domaines techniques, mais la gratuité la plus clairement garantie aujourd’hui concerne Linux Journey, annoncé comme toujours gratuit, sans inscription et open source. C’est une excellente porte d’entrée pour travailler Linux de manière concrète ; les autres parcours LabEx doivent être évalués séparément selon leur modèle d’accès.

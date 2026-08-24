@@ -20,12 +20,12 @@ initiales: "PA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 702
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "À revalider : niveau gratuit historiquement proposé pour parser des e-mails."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Parsio transforme des e-mails entrants en données structurées : une facture, une réservation, une notification ou un formulaire reçu par mail peut être parsé puis transmis à une API ou à un autre outil. Cette approche évite d’écrire soi-même toute la logique d’extraction et est particulièrement utile pour automatiser des flux métier hérités basés sur l’e-mail. Un niveau gratuit est historiquement référencé, mais ses quotas actuels ne sont pas suffisamment vérifiés ici ; la fiche est donc marquée « à vérifier ».

@@ -22,12 +22,12 @@ initiales: "PR"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 999
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site continue de présenter Pulse.red comme un time tracker et timesheet minimaliste gratuit, sans publier de quota numérique détaillé."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Pulse.red se concentre sur le suivi du temps sans surcharge fonctionnelle. Il convient aux développeurs et petites équipes qui veulent simplement enregistrer et consulter le temps passé par projet.

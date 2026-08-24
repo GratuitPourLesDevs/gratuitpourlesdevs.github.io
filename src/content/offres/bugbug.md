@@ -35,12 +35,12 @@ initiales: BB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 416
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: La grille actuelle limite le Free à 1 projet, 1 utilisateur, 4 suites et 15 tests, avec exécutions locales illimitées.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 BugBug vise les équipes qui veulent automatiser des parcours web sans écrire beaucoup de code. La gratuité est intéressante en local, mais elle ne remplace pas un pipeline de tests cloud.

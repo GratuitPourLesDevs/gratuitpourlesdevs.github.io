@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 166
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Launchpad officiel : 5k requests/mois et 12 h de délai ; ticker/entities, sentiment, webhook et WebSocket non inclus."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 finlight propose une API de news financières mais son plan Launchpad n’inclut plus plusieurs enrichissements cités dans d’anciennes descriptions. Le quota de 5 000 requêtes reste intéressant, à condition d’accepter le délai de douze heures et l’absence de ticker/sentiment.

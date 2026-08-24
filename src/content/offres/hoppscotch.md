@@ -26,12 +26,12 @@ initiales: HP
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 174
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "La documentation officielle confirme le client gratuit/open source et l’édition Community self-hosted."
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 Hoppscotch est une alternative légère aux clients API classiques pour construire et tester rapidement des requêtes depuis le navigateur, le desktop ou la CLI. Son socle open source évite un quota de requêtes imposé par l’outil lui-même.

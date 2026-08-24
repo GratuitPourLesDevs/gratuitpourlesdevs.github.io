@@ -19,9 +19,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 621
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free : 2 monitors avec accès aux principaux types de contrôle."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 SiteSure propose plusieurs familles de contrôles — disponibilité web, API, tâches planifiées, ports, DNS ou certificats — derrière une interface unique. Le Free n’autorise que deux monitors, mais il ne réduit pas le produit à un simple ping HTTP ; c’est donc une bonne option pour surveiller deux dépendances critiques de nature différente.

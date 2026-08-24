@@ -27,12 +27,12 @@ initiales: "S"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1002
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "La page de tarification actuelle affiche 20 bug reports/mois, 1 app, 3 seats et 1 mois de rétention. Une page d’aide 2026 mentionne 30 rapports ; la valeur tarifaire de 20 est retenue par prudence."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Shake facilite la remontée de bugs mobiles avec le contexte utile aux développeurs. Le plan Free a évolué : la page de prix actuelle indique vingt rapports de bugs mensuels, et non dix.

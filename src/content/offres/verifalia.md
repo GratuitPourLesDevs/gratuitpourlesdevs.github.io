@@ -23,9 +23,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 721
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: "2026-08-19"
-verificationNote: "Free vérifié : 25 crédits quotidiens permanents, API et interface."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Verifalia valide les adresses en vérifiant leur structure, le domaine, la boîte et différents signaux comme l’usage d’un fournisseur jetable. Le niveau gratuit fournit 25 crédits par jour de façon permanente et peut être utilisé depuis l’interface ou l’API. Une vérification standard consomme un crédit, ce qui correspond à environ 750 validations simples sur un mois de 30 jours si elles sont réparties quotidiennement. Les traitements plus coûteux peuvent cependant utiliser plusieurs crédits, d’où l’intérêt de surveiller le mode choisi.

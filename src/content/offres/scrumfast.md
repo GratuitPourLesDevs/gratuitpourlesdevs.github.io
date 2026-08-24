@@ -24,12 +24,12 @@ initiales: "S"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1000
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le site officiel actuel annonce une utilisation complètement gratuite jusqu’à 15 utilisateurs. L’ancienne limite de 5 utilisateurs est obsolète."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 ScrumFast propose une interface Scrum volontairement simple avec un plafond gratuit désormais porté à quinze utilisateurs. Le service indique ne pas proposer d’option payante.

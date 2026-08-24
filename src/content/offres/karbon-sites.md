@@ -31,12 +31,12 @@ initiales: KS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 361
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le service officiel confirme la génération de HTML, CSS et JavaScript depuis des prompts et dispose d’une page de pricing, mais les affirmations de 5 générations par mois, d’export APK et de générations illimitées avec une clé Gemini personnelle n’ont pas pu être confirmées officiellement lors de cette vérification.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Vérification automatique incomplète : fetch failed."
 ---
 
 Karbon Sites propose un environnement simple pour passer d’une idée à un frontend web généré et modifiable par IA. La fiche reste volontairement en vérification tant que l’éditeur ne rend pas les limites exactes de son offre gratuite suffisamment explicites sur sa documentation publique.

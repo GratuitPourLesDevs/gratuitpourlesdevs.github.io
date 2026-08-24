@@ -24,9 +24,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 262
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-18
-verificationNote: "Le Starter Free actuel confirme 100k requêtes/mois, 2 projets, 5 environnements, 100 consommateurs et 2 membres, sans carte."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zuplo permet de placer rapidement une couche de gouvernance devant une API existante : clés, limitations, documentation et déploiement edge. Le Free Tier reste solide malgré une réduction importante de ses anciens quotas.

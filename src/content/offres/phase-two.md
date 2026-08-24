@@ -32,12 +32,12 @@ initiales: P2
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 500
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Les shared realms gratuits sont en phase-out pour les nouveaux projets, tandis que des contenus 2026 mentionnent
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
   encore un free realm. Le statut hébergé doit être revalidé.
 ---
 

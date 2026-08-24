@@ -28,12 +28,12 @@ initiales: ZM
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 344
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Offre Basic actuelle revérifiée le 18 août 2026.
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Zoom Basic reste suffisant pour de nombreuses réunions courtes et ateliers jusqu’à cent participants. La limite de 40 minutes est le principal compromis du plan gratuit.

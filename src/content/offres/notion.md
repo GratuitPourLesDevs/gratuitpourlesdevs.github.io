@@ -30,12 +30,12 @@ initiales: 'NO'
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 302
-verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: 'Plan Free vérifié : usage individuel avec pages/blocs illimités ; avec plusieurs membres, le workspace Free est limité à 1 000 blocs. 10 invités, fichiers de 5 Mo et historique de 7 jours.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Notion peut couvrir documentation, wiki, tâches et petites bases de données dans un seul outil. Le plan gratuit est particulièrement intéressant pour un développeur seul ; son usage comme vrai workspace d’équipe devient rapidement plus contraint.

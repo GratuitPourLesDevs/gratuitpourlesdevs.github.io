@@ -23,12 +23,12 @@ initiales: PD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1055
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: '2026-08-22'
-verificationNote: "Le plan Proton Free fournit actuellement 5 Go de stockage chiffré de bout en bout."
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 Proton Drive offre 5 Go gratuits avec le même modèle de chiffrement de bout en bout que les offres payantes.

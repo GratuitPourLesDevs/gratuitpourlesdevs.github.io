@@ -35,12 +35,12 @@ initiales: PY
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 831
-verifieLe: '2026-08-20'
-verificationAutomatiqueLe: '2026-08-20'
-verificationNote: 'Beginner actuel : 1 web app, 512MB, 2 consoles, 100 CPU-s/jour. MySQL et tâche quotidienne ne sont plus inclus pour les nouveaux comptes depuis janvier 2026.'
+verifieLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 ---
 
 PythonAnywhere est une porte d’entrée très simple pour publier une application Python sans installer ni administrer de serveur : l’éditeur, les consoles, les fichiers et l’hébergement sont accessibles directement depuis le navigateur. Le compte Beginner permet de mettre en ligne une application sur un sous-domaine PythonAnywhere, avec 512 MB de fichiers, deux consoles et 100 CPU-secondes par jour, ce qui convient bien à l’apprentissage, aux petits outils Flask/Django et aux démonstrations. Le Free Tier est cependant devenu plus restrictif pour les nouveaux comptes : pas de SSH, accès Internet sortant filtré, plus de tâches planifiées gratuites et surtout plus de MySQL depuis janvier 2026. Il reste donc excellent pour débuter, mais moins adapté à une application dépendant de services externes ou d’une base relationnelle intégrée.

@@ -25,12 +25,12 @@ initiales: DC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 454
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: '2026-08-19'
-verificationNote: Le service est actif et propose directement le formulaire de checkup ; aucun quota gratuit chiffré n’est publié.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
 ---
 
 DJ Checkup est référencé avec les limites gratuites vérifiées le 2026-08-19.

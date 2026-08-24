@@ -25,12 +25,12 @@ initiales: TR
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: active
+statut: "a_verifier"
 vedette: false
 ordre: 330
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: '2026-08-18'
-verificationNote: Le quota actuel est de 10 000 minutes gratuites par mois pendant la première année. La fiche est donc marquée non permanente.
+verificationAutomatiqueLe: 2026-08-24
+verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
 ---
 
 Tencent RTC peut être intéressant pour prototyper des fonctions d’appel audio/vidéo avec un volume conséquent. Ce n’est toutefois pas un Free Tier permanent : l’allocation gratuite annoncée est limitée à la première année.
