@@ -26,6 +26,7 @@ const cloudflareWebAnalyticsToken = import.meta.env.CLOUDFLARE_WEB_ANALYTICS_TOK
 const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
   ? JSON.stringify({ token: cloudflareWebAnalyticsToken })
   : undefined;
+const ethicalAdsPublisher = import.meta.env.PUBLIC_ETHICALADS_PUBLISHER?.trim();
 
 const offersUpdated = await getOffersUpdatedMetadata();
 ---
@@ -51,9 +52,11 @@ const offersUpdated = await getOffersUpdatedMetadata();
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/pagination-enhancement.css" />
     <link rel="stylesheet" href="/affiliate.css" />
+    <link rel="stylesheet" href="/ethicalads.css" />
     <script src="/pagination-enhancement.js" defer></script>
     <script src="/catalogue-editorial-enhancement.js" defer></script>
     <script src="/affiliate-enhancement.js?v=20260824-partner-carousel-all-offers" defer></script>
+    <script src="/ethicalads.js?v=20260824" defer></script>
     <script src="/account-client.js?v=20260822-reversible-stack-action" defer></script>
     <script src="/account-delete.js?v=20260822-confirm-account-deletion" defer></script>
     <meta property="og:title" content={title} />
@@ -100,6 +103,7 @@ const offersUpdated = await getOffersUpdatedMetadata();
     data-comparisons-api-local="http://127.0.0.1:8787"
     data-offers-updated-label={offersUpdated.label}
     data-offers-updated-iso={offersUpdated.iso}
+    data-ethicalads-publisher={ethicalAdsPublisher}
   >
     <slot />
     <SiteFooter />
