@@ -1,0 +1,84 @@
+---
+interface Props {
+  keywords?: string[];
+  class?: string;
+}
+
+const {
+  keywords = ['developer-tools', 'cloud', 'api', 'devops', 'hosting', 'database', 'saas', 'programming'],
+  class: className = '',
+} = Astro.props;
+
+const publisher = import.meta.env.PUBLIC_ETHICALADS_PUBLISHER?.trim();
+const keywordValue = keywords.filter(Boolean).join('|');
+---
+
+{publisher && (
+  <aside class:list={['ethical-ad', className]} aria-label="Publicité">
+    <div class="ethical-ad-heading">
+      <span>Publicité</span>
+      <small>Publicité contextuelle · sans profilage</small>
+    </div>
+    <div
+      class="ethical-ad-placement"
+      data-ea-publisher={publisher}
+      data-ea-type="image"
+      data-ea-keywords={keywordValue}
+    ></div>
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+  </aside>
+)}
+
+<style>
+  .ethical-ad {
+    width: min(1180px, calc(100% - 7.2vw));
+    min-height: 92px;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    align-items: center;
+    gap: 22px;
+    margin: 0 auto 18px;
+    padding: 12px 18px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--surface);
+  }
+
+  .ethical-ad-heading {
+    display: grid;
+    gap: 5px;
+    padding-right: 18px;
+    border-right: 1px solid var(--line);
+  }
+
+  .ethical-ad-heading span {
+    color: var(--muted);
+    font: 700 9px var(--mono);
+    letter-spacing: .7px;
+    text-transform: uppercase;
+  }
+
+  .ethical-ad-heading small {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .ethical-ad-placement {
+    min-width: 0;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  :global(.ethical-ad .ea-content) {
+    max-width: 100%;
+  }
+
+  @media (max-width: 760px) {
+    .ethical-ad {
+      display: none;
+    }
+  }
+</style>
