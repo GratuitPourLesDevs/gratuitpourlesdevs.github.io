@@ -41,7 +41,6 @@ ordre: 813
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  2 500 requêtes non cachées par 10 minutes et par IP.
 ---
 
 wsrv.nl (weserv) — Service gratuit et open source de cache, redimensionnement et transformation d’images à la volée via un CDN mondial.

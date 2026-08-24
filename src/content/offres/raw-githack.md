@@ -35,7 +35,6 @@ ordre: 807
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  diffusé via Cloudflare, sans SLA formel.'
 ---
 
 raw.githack — Proxy CDN gratuit pour servir les fichiers de dépôts Git avec les bons types MIME et un cache Cloudflare mondial.

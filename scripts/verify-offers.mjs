@@ -1,30 +1,51 @@
 import { readdir, readFile, writeFile, appendFile } from 'node:fs/promises';
-import { basename, join } from 'node:path';
+import { basename, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const offersDirectory = new URL('../src/content/offres/', import.meta.url);
 const dryRun = process.argv.includes('--dry-run');
 const today = new Date().toISOString().slice(0, 10);
 const freeEvidence = /\bfree(?: tier| plan| forever)?\b|gratuit|always[- ]free|\$\s*0\b|0\s*(?:€|eur|usd|\/\s*mois|\/\s*month)/i;
 
-function frontmatterValue(document, field) {
-  const match = document.match(new RegExp(`^${field}:\\s*(.+?)\\s*$`, 'm'));
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function frontmatterEnd(document) {
+  const closing = document.indexOf('\n---', 3);
+  if (!document.startsWith('---\n') || closing === -1) throw new Error('Frontmatter invalide');
+  return closing;
+}
+
+function scalarPattern(field) {
+  return new RegExp(`^${escapeRegExp(field)}:[^\\r\\n]*(?:\\r?\\n[ \\t]+[^\\r\\n]*)*`, 'm');
+}
+
+export function frontmatterValue(document, field) {
+  const frontmatter = document.slice(0, frontmatterEnd(document));
+  const match = frontmatter.match(scalarPattern(field));
   if (!match) return '';
-  const value = match[1].trim();
+  const value = match[0]
+    .slice(match[0].indexOf(':') + 1)
+    .replace(/\r?\n[ \t]+/g, ' ')
+    .trim();
   if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
     return value.slice(1, -1);
   }
   return value;
 }
 
-function setFrontmatterValue(document, field, value) {
+export function setFrontmatterValue(document, field, value) {
   const rendered = typeof value === 'string' && !/^\d{4}-\d{2}-\d{2}$/.test(value)
     ? JSON.stringify(value)
     : String(value);
   const line = `${field}: ${rendered}`;
-  const pattern = new RegExp(`^${field}:.*$`, 'm');
-  if (pattern.test(document)) return document.replace(pattern, line);
-  const closing = document.indexOf('\n---', 3);
-  if (closing === -1) throw new Error('Frontmatter invalide');
+  const closing = frontmatterEnd(document);
+  const frontmatter = document.slice(0, closing);
+  const pattern = scalarPattern(field);
+  if (pattern.test(frontmatter)) {
+    return `${frontmatter.replace(pattern, line)}${document.slice(closing)}`;
+  }
   return `${document.slice(0, closing)}\n${line}${document.slice(closing)}`;
 }
 
@@ -67,34 +88,39 @@ function decide(site, source) {
   return { statut: 'a_verifier', note: `Vérification automatique incomplète : ${source.detail}.` };
 }
 
-const files = (await readdir(offersDirectory)).filter((file) => file.endsWith('.md')).sort();
-const results = [];
+async function main() {
+  const files = (await readdir(offersDirectory)).filter((file) => file.endsWith('.md')).sort();
+  const results = [];
 
-for (const file of files) {
-  const path = join(offersDirectory.pathname, file);
-  let document = await readFile(path, 'utf8');
-  const previousStatus = frontmatterValue(document, 'statut') || 'active';
-  if (previousStatus === 'obsolete') {
-    results.push({ offer: basename(file, '.md'), status: 'obsolete', note: 'Archive conservée, non revérifiée.' });
-    continue;
+  for (const file of files) {
+    const path = join(offersDirectory.pathname, file);
+    let document = await readFile(path, 'utf8');
+    const previousStatus = frontmatterValue(document, 'statut') || 'active';
+    if (previousStatus === 'obsolete') {
+      results.push({ offer: basename(file, '.md'), status: 'obsolete', note: 'Archive conservée, non revérifiée.' });
+      continue;
+    }
+
+    const [site, source] = await Promise.all([
+      inspect(frontmatterValue(document, 'url')),
+      inspect(frontmatterValue(document, 'source')),
+    ]);
+    const decision = decide(site, source);
+    document = setFrontmatterValue(document, 'statut', decision.statut);
+    document = setFrontmatterValue(document, 'verificationAutomatiqueLe', today);
+    document = setFrontmatterValue(document, 'verificationNote', decision.note);
+    if (decision.statut === 'active') document = setFrontmatterValue(document, 'verifieLe', today);
+    if (!dryRun) await writeFile(path, document);
+    results.push({ offer: basename(file, '.md'), status: decision.statut, note: decision.note });
   }
 
-  const [site, source] = await Promise.all([
-    inspect(frontmatterValue(document, 'url')),
-    inspect(frontmatterValue(document, 'source')),
-  ]);
-  const decision = decide(site, source);
-  document = setFrontmatterValue(document, 'statut', decision.statut);
-  document = setFrontmatterValue(document, 'verificationAutomatiqueLe', today);
-  document = setFrontmatterValue(document, 'verificationNote', decision.note);
-  if (decision.statut === 'active') document = setFrontmatterValue(document, 'verifieLe', today);
-  if (!dryRun) await writeFile(path, document);
-  results.push({ offer: basename(file, '.md'), status: decision.statut, note: decision.note });
+  console.table(results);
+
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const rows = results.map(({ offer, status, note }) => `| ${offer} | ${status} | ${note.replaceAll('|', '\\|')} |`).join('\n');
+    await appendFile(process.env.GITHUB_STEP_SUMMARY, `## Vérification des offres — ${today}\n\n| Offre | Statut | Résultat |\n|---|---|---|\n${rows}\n`);
+  }
 }
 
-console.table(results);
-
-if (process.env.GITHUB_STEP_SUMMARY) {
-  const rows = results.map(({ offer, status, note }) => `| ${offer} | ${status} | ${note.replaceAll('|', '\\|')} |`).join('\n');
-  await appendFile(process.env.GITHUB_STEP_SUMMARY, `## Vérification des offres — ${today}\n\n| Offre | Statut | Résultat |\n|---|---|---|\n${rows}\n`);
-}
+const invokedPath = process.argv[1] ? resolve(process.argv[1]) : '';
+if (invokedPath === fileURLToPath(import.meta.url)) await main();

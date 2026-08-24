@@ -35,7 +35,6 @@ ordre: 534
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  sur 7 jours et 5 fonctions de test.
 ---
 
 PubNub est référencé avec les limites gratuites vérifiées le 19 août 2026.

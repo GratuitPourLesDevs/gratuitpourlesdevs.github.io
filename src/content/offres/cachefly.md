@@ -37,7 +37,6 @@ ordre: 798
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  et sans limite de durée ; l’ancienne promotion 5 To n’est pas retenue comme quota courant.
 ---
 
 CacheFly — Compte développeur CDN gratuit et permanent pour tester une diffusion mondiale avec SSL et outils de cache.

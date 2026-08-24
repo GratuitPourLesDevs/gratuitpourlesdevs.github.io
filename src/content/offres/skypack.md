@@ -38,7 +38,6 @@ ordre: 808
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  1 million de requêtes/mois n’est plus publié sur la page actuelle.
 ---
 
 Skypack — CDN de modules JavaScript ES natifs qui optimise les packages npm pour une utilisation directe dans le navigateur.

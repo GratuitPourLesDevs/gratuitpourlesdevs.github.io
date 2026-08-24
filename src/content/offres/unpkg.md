@@ -33,7 +33,6 @@ ordre: 812
 verifieLe: '2026-08-20'
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
-  de Cloudflare.
 ---
 
 UNPKG — CDN mondial pour charger directement n’importe quel fichier publié sur npm, sans installation ni build.

@@ -41,7 +41,6 @@ ordre: 801
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  Managed DNS gratuit. Gcore indique qu’aucune carte n’est requise pour démarrer.'
 ---
 
 Gcore CDN — CDN mondial gratuit avec 1 To de trafic mensuel, un milliard de requêtes incluses avant tarification et DNS managé gratuit.

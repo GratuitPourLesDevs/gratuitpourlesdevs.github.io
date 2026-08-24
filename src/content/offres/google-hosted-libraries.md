@@ -31,7 +31,6 @@ ordre: 800
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  open source, avec HTTPS, CORS et mise en cache.'
 ---
 
 Google Hosted Libraries — CDN Google pour charger les versions hébergées de bibliothèques JavaScript open source populaires.

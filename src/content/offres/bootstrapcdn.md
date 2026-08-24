@@ -31,7 +31,6 @@ ordre: 797
 verifieLe: '2026-08-20'
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
-  Bootstrap, Font Awesome, Bootswatch et Bootstrap Icons.'
 ---
 
 BootstrapCDN — CDN public pour Bootstrap, Font Awesome, Bootswatch et Bootstrap Icons, maintenu par l’organisation jsDelivr.

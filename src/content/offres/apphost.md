@@ -38,7 +38,6 @@ ordre: 508
 verifieLe: '2026-08-19'
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
-  persistants ; nettoyage possible après 90 jours d’inactivité.
 ---
 
 AppHost est référencé avec les limites gratuites vérifiées le 19 août 2026.

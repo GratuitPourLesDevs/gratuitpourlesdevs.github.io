@@ -41,7 +41,6 @@ ordre: 539
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  10 GiB réseau, 5 GiB stockage, message max 1 MiB.'
 ---
 
 Synadia Cloud Personal est référencé avec les limites gratuites vérifiées le 19 août 2026.

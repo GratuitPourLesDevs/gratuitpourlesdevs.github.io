@@ -42,7 +42,6 @@ ordre: 507
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  25k requêtes authentifiées n’est plus la métrique tarifaire.
 ---
 
 ZITADEL Cloud est référencé avec les limites gratuites vérifiées le 2026-08-19.

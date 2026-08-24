@@ -40,7 +40,6 @@ ordre: 511
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  et 8 jours connecté ; une autre page affiche encore 60 jours.
 ---
 
 Install On Air est référencé avec les limites gratuites vérifiées le 19 août 2026.

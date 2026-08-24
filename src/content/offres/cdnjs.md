@@ -31,7 +31,6 @@ ordre: 799
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  plus de 250 milliards de requêtes par mois.
 ---
 
 cdnjs — CDN public, gratuit et open source pour charger rapidement des bibliothèques JavaScript et CSS via Cloudflare.

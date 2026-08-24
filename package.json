@@ -11,6 +11,7 @@
     "audit:catalogue": "node scripts/audit-catalogue-order.mjs",
     "verify:offers": "node scripts/verify-offers.mjs",
     "verify:offers:dry": "node scripts/verify-offers.mjs --dry-run",
+    "test:verify-offers": "node --test scripts/verify-offers.test.mjs",
     "test:oauth": "node --test worker/oauth.test.mjs",
     "test:account": "node --test worker/account.test.mjs",
     "test:worker": "node --test worker/*.test.mjs",

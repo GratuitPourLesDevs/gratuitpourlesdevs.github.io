@@ -38,7 +38,6 @@ ordre: 500
 verifieLe: '2026-08-19'
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
-  encore un free realm. Le statut hébergé doit être revalidé.
 ---
 
 Phase Two est référencé avec les limites gratuites vérifiées le 2026-08-19.

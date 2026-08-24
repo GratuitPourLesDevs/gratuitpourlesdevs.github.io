@@ -43,7 +43,6 @@ ordre: 810
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  de rétention ; aucune carte n’est requise à l’inscription.'
 ---
 
 Stellate — Plateforme edge pour API GraphQL avec cache, métriques et limitation de débit, gratuite pour projets individuels.

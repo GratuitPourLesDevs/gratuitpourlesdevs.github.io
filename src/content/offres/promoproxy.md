@@ -36,7 +36,6 @@ ordre: 806
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  essentielles de sécurité.
 ---
 
 PromoProxy — Secure Web Gateway cloud gratuit pour petites équipes, avec filtrage, inspection TLS et antivirus.

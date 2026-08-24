@@ -40,7 +40,6 @@ ordre: 804
 verifieLe: '2026-08-20'
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Vérification automatique incomplète : HTTP 403."
-  sur le caractère Free Forever/trial et l’éligibilité Early Access.
 ---
 
 Namecheap Supersonic CDN — CDN Namecheap avec protection DDoS de base et 50 Go de trafic mensuel sur l’offre gratuite affichée.

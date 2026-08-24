@@ -38,7 +38,6 @@ ordre: 498
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  checks sont obsolètes.
 ---
 
 Ory Network Developer est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -38,7 +38,6 @@ ordre: 809
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  actuelle.
 ---
 
 Statically — CDN gratuit pour fichiers open source issus de GitHub, GitLab, Bitbucket, Gist et npm.

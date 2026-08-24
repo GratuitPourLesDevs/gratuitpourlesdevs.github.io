@@ -42,7 +42,6 @@ ordre: 537
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  use, avec notification recommandée au-delà de 10k/jour.
 ---
 
 SMS Gateway for Android est référencé avec les limites gratuites vérifiées le 19 août 2026.

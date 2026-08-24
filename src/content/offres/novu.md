@@ -42,7 +42,6 @@ ordre: 531
 verifieLe: 2026-08-24
 verificationAutomatiqueLe: 2026-08-24
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-  et 3 membres.
 ---
 
 Novu est référencé avec les limites gratuites vérifiées le 19 août 2026.
