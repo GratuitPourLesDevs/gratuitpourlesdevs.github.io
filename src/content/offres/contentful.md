@@ -38,7 +38,7 @@ initiales: CF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 347
 verifieLe: '2026-08-18'

@@ -36,7 +36,7 @@ initiales: PB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 219
 verifieLe: 2026-08-18

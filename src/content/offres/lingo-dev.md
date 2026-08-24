@@ -38,7 +38,7 @@ initiales: LD
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 553
 verifieLe: '2026-08-19'

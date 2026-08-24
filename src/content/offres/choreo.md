@@ -36,7 +36,7 @@ initiales: WS
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 819
 verifieLe: '2026-08-20'

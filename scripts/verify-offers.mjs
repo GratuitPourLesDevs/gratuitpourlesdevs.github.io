@@ -72,20 +72,75 @@ async function inspect(url) {
   }
 }
 
-function decide(site, source) {
+const CONFIRMATION_THRESHOLD = 2;
+
+function consecutiveFailures(previousCode, previousFailures, code) {
+  return previousCode === code ? previousFailures + 1 : 1;
+}
+
+export function decide(site, source, previous = {}) {
+  const previousStatus = previous.statut || 'active';
+  const previousCode = previous.verificationCode || '';
+  const previousFailures = Number.parseInt(previous.verificationEchecsConsecutifs || '0', 10) || 0;
+
   if (site.kind === 'gone') {
-    return { statut: 'obsolete', note: `Site officiel indisponible (${site.detail}).` };
+    const failures = consecutiveFailures(previousCode, previousFailures, 'site_indisponible');
+    const confirmed = failures >= CONFIRMATION_THRESHOLD;
+    return {
+      statut: confirmed ? 'obsolete' : previousStatus,
+      verificationEtat: 'controle_requis',
+      verificationCode: 'site_indisponible',
+      verificationEchecsConsecutifs: failures,
+      updateVerifiedAt: false,
+      note: confirmed
+        ? `Site officiel indisponible (${site.detail}) lors de ${failures} contrôles consécutifs.`
+        : `Site officiel momentanément indisponible (${site.detail}) ; statut éditorial conservé jusqu’à confirmation.`,
+    };
   }
   if (source.kind === 'gone') {
-    return { statut: 'a_verifier', note: `La source tarifaire a disparu (${source.detail}) ; contrôle éditorial requis.` };
+    const failures = consecutiveFailures(previousCode, previousFailures, 'source_indisponible');
+    const confirmed = failures >= CONFIRMATION_THRESHOLD;
+    return {
+      statut: confirmed ? 'a_verifier' : previousStatus,
+      verificationEtat: 'controle_requis',
+      verificationCode: 'source_indisponible',
+      verificationEchecsConsecutifs: failures,
+      updateVerifiedAt: false,
+      note: confirmed
+        ? `La source tarifaire reste indisponible (${source.detail}) après ${failures} contrôles consécutifs ; contrôle éditorial requis.`
+        : `La source tarifaire est momentanément indisponible (${source.detail}) ; statut éditorial conservé jusqu’à confirmation.`,
+    };
   }
   if (source.kind === 'reachable' && source.hasFreeEvidence) {
-    return { statut: 'active', note: 'Source tarifaire accessible et mention d’une formule gratuite détectée.' };
+    return {
+      statut: 'active',
+      verificationEtat: 'confirmee',
+      verificationCode: 'gratuit_detecte',
+      verificationEchecsConsecutifs: 0,
+      updateVerifiedAt: true,
+      note: 'Source tarifaire accessible et mention d’une formule gratuite détectée.',
+    };
   }
   if (source.kind === 'reachable') {
-    return { statut: 'a_verifier', note: 'Source accessible, mais aucune mention explicite de gratuité détectée.' };
+    const failures = consecutiveFailures(previousCode, previousFailures, 'gratuit_non_detecte');
+    return {
+      statut: previousStatus,
+      verificationEtat: 'controle_requis',
+      verificationCode: 'gratuit_non_detecte',
+      verificationEchecsConsecutifs: failures,
+      updateVerifiedAt: false,
+      note: 'Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel.',
+    };
   }
-  return { statut: 'a_verifier', note: `Vérification automatique incomplète : ${source.detail}.` };
+  const failures = consecutiveFailures(previousCode, previousFailures, 'controle_bloque');
+  return {
+    statut: previousStatus,
+    verificationEtat: 'inconclusive',
+    verificationCode: 'controle_bloque',
+    verificationEchecsConsecutifs: failures,
+    updateVerifiedAt: false,
+    note: `Vérification automatique incomplète (${source.detail}) ; statut éditorial conservé.`,
+  };
 }
 
 async function main() {
@@ -105,11 +160,18 @@ async function main() {
       inspect(frontmatterValue(document, 'url')),
       inspect(frontmatterValue(document, 'source')),
     ]);
-    const decision = decide(site, source);
+    const decision = decide(site, source, {
+      statut: previousStatus,
+      verificationCode: frontmatterValue(document, 'verificationCode'),
+      verificationEchecsConsecutifs: frontmatterValue(document, 'verificationEchecsConsecutifs'),
+    });
     document = setFrontmatterValue(document, 'statut', decision.statut);
     document = setFrontmatterValue(document, 'verificationAutomatiqueLe', today);
     document = setFrontmatterValue(document, 'verificationNote', decision.note);
-    if (decision.statut === 'active') document = setFrontmatterValue(document, 'verifieLe', today);
+    document = setFrontmatterValue(document, 'verificationEtat', decision.verificationEtat);
+    document = setFrontmatterValue(document, 'verificationCode', decision.verificationCode);
+    document = setFrontmatterValue(document, 'verificationEchecsConsecutifs', decision.verificationEchecsConsecutifs);
+    if (decision.updateVerifiedAt) document = setFrontmatterValue(document, 'verifieLe', today);
     if (!dryRun) await writeFile(path, document);
     results.push({ offer: basename(file, '.md'), status: decision.statut, note: decision.note });
   }

@@ -25,7 +25,7 @@ initiales: TR
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 330
 verifieLe: '2026-08-18'

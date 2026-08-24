@@ -26,7 +26,7 @@ initiales: MH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 468
 verifieLe: '2026-08-19'

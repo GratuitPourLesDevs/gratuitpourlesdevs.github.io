@@ -35,7 +35,7 @@ initiales: OS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 861
 verifieLe: '2026-08-21'

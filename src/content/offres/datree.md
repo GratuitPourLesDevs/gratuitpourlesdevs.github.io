@@ -27,7 +27,7 @@ initiales: D
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "obsolete"
+statut: active
 vedette: false
 ordre: 452
 verifieLe: '2026-08-19'

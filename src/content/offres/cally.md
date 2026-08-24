@@ -26,7 +26,7 @@ initiales: CY
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 274
 verifieLe: 2026-08-18

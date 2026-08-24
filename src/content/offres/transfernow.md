@@ -25,7 +25,7 @@ initiales: TN
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 333
 verifieLe: '2026-08-18'

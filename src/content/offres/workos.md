@@ -37,7 +37,7 @@ initiales: WO
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: "a_verifier"
+statut: active
 vedette: false
 ordre: 506
 verifieLe: '2026-08-19'
