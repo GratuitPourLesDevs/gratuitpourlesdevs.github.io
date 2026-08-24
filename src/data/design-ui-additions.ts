@@ -65,6 +65,9 @@ const QUOTAS: Record<string, OfferQuota[]> = {
     { id: "pages", metric: "pages", label: "Pages par site", amount: 10, unit: "page", period: "lifetime", scope: "site", reset: "never", overage: "blocked", kind: "limit" },
     { id: "published", metric: "sites", label: "Sites publiés", amount: 0, unit: "site", period: "lifetime", scope: "account", reset: "never", overage: "blocked", kind: "limit" },
   ],
+  "umso": [
+    { id: "pages", metric: "pages", label: "Page d’accueil publiée", amount: 1, unit: "page", period: "lifetime", scope: "site", reset: "never", overage: "blocked", kind: "limit" },
+  ],
   "updrafts": [
     { id: "limits", metric: "service_limits", label: "Limites du niveau gratuit", amount: null, unit: "various", period: "variable", scope: "service", reset: "variable", overage: "unknown", kind: "not-published" },
   ],
@@ -121,6 +124,7 @@ export const DESIGN_UI_QUOTA_SCORES = {
   "shadcn-studio": 20,
   "svgicons": 25,
   "unicorn-platform": 10,
+  "umso": 10,
   "updrafts": 10,
   "webflow": 10,
   "webstudio": 20,
