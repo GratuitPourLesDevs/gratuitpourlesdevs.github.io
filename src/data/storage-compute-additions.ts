@@ -4,6 +4,7 @@ import { TUNNEL_NETWORK_QUOTA_SCORES } from './tunnel-network-additions';
 import { PROJECT_MANAGEMENT_QUOTA_SCORES } from './project-management-additions';
 import { STORAGE_MEDIA_QUOTA_SCORES } from './storage-media-additions';
 import { DESIGN_UI_QUOTA_SCORES } from './design-ui-additions';
+import { CARTOGRAPHY_QUOTA_SCORES } from './cartography-additions';
 
 // Le pricing Taskade courant est la référence commerciale la plus directe :
 // 1 utilisateur, 3 apps Genesis, 1 agent, 3 automatisations et 6 000 crédits ponctuels.
@@ -49,4 +50,5 @@ export const STORAGE_COMPUTE_QUOTA_SCORES = {
   ...PROJECT_MANAGEMENT_QUOTA_SCORES,
   ...STORAGE_MEDIA_QUOTA_SCORES,
   ...DESIGN_UI_QUOTA_SCORES,
+  ...CARTOGRAPHY_QUOTA_SCORES,
 } satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
