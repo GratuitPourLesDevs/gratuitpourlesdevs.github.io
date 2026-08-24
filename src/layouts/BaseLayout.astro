@@ -69,6 +69,30 @@ const offersUpdated = await getOffersUpdatedMetadata();
     <style is:global>
       @media(max-width:760px){.site-header nav a.guides-nav-link{display:grid!important}}
       body > footer:not(:last-of-type){display:none!important}
+
+      /* Même emprise horizontale que les guides détaillés. */
+      .guides-page,
+      .quota-explorer-page,
+      .comparisons-page {
+        width:min(1600px,calc(100% - 64px))!important;
+        margin-left:auto!important;
+        margin-right:auto!important;
+      }
+      @media(max-width:1200px){
+        .guides-page,
+        .quota-explorer-page,
+        .comparisons-page{width:calc(100% - 48px)!important}
+      }
+      @media(max-width:900px){
+        .guides-page,
+        .quota-explorer-page,
+        .comparisons-page{width:calc(100% - 40px)!important}
+      }
+      @media(max-width:760px){
+        .guides-page,
+        .quota-explorer-page,
+        .comparisons-page{width:calc(100% - 32px)!important}
+      }
     </style>
   </head>
   <body
