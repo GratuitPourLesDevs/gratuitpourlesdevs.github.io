@@ -27,7 +27,7 @@ jobs:
         run: npm ci
       - name: Construire le site
         run: npm run build
-      - name: Valider le Guide et afficher le Top 10
+      - name: Valider le Guide et enregistrer le Top 10
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -63,16 +63,17 @@ jobs:
           assert item_list, 'ItemList SEO introuvable'
           names = [item.get('name') for item in item_list.get('itemListElement', [])]
           assert len(names) == 10, f'10 offres attendues, trouvé {len(names)} : {names}'
-          print('TOP_10_MESSAGING_STREAMING=' + ' | '.join(names))
+          result = 'TOP_10_MESSAGING_STREAMING=' + ' | '.join(names)
+          print(result)
+          Path('_temp_messaging_top10.txt').write_text(result + '\n', encoding='utf-8')
           PY
-      - name: Publier les fichiers fonctionnels validés sur la branche
+      - name: Publier les fichiers validés et le rapport temporaire
         run: |
           git config user.name 'GratuitPourLesDevs'
           git config user.email 'julien.taverne+gratuitpourlesdevs@gmail.com'
-          git add -- src/data/messaging-streaming-guide.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/messagerie-streaming/meilleures-offres-gratuites.astro
+          git add -- _temp_messaging_top10.txt src/data/messaging-streaming-guide.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/messagerie-streaming/meilleures-offres-gratuites.astro
           if git diff --cached --quiet; then
-            echo 'Aucune modification fonctionnelle supplémentaire.'
             exit 0
           fi
-          git commit -m 'Ajoute le guide Messagerie et streaming'
+          git commit -m 'Valide le Top 10 Messagerie et streaming'
           git push origin HEAD:feat/guide-next-category
