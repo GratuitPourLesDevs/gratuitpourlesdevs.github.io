@@ -1,0 +1,84 @@
+name: Validation temporaire du Guide Supervision
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: write
+
+jobs:
+  validate-guide:
+    if: github.head_ref == 'feat/guide-supervision'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: feat/guide-supervision
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - name: Construire les fichiers du Guide
+        run: python scripts/_temp_build_supervision_guide.py
+      - name: Installer les dépendances
+        run: npm ci
+      - name: Construire le site
+        run: npm run build
+      - name: Valider le Guide et enregistrer le Top 10
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import html as html_lib
+          import json
+          import re
+
+          page = Path('dist/guides/supervision/meilleures-offres-gratuites/index.html')
+          existing = [
+              Path('dist/guides/email/meilleures-offres-gratuites/index.html'),
+              Path('dist/guides/api-donnees-ml/meilleures-offres-gratuites/index.html'),
+              Path('dist/guides/depots-code-source/meilleures-offres-gratuites/index.html'),
+          ]
+          assert page.exists(), 'Route Supervision absente'
+          assert all(path.exists() for path in existing), 'Régression sur un Guide existant'
+
+          content = page.read_text(encoding='utf-8')
+          for label in ('Ressources surveillées', 'Volume / événements', 'Fréquence / rétention'):
+              assert label in content, f'Comparateur spécifique absent : {label}'
+          for forbidden in ('Volume d’envoi', 'IA / crédits', 'Dépôts / projets'):
+              assert forbidden not in content, f'Comparateur d’une autre catégorie présent : {forbidden}'
+
+          canonical = 'https://gratuitpourlesdevs.fr/guides/supervision/meilleures-offres-gratuites/'
+          assert canonical in content, 'Canonical Supervision absent'
+
+          item_list = None
+          for raw in re.findall(r'<script[^>]+type="application/ld\\+json"[^>]*>(.*?)</script>', content, flags=re.S):
+              try:
+                  data = json.loads(html_lib.unescape(raw))
+              except json.JSONDecodeError:
+                  continue
+              candidates = data if isinstance(data, list) else [data]
+              for candidate in candidates:
+                  if isinstance(candidate, dict) and candidate.get('@type') == 'ItemList':
+                      item_list = candidate
+                      break
+              if item_list:
+                  break
+          assert item_list, 'ItemList SEO introuvable'
+          names = [item.get('name') for item in item_list.get('itemListElement', [])]
+          assert len(names) == 10, f'10 offres attendues, trouvé {len(names)} : {names}'
+          Path('_temp_supervision_top10.txt').write_text('TOP_10_SUPERVISION=' + ' | '.join(names) + '\n', encoding='utf-8')
+          PY
+      - name: Publier les fichiers validés et le rapport temporaire
+        run: |
+          git config user.name 'GratuitPourLesDevs'
+          git config user.email 'julien.taverne+gratuitpourlesdevs@gmail.com'
+          git add -- src/data/supervision-guide.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/supervision/meilleures-offres-gratuites.astro _temp_supervision_top10.txt
+          if git diff --cached --quiet; then
+            echo 'Aucune modification fonctionnelle supplémentaire.'
+            exit 0
+          fi
+          git commit -m 'Ajoute le guide Supervision'
+          git push origin HEAD:feat/guide-supervision
