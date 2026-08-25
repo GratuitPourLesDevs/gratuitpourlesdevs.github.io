@@ -29,7 +29,10 @@ jobs:
         env:
           CLOUDFLARE_WEB_ANALYTICS_TOKEN: ${{ secrets.CLOUDFLARE_WEB_ANALYTICS_TOKEN }}
           PUBLIC_ADSENSE_ENABLED: ${{ vars.PUBLIC_ADSENSE_ENABLED }}
-          PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT }}
+          # L'identifiant éditeur est public. La valeur du dépôt reste prioritaire,
+          # avec ce repli pour que la validation du domaine ne dépende pas d'une
+          # variable GitHub manquante.
+          PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT || 'ca-pub-4480723880776093' }}
           PUBLIC_ADSENSE_CATALOGUE_SLOT: ${{ vars.PUBLIC_ADSENSE_CATALOGUE_SLOT }}
           PUBLIC_ADSENSE_GUIDE_SLOT: ${{ vars.PUBLIC_ADSENSE_GUIDE_SLOT }}
           PUBLIC_ADSENSE_OFFER_SLOT: ${{ vars.PUBLIC_ADSENSE_OFFER_SLOT }}

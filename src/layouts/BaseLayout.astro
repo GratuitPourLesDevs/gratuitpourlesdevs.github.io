@@ -26,6 +26,10 @@ const cloudflareWebAnalyticsToken = import.meta.env.CLOUDFLARE_WEB_ANALYTICS_TOK
 const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
   ? JSON.stringify({ token: cloudflareWebAnalyticsToken })
   : undefined;
+const adsenseClientId = import.meta.env.PUBLIC_ADSENSE_CLIENT?.trim();
+const validAdsenseClientId = adsenseClientId && /^ca-pub-\d{10,20}$/.test(adsenseClientId)
+  ? adsenseClientId
+  : undefined;
 const offersUpdated = await getOffersUpdatedMetadata();
 ---
 
@@ -36,6 +40,7 @@ const offersUpdated = await getOffersUpdatedMetadata();
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     {robots && <meta name="robots" content={robots} />}
+    {validAdsenseClientId && <meta name="google-adsense-account" content={validAdsenseClientId} />}
     <meta name="theme-color" content="#ffffff" />
     <script is:inline>
       (() => {
