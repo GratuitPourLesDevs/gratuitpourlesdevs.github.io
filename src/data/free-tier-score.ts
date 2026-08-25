@@ -2,12 +2,15 @@ import type { OfferAlertLevel, OfferAlertType } from './offer-alerts';
 import { formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-quotas';
 import { DATA_TOOLS_QUOTA_SCORES } from './data-tools-scores';
 import { SOURCE_CODE_GUIDE_QUOTA_SCORES } from './source-code-guide';
+import { MESSAGING_PLATFORM_QUOTA_SCORES } from './messaging-platform-scores';
 import './offer-quota-overrides';
 import './parsivex-quota';
 import './source-code-hosting-quotas';
 import './api-service-quotas';
 import './data-service-quotas';
 import './data-tools-quotas';
+import './messaging-platform-quotas';
+import './messaging-platform-quotas-more';
 
 export type FreeTierScoreCriterion = {
   id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
@@ -41,6 +44,7 @@ type ScoredOffer = {
 const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   ...DATA_TOOLS_QUOTA_SCORES,
   ...SOURCE_CODE_GUIDE_QUOTA_SCORES,
+  ...MESSAGING_PLATFORM_QUOTA_SCORES,
   'abstract-api': 15,
   alphai: 15,
   'amazon-cloudfront': 20,
@@ -149,124 +153,100 @@ const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   'zoho-desk': 15,
   'zoho-forms': 15,
   'zoho-learn': 20,
-  'zoho-mail': 15,
+  'zoho-mail': 20,
   'zoho-meeting': 20,
-  'zoho-notebook': 15,
+  'zoho-notebook': 20,
   'zoho-projects': 20,
   'zoho-sign': 15,
   'zoho-sprints': 15,
-  'zoho-survey': 15,
-  'zoho-vault': 25,
+  'zoho-survey': 20,
+  'zoho-vault': 20,
   'zoho-workdrive': 15,
 };
 
-const QUOTA_LEVELS: Record<number, string> = {
-  5: 'Découverte : le gratuit sert surtout à tester le service ou son interface.',
-  10: 'Prototype limité : le quota permet une expérimentation technique ciblée.',
-  15: 'Projet réel : le quota convient à un projet personnel ou une petite charge durable.',
-  20: 'Quota généreux : le gratuit couvre un projet actif ou plusieurs petits usages.',
-  25: 'Exceptionnel : l’offre gratuite se distingue nettement dans sa catégorie.',
+const dayMs = 24 * 60 * 60 * 1000;
+const freshnessPoints = (date: Date) => {
+  const days = Math.max(0, (Date.now() - date.getTime()) / dayMs);
+  if (days <= 30) return 5;
+  if (days <= 90) return 4;
+  if (days <= 180) return 3;
+  if (days <= 365) return 2;
+  return 1;
 };
 
-const DAY = 86_400_000;
-const DURATION_ALERT_PATTERN = /gratuit pendant|avantage limité|crédit limité/i;
-const AUTOMATIC_BILLING_PATTERN = /dépassements? facturés?|facturé après expiration/i;
+const getQuotaScore = (offerId: string) => QUOTA_SCORES[offerId] ?? 10;
 
-const getUsageFreedomScore = (offer: ScoredOffer) => {
-  const durationAlerts = offer.alertes.filter((alert) => DURATION_ALERT_PATTERN.test(alert.libelle));
-  const relevantAlerts = offer.alertes.filter((alert) => !DURATION_ALERT_PATTERN.test(alert.libelle));
-  const criticalAlerts = relevantAlerts.filter((alert) => alert.niveau === 'critique');
-  const criticalTypes = new Set(criticalAlerts.map((alert) => alert.type));
-  const hasAutomaticBilling = offer.depassementFacture || criticalAlerts.some((alert) => alert.type === 'finance' && AUTOMATIC_BILLING_PATTERN.test(alert.libelle));
-
-  let points = 20;
-  let assessment = 'Aucune restriction décisive n’est actuellement identifiée.';
-
-  if (hasAutomaticBilling) {
-    points = 0;
-    assessment = 'Un dépassement ou la fin de l’avantage peut déclencher une facturation.';
-  } else if (criticalTypes.has('finance') && criticalTypes.size > 1) {
-    points = 0;
-    assessment = 'Une dépendance payante se cumule avec une autre restriction critique.';
-  } else if (criticalTypes.has('finance')) {
-    points = 4;
-    assessment = 'Une ressource ou une dépendance indispensable reste facturée séparément.';
-  } else if (criticalTypes.has('usage')) {
-    points = 8;
-    assessment = 'Une restriction d’usage limite fortement les projets réellement éligibles.';
-  } else if (criticalAlerts.length > 0) {
-    points = 12;
-    assessment = 'Une limitation opérationnelle ou fonctionnelle peut changer la décision d’usage.';
-  } else if (relevantAlerts.length > 0) {
-    points = 16;
-    assessment = 'Des contraintes importantes existent, sans rendre l’offre inutilisable.';
+const getQuotaDetail = (offerId: string, points: number) => {
+  const quota = getOfferQuotas(offerId)[0];
+  if (!quota) {
+    if (points >= 20) return 'Quota gratuit généreux pour un usage développeur courant.';
+    if (points >= 15) return 'Quota gratuit exploitable pour un projet ou des tests réguliers.';
+    if (points >= 10) return 'Quota gratuit utile surtout pour prototypage ou faible volume.';
+    return 'Quota gratuit limité ou fortement encadré.';
   }
-
-  const visibleReasons = relevantAlerts.map((alert) => alert.libelle);
-  const reasons = visibleReasons.length ? ` Restrictions prises en compte : ${visibleReasons.join(', ')}.` : '';
-  const durationNote = durationAlerts.length ? ' Les limites de durée sont évaluées dans « Gratuit permanent ».' : '';
-
-  return { points, detail: `${assessment}${reasons}${durationNote}` };
+  return `${formatQuotaAmount(quota)} ${formatQuotaPeriod(quota)} — ${quota.label}.`;
 };
 
-export const getFreeTierScore = (id: string, offer: ScoredOffer, referenceDate = new Date()): FreeTierScore => {
-  const quotaPoints = QUOTA_SCORES[id];
-  if (!quotaPoints) throw new Error(`Score de quota manquant pour l’offre « ${id} ».`);
-  const structuredQuotas = getOfferQuotas(id);
-  if (!structuredQuotas.length) throw new Error(`Quotas structurés manquants pour l’offre « ${id} ».`);
-  const quotaEvidence = structuredQuotas.slice(0, 3).map((quota) => `${quota.label} : ${formatQuotaAmount(quota)} ${formatQuotaPeriod(quota)}`).join(' ; ');
+const getRestrictionScore = (offer: ScoredOffer) => {
+  if (offer.depassementFacture) return 5;
+  if (offer.alertes.some((alert) => alert.niveau === 'critique')) return 8;
+  if (offer.alertes.some((alert) => alert.niveau === 'important')) return 12;
+  return 20;
+};
 
-  const ageInDays = Math.max(0, Math.floor((referenceDate.getTime() - offer.verifieLe.getTime()) / DAY));
-  const freshnessPoints = ageInDays <= 90 ? 5 : ageInDays <= 180 ? 3 : ageInDays <= 365 ? 1 : 0;
-  const usageFreedom = getUsageFreedomScore(offer);
-  const sourcePoints = 2 + (offer.documentation ? 3 : 0);
-
+export const getFreeTierScore = (offerId: string, offer: ScoredOffer): FreeTierScore => {
+  const quotaPoints = getQuotaScore(offerId);
+  const restrictions = getRestrictionScore(offer);
   const criteria: FreeTierScoreCriterion[] = [
     {
       id: 'permanence',
-      label: 'Gratuit permanent',
-      points: offer.permanent ? 25 : 5,
+      label: 'Gratuité permanente',
+      points: offer.permanent ? 25 : 8,
       max: 25,
-      detail: offer.permanent ? 'Le quota gratuit n’a pas de date de fin annoncée.' : 'L’avantage gratuit est limité dans le temps.',
+      detail: offer.permanent ? 'Offre gratuite sans date de fin annoncée.' : 'Offre limitée dans le temps ou conditionnée.',
     },
     {
       id: 'card',
-      label: 'Accès sans carte bancaire',
-      points: offer.carteRequise ? 0 : 20,
+      label: 'Sans carte bancaire',
+      points: offer.carteRequise ? 5 : 20,
       max: 20,
-      detail: offer.carteRequise ? 'Un moyen de paiement est demandé pour activer l’offre.' : 'L’offre peut être activée sans fournir de carte bancaire.',
+      detail: offer.carteRequise ? 'Une carte bancaire est requise.' : 'Aucune carte bancaire requise pour commencer.',
     },
     {
       id: 'quota',
       label: 'Utilité du quota',
       points: quotaPoints,
       max: 25,
-      detail: `${QUOTA_LEVELS[quotaPoints]} Données structurées : ${quotaEvidence}${structuredQuotas.length > 3 ? ` ; +${structuredQuotas.length - 3} autre${structuredQuotas.length > 4 ? 's' : ''}` : ''}.`,
+      detail: getQuotaDetail(offerId, quotaPoints),
     },
     {
       id: 'restrictions',
-      label: 'Liberté réelle d’utilisation',
-      points: usageFreedom.points,
+      label: 'Liberté d’utilisation',
+      points: restrictions,
       max: 20,
-      detail: usageFreedom.detail,
+      detail: restrictions >= 20 ? 'Aucune restriction majeure détectée dans les conditions recensées.' : restrictions >= 12 ? 'Quelques restrictions importantes sont signalées.' : restrictions >= 8 ? 'Des restrictions fortes limitent l’usage.' : 'Le dépassement peut entraîner une facturation.',
     },
     {
       id: 'freshness',
-      label: 'Vérification récente',
-      points: freshnessPoints,
+      label: 'Fraîcheur de vérification',
+      points: freshnessPoints(offer.verifieLe),
       max: 5,
-      detail: `Vérifié le ${offer.verifieLe.toLocaleDateString('fr-FR')} (${ageInDays} jour${ageInDays > 1 ? 's' : ''}).`,
+      detail: `Dernière vérification le ${offer.verifieLe.toLocaleDateString('fr-FR')}.`,
     },
     {
       id: 'sources',
-      label: 'Sources officielles',
-      points: sourcePoints,
+      label: 'Qualité des sources',
+      points: offer.documentation ? 5 : offer.source ? 3 : 1,
       max: 5,
-      detail: offer.documentation ? 'Source tarifaire et documentation officielle disponibles.' : 'Source tarifaire disponible ; documentation distincte non renseignée.',
+      detail: offer.documentation ? 'Source principale et documentation officielles disponibles.' : offer.source ? 'Source officielle principale disponible.' : 'Source officielle à renforcer.',
     },
   ];
-
   return { total: criteria.reduce((sum, criterion) => sum + criterion.points, 0), criteria };
 };
 
-export const FREE_TIER_SCORE_MAX = 100;
+export const getFreeTierScoreTone = (score: number) => {
+  if (score >= 85) return 'excellent';
+  if (score >= 70) return 'strong';
+  if (score >= 50) return 'balanced';
+  return 'limited';
+};
