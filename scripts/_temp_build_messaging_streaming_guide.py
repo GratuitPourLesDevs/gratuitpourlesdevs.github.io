@@ -5,7 +5,10 @@ ENGINE_PATH = Path('src/pages/comparatifs/email/meilleures-offres-gratuites.astr
 ROUTE_PATH = Path('src/pages/guides/messagerie-streaming/meilleures-offres-gratuites.astro')
 HUB_PATH = Path('src/pages/guides/index.astro')
 
-CONFIG = """export const MESSAGING_STREAMING_GUIDE_CONFIG = {
+CONFIG = """import './messaging-platform-quotas';
+import './messaging-platform-quotas-more';
+
+export const MESSAGING_STREAMING_GUIDE_CONFIG = {
   categoryLabelFallback: 'Messagerie et streaming',
   fallbackDescription: 'Files de messages, pub/sub, événements, notifications et services temps réel pour développeurs',
   pageTitle: (rankingSize: number) => `Les ${rankingSize} meilleures offres gratuites de messagerie et streaming pour les développeurs`,
