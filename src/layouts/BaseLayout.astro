@@ -26,7 +26,6 @@ const cloudflareWebAnalyticsToken = import.meta.env.CLOUDFLARE_WEB_ANALYTICS_TOK
 const cloudflareWebAnalyticsConfig = cloudflareWebAnalyticsToken
   ? JSON.stringify({ token: cloudflareWebAnalyticsToken })
   : undefined;
-
 const offersUpdated = await getOffersUpdatedMetadata();
 ---
 
@@ -56,6 +55,7 @@ const offersUpdated = await getOffersUpdatedMetadata();
     <script src="/affiliate-enhancement.js?v=20260824-partner-carousel-all-offers" defer></script>
     <script src="/account-client.js?v=20260822-reversible-stack-action" defer></script>
     <script src="/account-delete.js?v=20260822-confirm-account-deletion" defer></script>
+    <script is:inline src="/adsense-runtime.js?v=20260825-admin-config" defer></script>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />

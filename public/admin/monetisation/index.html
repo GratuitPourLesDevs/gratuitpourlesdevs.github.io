@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Monétisation — Administration GPLD</title>
+    <style>
+      :root {
+        font-family: Inter, ui-sans-serif, system-ui;
+        color: #edf1fb;
+        background: #0e131a;
+        --line: #303947;
+        --surface: #171e28;
+        --blue: #6f8cff;
+        --green: #5ce2b1;
+        --red: #ff7979;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      .shell {
+        width: min(1180px, calc(100% - 40px));
+        margin: auto;
+        padding: 34px 0 70px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: flex-start;
+        margin-bottom: 28px;
+      }
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        margin: 8px 0 10px;
+        letter-spacing: -0.04em;
+      }
+      .eyebrow {
+        font: 700 0.72rem ui-monospace;
+        color: var(--blue);
+        letter-spacing: 0.12em;
+      }
+      .muted,
+      p {
+        color: #aab3c2;
+        line-height: 1.55;
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .button {
+        border: 1px solid var(--blue);
+        border-radius: 7px;
+        padding: 11px 15px;
+        background: var(--blue);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 750;
+        cursor: pointer;
+      }
+      .button.ghost {
+        background: transparent;
+      }
+      .button:disabled {
+        opacity: 0.45;
+      }
+      .login,
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+      .login {
+        padding: 38px;
+        text-align: center;
+      }
+      .login[hidden],
+      .dashboard[hidden] {
+        display: none;
+      }
+      .dashboard {
+        display: grid;
+        gap: 18px;
+      }
+      .status-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px;
+      }
+      .status-pill {
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: #30251c;
+        color: #ffd277;
+        font-weight: 750;
+      }
+      .status-pill.on {
+        background: #123a2e;
+        color: var(--green);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 18px;
+      }
+      .panel {
+        padding: 22px;
+      }
+      .panel h2 {
+        margin: 0 0 8px;
+      }
+      .form {
+        display: grid;
+        gap: 18px;
+      }
+      .field {
+        display: grid;
+        gap: 7px;
+      }
+      .field span {
+        font-weight: 750;
+      }
+      .field small {
+        color: #8f9aab;
+      }
+      .field input {
+        width: 100%;
+        padding: 12px 13px;
+        border-radius: 7px;
+        border: 1px solid var(--line);
+        background: #10161f;
+        color: #fff;
+        font: inherit;
+      }
+      .field input:focus {
+        outline: 2px solid var(--blue);
+      }
+      .switch {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+      }
+      .switch input {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--blue);
+      }
+      .preview {
+        display: grid;
+        gap: 12px;
+      }
+      .slot {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 12px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+      }
+      .slot b {
+        display: grid;
+        place-items: center;
+        background: #202b3c;
+        color: var(--blue);
+        border-radius: 5px;
+      }
+      .slot strong,
+      .slot small {
+        display: block;
+      }
+      .slot small {
+        color: #8f9aab;
+        margin-top: 4px;
+      }
+      .notice {
+        padding: 13px;
+        border-left: 3px solid var(--blue);
+        background: #111a2a;
+        color: #bdc8dc;
+      }
+      .status {
+        min-height: 1.4em;
+        font-weight: 700;
+        color: var(--red);
+      }
+      .status.success {
+        color: var(--green);
+      }
+      .meta {
+        font-size: 0.82rem;
+        color: #8f9aab;
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+      }
+      .footer-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      @media (max-width: 820px) {
+        header,
+        .grid {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+        .shell {
+          width: min(100% - 28px, 1180px);
+        }
+        .status-card {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .footer-actions {
+          justify-content: stretch;
+        }
+        .footer-actions .button {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <div>
+          <span class="eyebrow">GPLD · MONÉTISATION</span>
+          <h1>Google AdSense</h1>
+          <p>
+            Configurez les emplacements discrets du catalogue, des guides et des
+            fiches d’offres. Les changements actifs sont lus directement par le
+            site.
+          </p>
+        </div>
+        <nav class="actions">
+          <a class="button ghost" href="/admin/affiliation/">Affiliation</a
+          ><a class="button ghost" href="/admin/">← Administration</a>
+        </nav>
+      </header>
+      <section class="login" id="login">
+        <h2>Connexion administrateur</h2>
+        <p>
+          Cette configuration est protégée par la même autorisation GitHub que
+          la console éditoriale.
+        </p>
+        <button class="button" id="login-button">
+          Se connecter avec GitHub
+        </button>
+        <p class="status" id="login-status"></p>
+      </section>
+      <section class="dashboard" id="dashboard" hidden>
+        <section class="panel status-card">
+          <div>
+            <span class="eyebrow">ÉTAT DE DIFFUSION</span>
+            <h2 id="state-title">Publicités désactivées</h2>
+            <p id="state-copy">
+              Aucun script Google n’est chargé tant que la diffusion est
+              désactivée.
+            </p>
+          </div>
+          <span class="status-pill" id="state-pill">INACTIF</span>
+        </section>
+        <div class="grid">
+          <form class="panel form" id="settings-form">
+            <label class="switch"
+              ><input type="checkbox" name="enabled" /><span
+                ><strong>Activer la diffusion</strong
+                ><small class="muted"
+                  >Possible uniquement lorsque tous les paramètres sont
+                  valides.</small
+                ></span
+              ></label
+            ><label class="field"
+              ><span>Identifiant éditeur</span
+              ><input
+                name="clientId"
+                required
+                placeholder="ca-pub-1234567890123456"
+                pattern="ca-pub-[0-9]{10,20}"
+              /><small
+                >Disponible dans AdSense → Compte → Informations sur le
+                compte.</small
+              ></label
+            ><label class="field"
+              ><span>Slot catalogue</span
+              ><input
+                name="catalogue"
+                required
+                inputmode="numeric"
+                placeholder="1234567890"
+                pattern="[0-9]{6,20}"
+              /><small
+                >Après la liste des offres, avant la pagination.</small
+              ></label
+            ><label class="field"
+              ><span>Slot guides</span
+              ><input
+                name="guide"
+                required
+                inputmode="numeric"
+                placeholder="1234567890"
+                pattern="[0-9]{6,20}"
+              /><small
+                >Entre l’introduction et le comparatif détaillé.</small
+              ></label
+            ><label class="field"
+              ><span>Slot fiches d’offres</span
+              ><input
+                name="offer"
+                required
+                inputmode="numeric"
+                placeholder="1234567890"
+                pattern="[0-9]{6,20}"
+              /><small
+                >Après l’historique, avant les alternatives.</small
+              ></label
+            ><label class="switch"
+              ><input type="checkbox" name="consentReady" /><span
+                ><strong>Consentement configuré</strong
+                ><small class="muted"
+                  >Je confirme que la CMP requise est opérationnelle.</small
+                ></span
+              ></label
+            >
+            <div class="footer-actions">
+              <button type="button" class="button ghost" id="logout">
+                Déconnexion</button
+              ><button class="button" id="save">Enregistrer</button>
+            </div>
+            <p class="status" id="save-status" role="status"></p>
+            <p class="meta" id="updated-meta">
+              Aucune modification enregistrée.
+            </p>
+          </form>
+          <aside class="panel">
+            <span class="eyebrow">EMPLACEMENTS</span>
+            <h2>Vue d’ensemble</h2>
+            <p>
+              Un seul format responsive par contexte, sans interstitiel ni
+              annonce au-dessus du contenu principal.
+            </p>
+            <div class="preview">
+              <article class="slot">
+                <b>01</b>
+                <div>
+                  <strong>Catalogue</strong
+                  ><small id="preview-catalogue">Non configuré</small>
+                </div>
+              </article>
+              <article class="slot">
+                <b>02</b>
+                <div>
+                  <strong>Guides</strong
+                  ><small id="preview-guide">Non configuré</small>
+                </div>
+              </article>
+              <article class="slot">
+                <b>03</b>
+                <div>
+                  <strong>Fiches d’offres</strong
+                  ><small id="preview-offer">Non configuré</small>
+                </div>
+              </article>
+            </div>
+            <p class="notice">
+              Si une valeur est absente ou invalide, la publicité reste masquée
+              et aucun script AdSense n’est chargé.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <script src="/admin/monetisation/monetisation.js"></script>
+  </body>
+</html>

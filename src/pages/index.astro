@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { execFileSync } from 'node:child_process';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AdSenseSlot from '../components/AdSenseSlot.astro';
 import CustomSelect from '../components/CustomSelect.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import { getBillingRisk } from '../data/billing-risk';
@@ -226,6 +227,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
         </div>
         <div class="empty-state" id="empty-state" hidden>Aucune offre ne correspond à ces critères.</div>
       </div>
+      <AdSenseSlot placement="catalogue-footer" slot={import.meta.env.PUBLIC_ADSENSE_CATALOGUE_SLOT} />
       <nav class="pagination" id="pagination" aria-label="Pagination du catalogue">
         <span id="pagination-summary" aria-live="polite"></span>
         <div class="pagination-controls">

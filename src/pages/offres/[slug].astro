@@ -4,6 +4,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import AdSenseSlot from '../../components/AdSenseSlot.astro';
 import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
 import { getBillingRisk } from '../../data/billing-risk';
 import { getFreeTierScore } from '../../data/free-tier-score';
@@ -220,6 +221,8 @@ const jsonLd = [
             </li>)}
           </ol>
         </section>
+
+        <AdSenseSlot placement="offer-after-history" slot={import.meta.env.PUBLIC_ADSENSE_OFFER_SLOT} />
       </div>
 
       <aside class="offer-page-sidebar">

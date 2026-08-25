@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SiteHeader from '../../../components/SiteHeader.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
+import AdSenseSlot from '../../../components/AdSenseSlot.astro';
 import { getFreeTierScore } from '../../../data/free-tier-score';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, getOfferQuotas, type OfferQuota } from '../../../data/offer-quotas';
 import { SOURCE_CODE_GUIDE_CONFIG } from '../../../data/source-code-guide';
@@ -308,6 +309,8 @@ const getOverageTone = (quota?: OfferQuota) => {
         })}
       </div>
     </section>
+
+    <AdSenseSlot placement="guide-middle" slot={import.meta.env.PUBLIC_ADSENSE_GUIDE_SLOT} />
 
     <section class="seo-comparison" id="comparatif">
   <header class="seo-section-heading">

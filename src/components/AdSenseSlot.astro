@@ -1,0 +1,68 @@
+---
+interface Props {
+  placement: 'catalogue-footer' | 'guide-middle' | 'offer-after-history';
+  slot?: string;
+}
+
+const { placement } = Astro.props;
+const preview = import.meta.env.DEV;
+const placementLabel = placement === 'catalogue-footer'
+    ? 'Après les résultats du catalogue'
+    : placement === 'guide-middle'
+    ? 'Dans le guide, avant le comparatif détaillé'
+    : 'Après l’historique de l’offre';
+---
+
+<section
+  class:list={['adsense-placement', `is-${placement}`, { 'is-preview': preview }]}
+  aria-label={preview ? 'Aperçu de l’emplacement publicitaire' : 'Publicité'}
+  data-ad-placement={placement}
+  data-ad-preview={preview ? 'true' : 'false'}
+  hidden={!preview}
+>
+    {preview ? (
+      <div class="adsense-preview" aria-hidden="true">
+        <small>EMPLACEMENT PUBLICITAIRE</small>
+        <span>{placementLabel}</span>
+      </div>
+    ) : <div class="adsense-runtime-target"></div>}
+</section>
+
+<style>
+  .adsense-placement{
+    width:100%;
+    min-height:108px;
+    display:grid;
+    place-items:center;
+    margin:28px 0 22px;
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:color-mix(in srgb,var(--surface) 58%,transparent);
+  }
+  .adsense-placement[hidden]{display:none}
+  .adsense-placement.is-guide-middle,
+  .adsense-placement.is-offer-after-history{margin:46px 0 0}
+  .adsense-placement:has(.adsbygoogle[data-ad-status="unfilled"]){display:none}
+  .adsbygoogle{width:100%;min-height:90px}
+  .adsense-preview{
+    width:min(728px,calc(100% - 32px));
+    min-height:72px;
+    display:grid;
+    place-content:center;
+    gap:5px;
+    color:var(--muted);
+    border:1px dashed color-mix(in srgb,var(--muted) 34%,transparent);
+    border-radius:6px;
+    text-align:center;
+  }
+  .adsense-preview small{font:700 9px var(--mono);letter-spacing:.65px}
+  .adsense-preview span{font-size:11px}
+  @media(max-width:760px){
+    .adsense-placement{min-height:88px;margin:22px 0 18px}
+    .adsense-placement.is-guide-middle,
+    .adsense-placement.is-offer-after-history{margin-top:34px}
+    .adsense-preview{min-height:58px}
+    .adsense-preview span{display:none}
+  }
+</style>
