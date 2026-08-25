@@ -1,3 +1,6 @@
+import './messaging-platform-quotas';
+import './messaging-platform-quotas-more';
+
 export const MESSAGING_STREAMING_GUIDE_CONFIG = {
   categoryLabelFallback: 'Messagerie et streaming',
   fallbackDescription: 'Files de messages, pub/sub, événements, notifications et services temps réel pour développeurs',
