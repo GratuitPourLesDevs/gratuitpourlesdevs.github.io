@@ -1,4 +1,4 @@
-name: Analyse temporaire des catégories de Guides
+name: Validation temporaire du Guide Messagerie et streaming
 
 on:
   pull_request:
@@ -6,13 +6,73 @@ on:
     types: [opened, reopened, synchronize, ready_for_review]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  analyze:
+  validate-guide:
     if: github.head_ref == 'feat/guide-next-category'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Analyser les catégories candidates
-        run: python scripts/_temp_analyze_guide_categories.py
+        with:
+          ref: feat/guide-next-category
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - name: Construire les fichiers du Guide
+        run: python scripts/_temp_build_messaging_streaming_guide.py
+      - name: Installer les dépendances
+        run: npm ci
+      - name: Construire le site
+        run: npm run build
+      - name: Valider le Guide et afficher le Top 10
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import html as html_lib
+          import json
+          import re
+
+          page = Path('dist/guides/messagerie-streaming/meilleures-offres-gratuites/index.html')
+          email = Path('dist/guides/email/meilleures-offres-gratuites/index.html')
+          api = Path('dist/guides/api-donnees-ml/meilleures-offres-gratuites/index.html')
+          source = Path('dist/guides/depots-code-source/meilleures-offres-gratuites/index.html')
+          assert page.exists(), 'Route Messagerie & streaming absente'
+          assert email.exists() and api.exists() and source.exists(), 'Régression sur un Guide existant'
+          content = page.read_text(encoding='utf-8')
+          for label in ('Messages / opérations', 'Clients / appareils'):
+              assert label in content, f'Comparateur spécifique absent : {label}'
+          for forbidden in ('Volume d’envoi', 'IA / crédits', 'Dépôts / projets'):
+              assert forbidden not in content, f'Comparateur d’une autre catégorie présent : {forbidden}'
+
+          item_list = None
+          for raw in re.findall(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', content, flags=re.S):
+              try:
+                  data = json.loads(html_lib.unescape(raw))
+              except json.JSONDecodeError:
+                  continue
+              candidates = data if isinstance(data, list) else [data]
+              for candidate in candidates:
+                  if isinstance(candidate, dict) and candidate.get('@type') == 'ItemList':
+                      item_list = candidate
+                      break
+              if item_list:
+                  break
+          assert item_list, 'ItemList SEO introuvable'
+          names = [item.get('name') for item in item_list.get('itemListElement', [])]
+          assert len(names) == 10, f'10 offres attendues, trouvé {len(names)} : {names}'
+          print('TOP_10_MESSAGING_STREAMING=' + ' | '.join(names))
+          PY
+      - name: Publier les fichiers fonctionnels validés sur la branche
+        run: |
+          git config user.name 'GratuitPourLesDevs'
+          git config user.email 'julien.taverne+gratuitpourlesdevs@gmail.com'
+          git add -- src/data/messaging-streaming-guide.ts src/pages/comparatifs/email/meilleures-offres-gratuites.astro src/pages/guides/index.astro src/pages/guides/messagerie-streaming/meilleures-offres-gratuites.astro
+          if git diff --cached --quiet; then
+            echo 'Aucune modification fonctionnelle supplémentaire.'
+            exit 0
+          fi
+          git commit -m 'Ajoute le guide Messagerie et streaming'
+          git push origin HEAD:feat/guide-next-category
