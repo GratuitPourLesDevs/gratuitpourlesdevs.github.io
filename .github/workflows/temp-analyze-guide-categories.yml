@@ -1,0 +1,18 @@
+name: Analyse temporaire des catégories de Guides
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    if: github.head_ref == 'feat/guide-next-category'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Analyser les catégories candidates
+        run: python scripts/_temp_analyze_guide_categories.py
