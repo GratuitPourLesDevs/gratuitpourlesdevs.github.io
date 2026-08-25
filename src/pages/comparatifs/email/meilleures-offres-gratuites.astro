@@ -7,6 +7,7 @@ import AdSenseSlot from '../../../components/AdSenseSlot.astro';
 import { getFreeTierScore } from '../../../data/free-tier-score';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, getOfferQuotas, type OfferQuota } from '../../../data/offer-quotas';
 import { SOURCE_CODE_GUIDE_CONFIG } from '../../../data/source-code-guide';
+import { MESSAGING_STREAMING_GUIDE_CONFIG } from '../../../data/messaging-streaming-guide';
 
 type ComparisonColumn =
   | { key: 'service' | 'type' | 'plan' | 'duration' | 'overage' | 'card' | 'usage'; label: string }
@@ -29,6 +30,7 @@ type GuideConfig = {
 
 const GUIDE_CONFIGS: Record<string, GuideConfig> = {
   'depots-code-source': SOURCE_CODE_GUIDE_CONFIG as GuideConfig,
+  'messagerie-streaming': MESSAGING_STREAMING_GUIDE_CONFIG as GuideConfig,
   email: {
     categoryLabelFallback: 'E-mail',
     fallbackDescription: 'Services e-mail pour développeurs',
