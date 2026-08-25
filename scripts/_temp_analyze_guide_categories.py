@@ -6,6 +6,7 @@ OFFERS_DIR = Path('src/content/offres')
 CATEGORIES_DIR = Path('src/content/categories')
 QUOTAS_FILE = Path('src/data/offer-quotas.ts')
 EXISTING_GUIDES = {'email', 'api-donnees-ml', 'depots-code-source'}
+FOCUS_CATEGORIES = {'messagerie-streaming', 'cdn-protection', 'ci-cd', 'paas', 'supervision', 'tickets-projets'}
 
 
 def frontmatter_value(text: str, key: str):
@@ -73,12 +74,13 @@ for score, category, offers, with_quota, metrics, repeated_metrics, coverage in 
         f'repeated_metrics={",".join(repeated_metrics[:10])}|score={score}'
     )
 
-print('\n=== ELIGIBLE_DETAIL ===')
-eligible = [row for row in rows if len(row[2]) >= 10 and len(row[3]) >= 6 and len(row[5]) >= 2]
-for score, category, offers, with_quota, metrics, repeated_metrics, coverage in eligible[:10]:
+print('\n=== FOCUS_DETAIL ===')
+for score, category, offers, with_quota, metrics, repeated_metrics, coverage in rows:
+    if category not in FOCUS_CATEGORIES:
+        continue
     print(f'CATEGORY={category} ({labels.get(category, category)}) active={len(offers)} quota={len(with_quota)} coverage={coverage:.0%}')
-    print('METRICS=' + ' | '.join(f'{m}:{count}' for m, count in metrics.most_common(12)))
+    print('METRICS=' + ' | '.join(f'{m}:{count}' for m, count in metrics.most_common(20)))
     print('OFFERS=' + ' | '.join(
-        f"{o['name']}[{','.join(sorted(o['metrics'])) or '-'}]" for o in offers
+        f"{o['name']}<{o['id']}>[{','.join(sorted(o['metrics'])) or '-'}]" for o in sorted(offers, key=lambda x: x['name'].lower())
     ))
     print()
