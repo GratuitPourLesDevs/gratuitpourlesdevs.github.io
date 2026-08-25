@@ -54,7 +54,7 @@ jobs:
           assert canonical in content, 'Canonical Supervision absent'
 
           item_list = None
-          for raw in re.findall(r'<script[^>]+type="application/ld\\+json"[^>]*>(.*?)</script>', content, flags=re.S):
+          for raw in re.findall(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', content, flags=re.S):
               try:
                   data = json.loads(html_lib.unescape(raw))
               except json.JSONDecodeError:
