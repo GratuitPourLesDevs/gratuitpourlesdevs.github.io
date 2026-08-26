@@ -37,4 +37,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-AllRatesToday fournit une petite enveloppe gratuite adaptée aux prototypes et outils personnels. Le domaine exchange-rateapi.com renvoie désormais vers AllRatesToday, il n’est donc pas publié comme une seconde offre distincte.
+AllRatesToday fournit 300 requêtes gratuites par mois, adaptées aux prototypes et outils personnels. Le domaine exchange-rateapi.com renvoie désormais vers AllRatesToday, il n’est donc pas publié comme une seconde offre distincte.
