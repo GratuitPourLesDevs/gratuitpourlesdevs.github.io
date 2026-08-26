@@ -1,6 +1,6 @@
 ---
 nom: "Moesif"
-accroche: "Analytics et observabilité d’API pour REST, GraphQL et autres interfaces, avec métriques d’usage et de comportement."
+accroche: "Analytics, observabilité et monétisation d’API pour REST, GraphQL et autres interfaces, avec métriques d’usage et facturation basée sur la consommation."
 type: "SaaS"
 categorie: analytique-evenements-statistiques
 formule: "Free : 30 000 événements par mois"
@@ -9,6 +9,8 @@ inclus:
 - "7 jours de rétention"
 - "Membres d’équipe illimités"
 - "Analytics d’API, logs, métriques et dashboards"
+- "Monétisation d’API et facturation basée sur l’usage"
+- "Connecteurs de facturation Stripe, Recurly, Chargebee et Zuora"
 - "Aucun frais de transaction"
 conditions: []
 restrictions:
@@ -31,9 +33,9 @@ permanent: true
 statut: active
 vedette: false
 ordre: 1176
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: '2026-08-26'
+verificationAutomatiqueLe: '2026-08-26'
+verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-Moesif reste utilisable gratuitement pour de petits volumes d’API, mais son Free Tier est aujourd’hui beaucoup plus modeste que les anciennes descriptions : 30 000 événements mensuels et sept jours d’historique.
+Moesif reste utilisable gratuitement pour de petits volumes d’API : le plan Free couvre 30 000 événements mensuels, sept jours d’historique, les analytics et la monétisation d’API avec intégrations de facturation.
