@@ -33,4 +33,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-TraceLog a aujourd’hui un vrai plan gratuit permanent, distinct de son essai Pro : 50 000 événements mensuels, 30 jours d’historique agrégé et un petit quota d’analyse IA pour valider l’outil sur une boutique.
+TraceLog s’adresse surtout aux boutiques qui veulent détecter rapidement une baisse de conversion ou un comportement inhabituel sans analyser manuellement chaque dashboard. La combinaison d’analytics e-commerce, de détection de problèmes et d’un petit quota de recommandations IA peut aider à transformer un signal technique ou comportemental en action concrète. Avec 50 000 événements mensuels, le plan Validate permet de tester sérieusement l’approche sur une petite boutique, mais les alertes proactives et l’analyse plus poussée restent réservées aux offres supérieures.

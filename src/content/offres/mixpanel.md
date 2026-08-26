@@ -30,4 +30,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Mixpanel ne limite plus son Free Tier à l’ancien modèle de 100 000 utilisateurs suivis : la grille actuelle est exprimée en volume et autorise un million d’événements mensuels gratuitement, sans carte bancaire.
+Mixpanel est particulièrement utile pour répondre aux questions produit qui arrivent après les premières mises en production : quelles étapes convertissent, quelles fonctionnalités fidélisent, où les utilisateurs décrochent et quels comportements précèdent une rétention durable. Funnels, cohortes, rétention et session replay permettent d’explorer ces questions sans construire soi-même une couche analytique complète. Avec un million d’événements gratuits par mois, la contrainte arrive souvent plus tard que sur beaucoup de concurrents ; les besoins avancés de reporting et de segmentation finissent toutefois par pousser vers Growth.

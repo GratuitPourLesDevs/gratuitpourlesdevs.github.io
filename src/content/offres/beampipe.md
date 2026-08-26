@@ -29,4 +29,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Beampipe fournit les métriques essentielles d’un site sans la complexité d’une suite d’analytics produit. Le plan gratuit couvre cinq domaines et 10 000 pages vues mensuelles.
+Beampipe vise les projets qui veulent répondre aux questions essentielles — combien de visiteurs, quelles pages fonctionnent, d’où vient le trafic — sans déployer une suite d’analytics lourde. Le fait de pouvoir suivre plusieurs domaines est pratique pour un développeur, une agence ou un maker qui maintient plusieurs petits sites avec une approche centrée sur la confidentialité. Les 10 000 pages vues mensuelles suffisent pour démarrer confortablement, mais le service est moins adapté dès que l’on cherche de l’analytics produit très détaillée ou de gros volumes.

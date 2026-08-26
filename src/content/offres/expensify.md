@@ -31,4 +31,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Expensify peut être utilisé gratuitement à titre personnel pour capturer et suivre ses dépenses. L’ancien positionnement « workflow d’approbation gratuit » est à nuancer : les fonctions organisationnelles avancées sont liées aux workspaces payants.
+Expensify peut simplifier la corvée très concrète de conserver des reçus, suivre ses dépenses et préparer un export exploitable ensuite dans un tableur ou pour sa comptabilité. Le compte personnel gratuit est surtout pertinent pour un freelance, un développeur indépendant ou quelqu’un qui veut centraliser ses frais sans mettre en place un véritable système de gestion d’entreprise. Dès que plusieurs collaborateurs, des approbations ou des remboursements automatisés entrent en jeu, il faut en revanche regarder les workspaces payants.

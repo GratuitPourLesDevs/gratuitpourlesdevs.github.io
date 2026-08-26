@@ -30,4 +30,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Insights propose une alternative légère aux grandes plateformes d’analytics et affiche toujours un plan Developer gratuit à 3 000 événements ou pages vues mensuels, sans carte bancaire.
+Insights convient aux développeurs qui veulent mesurer l’usage d’un site ou d’une SPA sans introduire une grosse dépendance analytics ni un dispositif de tracking excessivement complexe. Les pages vues anonymes et les événements personnalisés suffisent pour suivre une activation, un clic important ou l’usage d’une fonctionnalité dans React, Angular ou Vue. Son quota de 3 000 événements ou pages vues par mois en fait surtout une solution pour un side project, une documentation ou une application encore peu fréquentée.

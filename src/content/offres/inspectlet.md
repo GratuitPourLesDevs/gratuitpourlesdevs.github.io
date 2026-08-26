@@ -35,4 +35,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-Inspectlet propose toujours un plan gratuit sans limite de durée. Sa page de tarification comporte actuellement des chiffres contradictoires ; GratuitPourLesDevs retient donc volontairement le quota conservateur de 2 500 sessions enregistrées par mois confirmé par la FAQ et la documentation 2026.
+Inspectlet devient utile lorsqu’une équipe veut passer d’un constat — « cette page convertit mal » — à l’observation concrète des gestes qui expliquent le problème. Les replays et heatmaps permettent de repérer des clics inutiles, des zones ignorées ou des parcours qui tournent en rond, et le support de plusieurs sites est pratique pour tester différents projets. Le plan Free est intéressant pour cette phase d’analyse, avec une réserve importante : la communication officielle affiche actuellement des quotas contradictoires, d’où le choix volontairement conservateur de 2 500 replays mensuels dans ce catalogue.

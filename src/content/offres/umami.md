@@ -32,4 +32,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Umami combine deux voies gratuites : un plan Hobby hébergé par l’éditeur et une version open source que l’on peut exploiter soi-même. La documentation officielle confirme explicitement que Hobby est gratuit.
+Umami est une bonne option pour les projets qui veulent des statistiques web simples et respectueuses de la vie privée sans s’enfermer dans un seul mode d’hébergement. On peut commencer avec le plan Hobby géré par l’éditeur puis, si le contrôle des données ou de l’infrastructure devient prioritaire, exploiter la version open source soi-même. Cette double voie est son principal intérêt ; côté cloud, il faut simplement accepter que la documentation actuelle ne publie pas un quota mensuel Hobby aussi explicite que chez certains concurrents.

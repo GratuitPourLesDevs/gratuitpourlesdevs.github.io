@@ -31,4 +31,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-currencylayer conserve un plan gratuit sans expiration de 100 appels mensuels, avec des taux actualisés quotidiennement, suffisant pour tester l’API ou alimenter de très petits projets.
+currencylayer est une solution simple lorsqu’une application a besoin de quelques taux courants ou historiques sans bâtir sa propre collecte de données monétaires. Les mises à jour quotidiennes conviennent à des démonstrations, outils internes légers ou fonctionnalités où une variation intrajournalière n’est pas critique. Le niveau gratuit sert surtout à l’intégration et aux très petits usages : avec seulement 100 appels mensuels et plusieurs fonctions avancées réservées aux plans payants, il atteint vite ses limites en production.

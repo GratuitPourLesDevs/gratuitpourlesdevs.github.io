@@ -29,4 +29,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-DWH.DEV fournit une couche d’observabilité et de compréhension au-dessus d’un entrepôt de données. Le plan Start à 0 $ convient aux projets personnels et petits environnements.
+DWH.DEV apporte de la lisibilité à un entrepôt de données qui commence à devenir difficile à comprendre : tables, objets, documentation et signaux d’observabilité sont regroupés dans une interface destinée aux équipes data. C’est utile pour éviter que la connaissance du warehouse reste uniquement dans la tête de quelques personnes ou dans des documents séparés. Le plan Start convient surtout à un petit environnement ou à une phase d’évaluation, avec un seul projet et un nombre d’objets limité.

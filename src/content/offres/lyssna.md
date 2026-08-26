@@ -36,4 +36,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-UsabilityHub s’appelle désormais Lyssna. Son Free plan courant est plus précis que l’ancien résumé : trois collaborateurs, études rapides illimitées et accès aux méthodes Core, avec une limite sur les réponses auto-recrutées consultables.
+Lyssna apporte quelque chose que les analytics classiques ne peuvent pas donner : demander directement à des utilisateurs si une navigation, un prototype ou une arborescence est compréhensible avant de développer davantage. Les tests de prototypes, card sorting et tree testing sont particulièrement utiles pour valider une UX ou une architecture d’information tôt, quand les changements coûtent encore peu cher. Le plan Free permet d’en faire un vrai outil de recherche légère à trois collaborateurs, avec une limite de 15 réponses auto-recrutées visibles par étude.

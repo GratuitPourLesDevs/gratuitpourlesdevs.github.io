@@ -36,4 +36,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Rybbit reste pertinent pour GratuitPourLesDevs grâce à son édition open source AGPLv3. En revanche, le cloud hébergé ne doit plus être présenté comme gratuit : sa grille actuelle commence par un essai de sept jours puis un abonnement payant.
+Rybbit est intéressant pour une équipe qui veut des analytics modernes sans cookies tout en gardant la maîtrise de l’hébergement et des données collectées. L’édition open source couvre événements, funnels, objectifs, parcours et Web Vitals, ce qui en fait une alternative crédible aux services propriétaires pour un projet déjà équipé d’une infrastructure. La gratuité concerne toutefois le logiciel : serveur, base de données, sauvegardes, mises à jour et supervision restent à votre charge, puisque le cloud Rybbit n’a plus de plan gratuit permanent.

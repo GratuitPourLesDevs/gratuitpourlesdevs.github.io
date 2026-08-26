@@ -32,4 +32,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-TrackWith DiCloud conserve une offre gratuite atypique : la collecte principale, les heatmaps et les objectifs ne sont pas plafonnés en pages vues, tandis que la capacité de replay reste limitée à 600 sessions sur le plan Free.
+TrackWith DiCloud est intéressant lorsqu’on veut combiner analytics de trafic et compréhension visuelle du comportement sans plafonner les pages vues. Les heatmaps, objectifs et replays peuvent aider un développeur ou une petite équipe à repérer les zones ignorées, les clics inattendus ou les étapes qui bloquent une conversion, avec un hébergement annoncé dans l’Union européenne. La collecte principale est très généreuse sur le plan Free ; c’est surtout le replay qui constitue la ressource rare, avec 600 sessions disponibles.

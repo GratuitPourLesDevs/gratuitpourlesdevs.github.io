@@ -33,4 +33,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-Le plan Developer de CurrencyFreaks fournit 1 000 appels par mois sans carte bancaire ni expiration, avec des taux quotidiens et une base USD.
+CurrencyFreaks se distingue par une couverture qui ne s’arrête pas aux devises fiat : cryptomonnaies et métaux précieux peuvent être récupérés via la même intégration. C’est pratique pour construire un tableau de bord financier, un convertisseur multi-actifs ou un petit outil de reporting sans agréger plusieurs API différentes. Le plan Developer offre 1 000 appels mensuels sans carte bancaire, avec deux compromis à connaître : les taux sont actualisés toutes les 24 heures et la devise de base reste l’USD sur le niveau gratuit.

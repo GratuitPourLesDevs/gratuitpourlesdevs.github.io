@@ -30,4 +30,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-FullstoryFree est nettement plus généreux que les anciennes descriptions encore présentes sur certains annuaires : l’offre gratuite actuelle autorise 30 000 sessions mensuelles et conserve replays et analytics pendant 12 mois.
+FullStory est particulièrement utile lorsqu’un bug ou une baisse de conversion est difficile à reproduire à partir de simples logs. Le session replay permet de revoir le parcours réel d’un utilisateur, tandis que les analytics comportementales aident à repérer les frictions récurrentes et à relier un problème à son contexte d’utilisation. Avec 30 000 sessions mensuelles et 12 mois de rétention, le niveau gratuit peut accompagner un vrai produit en phase de démarrage ; les fonctions d’IA et certains outils avancés restent toutefois réservés aux plans supérieurs.

@@ -37,4 +37,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-OpenReplay est retenu ici pour son édition Open-Source auto-hébergée, qui constitue l’offre gratuite permanente clairement documentée aujourd’hui. L’ancien quota cloud de 1 000 sessions n’est donc pas repris comme garantie actuelle.
+OpenReplay est particulièrement intéressant pour les équipes techniques qui veulent que le session replay serve aussi au débogage. Ses DevTools permettent de rapprocher ce que l’utilisateur a vu de l’état de l’application et facilitent la reproduction de bugs difficiles à capturer avec de simples logs, tout en gardant la possibilité d’héberger les données soi-même. Cette maîtrise a un coût opérationnel : l’édition gratuite est le logiciel open source, tandis que calcul, stockage, sauvegardes, mises à jour et disponibilité de l’infrastructure restent à votre charge.

@@ -35,4 +35,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-UXtweak conserve un Free plan destiné aux petits projets. Il permet de tester la plateforme sans carte bancaire, avec 15 réponses mensuelles, une seule étude active et une fenêtre de 14 jours pour consulter les résultats.
+UXtweak complète bien les analytics parce qu’il permet d’observer et de tester directement une expérience avec de vraies personnes, y compris avant qu’un produit soit totalement développé. Une petite équipe peut valider un prototype, une navigation ou un parcours et découvrir des incompréhensions qui ne seraient pas visibles dans des statistiques de trafic. Le plan gratuit est surtout fait pour des études ponctuelles : 15 réponses par mois, une seule étude active et seulement 14 jours pour consulter les résultats imposent d’organiser ses tests et d’exporter rapidement ce qui doit être conservé.

@@ -37,4 +37,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-AllRatesToday fournit 300 requêtes gratuites par mois, adaptées aux prototypes et outils personnels. Le domaine exchange-rateapi.com renvoie désormais vers AllRatesToday, il n’est donc pas publié comme une seconde offre distincte.
+AllRatesToday convient bien pour ajouter rapidement des taux de change à un prototype, un convertisseur, un dashboard personnel ou un outil de test sans gérer soi-même la collecte de données monétaires. Les SDK officiels réduisent encore le coût d’intégration dans les stacks courantes et les taux mid-market suffisent pour de nombreux usages informatifs. La limite la plus importante n’est pas seulement le quota de 300 requêtes mensuelles : le niveau gratuit est destiné aux projets personnels et aux tests, pas à une utilisation commerciale en production.

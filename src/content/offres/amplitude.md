@@ -31,4 +31,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Amplitude propose aujourd’hui un plan gratuit permanent bien plus généreux que son ancienne formule : 2 millions d’événements mensuels, des replays de session et une grande partie de la plateforme produit sans carte bancaire.
+Amplitude devient particulièrement utile dès qu’une application ne veut plus seulement compter des visites, mais comprendre ce que font réellement ses utilisateurs : activation, funnels, rétention, parcours et abandons. Son volume gratuit permet d’instrumenter sérieusement un produit en phase de lancement, puis de compléter les événements avec du session replay sans multiplier les outils. C’est un excellent choix pour une équipe produit ou un SaaS qui veut prendre des décisions à partir des usages réels, en gardant à l’esprit que l’expérimentation et certaines fonctions avancées sont plus limitées sur le plan Free.

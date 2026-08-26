@@ -31,4 +31,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-LogSpot propose un petit Free Tier pour centraliser analytics web et produit. Le quota courant est de 5 000 événements mensuels, soit la moitié de la valeur souvent reprise dans les anciennes listes.
+LogSpot est pertinent lorsqu’un petit produit veut dépasser les simples statistiques de trafic et commencer à observer des funnels et des parcours utilisateurs sans adopter une plateforme plus lourde. Un développeur peut ainsi vérifier où les utilisateurs quittent un processus d’inscription ou quelles étapes d’une fonctionnalité sont réellement utilisées. Le plan gratuit reste volontairement compact — un domaine, un membre et 5 000 événements mensuels — mais ses trois mois de rétention donnent déjà assez de recul pour analyser un MVP.

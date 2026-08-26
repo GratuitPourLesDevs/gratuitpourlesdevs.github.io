@@ -32,4 +32,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-ExchangeRate-API propose un Free Tier permanent de 1 500 requêtes mensuelles avec un rafraîchissement quotidien, bien adapté aux petits projets de conversion monétaire.
+ExchangeRate-API privilégie une intégration très simple : quelques appels JSON suffisent pour convertir des montants ou alimenter une liste de taux sans gérer soi-même les sources et formats de devises. C’est particulièrement adapté à un petit site international, un outil interne ou un prototype qui n’a pas besoin de cotations en temps réel. Le quota de 1 500 requêtes mensuelles laisse une marge correcte pour ces usages ; la contrepartie du Free Tier est un rafraîchissement des taux limité à une fois par jour.

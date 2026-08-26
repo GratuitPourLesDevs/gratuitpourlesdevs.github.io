@@ -32,4 +32,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-Mouseflow maintient un vrai plan Free Forever après son essai complet. Il convient surtout à un petit site grâce à 500 sessions mensuelles, un projet web, un funnel et un mois d’historique.
+Mouseflow est utile pour donner du contexte visuel à un problème de conversion : au lieu de savoir seulement qu’un utilisateur n’a pas terminé un parcours, on peut revoir sa session, observer une heatmap et suivre un funnel simple. C’est une bonne porte d’entrée pour optimiser un formulaire, une landing page ou un petit tunnel sans investir immédiatement dans une suite UX complète. Le plan gratuit est néanmoins dimensionné pour un petit site, avec 500 sessions mensuelles, un seul site et un mois d’historique.
