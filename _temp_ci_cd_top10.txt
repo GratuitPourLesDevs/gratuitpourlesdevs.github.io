@@ -1,1 +1,0 @@
-TOP_10_CI_CD=Bytebase | GitHub Actions | Prefect Cloud Hobby | AppVeyor | CircleCI | Cirun | Codemagic | Appcircle | Bitrise | Buildkite
