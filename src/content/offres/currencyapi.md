@@ -37,4 +37,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-Currencyapi reste une option gratuite pour les prototypes et usages personnels peu fréquents, avec un quota de 300 requêtes mensuelles et un rafraîchissement quotidien.
+Currencyapi est pratique pour ajouter une conversion de devises ou afficher des taux actuels et historiques dans un prototype sans maintenir sa propre source de données financières. La mise à jour quotidienne convient à des tableaux de bord, démonstrations et outils personnels où une précision à la minute n’est pas nécessaire. Le plan Free est cependant réservé à un usage privé : ses 300 requêtes mensuelles sont intéressantes pour développer et tester, mais un produit commercial doit passer sur une formule payante.

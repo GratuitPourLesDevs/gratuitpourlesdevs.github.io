@@ -37,4 +37,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Hotjar n’est plus la bonne fiche à maintenir isolément : le produit a fusionné avec Contentsquare. Le Free Tier actuel est nettement plus généreux, avec jusqu’à 200 000 sessions mensuelles et les fonctions historiques de Hotjar enrichies.
+Contentsquare Free devient très utile lorsqu’un simple compteur de visites ne suffit plus à expliquer pourquoi des utilisateurs abandonnent une page ou un tunnel. Replays, heatmaps, funnels, enquêtes et monitoring technique permettent de croiser comportement réel et problèmes d’expérience dans un même outil, ce qui évite d’assembler plusieurs services. L’offre est particulièrement généreuse pour un projet unique ; la principale contrainte arrive donc moins par le volume que par le fait de ne pouvoir suivre qu’un seul projet gratuitement.

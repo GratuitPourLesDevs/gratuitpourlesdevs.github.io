@@ -36,4 +36,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-DocBeacon reste intéressant gratuitement pour envoyer quelques PDF via des liens sécurisés, mais la promesse historique d’analytics gratuites n’est plus exacte : les métriques détaillées et heatmaps sont maintenant réservées aux plans supérieurs.
+DocBeacon est pratique quand un PDF ne doit pas simplement être envoyé en pièce jointe, mais partagé au moyen d’un lien temporaire et contrôlé. Cela peut servir pour une proposition commerciale, une documentation confidentielle ou un document client que l’on souhaite pouvoir diffuser de façon plus maîtrisée. Le niveau gratuit couvre bien ce besoin ponctuel, mais il faut le voir comme un outil de partage sécurisé plutôt que comme une solution d’analytics documentaire : les métriques détaillées et heatmaps sont désormais payantes.

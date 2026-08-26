@@ -35,4 +35,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-Adapty permet de démarrer sans coût fixe avec l’ensemble de son socle d’abonnements et de croissance. La gratuité dépend désormais d’un seuil de 5 000 $ de revenus mensuels suivis.
+Adapty évite de reconstruire toute la plomberie complexe des abonnements mobiles : validation des achats, état des souscriptions, entitlements, paywalls et analytics peuvent être pilotés derrière une même couche pour plusieurs plateformes. C’est particulièrement utile à une petite équipe mobile qui veut lancer rapidement sur iOS et Android tout en gardant la possibilité de faire évoluer ses paywalls sans republier toute l’application. Le plan Pro reste gratuit tant que les revenus suivis restent sous 5 000 $ par mois ; au-delà, la tarification passe à 1 % du MTR.

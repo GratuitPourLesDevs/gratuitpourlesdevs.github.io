@@ -31,4 +31,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-StatCounter conserve un niveau gratuit destiné aux petits sites. La grille actuelle communique surtout sur 5 000 sessions par mois et 14 jours de rétention, plutôt que sur l’ancien résumé des 500 visiteurs les plus récents.
+StatCounter est adapté aux sites qui veulent surtout comprendre leur trafic récent sans mettre en place une instrumentation produit détaillée. Le flux de visiteurs en temps réel, les tendances et les rapports simples permettent de repérer rapidement une source de trafic, une page populaire ou une variation inhabituelle. Avec 5 000 sessions par mois et seulement 14 jours de rétention, le niveau gratuit est surtout pertinent pour un petit site dont l’analyse se concentre sur l’activité récente.

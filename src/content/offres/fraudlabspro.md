@@ -37,4 +37,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-FraudLabsPRO conserve un véritable plan Micro gratuit pour les petits marchands, avec 500 analyses mensuelles et plusieurs outils de filtrage du risque.
+FraudLabsPRO permet à un petit marchand d’ajouter une première couche antifraude sans développer son propre moteur de scoring ni accumuler lui-même des signaux sur les commandes suspectes. L’API peut enrichir une transaction avec un score et un statut de risque, puis appliquer quelques règles ou blacklists avant d’accepter automatiquement une commande. Le plan Micro est adapté à une jeune boutique avec 500 validations mensuelles, mais il est aussi conditionné à un chiffre de ventes inférieur à 25 000 $ par mois.

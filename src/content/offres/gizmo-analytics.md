@@ -30,4 +30,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Gizmo Analytics cible les développeurs et makers qui administrent plusieurs domaines. Son Free Tier autorise 10 000 événements mensuels sur un nombre illimité de sites avec 30 jours d’historique.
+Gizmo Analytics est pensé pour les développeurs et makers qui jonglent avec plusieurs petits sites et veulent les superviser depuis un même outil sans payer par domaine. Son approche légère, complétée par un serveur MCP et une installation qui peut être assistée depuis des outils comme Claude ou Cursor, s’intègre bien à un workflow de développement moderne. Le compromis du Free Tier est surtout temporel : avec 30 jours de rétention, il est plus adapté au suivi courant qu’aux analyses historiques longues.

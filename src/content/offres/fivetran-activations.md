@@ -36,4 +36,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Census n’est plus une offre autonome à maintenir dans le catalogue : son activité Reverse ETL est désormais Fivetran Activations. Le plan gratuit actuel fournit 3 500 MAR d’activation par mois sans limite de durée.
+Fivetran Activations est utile lorsque les données utiles existent déjà dans le warehouse mais doivent ensuite alimenter un CRM, un outil marketing, un support client ou une autre application métier. Le Reverse ETL évite de maintenir une collection de scripts maison pour recopier ces données et permet aux équipes de travailler à partir d’une source centrale. Le plan gratuit est adapté aux premières synchronisations et petits volumes ; les 3 500 MAR mensuels imposent toutefois de sélectionner soigneusement les données réellement nécessaires.

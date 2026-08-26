@@ -31,4 +31,4 @@ verificationAutomatiqueLe: '2026-08-25'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
 ---
 
-Clicky conserve un plan gratuit permanent pour un site. Il convient surtout aux petits sites qui veulent des statistiques temps réel sans passer immédiatement sur une formule Premium.
+Clicky est utile lorsqu’on veut surveiller simplement l’activité d’un site presque en temps réel, sans adopter toute la complexité d’une plateforme d’analytics produit. Il convient bien à un blog, une documentation, un site vitrine ou un petit service web dont on veut suivre rapidement les pics de trafic et les pages consultées. Le plan gratuit est suffisamment confortable pour un site modéré, mais il reste limité à un seul site et à un historique court de 30 jours.
