@@ -8,6 +8,7 @@ import { CARTOGRAPHY_QUOTA_SCORES } from './cartography-additions';
 import { PACKAGE_BUILD_QUOTA_SCORES } from './package-build-additions';
 import { IDE_CODE_QUOTA_SCORES } from './ide-code-additions';
 import { ANALYTICS_QUOTA_SCORES } from './analytics-additions';
+import { SESSION_REPLAY_QUOTA_SCORES } from './session-replay-additions';
 
 // Le pricing Taskade courant est la référence commerciale la plus directe :
 // 1 utilisateur, 3 apps Genesis, 1 agent, 3 automatisations et 6 000 crédits ponctuels.
@@ -57,4 +58,5 @@ export const STORAGE_COMPUTE_QUOTA_SCORES = {
   ...PACKAGE_BUILD_QUOTA_SCORES,
   ...IDE_CODE_QUOTA_SCORES,
   ...ANALYTICS_QUOTA_SCORES,
+  ...SESSION_REPLAY_QUOTA_SCORES,
 } satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
