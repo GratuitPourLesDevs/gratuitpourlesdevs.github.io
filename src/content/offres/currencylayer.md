@@ -31,4 +31,4 @@ verificationAutomatiqueLe: '2026-08-26'
 verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
 ---
 
-currencylayer conserve un plan gratuit sans expiration de 100 appels mensuels, suffisant pour tester l’API ou alimenter de très petits projets.
+currencylayer conserve un plan gratuit sans expiration de 100 appels mensuels, avec des taux actualisés quotidiennement, suffisant pour tester l’API ou alimenter de très petits projets.
