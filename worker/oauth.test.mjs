@@ -33,6 +33,30 @@ test('comparisons API rejects writes from an unknown browser origin', async () =
   assert.deepEqual(await response.json(), { error: 'Origin not allowed' });
 });
 
+test('content engagement API fails closed when D1 or its analytics secret is missing', async () => {
+  const response = await handleRequest(new Request('https://oauth.example/api/content-engagement?items=guide:email'), env);
+  assert.equal(response.status, 503);
+  assert.deepEqual(await response.json(), { error: 'Content engagement API is not configured' });
+});
+
+test('content engagement API validates item types and slugs', async () => {
+  const response = await handleRequest(new Request('https://oauth.example/api/content-engagement?items=article:bad%20key'), {
+    ...env, ANALYTICS_SECRET: 'anonymous-test-secret', COMPARISONS_DB: {},
+  });
+  assert.equal(response.status, 400);
+  assert.deepEqual(await response.json(), { error: 'At least one valid content item is required' });
+});
+
+test('content engagement API rejects writes from an unknown browser origin', async () => {
+  const response = await handleRequest(new Request('https://oauth.example/api/content-engagement/helpful', {
+    method: 'POST',
+    headers: { Origin: 'https://evil.example', 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: 'guide', key: 'email' }),
+  }), { ...env, ANALYTICS_SECRET: 'anonymous-test-secret', COMPARISONS_DB: {} });
+  assert.equal(response.status, 403);
+  assert.deepEqual(await response.json(), { error: 'Origin not allowed' });
+});
+
 test('auth rejects unknown sites', async () => {
   const response = await handleRequest(new Request('https://oauth.example/auth?provider=github&site_id=evil.example'), env);
   assert.equal(response.status, 403);

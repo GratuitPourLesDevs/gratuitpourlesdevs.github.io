@@ -221,6 +221,87 @@ async function handleComparisonsApi(request, env, fetchImpl) {
   return json({ error: 'Not found' }, 404, headers);
 }
 
+function contentReference(type, key) {
+  const normalizedType = String(type ?? '').trim();
+  const normalizedKey = String(key ?? '').trim();
+  if (!['guide', 'offer'].includes(normalizedType)) return null;
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(normalizedKey)) return null;
+  return { type: normalizedType, key: normalizedKey };
+}
+
+function contentEngagementRecord(row, fallback) {
+  return {
+    type: row?.content_type ?? fallback.type,
+    key: row?.content_key ?? fallback.key,
+    views: Number(row?.view_count ?? 0),
+    helpful: Number(row?.helpful_count ?? 0),
+    lastViewedAt: Number(row?.last_viewed_at ?? 0) * 1000,
+  };
+}
+
+async function listContentEngagement(request, env) {
+  const rawItems = new URL(request.url).searchParams.get('items')?.split(',').filter(Boolean) ?? [];
+  const references = [...new Map(rawItems.map((item) => {
+    const separator = item.indexOf(':');
+    const reference = separator > 0 ? contentReference(item.slice(0, separator), item.slice(separator + 1)) : null;
+    return reference ? [`${reference.type}:${reference.key}`, reference] : [item, null];
+  }).filter(([, reference]) => reference)).values()].slice(0, 50);
+  if (!references.length) return json({ error: 'At least one valid content item is required' }, 400, apiHeaders(request, env));
+  const clauses = references.map(() => '(content_type = ? AND content_key = ?)').join(' OR ');
+  const bindings = references.flatMap(({ type, key }) => [type, key]);
+  const result = await env.COMPARISONS_DB.prepare(`SELECT * FROM content_engagement WHERE ${clauses}`).bind(...bindings).all();
+  const byKey = new Map(result.results.map((row) => [`${row.content_type}:${row.content_key}`, row]));
+  return json({ items: references.map((reference) => contentEngagementRecord(byKey.get(`${reference.type}:${reference.key}`), reference)) }, 200, apiHeaders(request, env));
+}
+
+async function recordContentEngagement(request, env, eventType) {
+  if (allowedApiOrigin(request, env) === false) return json({ error: 'Origin not allowed' }, 403, apiHeaders(request, env));
+  if (Number(request.headers.get('Content-Length') ?? 0) > 2048) return json({ error: 'Payload too large' }, 413, apiHeaders(request, env));
+  let payload;
+  try { payload = await request.json(); } catch { return json({ error: 'Invalid JSON' }, 400, apiHeaders(request, env)); }
+  const reference = contentReference(payload.type, payload.key);
+  if (!reference) return json({ error: 'A valid content type and key are required' }, 400, apiHeaders(request, env));
+
+  const now = Math.floor(Date.now() / 1000);
+  const eventWindow = eventType === 'view' ? String(Math.floor(now / 86400)) : 'all';
+  const fingerprint = await apiFingerprint(request, env, `content:${reference.type}:${reference.key}:${eventType}`, eventWindow);
+  const event = await env.COMPARISONS_DB.prepare(
+    'INSERT OR IGNORE INTO content_engagement_events (content_type, content_key, event_type, event_window, fingerprint, created_at) VALUES (?, ?, ?, ?, ?, ?)',
+  ).bind(reference.type, reference.key, eventType, eventWindow, fingerprint, now).run();
+  const recorded = Number(event.meta?.changes ?? 0) > 0;
+
+  if (recorded) {
+    const viewIncrement = eventType === 'view' ? 1 : 0;
+    const helpfulIncrement = eventType === 'helpful' ? 1 : 0;
+    await env.COMPARISONS_DB.prepare(`
+      INSERT INTO content_engagement (content_type, content_key, view_count, helpful_count, last_viewed_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?)
+      ON CONFLICT(content_type, content_key) DO UPDATE SET
+        view_count = content_engagement.view_count + ?,
+        helpful_count = content_engagement.helpful_count + ?,
+        last_viewed_at = CASE WHEN ? = 1 THEN excluded.last_viewed_at ELSE content_engagement.last_viewed_at END,
+        updated_at = excluded.updated_at
+    `).bind(reference.type, reference.key, viewIncrement, helpfulIncrement, now, now, viewIncrement, helpfulIncrement, viewIncrement).run();
+    if (eventType === 'view') {
+      await env.COMPARISONS_DB.prepare("DELETE FROM content_engagement_events WHERE event_type = 'view' AND created_at < ?").bind(now - 45 * 86400).run();
+    }
+  }
+
+  const row = await env.COMPARISONS_DB.prepare('SELECT * FROM content_engagement WHERE content_type = ? AND content_key = ?').bind(reference.type, reference.key).first();
+  return json({ recorded, item: contentEngagementRecord(row, reference) }, 200, apiHeaders(request, env));
+}
+
+async function handleContentEngagementApi(request, env) {
+  const headers = apiHeaders(request, env);
+  if (!env.COMPARISONS_DB || !env.ANALYTICS_SECRET) return json({ error: 'Content engagement API is not configured' }, 503, headers);
+  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers });
+  const url = new URL(request.url);
+  if (url.pathname === '/api/content-engagement' && request.method === 'GET') return listContentEngagement(request, env);
+  if (url.pathname === '/api/content-engagement/view' && request.method === 'POST') return recordContentEngagement(request, env, 'view');
+  if (url.pathname === '/api/content-engagement/helpful' && request.method === 'POST') return recordContentEngagement(request, env, 'helpful');
+  return json({ error: 'Not found' }, 404, headers);
+}
+
 function popupPage({ origin, status, payload }) {
   const nonce = randomString(18);
   const provider = 'github';
@@ -322,6 +403,7 @@ async function finishAuth(request, env, fetchImpl) {
 export async function handleRequest(request, env, fetchImpl = fetch) {
   const url = new URL(request.url);
   if (url.pathname.startsWith('/api/comparisons')) return handleComparisonsApi(request, env, fetchImpl);
+  if (url.pathname.startsWith('/api/content-engagement')) return handleContentEngagementApi(request, env);
   const missing = validateEnv(env);
   if (url.pathname === '/health') return json({ ok: missing.length === 0, configured: missing.length === 0 }, missing.length === 0 ? 200 : 503);
   if (missing.length) return json({ error: 'OAuth worker is not configured' }, 503);

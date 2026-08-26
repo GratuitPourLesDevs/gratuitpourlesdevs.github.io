@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import AdSenseSlot from '../../components/AdSenseSlot.astro';
+import ContentEngagement from '../../components/ContentEngagement.astro';
 import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
 import { getBillingRisk } from '../../data/billing-risk';
 import { getFreeTierScore } from '../../data/free-tier-score';
@@ -159,6 +160,7 @@ const jsonLd = [
         <div>
           <small>{categoryName}</small><h1>{entry.data.nom}</h1><p>{entry.data.accroche}</p>
           <div class="offer-page-tags"><span>{entry.data.type}</span><span>{statusLabel}</span>{entry.data.usages.slice(0, 3).map((tag) => <span>{tag}</span>)}</div>
+          <ContentEngagement type="offer" contentKey={entry.id} updatedAt={modifiedAt} trackView class="offer-content-engagement" />
           <section class="offer-hero-plan"><small>FORMULE GRATUITE</small><strong>{entry.data.formule}</strong></section>
           <section class="offer-editorial"><small>EN BREF</small><h2>Pourquoi {entry.data.nom} est utile</h2><Content /></section>
         </div>
@@ -229,6 +231,16 @@ const jsonLd = [
         <section><small>REPÈRES</small><dl><div><dt>Catégorie</dt><dd>{categoryName}</dd></div><div><dt>Modèle</dt><dd>{entry.data.type}</dd></div><div><dt>Durée</dt><dd>{entry.data.permanent ? 'Permanente' : 'Limitée'}</dd></div><div><dt>Paiement</dt><dd>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</dd></div><div><dt>Statut</dt><dd>{statusLabel}</dd></div></dl></section>
         <section><small>SOURCES OFFICIELLES</small><nav><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></section>
         <section class="offer-sidebar-usages"><small>USAGES</small><h2>À quoi sert {entry.data.nom} ?</h2><div>{entry.data.usages.map((tag) => <a href="/#catalogue" title={'Filtrer le catalogue par ' + tag}>{tag}</a>)}</div></section>
+        <section class="offer-report-error">
+          <small>UNE INFORMATION A-T-ELLE CHANGÉ ?</small>
+          <h2>Aidez-nous à garder cette fiche fiable.</h2>
+          <p>Quota, tarif ou condition d’accès : signalez-nous la donnée à corriger, sans créer de compte.</p>
+          <a href={`/contact/?objet=erreur&offre=${encodeURIComponent(entry.data.nom)}&page=${encodeURIComponent(`/offres/${entry.id}/`)}`}>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.8 19h18.4L12 3Z"/><path d="M12 9v4M12 16.5v.5"/></svg>
+            <span>Signaler une erreur</span>
+            <b aria-hidden="true">→</b>
+          </a>
+        </section>
       </aside>
     </div>
 

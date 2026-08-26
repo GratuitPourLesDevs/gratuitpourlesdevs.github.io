@@ -25,7 +25,8 @@ import SiteFooter from '../components/SiteFooter.astro';
         <div class="form-grid">
           <label><span>Nom</span><input name="nom" type="text" autocomplete="name" required /></label>
           <label><span>Adresse e-mail</span><input name="email" type="email" autocomplete="email" required /></label>
-          <label class="context-field" data-for="erreur" hidden><span>Offre ou page concernée</span><input name="offre_concernee" type="text" /></label>
+          <label class="context-field" data-for="erreur" hidden><span>Offre ou page concernée</span><input id="reported-offer" name="offre_concernee" type="text" /></label>
+          <input id="reported-page" name="page_concernee" type="hidden" />
           <label class="context-field" data-for="suggestion" hidden><span>Nom de l’outil</span><input name="outil_propose" type="text" /></label>
           <label class="context-field full" data-for="evolution" hidden><span>Zone ou fonctionnalité concernée</span><input name="fonctionnalite_concernee" type="text" /></label>
           <label class="context-field full" data-for="erreur suggestion" hidden><span>Adresse de la source officielle</span><input name="source_officielle" type="url" placeholder="https://" /></label>
@@ -64,12 +65,21 @@ import SiteFooter from '../components/SiteFooter.astro';
       if (title) title.textContent = selected.title;
       if (description) description.textContent = selected.description;
       if (typeField) typeField.value = selected.type;
-      history.replaceState(null, '', kind === 'contact' ? '/contact/' : `/contact/?objet=${kind}`);
+      const currentParams = new URLSearchParams(location.search);
+      currentParams.delete('objet');
+      if (kind !== 'contact') currentParams.set('objet', kind);
+      const query = currentParams.toString();
+      history.replaceState(null, '', query ? `/contact/?${query}` : '/contact/');
       if (status) status.hidden = true;
     };
     tabs.forEach((tab) => tab.addEventListener('click', () => selectKind((tab.dataset.kind ?? 'contact') as keyof typeof copy)));
-    const requestedKind = new URLSearchParams(location.search).get('objet');
+    const requestedParams = new URLSearchParams(location.search);
+    const requestedKind = requestedParams.get('objet');
     selectKind(requestedKind === 'erreur' || requestedKind === 'suggestion' || requestedKind === 'evolution' ? requestedKind : 'contact');
+    const reportedOffer = document.querySelector<HTMLInputElement>('#reported-offer');
+    const reportedPage = document.querySelector<HTMLInputElement>('#reported-page');
+    if (reportedOffer) reportedOffer.value = requestedParams.get('offre') ?? '';
+    if (reportedPage) reportedPage.value = requestedParams.get('page') ?? '';
     form?.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (!form.reportValidity() || !submitButton || !status) return;

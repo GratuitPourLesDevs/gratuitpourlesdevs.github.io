@@ -12,3 +12,6 @@
 @media(min-width:761px) and (max-width:940px){.offer-page-sidebar .offer-partner-slot{grid-column:1/-1}}
 
 @media(max-width:799px){.catalogue-partner-slot{margin-top:20px}.catalogue-partner-identity{padding:17px 16px 11px}.catalogue-partner-description{padding-inline:16px}.catalogue-partner-facts{margin-inline:16px}.catalogue-partner-actions{padding:16px}}
+
+/* La sélection partenaire suit la lecture d'une fiche sans dépasser son point d'ancrage. */
+@media(min-width:941px){.offer-page-sidebar .offer-partner-slot{position:sticky;top:96px;z-index:2;align-self:start}}

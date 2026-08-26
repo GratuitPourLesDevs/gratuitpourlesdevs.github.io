@@ -1,10 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import CustomSelect from '../../components/CustomSelect.astro';
+import ContentEngagement from '../../components/ContentEngagement.astro';
 
-const guides = [
+const guideDefinitions = [
   {
+    key: 'email',
     href: '/guides/email/meilleures-offres-gratuites/',
     category: 'E-MAIL',
     title: 'Les meilleures offres gratuites pour l’e-mail',
@@ -12,6 +16,7 @@ const guides = [
     signals: ['E-mails envoyés', 'Contacts', 'Sans carte'],
   },
   {
+    key: 'api-donnees-ml',
     href: '/guides/api-donnees-ml/meilleures-offres-gratuites/',
     category: 'API, DONNÉES & ML',
     title: 'Les meilleures offres gratuites — API, données et machine learning',
@@ -19,6 +24,7 @@ const guides = [
     signals: ['Requêtes API', 'Crédits IA', 'Quotas normalisés'],
   },
   {
+    key: 'depots-code-source',
     href: '/guides/depots-code-source/meilleures-offres-gratuites/',
     category: 'DÉPÔTS DE CODE SOURCE',
     title: 'Les meilleurs hébergements de code source gratuits',
@@ -26,6 +32,7 @@ const guides = [
     signals: ['Dépôts', 'Collaborateurs', 'CI/CD'],
   },
   {
+    key: 'supervision',
     href: '/guides/supervision/meilleures-offres-gratuites/',
     category: 'SUPERVISION',
     title: 'Les meilleures offres gratuites de supervision',
@@ -46,6 +53,20 @@ const guides = [
     description: 'Comparez builds, déploiements, compute, crédits, concurrence et capacité d’équipe.',
     signals: ['Builds / deploys', 'Compute / crédits', 'Concurrence'],
   },
+];
+const activeOffers = (await getCollection('offres')).filter(({ data }) => data.statut !== 'obsolete');
+const guides = guideDefinitions.map((guide) => {
+  const offers = activeOffers.filter(({ data }) => data.categorie === guide.key);
+  return {
+    ...guide,
+    offerCount: Math.min(10, offers.length),
+    updatedAt: offers.length ? new Date(Math.max(...offers.map(({ data }) => data.verifieLe.getTime()))) : undefined,
+  };
+});
+const guideCategories = [...new Set(guides.map((guide) => guide.category))];
+const guideCategoryOptions = [
+  { value: '', label: 'Toutes les thématiques' },
+  ...guideCategories.map((category) => ({ value: category, label: category })),
 ];
 ---
 
@@ -77,20 +98,56 @@ const guides = [
     </header>
 
     <section class="guides-directory" aria-labelledby="guides-directory-title">
-      <header><div><small>GUIDES DISPONIBLES</small><h2 id="guides-directory-title">Commencer par une catégorie</h2></div></header>
       <div class="guides-directory-layout">
-      <div class="guides-grid">
-        {guides.slice(0, 2).map((guide) => (
-          <a href={guide.href} data-guide-item>
-            <span class="guides-copy">
-              <small>{guide.category}</small>
-              <strong>{guide.title}</strong>
-              <em>{guide.description}</em>
-              <span class="guides-signals" aria-label="Points comparés">{guide.signals.map((signal) => <i>{signal}</i>)}</span>
-            </span>
-            <b aria-hidden="true">→</b>
-          </a>
-        ))}
+        <div class="guides-main-column">
+          <header class="guides-toolbar">
+            <div class="guides-toolbar-heading">
+              <small>SÉLECTIONS</small>
+              <h2 id="guides-directory-title"><span id="guides-result-count">{guides.length} guides</span></h2>
+            </div>
+            <div class="guides-toolbar-controls">
+              <label class="guides-search">
+                <span class="sr-only">Rechercher un guide</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+                <input id="guides-search" type="search" placeholder="Rechercher un guide…" autocomplete="off" />
+              </label>
+              <div class="guides-category-filter">
+                <CustomSelect
+                  id="guides-category-filter"
+                  label="Thématique"
+                  options={guideCategoryOptions}
+                  searchable
+                  searchLabel="Rechercher une thématique"
+                  searchPlaceholder="Rechercher une thématique…"
+                />
+              </div>
+            </div>
+          </header>
+          <div class="guides-grid">
+            {guides.map((guide) => (
+              <article data-guide-item data-guide-category={guide.category} data-guide-search={`${guide.category} ${guide.title} ${guide.description} ${guide.signals.join(' ')}`.toLocaleLowerCase('fr')}>
+                <a class="guides-entry-link" href={guide.href}>
+                  <span class="guides-copy">
+                    <small>{guide.category}</small>
+                    <strong>{guide.title}</strong>
+                    <em>{guide.description}</em>
+                    <span class="guides-signals" aria-label="Points comparés">{guide.signals.map((signal) => <i>{signal}</i>)}</span>
+                  </span>
+                  <b aria-hidden="true">→</b>
+                </a>
+                <ContentEngagement type="guide" contentKey={guide.key} updatedAt={guide.updatedAt} comparedOffers={guide.offerCount} class="guides-content-engagement" />
+              </article>
+            ))}
+          </div>
+          <nav class="guides-pagination pagination" id="guides-pagination" aria-label="Pagination des guides">
+            <span id="guides-pagination-summary" aria-live="polite"></span>
+            <div class="pagination-controls" id="guides-pagination-controls" hidden>
+              <button id="guides-previous-page" type="button" aria-label="Page précédente">← <span>Précédent</span></button>
+              <div id="guides-page-numbers" aria-label="Pages des guides"></div>
+              <button id="guides-next-page" type="button" aria-label="Page suivante"><span>Suivant</span> →</button>
+            </div>
+          </nav>
+        </div>
         <aside class="guides-sidebar" aria-label="À découvrir">
           <div class="catalogue-partner-slot guides-partner-slot" id="guides-partner-slot" aria-label="Sélection partenaire" hidden></div>
           <section class="guides-sidebar-fallback">
@@ -101,26 +158,6 @@ const guides = [
             <a href="/methodologie/">Comment nous vérifions →</a>
           </section>
         </aside>
-        {guides.slice(2).map((guide) => (
-          <a href={guide.href} data-guide-item>
-            <span class="guides-copy">
-              <small>{guide.category}</small>
-              <strong>{guide.title}</strong>
-              <em>{guide.description}</em>
-              <span class="guides-signals" aria-label="Points comparés">{guide.signals.map((signal) => <i>{signal}</i>)}</span>
-            </span>
-            <b aria-hidden="true">→</b>
-          </a>
-        ))}
-        <nav class="guides-pagination pagination" id="guides-pagination" aria-label="Pagination des guides">
-          <span id="guides-pagination-summary" aria-live="polite"></span>
-          <div class="pagination-controls" id="guides-pagination-controls" hidden>
-            <button id="guides-previous-page" type="button" aria-label="Page précédente">← <span>Précédent</span></button>
-            <div id="guides-page-numbers" aria-label="Pages des guides"></div>
-            <button id="guides-next-page" type="button" aria-label="Page suivante"><span>Suivant</span> →</button>
-          </div>
-        </nav>
-      </div>
       </div>
     </section>
   </main>
@@ -129,26 +166,144 @@ const guides = [
 </BaseLayout>
 
 <style>
-  .guides-page{width:min(1120px,calc(100% - 7.2vw));min-height:calc(100vh - 174px);margin:0 auto;padding:30px 0 76px}.guides-breadcrumb{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:10px}.guides-breadcrumb a{color:var(--blue);text-decoration:none}.guides-breadcrumb strong{color:var(--ink)}.guides-hero{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:54px;align-items:center;padding:58px 0 54px;border-bottom:1px solid var(--line)}.guides-hero-copy>small,.guides-directory>header small,.guides-hero-proof>small,.guides-sidebar-fallback>small{color:var(--blue);font:700 10px var(--mono);letter-spacing:.9px}.guides-hero h1{max-width:900px;margin:10px 0 18px;font-size:clamp(44px,4.3vw,64px);line-height:.99;letter-spacing:-3.5px}.guides-hero-copy>p{max-width:760px;margin:0;color:var(--muted);font-size:15px;line-height:1.72}.guides-hero-proof{padding:25px;border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:8px;background:var(--surface)}.guides-hero-proof h2{margin:9px 0 18px;font-size:22px;line-height:1.2;letter-spacing:-.5px}.guides-hero-proof ul{display:grid;gap:11px;margin:0;padding:16px 0;border-top:1px solid var(--line);list-style:none}.guides-hero-proof li{display:flex;gap:9px;color:var(--muted);font-size:11px;line-height:1.45}.guides-hero-proof li span{color:var(--green);font-weight:800}.guides-hero-proof nav{display:flex;flex-wrap:wrap;gap:9px 16px;padding-top:5px}.guides-hero-proof a,.guides-sidebar-fallback a{color:var(--blue);font-size:10px;font-weight:800;text-decoration:none}.guides-hero-proof a:hover,.guides-sidebar-fallback a:hover{text-decoration:underline}.guides-directory{padding-top:48px}.guides-directory>header{margin-bottom:22px}.guides-directory h2{margin:7px 0 0;font-size:27px;letter-spacing:-.8px}.guides-directory-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(260px,1fr);gap:24px;align-items:start;border-top:1px solid var(--line)}.guides-grid{display:contents}.guides-grid>a{min-height:108px;grid-column:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;padding:17px 12px;border-bottom:1px solid var(--line);text-decoration:none}.guides-grid>a[hidden]{display:none}.guides-grid>a:hover{background:var(--surface-hover)}.guides-copy{display:grid;gap:4px}.guides-copy small{color:var(--blue);font:700 8px var(--mono);letter-spacing:.7px}.guides-copy strong{font-size:17px}.guides-copy em{color:var(--muted);font-size:10px;font-style:normal;line-height:1.45}.guides-signals{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}.guides-signals i{padding:3px 6px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--surface);font-size:8px;font-style:normal}.guides-grid b{color:var(--blue);font-size:25px}.guides-sidebar{grid-column:2;grid-row:1/span 3;position:sticky;top:92px;padding-top:22px}.guides-partner-slot{margin:0}.guides-sidebar-fallback{display:grid;gap:13px;padding:24px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.guides-sidebar-fallback h2{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.5px}.guides-sidebar-fallback p{margin:0;color:var(--muted);font-size:11px;line-height:1.6}.guides-partner-slot:not([hidden])+.guides-sidebar-fallback{display:none}.guides-pagination{grid-column:1;margin:0;padding-top:18px}.guides-pagination>span{display:grid;gap:3px}.guides-pagination>span::before{content:'AFFICHAGE';color:var(--blue);font:600 8px var(--mono);letter-spacing:.7px}@media(max-width:980px){.guides-hero{grid-template-columns:1fr;gap:28px}.guides-hero-proof{display:grid;grid-template-columns:1fr 1.2fr;gap:0 28px}.guides-hero-proof>small,.guides-hero-proof h2{grid-column:1}.guides-hero-proof ul,.guides-hero-proof nav{grid-column:2}.guides-hero-proof ul{grid-row:1/span 2;padding-top:0;border-top:0}.guides-directory-layout{grid-template-columns:minmax(0,2fr) minmax(250px,1fr)}}@media(max-width:760px){.guides-page{width:calc(100% - 32px);padding:22px 0 54px}.guides-hero{padding:40px 0}.guides-hero h1{font-size:42px;letter-spacing:-2.5px}.guides-hero-proof{display:block;padding:21px}.guides-hero-proof ul{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}.guides-directory-layout{display:block}.guides-grid{display:block;border-top:1px solid var(--line)}.guides-grid>a{min-height:0;grid-template-columns:1fr auto;gap:12px;padding:18px 4px}.guides-copy strong{font-size:15px}.guides-signals{gap:4px}.guides-sidebar{position:static;padding:24px 0;border-bottom:1px solid var(--line)}.guides-sidebar .catalogue-partner-card{display:block}.guides-sidebar .catalogue-partner-facts{display:grid;grid-template-columns:1fr;margin:0 16px}.guides-sidebar .catalogue-partner-facts>div{padding:13px 0;border-right:0}.guides-sidebar .catalogue-partner-actions{display:grid;grid-template-columns:1fr 1fr}.guides-sidebar-fallback{padding:21px}.guides-pagination{align-items:flex-start;flex-direction:column;padding:18px 4px 0}.guides-pagination .pagination-controls{width:100%;justify-content:space-between}.guides-pagination .pagination-controls>div{display:none}.guides-pagination .pagination-controls button span{display:none}}
+  .guides-page{width:min(1120px,calc(100% - 7.2vw));min-height:calc(100vh - 174px);margin:0 auto;padding:30px 0 76px}.guides-breadcrumb{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:10px}.guides-breadcrumb a{color:var(--blue);text-decoration:none}.guides-breadcrumb strong{color:var(--ink)}.guides-hero{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:54px;align-items:center;padding:58px 0 54px;border-bottom:1px solid var(--line)}.guides-hero-copy>small,.guides-toolbar small,.guides-hero-proof>small,.guides-sidebar-fallback>small{color:var(--blue);font:700 10px var(--mono);letter-spacing:.9px}.guides-hero h1{max-width:900px;margin:10px 0 18px;font-size:clamp(44px,4.3vw,64px);line-height:.99;letter-spacing:-3.5px}.guides-hero-copy>p{max-width:760px;margin:0;color:var(--muted);font-size:15px;line-height:1.72}.guides-hero-proof{padding:25px;border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:8px;background:var(--surface)}.guides-hero-proof h2{margin:9px 0 18px;font-size:22px;line-height:1.2;letter-spacing:-.5px}.guides-hero-proof ul{display:grid;gap:11px;margin:0;padding:16px 0;border-top:1px solid var(--line);list-style:none}.guides-hero-proof li{display:flex;gap:9px;color:var(--muted);font-size:11px;line-height:1.45}.guides-hero-proof li span{color:var(--green);font-weight:800}.guides-hero-proof nav{display:flex;flex-wrap:wrap;gap:9px 16px;padding-top:5px}.guides-hero-proof a,.guides-sidebar-fallback a{color:var(--blue);font-size:10px;font-weight:800;text-decoration:none}.guides-hero-proof a:hover,.guides-sidebar-fallback a:hover{text-decoration:underline}.guides-directory{padding-top:48px}.guides-directory-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(260px,1fr);gap:24px;align-items:start}.guides-main-column{min-width:0}.guides-toolbar{display:grid;grid-template-columns:auto minmax(320px,1fr);gap:22px;align-items:end;padding:0 0 18px;border-bottom:1px solid var(--line)}.guides-toolbar h2{margin:6px 0 0;font-size:22px;letter-spacing:-.6px;white-space:nowrap}.guides-toolbar-controls{display:grid;grid-template-columns:minmax(180px,1fr) minmax(170px,.8fr);gap:8px}.guides-search{position:relative;display:block}.guides-search svg{position:absolute;left:12px;top:50%;width:15px;transform:translateY(-50%);fill:none;stroke:currentColor;stroke-width:1.8;color:var(--muted)}.guides-search input,.guides-category-filter select{width:100%;height:40px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font:inherit;font-size:11px}.guides-search input{padding:0 12px 0 36px}.guides-category-filter select{padding:0 34px 0 11px}.guides-search input:focus,.guides-category-filter select:focus{outline:2px solid var(--blue);outline-offset:1px}.guides-grid{display:block}.guides-grid>article{min-height:108px;border-bottom:1px solid var(--line)}.guides-grid>article[hidden]{display:none}.guides-grid>article:hover{background:var(--surface-hover)}.guides-entry-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;padding:15px 12px 8px;text-decoration:none}.guides-copy{display:grid;gap:4px}.guides-copy small{color:var(--blue);font:700 8px var(--mono);letter-spacing:.7px}.guides-copy strong{font-size:17px}.guides-copy em{color:var(--muted);font-size:10px;font-style:normal;line-height:1.45}.guides-signals{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}.guides-signals i{padding:3px 6px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--surface);font-size:8px;font-style:normal}.guides-entry-link b{color:var(--blue);font-size:25px}.guides-content-engagement{padding:0 12px 12px}.guides-sidebar{position:sticky;top:92px;padding-top:0}.guides-partner-slot{margin:0}.guides-sidebar-fallback{display:grid;gap:13px;padding:24px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}.guides-sidebar-fallback h2{margin:0;font-size:22px;line-height:1.2;letter-spacing:-.5px}.guides-sidebar-fallback p{margin:0;color:var(--muted);font-size:11px;line-height:1.6}.guides-partner-slot:not([hidden])+.guides-sidebar-fallback{display:none}.guides-pagination{margin:0;padding-top:18px}.guides-pagination>span{display:grid;gap:3px}.guides-pagination>span::before{content:'AFFICHAGE';color:var(--blue);font:600 8px var(--mono);letter-spacing:.7px}@media(max-width:980px){.guides-hero{grid-template-columns:1fr;gap:28px}.guides-hero-proof{display:grid;grid-template-columns:1fr 1.2fr;gap:0 28px}.guides-hero-proof>small,.guides-hero-proof h2{grid-column:1}.guides-hero-proof ul,.guides-hero-proof nav{grid-column:2}.guides-hero-proof ul{grid-row:1/span 2;padding-top:0;border-top:0}.guides-directory-layout{grid-template-columns:minmax(0,2fr) minmax(250px,1fr)}.guides-toolbar{grid-template-columns:1fr}.guides-toolbar-controls{grid-template-columns:1fr}}@media(max-width:760px){.guides-page{width:calc(100% - 32px);padding:22px 0 54px}.guides-hero{padding:40px 0}.guides-hero h1{font-size:42px;letter-spacing:-2.5px}.guides-hero-proof{display:block;padding:21px}.guides-hero-proof ul{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}.guides-directory-layout{display:block}.guides-toolbar{gap:14px}.guides-toolbar h2{font-size:20px}.guides-toolbar-controls{grid-template-columns:1fr}.guides-entry-link{grid-template-columns:1fr auto;gap:12px;padding:18px 4px 8px}.guides-content-engagement{padding:0 4px 14px}.guides-copy strong{font-size:15px}.guides-signals{gap:4px}.guides-sidebar{position:static;padding:24px 0;border-bottom:1px solid var(--line)}.guides-sidebar .catalogue-partner-card{display:block}.guides-sidebar .catalogue-partner-facts{display:grid;grid-template-columns:1fr;margin:0 16px}.guides-sidebar .catalogue-partner-facts>div{padding:13px 0;border-right:0}.guides-sidebar .catalogue-partner-actions{display:grid;grid-template-columns:1fr 1fr}.guides-sidebar-fallback{padding:21px}.guides-pagination{align-items:flex-start;flex-direction:column;padding:18px 4px 0}.guides-pagination .pagination-controls{width:100%;justify-content:space-between}.guides-pagination .pagination-controls>div{display:none}.guides-pagination .pagination-controls button span{display:none}}
+  .guides-category-filter select{padding:0}
+  .guides-category-filter :global(.filter-field){display:block;min-width:0}
+  .guides-category-filter :global(.filter-field>span){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .guides-category-filter :global(.custom-select-trigger){height:40px;font-size:11px}
+  .guides-category-filter :global(.custom-select-popover){z-index:30}
 </style>
 
 <script>
   const PAGE_SIZE = 10;
   const items = Array.from(document.querySelectorAll<HTMLElement>('[data-guide-item]'));
   const summary = document.querySelector<HTMLElement>('#guides-pagination-summary');
+  const resultCount = document.querySelector<HTMLElement>('#guides-result-count');
+  const search = document.querySelector<HTMLInputElement>('#guides-search');
+  const category = document.querySelector<HTMLSelectElement>('#guides-category-filter');
   const controls = document.querySelector<HTMLElement>('#guides-pagination-controls');
   const previous = document.querySelector<HTMLButtonElement>('#guides-previous-page');
   const next = document.querySelector<HTMLButtonElement>('#guides-next-page');
   const pageNumbers = document.querySelector<HTMLElement>('#guides-page-numbers');
+  const categoryControl = document.querySelector<HTMLElement>('[data-control="guides-category-filter"]');
   let currentPage = 1;
-  const pageCount = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+  let filteredItems = items;
+
+  if (categoryControl && category) {
+    const trigger = categoryControl.querySelector<HTMLButtonElement>('.custom-select-trigger');
+    const popover = categoryControl.querySelector<HTMLElement>('.custom-select-popover');
+    const searchInput = categoryControl.querySelector<HTMLInputElement>('.custom-select-search input');
+    const optionButtons = Array.from(categoryControl.querySelectorAll<HTMLButtonElement>('[role="option"]'));
+    const emptyMessage = categoryControl.querySelector<HTMLElement>('.custom-select-empty');
+
+    const normalize = (value: string) => value
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .toLocaleLowerCase('fr')
+      .trim();
+    const visibleOptions = () => optionButtons.filter((option) => !option.hidden);
+    const filterOptions = (query = '') => {
+      const normalizedQuery = normalize(query);
+      optionButtons.forEach((option) => {
+        option.hidden = Boolean(normalizedQuery) && !normalize(option.textContent ?? '').includes(normalizedQuery);
+      });
+      if (emptyMessage) emptyMessage.hidden = visibleOptions().length > 0;
+    };
+    const closeSelect = (restoreFocus = false) => {
+      if (!popover || !trigger) return;
+      popover.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) trigger.focus();
+    };
+    const openSelect = () => {
+      if (!popover || !trigger) return;
+      popover.hidden = false;
+      trigger.setAttribute('aria-expanded', 'true');
+      if (searchInput) {
+        searchInput.value = '';
+        filterOptions();
+        requestAnimationFrame(() => searchInput.focus());
+      }
+    };
+    const syncSelection = () => {
+      const selectedOption = optionButtons.find((option) => option.dataset.value === category.value) ?? optionButtons[0];
+      if (trigger && selectedOption) {
+        const label = trigger.querySelector<HTMLElement>('[data-selected-label]');
+        if (label) label.textContent = selectedOption.dataset.optionLabel ?? selectedOption.textContent?.trim() ?? '';
+      }
+      optionButtons.forEach((option) => {
+        const selected = option.dataset.value === category.value;
+        option.classList.toggle('selected', selected);
+        option.setAttribute('aria-selected', String(selected));
+      });
+    };
+
+    trigger?.addEventListener('click', () => {
+      if (popover?.hidden) openSelect();
+      else closeSelect();
+    });
+    trigger?.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowDown') return;
+      event.preventDefault();
+      openSelect();
+      requestAnimationFrame(() => (searchInput ?? visibleOptions()[0])?.focus());
+    });
+    searchInput?.addEventListener('input', () => filterOptions(searchInput.value));
+    searchInput?.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeSelect(true);
+      } else if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        visibleOptions()[0]?.focus();
+      }
+    });
+    optionButtons.forEach((option) => {
+      option.addEventListener('click', () => {
+        category.value = option.dataset.value ?? '';
+        syncSelection();
+        closeSelect(true);
+        category.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      option.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeSelect(true);
+          return;
+        }
+        if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+        event.preventDefault();
+        const options = visibleOptions();
+        const index = options.indexOf(option);
+        const nextIndex = event.key === 'ArrowDown'
+          ? (index + 1) % options.length
+          : (index - 1 + options.length) % options.length;
+        options[nextIndex]?.focus();
+      });
+    });
+    category.addEventListener('change', syncSelection);
+    document.addEventListener('pointerdown', (event) => {
+      if (!categoryControl.contains(event.target as Node)) closeSelect();
+    });
+    syncSelection();
+  }
 
   const render = () => {
+    const query = search?.value.trim().toLocaleLowerCase('fr') ?? '';
+    const selectedCategory = category?.value ?? '';
+    filteredItems = items.filter((item) => {
+      const matchesQuery = !query || (item.dataset.guideSearch ?? '').includes(query);
+      const matchesCategory = !selectedCategory || item.dataset.guideCategory === selectedCategory;
+      return matchesQuery && matchesCategory;
+    });
+    const pageCount = Math.max(1, Math.ceil(filteredItems.length / PAGE_SIZE));
     currentPage = Math.min(Math.max(currentPage, 1), pageCount);
     const start = (currentPage - 1) * PAGE_SIZE;
-    const end = Math.min(start + PAGE_SIZE, items.length);
-    items.forEach((item, index) => { item.hidden = index < start || index >= end; });
-    if (summary) summary.textContent = items.length ? `${start + 1}–${end} sur ${items.length} guides` : '0 guide';
+    const end = Math.min(start + PAGE_SIZE, filteredItems.length);
+    items.forEach((item) => { item.hidden = true; });
+    filteredItems.slice(start, end).forEach((item) => { item.hidden = false; });
+    if (resultCount) resultCount.textContent = `${filteredItems.length} ${filteredItems.length === 1 ? 'guide' : 'guides'}`;
+    if (summary) summary.textContent = filteredItems.length ? `${start + 1}–${end} sur ${filteredItems.length} guides` : 'Aucun guide ne correspond';
     if (controls) controls.hidden = pageCount <= 1;
     if (previous) previous.disabled = currentPage === 1;
     if (next) next.disabled = currentPage === pageCount;
@@ -169,5 +324,7 @@ const guides = [
 
   previous?.addEventListener('click', () => { currentPage -= 1; render(); });
   next?.addEventListener('click', () => { currentPage += 1; render(); });
+  search?.addEventListener('input', () => { currentPage = 1; render(); });
+  category?.addEventListener('change', () => { currentPage = 1; render(); });
   render();
 </script>

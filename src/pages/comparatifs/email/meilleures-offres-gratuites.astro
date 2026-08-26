@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SiteHeader from '../../../components/SiteHeader.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import AdSenseSlot from '../../../components/AdSenseSlot.astro';
+import ContentEngagement from '../../../components/ContentEngagement.astro';
 import { getFreeTierScore } from '../../../data/free-tier-score';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, getOfferQuotas, type OfferQuota } from '../../../data/offer-quotas';
 import { SOURCE_CODE_GUIDE_CONFIG } from '../../../data/source-code-guide';
@@ -248,6 +249,7 @@ const getOverageTone = (quota?: OfferQuota) => {
         <a href="#liens-utiles">Autres pages utiles</a>
       </aside>
     </section>
+    <ContentEngagement type="guide" contentKey={CATEGORY_ID} updatedAt={latestVerification} comparedOffers={rankingSize} trackView class="guide-detail-engagement" />
 
     <section class="seo-facts" aria-label="Repères du comparatif">
       <article><span>01</span><strong>{rankingSize} offres classées</strong><small>Les mieux notées de la catégorie</small></article>
