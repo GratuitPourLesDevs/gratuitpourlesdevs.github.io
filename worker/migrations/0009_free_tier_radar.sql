@@ -1,5 +1,4 @@
 -- Free Tier Radar: immutable business change log + current comparison baseline.
--- offer_change_events is append-only by convention: application code only INSERTs.
 
 CREATE TABLE IF NOT EXISTS offer_radar_state (
   offer_id TEXT PRIMARY KEY,
@@ -41,6 +40,19 @@ CREATE INDEX IF NOT EXISTS idx_offer_change_events_type_detected
   ON offer_change_events(event_type, detected_at DESC);
 CREATE INDEX IF NOT EXISTS idx_offer_change_events_verified_detected
   ON offer_change_events(verified, detected_at DESC);
+
+-- Le journal est append-only au niveau SQL, pas seulement par convention applicative.
+CREATE TRIGGER IF NOT EXISTS offer_change_events_prevent_update
+BEFORE UPDATE ON offer_change_events
+BEGIN
+  SELECT RAISE(ABORT, 'offer_change_events is append-only');
+END;
+
+CREATE TRIGGER IF NOT EXISTS offer_change_events_prevent_delete
+BEFORE DELETE ON offer_change_events
+BEGIN
+  SELECT RAISE(ABORT, 'offer_change_events is append-only');
+END;
 
 CREATE TABLE IF NOT EXISTS offer_radar_runs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
