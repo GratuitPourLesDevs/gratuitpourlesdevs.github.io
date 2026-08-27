@@ -4,8 +4,7 @@ Cette fonctionnalité transforme une recherche sauvegardée de l’Explorateur e
 
 ## Principe
 
-Une recherche est stockée avec une représentation structurée de ses filtres (`filters_json`).
-Lors de l’activation de la surveillance, le Worker calcule les offres qui correspondent déjà à la recherche et les enregistre dans `last_match_offer_ids`.
+Une recherche est stockée avec une représentation structurée de ses filtres (`filters_json`). Lors de l’activation de la surveillance, le Worker calcule les offres qui correspondent déjà à la recherche et les enregistre dans `last_match_offer_ids`.
 
 Cette première photographie est une **baseline** : elle ne produit aucune notification.
 
@@ -54,7 +53,9 @@ Le Worker garde les deux crons existants :
 - `17 */6 * * *` : Free Tier Radar puis recherches Pro en fréquence immédiate ;
 - `0 7 * * 1` : Free Tier Radar, toutes les recherches surveillées, puis digest hebdomadaire.
 
-## API
+Chaque invocation Search Watch crée désormais une ligne dans `search_watch_runs`, y compris lorsqu’aucune recherche n’est à évaluer. Cela permet de distinguer un passage réussi sans événement d’une absence d’exécution.
+
+## API utilisateur
 
 - `GET /api/account/searches`
 - `POST /api/account/searches`
@@ -63,6 +64,8 @@ Le Worker garde les deux crons existants :
 - `GET /api/account/search-watch/events?limit=20`
 
 Toutes ces routes exigent une session GPLD valide.
+
+`GET /api/account/searches` expose également `matchCount`, calculé à partir de la dernière baseline de correspondances, afin d’afficher dans Mon espace le nombre d’offres actuellement compatibles avec chaque recherche surveillée.
 
 ### Activer une surveillance
 
@@ -73,8 +76,7 @@ Toutes ces routes exigent une session GPLD valide.
 }
 ```
 
-Un compte gratuit est automatiquement forcé sur `weekly`.
-L’activation initialise immédiatement la baseline de la recherche et ne produit aucun événement utilisateur.
+Un compte gratuit est automatiquement forcé sur `weekly`. L’activation initialise immédiatement la baseline de la recherche et ne produit aucun événement utilisateur.
 
 ### Désactiver une surveillance
 
@@ -85,13 +87,69 @@ L’activation initialise immédiatement la baseline de la recherche et ne produ
 }
 ```
 
-## Migration
+## Dashboard d’administration
 
-Appliquer `worker/migrations/0010_search_watch.sql` avant de déployer le Worker contenant `search-watch.js`.
+Le dashboard est disponible dans :
 
-```bash
-npm run migrate:worker
+```text
+/admin/search-watch/
 ```
+
+Il affiche notamment :
+
+- santé de la dernière exécution ;
+- nombre de recherches sauvegardées et surveillées ;
+- utilisateurs utilisant la veille ;
+- répartition Free / Pro et hebdomadaire / immédiate ;
+- recherches en retard selon leur fréquence ;
+- nombre actuel de correspondances par recherche ;
+- historique des runs, durée, déclencheur, portée et erreurs ;
+- événements sur 24 h / 7 jours et événements critiques ;
+- derniers `MATCH_ADDED`, `MATCH_REMOVED` et `MATCH_CRITICAL_CHANGED`.
+
+Les routes admin utilisent la même autorisation GitHub que le dashboard Radar et vérifient `ALLOWED_GITHUB_LOGINS` côté Worker :
+
+```http
+GET /api/search-watch/admin/dashboard
+Authorization: Bearer <github-token>
+```
+
+```http
+POST /api/search-watch/admin/run
+Authorization: Bearer <github-token>
+```
+
+Le lancement manuel évalue toutes les recherches surveillées actives. Il ne supprime aucun événement et ne modifie aucun filtre utilisateur.
+
+## Mon espace
+
+`/compte/` présente désormais une zone dédiée aux recherches surveillées :
+
+- quota Free / Pro ;
+- fréquence ;
+- nombre actuel de correspondances ;
+- dernière évaluation ;
+- lien vers les résultats ;
+- mise en pause / réactivation ;
+- activité récente des recherches surveillées.
+
+Le discours Pro indique explicitement que le compte gratuit inclut déjà une recherche surveillée hebdomadaire ; Pro étend les limites et la fréquence.
+
+## Migrations
+
+V1 :
+
+```text
+worker/migrations/0010_search_watch.sql
+```
+
+V1.1 — historique opérationnel :
+
+```text
+worker/migrations/0011_search_watch_runs.sql
+```
+
+`0011` doit être appliquée **avant** le Worker V1.1, car chaque exécution du moteur écrit son résultat dans `search_watch_runs`.
 
 ## Tests
 
@@ -100,20 +158,18 @@ npm run test:worker
 npm run build
 ```
 
-## Mise en production
+## Mise en production V1.1
 
-Ne pas mettre cette fonctionnalité en production tant que la première baseline du Free Tier Radar (`0009`) n’a pas été validée avec `eventsCreated = 0`.
+Ordre sûr :
 
-Après validation du radar, l’ordre le plus sûr est :
+1. exécuter `npm run test:worker` et `npm run build` sur `feature/search-watch-admin-v11` ;
+2. appliquer `0011_search_watch_runs.sql` sur la D1 distante ;
+3. déployer le Worker depuis la branche ;
+4. vérifier que `/api/search-watch/admin/dashboard` retourne `401` sans authentification ;
+5. vérifier `/api/radar/status`, `/api/radar/admin/dashboard` et `/api/account/searches` pour les non-régressions ;
+6. se connecter à `/admin/search-watch/` depuis une prévisualisation locale si nécessaire et lancer une évaluation manuelle ;
+7. fusionner la PR vers `main` pour publier l’interface ;
+8. tester `/compte/` avec une recherche surveillée et vérifier `matchCount`, dernière évaluation, activité et mise en pause ;
+9. vérifier au passage cron suivant qu’un nouveau `search_watch_runs` est enregistré.
 
-1. resynchroniser `feature/watch-saved-searches` avec `main` si nécessaire ;
-2. exécuter `npm run test:worker` et `npm run build` sur la branche ;
-3. appliquer `0010_search_watch.sql` sur D1 ;
-4. déployer le Worker depuis la branche et vérifier les nouvelles API ;
-5. vérifier que les anciennes fonctions compte/radar répondent toujours ;
-6. fast-forward de `main` sur la branche afin que GitHub Pages publie le client ;
-7. tester la sauvegarde puis l’activation d’une recherche depuis l’Explorateur ;
-8. vérifier que l’activation crée une baseline mais aucun `search_watch_events` ;
-9. contrôler les évaluations planifiées suivantes.
-
-Cet ordre publie d’abord un backend rétrocompatible avec l’ancien frontend ; il évite la fenêtre inverse où un nouveau bouton appellerait une API pas encore migrée.
+Cet ordre publie d’abord un backend et un schéma D1 rétrocompatibles avec l’ancien frontend, puis seulement l’interface GitHub Pages.
