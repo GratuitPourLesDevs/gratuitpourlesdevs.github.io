@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS search_watch_events (
   user_id TEXT NOT NULL,
   saved_search_id INTEGER NOT NULL,
   offer_id TEXT NOT NULL,
-  event_type TEXT NOT NULL CHECK (event_type IN ('MATCH_ADDED', 'MATCH_REMOVED')),
+  event_type TEXT NOT NULL CHECK (event_type IN ('MATCH_ADDED', 'MATCH_REMOVED', 'MATCH_CRITICAL_CHANGED')),
   detected_at INTEGER NOT NULL,
   radar_event_id TEXT,
   radar_event_type TEXT,
