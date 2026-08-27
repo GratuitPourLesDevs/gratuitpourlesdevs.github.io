@@ -91,7 +91,10 @@ function normalizeExplorerFilters(value = {}, fallbackUrl = '/explorer/') {
   const period = String(read('period', 'month'));
   const scope = String(read('scope', 'account'));
   const overage = String(read('overage', ''));
-  const minimumComparableValue = Number(value?.minimumComparableValue);
+  const rawMinimum = value?.minimumComparableValue;
+  const minimumComparableValue = rawMinimum === null || rawMinimum === undefined || rawMinimum === ''
+    ? null
+    : Number(rawMinimum);
   return {
     schemaVersion: SEARCH_FILTER_SCHEMA_VERSION,
     resource: RESOURCES.has(resource) ? resource : 'storage',
@@ -276,27 +279,42 @@ async function updateWatch(request, env, fetchImpl, user) {
 
 async function latestRadarEventForOffer(db, offerId, after, before) {
   return db.prepare(`
-    SELECT event_id, event_type, severity, field, old_value, new_value
+    SELECT event_id, offer_id, event_type, severity, field, old_value, new_value, detected_at
     FROM offer_change_events
     WHERE offer_id = ? AND detected_at > ? AND detected_at <= ?
     ORDER BY detected_at DESC, event_id DESC LIMIT 1
   `).bind(offerId, after || 0, before).first();
 }
 
-async function insertWatchEvent(db, search, offerId, eventType, previousMatches, currentMatches, now) {
+async function criticalRadarEvents(db, after, before) {
+  const result = await db.prepare(`
+    SELECT event_id, offer_id, event_type, severity, field, old_value, new_value, detected_at
+    FROM offer_change_events
+    WHERE severity = 'critical' AND verified = 1 AND detected_at > ? AND detected_at <= ?
+    ORDER BY detected_at ASC, event_id ASC
+  `).bind(after || 0, before).all();
+  return result.results ?? [];
+}
+
+async function insertWatchEvent(db, search, offerId, eventType, previousMatches, currentMatches, now, radarOverride = null) {
+  const radar = radarOverride ?? await latestRadarEventForOffer(db, offerId, Number(search.last_evaluated_at || 0), now);
   const fingerprint = await sha256Hex([
-    search.id, offerId, eventType, search.last_evaluated_at || 0,
-    JSON.stringify(previousMatches), JSON.stringify(currentMatches),
+    search.id,
+    offerId,
+    eventType,
+    radar?.event_id || '',
+    search.last_evaluated_at || 0,
+    JSON.stringify(previousMatches),
+    JSON.stringify(currentMatches),
   ].join('\u0000'));
   const id = `swe_${fingerprint.slice(0, 32)}`;
-  const radar = await latestRadarEventForOffer(db, offerId, Number(search.last_evaluated_at || 0), now);
   const result = await db.prepare(`
     INSERT OR IGNORE INTO search_watch_events (
       id, user_id, saved_search_id, offer_id, event_type, detected_at,
       radar_event_id, radar_event_type, severity, field, old_value, new_value, fingerprint, created_at
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).bind(
-    id, search.user_id, Number(search.id), offerId, eventType, now,
+    id, search.user_id, Number(search.id), offerId, eventType, Number(radar?.detected_at || now),
     radar?.event_id ?? null, radar?.event_type ?? null, radar?.severity ?? null,
     radar?.field ?? null, radar?.old_value ?? null, radar?.new_value ?? null,
     fingerprint, now,
@@ -319,13 +337,40 @@ async function evaluateSearch(db, search, catalogue, now) {
       .bind(now, JSON.stringify(currentMatches), search.id).run();
     return { events: 0, baseline: true };
   }
+
   const previousSet = new Set(previousMatches);
   const currentSet = new Set(currentMatches);
   const added = currentMatches.filter((id) => !previousSet.has(id));
   const removed = previousMatches.filter((id) => !currentSet.has(id));
+  const retained = new Set(currentMatches.filter((id) => previousSet.has(id)));
   let events = 0;
-  for (const offerId of added) events += await insertWatchEvent(db, search, offerId, 'MATCH_ADDED', previousMatches, currentMatches, now);
-  for (const offerId of removed) events += await insertWatchEvent(db, search, offerId, 'MATCH_REMOVED', previousMatches, currentMatches, now);
+
+  for (const offerId of added) {
+    events += await insertWatchEvent(db, search, offerId, 'MATCH_ADDED', previousMatches, currentMatches, now);
+  }
+  for (const offerId of removed) {
+    events += await insertWatchEvent(db, search, offerId, 'MATCH_REMOVED', previousMatches, currentMatches, now);
+  }
+
+  // Une offre peut rester compatible avec la recherche tout en devenant nettement plus risquée.
+  // Dans ce cas, on conserve le match mais on remonte le changement critique vérifié du radar.
+  if (retained.size) {
+    const criticalEvents = await criticalRadarEvents(db, Number(search.last_evaluated_at || 0), now);
+    for (const radar of criticalEvents) {
+      if (!retained.has(String(radar.offer_id))) continue;
+      events += await insertWatchEvent(
+        db,
+        search,
+        String(radar.offer_id),
+        'MATCH_CRITICAL_CHANGED',
+        previousMatches,
+        currentMatches,
+        now,
+        radar,
+      );
+    }
+  }
+
   await db.prepare(`UPDATE saved_searches SET last_evaluated_at = ?, last_match_offer_ids = ? WHERE id = ?`)
     .bind(now, JSON.stringify(currentMatches), search.id).run();
   return { events, baseline: false };
