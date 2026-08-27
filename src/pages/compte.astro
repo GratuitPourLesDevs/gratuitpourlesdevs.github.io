@@ -61,10 +61,19 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
       </section>
 
       <section class="account-section">
-        <header><div><small>VOTRE SÉLECTION</small><h2>Favoris et veille</h2></div><p>Un favori sert à retrouver une offre. Une offre suivie entre dans votre veille.</p></header>
+        <header><div><small>VOTRE SÉLECTION</small><h2>Mes favoris</h2></div><p>Retrouvez ici les offres mises de côté depuis le catalogue ou une fiche détaillée.</p></header>
+        <article class="account-card"><small>FAVORIS SYNCHRONISÉS</small><h3>Offres enregistrées</h3><p>Les favoris de ce navigateur sont fusionnés avec votre compte.</p><ul class="account-list" id="favorites-list"></ul><nav class="account-pagination" id="favorites-pagination" aria-label="Pagination des favoris" hidden><span id="favorites-pagination-summary" aria-live="polite"></span><div class="account-pagination-controls"><button id="favorites-previous" type="button"><span aria-hidden="true">←</span> Précédent</button><div id="favorites-page-numbers" aria-label="Pages des favoris"></div><button id="favorites-next" type="button">Suivant <span aria-hidden="true">→</span></button></div></nav>
+        </article>
+      </section>
+
+      <section class="account-section account-watch-section">
+        <header><div><small>VOTRE VEILLE</small><h2>Suivi et activité</h2></div><p>Suivez les offres importantes et consultez leurs derniers changements au même endroit.</p></header>
         <div class="account-grid">
-          <article class="account-card"><small>FAVORIS SYNCHRONISÉS</small><h3>Mes favoris</h3><p>Les favoris de ce navigateur sont fusionnés avec votre compte.</p><ul class="account-list" id="favorites-list"></ul><nav class="account-pagination" id="favorites-pagination" aria-label="Pagination des favoris" hidden><span id="favorites-pagination-summary" aria-live="polite"></span><div class="account-pagination-controls"><button id="favorites-previous" type="button"><span aria-hidden="true">←</span> Précédent</button><div id="favorites-page-numbers" aria-label="Pages des favoris"></div><button id="favorites-next" type="button">Suivant <span aria-hidden="true">→</span></button></div></nav></article>
-          <article class="account-card account-card--with-limit"><small>VEILLE GRATUITE</small><h3>Offres suivies <span class="account-limit account-limit--prominent" id="follow-limit">0 / 5</span></h3><p>Vous pouvez suivre cinq offres. Les modifications apparaissent dans votre digest.</p><ul class="account-list" id="follows-list"></ul></article>
+          <article class="account-card account-card--with-limit"><small>OFFRES SUIVIES</small><h3>Votre veille <span class="account-limit account-limit--prominent" id="follow-limit">0 / 5</span></h3><p>Vous pouvez suivre cinq offres. Leurs modifications alimentent automatiquement votre activité.</p><ul class="account-list" id="follows-list"></ul></article>
+          <article class="account-card account-digest-card">
+            <header class="account-digest-header"><div><small>ACTIVITÉ DE VOTRE VEILLE</small><h3>Derniers changements</h3></div><label class="digest-toggle"><input id="digest-enabled" type="checkbox" checked /> Recevoir le digest par e-mail</label></header>
+            <p id="digest-email-status"></p><ul class="account-list" id="digest-list"></ul>
+          </article>
         </div>
       </section>
 
@@ -90,11 +99,6 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
           <div class="stack-chips" id="stack-chips"></div>
           <div class="stack-actions"><button class="account-primary" id="stack-save" type="button">Enregistrer ma stack</button><button class="account-danger" id="stack-delete" type="button">Supprimer</button></div>
         </article>
-      </section>
-
-      <section class="account-section">
-        <header><div><small>DIGEST HEBDOMADAIRE</small><h2>Les changements de votre veille</h2></div><label class="digest-toggle"><input id="digest-enabled" type="checkbox" checked /> Recevoir le digest par e-mail</label></header>
-        <article class="account-card"><p id="digest-email-status"></p><ul class="account-list" id="digest-list"></ul></article>
       </section>
 
       <section class="account-section" id="pro">
