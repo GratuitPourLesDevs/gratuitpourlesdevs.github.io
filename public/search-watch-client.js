@@ -119,8 +119,6 @@
     const actions = document.querySelector('.quota-explorer-result-actions');
     if (!actions || actions.querySelector('.account-watch-search')) return;
 
-    // account-client.js crée le bouton historique. On le clone pour retirer son ancien
-    // listener URL-only, puis on le reconnecte au stockage structuré des filtres.
     const legacySaveButton = actions.querySelector('.account-save-search');
     if (legacySaveButton) {
       explorerSaveButton = legacySaveButton.cloneNode(true);
@@ -179,15 +177,145 @@
     void refreshExplorerState();
   };
 
-  const formatDate = (value) => value ? new Date(value).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+  const formatDateTime = (value) => value ? new Intl.DateTimeFormat('fr-FR', {
+    day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris',
+  }).format(new Date(value)) : 'jamais';
 
-  const enhanceAccountSearchList = async () => {
+  const eventLabel = (event) => {
+    if (event.eventType === 'MATCH_ADDED') return `${event.offerId} correspond maintenant à « ${event.searchName} »`;
+    if (event.eventType === 'MATCH_REMOVED') return `${event.offerId} ne correspond plus à « ${event.searchName} »`;
+    return `${event.offerId} reste compatible avec « ${event.searchName} », mais un changement critique a été détecté`;
+  };
+
+  function ensureAccountWatchSection() {
+    const searchesRoot = document.querySelector('#searches-list');
+    const anchor = searchesRoot?.closest('.account-section');
+    if (!anchor) return null;
+    let section = document.querySelector('#account-search-watch-section');
+    if (section) return section;
+
+    section = document.createElement('section');
+    section.className = 'account-section account-search-watch-section';
+    section.id = 'account-search-watch-section';
+    section.innerHTML = `
+      <header>
+        <div><small>VOTRE VEILLE AUTOMATIQUE</small><h2>Recherches surveillées</h2></div>
+        <p>GPLD réévalue vos critères et vous signale les offres qui entrent, sortent ou deviennent critiques.</p>
+      </header>
+      <div class="account-grid">
+        <article class="account-card account-card--with-limit search-watch-card">
+          <small>SURVEILLANCE ACTIVE</small>
+          <h3>Mes recherches <span class="account-limit account-limit--prominent" id="watched-search-limit">0 / 1</span></h3>
+          <p class="search-watch-native-summary" id="watched-search-summary">Compte gratuit : une recherche surveillée, évaluée chaque semaine.</p>
+          <ul class="account-list search-watch-native-list" id="watched-searches-list"></ul>
+          <p><a href="/explorer/">Créer ou modifier une recherche →</a></p>
+        </article>
+        <article class="account-card search-watch-card">
+          <small>ACTIVITÉ RÉCENTE</small>
+          <h3>Ce qui a changé</h3>
+          <p>Les nouvelles correspondances, sorties et changements critiques apparaissent ici.</p>
+          <ul class="search-watch-native-events" id="search-watch-activity-list"></ul>
+        </article>
+      </div>`;
+    anchor.before(section);
+    return section;
+  }
+
+  function tuneAccountCopy() {
+    const stat = document.querySelector('#stat-saved');
+    const statLabel = stat?.nextElementSibling;
+    if (statLabel) statLabel.textContent = 'recherche surveillée';
+
+    const benefitArticles = document.querySelectorAll('.account-benefits article');
+    const third = benefitArticles[2];
+    if (third) {
+      const strong = third.querySelector('strong');
+      const paragraph = third.querySelector('p');
+      if (strong) strong.textContent = 'Recherches et veille automatique';
+      if (paragraph) paragraph.textContent = 'Sauvegardez trois recherches et surveillez-en une gratuitement chaque semaine.';
+    }
+
+    document.querySelectorAll('#pro li').forEach((item) => {
+      if (item.textContent?.trim() === 'Recherches surveillées') item.textContent = 'Recherches surveillées illimitées';
+      if (item.textContent?.trim() === 'Alertes immédiates') item.textContent = 'Évaluation après chaque passage du Radar';
+    });
+  }
+
+  async function toggleWatch(search) {
+    try {
+      await account().api('/api/account/searches/watch', {
+        method: 'PUT',
+        body: JSON.stringify({ id: search.id, active: !search.watchEnabled }),
+      });
+      showToast(search.watchEnabled ? 'Surveillance désactivée.' : 'Recherche surveillée.');
+      await renderAccountWatchArea();
+      document.dispatchEvent(new CustomEvent('gpld:account-changed'));
+    } catch (error) {
+      if (error?.payload?.code === 'free_limit') showToast('Le compte gratuit permet de surveiller une recherche à la fois.', { pro: true });
+      else showToast(error.message || 'Modification impossible.');
+    }
+  }
+
+  function renderWatchedSearches(searches, payload) {
+    const root = document.querySelector('#watched-searches-list');
+    const limitNode = document.querySelector('#watched-search-limit');
+    const summary = document.querySelector('#watched-search-summary');
+    const stat = document.querySelector('#stat-saved');
+    if (!root) return;
+    const watched = searches.filter((search) => search.watchEnabled);
+    const limit = payload.limits?.watchedSearches;
+    const display = limit == null ? `${watched.length} / ∞` : `${watched.length} / ${limit}`;
+    if (limitNode) {
+      limitNode.textContent = display;
+      limitNode.classList.toggle('is-full', limit != null && watched.length >= limit);
+    }
+    if (stat) stat.textContent = display;
+    if (summary) summary.textContent = limit == null
+      ? `${watched.length} recherche${watched.length > 1 ? 's' : ''} surveillée${watched.length > 1 ? 's' : ''} · fréquence configurable avec Pro.`
+      : `${watched.length} / ${limit} recherche surveillée · évaluation hebdomadaire sur le compte gratuit.`;
+
+    if (!watched.length) {
+      const li = document.createElement('li');
+      li.className = 'account-empty';
+      li.textContent = 'Aucune recherche surveillée. Activez une veille depuis l’Explorateur ou une recherche sauvegardée.';
+      root.replaceChildren(li);
+      return;
+    }
+
+    root.replaceChildren(...watched.map((search) => {
+      const li = document.createElement('li');
+      li.className = 'search-watch-native-item';
+      const body = document.createElement('span');
+      const link = document.createElement('a');
+      link.href = search.url;
+      link.textContent = search.name;
+      const detail = document.createElement('small');
+      const frequency = search.watchFrequency === 'immediate' ? 'immédiate' : 'hebdomadaire';
+      detail.textContent = `${search.matchCount || 0} correspondance${search.matchCount === 1 ? '' : 's'} · veille ${frequency} · évaluée ${formatDateTime(search.lastEvaluatedAt)}`;
+      body.append(link, detail);
+      const actions = document.createElement('nav');
+      const open = document.createElement('a');
+      open.href = search.url;
+      open.textContent = 'Voir les résultats';
+      const disable = document.createElement('button');
+      disable.type = 'button';
+      disable.className = 'search-watch-toggle';
+      disable.textContent = 'Mettre en pause';
+      disable.setAttribute('aria-pressed', 'true');
+      disable.addEventListener('click', () => void toggleWatch(search));
+      actions.append(open, disable);
+      li.append(body, actions);
+      return li;
+    }));
+  }
+
+  function enhanceSavedSearchList(searches) {
     const root = document.querySelector('#searches-list');
-    if (!root || !hasAccount()) return;
-    let payload;
-    try { payload = await account().api('/api/account/searches'); } catch { return; }
-    const searches = payload.searches || [];
-    const byUrl = new Map(searches.map((search) => [new URL(search.url, location.origin).pathname + new URL(search.url, location.origin).search, search]));
+    if (!root) return;
+    const byUrl = new Map(searches.map((search) => {
+      const absolute = new URL(search.url, location.origin);
+      return [`${absolute.pathname}${absolute.search}`, search];
+    }));
 
     [...root.querySelectorAll('li')].forEach((li) => {
       const link = li.querySelector('a[href]');
@@ -203,8 +331,8 @@
         detail?.append(status);
       }
       status.textContent = search.watchEnabled
-        ? `🔔 Surveillée · ${search.watchFrequency === 'immediate' ? 'immédiat' : 'hebdomadaire'}${search.lastEvaluatedAt ? ` · évaluée ${formatDate(search.lastEvaluatedAt)}` : ''}`
-        : 'Non surveillée';
+        ? `🔔 Surveillée · ${search.matchCount || 0} correspondance${search.matchCount === 1 ? '' : 's'} · évaluée ${formatDateTime(search.lastEvaluatedAt)}`
+        : 'Recherche sauvegardée · veille inactive';
       status.classList.toggle('is-active', Boolean(search.watchEnabled));
 
       let toggle = li.querySelector('.search-watch-toggle');
@@ -216,62 +344,15 @@
         if (deleteButton) li.insertBefore(toggle, deleteButton);
         else li.append(toggle);
       }
-      toggle.textContent = search.watchEnabled ? 'Désactiver la veille' : 'Surveiller';
+      toggle.textContent = search.watchEnabled ? 'Mettre en pause' : 'Surveiller';
       toggle.setAttribute('aria-pressed', String(search.watchEnabled));
-      toggle.onclick = async () => {
-        try {
-          await account().api('/api/account/searches/watch', {
-            method: 'PUT',
-            body: JSON.stringify({ id: search.id, active: !search.watchEnabled }),
-          });
-          showToast(search.watchEnabled ? 'Surveillance désactivée.' : 'Recherche surveillée.');
-          await enhanceAccountSearchList();
-          await renderWatchActivity();
-        } catch (error) {
-          if (error?.payload?.code === 'free_limit') showToast('Le compte gratuit permet de surveiller une recherche à la fois.', { pro: true });
-          else showToast(error.message || 'Modification impossible.');
-        }
-      };
+      toggle.onclick = () => void toggleWatch(search);
     });
+  }
 
-    const card = root.closest('.account-card');
-    let summary = card?.querySelector('.search-watch-summary');
-    if (!summary && card) {
-      summary = document.createElement('p');
-      summary.className = 'search-watch-summary';
-      root.before(summary);
-    }
-    if (summary) {
-      const limit = payload.limits?.watchedSearches;
-      const count = Number(payload.watchedCount || 0);
-      summary.textContent = limit == null
-        ? `${count} recherche${count > 1 ? 's' : ''} surveillée${count > 1 ? 's' : ''} · fréquence configurable`
-        : `${count} / ${limit} recherche surveillée · fréquence hebdomadaire sur le compte gratuit`;
-      summary.classList.toggle('is-full', limit != null && count >= limit);
-    }
-  };
-
-  const eventLabel = (event) => {
-    if (event.eventType === 'MATCH_ADDED') return `${event.offerId} correspond maintenant à « ${event.searchName} »`;
-    if (event.eventType === 'MATCH_REMOVED') return `${event.offerId} ne correspond plus à « ${event.searchName} »`;
-    return `${event.offerId} reste compatible avec « ${event.searchName} », mais un changement critique a été détecté`;
-  };
-
-  const renderWatchActivity = async () => {
-    const searchesRoot = document.querySelector('#searches-list');
-    const card = searchesRoot?.closest('.account-card');
-    if (!card || !hasAccount()) return;
-    let payload;
-    try { payload = await account().api('/api/account/search-watch/events?limit=6'); } catch { return; }
-    let section = card.querySelector('.search-watch-activity');
-    if (!section) {
-      section = document.createElement('section');
-      section.className = 'search-watch-activity';
-      section.innerHTML = '<small>ACTIVITÉ DES RECHERCHES</small><ul></ul>';
-      card.append(section);
-    }
-    const list = section.querySelector('ul');
-    const events = payload.events || [];
+  function renderWatchActivity(events) {
+    const list = document.querySelector('#search-watch-activity-list');
+    if (!list) return;
     if (!events.length) {
       const li = document.createElement('li');
       li.className = 'search-watch-empty';
@@ -286,25 +367,45 @@
       link.href = `/offres/${encodeURIComponent(event.offerId)}/`;
       link.textContent = eventLabel(event);
       const meta = document.createElement('small');
-      const radar = event.radarEventType ? ` · ${event.radarEventType}` : '';
-      meta.textContent = `${formatDate(event.detectedAt)}${radar}`;
+      meta.textContent = `${formatDateTime(event.detectedAt)}${event.radarEventType ? ` · ${event.radarEventType}` : ''}`;
       li.append(link, meta);
       return li;
     }));
-  };
+  }
+
+  let renderingAccount = false;
+  async function renderAccountWatchArea() {
+    ensureAccountWatchSection();
+    tuneAccountCopy();
+    if (!document.querySelector('#searches-list') || !hasAccount() || renderingAccount) return;
+    renderingAccount = true;
+    try {
+      const [payload, activity] = await Promise.all([
+        account().api('/api/account/searches'),
+        account().api('/api/account/search-watch/events?limit=8'),
+      ]);
+      const searches = payload.searches || [];
+      renderWatchedSearches(searches, payload);
+      enhanceSavedSearchList(searches);
+      renderWatchActivity(activity.events || []);
+    } catch {
+      // Le tableau de bord principal du compte reste utilisable même si Search Watch est momentanément indisponible.
+    } finally {
+      renderingAccount = false;
+    }
+  }
 
   let accountEnhanceTimer = null;
   const scheduleAccountEnhance = () => {
     window.clearTimeout(accountEnhanceTimer);
-    accountEnhanceTimer = window.setTimeout(() => {
-      void enhanceAccountSearchList();
-      void renderWatchActivity();
-    }, 100);
+    accountEnhanceTimer = window.setTimeout(() => { void renderAccountWatchArea(); }, 100);
   };
 
   const enhanceAccountPage = () => {
     const root = document.querySelector('#searches-list');
     if (!root) return;
+    ensureAccountWatchSection();
+    tuneAccountCopy();
     const observer = new MutationObserver(scheduleAccountEnhance);
     observer.observe(root, { childList: true });
     scheduleAccountEnhance();
