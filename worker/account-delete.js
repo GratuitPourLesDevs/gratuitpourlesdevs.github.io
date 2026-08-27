@@ -49,7 +49,7 @@ export async function handleAccountDeleteRequest(request, env) {
   if (!session?.user_id) return response({ error: 'Authentication required', code: 'unauthorized' }, 401, request, env);
 
   const userId = session.user_id;
-  const tables = ['pro_interest', 'user_stacks', 'saved_comparisons', 'saved_searches', 'user_follows', 'user_favorites', 'account_sessions'];
+  const tables = ['search_watch_events', 'pro_interest', 'user_stacks', 'saved_comparisons', 'saved_searches', 'user_follows', 'user_favorites', 'account_sessions'];
   for (const table of tables) await env.COMPARISONS_DB.prepare(`DELETE FROM ${table} WHERE user_id = ?`).bind(userId).run();
   await env.COMPARISONS_DB.prepare('DELETE FROM users WHERE id = ?').bind(userId).run();
   return response({ deleted: true }, 200, request, env);
