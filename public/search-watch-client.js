@@ -26,7 +26,7 @@
       overage: value('overage'),
       cardRequired: booleanValue('card'),
       permanent: booleanValue('permanent'),
-      minimumComparableValue: 0,
+      minimumComparableValue: null,
     };
   };
 
@@ -37,7 +37,7 @@
     overage: filters?.overage ?? '',
     cardRequired: filters?.cardRequired ?? null,
     permanent: filters?.permanent ?? null,
-    minimumComparableValue: Number(filters?.minimumComparableValue ?? 0),
+    minimumComparableValue: filters?.minimumComparableValue ?? null,
   });
 
   const currentRelativeUrl = () => {
@@ -251,9 +251,11 @@
     }
   };
 
-  const eventLabel = (event) => event.eventType === 'MATCH_ADDED'
-    ? `${event.offerId} correspond maintenant à « ${event.searchName} »`
-    : `${event.offerId} ne correspond plus à « ${event.searchName} »`;
+  const eventLabel = (event) => {
+    if (event.eventType === 'MATCH_ADDED') return `${event.offerId} correspond maintenant à « ${event.searchName} »`;
+    if (event.eventType === 'MATCH_REMOVED') return `${event.offerId} ne correspond plus à « ${event.searchName} »`;
+    return `${event.offerId} reste compatible avec « ${event.searchName} », mais un changement critique a été détecté`;
+  };
 
   const renderWatchActivity = async () => {
     const searchesRoot = document.querySelector('#searches-list');
