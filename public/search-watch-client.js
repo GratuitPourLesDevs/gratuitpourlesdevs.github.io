@@ -26,7 +26,7 @@
       overage: value('overage'),
       cardRequired: booleanValue('card'),
       permanent: booleanValue('permanent'),
-      minimumComparableValue: null,
+      minimumComparableValue: 0,
     };
   };
 
@@ -37,7 +37,7 @@
     overage: filters?.overage ?? '',
     cardRequired: filters?.cardRequired ?? null,
     permanent: filters?.permanent ?? null,
-    minimumComparableValue: filters?.minimumComparableValue ?? null,
+    minimumComparableValue: Number(filters?.minimumComparableValue ?? 0),
   });
 
   const currentRelativeUrl = () => `${location.pathname}${location.search}`;
@@ -92,7 +92,7 @@
     });
     explorerSearch = payload.search;
     await refreshExplorerState();
-    return explorerSearch;
+    return explorerSearch || payload.search;
   };
 
   const scheduleExplorerRefresh = () => {
@@ -265,7 +265,7 @@
     const root = document.querySelector('#searches-list');
     if (!root) return;
     const observer = new MutationObserver(scheduleAccountEnhance);
-    observer.observe(root, { childList: true, subtree: true });
+    observer.observe(root, { childList: true });
     scheduleAccountEnhance();
   };
 
