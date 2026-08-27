@@ -9,6 +9,8 @@ Le radar transforme les données publiées dans `/radar.json` en un journal mét
 - `offer_change_events` : journal métier append-only. Les triggers SQL interdisent `UPDATE` et `DELETE`.
 - `offer_radar_runs` : suivi opérationnel de chaque scan.
 - `worker/radar.js` : normalisation, comparaison, classification, persistance et API de lecture.
+- `worker/radar-admin.js` : supervision et lancement manuel protégés par l'autorisation GitHub de la console admin.
+- `/admin/radar/` : dashboard de supervision du radar.
 
 Le premier scan complet crée uniquement la baseline. Il ne fabrique donc pas de centaines de faux événements à partir du catalogue existant. Tant qu'aucun scan complet n'a réussi, le radar reste volontairement en mode baseline, ce qui rend l'initialisation résistante à une interruption en cours de route.
 
@@ -67,6 +69,44 @@ GET /api/radar/status
 
 Retourne le dernier scan et les compteurs globaux du journal.
 
+## Dashboard d'administration
+
+Le dashboard est disponible dans :
+
+```text
+/admin/radar/
+```
+
+Il affiche notamment :
+
+- santé du dernier passage ;
+- prochaines exécutions planifiées ;
+- historique des runs, durées et erreurs ;
+- nombre d'offres parcourues ;
+- couverture et dates de la baseline ;
+- nombre d'événements sur 24 h et 7 jours ;
+- événements critiques et non vérifiés ;
+- répartition par sévérité et principaux types d'événements ;
+- derniers changements détectés.
+
+Les actions d'administration utilisent le même jeton GitHub que la page Monétisation et vérifient `ALLOWED_GITHUB_LOGINS` côté Worker.
+
+### Données du dashboard
+
+```http
+GET /api/radar/admin/dashboard
+Authorization: Bearer <github-token>
+```
+
+### Lancement manuel
+
+```http
+POST /api/radar/admin/run
+Authorization: Bearer <github-token>
+```
+
+Le lancement manuel appelle exactement `runFreeTierRadar()` contre la D1 configurée. Il ne réinitialise pas la baseline et ne supprime aucun événement. Aucun endpoint de reset ou de purge n'est exposé.
+
 ## Mise en production
 
 Ordre recommandé :
@@ -92,6 +132,7 @@ npm run deploy:oauth
 
 5. Au premier cron, `/api/radar/status` doit indiquer des `baselinesCreated` mais `eventsCreated: 0`.
 6. Après une vraie modification d'offre, vérifier `/api/radar/events?offer_id=<slug>` et `/api/radar/status`.
+7. Pour le dashboard admin, déployer d'abord le Worker puis publier le site afin que les routes `/api/radar/admin/*` existent avant l'arrivée de `/admin/radar/`.
 
 ## Garanties de conception
 
@@ -103,3 +144,4 @@ npm run deploy:oauth
 - Les offres obsolètes restent présentes dans `/radar.json` afin qu'un passage `active -> obsolete` soit enregistré comme `FREE_TIER_REMOVED`.
 - Une offre supprimée entièrement du catalogue produit `OFFER_REMOVED_FROM_CATALOGUE` au lieu de disparaître silencieusement.
 - Une nouvelle offre ajoutée après la baseline produit `OFFER_ADDED`.
+- Les routes d'administration sont authentifiées côté Worker ; les routes publiques du radar restent uniquement en lecture.

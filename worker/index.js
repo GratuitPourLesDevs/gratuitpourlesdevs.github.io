@@ -3,6 +3,7 @@ import { handleAccountRequest, runWeeklyDigest } from './account.js';
 import { handleAccountDeleteRequest } from './account-delete.js';
 import { handleAffiliateRequest } from './affiliate.js';
 import { handleMonetizationRequest } from './monetization.js';
+import { handleRadarAdminRequest } from './radar-admin.js';
 import { handleRadarRequest, runFreeTierRadar } from './radar.js';
 
 function accountEnvironment(env) {
@@ -14,6 +15,8 @@ function accountEnvironment(env) {
 }
 
 export async function handleRequest(request, env, fetchImpl = fetch) {
+  const radarAdminResponse = await handleRadarAdminRequest(request, env, fetchImpl);
+  if (radarAdminResponse) return radarAdminResponse;
   const radarResponse = await handleRadarRequest(request, env);
   if (radarResponse) return radarResponse;
   const monetizationResponse = await handleMonetizationRequest(request, env, fetchImpl);
