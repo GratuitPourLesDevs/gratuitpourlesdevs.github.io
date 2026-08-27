@@ -3,6 +3,7 @@ import { handleAccountRequest, runWeeklyDigest } from './account.js';
 import { handleAccountDeleteRequest } from './account-delete.js';
 import { handleAffiliateRequest } from './affiliate.js';
 import { handleMonetizationRequest } from './monetization.js';
+import { handleRadarAdminRequest } from './radar-admin.js';
 import { handleRadarRequest, runFreeTierRadar } from './radar.js';
 import { handleSearchWatchRequest, runSearchWatches } from './search-watch.js';
 
@@ -15,6 +16,8 @@ function accountEnvironment(env) {
 }
 
 export async function handleRequest(request, env, fetchImpl = fetch) {
+  const radarAdminResponse = await handleRadarAdminRequest(request, env, fetchImpl);
+  if (radarAdminResponse) return radarAdminResponse;
   const radarResponse = await handleRadarRequest(request, env);
   if (radarResponse) return radarResponse;
   const monetizationResponse = await handleMonetizationRequest(request, env, fetchImpl);
@@ -23,26 +26,24 @@ export async function handleRequest(request, env, fetchImpl = fetch) {
   if (affiliateResponse) return affiliateResponse;
   const deleteResponse = await handleAccountDeleteRequest(request, env);
   if (deleteResponse) return deleteResponse;
-  // Intercepte les recherches sauvegardées avant le routeur de compte historique.
-  // Cela permet de faire évoluer leur modèle sans modifier les autres fonctionnalités du compte.
-  const searchWatchResponse = await handleSearchWatchRequest(request, env, fetchImpl);
+  const accountEnv = accountEnvironment(env);
+  const searchWatchResponse = await handleSearchWatchRequest(request, accountEnv, fetchImpl);
   if (searchWatchResponse) return searchWatchResponse;
-  const accountResponse = await handleAccountRequest(request, accountEnvironment(env), fetchImpl);
+  const accountResponse = await handleAccountRequest(request, accountEnv, fetchImpl);
   if (accountResponse) return accountResponse;
   return handleAdminRequest(request, env, fetchImpl);
 }
 
-async function runScheduledTasks(controller, env) {
-  // Le digest hebdomadaire part après un scan et après l'évaluation des recherches surveillées.
+async function runScheduledTasks(controller, env, fetchImpl = fetch) {
+  const accountEnv = accountEnvironment(env);
+  // Le digest hebdomadaire part après un scan afin d'utiliser un catalogue aussi frais que possible.
   if (controller?.cron === '0 7 * * 1') {
-    const radar = await runFreeTierRadar(env);
-    const searches = await runSearchWatches(env, fetch, { weekly: true });
-    const digest = await runWeeklyDigest(env);
-    return { radar, searches, digest };
+    await runFreeTierRadar(env, fetchImpl);
+    await runSearchWatches(accountEnv, fetchImpl, { weekly: true });
+    return runWeeklyDigest(env);
   }
-  const radar = await runFreeTierRadar(env);
-  const searches = await runSearchWatches(env, fetch, { weekly: false });
-  return { radar, searches };
+  await runFreeTierRadar(env, fetchImpl);
+  return runSearchWatches(accountEnv, fetchImpl, { weekly: false });
 }
 
 export default {
