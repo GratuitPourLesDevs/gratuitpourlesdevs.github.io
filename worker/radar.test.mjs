@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { detectOfferChanges, normalizeRadarOffer, stableStringify } from './radar.js';
+import { detectOfferChanges, handleRadarRequest, normalizeRadarOffer, stableStringify } from './radar.js';
 
 const base = normalizeRadarOffer({
   id: 'vercel',
@@ -73,4 +73,20 @@ test('condition order alone is normalized away', () => {
   const previous = normalizeRadarOffer({ ...base, conditions: ['B', 'A'] }, 'vercel');
   const current = normalizeRadarOffer({ ...base, conditions: ['A', 'B'] }, 'vercel');
   assert.deepEqual(detectOfferChanges(previous, current), []);
+});
+
+test('radar API refuses to operate without its D1 binding', async () => {
+  const response = await handleRadarRequest(
+    new Request('https://worker.example/api/radar/events'),
+    { ALLOWED_ORIGIN: 'https://gratuitpourlesdevs.fr' },
+  );
+  assert.equal(response.status, 503);
+});
+
+test('radar handler ignores unrelated routes', async () => {
+  const response = await handleRadarRequest(
+    new Request('https://worker.example/api/account/me'),
+    { ALLOWED_ORIGIN: 'https://gratuitpourlesdevs.fr' },
+  );
+  assert.equal(response, null);
 });
