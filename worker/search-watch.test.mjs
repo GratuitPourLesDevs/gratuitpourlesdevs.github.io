@@ -3,6 +3,7 @@ import test from 'node:test';
 import {
   SEARCH_LIMITS,
   handleSearchWatchRequest,
+  matchCountFromJson,
   matchingOfferIds,
   normalizeExplorerFilters,
   offerMatchesFilters,
@@ -61,6 +62,13 @@ test('matching offer ids are stable and sorted', () => {
   const filters = normalizeExplorerFilters({ resource: 'storage', period: 'month', scope: 'account' });
   assert.deepEqual(matchingOfferIds({ zeta: baseOffer, alpha: baseOffer }, filters), ['alpha', 'zeta']);
   assert.equal(stableStringify({ b: 1, a: 2 }), stableStringify({ a: 2, b: 1 }));
+});
+
+test('matchCount exposes only array baselines', () => {
+  assert.equal(matchCountFromJson('["a","b","c"]'), 3);
+  assert.equal(matchCountFromJson('[]'), 0);
+  assert.equal(matchCountFromJson('{}'), 0);
+  assert.equal(matchCountFromJson('invalid'), 0);
 });
 
 test('search-watch router ignores unrelated account routes', async () => {
