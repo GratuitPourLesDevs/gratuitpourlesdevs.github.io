@@ -10,12 +10,9 @@ export const GET: APIRoute = async () => {
   const categories = await getCollection('categories');
   const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
   assertOfferQuotaCoverage(entries.map((entry) => entry.id));
-
-  const sortedEntries = [...entries].sort((a, b) => a.id.localeCompare(b.id));
-  const activeEntries = sortedEntries.filter(({ data }) => data.statut !== 'obsolete');
+  const activeEntries = entries.filter(({ data }) => data.statut !== 'obsolete').sort((a, b) => a.id.localeCompare(b.id));
   const offers = activeEntries.map((entry) => entry.id);
   const quotas = Object.fromEntries(offers.map((id) => [id, getOfferQuotas(id)]));
-
   const catalogue = Object.fromEntries(activeEntries.map((entry) => {
     const latestHistory = [...entry.data.historique].sort((a, b) => b.date.getTime() - a.date.getTime())[0];
     const latestChangeAt = latestHistory?.date ?? entry.data.verifieLe;
@@ -34,45 +31,7 @@ export const GET: APIRoute = async () => {
       latestChangeSummary: latestHistory?.resume ?? entry.data.verificationNote ?? 'Quotas, conditions et restrictions contrôlés.',
     }];
   }));
-
-  // Flux stable dédié au Free Tier Radar. Contrairement au catalogue public,
-  // il contient aussi les offres obsolètes afin qu'un passage active -> obsolete
-  // soit détecté comme un changement métier plutôt que comme une disparition silencieuse.
-  const radarCatalogue = Object.fromEntries(sortedEntries.map((entry) => {
-    const latestHistory = [...entry.data.historique].sort((a, b) => b.date.getTime() - a.date.getTime())[0];
-    const latestChangeAt = latestHistory?.date ?? entry.data.verifieLe;
-    return [entry.id, {
-      id: entry.id,
-      name: entry.data.nom,
-      freeTier: entry.data.formule,
-      cardRequired: entry.data.carteRequise,
-      overageBilled: entry.data.depassementFacture,
-      permanent: entry.data.permanent,
-      status: entry.data.statut,
-      sourceUrl: entry.data.source,
-      verificationState: entry.data.verificationEtat ?? null,
-      verifiedAt: entry.data.verifieLe.toISOString(),
-      latestChangeAt: latestChangeAt.toISOString(),
-      conditions: entry.data.conditions,
-      restrictions: entry.data.restrictions,
-      alerts: entry.data.alertes.map((alert) => ({
-        type: alert.type,
-        level: alert.niveau,
-        label: alert.libelle,
-        detail: alert.detail,
-      })),
-      quotas: getOfferQuotas(entry.id),
-    }];
-  }));
-
-  return new Response(JSON.stringify({
-    offers,
-    quotaSchemaVersion: 1,
-    quotas,
-    catalogue,
-    radarSchemaVersion: 1,
-    radarCatalogue,
-  }), {
+  return new Response(JSON.stringify({ offers, quotaSchemaVersion: 1, quotas, catalogue }), {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=300',
