@@ -310,8 +310,17 @@ async function upsertState(db, offerId, snapshot, hash, now, previous = null, ch
       INSERT INTO offer_radar_state (
         offer_id, snapshot_hash, snapshot_json, first_observed_at, last_observed_at,
         last_changed_at, source_url, verified_at
-      ) VALUES (?, ?, ?, ?, ?, NULL, ?, ?)
-    `).bind(offerId, hash, stableStringify(snapshot), now, now, snapshot.sourceUrl ?? null, verifiedAt).run();
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).bind(
+      offerId,
+      hash,
+      stableStringify(snapshot),
+      now,
+      now,
+      changed ? now : null,
+      snapshot.sourceUrl ?? null,
+      verifiedAt,
+    ).run();
     return;
   }
   await db.prepare(`
@@ -364,6 +373,7 @@ async function runFreeTierRadar(env, fetchImpl = fetch) {
       'SELECT offer_id, snapshot_hash, snapshot_json, first_observed_at, last_observed_at, last_changed_at FROM offer_radar_state',
     ).all();
     const previousById = new Map((stateResult.results ?? []).map((row) => [row.offer_id, row]));
+    const radarAlreadyInitialized = previousById.size > 0;
     const allIds = [...new Set([...currentById.keys(), ...previousById.keys()])].sort();
 
     for (const offerId of allIds) {
@@ -375,8 +385,34 @@ async function runFreeTierRadar(env, fetchImpl = fetch) {
       const current = currentById.get(offerId) ?? missingSnapshot(offerId, previous ?? {});
       const currentHash = await sha256Hex(stableStringify(current));
 
-      if (!previousState || !previous) {
-        await upsertState(db, offerId, current, currentHash, startedAt);
+      if (!previousState) {
+        if (radarAlreadyInitialized && current.present) {
+          const syntheticPrevious = missingSnapshot(offerId);
+          const syntheticHash = await sha256Hex(stableStringify(syntheticPrevious));
+          const syntheticState = { last_observed_at: startedAt - 1 };
+          const change = makeChange('status', null, current.status, 'OFFER_ADDED', 'info');
+          stats.offersChanged += 1;
+          stats.eventsCreated += await insertEvent(db, {
+            offerId,
+            change,
+            previousState: syntheticState,
+            previousHash: syntheticHash,
+            currentHash,
+            previous: syntheticPrevious,
+            current,
+            detectedAt: startedAt,
+          });
+          await upsertState(db, offerId, current, currentHash, startedAt, null, true);
+        } else {
+          await upsertState(db, offerId, current, currentHash, startedAt);
+          stats.baselinesCreated += 1;
+        }
+        continue;
+      }
+
+      if (!previous) {
+        // Snapshot illisible : on répare la baseline sans inventer un événement métier.
+        await upsertState(db, offerId, current, currentHash, startedAt, previousState, false);
         stats.baselinesCreated += 1;
         continue;
       }
@@ -426,7 +462,8 @@ async function listEvents(request, env) {
   const offerId = url.searchParams.get('offer_id');
   const severity = url.searchParams.get('severity');
   const eventType = url.searchParams.get('event_type');
-  const since = parseSince(url.searchParams.get('since'));
+  const sinceValue = url.searchParams.get('since');
+  const since = parseSince(sinceValue);
   const limit = Math.min(Math.max(Number.parseInt(url.searchParams.get('limit') ?? '30', 10) || 30, 1), MAX_EVENTS_LIMIT);
 
   if (offerId) {
@@ -446,6 +483,7 @@ async function listEvents(request, env) {
     where.push('event_type = ?');
     bindings.push(eventType);
   }
+  if (sinceValue && since === null) return json({ error: 'since invalide' }, 400, corsHeaders(request, env));
   if (since !== null) {
     where.push('detected_at >= ?');
     bindings.push(since);
