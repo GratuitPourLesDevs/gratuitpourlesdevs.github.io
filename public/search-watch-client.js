@@ -40,15 +40,30 @@
     minimumComparableValue: Number(filters?.minimumComparableValue ?? 0),
   });
 
-  const currentRelativeUrl = () => `${location.pathname}${location.search}`;
+  const currentRelativeUrl = () => {
+    const filters = currentExplorerFilters();
+    const params = new URLSearchParams();
+    params.set('resource', filters.resource);
+    params.set('period', filters.period);
+    params.set('scope', filters.scope);
+    params.set('overage', filters.overage);
+    params.set('card', filters.cardRequired === null ? '' : String(filters.cardRequired));
+    params.set('permanent', filters.permanent === null ? '' : String(filters.permanent));
+    return `/explorer/?${params.toString()}`;
+  };
   const currentSearchName = () => document.querySelector('#explorer-query-summary')?.textContent?.trim() || 'Recherche Explorer';
 
   let explorerPayload = null;
   let explorerSearch = null;
+  let explorerSaveButton = null;
   let explorerButton = null;
   let refreshTimer = null;
 
-  const renderExplorerWatchButton = () => {
+  const renderExplorerButtons = () => {
+    if (explorerSaveButton) {
+      explorerSaveButton.textContent = explorerSearch ? '✓ Recherche sauvegardée' : 'Sauvegarder la recherche';
+      explorerSaveButton.classList.toggle('is-saved', Boolean(explorerSearch));
+    }
     if (!explorerButton) return;
     const watched = Boolean(explorerSearch?.watchEnabled);
     explorerButton.classList.toggle('is-watched', watched);
@@ -66,7 +81,7 @@
     explorerSearch = null;
     if (!hasAccount()) {
       explorerPayload = null;
-      renderExplorerWatchButton();
+      renderExplorerButtons();
       return;
     }
     try {
@@ -77,7 +92,7 @@
       explorerPayload = null;
       explorerSearch = null;
     }
-    renderExplorerWatchButton();
+    renderExplorerButtons();
   };
 
   const saveCurrentExplorerSearch = async () => {
@@ -103,14 +118,39 @@
   const enhanceExplorer = () => {
     const actions = document.querySelector('.quota-explorer-result-actions');
     if (!actions || actions.querySelector('.account-watch-search')) return;
-    const saveButton = actions.querySelector('.account-save-search');
+
+    // account-client.js crée le bouton historique. On le clone pour retirer son ancien
+    // listener URL-only, puis on le reconnecte au stockage structuré des filtres.
+    const legacySaveButton = actions.querySelector('.account-save-search');
+    if (legacySaveButton) {
+      explorerSaveButton = legacySaveButton.cloneNode(true);
+      legacySaveButton.replaceWith(explorerSaveButton);
+    } else {
+      explorerSaveButton = document.createElement('button');
+      explorerSaveButton.type = 'button';
+      explorerSaveButton.className = 'account-save-search';
+      explorerSaveButton.textContent = 'Sauvegarder la recherche';
+      actions.prepend(explorerSaveButton);
+    }
+
     explorerButton = document.createElement('button');
     explorerButton.type = 'button';
     explorerButton.className = 'account-save-search account-watch-search';
     explorerButton.setAttribute('aria-pressed', 'false');
     explorerButton.textContent = '🔔 Surveiller cette recherche';
-    if (saveButton) saveButton.insertAdjacentElement('afterend', explorerButton);
-    else actions.prepend(explorerButton);
+    explorerSaveButton.insertAdjacentElement('afterend', explorerButton);
+
+    explorerSaveButton.addEventListener('click', async () => {
+      try {
+        await account().ensureLogin();
+        await saveCurrentExplorerSearch();
+        renderExplorerButtons();
+        showToast('Recherche enregistrée dans Mon espace.');
+      } catch (error) {
+        if (error?.payload?.code === 'free_limit') showToast('Vous avez atteint la limite de recherches du compte gratuit.', { pro: true });
+        else showToast(error.message || 'Impossible de sauvegarder cette recherche.');
+      }
+    });
 
     explorerButton.addEventListener('click', async () => {
       try {
@@ -131,10 +171,9 @@
           showToast('Le compte gratuit permet de surveiller une recherche à la fois.', { pro: true });
         } else showToast(error.message || 'Impossible de modifier la surveillance.');
       }
-      renderExplorerWatchButton();
+      renderExplorerButtons();
     });
 
-    saveButton?.addEventListener('click', () => window.setTimeout(() => { void refreshExplorerState(); }, 250));
     Object.values(explorerControls).forEach((selector) => document.querySelector(selector)?.addEventListener('change', scheduleExplorerRefresh));
     document.querySelector('#explorer-reset')?.addEventListener('click', scheduleExplorerRefresh);
     void refreshExplorerState();
