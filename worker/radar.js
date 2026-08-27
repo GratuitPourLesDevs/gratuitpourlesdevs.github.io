@@ -141,6 +141,7 @@ function quotaChanges(previousQuotas, currentQuotas) {
   const changes = [];
   const previous = new Map(previousQuotas.map((quota) => [quota.id, quota]));
   const current = new Map(currentQuotas.map((quota) => [quota.id, quota]));
+
   for (const id of [...new Set([...previous.keys(), ...current.keys()])].sort()) {
     const before = previous.get(id);
     const after = current.get(id);
@@ -259,7 +260,7 @@ function occurredAtForChange(previous, current, detectedAt) {
 
 async function fetchRadarCatalogue(env, fetchImpl) {
   if (!env.ALLOWED_ORIGIN) throw new Error('ALLOWED_ORIGIN is not configured');
-  const response = await fetchImpl(new URL('/offres.json', env.ALLOWED_ORIGIN), { headers: { Accept: 'application/json' } });
+  const response = await fetchImpl(new URL('/radar.json', env.ALLOWED_ORIGIN), { headers: { Accept: 'application/json' } });
   if (!response.ok) throw new Error(`Offer radar source unavailable (${response.status})`);
   const payload = await response.json();
   if (Number(payload.radarSchemaVersion) !== RADAR_SCHEMA_VERSION || !payload.radarCatalogue || typeof payload.radarCatalogue !== 'object') {
@@ -302,27 +303,29 @@ async function insertEvent(db, { offerId, change, previousState, previousHash, c
   return Number(result.meta?.changes ?? 0);
 }
 
-async function upsertState(db, offerId, snapshot, hash, now, previous = null, changed = false) {
+async function insertState(db, offerId, snapshot, hash, now, changed = false) {
   const parsedVerifiedAt = Date.parse(snapshot.verifiedAt || '');
   const verifiedAt = Number.isFinite(parsedVerifiedAt) ? Math.floor(parsedVerifiedAt / 1000) : null;
-  if (!previous) {
-    await db.prepare(`
-      INSERT INTO offer_radar_state (
-        offer_id, snapshot_hash, snapshot_json, first_observed_at, last_observed_at,
-        last_changed_at, source_url, verified_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    `).bind(
-      offerId,
-      hash,
-      stableStringify(snapshot),
-      now,
-      now,
-      changed ? now : null,
-      snapshot.sourceUrl ?? null,
-      verifiedAt,
-    ).run();
-    return;
-  }
+  await db.prepare(`
+    INSERT INTO offer_radar_state (
+      offer_id, snapshot_hash, snapshot_json, first_observed_at, last_observed_at,
+      last_changed_at, source_url, verified_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `).bind(
+    offerId,
+    hash,
+    stableStringify(snapshot),
+    now,
+    now,
+    changed ? now : null,
+    snapshot.sourceUrl ?? null,
+    verifiedAt,
+  ).run();
+}
+
+async function updateState(db, offerId, snapshot, hash, now, changed) {
+  const parsedVerifiedAt = Date.parse(snapshot.verifiedAt || '');
+  const verifiedAt = Number.isFinite(parsedVerifiedAt) ? Math.floor(parsedVerifiedAt / 1000) : null;
   await db.prepare(`
     UPDATE offer_radar_state
     SET snapshot_hash = ?, snapshot_json = ?, last_observed_at = ?,
@@ -369,11 +372,13 @@ async function runFreeTierRadar(env, fetchImpl = fetch) {
     const catalogue = await fetchRadarCatalogue(env, fetchImpl);
     const currentById = new Map(Object.entries(catalogue).map(([id, raw]) => [id, normalizeRadarOffer(raw, id)]));
     stats.offersSeen = currentById.size;
-    const stateResult = await db.prepare(
-      'SELECT offer_id, snapshot_hash, snapshot_json, first_observed_at, last_observed_at, last_changed_at FROM offer_radar_state',
-    ).all();
+
+    const [stateResult, successfulRun] = await Promise.all([
+      db.prepare('SELECT offer_id, snapshot_hash, snapshot_json, last_observed_at FROM offer_radar_state').all(),
+      db.prepare("SELECT 1 AS ok FROM offer_radar_runs WHERE status = 'success' ORDER BY id DESC LIMIT 1").first(),
+    ]);
     const previousById = new Map((stateResult.results ?? []).map((row) => [row.offer_id, row]));
-    const radarAlreadyInitialized = previousById.size > 0;
+    const initialized = Boolean(successfulRun?.ok);
     const allIds = [...new Set([...currentById.keys(), ...previousById.keys()])].sort();
 
     for (const offerId of allIds) {
@@ -385,41 +390,42 @@ async function runFreeTierRadar(env, fetchImpl = fetch) {
       const current = currentById.get(offerId) ?? missingSnapshot(offerId, previous ?? {});
       const currentHash = await sha256Hex(stableStringify(current));
 
-      if (!previousState) {
-        if (radarAlreadyInitialized && current.present) {
-          const syntheticPrevious = missingSnapshot(offerId);
-          const syntheticHash = await sha256Hex(stableStringify(syntheticPrevious));
-          const syntheticState = { last_observed_at: startedAt - 1 };
-          const change = makeChange('status', null, current.status, 'OFFER_ADDED', 'info');
-          stats.offersChanged += 1;
-          stats.eventsCreated += await insertEvent(db, {
-            offerId,
-            change,
-            previousState: syntheticState,
-            previousHash: syntheticHash,
-            currentHash,
-            previous: syntheticPrevious,
-            current,
-            detectedAt: startedAt,
-          });
-          await upsertState(db, offerId, current, currentHash, startedAt, null, true);
-        } else {
-          await upsertState(db, offerId, current, currentHash, startedAt);
-          stats.baselinesCreated += 1;
+      // Tant qu'aucun scan complet n'a réussi, on (ré)établit uniquement la baseline.
+      // Un premier scan interrompu ne peut donc pas provoquer de faux OFFER_ADDED au suivant.
+      if (!initialized) {
+        if (!previousState) await insertState(db, offerId, current, currentHash, startedAt);
+        else if (!previous || previousState.snapshot_hash !== currentHash) {
+          await updateState(db, offerId, current, currentHash, startedAt, false);
         }
+        stats.baselinesCreated += 1;
+        continue;
+      }
+
+      if (!previousState) {
+        const syntheticPrevious = missingSnapshot(offerId);
+        const syntheticHash = await sha256Hex(stableStringify(syntheticPrevious));
+        const change = makeChange('status', null, current.status, 'OFFER_ADDED', 'info');
+        stats.offersChanged += 1;
+        stats.eventsCreated += await insertEvent(db, {
+          offerId,
+          change,
+          previousState: { last_observed_at: startedAt - 1 },
+          previousHash: syntheticHash,
+          currentHash,
+          previous: syntheticPrevious,
+          current,
+          detectedAt: startedAt,
+        });
+        await insertState(db, offerId, current, currentHash, startedAt, true);
         continue;
       }
 
       if (!previous) {
-        // Snapshot illisible : on répare la baseline sans inventer un événement métier.
-        await upsertState(db, offerId, current, currentHash, startedAt, previousState, false);
+        await updateState(db, offerId, current, currentHash, startedAt, false);
         stats.baselinesCreated += 1;
         continue;
       }
-      if (previousState.snapshot_hash === currentHash) {
-        await upsertState(db, offerId, current, currentHash, startedAt, previousState, false);
-        continue;
-      }
+      if (previousState.snapshot_hash === currentHash) continue;
 
       const changes = detectOfferChanges(previous, current);
       if (changes.length) {
@@ -437,7 +443,7 @@ async function runFreeTierRadar(env, fetchImpl = fetch) {
           });
         }
       }
-      await upsertState(db, offerId, current, currentHash, startedAt, previousState, changes.length > 0);
+      await updateState(db, offerId, current, currentHash, startedAt, changes.length > 0);
     }
 
     await recordRun(db, startedAt, 'success', stats);
