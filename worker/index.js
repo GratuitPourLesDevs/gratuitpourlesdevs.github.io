@@ -3,6 +3,7 @@ import { handleAccountRequest, runWeeklyDigest } from './account.js';
 import { handleAccountDeleteRequest } from './account-delete.js';
 import { handleAffiliateRequest } from './affiliate.js';
 import { handleMonetizationRequest } from './monetization.js';
+import { handleRadarRequest, runFreeTierRadar } from './radar.js';
 
 function accountEnvironment(env) {
   return {
@@ -13,6 +14,8 @@ function accountEnvironment(env) {
 }
 
 export async function handleRequest(request, env, fetchImpl = fetch) {
+  const radarResponse = await handleRadarRequest(request, env);
+  if (radarResponse) return radarResponse;
   const monetizationResponse = await handleMonetizationRequest(request, env, fetchImpl);
   if (monetizationResponse) return monetizationResponse;
   const affiliateResponse = await handleAffiliateRequest(request, env, fetchImpl);
@@ -24,13 +27,22 @@ export async function handleRequest(request, env, fetchImpl = fetch) {
   return handleAdminRequest(request, env, fetchImpl);
 }
 
+async function runScheduledTasks(controller, env) {
+  // Le digest hebdomadaire part après un scan afin d'utiliser un catalogue aussi frais que possible.
+  if (controller?.cron === '0 7 * * 1') {
+    await runFreeTierRadar(env);
+    return runWeeklyDigest(env);
+  }
+  return runFreeTierRadar(env);
+}
+
 export default {
   async fetch(request, env) {
     return handleRequest(request, env);
   },
-  async scheduled(_controller, env, ctx) {
-    ctx.waitUntil(runWeeklyDigest(env));
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(runScheduledTasks(controller, env));
   },
 };
 
-export { adminWorker };
+export { adminWorker, runScheduledTasks };
