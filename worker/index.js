@@ -5,6 +5,7 @@ import { handleAffiliateRequest } from './affiliate.js';
 import { handleMonetizationRequest } from './monetization.js';
 import { handleRadarAdminRequest } from './radar-admin.js';
 import { handleRadarRequest, runFreeTierRadar } from './radar.js';
+import { handleSearchWatchAdminRequest } from './search-watch-admin.js';
 import { handleSearchWatchRequest, runSearchWatches } from './search-watch.js';
 
 function accountEnvironment(env) {
@@ -16,6 +17,8 @@ function accountEnvironment(env) {
 }
 
 export async function handleRequest(request, env, fetchImpl = fetch) {
+  const searchWatchAdminResponse = await handleSearchWatchAdminRequest(request, env, fetchImpl);
+  if (searchWatchAdminResponse) return searchWatchAdminResponse;
   const radarAdminResponse = await handleRadarAdminRequest(request, env, fetchImpl);
   if (radarAdminResponse) return radarAdminResponse;
   const radarResponse = await handleRadarRequest(request, env);
@@ -39,11 +42,11 @@ async function runScheduledTasks(controller, env, fetchImpl = fetch) {
   // Le digest hebdomadaire part après un scan afin d'utiliser un catalogue aussi frais que possible.
   if (controller?.cron === '0 7 * * 1') {
     await runFreeTierRadar(env, fetchImpl);
-    await runSearchWatches(accountEnv, fetchImpl, { weekly: true });
+    await runSearchWatches(accountEnv, fetchImpl, { weekly: true, trigger: 'cron', frequencyScope: 'weekly' });
     return runWeeklyDigest(env);
   }
   await runFreeTierRadar(env, fetchImpl);
-  return runSearchWatches(accountEnv, fetchImpl, { weekly: false });
+  return runSearchWatches(accountEnv, fetchImpl, { weekly: false, trigger: 'cron', frequencyScope: 'immediate' });
 }
 
 export default {

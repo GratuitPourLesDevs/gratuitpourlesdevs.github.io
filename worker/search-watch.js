@@ -120,6 +120,13 @@ function cleanName(value) {
   return (name || 'Recherche Explorer').slice(0, 80);
 }
 
+function matchCountFromJson(value) {
+  try {
+    const parsed = JSON.parse(value || '[]');
+    return Array.isArray(parsed) ? parsed.length : 0;
+  } catch { return 0; }
+}
+
 function publicSearch(row) {
   let filters = {};
   try { filters = JSON.parse(row.filters_json || '{}'); } catch {}
@@ -132,6 +139,7 @@ function publicSearch(row) {
     watchFrequency: row.watch_frequency || 'weekly',
     watchStartedAt: row.watch_started_at ? Number(row.watch_started_at) * 1000 : null,
     lastEvaluatedAt: row.last_evaluated_at ? Number(row.last_evaluated_at) * 1000 : null,
+    matchCount: matchCountFromJson(row.last_match_offer_ids),
     createdAt: Number(row.created_at) * 1000,
   };
 }
@@ -188,7 +196,7 @@ function matchingOfferIds(catalogue, filters) {
 
 async function listSearches(request, env, user) {
   const result = await env.COMPARISONS_DB.prepare(`
-    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, created_at
+    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, last_match_offer_ids, created_at
     FROM saved_searches WHERE user_id = ? ORDER BY created_at DESC
   `).bind(user.id).all();
   const searches = (result.results ?? []).map(publicSearch);
@@ -209,7 +217,7 @@ async function createSearch(request, env, user) {
   const filters = normalizeExplorerFilters(payload?.filters, url);
   const filtersJson = stableStringify(filters);
   const existing = await env.COMPARISONS_DB.prepare(`
-    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, created_at
+    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, last_match_offer_ids, created_at
     FROM saved_searches WHERE user_id = ? AND filters_json = ? ORDER BY id LIMIT 1
   `).bind(user.id, filtersJson).first();
   if (existing) return json({ search: publicSearch(existing), created: false }, 200, corsHeaders(request, env));
@@ -224,7 +232,7 @@ async function createSearch(request, env, user) {
   `).bind(user.id, name, url, filtersJson, now).run();
   const id = Number(result.meta?.last_row_id);
   const row = await env.COMPARISONS_DB.prepare(`
-    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, created_at
+    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, last_match_offer_ids, created_at
     FROM saved_searches WHERE id = ? AND user_id = ?
   `).bind(id, user.id).first();
   return json({ search: publicSearch(row), created: true }, 201, corsHeaders(request, env));
@@ -243,7 +251,7 @@ async function updateWatch(request, env, fetchImpl, user) {
   const id = Number.parseInt(String(payload?.id ?? ''), 10);
   if (!Number.isInteger(id) || id <= 0) return json({ error: 'Identifiant invalide' }, 400, corsHeaders(request, env));
   const row = await env.COMPARISONS_DB.prepare(`
-    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, created_at
+    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, last_match_offer_ids, created_at
     FROM saved_searches WHERE id = ? AND user_id = ?
   `).bind(id, user.id).first();
   if (!row) return json({ error: 'Recherche introuvable' }, 404, corsHeaders(request, env));
@@ -271,7 +279,7 @@ async function updateWatch(request, env, fetchImpl, user) {
     `).bind(stableStringify(filters), frequency, now, now, JSON.stringify(matches), id, user.id).run();
   }
   const updated = await env.COMPARISONS_DB.prepare(`
-    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, created_at
+    SELECT id, name, url, filters_json, watch_enabled, watch_frequency, watch_started_at, last_evaluated_at, last_match_offer_ids, created_at
     FROM saved_searches WHERE id = ? AND user_id = ?
   `).bind(id, user.id).first();
   return json({ search: publicSearch(updated) }, 200, corsHeaders(request, env));
@@ -376,23 +384,93 @@ async function evaluateSearch(db, search, catalogue, now) {
   return { events, baseline: false };
 }
 
-async function runSearchWatches(env, fetchImpl = fetch, { weekly = false } = {}) {
-  if (!env.COMPARISONS_DB || !env.ALLOWED_ORIGIN) return { evaluated: 0, events: 0 };
-  const db = env.COMPARISONS_DB;
-  const condition = weekly ? '' : "AND s.watch_frequency = 'immediate' AND u.plan = 'pro'";
+async function recordSearchWatchRun(db, values) {
   const result = await db.prepare(`
-    SELECT s.id, s.user_id, s.url, s.filters_json, s.last_evaluated_at, s.last_match_offer_ids, s.watch_frequency, u.plan
-    FROM saved_searches s JOIN users u ON u.id = s.user_id
-    WHERE s.watch_enabled = 1 ${condition}
-    ORDER BY s.id
-  `).all();
-  const searches = result.results ?? [];
-  if (!searches.length) return { evaluated: 0, events: 0 };
-  const catalogue = await fetchRadarCatalogue(env, fetchImpl);
-  const now = Math.floor(Date.now() / 1000);
+    INSERT INTO search_watch_runs (
+      started_at, finished_at, status, run_trigger, frequency_scope, watched_seen,
+      searches_evaluated, baselines_initialized, events_created, error_message
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).bind(
+    values.startedAt,
+    values.finishedAt,
+    values.status,
+    values.trigger,
+    values.frequencyScope,
+    values.watchedSeen,
+    values.searchesEvaluated,
+    values.baselinesInitialized,
+    values.eventsCreated,
+    values.errorMessage || null,
+  ).run();
+  return Number(result.meta?.last_row_id || 0) || null;
+}
+
+async function runSearchWatches(env, fetchImpl = fetch, options = {}) {
+  if (!env.COMPARISONS_DB || !env.ALLOWED_ORIGIN) {
+    return { watched: 0, evaluated: 0, baselinesInitialized: 0, events: 0, runId: null, skipped: true };
+  }
+  const weekly = options.weekly === true;
+  const trigger = options.trigger === 'manual' ? 'manual' : 'cron';
+  const frequencyScope = options.frequencyScope || (trigger === 'manual' && weekly ? 'all' : weekly ? 'weekly' : 'immediate');
+  const db = env.COMPARISONS_DB;
+  const startedAt = Math.floor(Date.now() / 1000);
+  let watchedSeen = 0;
+  let searchesEvaluated = 0;
+  let baselinesInitialized = 0;
   let events = 0;
-  for (const search of searches) events += (await evaluateSearch(db, search, catalogue, now)).events;
-  return { evaluated: searches.length, events };
+
+  try {
+    const active = await db.prepare('SELECT COUNT(*) AS total FROM saved_searches WHERE watch_enabled = 1').first();
+    watchedSeen = Number(active?.total || 0);
+    const condition = weekly ? '' : "AND s.watch_frequency = 'immediate' AND u.plan = 'pro'";
+    const result = await db.prepare(`
+      SELECT s.id, s.user_id, s.url, s.filters_json, s.last_evaluated_at, s.last_match_offer_ids, s.watch_frequency, u.plan
+      FROM saved_searches s JOIN users u ON u.id = s.user_id
+      WHERE s.watch_enabled = 1 ${condition}
+      ORDER BY s.id
+    `).all();
+    const searches = result.results ?? [];
+    searchesEvaluated = searches.length;
+    if (searches.length) {
+      const catalogue = await fetchRadarCatalogue(env, fetchImpl);
+      const now = Math.floor(Date.now() / 1000);
+      for (const search of searches) {
+        const evaluation = await evaluateSearch(db, search, catalogue, now);
+        events += evaluation.events;
+        if (evaluation.baseline) baselinesInitialized += 1;
+      }
+    }
+    const finishedAt = Math.floor(Date.now() / 1000);
+    const runId = await recordSearchWatchRun(db, {
+      startedAt,
+      finishedAt,
+      status: 'success',
+      trigger,
+      frequencyScope,
+      watchedSeen,
+      searchesEvaluated,
+      baselinesInitialized,
+      eventsCreated: events,
+    });
+    return { watched: watchedSeen, evaluated: searchesEvaluated, baselinesInitialized, events, runId };
+  } catch (error) {
+    const finishedAt = Math.floor(Date.now() / 1000);
+    try {
+      await recordSearchWatchRun(db, {
+        startedAt,
+        finishedAt,
+        status: 'error',
+        trigger,
+        frequencyScope,
+        watchedSeen,
+        searchesEvaluated,
+        baselinesInitialized,
+        eventsCreated: events,
+        errorMessage: String(error?.message || error).slice(0, 1000),
+      });
+    } catch {}
+    throw error;
+  }
 }
 
 async function listWatchEvents(request, env, user) {
@@ -445,6 +523,7 @@ export {
   SEARCH_FILTER_SCHEMA_VERSION,
   SEARCH_LIMITS,
   handleSearchWatchRequest,
+  matchCountFromJson,
   matchingOfferIds,
   normalizeExplorerFilters,
   offerMatchesFilters,
