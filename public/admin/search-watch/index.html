@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Search Watch — Administration GPLD</title>
+    <style>
+      :root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#eef2fb;background:#0d1219;--surface:#161d27;--surface2:#101720;--line:#303a48;--blue:#7690ff;--green:#58dfac;--amber:#ffd071;--red:#ff7d7d;--muted:#a8b2c2}*{box-sizing:border-box}body{margin:0}.shell{width:min(1320px,calc(100% - 36px));margin:auto;padding:34px 0 72px}header{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:26px}.eyebrow{font:750 .72rem ui-monospace,SFMono-Regular,monospace;color:var(--blue);letter-spacing:.12em}h1{font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.045em;margin:8px 0 10px}h2,h3{margin-top:0}p,.muted{color:var(--muted);line-height:1.55}.actions{display:flex;flex-wrap:wrap;gap:8px}.button{appearance:none;border:1px solid var(--blue);border-radius:8px;padding:11px 15px;background:var(--blue);color:#fff;font:750 .92rem inherit;text-decoration:none;cursor:pointer}.button.ghost{background:transparent}.button:disabled{opacity:.45;cursor:not-allowed}.login,.panel,.metric{border:1px solid var(--line);background:var(--surface);border-radius:11px}.login{padding:40px;text-align:center}.login[hidden],.dashboard[hidden]{display:none}.dashboard{display:grid;gap:18px}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.panel{padding:22px;min-width:0}.health-line{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#1f2937;color:#dbe4f3;font-size:.82rem;font-weight:800}.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#94a3b8}.pill.healthy{background:#12392d;color:var(--green)}.pill.healthy::before{background:var(--green)}.pill.error{background:#412126;color:var(--red)}.pill.error::before{background:var(--red)}.pill.stale{background:#3c301c;color:var(--amber)}.pill.stale::before{background:var(--amber)}.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.metric{padding:17px}.metric span{display:block;color:#909cad;font-size:.78rem;font-weight:750;text-transform:uppercase;letter-spacing:.05em}.metric strong{display:block;margin-top:8px;font-size:clamp(1.35rem,3vw,2rem);letter-spacing:-.04em}.metric small{display:block;margin-top:5px;color:#8792a3}.schedule{display:grid;gap:13px}.schedule-row{display:grid;grid-template-columns:1fr auto;gap:15px;padding:13px 0;border-bottom:1px solid var(--line)}.schedule-row:last-child{border-bottom:0}.schedule-row strong,.schedule-row small{display:block}.schedule-row small{color:#8c98a9;margin-top:4px}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#c7d1e2}.toolbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.toolbar .status{min-height:1.4em;color:var(--muted);font-weight:700}.toolbar .status.ok{color:var(--green)}.toolbar .status.error{color:var(--red)}.split{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:8px}table{width:100%;border-collapse:collapse;min-width:800px;background:var(--surface2)}th,td{padding:11px 12px;text-align:left;border-bottom:1px solid #27313e;font-size:.86rem;vertical-align:top}th{position:sticky;top:0;background:#18212d;color:#9eabba;text-transform:uppercase;font-size:.72rem;letter-spacing:.05em}tr:last-child td{border-bottom:0}.run-ok{color:var(--green);font-weight:800}.run-error{color:var(--red);font-weight:800}.stale-row td:first-child{box-shadow:inset 3px 0 var(--amber)}.severity{font-weight:800}.severity.critical{color:var(--red)}.severity.important{color:var(--amber)}.severity.info{color:var(--green)}.error-detail{max-width:340px;color:#ffaaaa;white-space:normal;word-break:break-word}.breakdown{display:grid;gap:9px}.bar-row{display:grid;grid-template-columns:minmax(110px,1fr) 2fr 44px;gap:10px;align-items:center}.bar{height:8px;background:#27313e;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;background:var(--blue);border-radius:inherit}.bar-row b{text-align:right}.empty{padding:22px;text-align:center;color:#8d99aa}.footnote{font-size:.8rem;color:#7f8b9c}.admin-meta{font-size:.78rem;color:#7f8b9c}.loading{opacity:.65}.watch-name{font-weight:800}.watch-meta{display:block;color:#8f9bad;font-size:.75rem;margin-top:4px}.danger-note{border-left:3px solid var(--amber);padding:11px 13px;background:#211d14;color:#cdbf9d}@media(max-width:980px){.hero,.split{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.shell{width:min(100% - 24px,1320px);padding-top:22px}header{display:grid}.metrics{grid-template-columns:1fr}.health-line{display:grid}.schedule-row{grid-template-columns:1fr}.login{padding:28px 18px}.button{width:100%;text-align:center}.toolbar .button{width:auto}}
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <div>
+          <span class="eyebrow">GPLD · SEARCH WATCH</span>
+          <h1>Supervision des recherches surveillées</h1>
+          <p>Suivez l’adoption, les évaluations, les retards et les événements produits par les veilles utilisateurs.</p>
+        </div>
+        <nav class="actions">
+          <a class="button ghost" href="/admin/radar/">Dashboard radar</a>
+          <a class="button ghost" href="/admin/">← Administration</a>
+        </nav>
+      </header>
+
+      <section class="login" id="login">
+        <h2>Connexion administrateur</h2>
+        <p>Le dashboard et le lancement manuel sont protégés par l’autorisation GitHub de la console GPLD.</p>
+        <button class="button" id="login-button" type="button">Se connecter avec GitHub</button>
+        <p id="login-status" class="muted" aria-live="polite"></p>
+      </section>
+
+      <section class="dashboard" id="dashboard" hidden>
+        <div class="hero">
+          <section class="panel">
+            <div class="health-line">
+              <div>
+                <span class="eyebrow">ÉTAT DU SERVICE</span>
+                <h2 id="health-title">Chargement…</h2>
+                <p id="health-detail">Lecture des derniers runs Search Watch.</p>
+              </div>
+              <span class="pill" id="health-pill">INCONNU</span>
+            </div>
+            <div class="toolbar">
+              <button class="button" id="run-now" type="button">▶ Évaluer toutes les recherches maintenant</button>
+              <button class="button ghost" id="refresh" type="button">↻ Rafraîchir</button>
+              <button class="button ghost" id="logout" type="button">Déconnexion</button>
+              <span class="status" id="action-status" aria-live="polite"></span>
+            </div>
+            <p class="danger-note">Le lancement manuel ne modifie aucun filtre utilisateur et ne supprime aucun événement. Il exécute uniquement l’évaluation de toutes les veilles actives.</p>
+          </section>
+
+          <section class="panel">
+            <span class="eyebrow">PLANIFICATION</span>
+            <h2>Cadence des évaluations</h2>
+            <div class="schedule">
+              <div class="schedule-row">
+                <div><strong>Pro · immédiat</strong><small id="immediate-cron" class="mono">—</small></div>
+                <div><strong id="next-immediate">—</strong><small>après le prochain radar</small></div>
+              </div>
+              <div class="schedule-row">
+                <div><strong>Free + Pro · hebdomadaire</strong><small id="weekly-cron" class="mono">—</small></div>
+                <div><strong id="next-weekly">—</strong><small>heure de Paris</small></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="metrics" aria-label="Indicateurs Search Watch">
+          <article class="metric"><span>Recherches sauvegardées</span><strong id="saved-total">—</strong><small>tous comptes</small></article>
+          <article class="metric"><span>Veilles actives</span><strong id="watched-total">—</strong><small id="frequency-total">—</small></article>
+          <article class="metric"><span>Utilisateurs</span><strong id="users-total">—</strong><small id="plans-total">—</small></article>
+          <article class="metric"><span>En retard</span><strong id="stale-total">—</strong><small>selon la fréquence</small></article>
+          <article class="metric"><span>Événements</span><strong id="events-total">—</strong><small id="events-window">—</small></article>
+        </section>
+
+        <section class="panel">
+          <div class="health-line"><div><span class="eyebrow">VEILLES ACTIVES</span><h2>État des recherches surveillées</h2></div><span class="admin-meta" id="admin-meta"></span></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Recherche</th><th>Utilisateur</th><th>Plan</th><th>Fréquence</th><th>Correspondances</th><th>Activée</th><th>Dernière évaluation</th><th>État</th></tr></thead>
+              <tbody id="watches-body"><tr><td colspan="8" class="empty">Chargement…</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <span class="eyebrow">EXÉCUTIONS</span><h2>Historique des runs</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Run</th><th>Démarré</th><th>Durée</th><th>Statut</th><th>Déclencheur</th><th>Portée</th><th>Actives</th><th>Évaluées</th><th>Baselines</th><th>Événements</th><th>Erreur</th></tr></thead>
+              <tbody id="runs-body"><tr><td colspan="11" class="empty">Chargement…</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="split">
+          <section class="panel">
+            <span class="eyebrow">ACTIVITÉ</span><h2>Événements récents</h2>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Détecté</th><th>Recherche</th><th>Utilisateur</th><th>Offre</th><th>Type</th><th>Sévérité</th><th>Radar</th></tr></thead>
+                <tbody id="events-body"><tr><td colspan="7" class="empty">Chargement…</td></tr></tbody>
+              </table>
+            </div>
+          </section>
+          <section class="panel">
+            <span class="eyebrow">RÉPARTITION</span><h2>Types d’événements</h2>
+            <div class="breakdown" id="types-breakdown"><p class="muted">Aucun événement pour le moment.</p></div>
+            <h3 style="margin-top:26px">Plans actifs</h3>
+            <div class="breakdown" id="plans-breakdown"><p class="muted">Aucune veille active.</p></div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="/admin/search-watch/search-watch.js"></script>
+  </body>
+</html>
