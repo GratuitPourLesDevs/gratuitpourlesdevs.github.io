@@ -299,7 +299,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     const pageSize = 10;
     let currentPage = 1;
     let filteredRows = [...rows];
-    let favoritesOnly = false;
+    let favoritesOnly = new URLSearchParams(window.location.search).get('favoris') === '1';
     let saved: Set<string>;
     try { saved = new Set<string>(JSON.parse(localStorage.getItem('gpld-favorites') ?? '[]')); }
     catch { saved = new Set<string>(); }

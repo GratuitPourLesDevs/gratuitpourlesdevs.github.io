@@ -222,7 +222,7 @@
   }
 
   function tuneAccountCopy() {
-    const stat = document.querySelector('#stat-saved');
+    const stat = document.querySelector('#stat-watched');
     const statLabel = stat?.nextElementSibling;
     if (statLabel) statLabel.textContent = 'recherche surveillée';
 
@@ -260,7 +260,7 @@
     const root = document.querySelector('#watched-searches-list');
     const limitNode = document.querySelector('#watched-search-limit');
     const summary = document.querySelector('#watched-search-summary');
-    const stat = document.querySelector('#stat-saved');
+    const stat = document.querySelector('#stat-watched');
     if (!root) return;
     const watched = searches.filter((search) => search.watchEnabled);
     const limit = payload.limits?.watchedSearches;

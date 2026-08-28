@@ -56,13 +56,15 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
       <section class="account-status-grid" aria-label="Résumé du compte">
         <article class="account-stat"><small>01</small><div><strong id="stat-favorites">0</strong><span>favoris synchronisés</span></div></article>
         <article class="account-stat"><small>02</small><div><strong id="stat-follows">0 / 5</strong><span>offres suivies</span></div></article>
-        <article class="account-stat"><small>03</small><div><strong id="stat-saved">0 / 6</strong><span>recherches + comparaisons</span></div></article>
-        <article class="account-stat"><small>04</small><div><strong id="stat-stack">0 / 10</strong><span>offres dans la stack</span></div></article>
+        <article class="account-stat"><small>03</small><div><strong id="stat-watched">0 / 1</strong><span>recherche surveillée</span></div></article>
+        <article class="account-stat"><small>04</small><div><strong id="stat-searches">0 / 3</strong><span>recherches sauvegardées</span></div></article>
+        <article class="account-stat"><small>05</small><div><strong id="stat-comparisons">0 / 3</strong><span>comparaisons sauvegardées</span></div></article>
+        <article class="account-stat"><small>06</small><div><strong id="stat-stack">0 / 10</strong><span>offres dans la stack</span></div></article>
       </section>
 
       <section class="account-section">
         <header><div><small>VOTRE SÉLECTION</small><h2>Mes favoris</h2></div><p>Retrouvez ici les offres mises de côté depuis le catalogue ou une fiche détaillée.</p></header>
-        <article class="account-card"><small>FAVORIS SYNCHRONISÉS</small><h3>Offres enregistrées</h3><p>Les favoris de ce navigateur sont fusionnés avec votre compte.</p><ul class="account-list" id="favorites-list"></ul><nav class="account-pagination" id="favorites-pagination" aria-label="Pagination des favoris" hidden><span id="favorites-pagination-summary" aria-live="polite"></span><div class="account-pagination-controls"><button id="favorites-previous" type="button"><span aria-hidden="true">←</span> Précédent</button><div id="favorites-page-numbers" aria-label="Pages des favoris"></div><button id="favorites-next" type="button">Suivant <span aria-hidden="true">→</span></button></div></nav>
+        <article class="account-card account-favorites-card"><small>FAVORIS SYNCHRONISÉS</small><h3>Vos derniers favoris</h3><p>Un aperçu des trois offres mises de côté le plus récemment.</p><ul class="account-list" id="favorites-list"></ul><footer class="account-favorites-footer"><a href="/?favoris=1#catalogue">Voir tous mes favoris dans le catalogue →</a><nav class="account-carousel-controls" id="favorites-carousel" aria-label="Parcourir les favoris" hidden><button id="favorites-previous" type="button" aria-label="Favori précédent">←</button><span id="favorites-carousel-summary" aria-live="polite"></span><div id="favorites-carousel-dots" aria-label="Choisir un favori"></div><button id="favorites-next" type="button" aria-label="Favori suivant">→</button></nav></footer>
         </article>
       </section>
 
@@ -103,11 +105,17 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
 
       <section class="account-section" id="pro">
         <article class="pro-card">
-          <small>GPLD PRO — INTÉRÊT MESURÉ AVANT LANCEMENT</small>
-          <h2>Ne surveillez plus les offres gratuites vous-même.</h2>
-          <p>Le catalogue restera public. Pro ajoutera surtout de l’automatisation et des capacités de veille supérieures.</p>
-          <ul><li>Offres suivies illimitées</li><li>Alertes immédiates</li><li>Règles d’alerte personnalisées</li><li>Recherches surveillées</li><li>Stacks et offres illimitées</li><li>Historique complet et exports</li><li>Webhooks / Discord / Slack</li><li>Usage IA supérieur</li></ul>
-          <footer><p>Pas de paiement pour le moment : ce bouton sert uniquement à mesurer l’intérêt réel.</p><button class="pro-interest-button" id="pro-interest" type="button">Je serais intéressé par Pro</button></footer>
+          <header class="pro-card-header"><div><small>GPLD PRO — PÉRIMÈTRE ENVISAGÉ</small><h2>Soyez prévenu avant que votre stack gratuite ne change.</h2><p>Pro transformerait votre catalogue personnel en véritable poste de veille : davantage de capacité, des alertes plus fines et tout l’historique nécessaire pour décider sans urgence.</p></div><span>Accès prioritaire</span></header>
+          <p class="pro-scope-note"><strong>Le catalogue restera public et gratuit.</strong> Les fonctions ci-dessous correspondent au périmètre étudié avant lancement.</p>
+          <div class="pro-benefit-grid">
+            <section><small>VEILLE SANS LIMITE</small><h3>Suivez tout ce qui compte</h3><ul><li>Offres suivies illimitées</li><li>Recherches surveillées illimitées</li><li>Comparaisons sauvegardées illimitées</li><li>Stacks et services illimités</li></ul></section>
+            <section><small>ALERTES SUR MESURE</small><h3>Réagissez au bon changement</h3><ul><li>Alertes immédiates ou regroupées</li><li>Règles par quota, score ou restriction</li><li>Seuils personnalisés par ressource</li><li>Priorités et silences temporaires</li></ul></section>
+            <section><small>HISTORIQUE & PREUVES</small><h3>Décidez avec du contexte</h3><ul><li>Historique complet des changements</li><li>Comparaison avant / après</li><li>Sources et dates de vérification conservées</li><li>Exports CSV et rapports partageables</li></ul></section>
+            <section><small>ORGANISATION</small><h3>Structurez plusieurs projets</h3><ul><li>Plusieurs stacks nommées</li><li>Notes et étiquettes personnelles</li><li>Listes partagées avec votre équipe</li><li>Tableau de bord sans publicité</li></ul></section>
+            <section><small>INTÉGRATIONS</small><h3>Recevez l’information où vous travaillez</h3><ul><li>Webhooks configurables</li><li>Notifications Slack et Discord</li><li>Digest personnalisé par projet</li><li>API de lecture pour vos outils internes</li></ul></section>
+            <section><small>ACCOMPAGNEMENT</small><h3>Allez plus vite</h3><ul><li>Analyses assistées plus généreuses</li><li>Suggestions d’alternatives ciblées</li><li>Détection des doublons dans une stack</li><li>Accès prioritaire aux nouveautés</li></ul></section>
+          </div>
+          <footer><p><strong>Aucun paiement aujourd’hui.</strong> Votre intérêt nous aide à prioriser le bon périmètre et vous place sur la liste d’accès anticipé.</p><button class="pro-interest-button" id="pro-interest" type="button">Rejoindre la liste d’accès prioritaire</button></footer>
         </article>
       </section>
     </div>
@@ -126,8 +134,8 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
   <script is:inline>
     const $ = (selector) => document.querySelector(selector);
     const account = () => window.GPLDAccount;
-    const FAVORITES_PAGE_SIZE = 5;
-    const state = { dashboard: null, catalogue: {}, stackOfferIds: [], favoritesPage: 1 };
+    const FAVORITES_PREVIEW_SIZE = 3;
+    const state = { dashboard: null, catalogue: {}, stackOfferIds: [], favoritesIndex: 0 };
     let stackOfferSelect = null;
     const offer = (id) => state.catalogue[id] || { id, name: id, category: '', score: null, freeTier: '', cardRequired: null, permanent: null };
     const offerLink = (id) => `/offres/${encodeURIComponent(id)}/`;
@@ -169,40 +177,27 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
     };
 
     const renderFavorites = () => {
-      const ids = state.dashboard?.favorites || [];
-      const pageCount = Math.max(1, Math.ceil(ids.length / FAVORITES_PAGE_SIZE));
-      state.favoritesPage = Math.min(Math.max(1, state.favoritesPage), pageCount);
-      const startIndex = (state.favoritesPage - 1) * FAVORITES_PAGE_SIZE;
-      const pageIds = ids.slice(startIndex, startIndex + FAVORITES_PAGE_SIZE);
-      renderOfferList('#favorites-list', pageIds, { removable: true });
-
-      const pagination = $('#favorites-pagination');
-      if (!pagination) return;
-      pagination.hidden = ids.length <= FAVORITES_PAGE_SIZE;
-      const summary = $('#favorites-pagination-summary');
-      if (summary) {
-        const start = ids.length ? startIndex + 1 : 0;
-        const end = Math.min(startIndex + FAVORITES_PAGE_SIZE, ids.length);
-        summary.textContent = `${start}–${end} sur ${ids.length} favoris`;
-      }
-      const previous = $('#favorites-previous');
-      const next = $('#favorites-next');
-      if (previous) previous.disabled = state.favoritesPage === 1;
-      if (next) next.disabled = state.favoritesPage === pageCount;
-      const pages = $('#favorites-page-numbers');
-      if (pages) {
-        pages.replaceChildren(...Array.from({ length: pageCount }, (_, index) => {
-          const page = index + 1;
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.textContent = String(page);
-          button.classList.toggle('active', page === state.favoritesPage);
-          button.setAttribute('aria-label', `Afficher la page ${page} des favoris`);
-          if (page === state.favoritesPage) button.setAttribute('aria-current', 'page');
-          button.addEventListener('click', () => { state.favoritesPage = page; renderFavorites(); });
-          return button;
-        }));
-      }
+      const ids = [...(state.dashboard?.favorites || [])].reverse().slice(0, FAVORITES_PREVIEW_SIZE);
+      if (ids.length) state.favoritesIndex = ((state.favoritesIndex % ids.length) + ids.length) % ids.length;
+      else state.favoritesIndex = 0;
+      renderOfferList('#favorites-list', ids.length ? [ids[state.favoritesIndex]] : [], { removable: true });
+      const carousel = $('#favorites-carousel');
+      if (!carousel) return;
+      carousel.hidden = ids.length < 2;
+      const summary = $('#favorites-carousel-summary');
+      if (summary) summary.textContent = ids.length ? `${state.favoritesIndex + 1} / ${ids.length}` : '';
+      const dots = $('#favorites-carousel-dots');
+      if (dots) dots.replaceChildren(...ids.map((id, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'account-carousel-dot';
+        button.classList.toggle('active', index === state.favoritesIndex);
+        const label = offer(id).name || `le favori ${index + 1}`;
+        button.setAttribute('aria-label', `Afficher ${label}`);
+        if (index === state.favoritesIndex) button.setAttribute('aria-current', 'true');
+        button.addEventListener('click', () => { state.favoritesIndex = index; renderFavorites(); });
+        return button;
+      }));
     };
 
     const removeOffer = async (id, follow) => {
@@ -271,7 +266,10 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
       const data = state.dashboard; if (!data) return;
       $('#account-loading').hidden = true; $('#account-signed-out').hidden = true; $('#account-dashboard').hidden = false; $('#account-login-card').hidden = true; $('#account-profile-card').hidden = false;
       $('#account-name').textContent = data.user.name; $('#account-login-name').textContent = `@${data.user.login} · compte ${data.user.plan === 'pro' ? 'Pro' : 'gratuit'}`; const avatar = $('#account-avatar'); avatar.src = data.user.avatarUrl || ''; avatar.hidden = !data.user.avatarUrl;
-      $('#stat-favorites').textContent = String(data.favorites.length); $('#stat-follows').textContent = `${data.follows.length} / ${data.limits.follows}`; $('#stat-saved').textContent = `${data.savedSearches.length + data.savedComparisons.length} / ${data.limits.savedSearches + data.limits.savedComparisons}`;
+      $('#stat-favorites').textContent = String(data.favorites.length);
+      $('#stat-follows').textContent = `${data.follows.length} / ${data.limits.follows}`;
+      $('#stat-searches').textContent = `${data.savedSearches.length} / ${data.limits.savedSearches}`;
+      $('#stat-comparisons').textContent = `${data.savedComparisons.length} / ${data.limits.savedComparisons}`;
       setLimit('#follow-limit', data.follows.length, data.limits.follows); setLimit('#search-limit', data.savedSearches.length, data.limits.savedSearches); setLimit('#comparison-limit', data.savedComparisons.length, data.limits.savedComparisons);
       renderFavorites(); renderOfferList('#follows-list', data.follows, { removable: true, follow: true }); renderSavedList('#searches-list', data.savedSearches, 'searches'); renderSavedList('#comparisons-list', data.savedComparisons, 'comparisons'); renderStack(); renderDigest();
     };
@@ -318,8 +316,15 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
     };
     const login = async () => { try { await account().login({ redirect: true }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Connexion impossible.'); } };
     $('#account-login')?.addEventListener('click', login); $('#account-login-secondary')?.addEventListener('click', login); $('#account-refresh')?.addEventListener('click', loadDashboard);
-    $('#favorites-previous')?.addEventListener('click', () => { state.favoritesPage--; renderFavorites(); });
-    $('#favorites-next')?.addEventListener('click', () => { state.favoritesPage++; renderFavorites(); });
+    const favoritePreviewIds = () => [...(state.dashboard?.favorites || [])].reverse().slice(0, FAVORITES_PREVIEW_SIZE);
+    $('#favorites-previous')?.addEventListener('click', () => {
+      const ids = favoritePreviewIds(); if (!ids.length) return;
+      state.favoritesIndex = (state.favoritesIndex - 1 + ids.length) % ids.length; renderFavorites();
+    });
+    $('#favorites-next')?.addEventListener('click', () => {
+      const ids = favoritePreviewIds(); if (!ids.length) return;
+      state.favoritesIndex = (state.favoritesIndex + 1) % ids.length; renderFavorites();
+    });
     $('#account-logout')?.addEventListener('click', async () => { await account().logout(); renderSignedOut(); });
     $('#stack-add')?.addEventListener('click', () => { const id = $('#stack-offer-select').value; if (!id) return; if (state.stackOfferIds.includes(id)) { account().showToast('Cette offre est déjà présente dans votre stack.'); return; } const limit = Number(state.dashboard?.limits?.stackOffers || 10); if (state.dashboard?.user?.plan !== 'pro' && state.stackOfferIds.length >= limit) { account().showToast(`La stack gratuite accepte jusqu’à ${limit} offres.`, { pro: true }); return; } state.stackOfferIds.push(id); renderStackChips(); stackOfferSelect?.reset(); });
     $('#stack-save')?.addEventListener('click', async () => { try { await account().api('/api/account/stack', { method: 'PUT', body: JSON.stringify({ name: $('#stack-name').value, offerIds: state.stackOfferIds }) }); account().showToast('Stack enregistrée.'); await loadDashboard(); } catch (error) { if (error.payload?.code === 'free_limit' && error.payload?.feature === 'stackOffers') account().showToast(`La stack gratuite accepte jusqu’à ${error.payload.limit || 10} offres.`, { pro: true }); else if (error.payload?.code === 'free_limit') account().showToast('Le compte gratuit contient une stack.', { pro: true }); else account().showToast(error.message || 'Impossible d’enregistrer la stack.'); } });
