@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1015
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Wikifactory a déplacé son offre vers CAD Rooms et les workflows d’ingénierie. La gratuité actuelle ne correspond plus à l’ancien plan de projets : elle porte notamment sur cinq conversions CAD mensuelles.

@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 898
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 dynv6 est particulièrement adapté aux environnements auto-hébergés modernes où IPv6 compte autant qu’IPv4. Il permet de recevoir un hostname gratuit ou de déléguer son propre domaine, puis d’automatiser les mises à jour via REST, une API DynDNS classique, RFC 2136 avec TSIG ou même SSH. Cette variété d’interfaces le rend facile à intégrer dans un routeur, un script ou une chaîne d’infrastructure. L’éditeur précise néanmoins qu’il n’offre ni SLA ni protection DDoS de niveau entreprise : mieux vaut donc le réserver aux usages personnels, labs et services non critiques.

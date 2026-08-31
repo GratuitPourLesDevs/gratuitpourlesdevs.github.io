@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 854
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zapier est surtout utile par la largeur de son catalogue d’intégrations : lorsqu’un service SaaS doit déclencher une action dans un autre outil, il existe souvent déjà un connecteur. Le plan gratuit permet de créer autant de workflows que nécessaire, mais limite leur consommation à 100 tâches par mois et à deux étapes, ce qui convient surtout à des automatisations peu fréquentes. C’est un bon moyen de valider un processus avant de l’industrialiser. Les Webhooks et les chaînes multi-étapes étant payants, le Free devient vite trop étroit pour un backend applicatif intensif.

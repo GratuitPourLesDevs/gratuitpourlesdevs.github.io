@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 182
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ip-api est pratique pour obtenir rapidement des données de géolocalisation sans créer de compte. Son volume est généreux, mais l’absence de HTTPS et l’interdiction d’usage commercial sont deux contraintes majeures.

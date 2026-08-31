@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 645
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 La galerie CV d’Overleaf permet de partir d’un modèle LaTeX professionnel sans construire soi-même toute la mise en page. Un template public peut être ouvert dans l’éditeur web, adapté à son parcours puis compilé et exporté en PDF, ce qui est pratique pour obtenir un document propre et reproductible. L’accès aux modèles publics et à l’édition de base fonctionne avec le plan gratuit. En revanche, mieux vaut évaluer chaque modèle individuellement pour les candidatures automatisées : la présence d’un template dans la galerie ne constitue pas une garantie générale de compatibilité ATS.

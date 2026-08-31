@@ -21,12 +21,15 @@ initiales: "BP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1159
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Beampipe vise les projets qui veulent répondre aux questions essentielles — combien de visiteurs, quelles pages fonctionnent, d’où vient le trafic — sans déployer une suite d’analytics lourde. Le fait de pouvoir suivre plusieurs domaines est pratique pour un développeur, une agence ou un maker qui maintient plusieurs petits sites avec une approche centrée sur la confidentialité. Les 10 000 pages vues mensuelles suffisent pour démarrer confortablement, mais le service est moins adapté dès que l’on cherche de l’analytics produit très détaillée ou de gros volumes.

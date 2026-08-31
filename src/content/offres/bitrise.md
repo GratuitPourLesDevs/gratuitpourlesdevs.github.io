@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 394
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Bitrise propose une chaîne CI/CD très orientée mobile. Son plan gratuit a évolué vers un modèle en crédits : il est adapté à un projet personnel ou à un prototype, mais il ne faut plus raisonner en nombre fixe de builds.

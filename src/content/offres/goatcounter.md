@@ -27,12 +27,15 @@ initiales: "GC"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1168
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 GoatCounter reste une excellente option pour les petits sites qui veulent des statistiques lisibles et une empreinte minimale. L’ancien plafond public de 100 000 pages vues ne doit toutefois plus être présenté comme un engagement actuel.

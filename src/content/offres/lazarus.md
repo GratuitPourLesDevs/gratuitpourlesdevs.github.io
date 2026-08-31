@@ -23,12 +23,15 @@ initiales: "LA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1137
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Lazarus fournit une chaîne complète pour créer des applications natives avec Free Pascal. Il constitue une alternative libre particulièrement intéressante pour les développeurs venant de Delphi ou recherchant un RAD multiplateforme.

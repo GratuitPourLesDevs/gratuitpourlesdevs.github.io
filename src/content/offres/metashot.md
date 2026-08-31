@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 263
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 MetaShot automatise la production de visuels Open Graph 1200×630 à partir de paramètres et de templates, ce qui évite de générer manuellement les previews pour chaque page ou contenu partagé.

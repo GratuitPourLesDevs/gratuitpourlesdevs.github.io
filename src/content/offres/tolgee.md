@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 563
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tolgee offre deux chemins gratuits intéressants : un Cloud sans carte avec 500 clés et trois sièges, ou une version auto-hébergée gratuite avec un nombre illimité de clés et jusqu’à dix sièges. Ses SDKs et son approche contextuelle en font une solution complète pour intégrer la localisation directement dans une application. L’auto-hébergement demande cependant d’assumer l’infrastructure, et sur le Cloud un dépassement peut devenir facturable si une carte a été ajoutée.

@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 212
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 NASdisks met à disposition un dataset directement consommable depuis un navigateur ou un notebook pour comparer des disques NAS. L’absence de clé et de rate limit publié en fait une ressource très simple à intégrer, sous réserve de respecter les obligations d’attribution.

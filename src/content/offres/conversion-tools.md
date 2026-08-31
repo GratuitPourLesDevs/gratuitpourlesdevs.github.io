@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 138
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Conversion Tools propose des conversions de fichiers via interface web et API pour de nombreux formats. L’ancien quota de 30 conversions par jour et 300 par mois n’est plus actuel : le compte gratuit enregistré dispose désormais de 10 conversions quotidiennes, avec un maximum de 100 sur le mois.

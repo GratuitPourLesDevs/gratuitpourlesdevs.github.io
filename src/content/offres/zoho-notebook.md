@@ -45,9 +45,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 70
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Notebook est une alternative légère aux applications de prise de notes comme Evernote. Le plan Essential permet de synchroniser ses notes entre le Web, les ordinateurs et les mobiles, de travailler hors ligne et de partager des contenus sans abonnement. La formule gratuite reste adaptée aux notes essentiellement textuelles, mais son stockage et la taille des pièces jointes sont nettement plus limités que sur les offres payantes.

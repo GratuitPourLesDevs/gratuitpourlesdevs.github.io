@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 54
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudflare D1 est une base SQL serverless reposant sur la sémantique SQLite et intégrée à Workers et Pages. Elle convient aux API, applications web et architectures qui répartissent les données entre plusieurs petites bases. Le quota de stockage gratuit atteint désormais 5 Go au total, mais chaque base reste limitée à 500 Mo sur le plan Workers Free.

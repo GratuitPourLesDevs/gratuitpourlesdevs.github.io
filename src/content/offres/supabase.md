@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 852
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Supabase est l’un des Free Tiers les plus complets pour construire un backend moderne : PostgreSQL, authentification, temps réel, stockage et APIs sont disponibles dans une même plateforme open source. Les 50 000 MAU et les requêtes API illimitées permettent d’aller bien au-delà d’une simple démo, même si la base reste limitée à 500 MB. C’est particulièrement pertinent pour une application web ou mobile qui veut conserver SQL et éviter un modèle de données propriétaire. Il faut néanmoins surveiller la taille de la base et accepter la mise en pause des projets gratuits inactifs.

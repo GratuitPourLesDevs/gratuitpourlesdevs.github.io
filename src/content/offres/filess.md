@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 929
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Filess.io offre de minuscules instances de plusieurs moteurs populaires sans coût récurrent. Les 10 Mo par base excluent les usages de production sérieux, mais le service reste pratique pour des exercices, démonstrations, tests d’intégration et projets dont les données sont très petites.

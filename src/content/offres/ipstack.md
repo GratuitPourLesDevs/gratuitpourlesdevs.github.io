@@ -28,12 +28,15 @@ initiales: "IS"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1106
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ipstack reste une porte d’entrée simple vers la géolocalisation IP, mais son free tier actuel est devenu très limité. Avec 100 requêtes mensuelles, il sert surtout à tester une intégration ou à alimenter un outil interne très occasionnel.

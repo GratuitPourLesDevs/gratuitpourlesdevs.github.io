@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 888
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tilda est utile lorsque l’objectif est de produire rapidement une landing page ou un petit site marketing sans développer une interface complète. Cinquante pages laissent assez de place pour une vitrine structurée, même si le stockage de 50 Mo impose de rester raisonnable sur les médias. Le sous-domaine inclus permet de publier le résultat sans achat immédiat. Le Free devient en revanche vite restrictif si l’on veut une identité de marque complète, son propre domaine ou les fonctions visuelles et techniques avancées de Tilda.

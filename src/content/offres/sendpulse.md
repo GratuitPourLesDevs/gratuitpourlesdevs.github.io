@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 710
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 SendPulse regroupe plusieurs canaux marketing, dont les campagnes e-mail et des automatisations. Pour l’e-mail, le niveau gratuit affiche jusqu’à 15 000 messages par mois, un volume confortable pour tester une stratégie ou gérer une petite audience. La plateforme comporte cependant plusieurs produits et les limites de contacts ou certaines fonctions ne sont pas toujours identiques d’un module à l’autre. La fiche retient donc le quota d’envoi vérifié tout en évitant de généraliser une ancienne limite de 500 abonnés sans confirmation suffisante.

@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 743
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Fontshare est une bibliothèque de polices de qualité professionnelle lancée par Indian Type Foundry. Sa particularité est d’annoncer l’ensemble de son catalogue comme gratuit pour les usages personnels et commerciaux, tout en conservant des règles de licence propres aux familles open source ou propriétaires gratuites.

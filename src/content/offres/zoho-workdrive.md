@@ -48,9 +48,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 63
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho WorkDrive a remplacé Zoho Docs pour le stockage et la gestion de fichiers dans l’écosystème Zoho. Son plan individuel gratuit fournit 5 Go de stockage et intègre directement Writer, Sheet et Show. Les documents créés dans ces trois applications Zoho ne sont pas décomptés du quota, ce qui rend la formule pratique pour conserver des fichiers de projet, partager ponctuellement des documents et disposer d’une suite bureautique en ligne sans abonnement. Le gratuit public actuel reste toutefois destiné à un seul utilisateur : pour un véritable espace d’équipe, Zoho oriente vers ses formules WorkDrive payantes ou vers certains cas spécifiques du plan Essentials.

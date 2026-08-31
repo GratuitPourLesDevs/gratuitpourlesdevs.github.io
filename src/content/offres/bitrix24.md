@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 968
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Bitrix24 offre un espace de travail très large sans plafond d’utilisateurs sur la formule gratuite. Le compromis principal est le stockage limité et une politique d’inactivité à surveiller.

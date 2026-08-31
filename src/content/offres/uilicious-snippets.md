@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 435
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 UI-licious Snippets permet de tester rapidement une interaction web avec une syntaxe proche d’un scénario utilisateur. C’est surtout utile pour reproduire et partager un bug sans créer de projet de test complet.

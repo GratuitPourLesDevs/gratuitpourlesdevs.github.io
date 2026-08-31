@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 44
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Anciennement regroupées sous le nom Cognitive Services, ces API sont désormais présentées comme Azure AI Services ou Foundry Tools. Elles permettent d’ajouter rapidement OCR, analyse d’images, traduction, transcription, synthèse vocale et traitement du langage à une application. Chaque service doit être créé avec son propre niveau F0 et possède sa définition de transaction, ses limites de débit et ses conditions d’accès.

@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 412
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Trigger.dev vise les traitements qui doivent survivre aux erreurs, attendre longtemps ou exécuter des agents IA sans timeout classique. Le Free Tier combine une allocation mensuelle en dollars avec des limites fonctionnelles explicites.

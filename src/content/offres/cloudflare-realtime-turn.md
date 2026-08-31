@@ -50,9 +50,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 57
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudflare Realtime TURN relaie le trafic des applications WebRTC lorsque la connexion directe échoue à cause d’un NAT ou d’un pare-feu. Le service fournit plusieurs transports et ports de secours pour les réseaux restrictifs. Le quota gratuit porte uniquement sur le trafic transmis depuis Cloudflare vers les clients et il est partagé avec Realtime SFU.

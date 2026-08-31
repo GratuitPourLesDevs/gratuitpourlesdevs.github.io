@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 276
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Chanty rassemble chat, appels individuels et petites tâches dans une interface d’équipe. Le plan gratuit reste utilisable pour une très petite équipe, mais son plafond de cinq membres est désormais la contrainte principale.

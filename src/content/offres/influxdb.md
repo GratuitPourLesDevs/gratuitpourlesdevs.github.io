@@ -31,12 +31,15 @@ initiales: ID
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 930
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 InfluxDB est spécialisé dans les séries temporelles, métriques et télémétries. Le niveau Cloud Serverless gratuit autorise un débit suffisant pour des petits systèmes de monitoring, des capteurs ou des prototypes, avec une fenêtre de rétention limitée qui évite d’accumuler indéfiniment les données.

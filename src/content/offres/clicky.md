@@ -23,12 +23,15 @@ initiales: "CLK"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1161
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Clicky est utile lorsqu’on veut surveiller simplement l’activité d’un site presque en temps réel, sans adopter toute la complexité d’une plateforme d’analytics produit. Il convient bien à un blog, une documentation, un site vitrine ou un petit service web dont on veut suivre rapidement les pics de trafic et les pages consultées. Le plan gratuit est suffisamment confortable pour un site modéré, mais il reste limité à un seul site et à un historique court de 30 jours.

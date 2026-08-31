@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 5
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Vercel est particulièrement confortable pour développer un projet Next.js ou un frontend moderne avec une preview automatique à chaque branche ou pull request. Les quotas Hobby de trafic, requêtes et fonctions sont suffisamment élevés pour de nombreux projets personnels réels, pas seulement une page de test. L’intégration CDN, TLS et fonctions évite aussi d’assembler plusieurs briques au départ. La contrainte déterminante n’est pas seulement technique : le plan Hobby est explicitement réservé à un usage personnel non commercial, ce qui exclut un produit ou site d’entreprise même peu fréquenté.

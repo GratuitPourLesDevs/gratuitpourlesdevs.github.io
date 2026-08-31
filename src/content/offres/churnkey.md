@@ -25,12 +25,15 @@ initiales: "CK"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1197
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Churnkey propose désormais un vrai socle gratuit : le composant de cancel flow est open source et peut fonctionner seul, tandis qu’un compte gratuit ajoute des analytics de rétention sans imposer le plan connecté payant.

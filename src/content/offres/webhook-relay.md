@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 961
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 WebhookRelay sert à recevoir un webhook puis à le distribuer vers une ou plusieurs destinations, notamment pour les intégrations et environnements de test. Son plan gratuit reste utile pour de petits volumes mais son positionnement a évolué : les tunnels bidirectionnels ne sont plus inclus gratuitement. La fiche reflète donc le service de webhook actuel plutôt que l’ancienne offre de tunnel.

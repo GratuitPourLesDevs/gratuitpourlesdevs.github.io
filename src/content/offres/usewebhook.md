@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 440
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 UseWebhook fournit un endpoint temporaire immédiatement exploitable pour examiner les payloads reçus, les rejouer ou les faire suivre vers un serveur local. C’est un outil simple et très pratique pendant le développement d’intégrations.

@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 339
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Whereby est pratique pour lancer une petite réunion via un simple lien sans demander aux participants d’installer une application. Le Free Tier reste cependant limité à quatre personnes.

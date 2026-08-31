@@ -28,9 +28,12 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 43
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Les avantages Azure Storage destinés aux nouveaux comptes couvrent trois usages complémentaires : les partages de fichiers Azure Files, les objets Blob fréquemment consultés et les données placées en archive. Chaque service possède ses propres quotas de capacité et d’opérations. Une fois les 12 mois écoulés, ou dès qu’un plafond mensuel est dépassé, la tarification standard Azure s’applique.

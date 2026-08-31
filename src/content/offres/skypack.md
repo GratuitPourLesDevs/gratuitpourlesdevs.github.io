@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 808
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Skypack — CDN de modules JavaScript ES natifs qui optimise les packages npm pour une utilisation directe dans le navigateur.

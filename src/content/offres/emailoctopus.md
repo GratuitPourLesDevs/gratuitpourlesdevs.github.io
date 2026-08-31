@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 677
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 EmailOctopus est une plateforme de newsletter complète avec gestion des listes, campagnes, formulaires et rapports. Son plan Starter gratuit reste généreux : jusqu’à 2 500 abonnés et 10 000 e-mails par mois, avec un utilisateur et une landing page/formulaire. Les rapports sont disponibles sur 30 jours. Pour une newsletter de petite ou moyenne taille, cela permet de fonctionner longtemps sans abonnement ; la contrepartie visible est notamment le branding EmailOctopus conservé sur le niveau gratuit.

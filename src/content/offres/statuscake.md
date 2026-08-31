@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 623
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 StatusCake surveille la disponibilité et quelques signaux de performance web avec une interface conçue pour gérer plusieurs tests. La grille gratuite récente permet dix monitors uptime toutes les cinq minutes ainsi qu’un contrôle Page Speed quotidien ; ces valeurs remplacent les anciennes mentions plus restrictives que l’on trouve encore parfois sur d’autres pages du produit.

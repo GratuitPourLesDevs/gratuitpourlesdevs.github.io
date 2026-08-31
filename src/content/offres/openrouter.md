@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 790
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 OpenRouter — API unifiée vers de nombreux modèles IA. Les modèles marqués gratuits sont utilisables sans coût d’inférence OpenRouter mais restent soumis à des limites quotidiennes et de disponibilité.

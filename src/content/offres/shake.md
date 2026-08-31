@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1002
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Shake facilite la remontée de bugs mobiles avec le contexte utile aux développeurs. Le plan Free a évolué : la page de prix actuelle indique vingt rapports de bugs mensuels, et non dix.

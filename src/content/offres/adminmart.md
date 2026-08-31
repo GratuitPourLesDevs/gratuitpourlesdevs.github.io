@@ -22,12 +22,15 @@ initiales: "AM"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1094
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 AdminMart est utile pour disposer rapidement d’un squelette de dashboard avec navigation, widgets, formulaires et responsive design déjà en place. Pour un prototype ou un back-office interne, partir d’un template gratuit évite de dépenser du temps sur les éléments visuels standard avant même de commencer les fonctions métier.

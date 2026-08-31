@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 917
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 4EVERLAND fournit une couche de stockage Web3 utilisable avec des outils familiers aux développeurs grâce à sa compatibilité S3. La formule gratuite permet notamment de conserver des fichiers sur IPFS et Arweave sans devoir mettre immédiatement en place une infrastructure blockchain spécifique. Elle convient bien aux prototypes Web3, sites décentralisés, médias et petits projets qui veulent combiner stockage distribué, API et automatisation. Les quotas gratuits sont suffisamment larges pour tester le service, mais les consommations supplémentaires suivent ensuite la tarification publiée par 4EVERLAND.

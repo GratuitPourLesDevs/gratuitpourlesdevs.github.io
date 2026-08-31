@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 845
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Integrately convient surtout à quelqu’un qui veut automatiser quelques échanges répétitifs entre outils SaaS sans écrire de code ni configurer une chaîne complexe. Les cinq automatisations et 100 tâches gratuites permettent de tester des synchronisations simples, par exemple créer une ligne ou envoyer une notification. Le délai de 15 minutes reste acceptable pour des tâches non critiques. Dès qu’un scénario demande plusieurs étapes, des conditions ou un webhook en temps réel, le plan gratuit devient toutefois trop limité.

@@ -30,9 +30,12 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 189
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ipapi.co propose un accès très simple à la géolocalisation IP et peut être testé sans inscription. Le catalogue le marque toutefois comme non permanent car la tarification actuelle emploie explicitement la notion de Free Trial.

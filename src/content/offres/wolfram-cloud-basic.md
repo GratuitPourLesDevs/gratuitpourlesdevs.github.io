@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 256
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Wolfram Cloud Basic donne accès à la puissance du Wolfram Language et de sa base de connaissances depuis un navigateur. Son principal frein est la licence : il convient à l’apprentissage et aux projets personnels, pas au développement commercial d’une organisation.

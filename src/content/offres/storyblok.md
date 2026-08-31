@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 356
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Storyblok combine un headless CMS classique avec un éditeur visuel apprécié des équipes contenu. Le Starter permet réellement de publier gratuitement, mais il cible surtout un développeur ou éditeur unique et un projet de taille modérée.

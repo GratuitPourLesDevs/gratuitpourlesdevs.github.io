@@ -40,9 +40,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 936
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Prisma Postgres est un PostgreSQL managé conçu pour fonctionner naturellement avec Prisma ORM tout en restant accessible aux clients SQL. Son architecture serverless cherche à éliminer les cold starts ; le plan gratuit a récemment été porté à 50 bases, tout en gardant 500 Mo de stockage total et 100 000 opérations mensuelles.

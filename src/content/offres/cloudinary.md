@@ -25,9 +25,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1023
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudinary regroupe gestion, transformation et diffusion de médias derrière une API et un CDN.

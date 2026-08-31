@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 918
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Backblaze B2 est une alternative simple à Amazon S3 pour stocker des sauvegardes, médias, artefacts de build ou fichiers applicatifs. Sa compatibilité avec l’API S3 permet de réutiliser de nombreux SDK, outils et logiciels existants en changeant principalement l’endpoint et les identifiants. Le niveau gratuit permanent de 10 Go est particulièrement intéressant pour les petits projets et les environnements de test. Il faut toutefois surveiller le stockage, les téléchargements sortants et certaines classes de requêtes lorsque l’usage commence à dépasser les quotas inclus.

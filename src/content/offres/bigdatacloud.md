@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 100
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 BigDataCloud regroupe plusieurs API de localisation et d’intelligence réseau avec des quotas gratuits qui varient selon le package. Le reverse geocoding se distingue par 50 000 appels mensuels gratuits, tandis que la géolocalisation IP serveur est à 10 000 ; certaines API côté client sont disponibles sans clé et sans plafond mensuel fixe sous fair use.

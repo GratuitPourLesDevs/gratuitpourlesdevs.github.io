@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 951
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Localtonet couvre davantage de protocoles qu’un simple tunnel HTTP et peut servir pour des applications web, bases de données, SSH, RDP, jeux ou flux UDP. Le plan gratuit suffit pour des tests ponctuels et inclut déjà plusieurs fonctions de sécurité et d’inspection. Ses limites de trafic et de durée le destinent toutefois clairement au développement et aux démonstrations plutôt qu’à un service permanent.

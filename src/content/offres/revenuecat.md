@@ -28,12 +28,15 @@ initiales: "RC"
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1207
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 RevenueCat évite aux équipes mobiles de maintenir elles-mêmes toute la logique spécifique aux abonnements App Store et Google Play : validation des reçus, état des achats et entitlements sont centralisés derrière des SDK et un backend communs. Cela accélère fortement un lancement multi-plateforme et réduit les cas limites liés aux renouvellements, restaurations d’achats ou changements d’abonnement. Le plan Pro peut donc accompagner gratuitement une jeune application jusqu’à 2 500 $ de revenus mensuels suivis, avant de passer à une tarification de 1 % du MTR.

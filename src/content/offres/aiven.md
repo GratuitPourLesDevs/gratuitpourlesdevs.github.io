@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 923
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Aiven propose plusieurs moteurs open source sous forme de services managés. Pour PostgreSQL et MySQL, le niveau gratuit fournit une petite VM dédiée avec sauvegardes et observabilité, adaptée à l’apprentissage, aux démonstrations et aux petits prototypes ; les services inactifs peuvent toutefois être arrêtés automatiquement.

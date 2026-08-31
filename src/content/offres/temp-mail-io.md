@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 716
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Temp-Mail.io fournit des adresses jetables destinées à recevoir rapidement un message sans utiliser sa boîte personnelle. Pour un développeur, c’est pratique pour répéter un parcours d’inscription, vérifier un e-mail de confirmation ou tester une logique qui impose une adresse différente à chaque scénario. Le référentiel mentionne historiquement plusieurs adresses simultanées et du forwarding dans le niveau gratuit. Ces fonctions exactes n’étant pas suffisamment revalidées aujourd’hui, la fiche reste « à vérifier ».

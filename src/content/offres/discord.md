@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 278
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Discord est largement utilisé pour les communautés techniques et les équipes informelles grâce à ses salons texte et vocaux, ses appels vidéo et son écosystème de bots. Le service de base est gratuit, avec certaines limites relevées par Nitro.

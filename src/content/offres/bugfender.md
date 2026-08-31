@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 542
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Bugfender est un service de journalisation à distance conçu pour récupérer les logs d’applications exécutées sur les appareils réels des utilisateurs. Après intégration de son SDK dans une application mobile ou web, les logs remontent dans un tableau de bord central où ils peuvent être recherchés et filtrés par contenu, version de l’application ou appareil afin de diagnostiquer un problème sans devoir le reproduire localement. Le plan gratuit convient particulièrement au développement, aux tests, aux petits projets et au diagnostic ponctuel : il accepte jusqu’à 100 000 lignes de logs sur une fenêtre de 24 heures, jusqu’à 2 000 appareils, avec applications et membres d’équipe illimités. Sa principale limite est la rétention de seulement 24 heures ; en cas de dépassement durable du quota, les lignes supplémentaires finissent par être ignorées, tandis que le crash reporting et la collecte de feedback utilisateur restent réservés aux offres payantes.

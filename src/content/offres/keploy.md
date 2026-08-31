@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 424
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Keploy capture le comportement réel d’API pour produire des tests et des mocks reproductibles. L’édition open source peut être utilisée localement tandis que le Playground apporte un petit quota cloud mensuel.

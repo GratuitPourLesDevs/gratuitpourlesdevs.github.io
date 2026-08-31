@@ -29,12 +29,15 @@ initiales: "ART"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1196
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 AllRatesToday convient bien pour ajouter rapidement des taux de change à un prototype, un convertisseur, un dashboard personnel ou un outil de test sans gérer soi-même la collecte de données monétaires. Les SDK officiels réduisent encore le coût d’intégration dans les stacks courantes et les taux mid-market suffisent pour de nombreux usages informatifs. La limite la plus importante n’est pas seulement le quota de 300 requêtes mensuelles : le niveau gratuit est destiné aux projets personnels et aux tests, pas à une utilisation commerciale en production.

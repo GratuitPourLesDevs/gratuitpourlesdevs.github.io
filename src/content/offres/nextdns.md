@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 906
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 NextDNS transforme le DNS en une couche de sécurité configurable sans installer un agent lourd sur chaque appareil. Le plan gratuit donne accès aux mêmes fonctions de filtrage que les offres payantes jusqu’à 300 000 requêtes par mois, ce qui suffit souvent pour un développeur, une petite famille ou quelques appareils de test. Les listes de blocage, logs et configurations multiples sont pratiques pour comparer des politiques de sécurité ou isoler différents environnements. Le comportement après quota est plutôt doux : la résolution continue, mais le filtrage et les fonctions avancées s’arrêtent jusqu’au mois suivant.

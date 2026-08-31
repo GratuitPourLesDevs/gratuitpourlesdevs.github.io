@@ -21,12 +21,15 @@ initiales: DS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 155
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 disease.sh est une API open source maintenue par une communauté et couvrant plusieurs statistiques sanitaires, notamment COVID-19 et influenza. Le service public est gratuit mais ne publie pas de plafond chiffré ni de SLA ; l’auto-hébergement reste possible.

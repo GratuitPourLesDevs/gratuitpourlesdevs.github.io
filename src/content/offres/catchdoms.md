@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 133
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CatchDoms centralise des domaines expirés, en enchère ou proches de leur suppression et les enrichit avec des indicateurs SEO. Le plan gratuit reste utilisable après l’essai Pro, mais il est principalement orienté consultation : l’accès programmatique REST et MCP n’est pas un avantage gratuit permanent.

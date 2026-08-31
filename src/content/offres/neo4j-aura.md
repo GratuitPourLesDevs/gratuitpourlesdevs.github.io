@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 934
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Neo4j AuraDB met à disposition une base de graphes native sans installation ni exploitation de cluster. Le niveau gratuit convient aux prototypes de recommandation, cartographie de relations, knowledge graphs et apprentissage de Cypher, tant que le graphe reste sous les limites de taille.

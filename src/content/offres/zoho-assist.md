@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 61
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Assist convient à une petite équipe qui doit dépanner ponctuellement des utilisateurs ou administrer quelques postes sans présence sur place. La formule gratuite couvre le contrôle distant essentiel sur Windows, macOS et Linux, tout en limitant clairement l’organisation à un technicien, une connexion simultanée et cinq appareils gérés en permanence.

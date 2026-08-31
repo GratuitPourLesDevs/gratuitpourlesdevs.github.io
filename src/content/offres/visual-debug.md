@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 337
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Visual Debug permet à un client ou testeur de signaler un problème directement sur une page. Le modèle avec reporters illimités est intéressant quand une seule personne centralise les retours.

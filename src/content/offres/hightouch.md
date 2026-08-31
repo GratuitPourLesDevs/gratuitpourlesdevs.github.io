@@ -23,12 +23,15 @@ initiales: "HT"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1171
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Hightouch devient intéressant quand les données de référence sont déjà centralisées dans un warehouse mais doivent être renvoyées vers Stripe, un CRM, un outil marketing ou une application opérationnelle. Au lieu d’écrire et maintenir des scripts de synchronisation spécifiques à chaque destination, l’équipe peut déclarer les flux et laisser la plateforme les exécuter régulièrement. Le Basic Free est très généreux en volume, mais sa limite de deux synchronisations actives le destine surtout à quelques flux prioritaires plutôt qu’à une architecture Reverse ETL complète.

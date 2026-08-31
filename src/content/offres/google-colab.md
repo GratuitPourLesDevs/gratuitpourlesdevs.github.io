@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 26
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Google Colab permet de créer, exécuter et partager des notebooks Python sans installation locale. Il convient au prototypage, à l’analyse de données et au machine learning, mais sa formule gratuite ne garantit ni un type d’accélérateur ni un volume de calcul : les quotas, les délais d’inactivité et la disponibilité du matériel évoluent selon la capacité du service et l’usage du compte.

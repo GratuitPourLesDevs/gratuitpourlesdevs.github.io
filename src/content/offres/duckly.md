@@ -28,12 +28,15 @@ initiales: DK
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 280
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : HTTP 503."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 503) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Duckly permet de travailler à deux sur le même contexte de développement sans partager uniquement une vidéo de l’écran. Le quota gratuit convient surtout au pair programming ponctuel.

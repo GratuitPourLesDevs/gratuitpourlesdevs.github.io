@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 658
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 addy.io, anciennement AnonAddy, sert à protéger son adresse réelle en créant des alias qui transfèrent les messages vers une boîte principale. Le plan gratuit est généreux sur le nombre d’alias standards, mais beaucoup moins sur le trafic : 10 Mo de bande passante par mois. Il inclut aussi 10 alias actifs sur les domaines partagés, un destinataire et deux domaines d’alias. Contrairement à certaines descriptions anciennes, répondre ou envoyer depuis un alias n’est pas inclus dans le Free actuel.

@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 342
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 wormhol.org est un service minimaliste de transfert temporaire : il accepte de nombreux fichiers jusqu’à 5 Go chacun, puis les supprime après quelques jours.

@@ -24,8 +24,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 581
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : HTTP 403."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Accesserty Pulse observe un site en production pour faire remonter des signaux d’interaction et des risques d’accessibilité détectables à partir de l’usage réel. Une formule gratuite et un essai Pro de 14 jours sont annoncés, mais la capacité exacte du Free n’est pas assez documentée aujourd’hui pour publier des quotas chiffrés avec le niveau de confiance attendu ; la fiche reste donc volontairement à vérifier.

@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 821
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cohesivity cherche à simplifier la création d’agents IA en leur donnant accès à un ensemble cohérent de briques backend — bases de données, cache, stockage objet, hébergement, e-mail, modèles et APIs tierces — sans devoir provisionner chaque service séparément. Les quotas rapportés pour le niveau gratuit sont suffisamment intéressants pour expérimenter plusieurs projets et construire un prototype d’agent connecté à de vraies ressources. Cette fiche reste toutefois volontairement à vérifier : l’éditeur publie les limites service par service et ne rassemble pas encore publiquement les chiffres 10 projets, 100 000 requêtes edge, 10 GB de stockage, 100 e-mails et 5 $ de crédits sur une grille unique. Cohesivity est donc prometteur pour le prototypage agentique, mais les quotas doivent être confirmés avant de dimensionner un usage réel.

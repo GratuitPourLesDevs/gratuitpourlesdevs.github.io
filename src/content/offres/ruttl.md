@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 316
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ruttl centralise les retours directement sur une interface, une image ou un PDF. Cela évite les captures annotées éparpillées dans les chats, mais le Free Tier reste adapté à un petit projet de validation plutôt qu’à une agence entière.

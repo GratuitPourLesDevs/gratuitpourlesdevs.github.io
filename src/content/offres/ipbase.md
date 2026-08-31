@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 190
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ipbase fournit une API classique de géolocalisation IP avec HTTPS. Le plan gratuit est réellement permanent mais son quota de 150 appels mensuels le réserve surtout à la découverte et aux tests ponctuels.

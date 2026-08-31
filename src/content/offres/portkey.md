@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 792
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Portkey — AI Gateway et observabilité pour applications GenAI, avec 10 000 logs enregistrés par mois sur le plan Developer gratuit.

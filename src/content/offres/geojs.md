@@ -28,12 +28,15 @@ initiales: "GJ"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1101
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 GeoJS est une option très légère lorsqu’une application a seulement besoin d’obtenir le pays, la ville ou les coordonnées approximatives associées à une IP. L’absence de quota publié est pratique pour des petits projets, mais ce n’est pas une promesse d’usage illimité ni un SLA.

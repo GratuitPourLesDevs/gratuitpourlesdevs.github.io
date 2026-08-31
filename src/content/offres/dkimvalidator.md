@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 671
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DKIM Validator fournit une adresse de test vers laquelle envoyer un message afin d’examiner l’authentification e-mail, notamment SPF, DKIM et DMARC. C’est un outil très pratique lorsqu’on configure un nouveau domaine ou qu’on cherche pourquoi un message échoue aux contrôles de délivrabilité. Le service est historiquement proposé gratuitement, mais ses conditions actuelles ne sont pas suffisamment documentées pour être garanties en août 2026 ; la fiche est donc conservée en « à vérifier ».

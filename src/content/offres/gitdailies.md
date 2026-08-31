@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 290
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 GitDailies donne une vue synthétique de l’activité de développement sans demander aux membres de remplir un rapport manuel. Le Free Tier convient à une petite équipe ou à deux dépôts actifs.

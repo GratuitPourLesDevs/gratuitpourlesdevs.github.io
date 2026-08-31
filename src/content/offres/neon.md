@@ -47,8 +47,8 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 3
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 historique:
   - date: 2026-08-14
@@ -72,6 +72,9 @@ historique:
         avant: Jusqu’à 6 heures
         apres: 6 heures ou 1 Go de modifications, selon la première limite atteinte
     source: https://neon.com/pricing
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Neon fournit PostgreSQL sous forme serverless avec séparation du calcul et du stockage. Chaque projet gratuit dispose de son propre quota de calcul et de stockage, se met automatiquement en veille après cinq minutes d’inactivité et peut être cloné en branches pour les développements et prévisualisations. La restauration instantanée remonte jusqu’à six heures, dans la limite d’un gigaoctet de modifications.

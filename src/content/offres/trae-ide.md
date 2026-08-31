@@ -29,12 +29,15 @@ initiales: "TR"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1138
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 TRAE est le produit actuel à suivre plutôt que l’ancienne fiche MarsCode. Il conserve une porte d’entrée gratuite, mais les capacités IA sont désormais structurées autour de plusieurs niveaux et peuvent évoluer avec les modèles disponibles.

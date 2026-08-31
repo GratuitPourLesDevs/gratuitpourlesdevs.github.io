@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 617
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Robusta enrichit Prometheus avec un contexte Kubernetes, des notifications plus actionnables et des workflows de diagnostic ou de remédiation. Un Free Tier permanent est toujours proposé et l’intégration avec les principaux canaux d’alerte reste un vrai atout ; en revanche, l’ancien chiffre de vingt nœuds n’est plus assez clairement publié pour être présenté comme une limite actuelle vérifiée.

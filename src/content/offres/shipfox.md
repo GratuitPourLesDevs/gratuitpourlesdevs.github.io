@@ -37,8 +37,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 407
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Shipfox reste un service actif et documente encore son intégration avec GitHub Actions, mais son offre commerciale a changé. La fiche est volontairement marquée à vérifier afin de ne pas transformer un ancien quota gratuit en information actuelle.

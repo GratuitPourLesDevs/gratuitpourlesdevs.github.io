@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 95
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Apify permet de transformer des tâches de collecte web ou d’automatisation en Actors déclenchables depuis une interface, une API ou des intégrations. Le free tier est suffisamment flexible pour tester des scrapers réels, mais son volume dépend directement du coût de l’Actor et des ressources consommées.

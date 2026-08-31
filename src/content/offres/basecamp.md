@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 967
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Basecamp propose à nouveau un plan gratuit permanent pour une équipe travaillant sur un projet. Il inclut les fonctions centrales de coordination, de discussion et de partage de fichiers.

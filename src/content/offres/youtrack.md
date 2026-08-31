@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1017
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 YouTrack Cloud Free offre quasiment toutes les fonctions du produit à une équipe de dix personnes, avec un stockage très confortable. La principale vigilance concerne la suppression des instances restées inactives.

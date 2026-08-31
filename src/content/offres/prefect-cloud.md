@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 224
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Prefect Cloud fournit le plan de contrôle d’orchestration sans imposer de maintenir soi-même l’interface, les schedules et l’observabilité. Le quota Hobby est suffisant pour plusieurs workflows personnels ou une petite automatisation de données.

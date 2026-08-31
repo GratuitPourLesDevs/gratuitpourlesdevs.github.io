@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 169
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 FraudLabs Pro évalue les commandes e-commerce et renvoie un score de fraude accompagné de règles configurables. Le quota gratuit est correct pour une petite boutique, mais l’éligibilité dépend explicitement d’un chiffre d’affaires mensuel inférieur à 25 000 dollars.

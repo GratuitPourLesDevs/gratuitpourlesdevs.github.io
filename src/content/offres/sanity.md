@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 353
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Sanity combine un datastore de contenu temps réel, un studio personnalisable et des APIs performantes. Son quota gratuit est très généreux, mais il faut accepter des datasets publics et un modèle de rôles plus limité.

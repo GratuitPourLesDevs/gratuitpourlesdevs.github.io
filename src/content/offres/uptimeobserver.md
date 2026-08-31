@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 629
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 UptimeObserver combine des contrôles de disponibilité classiques avec la surveillance SSL, DNS, domaine et ports, puis peut publier les résultats via une page de statut. Le plan gratuit couvre vingt monitors toutes les cinq minutes et inclut de nombreux canaux de notification, ce qui en fait une offre solide pour un petit environnement même en usage commercial.

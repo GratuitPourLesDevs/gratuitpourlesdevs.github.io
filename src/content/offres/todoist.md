@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1011
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Todoist Beginner reste une bonne base pour organiser quelques projets personnels et les partager avec un petit groupe. Les quotas sont surtout sensibles sur les projets, collaborateurs et pièces jointes.

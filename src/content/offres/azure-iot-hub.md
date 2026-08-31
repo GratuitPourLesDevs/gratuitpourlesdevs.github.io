@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 37
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure IoT Hub F1 permet de prototyper une architecture IoT bidirectionnelle avec les fonctionnalités du niveau Standard : ingestion de télémétrie, commandes vers les appareils, jumeaux numériques, routage et protocoles spécialisés. Le quota annoncé en messages doit être interprété selon la taille de comptage de 0,5 Ko, et non comme 8 000 charges utiles de taille quelconque.

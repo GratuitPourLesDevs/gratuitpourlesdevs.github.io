@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 201
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Kreya est un client API desktop orienté confidentialité : les projets restent locaux et peuvent être versionnés dans Git. Son support gRPC est particulièrement complet grâce à l’import par reflection serveur ou fichiers protobuf.

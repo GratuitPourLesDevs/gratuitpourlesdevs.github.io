@@ -26,9 +26,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1058
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Redbooth est un outil de gestion de projet et non un service de synchronisation P2P de fichiers.

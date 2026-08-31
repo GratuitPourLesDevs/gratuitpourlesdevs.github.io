@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 77
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Sign apporte les fonctions essentielles de signature électronique sans abonnement pour un usage occasionnel. Un utilisateur peut envoyer jusqu’à cinq enveloppes par mois, gérer l’ordre des signatures, relancer les destinataires et conserver une piste d’audit. Le quota est modeste mais suffisant pour signer ponctuellement des contrats, validations ou documents administratifs sans construire sa propre infrastructure de signature.

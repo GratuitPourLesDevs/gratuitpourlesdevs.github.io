@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 555
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Localhero.ai automatise un point souvent pénible de la localisation continue : quand le code change, les nouvelles chaînes peuvent être traduites avec le contexte de la marque et intégrées au workflow GitHub. Le plan gratuit permanent convient bien aux side projects et à l’open source avec un projet et 250 crédits par mois. Le quota dépend toutefois du nombre de clés et de langues cibles, car chaque traduction vers une langue consomme des crédits.

@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 232
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ScrapingAnt fournit une couche d’abstraction pour charger des pages JavaScript et gérer les difficultés habituelles du scraping web. Le pool de 10 000 crédits permet de prototyper des collectes régulières sans maintenir un navigateur headless ni un parc de proxies.

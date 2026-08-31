@@ -23,12 +23,15 @@ initiales: "CL"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1202
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 currencylayer est une solution simple lorsqu’une application a besoin de quelques taux courants ou historiques sans bâtir sa propre collecte de données monétaires. Les mises à jour quotidiennes conviennent à des démonstrations, outils internes légers ou fonctionnalités où une variation intrajournalière n’est pas critique. Le niveau gratuit sert surtout à l’intégration et aux très petits usages : avec seulement 100 appels mensuels et plusieurs fonctions avancées réservées aux plans payants, il atteint vite ses limites en production.

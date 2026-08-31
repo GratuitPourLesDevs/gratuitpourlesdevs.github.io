@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 205
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Microlink transforme une URL en données exploitables : métadonnées normalisées, aperçu, screenshot ou contenu rendu. Le Free convient surtout aux prototypes et petits volumes avec son plafond quotidien actuel de 25 appels.

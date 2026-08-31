@@ -23,12 +23,15 @@ initiales: "CT"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1072
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CodedThemes est utile pour démarrer un back-office ou un dashboard avec une base visuelle déjà structurée au lieu de concevoir navigation, cartes, formulaires et responsive design depuis zéro. Les templates gratuits font surtout gagner du temps sur le squelette UI, que l’équipe peut ensuite adapter à son framework et à sa charte.

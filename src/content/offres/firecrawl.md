@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 167
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Firecrawl transforme des sites en contenu Markdown ou structuré utilisable par des agents et pipelines RAG. Le Free couvre environ mille pages en scraping simple, mais Search et certaines options avancées consomment les crédits différemment.

@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 315
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Rocket.Chat est pertinent lorsque l’équipe veut garder la maîtrise de son infrastructure de communication. Le gratuit n’est pas un SaaS managé : il faut administrer son serveur, mais cela donne davantage de contrôle sur les données et l’intégration.

@@ -26,12 +26,15 @@ initiales: "UD"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: a_verifier
+statut: "a_verifier"
 vedette: false
 ordre: 1087
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Une offre gratuite non commerciale est documentée, mais les limites numériques et conditions actuelles ne sont pas publiées assez clairement pour confirmer la fiche sans réserve."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Updrafts est utile pour expérimenter visuellement une interface Tailwind et obtenir rapidement une base de layout sans écrire chaque classe à la main. La gratuité reste intéressante pour l’apprentissage et le prototypage non commercial, mais la documentation publique actuelle est trop peu explicite pour en faire une recommandation sans réserve sur un projet de production.

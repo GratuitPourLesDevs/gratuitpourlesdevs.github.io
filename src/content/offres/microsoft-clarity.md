@@ -29,12 +29,15 @@ initiales: "MC"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1189
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Microsoft Clarity est l’une des offres les plus atypiques de cette catégorie : Microsoft annonce un service gratuit sans plafond de trafic, de projets ou de membres. La principale limite à garder en tête est la rétention standard de 30 jours pour les replays.

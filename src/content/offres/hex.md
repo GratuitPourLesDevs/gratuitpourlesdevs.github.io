@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 172
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Hex permet d’explorer des données dans des notebooks collaboratifs puis de transformer les analyses en applications et contenus partageables. Le plan Community convient aux projets personnels ou petits travaux data, avec une limite claire de cinq projets.

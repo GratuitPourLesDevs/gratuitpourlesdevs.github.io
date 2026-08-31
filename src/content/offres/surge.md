@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 887
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Surge est difficile à battre pour publier un dossier frontend avec le minimum de friction : une commande suffit et aucun pipeline complexe n’est nécessaire. Les projets et publications illimités rendent le Free très pratique pour les prototypes, démos, exercices ou petits sites statiques maintenus au fil du temps. Le support gratuit des domaines personnalisés et des certificats gérés permet même d’aller au-delà du simple sous-domaine jetable. Les fonctions qui nécessitent davantage de logique côté plateforme, comme certaines protections et règles avancées, restent en revanche réservées au plan Professional.

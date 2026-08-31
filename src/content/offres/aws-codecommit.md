@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 19
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 AWS CodeCommit héberge des dépôts Git privés avec contrôle d’accès IAM, chiffrement et intégration aux pipelines AWS. Après une période de fermeture aux nouveaux comptes, AWS a rétabli sa disponibilité générale en novembre 2025. La formule gratuite ne s’arrête pas après douze mois, mais les identités techniques utilisées par CodeBuild ou CodePipeline peuvent compter parmi les utilisateurs actifs.

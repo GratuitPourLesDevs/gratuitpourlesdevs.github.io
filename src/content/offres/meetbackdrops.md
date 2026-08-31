@@ -25,9 +25,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 324
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 MeetBackdrops fournit des arrière-plans prêts à l’emploi pour les visioconférences. La partie gratuite est utile pour professionnaliser rapidement un appel sans créer de compte, mais le catalogue comprend aussi des contenus payants.

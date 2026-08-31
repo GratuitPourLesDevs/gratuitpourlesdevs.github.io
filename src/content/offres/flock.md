@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 287
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Flock propose les fonctions classiques d’une messagerie de travail pour une petite équipe. Le Free Tier est aujourd’hui clairement dimensionné pour vingt personnes maximum et un historique de recherche limité.

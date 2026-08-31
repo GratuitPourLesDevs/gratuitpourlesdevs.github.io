@@ -35,8 +35,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 361
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : fetch failed."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Karbon Sites propose un environnement simple pour passer d’une idée à un frontend web généré et modifiable par IA. La fiche reste volontairement en vérification tant que l’éditeur ne rend pas les limites exactes de son offre gratuite suffisamment explicites sur sa documentation publique.

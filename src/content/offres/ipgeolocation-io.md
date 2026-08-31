@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 181
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ipgeolocation.io expose des données de localisation et réseau à partir d’une adresse IP. Le quota quotidien est exploitable pour de petits projets, mais le plan gratuit n’est pas destiné à une utilisation commerciale.

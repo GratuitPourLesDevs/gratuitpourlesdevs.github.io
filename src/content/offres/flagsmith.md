@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 728
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Flagsmith permet de gérer des feature flags sur le web, le mobile et côté serveur, avec ciblage d’utilisateurs, segments et déploiements progressifs. Son offre cloud gratuite actuelle convient surtout aux développeurs seuls et petits projets : 50 000 requêtes mensuelles, un membre et un projet, mais des feature flags et environnements illimités. Flagsmith conserve également une version open source qui peut être auto-hébergée.

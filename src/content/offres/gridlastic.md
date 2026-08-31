@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 422
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Gridlastic fournit un Selenium Grid isolé qui s’adapte aux demandes de tests. Le plan gratuit actuel sert surtout à expérimenter le service avant de passer à un volume de CI plus important.

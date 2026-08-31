@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 208
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Les APIs publiques de Mockerito fournissent des données réalistes pour prototyper et tester des frontends sans backend. Elles sont gratuites sans inscription, tandis que le constructeur de mocks personnalisés est un produit distinct.

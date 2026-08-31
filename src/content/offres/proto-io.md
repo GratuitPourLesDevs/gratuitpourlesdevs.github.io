@@ -24,12 +24,15 @@ initiales: "PR"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1082
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 Proto.io est utile pour simuler un parcours très interactif sans implémenter l’application, afin de tester des choix UX avant que le coût de modification ne devienne élevé. Son plan gratuit est surtout adapté à un petit prototype ou une preuve de concept, avec suffisamment d’éléments pour valider quelques écrans clés.

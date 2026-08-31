@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 787
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Lumenfall.ai — Gateway média IA sans abonnement ni marge de plateforme annoncée. Le volume réellement gratuit reste à surveiller, d’où le statut à vérifier.

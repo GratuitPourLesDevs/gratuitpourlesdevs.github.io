@@ -30,12 +30,15 @@ initiales: RB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 229
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 RequestBin est utile pour comprendre exactement ce qu’un fournisseur de webhook envoie à votre application. La version actuelle vit dans Pipedream et permet de capturer puis inspecter rapidement les requêtes HTTP sans préparer un serveur de test.

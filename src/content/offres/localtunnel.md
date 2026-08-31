@@ -33,12 +33,15 @@ initiales: LT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 952
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 LocalTunnel est un outil minimaliste pour partager un serveur local sans déployer l’application. Une commande suffit à obtenir une URL HTTPS qui redirige vers le port choisi, ce qui fonctionne bien pour les callbacks, webhooks et démonstrations. Le client et le serveur étant open source, il est aussi possible de reprendre la technologie en auto-hébergement plutôt que de dépendre du service public.

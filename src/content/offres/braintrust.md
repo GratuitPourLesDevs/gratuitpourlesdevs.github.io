@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 778
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Braintrust — Plateforme d’évaluation, de prompts et de données pour applications d’IA générative. Le plan Starter gratuit utilise désormais des quotas de données, scores et crédits modèles.

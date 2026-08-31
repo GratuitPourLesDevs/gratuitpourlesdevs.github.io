@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 340
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Windmill transforme des scripts Python, TypeScript et autres en workflows ou outils internes. Sa Community Edition est particulièrement généreuse si l’équipe accepte de l’auto-héberger.

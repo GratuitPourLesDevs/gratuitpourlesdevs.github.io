@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 271
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Bookmark OS transforme les favoris en un bureau visuel organisé avec tâches et notes. Le plan gratuit convient bien pour centraliser ses ressources de développement sans multiplier les outils.

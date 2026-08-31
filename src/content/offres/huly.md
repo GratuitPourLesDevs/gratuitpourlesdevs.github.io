@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 295
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Huly regroupe dans une même plateforme plusieurs briques que les équipes assemblent souvent séparément : tickets, projets, messagerie, documents et appels. Son plan Common est particulièrement généreux grâce aux utilisateurs illimités.

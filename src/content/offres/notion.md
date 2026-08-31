@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 302
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Notion peut couvrir documentation, wiki, tâches et petites bases de données dans un seul outil. Le plan gratuit est particulièrement intéressant pour un développeur seul ; son usage comme vrai workspace d’équipe devient rapidement plus contraint.

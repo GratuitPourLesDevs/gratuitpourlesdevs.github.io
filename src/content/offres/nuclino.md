@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 303
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Nuclino vise une expérience de wiki plus légère que les suites tout-en-un. Il est bien adapté à une petite documentation d’équipe ou une base de connaissances tant que les 50 items suffisent.

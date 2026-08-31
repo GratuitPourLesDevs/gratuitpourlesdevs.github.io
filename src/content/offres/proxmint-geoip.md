@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 185
-verifieLe: 2026-08-24
+verifieLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationAutomatiqueLe: 2026-08-24
+verificationAutomatiqueLe: 2026-08-31
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Proxmint annonce un outil GeoIP simple basé sur MaxMind GeoLite2. La fiche est conservée en attente de vérification plutôt que de présenter comme certains des quotas ou garanties que la page officielle n’a pas permis de confirmer.

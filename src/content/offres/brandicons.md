@@ -25,12 +25,15 @@ initiales: "BI"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1069
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 BrandIcons est utile lorsqu’une application doit afficher automatiquement le favicon ou l’identité visuelle d’un grand nombre de domaines sans maintenir sa propre base d’images. L’API évite de crawler, nettoyer et héberger ces icônes soi-même, ce qui simplifie les annuaires, tableaux de bord et interfaces enrichies de logos.

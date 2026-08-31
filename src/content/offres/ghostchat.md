@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 288
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 GhostChat ajoute un support conversationnel à un site avec un script léger et une approche centrée sur la confidentialité. Son quota de messages illimité rend le Free Tier intéressant pour un petit site ou un projet personnel.

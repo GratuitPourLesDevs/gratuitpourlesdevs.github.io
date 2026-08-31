@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 846
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 LeanCloud fournit un backend assez complet pour une application mobile : données, push, messagerie et recherche sont accessibles via des SDKs plutôt que par une infrastructure à maintenir soi-même. Les 30 000 requêtes API quotidiennes donnent une marge confortable pour un prototype ou un petit produit, et les 10 000 notifications push par jour renforcent l’intérêt côté mobile. Il faut cependant distinguer les services gratuits du compute LeanEngine, qui n’est plus inclus comme dans d’anciennes descriptions. Le stockage et le trafic de fichiers demandent aussi une surveillance car certains dépassements peuvent être facturés.

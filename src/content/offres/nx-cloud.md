@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 405
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Nx Cloud accélère surtout les monorepos en évitant de recalculer ce qui peut être réutilisé et en distribuant les tâches CI. Le plan Hobby reste intéressant, mais son quota actuel est plus resserré qu’auparavant.

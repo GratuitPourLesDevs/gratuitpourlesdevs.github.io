@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 826
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Flightcontrol est pertinent pour un développeur qui veut conserver ses applications et données dans son propre compte AWS tout en évitant de gérer seul le provisioning, les déploiements et une partie de l’infrastructure. En mono-utilisateur sur des dépôts personnels, la couche Flightcontrol est gratuite et ne limite ni le nombre de projets, ni les environnements, ni les déploiements, ce qui permet d’exploiter un workflow proche d’un PaaS tout en restant chez AWS. La gratuité s’arrête cependant à la plateforme : EC2, Fargate, RDS, load balancers, NAT, stockage et trafic sont facturés directement par AWS. C’est donc une excellente option pour simplifier AWS, mais pas une solution d’hébergement à coût nul en elle-même.

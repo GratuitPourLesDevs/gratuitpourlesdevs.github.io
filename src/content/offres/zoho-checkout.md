@@ -44,9 +44,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 72
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Checkout permet de créer rapidement des pages de paiement hébergées sans développer tout le parcours de facturation soi-même. La formule gratuite est intéressante pour un petit produit, un prototype commercial ou quelques premiers clients : elle gère les paiements ponctuels et récurrents avec Stripe. Son principal frein est que les cinquante paiements gratuits constituent un quota global et non un volume renouvelé chaque mois.

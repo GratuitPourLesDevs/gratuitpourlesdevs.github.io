@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 401
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DeployHQ simplifie le déploiement continu depuis un dépôt Git. Le plan gratuit est adapté à un petit site ou projet personnel, mais son quota actuel est de trois déploiements quotidiens.

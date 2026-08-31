@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 210
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Mocko permet de mélanger endpoints mockés et backend réel grâce à un proxy sélectif. Le Cloud fournit une URL publique gratuite, tandis que la version open source peut être utilisée localement ou auto-hébergée sans quota imposé par le service.

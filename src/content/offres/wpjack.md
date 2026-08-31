@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 358
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 WPJack automatise surtout l’installation et la gestion de WordPress sur une infrastructure qui vous appartient. Le logiciel de gestion est gratuit dans la limite de deux sites, mais il ne rend évidemment pas le serveur cloud lui-même gratuit.

@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 145
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CustomJS rassemble plusieurs briques d’automatisation derrière une API : exécution JavaScript, génération PDF, captures d’écran, scraping, formulaires, hébergement HTML et réception d’e-mails. Le Free est plus riche que le seul ancien service PDF, mais son pool principal reste limité à 20 appels par jour.

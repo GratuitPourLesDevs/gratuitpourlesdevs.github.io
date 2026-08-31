@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 49
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Le plan gratuit Cloudflare protège et accélère un domaine sans remplacer son hébergeur. Après délégation du DNS, le trafic web peut bénéficier du CDN, du certificat SSL universel, de la mitigation DDoS, d’un ensemble WAF réduit et d’une protection simple contre les bots. Le domaine lui-même reste payant chez son registrar et les fonctions de sécurité avancées, la personnalisation des bots ainsi que les garanties de disponibilité nécessitent une offre supérieure.

@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 844
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 IFTTT reste pratique pour les automatisations extrêmement simples : synchroniser deux services, réagir à un événement domotique ou déclencher une action personnelle sans héberger de code. Les deux Applets gratuites peuvent s’exécuter sans quota de runs, ce qui est intéressant lorsque le nombre d’automatisations compte plus que leur fréquence. En revanche, ce Free Tier n’est pas adapté aux workflows applicatifs complexes : les Webhooks, les scénarios multi-actions et plusieurs fonctions avancées nécessitent un plan Pro.

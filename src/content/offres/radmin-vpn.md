@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 956
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Radmin VPN crée un réseau Ethernet virtuel entre des machines distantes, notamment pour le travail à distance, les jeux LAN ou l’accès à des ressources réseau. Le produit est annoncé comme entièrement gratuit et sans fonctionnalités payantes, ce qui le distingue de nombreux VPN freemium. La fiche ne transforme pas l’absence de limite gaming en promesse de pairs illimités pour tous les usages, car le fournisseur ne publie pas un quota général équivalent.

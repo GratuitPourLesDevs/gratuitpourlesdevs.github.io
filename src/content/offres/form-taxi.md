@@ -27,12 +27,15 @@ initiales: FT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 749
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 Form.taxi — Endpoint européen pour formulaires HTML avec notifications, anti-spam et automatisations. Free : 3 formulaires et 40 soumissions/mois. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

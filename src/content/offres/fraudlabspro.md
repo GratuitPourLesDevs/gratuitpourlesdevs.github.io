@@ -29,12 +29,15 @@ initiales: "FLP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1204
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 FraudLabsPRO permet à un petit marchand d’ajouter une première couche antifraude sans développer son propre moteur de scoring ni accumuler lui-même des signaux sur les commandes suspectes. L’API peut enrichir une transaction avec un score et un statut de risque, puis appliquer quelques règles ou blacklists avant d’accepter automatiquement une commande. Le plan Micro est adapté à une jeune boutique avec 500 validations mensuelles, mais il est aussi conditionné à un chiffre de ventes inférieur à 25 000 $ par mois.

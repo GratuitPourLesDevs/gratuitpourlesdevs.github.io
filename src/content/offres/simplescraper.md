@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 234
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Simplescraper combine une sélection visuelle dans le navigateur avec une exécution cloud lorsque l’on souhaite automatiser. Le gratuit permanent est surtout intéressant côté navigateur ; les 100 crédits cloud sont un bonus de démarrage.

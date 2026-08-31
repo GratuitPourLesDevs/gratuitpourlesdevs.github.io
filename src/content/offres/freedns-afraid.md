@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 899
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 FreeDNS d’afraid.org est à la fois un hébergeur DNS et un service DDNS, avec une particularité rare : un immense registre de domaines communautaires sur lesquels on peut créer gratuitement des sous-domaines. On peut aussi utiliser ses propres domaines et mettre à jour dynamiquement leurs enregistrements en IPv4 ou IPv6. C’est pratique pour les homelabs, accès distants, petits services personnels ou pour obtenir rapidement un nom sans acheter de domaine. L’interface et le modèle communautaire sont plus anciens que ceux des acteurs cloud récents, et certaines capacités comme les wildcards sont réservées aux offres Premium.

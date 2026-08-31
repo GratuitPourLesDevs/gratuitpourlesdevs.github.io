@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 683
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ImprovMX permet d’utiliser des adresses sur son propre domaine sans maintenir une infrastructure de messagerie complète : les alias reçoivent les messages puis les redirigent vers une boîte existante. Ce modèle est pratique pour donner une apparence professionnelle à un petit projet ou séparer plusieurs rôles. Le service est historiquement connu pour proposer du forwarding gratuit, mais les limites exactes du niveau actuel ne sont pas suffisamment confirmées ici ; la fiche reste donc « à vérifier » avant un usage durable.

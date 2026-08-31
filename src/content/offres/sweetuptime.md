@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 627
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 SweetUptime regroupe la surveillance de serveurs, d’URLs et de domaines avec des pages de statut, ce qui permet de couvrir à la fois infrastructure et présence web. La page produit actuelle annonce vingt monitors uptime, vingt contrôles domaine/SSL, dix serveurs et cinq pages de statut gratuitement ; ces valeurs sont plus généreuses que l’ancienne description limitée à dix monitors par type.

@@ -23,12 +23,15 @@ initiales: "HK"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1172
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 HitKeep est utile pour un petit produit web qui veut réunir dans le même tableau de bord trafic, événements, funnels, objectifs, données e-commerce et Web Vitals. Cette combinaison évite de séparer totalement analytics produit et premiers signaux d’observabilité, tout en conservant une approche open source orientée confidentialité. Avec trois sites, trois membres et 60 jours d’historique, le Free Tier convient bien à une petite équipe avant que les besoins de collaboration ou de rétention ne deviennent plus importants.

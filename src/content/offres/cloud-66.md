@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 10
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloud 66 automatise le déploiement, la configuration et la maintenance d’applications sur vos propres comptes cloud, avec une expérience proche d’un PaaS tout en conservant le contrôle des serveurs.

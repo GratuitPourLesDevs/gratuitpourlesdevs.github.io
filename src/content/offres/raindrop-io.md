@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 312
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Raindrop.io est utile pour transformer des favoris individuels en bibliothèque partagée. La formule gratuite suffit largement pour une veille technique ou une collection de ressources, tant que l’archivage complet des pages n’est pas nécessaire.

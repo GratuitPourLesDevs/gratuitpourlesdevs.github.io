@@ -31,8 +31,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 890
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Stormkit reste intéressant pour les équipes JavaScript qui veulent une expérience de build et de déploiement proche de Vercel ou Netlify tout en gardant une voie d’auto-hébergement. La Community Edition ouverte permet aussi d’éviter une dépendance totale au cloud managé si l’on accepte d’exploiter sa propre infrastructure. Un palier Cloud gratuit à une application continue d’être référencé, mais les plafonds historiques ne sont plus clairement publiés par l’éditeur. Il est donc préférable de vérifier le compte Cloud au moment du choix plutôt que de baser une architecture sur d’anciens chiffres.

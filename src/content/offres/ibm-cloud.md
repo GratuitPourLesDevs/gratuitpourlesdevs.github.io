@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 11
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 IBM Cloud associe des plans Lite permanents pour plus de quarante services à un crédit temporaire de démarrage. La fiche distingue ces deux mécanismes pour éviter de confondre quota gratuit durable et crédit promotionnel.

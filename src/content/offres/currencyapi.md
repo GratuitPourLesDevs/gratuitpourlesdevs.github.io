@@ -29,12 +29,15 @@ initiales: "CAP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1199
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Currencyapi est pratique pour ajouter une conversion de devises ou afficher des taux actuels et historiques dans un prototype sans maintenir sa propre source de données financières. La mise à jour quotidienne convient à des tableaux de bord, démonstrations et outils personnels où une précision à la minute n’est pas nécessaire. Le plan Free est cependant réservé à un usage privé : ses 300 requêtes mensuelles sont intéressantes pour développer et tester, mais un produit commercial doit passer sur une formule payante.

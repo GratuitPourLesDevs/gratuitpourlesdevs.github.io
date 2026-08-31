@@ -28,9 +28,12 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 48
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Service Bus fournit des files et des rubriques de messagerie fiables pour découpler les composants d’une application. L’avantage Azure pour nouveaux clients couvre chaque mois 750 heures d’une unité de base Standard et 13 millions d’opérations pendant un an. Il s’agit d’une allocation temporaire : au terme des 12 mois, le namespace continue de fonctionner et devient facturable selon la tarification Service Bus en vigueur.

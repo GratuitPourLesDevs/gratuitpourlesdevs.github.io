@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 647
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Full Stack Open est un parcours particulièrement complet pour aller au-delà des tutoriels introductifs et comprendre comment construire une application web moderne de bout en bout. Le cours couvre React côté frontend, Node.js côté serveur, les API, les tests, GraphQL, TypeScript ainsi que des sujets de déploiement et d’industrialisation. Tout le matériel est accessible gratuitement et l’apprentissage peut se faire à son rythme ; son niveau et sa densité en font surtout une excellente suite pour quelqu’un qui possède déjà les bases du développement web.

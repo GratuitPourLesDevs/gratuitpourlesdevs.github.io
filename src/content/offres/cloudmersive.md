@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 134
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudmersive rassemble de nombreuses API prêtes à l’emploi pour convertir des documents, analyser des fichiers, détecter des menaces et automatiser des traitements. Son Free Tier ne périme pas, mais il est clairement positionné comme une formule d’évaluation avec un plafond de taille de fichier et une implantation régionale limitée.

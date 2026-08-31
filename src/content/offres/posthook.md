@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 222
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Posthook permet de déléguer la planification et la fiabilité des webhooks différés. Il évite d’implémenter soi-même une file persistante, un scheduler et un mécanisme de retry pour les actions à exécuter plus tard.

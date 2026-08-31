@@ -34,9 +34,12 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 196
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 JSON2Video permet de décrire une vidéo de façon structurée puis de la générer par API, ce qui se prête bien aux contenus automatisés. Le gratuit sert surtout à tester le workflow puisque les 600 crédits ne se renouvellent pas.

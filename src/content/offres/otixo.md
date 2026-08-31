@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1049
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Otixo centralise plusieurs fournisseurs cloud dans une interface unique ; ses limites gratuites doivent être surveillées.

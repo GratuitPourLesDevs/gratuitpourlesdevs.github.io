@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 935
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Nile construit une couche PostgreSQL pensée pour les applications SaaS B2B, où l’isolation des tenants est un besoin central. Le plan gratuit combine bases illimitées, vectorisation et calcul serverless, mais le stockage et les query tokens au-delà des allocations deviennent payants.

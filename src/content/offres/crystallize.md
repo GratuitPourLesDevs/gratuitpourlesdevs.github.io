@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 349
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Crystallize combine gestion de contenu, PIM et commerce dans un backend GraphQL. Son offre gratuite est fonctionnellement riche, mais son modèle de dépassement facturable impose davantage de vigilance que les free tiers à coupure nette.

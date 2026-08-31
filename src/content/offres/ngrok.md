@@ -42,9 +42,12 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 954
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ngrok est l’un des services de tunnel les plus connus pour publier temporairement une application locale derrière une URL sécurisée. Il combine tunnels, inspection du trafic, politiques d’accès et outils pour les webhooks. Son modèle gratuit a toutefois changé : il repose désormais sur un crédit d’usage unique de cinq dollars, ce qui le rend moins permanent que les anciens free tiers souvent encore décrits en ligne.

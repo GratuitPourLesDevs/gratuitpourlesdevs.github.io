@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 29
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Google AI Studio permet d’essayer rapidement les modèles Gemini, d’ajuster les paramètres et outils d’un prompt puis d’obtenir le code ou la clé nécessaire pour intégrer la Gemini API. Il est adapté au prototypage et aux petits projets, mais pas à la manipulation de données sensibles sur le palier gratuit, dont les contenus peuvent être utilisés pour améliorer les produits Google.

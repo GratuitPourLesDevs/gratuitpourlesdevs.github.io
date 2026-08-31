@@ -25,9 +25,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 195
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 JSON to Table transforme rapidement une structure JSON en tableau manipulable et exportable. C’est particulièrement pratique pour inspecter des payloads volumineux ou non familiers sans écrire de script de transformation.

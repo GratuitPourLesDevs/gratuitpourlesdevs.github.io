@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 220
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Pexafy évite d’intégrer séparément plusieurs banques d’images en normalisant la recherche et les métadonnées derrière une seule API. La fiche reste toutefois en vérification tant que le quota API gratuit exact n’est pas confirmé par une grille tarifaire officielle accessible.

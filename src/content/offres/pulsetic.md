@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 616
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Pulsetic couvre à la fois l’uptime classique, une petite dose de Real User Monitoring et la communication via pages de statut. Le Free fournit dix monitors contrôlés toutes les cinq minutes, trois mois d’historique et trois pages de statut avec alertes e-mail illimitées ; l’ancienne mention de six mois d’historique n’est plus la valeur affichée actuellement.

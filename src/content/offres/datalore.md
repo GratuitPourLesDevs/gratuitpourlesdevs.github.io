@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 149
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Datalore fournit un environnement de notebooks hébergé par JetBrains avec un quota mensuel de calcul explicite. Le Free est adapté aux analyses personnelles et prototypes, mais pas aux CPU/GPU avancés ni aux besoins d’équipe étendus.

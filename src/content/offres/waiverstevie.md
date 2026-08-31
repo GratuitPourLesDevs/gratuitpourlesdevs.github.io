@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 773
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 WaiverStevie — Plateforme de signature électronique orientée développeurs avec API et webhooks. Plan développeur gratuit à confirmer : API disponible, documents filigranés. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 423
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Katalon Studio reste une porte d’entrée gratuite pour concevoir et exécuter des tests sur plusieurs types d’applications. La valeur gratuite se situe aujourd’hui surtout dans le Studio local, pas dans l’ensemble de la plateforme cloud.

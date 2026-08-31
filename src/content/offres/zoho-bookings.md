@@ -45,9 +45,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 79
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Bookings est une alternative gratuite aux outils de prise de rendez-vous pour un indépendant ou un petit projet. Le plan gratuit autorise un nombre illimité de clients et de rendez-vous, propose la synchronisation bidirectionnelle d’un calendrier et peut créer des liens de réunion en ligne. Sa principale contrainte est structurelle : un seul utilisateur, un seul type d’événement et un seul calendrier synchronisé.

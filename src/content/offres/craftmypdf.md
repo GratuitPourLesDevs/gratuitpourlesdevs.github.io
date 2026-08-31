@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 141
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CraftMyPDF permet de construire des modèles visuels puis de générer des PDF ou images par API et outils d’automatisation. Le plan gratuit actuel a été réduit à 50 générations mensuelles, tout en conservant trois modèles et l’accès REST API.

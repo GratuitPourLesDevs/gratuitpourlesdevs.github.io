@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 722
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Verimail permet de nettoyer une liste ou de valider une adresse au moment d’une inscription, soit en masse soit via API. Le plan gratuit couvre 100 vérifications par mois, un volume adapté à un prototype, un petit site ou des tests d’intégration. Le comportement au dépassement est également intéressant côté maîtrise des coûts : l’API ne facture pas silencieusement des vérifications supplémentaires mais bloque lorsque le quota gratuit est épuisé. Pour des volumes plus importants, il faut donc passer explicitement à une offre payante.

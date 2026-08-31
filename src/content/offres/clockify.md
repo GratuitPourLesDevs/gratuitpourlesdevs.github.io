@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 971
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Clockify permet de suivre gratuitement le temps d’une petite équipe sur autant de projets et d’entrées que nécessaire. L’ancien positionnement avec utilisateurs illimités n’est plus actuel.

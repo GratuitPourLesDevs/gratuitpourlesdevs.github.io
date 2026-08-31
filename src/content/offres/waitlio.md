@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 723
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Waitlio permet de lancer une waitlist sans construire tout le système soi-même : page de collecte, vérification des adresses, tags, analytics, webhooks et REST API font partie du positionnement du produit. Cela peut accélérer le lancement d’un SaaS ou d’une fonctionnalité en préinscription. Le référentiel historique indique 100 abonnés et une waitlist dans le plan gratuit. Les fonctionnalités sont bien identifiées, mais ces plafonds tarifaires n’ayant pas été suffisamment reconfirmés, la fiche reste marquée « à vérifier ».

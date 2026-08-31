@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 6
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Oracle Cloud Free Tier réunit un socle Always Free sans date d’expiration et un crédit d’essai temporaire. Il permet notamment de monter une petite infrastructure complète avec compute AMD ou Arm, volumes, stockage objet, base de données et load balancer, sous réserve de capacité dans la région d’origine.

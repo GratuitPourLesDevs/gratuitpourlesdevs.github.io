@@ -25,9 +25,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 193
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 IPTrace vise une intégration simple de la géolocalisation IP et des données ASN. Avec 50 000 appels mensuels, son free tier couvre déjà un petit service actif ou plusieurs prototypes.

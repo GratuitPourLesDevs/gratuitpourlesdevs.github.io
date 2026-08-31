@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 576
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Rollbar fournit un suivi d’erreurs en production avec regroupement automatique, stack traces, télémétrie et alertes temps réel. Son Free est suffisamment généreux pour un petit service en production : 5 000 occurrences et 1 000 session replays chaque mois, avec utilisateurs et projets illimités et 30 jours de rétention. Aucune carte bancaire n’est requise pour démarrer, mais les fonctions avancées et les crédits IA appartiennent aux plans supérieurs.

@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 633
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Algolia fournit un moteur de recherche hébergé prêt à intégrer dans une application ou un site, avec tolérance aux fautes de frappe, classement de pertinence, suggestions et bibliothèques d’interface. Son plan Build est particulièrement généreux pour développer et tester une expérience de recherche : il autorise jusqu’à un million d’enregistrements et 10 000 requêtes de recherche par mois, auxquels s’ajoutent 10 000 requêtes de recommandation et 10 000 crawls. Il faut toutefois bien distinguer ce plan d’expérimentation du plan Grow destiné à la mise en production : Algolia déconseille Build pour la production, applique du rate limiting et exige l’affichage du badge Powered by Algolia.

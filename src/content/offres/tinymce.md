@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 243
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 TinyMCE peut rester totalement gratuit en auto-hébergement lorsque le projet respecte la GPL. Pour ceux qui préfèrent Tiny Cloud, le service managé dispose d’un quota gratuit mais n’est pas illimité.

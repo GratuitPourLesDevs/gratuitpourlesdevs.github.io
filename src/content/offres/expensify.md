@@ -23,12 +23,15 @@ initiales: "EXP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1165
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Expensify peut simplifier la corvée très concrète de conserver des reçus, suivre ses dépenses et préparer un export exploitable ensuite dans un tableur ou pour sa comptabilité. Le compte personnel gratuit est surtout pertinent pour un freelance, un développeur indépendant ou quelqu’un qui veut centraliser ses frais sans mettre en place un véritable système de gestion d’entreprise. Dès que plusieurs collaborateurs, des approbations ou des remboursements automatisés entrent en jeu, il faut en revanche regarder les workspaces payants.

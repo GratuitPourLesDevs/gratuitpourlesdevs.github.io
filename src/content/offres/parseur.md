@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 217
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Parseur transforme des documents entrants en données structurées sans avoir à construire soi-même une chaîne OCR et de parsing. Le quota gratuit convient surtout à un petit flux automatisé ou à la validation d’un cas d’usage avant montée en charge.

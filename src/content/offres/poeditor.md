@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 560
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 POEditor est un TMS très accessible pour les équipes de développement : il gère de nombreux formats, offre une API et permet de connecter le workflow de traduction au code. Le Free permanent autorise 1 000 chaînes réparties sur un nombre illimité de projets et jusqu’à cinq contributeurs, sans carte bancaire. Pour un logiciel open source sous licence OSI, une demande spécifique peut même supprimer la limite de chaînes.

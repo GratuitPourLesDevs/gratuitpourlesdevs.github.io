@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 977
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Freedcamp reste particulièrement généreux sur les fondamentaux : projets, membres et stockage de fichiers ne sont pas plafonnés. Les restrictions portent surtout sur la taille des fichiers et les modules avancés.

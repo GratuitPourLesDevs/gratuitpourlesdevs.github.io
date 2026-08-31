@@ -23,12 +23,15 @@ initiales: "PH"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1177
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 PostHog est utile lorsqu’une équipe préfère disposer d’un même écosystème pour analytics produit, replays, feature flags et expérimentation plutôt que d’intégrer plusieurs SaaS indépendants. Cela simplifie l’instrumentation et permet de relier plus facilement un comportement utilisateur à une nouvelle fonctionnalité ou à une expérience donnée. Les allocations gratuites sont généreuses, mais elles sont calculées séparément pour chaque produit : il faut donc surveiller plusieurs compteurs et la tarification à l’usage si la facturation cloud est activée.

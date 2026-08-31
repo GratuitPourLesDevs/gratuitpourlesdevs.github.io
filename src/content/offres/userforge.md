@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 336
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Userforge aide à garder les personas et besoins utilisateurs visibles pendant la conception d’un produit. L’offre gratuite actuelle est plus petite que l’ancien quota souvent cité de 3 personas et 2 collaborateurs.

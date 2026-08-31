@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 180
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 IPWho fournit une API simple de géolocalisation IP avec un quota quotidien confortable pour un prototype ou service personnel. La restriction non commerciale doit toutefois être prise en compte avant toute intégration en production.

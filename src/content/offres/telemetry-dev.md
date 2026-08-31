@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 794
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 telemetry.dev — Observabilité OpenTelemetry pour IA et LLM avec 10 000 spans mensuels, un projet et deux sièges gratuits.

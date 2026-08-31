@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 674
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 EmailJS permet à une application web d’envoyer des e-mails à partir de services et de templates configurés sans embarquer directement des identifiants SMTP sensibles dans le navigateur. Le plan gratuit inclut 200 requêtes par mois et deux templates, avec une taille maximale de 50 Ko par requête. Ce volume convient bien à un formulaire de contact, une démo ou un petit site. Pour un trafic régulier, le plafond mensuel devient rapidement la principale contrainte.

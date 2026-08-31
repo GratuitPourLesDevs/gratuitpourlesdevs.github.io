@@ -24,12 +24,15 @@ initiales: "RZ"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1179
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Row Zero se présente comme un tableur pour des jeux de données qui dépassent rapidement les limites pratiques d’un tableur classique. Le Free Tier actuel comprend un seul workbook de 5 Go, et non trois workbooks comme dans d’anciennes descriptions.

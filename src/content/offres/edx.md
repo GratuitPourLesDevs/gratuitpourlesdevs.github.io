@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 643
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 edX donne accès à des cours en ligne proposés par des universités, écoles et organisations dans de nombreux domaines techniques. Lorsqu’un cours propose l’Audit Track, il est possible de consulter gratuitement une part importante de son contenu pédagogique sans payer le parcours certifiant. C’est particulièrement intéressant pour apprendre ou réviser un sujet sans chercher de diplôme ; il faut toutefois savoir que les devoirs notés, certaines évaluations et surtout le certificat vérifié sont généralement réservés à l’option payante.

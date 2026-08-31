@@ -45,9 +45,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 86
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 GitLab.com rassemble gestion du code, pipelines, registre de conteneurs, Pages et suivi de projet dans une même plateforme. Son plan Free reste très complet techniquement, avec 400 minutes de calcul CI/CD par mois et 10 Gio de stockage par projet. Pour un projet privé, la contrainte structurante est désormais la limite de cinq utilisateurs du namespace gratuit.

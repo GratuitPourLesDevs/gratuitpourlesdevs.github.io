@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 833
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Val Town est très pratique pour transformer quelques lignes de TypeScript ou JavaScript en endpoint HTTP, fonction serverless ou tâche planifiée sans créer un projet cloud complet. Le Free Tier autorise jusqu’à 100 000 exécutions par jour et un nombre illimité de vals publics, avec des crons toutes les 15 minutes, ce qui est largement suffisant pour des petits outils, webhooks, prototypes d’API ou automatisations personnelles. Chaque exécution reste limitée à une minute et les logs ne sont conservés que trois jours. Surtout, le niveau gratuit ne fournit ni vals privés ni domaines personnalisés : il convient donc mieux au code partageable et aux utilitaires légers qu’aux backends privés exposés sous une marque propre.

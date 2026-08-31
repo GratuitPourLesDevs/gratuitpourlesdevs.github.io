@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 389
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Libraries.io agrège les métadonnées de l’écosystème open source pour retrouver des packages et suivre les dépendances utilisées par un projet. La recherche web reste largement accessible, mais il faut distinguer ces données collectées automatiquement des informations enrichies et validées proposées séparément par Tidelift.

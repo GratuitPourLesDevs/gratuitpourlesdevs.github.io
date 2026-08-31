@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 308
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Proton Pass couvre déjà gratuitement les besoins essentiels d’un gestionnaire de mots de passe moderne, y compris les passkeys et les alias e-mail. Le principal point à ne pas confondre avec les plans payants est l’authenticator TOTP intégré.

@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 598
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Instatus combine une page de statut présentable pour les utilisateurs avec des contrôles uptime et un minimum d’organisation autour des incidents. Le Starter gratuit couvre quinze monitors à deux minutes, cinq membres d’équipe et deux personnes d’astreinte, avec jusqu’à deux cents abonnés ; les anciennes mentions d’équipes ou d’abonnés illimités ne correspondent plus à la grille actuelle.

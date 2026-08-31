@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 660
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Antideo regroupe plusieurs contrôles utiles derrière une API : validation d’adresse e-mail, informations IP et géolocalisation. Le niveau gratuit est permanent et autorise 10 requêtes par heure, ce qui convient bien à un prototype, un formulaire peu fréquenté ou des tests d’intégration. Il est beaucoup moins adapté à une validation en masse, car le quota est horaire et strict ; l’intérêt du Free réside surtout dans la possibilité d’intégrer et d’évaluer l’API sans engagement.

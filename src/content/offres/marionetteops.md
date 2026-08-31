@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 602
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 MarionetteOps propose une supervision de serveurs et de services accompagnée de pages de statut publiques. Le positionnement correspond bien au catalogue, mais la capacité du niveau gratuit n’est actuellement pas assez explicite dans les informations publiques accessibles ; plutôt que de recopier une ancienne promesse, la fiche reste à vérifier jusqu’à disposer d’une grille précise.

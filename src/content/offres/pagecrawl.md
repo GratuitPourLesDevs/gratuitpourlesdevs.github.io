@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 609
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 PageCrawl surveille le contenu d’une page et signale lorsqu’il change, ce qui peut servir à suivre une documentation, un tarif, une disponibilité ou une page fournisseur sans développer son propre scraper. Le Free couvre six pages et 220 contrôles mensuels avec une fréquence minimale d’une heure, plus généreuse que l’ancienne description limitée aux checks quotidiens.

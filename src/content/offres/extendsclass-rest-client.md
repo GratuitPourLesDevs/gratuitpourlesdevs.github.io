@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 164
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ExtendsClass REST Client est un petit client HTTP web pratique pour quelques tests rapides. Il ne remplace pas Postman ou Bruno et son ancien relais serveur est aujourd’hui désactivé, mais le mode navigateur reste disponible gratuitement.

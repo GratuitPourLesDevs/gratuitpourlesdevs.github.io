@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 680
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Ethereal Email est volontairement l’inverse d’un service transactionnel de production : il accepte des messages SMTP mais ne les remet jamais à de vrais destinataires. Les e-mails peuvent ensuite être inspectés pour vérifier HTML, headers, pièces jointes et rendu, ce qui en fait un excellent outil pour Nodemailer, EmailEngine et les tests d’intégration. Le service est historiquement gratuit ; faute de grille contractuelle actuelle clairement publiée, la fiche reste cependant marquée « à vérifier ».

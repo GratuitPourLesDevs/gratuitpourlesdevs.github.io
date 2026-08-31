@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 837
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Back4App donne rapidement un backend Parse complet à une application mobile ou web : données, fichiers, logique Cloud Code et APIs sont disponibles sans assembler plusieurs services. Avec 25 000 requêtes mensuelles et 250 MB de base, le Free est adapté à un prototype fonctionnel ou à une petite application peu sollicitée. L’intérêt principal est de rester sur un socle Parse open source plutôt que sur une API totalement propriétaire. En revanche, l’absence de sauvegarde sur le plan gratuit le rend moins rassurant pour des données importantes en production.

@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 313
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 REEZN déplace une partie de la revue en amont du développement : les spécifications sont discutées avant que le code ne soit produit. Le quota mensuel de cinq fonctionnalités permet surtout d’évaluer la méthode sur un petit produit ou une équipe pilote.

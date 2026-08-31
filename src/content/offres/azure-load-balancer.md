@@ -28,9 +28,12 @@ permanent: false
 statut: "active"
 vedette: false
 ordre: 38
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Standard Load Balancer distribue les flux réseau entre plusieurs machines virtuelles ou services principaux et retire automatiquement les instances défaillantes grâce aux sondes d’intégrité. L’avantage gratuit couvre uniquement le service de répartition pendant la première année du compte : les machines, adresses IP et transferts réseau associés conservent leurs propres règles de facturation.

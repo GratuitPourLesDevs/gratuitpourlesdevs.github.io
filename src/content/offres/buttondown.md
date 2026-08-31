@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 666
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Buttondown est un service de newsletter volontairement simple, apprécié pour son approche centrée sur l’écriture, Markdown et la confidentialité. Les 100 premiers abonnés sont gratuits, avec notamment les archives et la possibilité d’utiliser un domaine d’envoi personnalisé. Ce plafond en fait une option intéressante pour lancer une petite newsletter technique ou communautaire sans coût fixe. Il faut simplement distinguer le cœur gratuit des add-ons avancés qui peuvent entraîner une facturation supplémentaire.

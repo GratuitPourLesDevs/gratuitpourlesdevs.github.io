@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 32
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure DevTest Labs apporte une couche de libre-service et de gouvernance pour fournir rapidement des environnements reproductibles aux développeurs et testeurs. Sa gratuité concerne uniquement l’orchestration : un laboratoire vide ne coûte rien au titre de DevTest Labs, tandis que chaque ressource Azure créée dans ce laboratoire suit sa propre tarification.

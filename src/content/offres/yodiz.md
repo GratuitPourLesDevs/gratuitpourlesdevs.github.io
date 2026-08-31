@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1016
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Yodiz conserve un plan Starter très complet pour trois personnes, sans limite du nombre de projets. Les équipes peuvent tester d’abord le service avec davantage d’utilisateurs puis revenir au plan gratuit.

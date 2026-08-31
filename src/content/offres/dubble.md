@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 279
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Dubble accélère la rédaction de procédures en transformant une séquence d’actions en guide illustré. C’est pratique pour documenter un onboarding, une recette ou une procédure d’administration sans rédiger chaque étape à la main.

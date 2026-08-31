@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 562
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Texterify se distingue par un Free qui ne limite ni le nombre de clés ni le nombre de traductions : pour une petite application bilingue, on peut donc travailler sans surveiller le volume de texte. En contrepartie, le compte gratuit est strictement limité à un utilisateur, un projet et deux langues. L’API et le CLI restent inclus, ce qui le rend intéressant pour un workflow développeur simple.

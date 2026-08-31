@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 851
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Snill.ai est intéressant pour transformer très vite un besoin métier en petit système opérationnel : l’IA construit la structure de données, les écrans et les workflows, tout en exposant une vraie API REST et des webhooks. Le Free permet à une personne seule de maintenir deux applications et jusqu’à 1 000 enregistrements, ce qui convient bien à un outil interne, un mini-CRM ou une preuve de concept. L’historique et les sauvegardes quotidiennes rendent l’offre plus sérieuse qu’un simple générateur de maquette. Le principal plafond reste le volume de données et les 10 requêtes IA quotidiennes.

@@ -26,9 +26,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 982
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 HeyRetro couvre gratuitement une rétrospective mensuelle avec partage invité et sondages anonymes. Il vise donc surtout les équipes avec un rythme de rétro modéré.

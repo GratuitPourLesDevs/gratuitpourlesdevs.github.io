@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 25
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Amazon Simple Queue Service stocke les messages entre producteurs et consommateurs afin d’absorber les pointes de charge et de découpler les composants. Une requête peut transporter jusqu’à dix messages, dans la limite d’un payload total de 1 Mio, mais chaque tranche de 64 Ko reste comptabilisée séparément.

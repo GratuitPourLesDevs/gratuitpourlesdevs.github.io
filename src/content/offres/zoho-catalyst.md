@@ -53,9 +53,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 58
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Catalyst fournit un environnement full-stack pour construire et exploiter des applications serverless sans assembler séparément le calcul, les API, les données, le stockage et l’hébergement. Ses quotas gratuits se renouvellent chaque mois tant que l’usage reste sous les plafonds définis pour l’ensemble du compte.

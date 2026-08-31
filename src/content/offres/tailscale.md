@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 960
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tailscale crée un réseau privé mesh en s’appuyant sur WireGuard et automatise une grande partie des opérations traditionnellement associées à un VPN. Il convient aussi bien aux machines personnelles qu’aux serveurs, environnements de développement ou petits homelabs. Le nouveau plan Personal est sensiblement plus généreux qu’auparavant avec six utilisateurs et un nombre illimité d’appareils utilisateurs.

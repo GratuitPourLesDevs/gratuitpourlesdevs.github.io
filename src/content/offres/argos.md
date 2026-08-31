@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 414
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Argos automatise la détection de régressions visuelles en comparant des captures produites par les tests. Son quota gratuit de 5 000 screenshots par mois est déjà confortable pour un projet personnel ou une petite base de composants.

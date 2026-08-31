@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 983
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Hygger reste accessible gratuitement pour piloter des projets agiles avec un grand nombre de membres et de boards. Le stockage reste limité et la documentation tarifaire publique actuelle manque de précision.

@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 345
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zulip structure les discussions avec un modèle de sujets plus proche de l’e-mail que d’un chat linéaire. Le cloud gratuit est pratique, tandis que l’édition open source permet un contrôle complet en auto-hébergement.

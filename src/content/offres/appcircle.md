@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 392
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Appcircle couvre toute la chaîne Mobile DevOps, du build à la publication sur les stores. Le Starter actuel reste pertinent pour un petit projet mobile, avec des quotas clairement publiés.

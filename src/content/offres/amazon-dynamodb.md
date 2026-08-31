@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 21
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Amazon DynamoDB est une base NoSQL entièrement gérée pour les modèles clé-valeur et document. Avec 25 RCU et 25 WCU provisionnées, AWS estime que la formule gratuite peut couvrir environ 200 millions de requêtes mensuelles selon la taille des éléments et le type de lecture.

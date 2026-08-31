@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 571
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Exceptionless collecte exceptions, logs et événements applicatifs avec une interface de tri et d’analyse en temps réel. Le Cloud Free est adapté à un petit projet : 3 000 événements par mois pour un projet et un utilisateur, avec trois jours de rétention. Le projet étant open source, il peut également être auto-hébergé ; dans ce cas, les limites commerciales du SaaS disparaissent au profit des contraintes de votre propre infrastructure.

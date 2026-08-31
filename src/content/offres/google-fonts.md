@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 744
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Google Fonts fournit un catalogue de familles open source que l’on peut télécharger ou charger directement dans une page web via une feuille de style. Pour les développeurs, Google propose aussi une API de métadonnées afin d’interroger dynamiquement les familles, variantes et sous-ensembles disponibles.

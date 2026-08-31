@@ -26,9 +26,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 186
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ip2geo.dev transforme une adresse IP en données de localisation et de contexte réseau. Le quota de 1 000 appels mensuels convient surtout à un prototype ou un petit service à faible trafic.

@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 719
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 TrashMail crée des adresses jetables qui transfèrent les messages vers une vraie boîte puis expirent automatiquement. Ce fonctionnement permet d’utiliser une adresse différente pour un site ou un test sans exposer l’adresse principale et sans devoir revenir supprimer manuellement l’alias plus tard. Le service est historiquement proposé avec un niveau gratuit, mais les quotas précis, le nombre d’alias et les règles d’expiration actuelles ne sont pas suffisamment vérifiés pour ce lot ; la fiche reste donc « à vérifier ».

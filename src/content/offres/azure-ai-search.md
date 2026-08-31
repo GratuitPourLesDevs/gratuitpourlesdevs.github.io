@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 45
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure AI Search, anciennement Azure Cognitive Search, indexe des contenus structurés ou non structurés et expose des API de recherche textuelle, filtrée et vectorielle. Son niveau Free permanent convient aux tutoriels, prototypes RAG et petits jeux de données. Il ne doit pas être confondu avec une capacité globale de 10 000 documents : ce nombre limite la charge d’un appel d’indexeur, tandis que la capacité réelle est plafonnée à 50 Mo.

@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 554
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 LingoHub centralise les chaînes, la mémoire de traduction, les glossaires et les contrôles qualité afin de faire travailler développeurs et traducteurs dans le même workflow. Il n’existe plus de plan général gratuit à trois utilisateurs : la gratuité actuelle passe par un Sponsored Plan sur demande, notamment pour les projets open source et les organisations à but non lucratif. C’est donc une excellente option pour les projets éligibles, mais pas un Free Tier librement accessible à tous.

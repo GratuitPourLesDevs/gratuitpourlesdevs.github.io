@@ -31,8 +31,11 @@ statut: "active"
 vedette: false
 ordre: 753
 verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 FormKeep — Backend de formulaires avec anti-spam, notifications et designer exportable en HTML. Free : formulaires illimités et 50 soumissions/mois. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

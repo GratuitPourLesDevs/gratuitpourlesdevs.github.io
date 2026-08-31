@@ -35,12 +35,15 @@ initiales: OS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 861
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 OutSystems Personal Edition remet à disposition un vrai point d’entrée gratuit dans un écosystème historiquement très enterprise. Elle est surtout utile pour apprendre la plateforme, construire une preuve de concept ou expérimenter les outils IA et le catalogue Forge dans un espace personnel persistant. Le gigaoctet de données applicatives est suffisant pour ce type d’usage. En revanche, ce plan ne doit pas être présenté comme une production gratuite : collaboration d’équipe, gouvernance, capacité et exploitation à l’échelle restent le domaine des offres commerciales.

@@ -23,12 +23,15 @@ initiales: "MA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1077
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Marvel est utile pour rendre une maquette cliquable et faire tester un parcours avant d’écrire le code de l’interface. Le plan gratuit est étroit mais reste adapté à un prototype ponctuel, une démonstration client ou la validation d’un flux utilisateur sur un projet unique.

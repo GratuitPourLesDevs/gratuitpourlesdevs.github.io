@@ -26,12 +26,15 @@ initiales: "PL"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1081
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Plasmic est utile lorsqu’on veut laisser une partie de la construction d’interface au visuel tout en gardant la possibilité d’intégrer le résultat dans une vraie base React ou un déploiement existant. Il évite de choisir entre un page builder totalement fermé et un développement entièrement manuel, ce qui le rend pratique pour les landing pages comme pour des composants applicatifs.

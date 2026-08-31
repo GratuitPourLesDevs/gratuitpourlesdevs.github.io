@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 878
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Netlify reste très utile pour transformer un dépôt Git en application web déployée automatiquement avec preview, domaine, SSL et CDN. Le Free permet toujours de mener un vrai petit projet, mais son fonctionnement est désormais plus facile à comprendre comme un budget commun de 300 crédits que comme une liste de quotas indépendants. Cette souplesse est pratique si l’application consomme peu de compute ou de trafic. Une fois le budget épuisé, le comportement est protecteur côté coût : le projet se met en pause au lieu de déclencher une recharge automatique.

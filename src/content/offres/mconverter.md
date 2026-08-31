@@ -23,12 +23,15 @@ initiales: MC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1045
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 MConverter couvre de nombreux formats et permet de traiter plusieurs fichiers à la fois.

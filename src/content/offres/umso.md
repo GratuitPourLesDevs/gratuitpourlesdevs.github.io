@@ -30,12 +30,15 @@ initiales: "UM"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1095
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "L’URL historique landen.co redirige vers Umso. Le plan Free à 0 $/site/mois a été vérifié sur la page officielle le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Umso est la continuité actuelle de l’entrée historiquement référencée sous Landen. Son plan gratuit permet de créer et publier un petit site centré sur une page d’accueil, avec blog, sous-domaine et analytics de base. C’est une option pratique pour valider une idée, publier une présence minimale ou lancer une landing page sans coût. Les besoins plus avancés — plusieurs pages, domaine personnalisé, formulaires ou code personnalisé — nécessitent un abonnement payant.

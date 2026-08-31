@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 369
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CodeFactor automatise l’analyse de code et les retours sur pull requests. Son plan gratuit reste généreux pour l’open source mais ne couvre plus les dépôts privés.

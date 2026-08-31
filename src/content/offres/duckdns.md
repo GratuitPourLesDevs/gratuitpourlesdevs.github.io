@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 897
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DuckDNS résout un problème très concret : retrouver un serveur domestique, un NAS ou un Raspberry Pi même lorsque l’adresse IP publique change. Un script ou un routeur met à jour automatiquement le sous-domaine duckdns.org via une simple requête HTTPS, ce qui évite de mémoriser l’IP courante. Le plan gratuit couvre jusqu’à cinq sous-domaines et l’API prend également en charge IPv6 et les mises à jour TXT. Ce n’est en revanche pas un hébergeur DNS généraliste : pour son propre domaine, on l’utilise plutôt comme cible DDNS derrière un CNAME.

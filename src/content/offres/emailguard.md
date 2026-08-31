@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 673
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 EmailGuard aide à filtrer les mauvaises adresses avant qu’elles n’entrent dans une base utilisateur : domaines jetables, fautes courantes et absence d’enregistrement MX peuvent être détectés via une API simple. Le quota historiquement indiqué est de 100 requêtes gratuites par mois, suffisant pour un prototype ou un petit formulaire. Comme cette limite n’est pas suffisamment confirmée dans une documentation officielle actuelle, elle reste explicitement à revalider plutôt que d’être présentée comme garantie.

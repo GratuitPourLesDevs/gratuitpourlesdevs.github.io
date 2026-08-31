@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 587
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cronitor surveille aussi bien l’exécution d’une tâche cron que la disponibilité d’un site ou d’une API, ce qui évite de multiplier les petits outils pour les jobs planifiés et l’uptime. Le Hacker gratuit permet de suivre cinq monitors et inclut les canaux essentiels comme e-mail et Slack ; les besoins de notification premium ou d’un parc plus large passent ensuite au payant.

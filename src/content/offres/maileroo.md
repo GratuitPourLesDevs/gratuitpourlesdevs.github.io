@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 688
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Maileroo propose un relais SMTP et une API transactionnelle accompagnés d’outils de délivrabilité. Le Free Email API actuel comprend 3 000 e-mails par mois et deux domaines, ce qui reste suffisant pour un petit produit, des notifications internes ou un environnement de préproduction. La valeur historique de 5 000 messages n’est plus correcte : elle a donc été remplacée plutôt que recopiée. Le service propose aussi des fonctions annexes de vérification et de contrôle de réputation utiles pour fiabiliser les envois.

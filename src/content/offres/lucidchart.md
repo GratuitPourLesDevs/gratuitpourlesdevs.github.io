@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 992
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Lucidchart Free permet de créer quelques diagrammes collaboratifs sans abonnement. Le nombre de documents et d’éléments par document en fait surtout une formule d’appoint ou de découverte.

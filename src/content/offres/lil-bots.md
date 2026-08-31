@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 858
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 lil’bots est pratique pour automatiser une petite tâche ou assembler un agent IA sans commencer par créer tout un projet, gérer les secrets et câbler chaque API. Les bots sont illimités et l’environnement fournit déjà des briques orientées IA et automatisation, ce qui rend l’expérimentation très rapide. Le coût réel du Free se mesure toutefois en temps d’exécution : les 3 600 secondes mensuelles sont partagées entre les bots. C’est confortable pour des scripts courts ou des prototypes, moins pour des traitements longs ou fréquents.

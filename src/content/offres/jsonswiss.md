@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 199
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 JSONSwiss regroupe de nombreux outils JSON dans une seule interface et traite les données localement dans le navigateur. Cela le rend pratique pour manipuler rapidement des payloads sensibles sans les envoyer à un service distant.

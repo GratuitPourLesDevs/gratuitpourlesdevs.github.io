@@ -26,12 +26,15 @@ initiales: EA
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 421
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : fetch failed."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 EveryStep permet d’enregistrer un parcours réalisé dans le navigateur et de le convertir en script réutilisable. Le recorder reste gratuit, tandis que l’exploitation continue dans le cloud appartient aux offres payantes.

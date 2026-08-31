@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 163
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Export SDK combine un éditeur visuel de templates et une API de génération PDF. Le quota gratuit est comptabilisé en pages, ce qui peut réduire le nombre réel de documents lorsque ceux-ci comportent plusieurs pages.

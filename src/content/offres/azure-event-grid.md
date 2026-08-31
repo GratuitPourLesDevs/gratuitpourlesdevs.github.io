@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 47
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Event Grid distribue des événements entre services Azure, applications et points de terminaison HTTP. Son niveau Basic inclut en permanence 100 000 opérations par mois pour les rubriques personnalisées, système ou partenaires. Le quota ne correspond pas à 100 000 messages garantis : une publication, une tentative de livraison ou un filtrage avancé peut constituer une opération, et un événement dépassant 64 Ko en consomme plusieurs.

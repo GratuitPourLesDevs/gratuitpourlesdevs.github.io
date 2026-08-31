@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 249
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 vatnode facilite la validation TVA européenne et conserve des informations utiles pour l’audit, notamment le numéro de consultation VIES lorsque celui-ci est retourné par le service officiel.

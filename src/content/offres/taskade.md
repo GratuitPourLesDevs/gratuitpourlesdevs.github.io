@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1005
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Taskade propose désormais un plan Free Forever centré sur la création d’apps, les agents IA et les automatisations. La grille tarifaire officielle confirme un accès permanent sans carte bancaire, mais limité à un utilisateur et à une allocation IA initiale qui ne se renouvelle pas mensuellement. Le plan gratuit reste donc pertinent pour découvrir Taskade, gérer des projets personnels et construire quelques automatisations ou apps avant de passer éventuellement à une offre payante.

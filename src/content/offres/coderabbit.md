@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 370
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CodeRabbit ajoute une couche de revue IA aux workflows Git. Le gratuit a évolué : il conserve les résumés de PR et les revues IDE/CLI, tandis que l’open source bénéficie d’un plan dédié.

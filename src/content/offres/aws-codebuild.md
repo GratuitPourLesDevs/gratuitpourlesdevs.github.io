@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 18
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 AWS CodeBuild exécute les compilations et les tests dans des environnements gérés, sans serveur de CI à maintenir. La formule gratuite n’expire pas après douze mois et s’adresse aux nouveaux comme aux anciens clients AWS ; les ressources AWS utilisées autour du build peuvent toutefois générer des frais.

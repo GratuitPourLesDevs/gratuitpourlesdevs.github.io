@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 321
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Slack reste utilisable gratuitement pour la communication quotidienne d’une équipe, mais le principal compromis est l’historique limité. Pour un projet qui doit conserver toutes ses décisions sur plusieurs années, il faut prévoir un autre canal d’archivage.

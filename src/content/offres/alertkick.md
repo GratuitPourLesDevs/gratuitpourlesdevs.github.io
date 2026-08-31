@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 582
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 AlertKick combine plusieurs besoins opérationnels habituellement séparés : surveillance d’un serveur Linux via eBPF, contrôles uptime, alertes d’astreinte et pages de statut. Un niveau gratuit est toujours mis en avant, mais les limites historiques souvent citées ne sont pas suffisamment confirmées par la grille publique actuelle ; la fiche documente donc le service sans figer des quotas potentiellement périmés.

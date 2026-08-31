@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 148
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Dataimporter.io simplifie les imports, exports et sauvegardes Salesforce. Son offre gratuite est réellement exploitable pour une petite organisation grâce au quota de 20 000 enregistrements et à la sauvegarde incluse.

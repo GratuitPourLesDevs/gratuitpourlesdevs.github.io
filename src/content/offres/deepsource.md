@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 374
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DeepSource analyse les changements de code pour détecter problèmes de sécurité, performance et maintenabilité. Le plan Individual gratuit accepte aussi les dépôts privés.

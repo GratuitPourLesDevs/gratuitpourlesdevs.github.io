@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 770
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tally — Constructeur de formulaires très généreux avec logique, paiements, signatures et intégrations. Free : formulaires et soumissions illimités sous fair use. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

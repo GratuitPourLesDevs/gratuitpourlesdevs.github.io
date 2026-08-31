@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 872
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Harvis est pensé pour les développeurs qui veulent publier un build statique depuis le terminal ou une CI sans ajouter de configuration d’hébergement. Son quota gratuit combine stockage, requêtes, déploiements et collecte de formulaires, ce qui couvre plus qu’un simple serveur de fichiers. Pour un portfolio, une documentation ou une petite landing page reliée à GitHub Actions, l’ensemble est confortable. Le point à anticiper est le domaine personnalisé, absent du Free, ainsi que les limites par site et sur les soumissions de formulaires.

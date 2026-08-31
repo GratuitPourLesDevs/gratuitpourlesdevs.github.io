@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 889
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Versoly est bien adapté à une landing page SaaS ou un mini-site marketing que l’on veut construire visuellement tout en gardant une certaine liberté de personnalisation. Le Free couvre les besoins essentiels d’une petite présence en ligne, y compris un CMS léger et des formulaires. C’est suffisant pour valider un positionnement ou montrer un produit avant d’investir dans un site plus complet. Les trois pages, 1 000 visites mensuelles et l’absence de domaine personnalisé font toutefois du Starter un palier de lancement plutôt qu’une solution durable pour un site qui commence à attirer du trafic.

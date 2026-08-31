@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 973
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Confluence Free suffit à une petite équipe pour centraliser documentation et connaissances sans limite de pages. Les contrôles de permissions et le support restent plus simples que sur les offres payantes.

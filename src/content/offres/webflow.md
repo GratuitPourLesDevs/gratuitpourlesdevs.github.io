@@ -27,12 +27,15 @@ initiales: "WF"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1088
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Webflow est utile pour apprendre et prototyper un site visuellement tout en restant proche des concepts HTML/CSS, sans mettre en place immédiatement un hébergement séparé. Le Starter actuel est toutefois un terrain d’expérimentation plutôt qu’un hébergement gratuit généreux : deux pages suffisent pour une petite démo, mais un vrai site atteint rapidement les limites.

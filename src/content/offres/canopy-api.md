@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 131
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Canopy API expose des données Amazon par REST et GraphQL afin de récupérer des produits, prix, catégories, recherches et autres informations de catalogue. Le plan Hobby est permanent mais volontairement petit : il sert surtout à tester une intégration ou alimenter un prototype à faible trafic.

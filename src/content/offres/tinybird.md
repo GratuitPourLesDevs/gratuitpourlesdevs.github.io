@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 942
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tinybird s’appuie sur ClickHouse pour transformer rapidement des flux de données et des requêtes SQL en endpoints HTTP. Les 10 Go de stockage et 1 000 requêtes quotidiennes du plan Free suffisent pour construire des prototypes d’analytics temps réel et de petites API de données.

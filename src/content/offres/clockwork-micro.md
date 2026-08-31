@@ -29,12 +29,15 @@ initiales: "CM"
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1096
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Clockwork Micro regroupe plusieurs briques utiles pour construire une carte sans déployer soi-même toute l’infrastructure géospatiale. Le niveau Personal est généreux pour des prototypes et projets personnels, mais les dépassements sont tarifés et les données utilisées conservent leurs obligations d’attribution.

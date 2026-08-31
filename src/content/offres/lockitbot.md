@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 299
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Lockitbot évite les collisions lorsqu’une équipe partage des environnements de développement, des salles ou des serveurs. Les réservations sont gérées depuis Slack et peuvent aussi être automatisées par API.

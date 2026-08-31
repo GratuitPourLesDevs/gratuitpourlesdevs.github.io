@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 23
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Amazon Simple Notification Service distribue un message publié vers plusieurs consommateurs : services AWS, endpoints HTTP/S, applications mobiles ou utilisateurs. La formule gratuite couvre séparément les publications et certains canaux de livraison ; une seule publication envoyée à plusieurs abonnés peut donc consommer plusieurs quotas.

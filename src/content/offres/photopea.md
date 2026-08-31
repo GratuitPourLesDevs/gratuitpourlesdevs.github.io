@@ -23,12 +23,15 @@ initiales: "PH"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1080
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Photopea est utile pour ouvrir ou modifier un PSD, préparer une image ou effectuer une retouche avancée depuis n’importe quel navigateur sans installer Photoshop. Pour un développeur, il dépanne particulièrement bien lorsqu’il faut ajuster rapidement un asset fourni par un designer tout en conservant ses calques et formats de travail.

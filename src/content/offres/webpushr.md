@@ -35,8 +35,11 @@ statut: "active"
 vedette: false
 ordre: 540
 verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 500) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Webpushr est référencé avec les limites gratuites vérifiées le 19 août 2026.

@@ -27,12 +27,15 @@ initiales: "NV"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1193
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Numverify est utile dès qu’un formulaire accepte des numéros internationaux et que l’on veut éviter de stocker des valeurs impossibles, mal formatées ou incompatibles avec l’usage prévu. Une application peut vérifier le pays, l’opérateur et le type de ligne avant de déclencher un SMS, un appel ou simplement d’enregistrer le contact, ce qui améliore la qualité des données en amont. Avec 100 appels mensuels, le Free Plan convient surtout au développement, aux tests ou à un très petit service plutôt qu’à une validation systématique à fort trafic.

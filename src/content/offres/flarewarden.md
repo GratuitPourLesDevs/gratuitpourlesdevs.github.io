@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 594
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 FlareWarden ne se limite pas au simple ping HTTP : il peut surveiller la disponibilité, du contenu attendu, des dépendances et des échéances SSL avec vérification depuis plusieurs régions. Son Free est bien dimensionné pour un petit portefeuille de services avec quinze monitors, une cadence de cinq minutes et un historique pouvant aller jusqu’à quatre-vingt-dix jours.

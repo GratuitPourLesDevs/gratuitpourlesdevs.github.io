@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 595
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Healthchecks.io vérifie qu’un cron ou une tâche d’arrière-plan envoie bien son signal à la fréquence attendue, et alerte lorsqu’il manque. Avec vingt checks gratuits, le service couvre déjà de nombreux backups, imports, synchronisations ou tâches planifiées d’un petit projet ; il est particulièrement utile lorsque le problème à détecter est justement l’absence d’exécution.

@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 597
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Inspector.dev fournit un tableau de bord de monitoring applicatif orienté développeurs pour repérer des erreurs et transactions lentes sans monter une stack d’observabilité complète. Son Free Forever autorise 30 000 transactions mensuelles et jusqu’à trois membres ; la contrepartie la plus importante est la rétention courte de trois jours, adaptée au diagnostic récent plutôt qu’à l’analyse historique.

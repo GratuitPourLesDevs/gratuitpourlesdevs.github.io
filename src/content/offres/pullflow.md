@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 309
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 PullFlow rapproche les conversations de revue de code de GitHub, Slack et VS Code. Le Free Tier est surtout intéressant pour l’open source et les petites équipes qui veulent réduire les allers-retours entre outils.

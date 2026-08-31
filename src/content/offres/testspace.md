@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 438
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Testspace rassemble les résultats produits par les pipelines et permet aussi de décrire des tests manuels dans le dépôt. Son plan gratuit est particulièrement adapté aux projets publics et aux comptes GitHub personnels.

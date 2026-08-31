@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 228
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Rendi expose FFmpeg derrière une API REST et évite de gérer workers, codecs et scaling. Son quota de calcul est généreux pour des prototypes média, mais l’activation du plan gratuit nécessite tout de même une carte bancaire.

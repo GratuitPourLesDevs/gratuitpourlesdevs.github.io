@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 829
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Ownkube cible les développeurs qui veulent la simplicité d’un déploiement par Git tout en conservant les workloads Kubernetes dans leur propre compte AWS. Le mode Starter basé sur k3s supprime les frais de plateforme pour les petits environnements et ajoute des fonctions pratiques comme les preview URLs, PostgreSQL et des agents dédiés aux coûts, incidents, scaling et sécurité. Cette approche peut être particulièrement intéressante pour exploiter des crédits AWS tout en gardant davantage de contrôle qu’avec un PaaS entièrement hébergé. Il faut cependant bien distinguer la plateforme de l’infrastructure : les instances, le stockage et le trafic AWS restent payants, et le mode EKS destiné à la production applique des frais Ownkube.

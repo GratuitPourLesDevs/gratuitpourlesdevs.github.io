@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 970
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ClickUp Free Forever fournit une base très complète pour organiser le travail sans limite de tâches ni de membres. Le stockage et plusieurs fonctions avancées restent en revanche fortement plafonnés.

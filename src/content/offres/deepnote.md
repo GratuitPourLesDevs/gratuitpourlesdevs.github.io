@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 153
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Deepnote est un environnement de notebooks collaboratifs orienté data science. Les machines Basic restent généreuses, mais le nombre de projets Free est désormais limité à cinq : l’ancienne promesse de projets personnels illimités est obsolète.

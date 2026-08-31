@@ -16,12 +16,15 @@ initiales: "DM"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 590
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 Downtime Monkey permet de surveiller beaucoup de petites URLs sans coût : son Free Forever monte à soixante monitors, avec un passage toutes les cinq minutes et des alertes e-mail ou Slack. C’est particulièrement généreux en nombre de cibles ; la contrepartie est une couverture de contrôle gratuite plus limitée géographiquement et l’absence de SMS inclus.

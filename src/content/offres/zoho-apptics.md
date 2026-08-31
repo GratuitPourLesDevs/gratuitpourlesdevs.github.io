@@ -45,9 +45,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 59
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Apptics rassemble l’analyse des usages, la surveillance des erreurs et des performances ainsi que les retours intégrés à l’application. Il permet à une petite équipe de suivre jusqu’à dix variantes web ou mobiles d’un même produit dans un tableau de bord commun, avec suffisamment de volume pour instrumenter un prototype ou une application en phase de lancement.

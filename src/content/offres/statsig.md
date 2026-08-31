@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 732
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Statsig combine feature flags, configurations dynamiques, tests A/B, analytics produit et session replay dans une même plateforme. Son plan Developer gratuit, sans carte bancaire, est aujourd’hui plus généreux que l’ancienne référence à un million d’événements : il inclut désormais deux millions d’événements par mois, des vérifications de flags et configurations illimitées, 50 000 replays mensuels et un nombre illimité de sièges.

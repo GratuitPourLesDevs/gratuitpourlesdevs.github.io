@@ -29,12 +29,15 @@ initiales: "VC"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1151
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Visual Studio Community offre l’essentiel de l’IDE Visual Studio sans coût pour les individus et plusieurs usages communautaires. Pour une équipe en entreprise, il faut néanmoins vérifier précisément les seuils et exceptions de la licence.

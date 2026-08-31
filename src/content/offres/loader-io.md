@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 601
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Loader.io permet de lancer rapidement un test de charge HTTP contre un site ou une API pour observer son comportement sous concurrence. Le plan gratuit monte jusqu’à dix mille clients par test, mais reste volontairement simple avec un seul host cible et des tests courts ; il est donc pertinent pour un test de capacité ponctuel plutôt que pour une campagne de performance complexe.

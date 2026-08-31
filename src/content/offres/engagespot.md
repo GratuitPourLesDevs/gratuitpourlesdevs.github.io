@@ -39,8 +39,11 @@ statut: "active"
 vedette: false
 ordre: 527
 verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Site officiel momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "site_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 Engagespot est référencé avec les limites gratuites vérifiées le 19 août 2026.

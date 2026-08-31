@@ -26,12 +26,15 @@ initiales: "VP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1194
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Veriphone est une bonne brique pour fiabiliser les numéros dès l’inscription ou avant l’envoi d’un SMS, en particulier lorsqu’une application cible plusieurs pays. L’API peut normaliser le numéro et renseigner pays, opérateur et type de ligne, ce qui évite de développer soi-même une logique internationale fragile et améliore la qualité des contacts. Les 1 000 validations gratuites par mois sont assez confortables pour un MVP ou un petit service ; la recherche de l’opérateur actuellement actif après portabilité reste toutefois un usage distinct à tarification spécifique.

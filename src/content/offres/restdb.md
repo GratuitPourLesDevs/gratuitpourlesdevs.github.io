@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 938
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 restdb.io génère une API REST directement à partir d’une base NoSQL structurée et fournit une interface d’administration prête à l’emploi. Le plan gratuit est adapté à un prototype ou une petite application interne, mais le plafond quotidien de 500 appels API devient rapidement la contrainte principale.

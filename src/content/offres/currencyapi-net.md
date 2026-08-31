@@ -29,12 +29,15 @@ initiales: "CAN"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1200
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CurrencyApi.net est utile lorsqu’un projet personnel a besoin de mélanger devises classiques et cryptomonnaies dans une même API, avec des taux rafraîchis chaque heure. Cela convient bien à un dashboard, un convertisseur ou une expérimentation où une mise à jour quotidienne serait trop lente mais où le temps réel n’est pas indispensable. Le Free Tier reste modeste avec 500 appels par mois, une devise de base fixe et aucun historique, et surtout il n’autorise pas l’usage commercial.

@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 561
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 SimpleLocalize combine éditeur web et outils développeur pour synchroniser les fichiers de traduction sans construire soi-même toute l’infrastructure i18n. Le plan Community actuel est plus généreux que l’ancienne référence : 250 clés, dix projets, dix langues, un membre d’équipe et contributeurs illimités. Il est bien adapté aux petits produits, tandis que l’automatisation, l’hébergement et plusieurs fonctions avancées nécessitent une formule supérieure.

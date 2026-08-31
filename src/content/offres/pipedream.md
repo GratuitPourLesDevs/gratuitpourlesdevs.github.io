@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 830
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Pipedream est particulièrement utile comme couche de colle entre des APIs et services qui doivent réagir à des événements sans nécessiter un serveur permanent. Un workflow peut être déclenché par un webhook, un événement ou une source externe, combiner des connecteurs prêts à l’emploi avec du code, puis enchaîner plusieurs actions dans un environnement serverless. Le plan gratuit convient aux automatisations personnelles, prototypes et intégrations à faible volume, avec des tests qui ne consomment pas de crédits et jusqu’à cinq minutes par exécution. Son principal défaut pour le dimensionnement est que le quota quotidien de crédits n’est plus publié comme une valeur fixe : il faut consulter l’espace Billing & Usage du compte, et Pipedream Connect en production reste payant.

@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 230
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 RoboHash permet de générer immédiatement un avatar stable à partir d’un identifiant utilisateur, d’un e-mail ou d’une autre chaîne. C’est une petite brique très pratique pour les prototypes qui ont besoin d’avatars uniques sans stockage d’images.

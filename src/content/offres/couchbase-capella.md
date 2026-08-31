@@ -35,12 +35,15 @@ initiales: CB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 927
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : HTTP 403."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Couchbase Capella transforme Couchbase en service DBaaS entièrement managé et ajoute recherche, requêtes SQL++ et fonctions orientées applications. Le cluster gratuit à nœud unique sert surtout au prototypage et à l’apprentissage ; il n’offre pas la haute disponibilité d’un cluster de production.

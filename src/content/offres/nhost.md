@@ -46,9 +46,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 847
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Nhost est pertinent si l’on veut un backend proche de Supabase mais construit autour de PostgreSQL et Hasura : GraphQL, auth, fichiers et fonctions sont préassemblés et restent compatibles avec une approche open source. Le Starter donne suffisamment de ressources pour développer une petite application complète avec un vrai schéma relationnel. La gratuité demande néanmoins une discipline d’usage : le projet se met en pause après une semaine d’inactivité et, surtout, Nhost précise qu’un dépassement n’arrête pas le service mais peut être facturé. C’est donc un Free Tier où les alertes de consommation comptent réellement.

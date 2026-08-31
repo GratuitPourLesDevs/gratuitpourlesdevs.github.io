@@ -45,9 +45,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 68
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Vault est un gestionnaire de mots de passe particulièrement généreux pour un usage individuel. Son forfait gratuit à vie permet de conserver un nombre illimité de mots de passe et de notes, de synchroniser le coffre sur un nombre illimité d’appareils et d’utiliser les fonctions essentielles comme l’autoremplissage, l’authentification multifacteur, l’accès hors ligne et les extensions de navigateur. Les fonctions de partage et d’administration destinées aux équipes restent en revanche réservées aux plans payants.

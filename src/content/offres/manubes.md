@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 859
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 manubes se distingue des builders généralistes par son orientation industrielle : collecte de données, workflows de production, nœuds cloud/edge et suivi opérationnel. Son Free est inhabituellement généreux sur l’automatisation avec un million d’activités de workflow par mois, ce qui permet de tester des scénarios réalistes. La limite la plus importante n’est donc pas le volume mais la collaboration : un seul utilisateur est inclus. C’est excellent pour une preuve de concept industrielle individuelle avant d’impliquer une équipe.

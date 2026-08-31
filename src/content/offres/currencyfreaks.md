@@ -25,12 +25,15 @@ initiales: "CF"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1201
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CurrencyFreaks se distingue par une couverture qui ne s’arrête pas aux devises fiat : cryptomonnaies et métaux précieux peuvent être récupérés via la même intégration. C’est pratique pour construire un tableau de bord financier, un convertisseur multi-actifs ou un petit outil de reporting sans agréger plusieurs API différentes. Le plan Developer offre 1 000 appels mensuels sans carte bancaire, avec deux compromis à connaître : les taux sont actualisés toutes les 24 heures et la devise de base reste l’USD sur le niveau gratuit.

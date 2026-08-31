@@ -25,12 +25,15 @@ initiales: TN
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 333
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 TransferNow convient aux échanges ponctuels de fichiers volumineux avec un client ou un collègue. Le plan gratuit privilégie le transfert temporaire plutôt que le stockage durable.

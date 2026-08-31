@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 857
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Clappia est surtout pertinent pour remplacer rapidement des formulaires papier, tableurs ou petits processus terrain par une application mobile et web. Le Free accepte jusqu’à 100 utilisateurs, ce qui permet de tester un vrai usage collectif sans payer par siège. Le plafond à surveiller est ailleurs : 400 soumissions et 400 étapes de workflow par mois. Cela suffit pour un pilote, une petite équipe ou un processus peu fréquent, mais une activité quotidienne à volume élevé atteindra vite la limite.

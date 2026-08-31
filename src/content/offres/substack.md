@@ -24,8 +24,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 713
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : HTTP 403."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Substack combine site de publication et newsletter : un auteur publie des articles, construit une audience e-mail et peut ensuite proposer des abonnements payants. Le modèle historique permet de publier gratuitement et fait intervenir la rémunération de Substack lorsque l’auteur monétise, sans quota d’envoi mis en avant pour les newsletters gratuites. Comme les conditions commerciales peuvent évoluer et n’ont pas été complètement revalidées pour ce lot, la fiche est conservée « à vérifier » plutôt que de promettre un usage illimité permanent.

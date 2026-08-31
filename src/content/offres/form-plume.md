@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 754
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Form Plume — Backend pour formulaires HTML et JavaScript avec inbox, webhooks et filtrage anti-spam. Free : 500 soumissions/mois et formulaires illimités. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

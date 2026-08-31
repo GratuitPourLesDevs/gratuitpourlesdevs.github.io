@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 39
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Notification Hubs fournit une API unique pour envoyer des notifications à des applications iOS, Android et Windows sans gérer séparément chaque infrastructure de push. Le niveau Free convient aux prototypes et petites audiences mobiles ; son plafond de 500 appareils actifs par espace de noms est généralement plus contraignant que le million d’envois inclus.

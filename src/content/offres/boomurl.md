@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 867
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 boomurl est utile lorsqu’il faut mettre un dossier ou un livrable statique sur le Web en quelques secondes, sans créer d’abord un projet d’hébergement complet. Les 50 Mo et 500 fichiers couvrent largement une landing page, une démo HTML, une documentation légère ou un rapport exporté. L’URL HTTPS immédiate en fait aussi un bon outil de partage ponctuel depuis un script ou un agent. Le compromis du Free est clair : le contenu doit rester statique et une petite bannière de l’hébergeur demeure visible.

@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 437
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 TestingBot donne accès à un large parc de navigateurs et d’appareils pour exécuter des suites de tests distantes. La gratuité est très généreuse, mais exclusivement destinée aux projets open source répondant aux critères du programme.

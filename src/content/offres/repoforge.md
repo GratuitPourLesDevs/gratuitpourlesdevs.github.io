@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 268
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 RepoForge convient aux petits projets open source qui veulent publier leurs artefacts via des outils standards sans gérer leur propre registre. Son stockage gratuit est assez limité, et l’interdiction d’usage commercial est une contrainte importante à prendre en compte.

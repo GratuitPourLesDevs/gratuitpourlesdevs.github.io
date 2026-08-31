@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 669
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Contact.do vise un besoin très simple : obtenir un formulaire de contact partageable sans créer une page, un backend ou une intégration complète. Le lien peut être utilisé dans une bio, une documentation ou un petit site pour recevoir des messages avec très peu de mise en place. La ressource reste pertinente dans un catalogue pour développeurs, mais la disponibilité et les limites exactes de son offre gratuite ne sont pas suffisamment documentées actuellement ; elle est donc signalée « à vérifier ».

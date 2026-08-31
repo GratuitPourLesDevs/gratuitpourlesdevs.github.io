@@ -26,9 +26,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 997
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 PlanITPoker fournit un outil d’estimation agile spécialisé, utilisable rapidement sans déployer de logiciel. Les équipes peuvent lancer une session de vote et importer des éléments de backlog.

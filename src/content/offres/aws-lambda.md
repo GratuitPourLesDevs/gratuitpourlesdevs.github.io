@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 22
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 AWS Lambda exécute du code en réponse à des requêtes HTTP, des messages, des changements de données ou d’autres événements sans serveur à administrer. Le quota de calcul dépend à la fois de la mémoire allouée et de la durée des exécutions : un million de requêtes ne signifie donc pas nécessairement un million d’exécutions entièrement gratuites.

@@ -24,8 +24,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 679
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : HTTP 403."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Emitlo se positionne comme une infrastructure d’envoi transactionnel accessible par SMTP ou API, avec les mécanismes classiques d’authentification de domaine comme SPF, DKIM et DMARC. La description historique mentionne un niveau gratuit de 12 000 e-mails par mois sans carte, ce qui serait très généreux pour un petit produit. Cette valeur n’étant pas suffisamment confirmée sur une source officielle actuelle, la fiche conserve le service mais signale explicitement le quota comme à revalider.

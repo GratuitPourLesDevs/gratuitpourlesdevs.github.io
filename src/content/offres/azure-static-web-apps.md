@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 42
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Static Web Apps automatise la construction et le déploiement de sites statiques depuis GitHub ou Azure DevOps, puis distribue les fichiers sur le réseau mondial d’Azure. Le plan Free convient aux portfolios, documentations, démonstrations et petites applications Jamstack. Il inclut les domaines personnalisés et SSL, mais ne fournit ni SLA ni dépassement payant automatique de la bande passante.

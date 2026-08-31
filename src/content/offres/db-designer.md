@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 150
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DB Designer permet de dessiner des modèles de bases de données en ligne. Le plan gratuit général reste limité, mais le service propose aussi des plans gratuits illimités aux étudiants, enseignants, associations et contributeurs open source éligibles.

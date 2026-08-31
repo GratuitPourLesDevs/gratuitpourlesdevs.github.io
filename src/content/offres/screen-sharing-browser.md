@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 317
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Screen Sharing via Browser permet de montrer rapidement son écran à un collègue ou à un client sans imposer l’installation d’un logiciel. C’est pratique pour une démonstration, un dépannage ou une revue rapide.

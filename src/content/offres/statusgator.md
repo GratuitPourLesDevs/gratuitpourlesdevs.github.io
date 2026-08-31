@@ -16,12 +16,15 @@ initiales: "SG"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 624
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 StatusGator évite de consulter manuellement les pages de statut de chaque fournisseur en agrégeant leurs incidents et en les présentant dans un board commun. Le Free Forever permet de suivre trois services et de partager un board avec jusqu’à cent abonnés ; la limite la plus vite atteinte sera souvent celle des dix notifications mensuelles.

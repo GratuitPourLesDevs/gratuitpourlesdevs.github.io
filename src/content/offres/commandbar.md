@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 635
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CommandBar, désormais présenté sous la marque Command AI, ajoute à une application une interface de recherche et d’assistance capable de retrouver du contenu, de naviguer dans le produit et de déclencher des actions. L’idée reste très pertinente pour rendre des fonctions difficiles à découvrir accessibles depuis une barre de recherche unifiée. En revanche, l’ancien Free Tier souvent décrit comme gratuit jusqu’à 1 000 utilisateurs actifs mensuels n’est plus documenté clairement dans les pages publiques actuelles ; la fiche reste donc volontairement à vérifier plutôt que d’afficher cette ancienne limite comme une garantie 2026.

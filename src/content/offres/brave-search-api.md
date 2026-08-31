@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 101
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Brave Search API donne accès à un véritable index de recherche indépendant pour alimenter moteurs de recherche, pipelines RAG et agents. Les 5 $ mensuels couvrent actuellement environ 1 000 requêtes Search, mais ce n’est pas un plafond bloquant : il faut impérativement encadrer les dépenses si l’on veut rester à zéro euro.

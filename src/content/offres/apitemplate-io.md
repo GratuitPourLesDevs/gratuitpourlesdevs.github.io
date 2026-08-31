@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 96
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 APITemplate.io automatise la création de documents et d’images à partir de modèles dynamiques. Il peut servir pour des factures, certificats, rapports ou visuels sociaux sans reconstruire un moteur de rendu dans l’application, avec un quota gratuit de 50 générations mensuelles.

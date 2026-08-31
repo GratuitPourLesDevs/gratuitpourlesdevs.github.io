@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 949
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Hookdeck centralise les webhooks et événements avant leur livraison aux applications, avec inspection, rejeu et routage. C’est utile pour développer des intégrations, observer les erreurs et éviter de perdre des événements lors des tests. Le plan Developer reste permanent et sans carte bancaire, mais son quota principal actuel est de dix mille événements mensuels.

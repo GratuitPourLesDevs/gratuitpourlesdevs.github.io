@@ -45,9 +45,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 94
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 AnyHook intercale une couche fiable entre une source de webhook et votre backend : l’événement est accepté rapidement, stocké, puis livré avec retries et possibilité de replay. C’est particulièrement utile pour Stripe, GitHub, Shopify ou des agents IA dont le traitement peut durer plus longtemps que le timeout imposé par l’émetteur.

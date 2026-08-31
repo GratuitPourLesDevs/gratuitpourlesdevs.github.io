@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 51
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudflare Tunnel établit depuis la machine locale une connexion sortante vers le réseau Cloudflare, ce qui évite d’ouvrir un port entrant ou d’exposer directement l’adresse IP du serveur. Un Quick Tunnel permet de partager immédiatement une application locale avec une URL temporaire sur trycloudflare.com. Pour un accès durable, des hostnames personnalisés, plusieurs connecteurs ou des politiques Zero Trust, il faut créer un tunnel nommé dans un compte Cloudflare.

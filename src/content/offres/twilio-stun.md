@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 958
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Le serveur STUN de Twilio aide un client WebRTC à connaître l’adresse IP et le port publics que son NAT lui attribue afin de tenter une connexion pair à pair directe. Twilio publie ce composant STUN comme gratuit et illimité, alors que le relais TURN n’est utilisé qu’en secours et reste facturé au trafic. L’URI STUN est conservée dans la fiche, tandis que le lien principal pointe vers une page HTTPS utilisable par le catalogue.

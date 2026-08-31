@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1004
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Taiga reste gratuit et open source, avec un SaaS qui a réintroduit des limites de projets en 2025. Le plan Gratis conserve néanmoins des utilisateurs illimités et couvre un projet public plus un projet privé.

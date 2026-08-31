@@ -27,12 +27,15 @@ initiales: HW
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 902
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 Huawei Cloud DNS est utile lorsqu’un projet a besoin d’un DNS autoritatif classique mais aussi de résolution privée entre ressources cloud. Le service lui-même est gratuit et ses quotas par défaut — 50 zones publiques, 50 zones privées et 500 jeux d’enregistrements — sont largement suffisants pour de nombreux environnements de développement ou petites architectures. Il devient particulièrement pertinent si l’infrastructure utilise déjà Huawei Cloud, car les zones privées s’intègrent naturellement au réseau virtuel. Il faut seulement garder à l’esprit que le DNS gratuit n’exonère pas des coûts éventuels des autres ressources cloud auxquelles les noms pointent.

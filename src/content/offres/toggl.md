@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1012
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Toggl couvre désormais le suivi du temps et la planification avec deux niveaux gratuits légèrement différents. Track reste gratuit pour cinq personnes, tandis que Toggl 2.0 combine tracking et planning pour trois utilisateurs.

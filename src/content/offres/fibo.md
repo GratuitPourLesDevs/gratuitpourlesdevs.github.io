@@ -25,12 +25,15 @@ initiales: FB
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 284
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : HTTP 403."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Fibo fournit juste ce qu’il faut pour une session de planning poker : créer une salle, partager le lien et estimer les tickets en temps réel sans mettre en place un outil de gestion de projet complet.

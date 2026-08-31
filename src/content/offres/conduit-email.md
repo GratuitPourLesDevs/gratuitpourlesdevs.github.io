@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 668
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Conduit transforme un e-mail entrant en webhook, ce qui permet de connecter une boîte ou une adresse dédiée à une API sans devoir exploiter soi-même un serveur de réception. C’est pratique pour créer des commandes par e-mail, traiter des pièces jointes ou déclencher des workflows métier. Le service était présenté comme entièrement gratuit dans le référentiel source ; cette gratuité n’étant pas assez clairement confirmée actuellement, la fiche est conservée en « à vérifier » plutôt que de promettre un accès illimité.

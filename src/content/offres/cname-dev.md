@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 945
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 cname.dev fournit un proxy inverse dynamique pour rendre accessible sur internet un service situé derrière un réseau local ou une adresse changeante. Le service vise les usages de développement, de démonstration et d’accès distant avec des outils d’administration simples. Faute de grille tarifaire détaillée ou de quotas publics, la fiche reste volontairement prudente sur les limites quantitatives.

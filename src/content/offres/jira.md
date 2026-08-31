@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 985
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Jira Free fournit les briques essentielles du suivi agile pour une petite équipe, avec Scrum, Kanban, backlog et automatisations de base. Les contrôles d’administration restent volontairement limités.

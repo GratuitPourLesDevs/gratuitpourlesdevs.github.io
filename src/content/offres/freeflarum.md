@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 871
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 FreeFlarum permet de lancer une communauté Flarum complète sans administrer soi-même PHP, la base de données, les sauvegardes ou TLS. C’est particulièrement utile pour tester Flarum, démarrer un forum associatif ou faire grandir une petite communauté avant de financer son propre hébergement. Les données restent exportables, ce qui réduit le risque d’enfermement. Le service est toutefois financé par les dons et fonctionne en fair use : lorsqu’un forum devient très actif ou très volumineux, l’objectif est de le faire migrer vers une infrastructure dédiée.

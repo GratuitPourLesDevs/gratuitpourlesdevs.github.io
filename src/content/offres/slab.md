@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 320
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Slab est une alternative légère pour créer un wiki interne ou une base de connaissances. Le plan gratuit suffit à une petite équipe et conserve les fonctions essentielles de rédaction et d’organisation.

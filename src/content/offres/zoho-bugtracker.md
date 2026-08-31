@@ -47,9 +47,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 65
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho BugTracker est un service de suivi de bugs destiné aux équipes qui veulent centraliser les problèmes, affecter les corrections et suivre leur résolution. Son plan gratuit permanent permet à trois utilisateurs de travailler sur deux projets, avec 5 Go de stockage et des pièces jointes jusqu’à 10 Mo. Les fonctions essentielles de suivi, d’import et de collaboration sont disponibles sans abonnement, tandis que les automatisations et personnalisations avancées restent réservées aux offres payantes.

@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1006
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Teaminal regroupe les rituels agiles des équipes distantes dans un même espace. Le plan gratuit est généreux jusqu’à quinze personnes et ne limite ni les équipes ni les intégrations.

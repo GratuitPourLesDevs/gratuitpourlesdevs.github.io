@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 862
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Retool est l’un des outils les plus efficaces pour créer un back-office ou un outil métier au-dessus d’APIs et de bases de données existantes. Son Free est assez large pour un vrai petit projet : applications illimitées, stockage intégré, workflows et même agents IA. Le principal plafond est organisationnel avec cinq utilisateurs, davantage que technique. Pour une petite équipe produit ou ops, cela permet donc de valider une application interne de bout en bout avant que le nombre de collaborateurs ou les besoins de gouvernance n’imposent un plan payant.

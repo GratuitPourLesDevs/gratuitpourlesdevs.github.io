@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 406
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 RunMyJob fournit des runners puissants et élastiques sans changer les workflows GitHub Actions ou GitLab CI. Son Free Tier est chiffré en ressources compute, avec facturation au-delà de l’allocation.

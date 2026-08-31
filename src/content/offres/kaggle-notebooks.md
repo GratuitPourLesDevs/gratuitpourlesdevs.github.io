@@ -19,8 +19,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 27
 verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Kaggle Notebooks fournit un environnement Jupyter prêt à l’emploi, étroitement intégré aux jeux de données, modèles et compétitions Kaggle. La plateforme convient à l’exploration de données et à l’entraînement de modèles sans machine locale puissante, mais le quota d’accélérateur est partagé, variable et consommé tant que la session GPU reste active.

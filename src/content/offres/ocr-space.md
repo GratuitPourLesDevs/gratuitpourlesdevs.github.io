@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 215
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 OCR.Space est une API OCR simple pour extraire du texte depuis des images ou des PDF. Son quota mensuel est très généreux, mais la taille de fichier et le nombre de pages PDF constituent les limites principales du plan gratuit.

@@ -35,12 +35,15 @@ initiales: CH
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 926
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 Codehooks permet de construire un backend JavaScript sans gérer de serveur, avec fonctions, stockage NoSQL, jobs et files de traitement. Il reste adapté au développement et aux petits prototypes, mais les anciennes mentions de 5 Go de base et de deux développeurs ne correspondent plus au plan gratuit actuel.

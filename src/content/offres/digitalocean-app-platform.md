@@ -38,9 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 870
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DigitalOcean App Platform est une bonne porte d’entrée si l’on veut héberger un frontend statique dans le même écosystème que ses futures ressources cloud. Le Free couvre trois applications, avec Git, HTTPS, CDN et domaines personnalisés, ce qui suffit pour plusieurs sites vitrines ou documentations. Le passage vers des composants dynamiques peut ensuite se faire sans changer de plateforme. La limite importante est que ce palier gratuit est strictement statique et que le trafic sortant au-delà de l’allocation peut entraîner une facturation.

@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 558
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Localizely permet de gérer les chaînes d’applications web ou mobiles avec un éditeur partagé et des outils de traduction machine, sans imposer de coût par utilisateur ou par langue sur son Free. Le plan gratuit général comprend 250 clés et un projet avec utilisateurs et langues illimités, sans carte bancaire. Les projets open source éligibles peuvent en plus demander une offre gratuite dédiée, tandis que l’API et certaines fonctions avancées restent payantes sur le plan standard.

@@ -25,12 +25,15 @@ initiales: TC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 479
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : fetch failed."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 TestTLS.com est référencé avec les limites gratuites vérifiées le 2026-08-19.

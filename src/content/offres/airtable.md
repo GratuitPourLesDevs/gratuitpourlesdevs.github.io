@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 922
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Airtable mélange l’ergonomie d’un tableur avec des relations, des vues et une API utilisables comme petite couche de données collaborative. Le plan Free reste pratique pour des prototypes, catalogues internes et outils simples, mais sa limite actuelle de 1 000 enregistrements par base est plus basse que l’ancienne valeur souvent citée.

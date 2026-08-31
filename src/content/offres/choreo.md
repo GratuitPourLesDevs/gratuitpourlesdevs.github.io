@@ -36,12 +36,15 @@ initiales: WS
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 819
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : HTTP 403."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 WSO2 Developer Platform, anciennement Choreo, est pertinent lorsqu’une petite équipe veut réunir au même endroit le développement, le déploiement et l’exploitation d’APIs, de microservices ou d’intégrations. Le plan Developer permet de créer jusqu’à cinq composants, avec des projets illimités et deux développeurs, tandis que 100 $ de crédits Data Plane mensuels absorbent une partie du coût des ressources consommées. Le point important est que « cinq composants gratuits » ne signifie pas compute illimité : CPU, mémoire, stockage et réseau débitent ces crédits et peuvent ensuite générer des frais. Ce plan est donc particulièrement adapté aux POC et aux workloads légers dont la consommation reste prévisible.

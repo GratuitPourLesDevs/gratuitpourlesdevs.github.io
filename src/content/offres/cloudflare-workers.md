@@ -18,8 +18,8 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 2
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 historique:
   - date: 2026-08-14
@@ -43,6 +43,9 @@ historique:
         avant: Pages Functions mentionnées sans précision
         apres: Requêtes gratuites et illimitées, 20 000 fichiers par version
     source: https://developers.cloudflare.com/workers/platform/limits/
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudflare Workers exécute du code serverless au plus près des utilisateurs sur le réseau mondial de Cloudflare. Le plan gratuit convient aux API, middlewares, fonctions web et petits traitements à l’edge. Il couvre également Pages Functions et donne accès, avec leurs propres quotas, à plusieurs services de données de la plateforme.

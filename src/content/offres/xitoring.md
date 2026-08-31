@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 632
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Xitoring couvre la disponibilité de services, le monitoring de serveurs Linux/Windows et la publication d’une page de statut. L’ancienne formule générale à vingt uptime monitors et cinq serveurs n’est plus visible dans la grille standard, désormais payante ; des programmes gratuits spéciaux subsistent pour certains profils, ce qui justifie de conserver la fiche en vérification plutôt que de l’archiver complètement.

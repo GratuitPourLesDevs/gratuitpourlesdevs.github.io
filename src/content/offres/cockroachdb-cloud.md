@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 925
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CockroachDB Cloud fournit une base SQL distribuée conçue pour la résilience et la montée en charge. Le plan Basic utilise des Request Units et du stockage à la demande, avec une allocation mensuelle gratuite suffisamment élevée pour de petits services ou des environnements de développement, mais la consommation supplémentaire devient payante.

@@ -29,12 +29,15 @@ initiales: "FC"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1132
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ForgeCode agit comme un pair programmer depuis le terminal et peut aussi s’appuyer sur des fournisseurs externes. Le free tier hébergé est permanent, mais son volume n’est pas fixe, ce qui doit être pris en compte pour un usage quotidien.

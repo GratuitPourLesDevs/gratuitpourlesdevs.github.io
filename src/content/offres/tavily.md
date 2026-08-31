@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 240
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tavily fournit une couche de recherche web directement exploitable par des agents IA et des pipelines RAG. Son système de crédits permet de prototyper une recherche augmentée réelle, en gardant à l’esprit qu’une recherche Advanced consomme davantage qu’une recherche Basic.

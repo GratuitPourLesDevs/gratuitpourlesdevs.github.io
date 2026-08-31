@@ -27,12 +27,15 @@ initiales: "IN"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1188
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Inspectlet devient utile lorsqu’une équipe veut passer d’un constat — « cette page convertit mal » — à l’observation concrète des gestes qui expliquent le problème. Les replays et heatmaps permettent de repérer des clics inutiles, des zones ignorées ou des parcours qui tournent en rond, et le support de plusieurs sites est pratique pour tester différents projets. Le plan Free est intéressant pour cette phase d’analyse, avec une réserve importante : la communication officielle affiche actuellement des quotas contradictoires, d’où le choix volontairement conservateur de 2 500 replays mensuels dans ce catalogue.

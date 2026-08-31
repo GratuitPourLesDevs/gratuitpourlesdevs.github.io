@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 963
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ZeroTier crée un réseau virtuel chiffré entre machines distribuées et peut remplacer un VPN classique pour des usages personnels, homelabs ou petits environnements distants. Les clients se comportent comme s’ils partageaient un réseau commun tout en communiquant à travers internet. Depuis la nouvelle tarification, le plan Personal reste gratuit à vie mais est limité à dix appareils et un seul réseau.

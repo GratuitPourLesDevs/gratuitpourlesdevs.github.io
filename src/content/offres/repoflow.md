@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 267
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 RepoFlow fournit un registre multi-format suffisamment généreux pour des projets personnels et de petites chaînes CI/CD. Le fait de compter les packages uniques plutôt que chaque version permet de publier plusieurs releases sans consommer rapidement le plafond de 100 packages.

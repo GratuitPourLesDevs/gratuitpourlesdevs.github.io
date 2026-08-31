@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 932
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 MemCachier fournit Memcached sous forme de service, ce qui permet d’ajouter rapidement une couche de cache à une application. Les 25 Mo gratuits sont modestes mais suffisants pour valider une intégration, accélérer un petit prototype ou apprendre les stratégies de cache sans gérer Memcached soi-même.

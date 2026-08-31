@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 259
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zipcodebase fournit une base postale mondiale simple à intégrer. Son quota technique est intéressant, mais sa restriction d’usage privé exclut directement les applications commerciales sur le plan gratuit.

@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1007
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Teamwork Free fournit les vues et fonctions essentielles pour piloter quelques projets avec une petite équipe. Le nombre de projets a augmenté par rapport aux anciennes descriptions du free tier.

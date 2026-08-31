@@ -50,9 +50,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 67
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Meeting permet d’organiser gratuitement des réunions vidéo et des webinars directement depuis un navigateur. Son plan gratuit actuel est nettement plus généreux que l’ancienne formule : il accepte jusqu’à 100 participants par session, aussi bien pour les réunions que pour les webinars proposés dans Zoho Meeting, avec une limite de 60 minutes. Le partage d’écran, la webcam, la VoIP, le tchat, le tableau blanc et les fonctions essentielles de planification sont inclus, ce qui en fait une solution crédible pour les réunions d’équipe, démonstrations et présentations courtes sans abonnement.

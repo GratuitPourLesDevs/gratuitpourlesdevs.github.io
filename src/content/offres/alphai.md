@@ -44,9 +44,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 93
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 alphai fournit un flux de news financières déjà enrichi pour éviter de refaire toute la chaîne d’analyse côté application. Les articles sont reliés aux tickers, scorés et accompagnés d’une analyse d’impact ; les dépôts SEC Form 4 sont aussi transformés en événements structurés. Le quota gratuit convient surtout à un prototype ciblé plutôt qu’à l’ingestion exhaustive du flux.

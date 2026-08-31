@@ -29,12 +29,15 @@ initiales: "GV"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1133
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 GetVM est adapté aux essais ponctuels qui ont besoin d’un vrai environnement Linux mais pas d’un serveur durable. La limite de cinq VM par jour est claire, tout comme les compromis : aucune persistance et aucun accès réseau sortant.

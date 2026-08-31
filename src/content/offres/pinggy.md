@@ -35,12 +35,15 @@ initiales: PI
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 955
-verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : fetch failed."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Pinggy expose un service local en une commande SSH et évite d’installer un agent dédié sur les systèmes où OpenSSH est déjà disponible. Il prend en charge plusieurs protocoles et fournit aussi des outils pratiques pour inspecter les requêtes lors des tests de webhooks. La contrepartie du plan gratuit est une durée maximale de soixante minutes par session et une URL qui change à chaque reconnexion.

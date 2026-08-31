@@ -37,12 +37,15 @@ initiales: ST
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 939
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "La source tarifaire a disparu (HTTP 404) ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 SeaTable reprend l’interface familière d’un tableur tout en ajoutant relations, automatisations, scripts et API. Avec 10 000 lignes et jusqu’à 25 utilisateurs sur Free, il peut couvrir des outils internes et bases collaboratives plus conséquents que ne le laissait penser l’ancienne limite de 2 000 lignes.

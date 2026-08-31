@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 631
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Wachete surveille le contenu de pages web et signale leurs changements, par exemple pour suivre une disponibilité, une publication ou une information qui évolue. Une formule gratuite est historiquement connue, mais les limites de cinq pages et d’un contrôle quotidien ne sont pas assez clairement confirmées par la documentation actuelle ; la fiche reste donc à vérifier plutôt que de figer des chiffres datés.

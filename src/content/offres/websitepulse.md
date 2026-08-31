@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 443
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 WebSitePulse regroupe plusieurs petits outils utiles pour diagnostiquer rapidement DNS, ports, disponibilité, e-mails ou chargement d’une page. La gratuité porte sur ces contrôles ponctuels plutôt que sur une supervision permanente.

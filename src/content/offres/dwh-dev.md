@@ -21,12 +21,15 @@ initiales: "DWH"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1164
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DWH.DEV apporte de la lisibilité à un entrepôt de données qui commence à devenir difficile à comprendre : tables, objets, documentation et signaux d’observabilité sont regroupés dans une interface destinée aux équipes data. C’est utile pour éviter que la connaissance du warehouse reste uniquement dans la tête de quelques personnes ou dans des documents séparés. Le plan Start convient surtout à un petit environnement ou à une phase d’évaluation, avec un seul projet et un nombre d’objets limité.

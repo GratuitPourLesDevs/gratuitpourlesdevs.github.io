@@ -24,12 +24,15 @@ initiales: "SS"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1084
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Shadcn Studio est utile pour définir rapidement une identité visuelle cohérente autour de shadcn/ui et récupérer des blocs prêts à intégrer sans reconstruire chaque variation de composant. Le générateur de thèmes et les ressources gratuites accélèrent surtout le démarrage d’un front React tout en laissant le code dans le projet du développeur.

@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 335
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Twist privilégie les discussions structurées et asynchrones plutôt que le flux permanent d’un chat classique. Le Free Tier peut convenir à une grande communauté, mais l’historique d’un mois est sa principale limite.

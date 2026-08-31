@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 387
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 SonarCloud a évolué vers SonarQube Cloud. Le nouveau Free Tier accepte désormais de petits projets privés en plus des projets publics, avec un plafond de 50 000 lignes.

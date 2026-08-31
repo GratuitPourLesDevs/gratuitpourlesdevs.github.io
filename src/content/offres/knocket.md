@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 297
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Knocket combine un widget de chat, une page de contact et une boîte de réception qui peut être pilotée depuis Telegram. Son intérêt est de réduire le nombre d’outils nécessaires pour rester joignable depuis un site ou une application.

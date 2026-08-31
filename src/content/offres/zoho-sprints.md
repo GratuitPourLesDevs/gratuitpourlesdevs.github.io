@@ -48,9 +48,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 62
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Sprints est un outil de gestion de projet Agile conçu pour organiser un backlog, planifier des sprints et suivre le travail d’une petite équipe avec des tableaux Scrum ou Kanban. Son plan gratuit permanent suffit pour tester une organisation Agile ou gérer quelques petits projets, avec des éléments de travail et des cycles de sprint illimités, mais des limites claires sur le nombre d’utilisateurs, de projets et certaines fonctions avancées.

@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 659
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 anon.li Alias permet de séparer son identité réelle des adresses communiquées aux sites et services, tout en conservant le transfert et la possibilité de répondre. Son plan gratuit couvre 10 alias, dont un personnalisé, le chiffrement PGP et 500 appels API par mois ; un CLI complète l’approche développeur. C’est un niveau gratuit assez complet pour un usage personnel ou des automatisations légères, avec comme principale limite l’absence de domaine personnalisé.

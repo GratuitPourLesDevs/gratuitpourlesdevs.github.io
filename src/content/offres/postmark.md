@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 704
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Postmark est un service transactionnel reconnu pour sa focalisation sur la délivrabilité et la séparation claire des flux applicatifs. Son plan Developer gratuit est permanent mais très petit : 100 e-mails par mois via API ou SMTP, avec possibilité d’utiliser ses domaines d’envoi. C’est surtout un niveau destiné à développer, tester et valider l’intégration plutôt qu’à faire fonctionner une application active. Une fois les 100 messages consommés, le Free ne bascule pas en dépassement automatique : il faut changer de plan.

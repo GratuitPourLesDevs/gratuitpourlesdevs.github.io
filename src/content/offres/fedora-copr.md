@@ -31,12 +31,15 @@ initiales: "COPR"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1116
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Fedora Copr est une excellente solution pour automatiser la construction de RPM sans exploiter soi-même des workers Mock. Un projet peut cibler plusieurs chroots Fedora ou EPEL et publier directement les résultats sous forme de dépôts installables par DNF/YUM. Il faut toutefois garder à l’esprit que le service est public, mutualisé et soumis aux règles de licence de Fedora.

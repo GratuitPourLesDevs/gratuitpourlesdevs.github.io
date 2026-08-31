@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 618
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Runframe organise l’astreinte et le traitement des incidents tout en permettant de communiquer l’état du service via une page de statut. Le plan gratuit couvre une petite équipe de cinq personnes avec un planning on-call et une page de statut, ce qui suffit pour structurer une rotation et un processus d’incident sans investir immédiatement dans une plateforme plus lourde.

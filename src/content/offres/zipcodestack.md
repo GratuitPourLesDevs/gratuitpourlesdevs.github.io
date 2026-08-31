@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 261
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zipcodestack reste exploitable gratuitement pour des tests de validation postale, mais son quota a été très fortement réduit par rapport aux anciennes offres Free souvent référencées.

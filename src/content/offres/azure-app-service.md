@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 30
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure App Service déploie des sites et API sans administrer directement les serveurs, avec intégration aux outils de développement et aux autres services Azure. Le plan F1 convient aux démonstrations, ateliers et petits prototypes intermittents ; ses ressources partagées, ses quotas CPU et réseau et l’absence de domaine personnalisé le rendent inadapté à une application de production. Lorsqu’un quota CPU ou bande passante est atteint, l’application est arrêtée jusqu’à sa réinitialisation et répond temporairement avec une erreur HTTP 403.

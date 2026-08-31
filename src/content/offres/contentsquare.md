@@ -29,12 +29,15 @@ initiales: "CSQ"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1173
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Contentsquare Free devient très utile lorsqu’un simple compteur de visites ne suffit plus à expliquer pourquoi des utilisateurs abandonnent une page ou un tunnel. Replays, heatmaps, funnels, enquêtes et monitoring technique permettent de croiser comportement réel et problèmes d’expérience dans un même outil, ce qui évite d’assembler plusieurs services. L’offre est particulièrement généreuse pour un projet unique ; la principale contrainte arrive donc moins par le volume que par le fait de ne pouvoir suivre qu’un seul projet gratuitement.

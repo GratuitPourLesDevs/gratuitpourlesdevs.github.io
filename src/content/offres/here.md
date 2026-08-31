@@ -34,12 +34,15 @@ initiales: "HE"
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1104
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 HERE reste accessible avec des seuils gratuits, mais son modèle actuel est très différent de l’ancien Limited Plan souvent repris dans les listes historiques. Pour un nouveau compte, le Base Plan exige un moyen de paiement et fonctionne en pay-as-you-grow : il faut donc suivre précisément les compteurs du service utilisé.

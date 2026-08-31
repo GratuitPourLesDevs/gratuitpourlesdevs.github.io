@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 372
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Coveralls visualise l’évolution de la couverture et aide à repérer les zones non testées. L’utilisation des dépôts publics reste gratuite.

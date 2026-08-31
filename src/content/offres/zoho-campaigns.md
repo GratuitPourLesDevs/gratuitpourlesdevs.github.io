@@ -40,9 +40,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 75
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Campaigns permet de gérer gratuitement une petite base marketing et d’envoyer des newsletters régulières sans abonnement. Le quota de 2 000 contacts et 6 000 e-mails mensuels est suffisant pour un projet, une communauté ou un petit produit en phase de lancement. Les campagnes simples et la gestion des abonnés sont couvertes, tandis que les scénarios d’automatisation et de segmentation les plus avancés demandent une formule payante.

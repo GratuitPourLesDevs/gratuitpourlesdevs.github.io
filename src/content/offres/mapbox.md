@@ -30,12 +30,15 @@ initiales: "MB"
 carteRequise: true
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1109
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Mapbox propose plusieurs free tiers très généreux, mais il ne faut pas les résumer à un quota unique : carte web, SDK mobile, images statiques et géocodage disposent de compteurs différents. Comme le compte fonctionne en pay-as-you-go avec un moyen de paiement, le suivi des usages est indispensable.

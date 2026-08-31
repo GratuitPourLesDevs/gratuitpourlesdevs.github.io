@@ -24,12 +24,15 @@ initiales: "UMA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1185
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Umami est une bonne option pour les projets qui veulent des statistiques web simples et respectueuses de la vie privée sans s’enfermer dans un seul mode d’hébergement. On peut commencer avec le plan Hobby géré par l’éditeur puis, si le contrôle des données ou de l’infrastructure devient prioritaire, exploiter la version open source soi-même. Cette double voie est son principal intérêt ; côté cloud, il faut simplement accepter que la documentation actuelle ne publie pas un quota mensuel Hobby aussi explicite que chez certains concurrents.

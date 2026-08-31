@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 203
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Market Data propose une API financière exploitable gratuitement pour des side projects, backtests courts et prototypes. La contrepartie principale est l’absence de prix temps réel sur le Free Forever.

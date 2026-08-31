@@ -27,12 +27,15 @@ initiales: "UX"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1192
 verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 UXtweak complète bien les analytics parce qu’il permet d’observer et de tester directement une expérience avec de vraies personnes, y compris avant qu’un produit soit totalement développé. Une petite équipe peut valider un prototype, une navigation ou un parcours et découvrir des incompréhensions qui ne seraient pas visibles dans des statistiques de trafic. Le plan gratuit est surtout fait pour des études ponctuelles : 15 réponses par mois, une seule étude active et seulement 14 jours pour consulter les résultats imposent d’organiser ses tests et d’exporter rapidement ce qui doit être conservé.

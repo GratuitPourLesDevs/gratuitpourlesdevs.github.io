@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 46
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Kubernetes Service fournit un plan de contrôle Kubernetes administré par Microsoft. Le niveau Free supprime le coût de gestion du cluster et donne accès aux fonctionnalités AKS courantes pour apprendre, prototyper ou tester une infrastructure conteneurisée. Il ne rend toutefois pas le cluster entièrement gratuit : les nœuds de calcul, disques, adresses IP, équilibreurs et flux réseau consommés suivent leur propre tarification Azure.

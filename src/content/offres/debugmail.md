@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 670
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DebugMail sert de destination de test pour les e-mails générés par une application afin que les développeurs puissent inspecter le sujet, le HTML, les headers et le contenu sans envoyer de messages à de vraies personnes. C’est exactement le type d’outil utile en développement et en QA pour éviter les envois accidentels. Le service est historiquement référencé comme gratuit, mais les conditions actuelles ne sont pas assez clairement exposées ; la fiche reste donc disponible avec un statut « à vérifier ».

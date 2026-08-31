@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 634
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Bonsai permet de lancer un cluster Elasticsearch ou OpenSearch sans administrer soi-même l’infrastructure, les mises à jour, la sécurité ou la disponibilité. Le service confirme toujours un Sandbox gratuit permanent : même ce cluster gratuit repose sur trois nœuds répartis entre plusieurs zones de disponibilité et inclut les mécanismes de connexion sécurisée nécessaires pour expérimenter rapidement. En revanche, la documentation 2026 ne publie plus assez clairement les anciens chiffres de 1 Go de mémoire et 1 Go de stockage cités par certains référentiels ; la fiche conserve donc la gratuité confirmée sans transformer ces anciennes valeurs en quotas actuels.

@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 865
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Alwaysdata est particulièrement pratique pour héberger un petit projet web qui a besoin de davantage qu’un simple site statique : runtime serveur, base de données, SSH et même e-mail sont réunis dans le même compte. Le gigaoctet gratuit suffit à de nombreux prototypes, sites personnels et petits outils, tout en laissant tester plusieurs technologies sans changer d’hébergeur. L’accès SSH en fait aussi une offre plus souple que beaucoup de plans gratuits purement visuels. En contrepartie, les ressources CPU/RAM restent modestes et un site Free ne peut plus utiliser son propre nom de domaine.

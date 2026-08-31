@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 825
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Encore est utile aux équipes TypeScript ou Go qui veulent décrire leur backend et son infrastructure directement dans le code, puis laisser la plateforme générer une grande partie du déploiement, du CI/CD et de l’observabilité. Le plan gratuit fournit deux environnements de développement, un million d’événements de tracing par mois et sept jours de rétention, ce qui permet de construire et diagnostiquer un backend ou des microservices sans assembler plusieurs outils. Le Free reste toutefois orienté développement : les domaines personnalisés, les preview environments par pull request et le déploiement automatisé dans son propre AWS ou GCP sont réservés aux offres supérieures. Encore est donc surtout intéressant pour accélérer fortement la phase de conception et de test d’un backend moderne.

@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 359
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Appinvento permet de générer rapidement un backend sans écrire toute l’infrastructure à la main. Son plan gratuit est surtout intéressant pour prototyper plusieurs petites API, avec une vraie liberté sur le nombre de routes, mais des limites nettes sur le schéma de données et le versionnement.

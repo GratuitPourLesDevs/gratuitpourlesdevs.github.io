@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 139
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Country-State-City Microservice API expose des données géographiques structurées sur les pays, subdivisions, villes et codes postaux. Le quota annoncé de 100 requêtes quotidiennes paraît toujours référencé récemment, mais la source officielle n’a pas pu être chargée au moment de la vérification : la fiche reste donc volontairement à revérifier.

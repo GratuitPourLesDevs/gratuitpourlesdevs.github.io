@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 481
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 360username permet de vérifier rapidement si un même pseudo est utilisé sur de nombreux réseaux et services. Le service reste entièrement gratuit et sans création de compte.

@@ -30,12 +30,15 @@ initiales: "SM"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1114
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Stadia Maps est aujourd’hui aussi le point d’accès officiel aux styles historiques Stamen. Son free tier repose sur 200 000 crédits mensuels et bloque par défaut lorsque le pool est consommé, ce qui évite les mauvaises surprises de facturation. En contrepartie, la production commerciale nécessite une offre payante.

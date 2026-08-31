@@ -24,12 +24,15 @@ initiales: "VAT"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1208
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 vatlayer devient utile dès qu’une application facture des clients européens et doit vérifier un numéro de TVA intracommunautaire ou appliquer le bon taux selon le contexte. Plutôt que de maintenir manuellement des règles fiscales et des listes de taux, le backend peut interroger l’API au moment de l’inscription, de la facturation ou d’un contrôle B2B. Avec 100 appels gratuits par mois, le service convient surtout à un prototype, un petit SaaS ou une phase de développement avant d’atteindre un volume de facturation plus important.

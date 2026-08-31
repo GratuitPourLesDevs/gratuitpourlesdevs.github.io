@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 569
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 elmah.io centralise les exceptions et messages de log des applications, avec un positionnement historiquement très fort sur .NET. Pour les projets open source acceptés, l’éditeur offre son abonnement Small Business : 10 000 messages par mois, 3 utilisateurs, un nombre illimité d’applications et 30 jours de rétention. C’est donc une vraie formule exploitable, mais elle nécessite une demande et n’est pas ouverte gratuitement aux projets privés ordinaires.

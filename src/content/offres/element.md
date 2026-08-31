@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 281
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Element fournit une alternative ouverte aux messageries propriétaires grâce au protocole Matrix. Son principal intérêt est de pouvoir choisir son serveur, fédérer plusieurs organisations et conserver une option d’auto-hébergement.

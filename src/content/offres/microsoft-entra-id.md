@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 33
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Microsoft Entra ID Free est le nouveau nom d’Azure Active Directory Free. Il fournit les fonctions essentielles de gestion des identités pour les applications Microsoft et SaaS, sans confondre son plafond de ressources d’annuaire avec un nombre d’utilisateurs. La formule est incluse dans les abonnements cloud Microsoft compatibles ; les fonctions avancées de sécurité et de gouvernance restent réservées aux licences P1, P2 ou Governance.

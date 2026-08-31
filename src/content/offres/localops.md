@@ -40,9 +40,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 402
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 LocalOps se place entre une PaaS et votre propre infrastructure cloud : l’outil standardise les environnements et le déploiement tout en laissant les ressources dans votre compte. Son nouveau Free Tier est bien plus généreux que l’ancienne limite à un utilisateur et un environnement.

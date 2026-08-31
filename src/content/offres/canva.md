@@ -26,12 +26,15 @@ initiales: "CA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1071
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Canva est utile pour produire rapidement des visuels, présentations ou contenus marketing sans ouvrir une chaîne d’outils graphiques spécialisés. Pour un développeur ou une petite équipe, il simplifie notamment la création d’assets, de captures annotées, de supports de lancement et de contenus sociaux avec des modèles immédiatement réutilisables.

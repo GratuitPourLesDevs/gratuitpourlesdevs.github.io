@@ -25,9 +25,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 999
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Pulse.red se concentre sur le suivi du temps sans surcharge fonctionnelle. Il convient aux développeurs et petites équipes qui veulent simplement enregistrer et consulter le temps passé par projet.

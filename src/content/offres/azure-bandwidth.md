@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 40
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Bandwidth couvre les transferts de données vers et depuis les centres de données Azure. Microsoft accorde actuellement les 100 premiers Go de trafic Internet sortant chaque mois, quelle que soit la région Azure, tandis que le trafic entrant reste gratuit. Les échanges entre régions, ainsi que certains chemins passant par CDN, ExpressRoute ou Peering, suivent des grilles tarifaires distinctes.

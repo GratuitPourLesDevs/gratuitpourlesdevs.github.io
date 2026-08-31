@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 894
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 deSEC est une option très solide pour héberger les zones DNS d’un projet tout en donnant la priorité à la sécurité et à l’automatisation. DNSSEC est appliqué systématiquement et l’API REST, les bindings ainsi que les intégrations Terraform permettent de gérer les enregistrements dans un workflow d’infrastructure. Le service est porté par une organisation à but non lucratif et ne réserve pas ses fonctions de sécurité à un abonnement payant. Comme il fonctionne sur un modèle communautaire et de fair use, il faut néanmoins éviter les mises à jour abusivement fréquentes ou les charges atypiques.

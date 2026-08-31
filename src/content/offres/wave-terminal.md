@@ -24,12 +24,15 @@ initiales: "WV"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1154
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Wave Terminal enrichit le terminal classique avec des blocs visuels capables d’afficher du web, des fichiers et des outils interactifs. Le cœur local est libre et fonctionne sans compte, ce qui en fait une alternative moderne aux terminaux propriétaires.

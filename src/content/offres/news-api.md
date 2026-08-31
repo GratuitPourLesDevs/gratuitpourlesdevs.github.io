@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 213
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 News API fournit un accès JSON simple à l’actualité pour prototyper des agrégateurs, tableaux de bord ou expériences de recherche. Son plan gratuit ne doit toutefois pas être utilisé pour un service de production publié.

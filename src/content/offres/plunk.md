@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 703
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Plunk réunit e-mails transactionnels, broadcasts et workflows dans un service orienté développeurs, avec domaines personnalisés et contacts illimités. Le Free Tier actuel est de 1 000 e-mails par mois et non plus 3 000 comme l’indiquent certaines listes historiques. Ce volume suffit à un side project ou à de petites notifications applicatives, tout en donnant accès aux fonctions essentielles. Le niveau gratuit conserve toutefois le branding Plunk et devient vite limité dès que l’application génère plusieurs dizaines de messages par jour.

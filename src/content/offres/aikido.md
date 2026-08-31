@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 445
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Aikido regroupe plusieurs contrôles AppSec dans une seule interface et conserve un Free Tier permanent réellement exploitable pour de petits projets.

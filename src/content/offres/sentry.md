@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 578
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Sentry est devenu une plateforme d’observabilité complète autour du diagnostic applicatif : erreurs, traces, logs, métriques, session replay et monitors sont reliés dans la même interface. Son plan Developer reste gratuit pour un utilisateur et couvre déjà 5 000 erreurs, 5 Go de logs, 5 Go de métriques, 5 millions de spans et 50 replays, avec 30 jours de lookback. C’est une base solide pour un projet individuel ; la collaboration, certaines intégrations et plusieurs fonctions avancées nécessitent ensuite Team ou du pay-as-you-go.

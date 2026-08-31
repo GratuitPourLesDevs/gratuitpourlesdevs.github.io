@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 250
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 WeatherXu offre un quota généreux pour expérimenter avec des données météo. Sa principale contrainte n’est pas technique mais juridique : le plan gratuit ne convient pas à une application commerciale.

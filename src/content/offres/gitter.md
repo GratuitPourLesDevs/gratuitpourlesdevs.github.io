@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 291
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Gitter reste une porte d’entrée pratique vers les communautés de développeurs, tout en reposant désormais sur Matrix. Les anciennes limitations de son offre historique ne doivent donc plus être utilisées comme référence.

@@ -29,12 +29,15 @@ initiales: "PS"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1113
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Positionstack propose toujours un plan gratuit, mais son quota a fortement diminué par rapport aux anciennes listes qui mentionnaient 25 000 requêtes mensuelles. Avec 100 appels et une licence personnelle, il convient surtout à une démonstration ou un petit outil individuel.

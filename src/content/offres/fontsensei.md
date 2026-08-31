@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 742
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Font Sensei ajoute une couche de découverte au catalogue Google Fonts. Au lieu de chercher uniquement par nom ou grande famille typographique, on peut parcourir des tags visuels et linguistiques, y compris des catégories spécifiques aux écritures chinoises, japonaises et coréennes.

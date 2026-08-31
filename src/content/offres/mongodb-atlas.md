@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 933
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 MongoDB Atlas est la déclinaison managée de MongoDB sur les principaux clouds. Le cluster M0 gratuit fournit un environnement durable et simple à provisionner pour le développement et les petites applications, avec des ressources partagées et 512 Mo de stockage.

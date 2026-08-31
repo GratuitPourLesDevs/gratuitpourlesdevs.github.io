@@ -25,9 +25,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1009
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tenzu se présente comme une alternative légère pour équipes agiles, financée par contributions volontaires. Faute d’accès automatisé à la page tarifaire officielle, la fiche reste volontairement marquée à vérifier.

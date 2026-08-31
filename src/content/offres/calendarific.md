@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 130
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Calendarific fournit une API de calendriers de jours fériés internationaux. Son plan gratuit convient à un prototype, un calendrier interne ou une petite application, à condition d’accepter l’attribution obligatoire et des données historiques et futures plus limitées que sur les offres payantes.

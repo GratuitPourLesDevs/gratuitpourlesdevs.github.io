@@ -40,9 +40,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 351
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Hygraph est intéressant lorsqu’on veut partir directement sur une architecture GraphQL avec édition collaborative. Son Free Tier est généreux en stockage d’assets, tout en gardant des limites nettes sur les entrées, les appels API et le trafic.

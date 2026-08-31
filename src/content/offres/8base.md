@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 921
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 8base combine une base de données managée, une API GraphQL générée automatiquement et des fonctions serverless dans un environnement orienté JavaScript. Le plan gratuit suffit pour prototyper un backend complet ou une petite application, avec des quotas distincts sur les lignes, les fichiers, le calcul et les appels GraphQL.

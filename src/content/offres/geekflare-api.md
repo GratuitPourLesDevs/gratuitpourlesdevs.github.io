@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 235
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Geekflare API regroupe plusieurs besoins techniques courants derrière une seule clé : scraping, screenshots, DNS, TLS et performance. Le système de crédits rend le quota plus ou moins généreux selon le type d’appel utilisé.

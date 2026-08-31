@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 517
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Miradore reste un Free Tier solide pour les petites flottes, mais l’ancienne promesse d’appareils illimités est obsolète.

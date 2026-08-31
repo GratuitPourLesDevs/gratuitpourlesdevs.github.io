@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 298
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Linkinize transforme une simple collection de favoris en base de liens partagée. Les workspaces et tags conviennent bien aux équipes qui veulent centraliser documentation, ressources techniques et veille.

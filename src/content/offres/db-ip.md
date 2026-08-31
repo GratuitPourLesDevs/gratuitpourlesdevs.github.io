@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 151
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DB-IP combine une petite API gratuite et des bases de géolocalisation Lite téléchargeables. Le quota API a baissé par rapport aux anciennes listes de free tiers : la page officielle affiche aujourd’hui 500 requêtes quotidiennes.

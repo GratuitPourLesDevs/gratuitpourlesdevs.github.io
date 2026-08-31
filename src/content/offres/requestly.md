@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 432
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Requestly est une boîte à outils de débogage HTTP : redirections, headers, mocks, API client et enregistrement de sessions. Son cœur local reste très généreux pour le développement quotidien.

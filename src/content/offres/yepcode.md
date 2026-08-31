@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 835
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 YepCode est utile pour automatiser des échanges entre APIs et services quand on préfère écrire quelques fonctions en code plutôt que construire un serveur ou utiliser un outil entièrement no-code. Les webhooks, tâches planifiées et workflows s’exécutent dans un environnement serverless, et le plan Developer offre 50 000 secondes d’exécution par mois avec un maximum de 300 lancements par jour. Ce volume convient à de nombreuses automatisations personnelles, synchronisations et traitements ponctuels. Les limites deviennent sensibles pour les workloads plus lourds : 30 secondes maximum par exécution, une seule exécution concurrente et blocage des nouveaux runs lorsque le quota est épuisé jusqu’au prochain reset ou à une montée en gamme.

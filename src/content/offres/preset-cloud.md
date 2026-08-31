@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 225
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Preset Cloud rend Apache Superset accessible sans installation ni maintenance. Il est particulièrement intéressant pour une petite équipe qui veut explorer des bases SQL et publier des dashboards sans déployer sa propre stack BI.

@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 373
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DeepScan recherche des erreurs d’exécution et problèmes de qualité dans les projets JavaScript et TypeScript. Le gratuit reste réservé aux projets publics.

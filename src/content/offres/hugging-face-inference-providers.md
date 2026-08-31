@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 176
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Hugging Face Inference Providers donne une API commune pour tester de nombreux modèles et fournisseurs sans gérer chaque intégration séparément. Le crédit gratuit actuel est toutefois surtout adapté à la découverte et à de très petits prototypes.

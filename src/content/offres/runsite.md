@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 832
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Runsite est intéressant parce qu’il permet de démarrer une petite application européenne avec presque toutes ses briques techniques dans le même Free Tier : service web, PostgreSQL, cache compatible Redis, stockage S3 et e-mail transactionnel. Avec 100 GB de trafic mensuel pour le web, 5 GB de stockage objet et 3 000 e-mails par mois, l’ensemble est suffisamment généreux pour un MVP ou un petit site dynamique qui aurait autrement besoin de plusieurs fournisseurs. Le web service gratuit peut être suspendu après 14 jours sans requête puis se réveille à la visite suivante. Il faut aussi surveiller le stockage S3 et l’e-mail, car leur dépassement est facturé à l’usage même si le service web reste gratuit.

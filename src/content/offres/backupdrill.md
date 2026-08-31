@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 924
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 BackupDrill vise un point souvent oublié des sauvegardes : vérifier qu’elles restaurent réellement. Le service exporte les données Supabase vers un bucket S3-compatible que vous contrôlez et peut inclure les fichiers Storage ; le plan gratuit couvre un projet avec une sauvegarde hebdomadaire et un premier test de restauration.

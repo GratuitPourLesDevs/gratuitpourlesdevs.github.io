@@ -29,9 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1010
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 TitanApps propose plusieurs extensions pour Jira et monday.com. La gratuité la plus clairement documentée concerne Smart Checklist Free pour Jira Cloud, avec des limites explicites sur les modèles et éléments.

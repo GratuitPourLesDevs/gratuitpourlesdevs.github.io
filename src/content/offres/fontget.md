@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 740
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 FontGet permet de parcourir et télécharger facilement des polices en les triant par catégories, tags et statut de licence. Pour un projet commercial, il faut toutefois distinguer le téléchargement gratuit du droit d’exploitation : certaines fontes nécessitent une licence obtenue auprès de leur auteur.

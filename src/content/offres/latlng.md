@@ -31,12 +31,15 @@ initiales: "LL"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1107
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 LatLng rassemble plusieurs besoins géographiques derrière une API simple et un quota quotidien généreux. C’est particulièrement intéressant pour un MVP combinant recherche d’adresses, cartes et POI, à condition de garder en tête que les différents endpoints puisent dans un même quota global.

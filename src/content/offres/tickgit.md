@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 391
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 tickgit fait remonter le travail latent directement depuis les commentaires TODO du code et exploite l’historique Git pour donner du contexte sur leur évolution. Le service hébergé reste gratuit pour les dépôts publics, tandis que le CLI open source permet aussi une utilisation locale.

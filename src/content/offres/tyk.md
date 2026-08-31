@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 853
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tyk reste utile gratuitement si l’on cherche avant tout un API Gateway à auto-héberger : l’édition open source couvre le routage, l’authentification et le rate limiting sans licence Cloud permanente. Cela permet d’intégrer une vraie couche de gouvernance API dans une architecture de développement ou un petit environnement maîtrisé. En revanche, il ne faut plus présenter Tyk Cloud comme un Free Tier durable : son accès gratuit est désormais un essai de seulement 48 heures. La gratuité à long terme suppose donc d’assumer l’hébergement et l’exploitation du gateway.

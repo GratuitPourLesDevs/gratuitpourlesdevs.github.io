@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 944
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Upstash transforme Redis en service serverless accessible par protocole Redis ou API REST. Le plan gratuit convient aux caches, sessions, rate limits et petits backends, avec des plafonds mensuels simples sur les commandes et la bande passante ainsi qu’une base limitée à 256 Mo.

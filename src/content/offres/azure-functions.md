@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 31
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Functions exécute du code à la demande en réponse à des appels HTTP, messages, minuteries ou événements provenant d’autres services Azure. Le double quota gratuit couvre le nombre d’exécutions et leur consommation mémoire multipliée par la durée : rester sous un million d’appels ne suffit donc pas si les fonctions sont longues ou fortement dimensionnées.

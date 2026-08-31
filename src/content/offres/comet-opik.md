@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 780
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Comet Opik — Plateforme open source de tracing et d’évaluation LLM avec une offre Cloud gratuite et une édition auto-hébergeable.

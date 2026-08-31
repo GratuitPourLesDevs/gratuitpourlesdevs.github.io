@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 964
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Acunote combine gestion Scrum, backlog, sprints et intégrations de développement. La formule gratuite reste destinée aux individus et petites équipes jusqu’à cinq personnes après l’essai initial.

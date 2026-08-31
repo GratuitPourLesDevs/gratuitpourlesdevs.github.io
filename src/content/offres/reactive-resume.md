@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 652
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Reactive Resume est une alternative intéressante aux générateurs de CV qui verrouillent l’export derrière un abonnement. Le projet est gratuit, open source sous licence MIT et peut être utilisé via le service hébergé ou installé sur sa propre infrastructure. Il permet de construire plusieurs CV, de choisir un modèle, d’exporter en PDF et de publier volontairement un lien partageable. Contrairement à la description historique fournie, je ne retiens pas l’export DOCX : la documentation actuelle confirme PDF, impression et partage, mais pas DOCX comme fonction standard.

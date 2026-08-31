@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 439
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Tesults reçoit les résultats de nombreux frameworks de test et les rend consultables par cible, build et campagne. Le Free est durable mais ses limites de targets et de cas par run le destinent aux petites équipes.

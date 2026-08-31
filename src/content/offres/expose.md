@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 947
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Expose permet de rendre une application locale accessible depuis internet sans modifier le routeur ni ouvrir de port entrant. Il est particulièrement pratique pour tester des webhooks, montrer rapidement une application à un tiers ou vérifier un développement depuis un autre appareil. La version managée gratuite s’appuie sur un serveur européen, tandis que le cœur du logiciel peut aussi être auto-hébergé.

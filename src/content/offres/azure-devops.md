@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 35
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure DevOps Services réunit Azure Repos, Pipelines, Boards et Artifacts dans une plateforme hébergée. La formule gratuite couvre une petite équipe de cinq utilisateurs Basic et permet de gérer le code, le travail agile et les déploiements sans abonnement payant tant que les quotas de calcul et de stockage restent respectés.

@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 41
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Azure Cosmos DB est une base de données NoSQL distribuée conçue pour les applications à faible latence et disponibles mondialement. Son Free Tier suffit pour développer, tester ou exploiter une petite charge de production avec 1 000 RU/s et 25 Go inclus. Les consommations dépassant ces plafonds ainsi que certaines ressources Azure associées restent facturables.

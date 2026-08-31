@@ -50,9 +50,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 66
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Connect est une plateforme de collaboration interne qui regroupe flux d’équipe, groupes, tâches, documentation et partage de fichiers. Son plan gratuit actuel permet à une petite équipe de cinq personnes de disposer de trois groupes, trois tableaux de tâches, trois manuels et 10 Go de stockage. Il reste pertinent pour centraliser les échanges et la documentation d’une petite équipe, mais plusieurs fonctions autrefois incluses gratuitement — notamment les canaux, événements, applications personnalisées et intégrations — sont désormais réservées aux formules supérieures.

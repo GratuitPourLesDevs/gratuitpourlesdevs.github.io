@@ -27,12 +27,15 @@ initiales: "BE"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1068
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Beste est utile pour publier rapidement un site professionnel sans devoir assembler soi-même un CMS, un hébergement et une bibliothèque de composants. Son plan gratuit est particulièrement intéressant pour un portfolio, une landing page ou un petit site multilingue, car il accepte un domaine personnalisé et ne bloque pas le nombre de pages.

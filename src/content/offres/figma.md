@@ -26,12 +26,15 @@ initiales: "FI"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1074
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Figma est utile pour concevoir une interface et la faire évoluer avec produit, design et développement dans le même espace plutôt que d’échanger des maquettes statiques. Le niveau gratuit suffit bien pour des prototypes personnels ou une très petite équipe, tout en permettant un nombre illimité de brouillons et de spectateurs.

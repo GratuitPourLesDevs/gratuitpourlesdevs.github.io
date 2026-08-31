@@ -40,9 +40,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 863
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 ToolJet est un bon compromis lorsqu’on veut construire rapidement une interface métier tout en gardant la possibilité de connecter beaucoup de sources externes. Cinquante utilisateurs finaux gratuits permettent de tester un outil auprès d’une équipe réelle, ce qui est plus généreux que nombre de concurrents. Le plafond est côté construction : deux builders et deux applications. Il convient donc très bien à un petit portefeuille d’outils internes, mais moins à une organisation qui veut multiplier les applications low-code.

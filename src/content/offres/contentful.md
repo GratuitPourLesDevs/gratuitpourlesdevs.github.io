@@ -38,12 +38,15 @@ initiales: CF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 347
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : HTTP 429."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (HTTP 429) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Contentful permet de découvrir un workflow headless complet et de tester une intégration API avec plusieurs éditeurs. En revanche, son plan Free actuel doit être considéré comme un environnement d’apprentissage et de validation, pas comme l’hébergement gratuit d’un projet commercial en production.

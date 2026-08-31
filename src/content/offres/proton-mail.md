@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 705
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Proton Mail fournit une boîte personnelle orientée confidentialité et chiffrement. Le compte gratuit démarre avec 500 Mo de stockage et une adresse e-mail pour un utilisateur. Il est possible de porter le stockage à 1 Go en complétant les étapes d’accueil prévues par Proton dans le délai indiqué. C’est donc légèrement différent d’un « 1 Go gratuit » immédiat. Le service convient très bien à une boîte personnelle sécurisée, tandis que domaines personnalisés et capacités avancées restent liés aux offres payantes.

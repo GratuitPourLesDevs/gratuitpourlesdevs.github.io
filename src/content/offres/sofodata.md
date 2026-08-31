@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 237
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Sofodata transforme rapidement un CSV en endpoint REST exploitable par un prototype ou une petite application. Cela évite de créer une base et un backend uniquement pour exposer un jeu de données tabulaire de petite taille.

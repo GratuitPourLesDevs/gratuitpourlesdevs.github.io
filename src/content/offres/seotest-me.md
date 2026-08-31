@@ -32,8 +32,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 433
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Vérification automatique incomplète : fetch failed."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 seotest.me est conservé dans le catalogue avec prudence : la proposition d’audit SEO gratuit est connue, mais le quota exact actuel n’a pas pu être recoupé directement sur le site officiel.

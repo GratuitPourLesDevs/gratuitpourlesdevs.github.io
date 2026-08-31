@@ -24,9 +24,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 197
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 JSONGrid rend les structures JSON complexes plus lisibles en les projetant dans une grille interactive. C’est un utilitaire pratique pour explorer et partager rapidement des données sans développer une interface spécifique.

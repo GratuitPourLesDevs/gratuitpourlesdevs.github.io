@@ -32,9 +32,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 326
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Teamcamp rassemble plusieurs besoins d’une petite équipe de développement dans le même outil : projets, tâches, temps et documents. Le plan gratuit est assez large pour un petit produit ou une équipe réduite.

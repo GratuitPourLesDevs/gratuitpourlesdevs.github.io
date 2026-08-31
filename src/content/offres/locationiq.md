@@ -30,12 +30,15 @@ initiales: "LQ"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1108
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 LocationIQ offre un quota quotidien généreux et combine géocodage, routage et rendu de cartes. Il est utilisable commercialement sur le plan gratuit, ce qui est appréciable, mais l’attribution imposée et la limite de débit doivent être intégrées dès la conception.

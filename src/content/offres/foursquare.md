@@ -30,12 +30,15 @@ initiales: "FS"
 carteRequise: false
 depassementFacture: true
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1097
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Foursquare Places API donne accès à une base mondiale de points d’intérêt pour rechercher des établissements, enrichir une adresse ou construire des expériences contextuelles. Le niveau gratuit est désormais beaucoup plus petit qu’auparavant : il faut surveiller les appels Pro et distinguer les endpoints Premium.

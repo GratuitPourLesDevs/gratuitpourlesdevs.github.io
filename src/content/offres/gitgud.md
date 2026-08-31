@@ -45,9 +45,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 84
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 GitGud propose une expérience proche d’une instance GitLab complète : dépôts privés, tickets, tableaux, Pages, pipelines et registre de conteneurs. Le service est particulièrement généreux sur le stockage lié au développement, mais ses conditions interdisent explicitement les détournements en stockage de masse ou en CDN. Le CI gratuit existe également, avec une activation manuelle afin de protéger les ressources partagées.

@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 855
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Appsmith est particulièrement utile pour construire des interfaces internes au-dessus de données déjà existantes : panneau d’administration, back-office, dashboard ou outil métier. Le plan gratuit permet de connecter des APIs et bases de données sans limiter le nombre d’applications, ce qui laisse beaucoup de liberté pour prototyper. Sa vraie contrainte côté Cloud est l’équipe de cinq utilisateurs ; pour un outil interne qui commence à être adopté largement, cette limite devient le premier déclencheur d’une montée en gamme.

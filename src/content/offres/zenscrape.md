@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 258
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zenscrape simplifie les appels de scraping en centralisant proxy et rendu navigateur. Les 1 000 appels gratuits sont adaptés au prototypage ou à une petite collecte périodique.

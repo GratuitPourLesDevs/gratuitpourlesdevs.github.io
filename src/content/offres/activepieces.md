@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 836
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Activepieces est intéressant quand on veut automatiser des processus applicatifs sans enfermer toute la logique dans un éditeur propriétaire. Le Cloud Free permet de construire des flows et des agents avec un quota de crédits renouvelé chaque jour, tandis que la Community Edition donne une vraie porte de sortie auto-hébergée sans limite de runs. C’est donc un bon choix pour prototyper des intégrations, traiter des webhooks ou orchestrer des tâches récurrentes. Il faut surtout surveiller le quota quotidien du Cloud : une fois épuisé, les exécutions suivantes sont bloquées jusqu’au renouvellement.

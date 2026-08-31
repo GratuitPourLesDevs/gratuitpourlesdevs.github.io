@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 606
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 New Relic permet d’instrumenter une application et son infrastructure pour rapprocher métriques, logs, traces et contrôles synthétiques dans une même plateforme. Son Free Tier est particulièrement généreux en volume avec 100 Go d’ingestion mensuelle et un utilisateur Full Platform ; la limite structurante est précisément ce volume, après lequel il faut réduire l’ingestion ou passer à une offre supérieure.

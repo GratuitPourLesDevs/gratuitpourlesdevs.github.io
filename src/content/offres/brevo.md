@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 663
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Brevo combine e-mail transactionnel, campagnes marketing, API, SMTP, webhooks et gestion de contacts dans une seule plateforme. Son plan gratuit reste particulièrement utilisable pour un petit projet avec 300 envois par jour, soit environ 9 000 sur un mois complet. Le point important est que la limite est quotidienne : on ne peut pas concentrer tout le volume mensuel sur une seule journée. C’est néanmoins un Free Tier solide pour notifications applicatives, prototypes et petites newsletters.

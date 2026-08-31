@@ -22,12 +22,15 @@ initiales: "CI"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1070
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Calendar Icons Generator est utile lorsqu’une application a besoin d’une icône différente pour chaque date de l’année, par exemple un calendrier, un widget ou un raccourci quotidien. Il automatise en un clic un travail répétitif de 365 exports tout en gardant une identité graphique cohérente.

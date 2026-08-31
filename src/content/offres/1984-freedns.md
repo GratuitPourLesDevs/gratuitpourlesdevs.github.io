@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 892
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 1984 FreeDNS est particulièrement intéressant pour déléguer le DNS autoritatif d’un domaine à un service indépendant sans acheter d’hébergement chez le même fournisseur. L’offre va nettement plus loin qu’un DNS minimal : Anycast, DNSSEC automatique, API, Dynamic DNS et fonctionnement en DNS secondaire sont disponibles gratuitement. L’absence de plafond annoncé sur les zones et les enregistrements la rend confortable pour des projets personnels ou plusieurs petits services. En revanche, FreeDNS reste un service gratuit sans garantie contractuelle : un domaine réellement critique peut nécessiter une stratégie de redondance ou un support commercial.

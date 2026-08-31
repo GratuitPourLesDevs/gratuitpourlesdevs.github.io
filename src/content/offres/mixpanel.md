@@ -22,12 +22,15 @@ initiales: "MP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1175
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Mixpanel est particulièrement utile pour répondre aux questions produit qui arrivent après les premières mises en production : quelles étapes convertissent, quelles fonctionnalités fidélisent, où les utilisateurs décrochent et quels comportements précèdent une rétention durable. Funnels, cohortes, rétention et session replay permettent d’explorer ces questions sans construire soi-même une couche analytique complète. Avec un million d’événements gratuits par mois, la contrainte arrive souvent plus tard que sur beaucoup de concurrents ; les besoins avancés de reporting et de segmentation finissent toutefois par pousser vers Growth.

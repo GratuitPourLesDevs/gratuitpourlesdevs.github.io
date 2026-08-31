@@ -30,12 +30,15 @@ initiales: "JB"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1135
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 JetBrains propose désormais plusieurs modèles gratuits plutôt qu’une seule licence communautaire uniforme. Il faut donc vérifier le produit : IntelliJ IDEA conserve un socle gratuit utilisable commercialement, tandis que plusieurs IDE professionnels complets sont gratuits uniquement hors usage commercial.

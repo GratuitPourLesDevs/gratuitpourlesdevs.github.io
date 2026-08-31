@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 162
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Earnings Feed expose les dépôts SEC avec une latence annoncée inférieure à une minute après leur acceptation. Le Free est surtout limité par son débit de 15 requêtes par minute plutôt que par un quota quotidien publié.

@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 972
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudcraft simplifie la représentation visuelle d’architectures cloud avec des composants AWS et Azure. Le niveau gratuit actuel vise un usage individuel et des diagrammes de taille limitée.

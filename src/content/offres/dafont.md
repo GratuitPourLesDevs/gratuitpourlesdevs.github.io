@@ -23,9 +23,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 736
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DaFont est surtout utile pour explorer rapidement un très grand choix de polices et tester leur rendu avant téléchargement. La fiche reste volontairement prudente sur les droits : une police disponible gratuitement sur le site peut être réservée à un usage personnel ou relever d’une autre licence.

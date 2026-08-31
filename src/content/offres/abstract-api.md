@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 92
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Abstract API regroupe de nombreuses API prêtes à intégrer pour enrichir, valider ou transformer des données sans maintenir soi-même les bases et services correspondants. Le gratuit est pratique pour prototyper, mais il faut vérifier le quota de l’API choisie et surtout tenir compte de l’interdiction d’usage commercial sur les plans Free.

@@ -28,12 +28,15 @@ initiales: "UP"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1086
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Unicorn Platform reste utile gratuitement pour composer et tester la structure d’une landing page ou d’un petit site de startup avant publication. En revanche, son ancien avantage d’un site publié gratuitement n’existe plus : le niveau Lurker sert aujourd’hui surtout d’environnement de conception, et la mise en ligne nécessite un abonnement.

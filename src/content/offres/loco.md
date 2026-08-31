@@ -31,9 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 559
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Loco est utile pour remplacer des fichiers de traduction dispersés par un espace central où développeurs et traducteurs gèrent les chaînes, les langues et les glossaires. Son plan gratuit est généreux pour de petits projets : 2 000 traductions, deux projets privés, dix langues par projet et traducteurs illimités. Il devient surtout limitant quand le nombre de langues, d’assets ou de traductions augmente.

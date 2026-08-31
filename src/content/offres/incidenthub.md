@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 596
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 IncidentHub centralise les informations publiées sur les pages de statut de services cloud et SaaS afin d’éviter de vérifier manuellement chaque fournisseur pendant un incident. Le plan gratuit actuel permet de suivre cinq services ; c’est plus limité que l’ancienne référence à vingt monitors, mais suffisant pour surveiller les dépendances externes les plus critiques d’un petit projet.

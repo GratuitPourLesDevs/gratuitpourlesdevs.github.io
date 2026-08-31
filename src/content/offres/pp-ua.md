@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 916
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 .PP.UA est l’une des rares options permettant d’obtenir gratuitement un véritable nom de domaine délégué, plutôt qu’un simple sous-domaine de service. Il peut utiliser ses propres nameservers et des glue records, ce qui laisse beaucoup plus de liberté pour tester un hébergement, une infrastructure DNS ou même un petit site public. L’inscription comme le renouvellement annuel sont à 0 ₴, avec une limite raisonnable de trois nouveaux noms sur trente jours. Il faut en revanche accepter l’activation par téléphone et surtout l’absence de confidentialité WHOIS : les coordonnées du titulaire restent publiques.

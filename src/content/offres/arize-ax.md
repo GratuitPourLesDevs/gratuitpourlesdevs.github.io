@@ -42,9 +42,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 98
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Arize AX cible désormais l’observabilité des applications IA et agents plutôt qu’un simple nombre de modèles supervisés. Le plan gratuit est généreux pour instrumenter un prototype ou une petite application avec tracing, évaluations et suivi de coûts, à condition d’accepter une rétention courte de quinze jours.

@@ -36,9 +36,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 864
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 UI Bakery est adapté aux équipes qui veulent aller vite avec du drag-and-drop tout en pouvant injecter du JavaScript, du Python ou du SQL lorsque le visuel ne suffit plus. Le Free ne limite ni le nombre d’applications ni les connexions de données et autorise des utilisateurs publics illimités, ce qui est intéressant pour des prototypes partageables ou des petits outils. Il faut toutefois bien distinguer les utilisateurs publics des fonctions de collaboration interne et de gouvernance, davantage contraintes selon le mode Cloud ou self-hosted.

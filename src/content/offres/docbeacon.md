@@ -28,12 +28,15 @@ initiales: "DB"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1163
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DocBeacon est pratique quand un PDF ne doit pas simplement être envoyé en pièce jointe, mais partagé au moyen d’un lien temporaire et contrôlé. Cela peut servir pour une proposition commerciale, une documentation confidentielle ou un document client que l’on souhaite pouvoir diffuser de façon plus maîtrisée. Le niveau gratuit couvre bien ce besoin ponctuel, mais il faut le voir comme un outil de partage sécurisé plutôt que comme une solution d’analytics documentaire : les métriques détaillées et heatmaps sont désormais payantes.

@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 937
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Qdrant est spécialisé dans le stockage et la recherche de vecteurs pour embeddings, moteurs sémantiques et RAG. Le cluster gratuit offre assez de ressources pour des prototypes réels et de petits corpus, mais son nœud unique et sa politique d’inactivité le distinguent d’un environnement de production permanent.

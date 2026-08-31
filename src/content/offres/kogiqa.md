@@ -37,8 +37,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 444
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 kogiQA automatise les interfaces en ciblant ce que l’utilisateur voit plutôt que des sélecteurs DOM fragiles. La plateforme est bien active, mais le quota précis du Free doit être revalidé avant d’être affiché comme une garantie.

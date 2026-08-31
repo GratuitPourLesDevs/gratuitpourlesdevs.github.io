@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 136
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Commerce Layer fournit un backend de commerce API-first pour gérer prix, inventaire, commandes et checkout depuis n’importe quel frontend. Son plan Developer est réellement exploitable pour construire et tester un projet, avec commandes de test illimitées et jusqu’à 100 commandes live gratuites chaque mois.

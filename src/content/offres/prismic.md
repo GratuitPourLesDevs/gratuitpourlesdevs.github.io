@@ -34,9 +34,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 352
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Prismic propose un free tier particulièrement confortable pour un site personnel ou un prototype grâce à ses documents et assets illimités et à un quota API élevé. La principale limite structurelle est le siège unique.

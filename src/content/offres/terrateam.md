@@ -37,9 +37,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 411
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Terrateam automatise les plans et apply IaC directement depuis le cycle de pull request. Le Free Tier est simple à évaluer : toutes les fonctions sont présentes, mais le volume est plafonné.

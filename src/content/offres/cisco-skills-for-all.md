@@ -16,12 +16,15 @@ initiales: "CS"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 637
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-24
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée."
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Skills for All est la porte d’entrée gratuite de Cisco Networking Academy pour acquérir des compétences techniques directement utiles en entreprise. Les parcours couvrent notamment le réseau, la cybersécurité, Python et la data science avec une approche orientée pratique et employabilité. La formation en ligne est gratuite, mais il faut bien distinguer l’accès aux cours de l’examen de certification Cisco : préparer une certification peut être gratuit grâce aux contenus, tandis que passer l’examen officiel reste un service distinct.

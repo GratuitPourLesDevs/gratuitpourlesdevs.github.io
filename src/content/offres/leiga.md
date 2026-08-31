@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 990
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Leiga associe gestion de projet et automatisations assistées par IA pour les petites équipes. Le free tier actuel couvre dix utilisateurs avec des quotas explicites de stockage et d’automatisation.

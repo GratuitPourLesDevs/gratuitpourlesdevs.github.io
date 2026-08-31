@@ -29,12 +29,15 @@ initiales: "CMC"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1198
-verifieLe: '2026-08-26'
-verificationAutomatiqueLe: '2026-08-26'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 26 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CoinMarketCap API évite de scraper des pages ou d’agréger soi-même plusieurs sources lorsqu’une application a besoin de prix, listings, métadonnées ou historiques sur les cryptomonnaies. Elle est pratique pour un dashboard, un bot, un outil d’analyse ou une fonctionnalité crypto intégrée à un produit, avec un niveau Basic qui autorise aussi l’usage commercial. Il faut simplement raisonner en call credits plutôt qu’en nombre brut de requêtes : certains endpoints consomment davantage selon le volume de données retourné, même si l’allocation mensuelle de 15 000 crédits laisse une marge confortable pour démarrer.

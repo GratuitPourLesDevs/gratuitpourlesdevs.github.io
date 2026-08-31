@@ -41,9 +41,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 931
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Layerbase regroupe plusieurs moteurs SQL, clé/valeur et analytiques derrière une expérience de base managée. Les deux bases gratuites et les 5 Go partagés offrent une vraie marge pour des projets personnels, avec une mise en veille automatique et une politique de débit à respecter.

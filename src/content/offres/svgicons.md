@@ -23,12 +23,15 @@ initiales: "SV"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1085
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 SVGicons.com est utile pour trouver une icône open source et récupérer directement le format adapté au front sans télécharger puis convertir manuellement un pack complet. Pour un développeur, cela réduit les allers-retours entre banques d’icônes et code lorsqu’il faut compléter rapidement une interface avec des assets cohérents.

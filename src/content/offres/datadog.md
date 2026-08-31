@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 588
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Datadog réunit la collecte et la visualisation des métriques d’infrastructure dans une plateforme d’observabilité très large. Son niveau Infrastructure Free est surtout intéressant pour un lab ou quelques machines : cinq hosts peuvent être suivis gratuitement, mais avec seulement une journée de rétention des métriques et sans supposer que les autres produits Datadog sont inclus gratuitement.

@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 577
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Semaphr sert de filet de sécurité après la publication d’une application mobile : une équipe peut bloquer certaines versions, afficher une maintenance, notifier les utilisateurs ou leur imposer une mise à jour sans attendre une nouvelle release. Le plan Startup est annoncé gratuit à vie et conserve les fonctions centrales, avec logs et membres d’équipe illimités. Les besoins plus entreprise — SSO, branding, analytics avancé ou support dédié — restent payants.

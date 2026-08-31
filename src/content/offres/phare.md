@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 611
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Phare regroupe monitoring, alertes, gestion d’incidents et communication publique via des pages de statut. Son offre Hobby est particulièrement généreuse avec 100 000 événements de monitoring par mois et des projets, membres et pages de statut publiques sans petit plafond fixe ; les notifications coûteuses comme SMS et voix restent toutefois hors du gratuit.

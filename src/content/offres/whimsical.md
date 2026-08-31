@@ -28,12 +28,15 @@ initiales: "WH"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1090
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: '2026-08-25'
-verificationNote: "Offre gratuite vérifiée manuellement à partir des pages officielles le 25 août 2026."
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Whimsical est utile pour réunir wireframes, diagrammes, mind maps et notes dans un même espace visuel sans changer d’outil selon le type de réflexion. Le Free fonctionne bien pour un usage personnel et quelques tableaux partagés, ce qui permet à une petite équipe de clarifier rapidement un flux ou une idée avant de passer à l’implémentation.

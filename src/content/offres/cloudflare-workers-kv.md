@@ -27,9 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 52
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudflare Workers KV est un stockage clé-valeur distribué sur le réseau mondial de Cloudflare. Il est particulièrement adapté aux données lues très souvent et modifiées peu fréquemment, comme la configuration, les préférences, les indicateurs de fonctionnalité et les caches persistants. Sa cohérence éventuelle le rend moins adapté aux compteurs, transactions et écritures concurrentes qui exigent une lecture immédiatement à jour.

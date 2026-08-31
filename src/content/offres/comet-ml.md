@@ -35,9 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 135
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Comet ML permet de tracer les expériences de machine learning, versionner des datasets et gérer un registre de modèles. Le plan individuel reste gratuit, mais Comet ne publie plus un simple quota du type « deux modèles » : la limite la plus claire est aujourd’hui un utilisateur, tandis que les autres plafonds du free tier ne sont pas détaillés.

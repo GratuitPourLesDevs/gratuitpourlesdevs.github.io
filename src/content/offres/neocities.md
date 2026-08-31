@@ -33,9 +33,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 877
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Neocities est l’une des offres les plus simples pour publier un site statique personnel sans bannière publicitaire ni infrastructure à gérer. Avec 1 Go de stockage et surtout 200 Go de bande passante, le Free convient à bien plus qu’une simple page de test : portfolio, projet artistique, documentation ou site communautaire léger peuvent y vivre durablement. L’éditeur web et la CLI la rendent accessible aussi bien aux débutants qu’aux développeurs. Le principal compromis est l’absence de domaine personnalisé sur le plan gratuit.

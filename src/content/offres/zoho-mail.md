@@ -48,9 +48,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 60
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Zoho Mail permet à une petite équipe d’utiliser des adresses professionnelles sur son propre domaine sans payer l’hébergement des boîtes mail. Le plan gratuit convient surtout aux structures qui travaillent dans le webmail Zoho : il évite l’administration d’un serveur de messagerie, mais ne permet pas de connecter les boîtes à un client externe via IMAP ou POP.

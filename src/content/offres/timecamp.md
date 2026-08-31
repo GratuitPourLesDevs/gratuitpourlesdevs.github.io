@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 331
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 TimeCamp est une option généreuse pour une équipe qui veut simplement suivre le temps sans payer par utilisateur. Les fonctions de gestion et de reporting les plus avancées restent dans les offres payantes.

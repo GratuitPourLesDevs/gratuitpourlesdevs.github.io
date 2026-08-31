@@ -28,9 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 784
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Langfuse — Plateforme open source d’ingénierie LLM pour tracer, évaluer et améliorer les applications IA, disponible en Cloud Hobby et en auto-hébergement.

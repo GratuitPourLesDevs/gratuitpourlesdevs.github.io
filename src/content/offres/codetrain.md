@@ -20,9 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 639
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 CodeTrain prend le contrepied des assistants qui produisent directement la solution : il découpe une tâche en étapes, pose des questions, vérifie ce que l’apprenant écrit et fait progresser la leçon uniquement quand le code fonctionne. Le plan gratuit permet dix leçons par mois construites à partir de dépôts publics et ne demande pas de carte bancaire. Pour aller au-delà, le projet propose aussi un agent cœur open source utilisable localement, tandis que les dépôts privés et certaines fonctions avancées sont réservés aux offres payantes.

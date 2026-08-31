@@ -18,9 +18,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 56
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Cloudflare Queues permet de découpler producteurs et consommateurs avec une livraison garantie vers des Workers ou des consommateurs HTTP. Le quota gratuit est exprimé en opérations plutôt qu’en messages : une livraison normale représente généralement une écriture, une lecture et une suppression. Les messages dépassant 64 Ko et les nouvelles tentatives consomment des opérations supplémentaires.

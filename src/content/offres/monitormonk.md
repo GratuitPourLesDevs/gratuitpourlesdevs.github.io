@@ -19,9 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 604
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 MonitorMonk privilégie une surveillance simple des sites et API avec disponibilité, mot-clé, certificat SSL et temps de réponse, sans surcharge fonctionnelle. Le Forever Free permet de couvrir dix cibles et de publier deux dashboards ou pages de statut, ce qui le rend adapté à un petit portefeuille de services publics.

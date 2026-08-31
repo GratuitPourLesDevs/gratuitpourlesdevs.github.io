@@ -39,9 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 564
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Transifex est surtout intéressant gratuitement pour les mainteneurs de projets open source qui veulent une plateforme mature, des intégrations développeur et une collaboration communautaire sans gérer leur propre TMS. Son programme Open Source est annoncé gratuit à vie et les mots de ces projets ne comptent pas dans les limites habituelles. L’offre est toutefois strictement réservée aux projets sous licence OSI sans financement, revenu ni modèle commercial, et les projets privés nécessitent un plan payant.

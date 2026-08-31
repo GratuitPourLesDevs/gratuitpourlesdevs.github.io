@@ -30,9 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 428
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 PageGym se distingue des simples audits Lighthouse en analysant réellement le comportement de chargement dans un navigateur. La gratuité demeure, mais ses quotas exacts doivent être consultés dans l’interface plutôt que supposés depuis d’anciennes listes.

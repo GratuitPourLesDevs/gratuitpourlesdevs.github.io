@@ -45,9 +45,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 102
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-24
+verifieLe: 2026-08-31
+verificationAutomatiqueLe: 2026-08-31
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Browse AI enregistre des actions de navigation sous forme de robots capables d’extraire des données ou de surveiller des changements sans écrire de scraper. Le plan Free reste permanent et donne accès à toute la plateforme, mais son quota actuel de 50 crédits mensuels est désormais destiné à des volumes modestes.
