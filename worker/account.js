@@ -2,9 +2,15 @@ const GITHUB_AUTHORIZE_URL = 'https://github.com/login/oauth/authorize';
 const GITHUB_TOKEN_URL = 'https://github.com/login/oauth/access_token';
 const GITHUB_USER_URL = 'https://api.github.com/user';
 const GITHUB_EMAILS_URL = 'https://api.github.com/user/emails';
+const GOOGLE_AUTHORIZE_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
+const GOOGLE_TOKEN_URL = 'https://oauth2.googleapis.com/token';
+const GOOGLE_USERINFO_URL = 'https://openidconnect.googleapis.com/v1/userinfo';
 const USER_OAUTH_COOKIE = 'gpld_user_oauth';
 const USER_OAUTH_MAX_AGE_SECONDS = 600;
 const SESSION_MAX_AGE_SECONDS = 30 * 24 * 60 * 60;
+const MAGIC_LINK_MAX_AGE_SECONDS = 15 * 60;
+const MAGIC_LINK_RATE_WINDOW_SECONDS = 15 * 60;
+const MAGIC_LINK_RATE_LIMIT = 3;
 const FREE_LIMITS = Object.freeze({ follows: 5, savedSearches: 3, savedComparisons: 3, stacks: 1, stackOffers: 10 });
 const encoder = new TextEncoder();
 let offerCache = { expiresAt: 0, ids: new Set(), payload: null };
@@ -218,26 +224,105 @@ function publicUser(row) {
   };
 }
 
+function normalizeEmail(value) {
+  const email = String(value ?? '').trim().toLowerCase();
+  return email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : null;
+}
+
+async function legacyProviderId(provider, providerUserId) {
+  if (provider === 'github' && /^\d+$/.test(providerUserId)) return Number(providerUserId);
+  const digest = await sha256(`${provider}:${providerUserId}`);
+  let value = 0;
+  for (let index = 0; index < 6; index += 1) value = value * 256 + digest[index];
+  return -Math.max(1, value);
+}
+
+async function resolveAccountIdentity(env, profile) {
+  const provider = profile.provider;
+  const providerUserId = String(profile.providerUserId);
+  const email = profile.emailVerified ? normalizeEmail(profile.email) : null;
+  const now = Math.floor(Date.now() / 1000);
+  const existingIdentity = await env.COMPARISONS_DB.prepare('SELECT user_id FROM account_identities WHERE provider = ? AND provider_user_id = ?').bind(provider, providerUserId).first();
+  let userId = existingIdentity?.user_id || null;
+
+  if (!userId && email) {
+    const existingEmail = await env.COMPARISONS_DB.prepare('SELECT id FROM users WHERE LOWER(email) = ? AND email_verified = 1 ORDER BY created_at ASC LIMIT 1').bind(email).first();
+    userId = existingEmail?.id || null;
+  }
+
+  if (!userId) {
+    userId = `${provider}:${providerUserId}`;
+    const fallbackLogin = profile.login || email?.split('@')[0] || 'utilisateur';
+    await env.COMPARISONS_DB.prepare(`
+      INSERT INTO users (id, github_id, github_login, display_name, avatar_url, email, email_verified, plan, digest_enabled, created_at, updated_at, last_login_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, 'free', 0, ?, ?, ?)
+    `).bind(userId, await legacyProviderId(provider, providerUserId), String(fallbackLogin).slice(0, 80), profile.name || null, profile.avatarUrl || null, email, email ? 1 : 0, now, now, now).run();
+  }
+
+  await env.COMPARISONS_DB.prepare(`
+    INSERT INTO account_identities (provider, provider_user_id, user_id, email, email_verified, display_name, avatar_url, created_at, updated_at, last_login_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ON CONFLICT(provider, provider_user_id) DO UPDATE SET
+      email = COALESCE(excluded.email, account_identities.email),
+      email_verified = MAX(account_identities.email_verified, excluded.email_verified),
+      display_name = COALESCE(excluded.display_name, account_identities.display_name),
+      avatar_url = COALESCE(excluded.avatar_url, account_identities.avatar_url),
+      updated_at = excluded.updated_at,
+      last_login_at = excluded.last_login_at
+  `).bind(provider, providerUserId, userId, email, email ? 1 : 0, profile.name || null, profile.avatarUrl || null, now, now, now).run();
+
+  await env.COMPARISONS_DB.prepare(`
+    UPDATE users SET
+      display_name = COALESCE(?, display_name),
+      avatar_url = COALESCE(?, avatar_url),
+      email = COALESCE(?, email),
+      email_verified = MAX(email_verified, ?),
+      updated_at = ?,
+      last_login_at = ?
+    WHERE id = ?
+  `).bind(profile.name || null, profile.avatarUrl || null, email, email ? 1 : 0, now, now, userId).run();
+  return userId;
+}
+
+async function createAccountSession(env, userId) {
+  const now = Math.floor(Date.now() / 1000);
+  const sessionToken = randomString(40);
+  const tokenHash = await sha256Hex(sessionToken);
+  await env.COMPARISONS_DB.prepare('DELETE FROM account_sessions WHERE expires_at <= ?').bind(now).run();
+  await env.COMPARISONS_DB.prepare('INSERT INTO account_sessions (token_hash, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)').bind(tokenHash, userId, now, now + SESSION_MAX_AGE_SECONDS).run();
+  const row = await env.COMPARISONS_DB.prepare('SELECT * FROM users WHERE id = ?').bind(userId).first();
+  return { token: sessionToken, user: publicUser(row) };
+}
+
 async function startAccountAuth(request, env) {
-  if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.STATE_SECRET || !env.ALLOWED_ORIGIN) return json({ error: 'Account OAuth is not configured' }, 503);
   const url = new URL(request.url);
+  const provider = url.searchParams.get('provider') === 'google' ? 'google' : 'github';
+  const configured = provider === 'google'
+    ? env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET
+    : env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET;
+  if (!configured || !env.STATE_SECRET || !env.ALLOWED_ORIGIN) return json({ error: `La connexion ${provider === 'google' ? 'Google' : 'GitHub'} n’est pas encore configurée.` }, 503);
   const state = randomString();
   const verifier = randomString(48);
   const callback = `${url.origin}/callback`;
   const session = await createSignedState({
+    provider,
     state,
     verifier,
     createdAt: Date.now(),
     returnTo: safeReturnTo(url.searchParams.get('return_to'), env),
     flow: url.searchParams.get('flow') === 'redirect' ? 'redirect' : 'popup',
   }, env.STATE_SECRET);
-  const destination = new URL(GITHUB_AUTHORIZE_URL);
-  destination.searchParams.set('client_id', env.GITHUB_CLIENT_ID);
+  const destination = new URL(provider === 'google' ? GOOGLE_AUTHORIZE_URL : GITHUB_AUTHORIZE_URL);
+  destination.searchParams.set('client_id', provider === 'google' ? env.GOOGLE_CLIENT_ID : env.GITHUB_CLIENT_ID);
   destination.searchParams.set('redirect_uri', callback);
-  destination.searchParams.set('scope', 'read:user user:email');
+  destination.searchParams.set('scope', provider === 'google' ? 'openid email profile' : 'read:user user:email');
   destination.searchParams.set('state', state);
   destination.searchParams.set('code_challenge', base64url(await sha256(verifier)));
   destination.searchParams.set('code_challenge_method', 'S256');
+  if (provider === 'google') {
+    destination.searchParams.set('response_type', 'code');
+    destination.searchParams.set('prompt', 'select_account');
+  }
   return new Response(null, {
     status: 302,
     headers: {
@@ -253,51 +338,106 @@ async function finishAccountAuth(request, env, fetchImpl) {
   const session = await readSignedState(getCookie(request, USER_OAUTH_COOKIE), env.STATE_SECRET);
   if (!session || Date.now() - session.createdAt > USER_OAUTH_MAX_AGE_SECONDS * 1000) return accountErrorPage(env, 'Session de connexion expirée. Réessayez.', 401);
   if (!url.searchParams.get('state') || url.searchParams.get('state') !== session.state) return accountFlowErrorPage(env, session, 'État OAuth invalide.', 401);
+  const provider = session.provider === 'google' ? 'google' : 'github';
   const code = url.searchParams.get('code');
-  if (!code) return accountFlowErrorPage(env, session, url.searchParams.get('error_description') ?? 'Connexion GitHub refusée.');
+  if (!code) return accountFlowErrorPage(env, session, url.searchParams.get('error_description') ?? `Connexion ${provider === 'google' ? 'Google' : 'GitHub'} refusée.`);
   if (!env.COMPARISONS_DB) return accountFlowErrorPage(env, session, 'Base des comptes non configurée.', 503);
 
-  const tokenResponse = await fetchImpl(GITHUB_TOKEN_URL, {
+  const tokenUrl = provider === 'google' ? GOOGLE_TOKEN_URL : GITHUB_TOKEN_URL;
+  const clientId = provider === 'google' ? env.GOOGLE_CLIENT_ID : env.GITHUB_CLIENT_ID;
+  const clientSecret = provider === 'google' ? env.GOOGLE_CLIENT_SECRET : env.GITHUB_CLIENT_SECRET;
+  const tokenResponse = await fetchImpl(tokenUrl, {
     method: 'POST',
-    headers: { Accept: 'application/json', 'Content-Type': 'application/json', 'User-Agent': 'GratuitPourLesDevs-Account-OAuth' },
-    body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code, redirect_uri: `${url.origin}/callback`, code_verifier: session.verifier }),
+    headers: { Accept: 'application/json', 'Content-Type': provider === 'google' ? 'application/x-www-form-urlencoded' : 'application/json', 'User-Agent': 'GratuitPourLesDevs-Account-OAuth' },
+    body: provider === 'google'
+      ? new URLSearchParams({ client_id: clientId, client_secret: clientSecret, code, redirect_uri: `${url.origin}/callback`, code_verifier: session.verifier, grant_type: 'authorization_code' })
+      : JSON.stringify({ client_id: clientId, client_secret: clientSecret, code, redirect_uri: `${url.origin}/callback`, code_verifier: session.verifier }),
   });
   const tokenData = await tokenResponse.json();
-  if (!tokenResponse.ok || !tokenData.access_token) return accountFlowErrorPage(env, session, 'GitHub n’a pas délivré de jeton.', 502);
+  if (!tokenResponse.ok || !tokenData.access_token) return accountFlowErrorPage(env, session, `${provider === 'google' ? 'Google' : 'GitHub'} n’a pas délivré de jeton.`, 502);
 
-  const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${tokenData.access_token}`, 'User-Agent': 'GratuitPourLesDevs-Account-OAuth', 'X-GitHub-Api-Version': '2022-11-28' };
-  const [userResponse, emailsResponse] = await Promise.all([
-    fetchImpl(GITHUB_USER_URL, { headers }),
-    fetchImpl(GITHUB_EMAILS_URL, { headers }),
-  ]);
-  const user = await userResponse.json();
-  const emails = emailsResponse.ok ? await emailsResponse.json() : [];
-  if (!userResponse.ok || !user.id || !user.login) return accountFlowErrorPage(env, session, 'Profil GitHub indisponible.', 502);
-  const primaryEmail = Array.isArray(emails)
-    ? emails.find((entry) => entry?.primary && entry?.verified) ?? emails.find((entry) => entry?.verified)
-    : null;
+  let profile;
+  if (provider === 'google') {
+    const response = await fetchImpl(GOOGLE_USERINFO_URL, { headers: { Accept: 'application/json', Authorization: `Bearer ${tokenData.access_token}` } });
+    const user = await response.json();
+    if (!response.ok || !user.sub || !user.email || user.email_verified !== true) return accountFlowErrorPage(env, session, 'Le profil Google ne fournit pas d’adresse e-mail vérifiée.', 502);
+    profile = { provider, providerUserId: String(user.sub), login: String(user.email).split('@')[0], name: user.name ? String(user.name) : null, avatarUrl: user.picture ? String(user.picture) : null, email: String(user.email), emailVerified: true };
+  } else {
+    const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${tokenData.access_token}`, 'User-Agent': 'GratuitPourLesDevs-Account-OAuth', 'X-GitHub-Api-Version': '2022-11-28' };
+    const [userResponse, emailsResponse] = await Promise.all([fetchImpl(GITHUB_USER_URL, { headers }), fetchImpl(GITHUB_EMAILS_URL, { headers })]);
+    const user = await userResponse.json();
+    const emails = emailsResponse.ok ? await emailsResponse.json() : [];
+    if (!userResponse.ok || !user.id || !user.login) return accountFlowErrorPage(env, session, 'Profil GitHub indisponible.', 502);
+    const primaryEmail = Array.isArray(emails) ? emails.find((entry) => entry?.primary && entry?.verified) ?? emails.find((entry) => entry?.verified) : null;
+    profile = { provider, providerUserId: String(user.id), login: String(user.login), name: user.name ? String(user.name) : null, avatarUrl: user.avatar_url ? String(user.avatar_url) : null, email: primaryEmail?.email ? String(primaryEmail.email) : null, emailVerified: Boolean(primaryEmail?.verified) };
+  }
 
+  const userId = await resolveAccountIdentity(env, profile);
+  const accountSession = await createAccountSession(env, userId);
+  return accountResultPage(env, session, 'success', { ...accountSession, returnTo: session.returnTo || '/compte/' });
+}
+
+async function requestMagicLink(request, env, fetchImpl) {
+  const headers = corsHeaders(request, env);
+  if (!env.COMPARISONS_DB || !env.RESEND_API_KEY || !(env.MAGIC_LINK_FROM_EMAIL || env.DIGEST_FROM_EMAIL) || !env.ALLOWED_ORIGIN) return json({ error: 'La connexion par e-mail n’est pas encore configurée.' }, 503, headers);
+  const payload = await request.json().catch(() => null);
+  const email = normalizeEmail(payload?.email);
+  if (!email) return json({ error: 'Saisissez une adresse e-mail valide.' }, 400, headers);
   const now = Math.floor(Date.now() / 1000);
-  const userId = `github:${user.id}`;
-  await env.COMPARISONS_DB.prepare(`
-    INSERT INTO users (id, github_id, github_login, display_name, avatar_url, email, email_verified, plan, digest_enabled, created_at, updated_at, last_login_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, 'free', 1, ?, ?, ?)
-    ON CONFLICT(id) DO UPDATE SET
-      github_login = excluded.github_login,
-      display_name = excluded.display_name,
-      avatar_url = excluded.avatar_url,
-      email = COALESCE(excluded.email, users.email),
-      email_verified = MAX(users.email_verified, excluded.email_verified),
-      updated_at = excluded.updated_at,
-      last_login_at = excluded.last_login_at
-  `).bind(userId, Number(user.id), String(user.login), user.name ? String(user.name) : null, user.avatar_url ? String(user.avatar_url) : null, primaryEmail?.email ? String(primaryEmail.email) : null, primaryEmail?.verified ? 1 : 0, now, now, now).run();
+  const returnTo = safeReturnTo(payload?.returnTo, env);
+  await env.COMPARISONS_DB.prepare('DELETE FROM account_magic_links WHERE expires_at <= ? OR consumed_at IS NOT NULL').bind(now).run();
+  const recent = await env.COMPARISONS_DB.prepare('SELECT COUNT(*) AS total FROM account_magic_links WHERE email = ? AND created_at >= ?').bind(email, now - MAGIC_LINK_RATE_WINDOW_SECONDS).first();
+  if (Number(recent?.total || 0) >= MAGIC_LINK_RATE_LIMIT) return json({ sent: true }, 202, headers);
 
-  const sessionToken = randomString(40);
-  const tokenHash = await sha256Hex(sessionToken);
-  await env.COMPARISONS_DB.prepare('DELETE FROM account_sessions WHERE expires_at <= ?').bind(now).run();
-  await env.COMPARISONS_DB.prepare('INSERT INTO account_sessions (token_hash, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)').bind(tokenHash, userId, now, now + SESSION_MAX_AGE_SECONDS).run();
-  const row = await env.COMPARISONS_DB.prepare('SELECT * FROM users WHERE id = ?').bind(userId).first();
-  return accountResultPage(env, session, 'success', { token: sessionToken, user: publicUser(row), returnTo: session.returnTo || '/compte/' });
+  const token = randomString(40);
+  const tokenHash = await sha256Hex(token);
+  await env.COMPARISONS_DB.prepare('INSERT INTO account_magic_links (token_hash, email, return_to, created_at, expires_at) VALUES (?, ?, ?, ?, ?)').bind(tokenHash, email, returnTo, now, now + MAGIC_LINK_MAX_AGE_SECONDS).run();
+  const magicUrl = new URL('/account/magic', new URL(request.url).origin);
+  magicUrl.searchParams.set('token', token);
+  const html = `<h1>Connexion à GratuitPourLesDevs</h1><p>Utilisez ce lien pour ouvrir votre espace personnel :</p><p><a href="${escapeHtml(magicUrl.toString())}">Me connecter à mon compte</a></p><p>Ce lien est valable 15 minutes et ne peut être utilisé qu’une fois. Si vous n’êtes pas à l’origine de cette demande, ignorez cet e-mail.</p>`;
+  const response = await fetchImpl('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from: env.MAGIC_LINK_FROM_EMAIL || env.DIGEST_FROM_EMAIL, to: [email], subject: 'Votre lien de connexion GratuitPourLesDevs', html }),
+  });
+  if (!response.ok) {
+    await env.COMPARISONS_DB.prepare('DELETE FROM account_magic_links WHERE token_hash = ?').bind(tokenHash).run();
+    return json({ error: 'L’envoi du lien est temporairement indisponible.' }, 502, headers);
+  }
+  return json({ sent: true }, 202, headers);
+}
+
+async function magicLinkLanding(request, env) {
+  const url = new URL(request.url);
+  const token = url.searchParams.get('token') || '';
+  const fallbackSession = { flow: 'redirect', returnTo: '/compte/' };
+  if (!token || !env.COMPARISONS_DB) return accountFlowErrorPage(env, fallbackSession, 'Lien de connexion invalide.', 400);
+  const tokenHash = await sha256Hex(token);
+  const now = Math.floor(Date.now() / 1000);
+  const link = await env.COMPARISONS_DB.prepare('SELECT expires_at, consumed_at FROM account_magic_links WHERE token_hash = ?').bind(tokenHash).first();
+  if (!link || link.consumed_at || Number(link.expires_at) <= now) return accountFlowErrorPage(env, fallbackSession, 'Ce lien de connexion est invalide ou a expiré.', 401);
+  const nonce = randomString(18);
+  const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Connexion GratuitPourLesDevs</title><style nonce="${nonce}">:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:#0c1118;color:#f5f7fb;font:16px/1.55 system-ui,sans-serif}.card{width:min(100%,480px);padding:30px;border:1px solid #313b4b;border-top:3px solid #6484ff;border-radius:12px;background:#151c27}small{color:#7f9aff;font-weight:800;letter-spacing:.12em}h1{margin:10px 0;font-size:30px;line-height:1.1}p{color:#aeb7c5}button{width:100%;min-height:48px;margin-top:14px;border:1px solid #6484ff;border-radius:8px;background:#6484ff;color:#fff;font:inherit;font-weight:800;cursor:pointer}button:focus-visible{outline:3px solid #9bb0ff;outline-offset:3px}</style></head><body><main class="card"><small>CONNEXION SÉCURISÉE</small><h1>Ouvrir votre espace GPLD</h1><p>Confirmez la connexion. Ce lien ne peut être utilisé qu’une fois.</p><form method="post" action="/account/magic"><input type="hidden" name="token" value="${escapeHtml(token)}"><button type="submit">Continuer vers mon espace</button></form></main></body></html>`;
+  return new Response(html, { headers: { ...securityHeaders(), 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': `default-src 'none'; style-src 'nonce-${nonce}'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'` } });
+}
+
+async function consumeMagicLink(request, env) {
+  const form = await request.formData().catch(() => null);
+  const token = String(form?.get('token') || '');
+  const now = Math.floor(Date.now() / 1000);
+  const fallbackSession = { flow: 'redirect', returnTo: '/compte/' };
+  if (!token || !env.COMPARISONS_DB) return accountFlowErrorPage(env, fallbackSession, 'Lien de connexion invalide.', 400);
+  const tokenHash = await sha256Hex(token);
+  const link = await env.COMPARISONS_DB.prepare('SELECT email, return_to, expires_at, consumed_at FROM account_magic_links WHERE token_hash = ?').bind(tokenHash).first();
+  const session = { flow: 'redirect', returnTo: link?.return_to || '/compte/' };
+  if (!link || link.consumed_at || Number(link.expires_at) <= now) return accountFlowErrorPage(env, session, 'Ce lien de connexion est invalide ou a expiré.', 401);
+  const consumed = await env.COMPARISONS_DB.prepare('UPDATE account_magic_links SET consumed_at = ? WHERE token_hash = ? AND consumed_at IS NULL AND expires_at > ?').bind(now, tokenHash, now).run();
+  if (consumed?.meta?.changes === 0) return accountFlowErrorPage(env, session, 'Ce lien de connexion a déjà été utilisé.', 401);
+  const email = normalizeEmail(link.email);
+  if (!email) return accountFlowErrorPage(env, session, 'Adresse e-mail invalide.', 400);
+  const userId = await resolveAccountIdentity(env, { provider: 'email', providerUserId: email, login: email.split('@')[0], name: email.split('@')[0], avatarUrl: null, email, emailVerified: true });
+  const accountSession = await createAccountSession(env, userId);
+  return accountResultPage(env, session, 'success', { ...accountSession, returnTo: session.returnTo });
 }
 
 function freeLimit(request, env, feature, limit) {
@@ -460,10 +600,20 @@ export async function handleAccountRequest(request, env, fetchImpl = fetch) {
   const url = new URL(request.url);
   if (url.pathname === '/account/auth' && request.method === 'GET') return startAccountAuth(request, env);
   if (url.pathname === '/callback' && request.method === 'GET' && getCookie(request, USER_OAUTH_COOKIE)) return finishAccountAuth(request, env, fetchImpl);
+  if (url.pathname === '/account/magic' && request.method === 'GET') return magicLinkLanding(request, env);
+  if (url.pathname === '/account/magic' && request.method === 'POST') return consumeMagicLink(request, env);
   if (!url.pathname.startsWith('/api/account')) return null;
   const headers = corsHeaders(request, env);
   if (allowedOrigin(request, env) === false) return json({ error: 'Origin not allowed' }, 403, headers);
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers });
+  if (url.pathname === '/api/account/providers' && request.method === 'GET') {
+    return json({ providers: {
+      github: Boolean(env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET),
+      google: Boolean(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET),
+      email: Boolean(env.RESEND_API_KEY && (env.MAGIC_LINK_FROM_EMAIL || env.DIGEST_FROM_EMAIL)),
+    } }, 200, headers);
+  }
+  if (url.pathname === '/api/account/magic-link' && request.method === 'POST') return requestMagicLink(request, env, fetchImpl);
   if (!env.COMPARISONS_DB) return json({ error: 'Account database is not configured' }, 503, headers);
   const user = await authenticatedUser(request, env);
   if (!user) return json({ error: 'Authentication required', code: 'unauthorized' }, 401, headers);

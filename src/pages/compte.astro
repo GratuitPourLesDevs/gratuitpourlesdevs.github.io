@@ -22,10 +22,10 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
         <p>Retrouvez vos choix et les changements importants depuis tous vos appareils.</p>
         <ul class="account-login-benefits" aria-label="Avantages du compte">
           <li>Sans abonnement</li>
-          <li>Connexion sécurisée avec GitHub</li>
+          <li>GitHub, Google ou lien e-mail sécurisé</li>
           <li>Vos favoris actuels sont conservés</li>
         </ul>
-        <button class="account-primary" id="account-login" type="button">Continuer avec GitHub</button>
+        <button class="account-primary" id="account-login" type="button">Se connecter ou créer un compte</button>
       </aside>
       <aside class="account-profile-card" id="account-profile-card" hidden>
         <div class="account-profile-head"><img id="account-avatar" alt="" /><span><strong id="account-name"></strong><small id="account-login-name"></small></span></div>
@@ -247,7 +247,7 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
     const renderDigest = () => {
       const root = $('#digest-list'); const items = state.dashboard?.digest || [];
       $('#digest-enabled').checked = Boolean(state.dashboard?.user.digestEnabled);
-      $('#digest-email-status').textContent = state.dashboard?.user.emailVerified && state.dashboard?.user.email ? `Digest envoyé à ${state.dashboard.user.email} lorsqu’une offre suivie change.` : 'Aucune adresse e-mail GitHub vérifiée n’est disponible : le digest reste visible ici, mais l’envoi par e-mail est suspendu.';
+      $('#digest-email-status').textContent = state.dashboard?.user.emailVerified && state.dashboard?.user.email ? `Digest envoyé à ${state.dashboard.user.email} lorsqu’une offre suivie change.` : 'Aucune adresse e-mail vérifiée n’est disponible : le digest reste visible ici, mais l’envoi par e-mail est suspendu.';
       if (!items.length) { root.replaceChildren(emptyItem('Aucun changement récent parmi vos offres suivies.')); return; }
       root.replaceChildren(...items.map((item) => {
         const data = offer(item.id); const li = document.createElement('li'); li.className = 'account-offer-item account-digest-item';

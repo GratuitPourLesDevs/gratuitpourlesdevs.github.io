@@ -103,11 +103,11 @@
     window.clearTimeout(showToast.timer);
     showToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 4200);
   };
-  const oauthUrl = (flow = 'popup') => {
+  const oauthUrl = (flow = 'popup', provider = 'github') => {
     const base = apiBase();
     if (!base) throw new Error('API de compte indisponible');
     const returnTo = `${location.pathname}${location.search}${location.hash}`;
-    return `${base}/account/auth?return_to=${encodeURIComponent(returnTo)}&flow=${encodeURIComponent(flow)}`;
+    return `${base}/account/auth?provider=${encodeURIComponent(provider)}&return_to=${encodeURIComponent(returnTo)}&flow=${encodeURIComponent(flow)}`;
   };
   const showLoginDialog = () => {
     let dialog = document.querySelector('.account-auth-dialog');
@@ -126,30 +126,93 @@
       eyebrow.textContent = 'COMPTE GRATUIT';
       const title = document.createElement('h2');
       title.id = 'account-auth-dialog-title';
-      title.textContent = 'Continuer avec GitHub';
+      title.textContent = 'Se connecter ou créer un compte';
       const description = document.createElement('p');
-      description.textContent = 'GitHub va s’ouvrir dans cet onglet. Après autorisation, vous reviendrez automatiquement dans votre espace.';
+      description.textContent = 'Choisissez la méthode qui vous convient. Votre veille reste rattachée au même compte lorsque l’adresse e-mail vérifiée correspond.';
+
+      const providers = document.createElement('div');
+      providers.className = 'account-auth-providers';
+      const github = document.createElement('a');
+      github.className = 'account-auth-provider account-auth-provider--github';
+      github.dataset.authProvider = 'github';
+      github.innerHTML = '<span aria-hidden="true">GH</span><strong>Continuer avec GitHub</strong><em>→</em>';
+      const google = document.createElement('a');
+      google.className = 'account-auth-provider account-auth-provider--google';
+      google.dataset.authProvider = 'google';
+      google.innerHTML = '<span aria-hidden="true">G</span><strong>Continuer avec Google</strong><em>→</em>';
+      providers.append(github, google);
+
+      const separator = document.createElement('div');
+      separator.className = 'account-auth-separator';
+      separator.textContent = 'ou par e-mail';
+      separator.hidden = true;
+      separator.style.display = 'none';
+      const magicForm = document.createElement('form');
+      magicForm.className = 'account-magic-form';
+      magicForm.hidden = true;
+      magicForm.style.display = 'none';
+      const emailLabel = document.createElement('label');
+      emailLabel.textContent = 'Adresse e-mail';
+      const emailInput = document.createElement('input');
+      emailInput.type = 'email';
+      emailInput.name = 'email';
+      emailInput.autocomplete = 'email';
+      emailInput.placeholder = 'vous@exemple.fr';
+      emailInput.required = true;
+      const magicButton = document.createElement('button');
+      magicButton.type = 'submit';
+      magicButton.className = 'account-secondary';
+      magicButton.textContent = 'Recevoir un lien magique';
+      const magicStatus = document.createElement('p');
+      magicStatus.className = 'account-magic-status';
+      magicStatus.setAttribute('aria-live', 'polite');
+      emailLabel.append(emailInput);
+      magicForm.append(emailLabel, magicButton, magicStatus);
+
       const privacy = document.createElement('p');
       privacy.className = 'account-auth-dialog-privacy';
-      privacy.textContent = 'Seuls votre profil public et votre adresse e-mail vérifiée sont demandés. Aucun accès à vos dépôts.';
-
-      const actions = document.createElement('div');
-      actions.className = 'account-auth-dialog-actions';
-      const continueLink = document.createElement('a');
-      continueLink.className = 'account-primary';
-      continueLink.textContent = 'Ouvrir GitHub';
-      const cancel = document.createElement('button');
-      cancel.type = 'button';
-      cancel.className = 'account-secondary';
-      cancel.textContent = 'Annuler';
-      actions.append(continueLink, cancel);
-      dialog.append(close, eyebrow, title, description, privacy, actions);
+      privacy.textContent = 'GitHub et Google : profil de base et adresse vérifiée uniquement. Aucun accès aux dépôts, fichiers ou contacts. Le lien e-mail expire après 15 minutes.';
+      dialog.append(close, eyebrow, title, description, providers, separator, magicForm, privacy);
       document.body.append(dialog);
       close.addEventListener('click', () => dialog.close());
-      cancel.addEventListener('click', () => dialog.close());
       dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+      magicForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        magicButton.disabled = true;
+        magicButton.textContent = 'Envoi en cours…';
+        magicStatus.textContent = '';
+        try {
+          await api('/api/account/magic-link', { method: 'POST', body: JSON.stringify({ email: emailInput.value, returnTo: `${location.pathname}${location.search}${location.hash}` }) });
+          magicStatus.textContent = 'Lien envoyé. Consultez votre boîte de réception ; il reste valable 15 minutes.';
+          magicStatus.classList.remove('is-error');
+          magicForm.reset();
+        } catch (error) {
+          magicStatus.textContent = error.message || 'Envoi impossible pour le moment.';
+          magicStatus.classList.add('is-error');
+        } finally {
+          magicButton.disabled = false;
+          magicButton.textContent = 'Recevoir un lien magique';
+        }
+      });
     }
-    dialog.querySelector('a.account-primary').href = oauthUrl('redirect');
+    dialog.querySelector('[data-auth-provider="github"]').href = oauthUrl('redirect', 'github');
+    dialog.querySelector('[data-auth-provider="google"]').href = oauthUrl('redirect', 'google');
+    const status = dialog.querySelector('.account-magic-status');
+    if (status) status.textContent = '';
+    const separator = dialog.querySelector('.account-auth-separator');
+    const magicForm = dialog.querySelector('.account-magic-form');
+    api('/api/account/providers').then((result) => {
+      const emailAvailable = Boolean(result?.providers?.email);
+      if (separator) separator.hidden = !emailAvailable;
+      if (magicForm) magicForm.hidden = !emailAvailable;
+      if (separator) separator.style.display = emailAvailable ? '' : 'none';
+      if (magicForm) magicForm.style.display = emailAvailable ? '' : 'none';
+    }).catch(() => {
+      if (separator) separator.hidden = true;
+      if (magicForm) magicForm.hidden = true;
+      if (separator) separator.style.display = 'none';
+      if (magicForm) magicForm.style.display = 'none';
+    });
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
   };

@@ -19,13 +19,30 @@ npx wrangler secret put ACCOUNT_GITHUB_CLIENT_SECRET --config worker/wrangler.js
 
 L’administration conserve ses variables `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` et son scope `public_repo`. Le compte public utilise uniquement le couple `ACCOUNT_GITHUB_*` avec les scopes `read:user user:email`.
 
+## 1 bis. Configurer Google OAuth
+
+Créez un client OAuth 2.0 Google de type **Application Web** avec la même URL de redirection :
+
+```text
+https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev/callback
+```
+
+Ajoutez `https://gratuitpourlesdevs.fr` aux origines JavaScript autorisées, puis enregistrez les secrets :
+
+```bash
+npx wrangler secret put ACCOUNT_GOOGLE_CLIENT_ID --config worker/wrangler.jsonc
+npx wrangler secret put ACCOUNT_GOOGLE_CLIENT_SECRET --config worker/wrangler.jsonc
+```
+
+Le flux demande uniquement `openid email profile`, utilise PKCE et refuse de créer ou rattacher un compte si Google ne confirme pas l’adresse e-mail.
+
 ## 2. Appliquer les migrations D1
 
 ```bash
 npm run migrate:worker
 ```
 
-`0003_accounts.sql` crée les utilisateurs, sessions GPLD, favoris synchronisés, offres suivies, recherches/comparaisons sauvegardées, stack et mesure d’intérêt pour Pro. `0004_digest_opt_in.sql` force le digest e-mail à être désactivé à la création du compte : l’utilisateur doit l’activer explicitement depuis **Mon espace**.
+`0003_accounts.sql` crée les utilisateurs, sessions GPLD, favoris synchronisés, offres suivies, recherches/comparaisons sauvegardées, stack et mesure d’intérêt pour Pro. `0004_digest_opt_in.sql` force le digest e-mail à être désactivé à la création du compte : l’utilisateur doit l’activer explicitement depuis **Mon espace**. `0012_multi_provider_auth.sql` ajoute les identités GitHub, Google et e-mail, rétro-indexe tous les comptes GitHub existants et stocke uniquement l’empreinte des liens magiques.
 
 ## 3. Tester et déployer le Worker
 
@@ -34,7 +51,9 @@ npm run test:worker
 npm run deploy:oauth
 ```
 
-Le même chemin de callback `/callback` est conservé, mais les deux flux OAuth restent isolés par leurs cookies et leurs identifiants GitHub. Le token GitHub utilisateur n’est jamais envoyé au site : après lecture du profil et de l’adresse e-mail vérifiée, le navigateur reçoit uniquement un jeton de session opaque propre à GPLD.
+Le même chemin de callback `/callback` est conservé, mais les flux OAuth restent isolés par leurs cookies et leurs identifiants. Les tokens GitHub et Google ne sont jamais envoyés au site : après lecture du profil et de l’adresse e-mail vérifiée, le navigateur reçoit uniquement un jeton de session opaque propre à GPLD.
+
+Une identité encore inconnue est automatiquement rattachée au compte GPLD le plus ancien qui possède la même adresse e-mail vérifiée. Cela évite les doublons lorsqu’un utilisateur passe de GitHub à Google ou au lien magique.
 
 ## 4. Digest hebdomadaire
 
@@ -45,9 +64,12 @@ Pour activer l’envoi avec Resend :
 ```bash
 npx wrangler secret put RESEND_API_KEY --config worker/wrangler.jsonc
 npx wrangler secret put DIGEST_FROM_EMAIL --config worker/wrangler.jsonc
+npx wrangler secret put MAGIC_LINK_FROM_EMAIL --config worker/wrangler.jsonc
 ```
 
 `DIGEST_FROM_EMAIL` doit contenir une adresse autorisée par le domaine vérifié chez le fournisseur, par exemple `GratuitPourLesDevs <veille@gratuitpourlesdevs.fr>`.
+
+`MAGIC_LINK_FROM_EMAIL` peut utiliser une adresse dédiée, par exemple `GratuitPourLesDevs <connexion@gratuitpourlesdevs.fr>`. S’il est absent, le Worker réutilise `DIGEST_FROM_EMAIL`. Les liens expirent après 15 minutes, sont utilisables une seule fois et sont limités à trois demandes par adresse sur une fenêtre de 15 minutes.
 
 Le Worker n’envoie un message que si le digest est activé et qu’au moins une offre suivie a un changement récent dans les données publiques de `/offres.json`.
 
@@ -68,7 +90,7 @@ GPLD Pro lève ces deux limites : le nombre de stacks et le nombre d’offres qu
 
 ## 6. Confidentialité et suppression
 
-La page publique `/confidentialite/` décrit les données utilisées par le compte, l’OAuth GitHub, les prestataires techniques et les durées de conservation. Un utilisateur connecté peut supprimer son compte depuis **Mon espace** ; l’action efface côté D1 ses favoris, suivis, sauvegardes, stack, sessions et mesure d’intérêt Pro.
+La page publique `/confidentialite/` décrit les données utilisées par le compte, GitHub, Google, les liens magiques, les prestataires techniques et les durées de conservation. Un utilisateur connecté peut supprimer son compte depuis **Mon espace** ; l’action efface côté D1 ses identités, favoris, suivis, sauvegardes, stack, sessions et mesure d’intérêt Pro.
 
 ## 7. Mesurer l’intérêt pour Pro
 

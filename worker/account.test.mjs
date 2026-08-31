@@ -5,6 +5,8 @@ import { handleAccountRequest, FREE_LIMITS } from './account.js';
 const env = {
   GITHUB_CLIENT_ID: 'client-id',
   GITHUB_CLIENT_SECRET: 'client-secret',
+  GOOGLE_CLIENT_ID: 'google-client-id',
+  GOOGLE_CLIENT_SECRET: 'google-client-secret',
   STATE_SECRET: 'a-long-random-test-secret',
   ALLOWED_ORIGIN: 'https://gratuitpourlesdevs.fr',
   COMPARISONS_DB: {},
@@ -33,6 +35,122 @@ test('account OAuth accepts the same-tab redirect flow', async () => {
   assert.equal(response.status, 302);
   assert.equal(new URL(response.headers.get('location')).origin, 'https://github.com');
   assert.match(response.headers.get('set-cookie'), /HttpOnly; Secure; SameSite=Lax/);
+});
+
+test('Google OAuth uses OpenID scopes, PKCE and explicit account selection', async () => {
+  const response = await handleAccountRequest(new Request('https://oauth.example/account/auth?provider=google&return_to=%2Fcompte%2F&flow=redirect'), env);
+  assert.equal(response.status, 302);
+  const location = new URL(response.headers.get('location'));
+  assert.equal(location.origin, 'https://accounts.google.com');
+  assert.equal(location.searchParams.get('scope'), 'openid email profile');
+  assert.equal(location.searchParams.get('code_challenge_method'), 'S256');
+  assert.equal(location.searchParams.get('prompt'), 'select_account');
+  assert.ok(location.searchParams.get('state'));
+  assert.ok(location.searchParams.get('code_challenge'));
+});
+
+test('account providers expose only configured sign-in methods', async () => {
+  const response = await handleAccountRequest(new Request('https://oauth.example/api/account/providers', {
+    headers: { Origin: env.ALLOWED_ORIGIN },
+  }), env);
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), {
+    providers: { github: true, google: true, email: false },
+  });
+});
+
+test('Google login links to an existing account with the same verified email', async () => {
+  const row = {
+    id: 'github:42', github_login: 'octocat', display_name: 'The Octocat', avatar_url: null,
+    email: 'octocat@example.com', email_verified: 1, plan: 'free', digest_enabled: 0,
+  };
+  const writes = [];
+  const database = {
+    prepare(sql) {
+      return {
+        bind(...values) {
+          return {
+            async run() { writes.push({ sql, values }); return { success: true, meta: { changes: 1 } }; },
+            async first() {
+              if (sql.includes('FROM account_identities')) return null;
+              if (sql.includes('LOWER(email)')) return { id: row.id };
+              if (sql.includes('SELECT * FROM users')) return row;
+              return null;
+            },
+          };
+        },
+      };
+    },
+  };
+  const googleEnv = { ...env, COMPARISONS_DB: database };
+  const start = await handleAccountRequest(new Request('https://oauth.example/account/auth?provider=google&return_to=%2Fcompte%2F&flow=redirect'), googleEnv);
+  const authorize = new URL(start.headers.get('location'));
+  const cookie = start.headers.get('set-cookie').split(';')[0];
+  const fetchImpl = async (url) => {
+    if (url === 'https://oauth2.googleapis.com/token') return Response.json({ access_token: 'google-access-token' });
+    if (url === 'https://openidconnect.googleapis.com/v1/userinfo') return Response.json({ sub: 'google-123', email: 'Octocat@Example.com', email_verified: true, name: 'Octo Cat' });
+    return new Response(null, { status: 404 });
+  };
+  const callback = await handleAccountRequest(new Request(`https://oauth.example/callback?code=temporary-code&state=${authorize.searchParams.get('state')}`, { headers: { Cookie: cookie } }), googleEnv, fetchImpl);
+  assert.equal(callback.status, 302);
+  assert.ok(writes.some(({ sql, values }) => sql.includes('INSERT INTO account_identities') && values[0] === 'google' && values[2] === row.id));
+  assert.ok(!writes.some(({ sql }) => sql.includes('INSERT INTO users')));
+});
+
+test('magic-link requests send a short-lived one-time URL without exposing account existence', async () => {
+  const statements = [];
+  const database = {
+    prepare(sql) {
+      return {
+        bind(...values) {
+          return {
+            async run() { statements.push({ sql, values }); return { success: true, meta: { changes: 1 } }; },
+            async first() { return sql.includes('COUNT(*)') ? { total: 0 } : null; },
+          };
+        },
+      };
+    },
+  };
+  let emailPayload;
+  const fetchImpl = async (url, options) => {
+    assert.equal(url, 'https://api.resend.com/emails');
+    emailPayload = JSON.parse(options.body);
+    return Response.json({ id: 'email-id' });
+  };
+  const response = await handleAccountRequest(new Request('https://oauth.example/api/account/magic-link', {
+    method: 'POST',
+    headers: { Origin: env.ALLOWED_ORIGIN, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: 'User@Example.com', returnTo: '/compte/' }),
+  }), { ...env, COMPARISONS_DB: database, RESEND_API_KEY: 'resend-test', MAGIC_LINK_FROM_EMAIL: 'GPLD <connexion@example.com>' }, fetchImpl);
+  assert.equal(response.status, 202);
+  assert.deepEqual(await response.json(), { sent: true });
+  assert.deepEqual(emailPayload.to, ['user@example.com']);
+  assert.match(emailPayload.html, /\/account\/magic\?token=/);
+  const insert = statements.find(({ sql }) => sql.includes('INSERT INTO account_magic_links'));
+  assert.ok(insert);
+  assert.equal(insert.values[1], 'user@example.com');
+  assert.equal(insert.values[4] - insert.values[3], 15 * 60);
+  assert.doesNotMatch(emailPayload.html, new RegExp(insert.values[0]));
+});
+
+test('opening a magic link does not consume it before explicit confirmation', async () => {
+  let updateCount = 0;
+  const database = {
+    prepare(sql) {
+      return {
+        bind() {
+          return {
+            async first() { return { expires_at: Math.floor(Date.now() / 1000) + 600, consumed_at: null }; },
+            async run() { if (sql.includes('UPDATE account_magic_links')) updateCount += 1; return { success: true, meta: { changes: 1 } }; },
+          };
+        },
+      };
+    },
+  };
+  const response = await handleAccountRequest(new Request('https://oauth.example/account/magic?token=one-time-secret'), { ...env, COMPARISONS_DB: database });
+  assert.equal(response.status, 200);
+  assert.match(await response.text(), /Continuer vers mon espace/);
+  assert.equal(updateCount, 0);
 });
 
 test('same-tab OAuth returns the GPLD session in a fragment, not in the query string', async () => {
