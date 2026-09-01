@@ -20,6 +20,7 @@ ENGINE_PATH.write_text(engine, encoding='utf-8')
 hub = HUB_PATH.read_text(encoding='utf-8')
 if '/guides/securite-pki/meilleures-offres-gratuites/' not in hub:
     anchor = """  {
+    key: 'integration-et-deploiement-continus-ci-cd',
     href: '/guides/ci-cd/meilleures-offres-gratuites/',
     category: 'CI/CD',
     title: 'Les meilleures offres gratuites pour vos pipelines CI/CD',
@@ -29,6 +30,7 @@ if '/guides/securite-pki/meilleures-offres-gratuites/' not in hub:
 """
     assert anchor in hub, 'Entrée CI/CD du hub introuvable'
     addition = anchor + """  {
+    key: 'securite-pki',
     href: '/guides/securite-pki/meilleures-offres-gratuites/',
     category: 'SÉCURITÉ & PKI',
     title: 'Les meilleures offres gratuites de sécurité et PKI',
