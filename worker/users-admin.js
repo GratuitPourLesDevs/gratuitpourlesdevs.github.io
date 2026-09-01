@@ -134,6 +134,21 @@ function auditRecord(row) {
   };
 }
 
+function auditStatement(env, adminLogin, user, actionType, oldValue, newValue, now) {
+  return env.COMPARISONS_DB.prepare(`INSERT INTO admin_user_actions
+    (admin_login, target_user_id, target_account_label, action_type, old_value, new_value, created_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?)`)
+    .bind(
+      adminLogin,
+      String(user.id),
+      accountLabel(user),
+      actionType,
+      oldValue == null ? null : String(oldValue),
+      newValue == null ? null : String(newValue),
+      now,
+    );
+}
+
 async function dashboardData(request, env) {
   const url = new URL(request.url);
   const page = normalizePage(url.searchParams.get('page'));
@@ -231,16 +246,7 @@ async function dashboardData(request, env) {
 }
 
 async function targetUser(env, userId) {
-  return env.COMPARISONS_DB.prepare(`SELECT id, github_login, display_name, email, plan FROM users WHERE id = ?`).bind(userId).first();
-}
-
-async function audit(env, adminLogin, user, actionType, oldValue, newValue) {
-  const now = Math.floor(Date.now() / 1000);
-  await env.COMPARISONS_DB.prepare(`INSERT INTO admin_user_actions
-    (admin_login, target_user_id, target_account_label, action_type, old_value, new_value, created_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?)`)
-    .bind(adminLogin, String(user.id), accountLabel(user), actionType, oldValue == null ? null : String(oldValue), newValue == null ? null : String(newValue), now)
-    .run();
+  return env.COMPARISONS_DB.prepare('SELECT id, github_login, display_name, email, plan FROM users WHERE id = ?').bind(userId).first();
 }
 
 async function changePlan(request, env, adminLogin) {
@@ -253,8 +259,10 @@ async function changePlan(request, env, adminLogin) {
   const previous = normalizePlan(user.plan) || 'free';
   if (previous === plan) return json({ ok: true, unchanged: true, userId, plan }, 200, corsHeaders(request, env));
   const now = Math.floor(Date.now() / 1000);
-  await env.COMPARISONS_DB.prepare('UPDATE users SET plan = ?, updated_at = ? WHERE id = ?').bind(plan, now, userId).run();
-  await audit(env, adminLogin, user, 'PLAN_CHANGED', previous, plan);
+  await env.COMPARISONS_DB.batch([
+    env.COMPARISONS_DB.prepare('UPDATE users SET plan = ?, updated_at = ? WHERE id = ?').bind(plan, now, userId),
+    auditStatement(env, adminLogin, user, 'PLAN_CHANGED', previous, plan, now),
+  ]);
   return json({ ok: true, userId, previousPlan: previous, plan, changedBy: adminLogin }, 200, corsHeaders(request, env));
 }
 
@@ -266,8 +274,11 @@ async function revokeSessions(request, env, adminLogin) {
   if (!user) return json({ error: 'Utilisateur introuvable.' }, 404, corsHeaders(request, env));
   const before = await env.COMPARISONS_DB.prepare('SELECT COUNT(*) AS total FROM account_sessions WHERE user_id = ?').bind(userId).first();
   const revoked = Number(before?.total || 0);
-  await env.COMPARISONS_DB.prepare('DELETE FROM account_sessions WHERE user_id = ?').bind(userId).run();
-  await audit(env, adminLogin, user, 'SESSIONS_REVOKED', revoked, 0);
+  const now = Math.floor(Date.now() / 1000);
+  await env.COMPARISONS_DB.batch([
+    env.COMPARISONS_DB.prepare('DELETE FROM account_sessions WHERE user_id = ?').bind(userId),
+    auditStatement(env, adminLogin, user, 'SESSIONS_REVOKED', revoked, 0, now),
+  ]);
   return json({ ok: true, userId, revoked, changedBy: adminLogin }, 200, corsHeaders(request, env));
 }
 
