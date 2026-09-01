@@ -13,12 +13,41 @@ import SiteFooter from '../components/SiteFooter.astro';
         <h1>Ce qui change.<br />Et ce qui se prépare.</h1>
         <p>Une vue transparente des fonctionnalités livrées et des sujets encore à l’étude. Les pistes présentées ici n’impliquent pas de date de sortie.</p>
       </div>
-      <aside aria-label="Résumé des évolutions"><strong>12</strong><span>jours d’améliorations documentés</span><strong>1</strong><span>sujet actuellement à l’étude</span></aside>
+      <aside aria-label="Résumé des évolutions"><strong>16</strong><span>jours d’améliorations documentés</span><strong>1</strong><span>sujet actuellement à l’étude</span></aside>
     </header>
 
     <section class="evolutions-section" aria-labelledby="released-title">
       <div class="evolutions-section-heading"><div><small>JOURNAL DES MODIFICATIONS</small><h2 id="released-title">Dernières nouveautés</h2></div><span class="evolution-status delivered">Déployé</span></div>
       <div class="evolution-timeline">
+        <article>
+          <time datetime="2026-09-01">1er septembre 2026</time>
+          <div class="evolution-day">
+            <div class="evolution-card"><h3>La stack personnelle devient un tableau de bord de risque</h3><ul><li>Les offres enregistrées dans la stack sont désormais relues à travers leurs risques de facturation, restrictions et points d’attention.</li><li>Des pictogrammes rendent les alertes importantes plus faciles à repérer et les cartes de favoris ont été compactées pour mieux hiérarchiser l’espace.</li><li>Les sélecteurs et listes de Mon espace ont été harmonisés afin de rendre les usages plus cohérents.</li></ul></div>
+            <div class="evolution-card"><h3>La gestion des comptes gagne son propre dashboard</h3><ul><li>La console d’administration dispose d’une vue dédiée aux utilisateurs avec statistiques globales, activité récente, plans Free / Pro, sessions et usages par fonctionnalité.</li><li>Recherche, filtre par plan, pagination et vue détaillée permettent de diagnostiquer un compte sans exposer les secrets de session.</li><li>Les changements de plan et révocations de sessions sont confirmés, atomiques et consignés dans un journal d’audit append-only.</li></ul></div>
+            <div class="evolution-card"><h3>Les actions sensibles sont mieux protégées</h3><ul><li>Les actions destructives du compte demandent une confirmation explicite avant exécution.</li><li>La mise en pause d’une recherche surveillée bénéficie elle aussi d’une confirmation pour limiter les désactivations accidentelles.</li><li>Le retour des liens magiques de connexion a été fiabilisé afin de retrouver correctement son contexte après authentification.</li></ul></div>
+          </div>
+        </article>
+        <article>
+          <time datetime="2026-08-31">31 août 2026</time>
+          <div class="evolution-day">
+            <div class="evolution-card"><h3>Le compte n’est plus lié à une seule méthode de connexion</h3><ul><li>L’authentification est étendue à GitHub, Google et aux liens magiques par e-mail.</li><li>Lorsque l’adresse vérifiée correspond, les identités peuvent rester rattachées au même compte afin de préserver favoris, recherches, comparaisons et stack.</li><li>Les liens magiques expirent après quinze minutes et aucun accès aux dépôts, fichiers ou contacts n’est demandé pour ces parcours.</li></ul></div>
+          </div>
+        </article>
+        <article>
+          <time datetime="2026-08-28">28 août 2026</time>
+          <div class="evolution-day">
+            <div class="evolution-card"><h3>Les recherches sauvegardées peuvent désormais travailler toutes seules</h3><ul><li>Une recherche peut être placée sous surveillance afin de détecter les nouvelles correspondances, les retraits et les changements critiques.</li><li>L’activation initialise une baseline silencieuse : les résultats déjà présents ne génèrent pas de faux événement au démarrage.</li><li>Le compte gratuit dispose d’une veille hebdomadaire ; les évaluations plus fréquentes s’appuient sur les passages périodiques du Free Tier Radar.</li></ul></div>
+            <div class="evolution-card"><h3>Mon espace donne une vraie visibilité sur la veille</h3><ul><li>Une section dédiée présente les recherches surveillées, leur fréquence, leur dernière évaluation et le nombre actuel de correspondances.</li><li>L’activité récente permet de comprendre ce qui a été ajouté, retiré ou modifié depuis les évaluations précédentes.</li><li>Le statut Free / Pro et les quotas associés sont présentés de façon plus explicite dans le tableau de bord du compte.</li></ul></div>
+          </div>
+        </article>
+        <article>
+          <time datetime="2026-08-27">27 août 2026</time>
+          <div class="evolution-day">
+            <div class="evolution-card"><h3>Le Free Tier Radar surveille désormais les changements du catalogue</h3><ul><li>Un moteur dédié compare périodiquement les données normalisées des offres afin de détecter les évolutions importantes de leurs conditions gratuites.</li><li>Les événements sont conservés dans un journal append-only et le premier passage construit uniquement une baseline, sans générer de faux changements.</li><li>Le Radar fonctionne automatiquement plusieurs fois par jour et alimente une base commune pour les futures fonctions de veille.</li></ul></div>
+            <div class="evolution-card"><h3>Le Radar devient observable depuis l’administration</h3><ul><li>Un dashboard sécurisé expose l’état du service, l’historique des exécutions, les événements détectés et les principaux indicateurs de santé.</li><li>Un lancement manuel permet de contrôler le moteur sans réinitialiser les baselines ni effacer l’historique.</li><li>Les routes publiques de statut restent séparées des commandes d’administration.</li></ul></div>
+            <div class="evolution-card"><h3>Search Watch dispose aussi de sa supervision dédiée</h3><ul><li>La surveillance des recherches possède son propre historique d’exécutions pour distinguer « aucun changement » d’une évaluation qui n’aurait pas tourné.</li><li>Le dashboard suit les veilles actives, les retards, les événements produits et les répartitions Free / Pro.</li><li>Les commandes d’administration restent non destructives : aucun filtre ni choix utilisateur n’est modifié depuis ce tableau de bord.</li></ul></div>
+          </div>
+        </article>
         <article>
           <time datetime="2026-08-26">26 août 2026</time>
           <div class="evolution-day">
