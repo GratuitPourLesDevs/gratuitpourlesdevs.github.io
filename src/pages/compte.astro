@@ -154,6 +154,7 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
       if (typeof dialog.showModal === 'function') dialog.showModal();
       else resolve(window.confirm(`${title}\n\n${description}`));
     });
+    window.GPLDConfirmAccountAction = confirmAction;
     $('#account-remove-dialog')?.addEventListener('click', (event) => {
       if (event.target === event.currentTarget) event.currentTarget.close('cancel');
     });

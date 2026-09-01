@@ -11,6 +11,36 @@
   const account = () => window.GPLDAccount;
   const hasAccount = () => Boolean(account()?.getToken?.());
   const showToast = (message, options) => account()?.showToast?.(message, options);
+  const confirmWatchPause = (search) => {
+    if (!search?.watchEnabled) return Promise.resolve(true);
+    const name = search.name || 'cette recherche';
+    const options = {
+      eyebrow: 'SURVEILLANCE',
+      title: `Mettre « ${name} » en pause ?`,
+      description: 'GPLD cessera de réévaluer cette recherche et de signaler ses changements. La recherche restera sauvegardée et pourra être réactivée à tout moment.',
+      confirmLabel: 'Mettre en pause',
+    };
+    if (typeof window.GPLDConfirmAccountAction === 'function') return window.GPLDConfirmAccountAction(options);
+    return new Promise((resolve) => {
+      let dialog = document.querySelector('#search-watch-pause-dialog');
+      if (!dialog) {
+        dialog = document.createElement('dialog');
+        dialog.id = 'search-watch-pause-dialog';
+        dialog.className = 'account-confirm-dialog';
+        dialog.setAttribute('aria-labelledby', 'search-watch-pause-title');
+        dialog.setAttribute('aria-describedby', 'search-watch-pause-description');
+        dialog.innerHTML = '<form method="dialog"><small>SURVEILLANCE</small><h2 id="search-watch-pause-title"></h2><p id="search-watch-pause-description"></p><div class="account-confirm-actions"><button class="account-secondary" type="submit" value="cancel">Annuler</button><button class="account-danger" type="submit" value="confirm">Mettre en pause</button></div></form>';
+        document.body.append(dialog);
+        dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close('cancel'); });
+      }
+      dialog.querySelector('#search-watch-pause-title').textContent = options.title;
+      dialog.querySelector('#search-watch-pause-description').textContent = options.description;
+      dialog.returnValue = 'cancel';
+      dialog.addEventListener('close', () => resolve(dialog.returnValue === 'confirm'), { once: true });
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else resolve(window.confirm(`${options.title}\n\n${options.description}`));
+    });
+  };
 
   const currentExplorerFilters = () => {
     const value = (key) => document.querySelector(explorerControls[key])?.value ?? '';
@@ -154,6 +184,7 @@
       try {
         await account().ensureLogin();
         const search = await saveCurrentExplorerSearch();
+        if (!await confirmWatchPause(search)) return;
         const active = !search.watchEnabled;
         const result = await account().api('/api/account/searches/watch', {
           method: 'PUT',
@@ -242,6 +273,7 @@
   }
 
   async function toggleWatch(search) {
+    if (!await confirmWatchPause(search)) return;
     try {
       await account().api('/api/account/searches/watch', {
         method: 'PUT',
