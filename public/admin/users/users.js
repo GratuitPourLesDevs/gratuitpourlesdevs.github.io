@@ -244,13 +244,15 @@
     return item;
   }
 
-  function openUser(user) {
+  function openUser(user, { preserveStatus = false } = {}) {
     selectedUser = user;
     $('detail-title').textContent = user.accountLabel;
     $('detail-subtitle').textContent = `${user.emailVerified ? 'E-mail vérifié' : 'E-mail non vérifié'} · ${user.providers?.join(' + ') || 'provider historique'}`;
     $('detail-plan').value = user.plan;
-    $('detail-status').textContent = '';
-    $('detail-status').className = 'status';
+    if (!preserveStatus) {
+      $('detail-status').textContent = '';
+      $('detail-status').className = 'status';
+    }
     const grid = $('detail-grid');
     grid.replaceChildren(
       detailItem('Identifiant interne', user.id),
@@ -267,7 +269,8 @@
       detailItem('Digest', user.digestEnabled ? 'Activé' : 'Désactivé'),
     );
     $('revoke-sessions').disabled = user.activeSessions <= 0;
-    $('user-dialog').showModal();
+    const dialog = $('user-dialog');
+    if (!dialog.open) dialog.showModal();
   }
 
   async function loadDashboard() {
@@ -309,6 +312,7 @@
 
   $('save-plan').addEventListener('click', async () => {
     if (!selectedUser) return;
+    const userId = selectedUser.id;
     const nextPlan = $('detail-plan').value;
     if (nextPlan === selectedUser.plan) return;
     if (!confirm(`Passer ${selectedUser.accountLabel} du plan ${selectedUser.plan.toUpperCase()} au plan ${nextPlan.toUpperCase()} ?`)) {
@@ -319,13 +323,13 @@
     status.className = 'status';
     status.textContent = 'Modification du plan…';
     try {
-      await api('/api/users/admin/plan', { method: 'POST', body: JSON.stringify({ userId: selectedUser.id, plan: nextPlan }) });
+      await api('/api/users/admin/plan', { method: 'POST', body: JSON.stringify({ userId, plan: nextPlan }) });
       status.className = 'status ok';
       status.textContent = 'Plan mis à jour et action auditée.';
       selectedUser.plan = nextPlan;
       await loadDashboard();
-      const refreshed = payload?.users?.find((user) => user.id === selectedUser.id);
-      if (refreshed) openUser(refreshed);
+      const refreshed = payload?.users?.find((user) => user.id === userId);
+      if (refreshed) openUser(refreshed, { preserveStatus: true });
     } catch (error) {
       status.className = 'status error';
       status.textContent = error.message || 'Modification impossible.';
@@ -334,17 +338,20 @@
 
   $('revoke-sessions').addEventListener('click', async () => {
     if (!selectedUser || selectedUser.activeSessions <= 0) return;
+    const userId = selectedUser.id;
     if (!confirm(`Révoquer toutes les sessions de ${selectedUser.accountLabel} ? Le compte sera déconnecté sur tous ses appareils.`)) return;
     const status = $('detail-status');
     status.className = 'status';
     status.textContent = 'Révocation des sessions…';
     try {
-      const result = await api('/api/users/admin/sessions/revoke', { method: 'POST', body: JSON.stringify({ userId: selectedUser.id }) });
+      const result = await api('/api/users/admin/sessions/revoke', { method: 'POST', body: JSON.stringify({ userId }) });
       status.className = 'status ok';
       status.textContent = `${number(result.revoked)} session(s) révoquée(s).`;
       selectedUser.activeSessions = 0;
       $('revoke-sessions').disabled = true;
       await loadDashboard();
+      const refreshed = payload?.users?.find((user) => user.id === userId);
+      if (refreshed) openUser(refreshed, { preserveStatus: true });
     } catch (error) {
       status.className = 'status error';
       status.textContent = error.message || 'Révocation impossible.';
