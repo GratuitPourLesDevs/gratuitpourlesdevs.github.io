@@ -153,6 +153,48 @@ test('opening a magic link does not consume it before explicit confirmation', as
   assert.equal(updateCount, 0);
 });
 
+test('confirming a magic link creates a session and returns a visible account continuation', async () => {
+  const now = Math.floor(Date.now() / 1000);
+  const writes = [];
+  const user = {
+    id: 'email:user@example.com', github_login: 'user', display_name: 'user', avatar_url: null,
+    email: 'user@example.com', email_verified: 1, plan: 'free', digest_enabled: 0,
+  };
+  const database = {
+    prepare(sql) {
+      return {
+        bind(...values) {
+          return {
+            async first() {
+              if (sql.includes('FROM account_magic_links')) return { email: 'user@example.com', return_to: '/compte/', expires_at: now + 600, consumed_at: null };
+              if (sql.includes('FROM account_identities')) return null;
+              if (sql.includes('LOWER(email)')) return null;
+              if (sql.includes('SELECT * FROM users')) return user;
+              return null;
+            },
+            async run() {
+              writes.push({ sql, values });
+              return { success: true, meta: { changes: 1 } };
+            },
+          };
+        },
+      };
+    },
+  };
+  const response = await handleAccountRequest(new Request('https://oauth.example/account/magic', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ token: 'one-time-secret' }),
+  }), { ...env, COMPARISONS_DB: database });
+  const body = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(body, /Votre espace est prêt/);
+  assert.match(body, /Ouvrir mon espace/);
+  assert.match(body, /https:\/\/gratuitpourlesdevs\.fr\/compte\/#gpld-account=/);
+  assert.ok(writes.some(({ sql }) => sql.includes('UPDATE account_magic_links SET consumed_at')));
+  assert.ok(writes.some(({ sql }) => sql.includes('INSERT INTO account_sessions')));
+});
+
 test('same-tab OAuth returns the GPLD session in a fragment, not in the query string', async () => {
   const row = {
     id: 'github:42', github_login: 'octocat', display_name: 'The Octocat', avatar_url: null,

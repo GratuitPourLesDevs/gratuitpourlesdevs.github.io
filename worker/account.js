@@ -154,6 +154,24 @@ function redirectResultPage({ env, session, status, payload }) {
   });
 }
 
+function magicLinkResultPage(env, session, payload) {
+  const destination = new URL(session.returnTo || '/compte/', env.ALLOWED_ORIGIN);
+  const result = base64url(JSON.stringify({ status: 'success', ...payload, returnTo: session.returnTo || '/compte/' }));
+  destination.hash = `gpld-account=${result}`;
+  const href = destination.toString();
+  const nonce = randomString(18);
+  const script = `window.location.replace(${JSON.stringify(href)});`;
+  const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Connexion réussie — GratuitPourLesDevs</title><style nonce="${nonce}">:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:#0c1118;color:#f5f7fb;font:16px/1.55 system-ui,sans-serif}.card{width:min(100%,480px);padding:30px;border:1px solid #313b4b;border-top:3px solid #64d8ad;border-radius:12px;background:#151c27}small{color:#64d8ad;font-weight:800;letter-spacing:.12em}h1{margin:10px 0;font-size:30px;line-height:1.1}p{color:#aeb7c5}a{display:grid;place-items:center;width:100%;min-height:48px;margin-top:18px;border:1px solid #6484ff;border-radius:8px;background:#6484ff;color:#fff;font-weight:800;text-decoration:none}a:focus-visible{outline:3px solid #9bb0ff;outline-offset:3px}</style></head><body><main class="card"><small>CONNEXION CONFIRMÉE</small><h1>Votre espace est prêt</h1><p>Redirection vers GratuitPourLesDevs… Si elle ne démarre pas, utilisez le bouton ci-dessous.</p><a href="${escapeHtml(href)}">Ouvrir mon espace</a></main><script nonce="${nonce}">${script}</script></body></html>`;
+  return new Response(html, {
+    status: 200,
+    headers: {
+      ...securityHeaders(),
+      'Content-Type': 'text/html; charset=utf-8',
+      'Content-Security-Policy': `default-src 'none'; script-src 'nonce-${nonce}'; style-src 'nonce-${nonce}'; base-uri 'none'; frame-ancestors 'none'`,
+    },
+  });
+}
+
 function accountResultPage(env, session, status, payload) {
   if (session?.flow === 'redirect') return redirectResultPage({ env, session, status, payload });
   return popupPage({ origin: env.ALLOWED_ORIGIN, status, payload });
@@ -437,7 +455,7 @@ async function consumeMagicLink(request, env) {
   if (!email) return accountFlowErrorPage(env, session, 'Adresse e-mail invalide.', 400);
   const userId = await resolveAccountIdentity(env, { provider: 'email', providerUserId: email, login: email.split('@')[0], name: email.split('@')[0], avatarUrl: null, email, emailVerified: true });
   const accountSession = await createAccountSession(env, userId);
-  return accountResultPage(env, session, 'success', { ...accountSession, returnTo: session.returnTo });
+  return magicLinkResultPage(env, session, { ...accountSession, returnTo: session.returnTo });
 }
 
 function freeLimit(request, env, feature, limit) {
