@@ -7,6 +7,7 @@ import { handleRadarAdminRequest } from './radar-admin.js';
 import { handleRadarRequest, runFreeTierRadar } from './radar.js';
 import { handleSearchWatchAdminRequest } from './search-watch-admin.js';
 import { handleSearchWatchRequest, runSearchWatches } from './search-watch.js';
+import { handleUsersAdminRequest } from './users-admin.js';
 
 function accountEnvironment(env) {
   return {
@@ -19,6 +20,8 @@ function accountEnvironment(env) {
 }
 
 export async function handleRequest(request, env, fetchImpl = fetch) {
+  const usersAdminResponse = await handleUsersAdminRequest(request, env, fetchImpl);
+  if (usersAdminResponse) return usersAdminResponse;
   const searchWatchAdminResponse = await handleSearchWatchAdminRequest(request, env, fetchImpl);
   if (searchWatchAdminResponse) return searchWatchAdminResponse;
   const radarAdminResponse = await handleRadarAdminRequest(request, env, fetchImpl);
