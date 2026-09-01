@@ -124,10 +124,10 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
 
   <dialog class="account-confirm-dialog" id="account-remove-dialog" aria-labelledby="account-remove-title" aria-describedby="account-remove-description">
     <form method="dialog">
-      <small>CONFIRMATION</small>
+      <small id="account-remove-eyebrow">CONFIRMATION</small>
       <h2 id="account-remove-title">Retirer cette offre ?</h2>
       <p id="account-remove-description"></p>
-      <div class="account-confirm-actions"><button class="account-secondary" type="submit" value="cancel">Annuler</button><button class="account-danger" type="submit" value="confirm">Retirer</button></div>
+      <div class="account-confirm-actions"><button class="account-secondary" type="submit" value="cancel">Annuler</button><button class="account-danger" id="account-remove-confirm" type="submit" value="confirm">Retirer</button></div>
     </form>
   </dialog>
 
@@ -143,17 +143,25 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
     const normalize = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
     const emptyItem = (message) => { const li = document.createElement('li'); li.className = 'account-empty'; li.textContent = message; return li; };
     const setLimit = (selector, value, limit) => { const node = $(selector); if (!node) return; node.textContent = `${value} / ${limit}`; node.classList.toggle('is-full', value >= limit); };
-    const confirmRemoval = (id, follow) => new Promise((resolve) => {
+    const confirmAction = ({ eyebrow = 'CONFIRMATION', title, description, confirmLabel = 'Confirmer' }) => new Promise((resolve) => {
       const dialog = $('#account-remove-dialog');
-      const data = offer(id);
-      const kind = follow ? 'de votre veille' : 'de vos favoris';
-      $('#account-remove-title').textContent = `Retirer ${data.name || id} ?`;
-      $('#account-remove-description').textContent = `${data.name || id} sera retiré ${kind}. Vous pourrez l’ajouter de nouveau à tout moment.`;
+      $('#account-remove-eyebrow').textContent = eyebrow;
+      $('#account-remove-title').textContent = title;
+      $('#account-remove-description').textContent = description;
+      $('#account-remove-confirm').textContent = confirmLabel;
       dialog.returnValue = 'cancel';
       dialog.addEventListener('close', () => resolve(dialog.returnValue === 'confirm'), { once: true });
       if (typeof dialog.showModal === 'function') dialog.showModal();
-      else resolve(window.confirm(`Retirer ${data.name || id} ${kind} ?`));
+      else resolve(window.confirm(`${title}\n\n${description}`));
     });
+    $('#account-remove-dialog')?.addEventListener('click', (event) => {
+      if (event.target === event.currentTarget) event.currentTarget.close('cancel');
+    });
+    const confirmRemoval = (id, follow) => {
+      const data = offer(id);
+      const kind = follow ? 'de votre veille' : 'de vos favoris';
+      return confirmAction({ title: `Retirer ${data.name || id} ?`, description: `${data.name || id} sera retiré ${kind}. Vous pourrez l’ajouter de nouveau à tout moment.`, confirmLabel: 'Retirer' });
+    };
 
     const renderOfferList = (selector, ids, { removable, follow } = {}) => {
       const root = $(selector); if (!root) return;
@@ -216,7 +224,7 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
       const root = $(selector); if (!root) return;
       if (!items.length) { root.replaceChildren(emptyItem(type === 'searches' ? 'Aucune recherche sauvegardée.' : 'Aucune comparaison sauvegardée.')); return; }
       root.replaceChildren(...items.map((item) => {
-        const li = document.createElement('li'); const span = document.createElement('span'); const link = document.createElement('a'); link.href = item.url; link.textContent = item.name; const small = document.createElement('small'); small.textContent = new Date(item.createdAt).toLocaleDateString('fr-FR'); span.append(link, small); const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Supprimer'; button.addEventListener('click', async () => { try { await account().api(`/api/account/${type}?id=${item.id}`, { method: 'DELETE' }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Suppression impossible.'); } }); li.append(span, button); return li;
+        const li = document.createElement('li'); const span = document.createElement('span'); const link = document.createElement('a'); link.href = item.url; link.textContent = item.name; const small = document.createElement('small'); small.textContent = new Date(item.createdAt).toLocaleDateString('fr-FR'); span.append(link, small); const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Supprimer'; button.addEventListener('click', async () => { const kind = type === 'searches' ? 'recherche' : 'comparaison'; if (!await confirmAction({ eyebrow: 'SUPPRESSION', title: `Supprimer « ${item.name} » ?`, description: `Cette ${kind} sauvegardée sera supprimée de votre espace. Cette action ne modifie aucune offre du catalogue.`, confirmLabel: 'Supprimer' })) return; try { await account().api(`/api/account/${type}?id=${item.id}`, { method: 'DELETE' }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Suppression impossible.'); } }); li.append(span, button); return li;
       }));
     };
 
@@ -236,7 +244,7 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
     const renderStackChips = () => {
       const chips = $('#stack-chips');
       if (!state.stackOfferIds.length) chips.replaceChildren(emptyItem('Ajoutez les services utilisés par votre projet.'));
-      else chips.replaceChildren(...state.stackOfferIds.map((id) => { const chip = document.createElement('span'); chip.className = 'stack-chip'; chip.append(document.createTextNode(offer(id).name || id)); const button = document.createElement('button'); button.type = 'button'; button.textContent = '×'; button.setAttribute('aria-label', `Retirer ${offer(id).name || id}`); button.addEventListener('click', () => { state.stackOfferIds = state.stackOfferIds.filter((value) => value !== id); renderStackChips(); }); chip.append(button); return chip; }));
+      else chips.replaceChildren(...state.stackOfferIds.map((id) => { const chip = document.createElement('span'); chip.className = 'stack-chip'; const name = offer(id).name || id; chip.append(document.createTextNode(name)); const button = document.createElement('button'); button.type = 'button'; button.textContent = '×'; button.setAttribute('aria-label', `Retirer ${name}`); button.addEventListener('click', async () => { if (!await confirmAction({ title: `Retirer ${name} de la stack ?`, description: 'Le service sera retiré de la sélection en cours. La modification ne deviendra définitive qu’après avoir enregistré la stack.', confirmLabel: 'Retirer' })) return; state.stackOfferIds = state.stackOfferIds.filter((value) => value !== id); renderStackChips(); }); chip.append(button); return chip; }));
       updateStackOfferLimit();
     };
     const renderStack = () => {
@@ -325,10 +333,10 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
       const ids = favoritePreviewIds(); if (!ids.length) return;
       state.favoritesIndex = (state.favoritesIndex + 1) % ids.length; renderFavorites();
     });
-    $('#account-logout')?.addEventListener('click', async () => { await account().logout(); renderSignedOut(); });
+    $('#account-logout')?.addEventListener('click', async () => { if (!await confirmAction({ title: 'Se déconnecter ?', description: 'Vos favoris, votre veille et votre stack resteront enregistrés dans votre compte.', confirmLabel: 'Se déconnecter' })) return; await account().logout(); renderSignedOut(); });
     $('#stack-add')?.addEventListener('click', () => { const id = $('#stack-offer-select').value; if (!id) return; if (state.stackOfferIds.includes(id)) { account().showToast('Cette offre est déjà présente dans votre stack.'); return; } const limit = Number(state.dashboard?.limits?.stackOffers || 10); if (state.dashboard?.user?.plan !== 'pro' && state.stackOfferIds.length >= limit) { account().showToast(`La stack gratuite accepte jusqu’à ${limit} offres.`, { pro: true }); return; } state.stackOfferIds.push(id); renderStackChips(); stackOfferSelect?.reset(); });
     $('#stack-save')?.addEventListener('click', async () => { try { await account().api('/api/account/stack', { method: 'PUT', body: JSON.stringify({ name: $('#stack-name').value, offerIds: state.stackOfferIds }) }); account().showToast('Stack enregistrée.'); await loadDashboard(); } catch (error) { if (error.payload?.code === 'free_limit' && error.payload?.feature === 'stackOffers') account().showToast(`La stack gratuite accepte jusqu’à ${error.payload.limit || 10} offres.`, { pro: true }); else if (error.payload?.code === 'free_limit') account().showToast('Le compte gratuit contient une stack.', { pro: true }); else account().showToast(error.message || 'Impossible d’enregistrer la stack.'); } });
-    $('#stack-delete')?.addEventListener('click', async () => { try { await account().api('/api/account/stack', { method: 'DELETE' }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Suppression impossible.'); } });
+    $('#stack-delete')?.addEventListener('click', async () => { const name = state.dashboard?.stack?.name || 'Ma stack'; if (!await confirmAction({ eyebrow: 'SUPPRESSION', title: `Supprimer « ${name} » ?`, description: 'La stack et sa sélection de services seront supprimées. Vos favoris et les offres suivies resteront inchangés.', confirmLabel: 'Supprimer' })) return; try { await account().api('/api/account/stack', { method: 'DELETE' }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Suppression impossible.'); } });
     $('#digest-enabled')?.addEventListener('change', async (event) => { try { await account().api('/api/account/preferences', { method: 'POST', body: JSON.stringify({ digestEnabled: event.target.checked }) }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Préférence non enregistrée.'); } });
     $('#pro-interest')?.addEventListener('click', async (event) => { const button = event.currentTarget; try { await account().api('/api/account/pro-interest', { method: 'POST' }); button.textContent = '✓ Intérêt enregistré'; button.classList.add('is-recorded'); account().showToast('Merci — cet intérêt sera mesuré avant de décider du lancement de Pro.'); } catch (error) { account().showToast(error.message || 'Impossible d’enregistrer votre intérêt.'); } });
     const init = async () => { await loadCatalogue().catch(() => {}); await loadDashboard(); if (location.hash === '#pro') $('#pro')?.scrollIntoView({ behavior: 'smooth' }); };
