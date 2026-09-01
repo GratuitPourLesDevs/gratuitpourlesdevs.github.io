@@ -574,7 +574,7 @@ async function dashboard(request, env, fetchImpl, user) {
     env.COMPARISONS_DB.prepare('SELECT offer_id FROM user_follows WHERE user_id = ? ORDER BY created_at DESC').bind(user.row.id).all(),
     env.COMPARISONS_DB.prepare('SELECT id, name, url, created_at FROM saved_searches WHERE user_id = ? ORDER BY created_at DESC').bind(user.row.id).all(),
     env.COMPARISONS_DB.prepare('SELECT id, name, offer_ids, url, created_at FROM saved_comparisons WHERE user_id = ? ORDER BY created_at DESC').bind(user.row.id).all(),
-    env.COMPARISONS_DB.prepare('SELECT id, name, offer_ids, updated_at FROM user_stacks WHERE user_id = ? ORDER BY updated_at DESC').bind(user.row.id).all(),
+    env.COMPARISONS_DB.prepare('SELECT id, name, offer_ids, created_at, updated_at FROM user_stacks WHERE user_id = ? ORDER BY updated_at DESC').bind(user.row.id).all(),
     digestItemsForUser(env, fetchImpl, user.row.id),
   ]);
   return json({
@@ -584,7 +584,7 @@ async function dashboard(request, env, fetchImpl, user) {
     follows: follows.results.map((row) => row.offer_id),
     savedSearches: searches.results.map((row) => ({ id: Number(row.id), name: row.name, url: row.url, createdAt: Number(row.created_at) * 1000 })),
     savedComparisons: comparisons.results.map((row) => ({ id: Number(row.id), name: row.name, offerIds: String(row.offer_ids).split(',').filter(Boolean), url: row.url, createdAt: Number(row.created_at) * 1000 })),
-    stack: stacks.results[0] ? { id: Number(stacks.results[0].id), name: stacks.results[0].name, offerIds: String(stacks.results[0].offer_ids).split(',').filter(Boolean), updatedAt: Number(stacks.results[0].updated_at) * 1000 } : null,
+    stack: stacks.results[0] ? { id: Number(stacks.results[0].id), name: stacks.results[0].name, offerIds: String(stacks.results[0].offer_ids).split(',').filter(Boolean), createdAt: Number(stacks.results[0].created_at) * 1000, updatedAt: Number(stacks.results[0].updated_at) * 1000 } : null,
     digest,
   }, 200, corsHeaders(request, env));
 }

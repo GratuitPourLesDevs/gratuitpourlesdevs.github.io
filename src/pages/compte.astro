@@ -89,8 +89,32 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
 
       <section class="account-section">
         <header class="account-section-heading--with-limit"><div><small>MA STACK</small><h2>Les services gratuits de votre projet</h2></div><span class="account-limit account-limit--prominent" id="stack-limit">0 / 10</span></header>
-        <article class="account-card stack-editor">
-          <div class="stack-config-grid">
+        <article class="account-card stack-editor stack-risk-dashboard">
+          <section class="stack-risk-summary" aria-labelledby="stack-risk-name">
+            <header class="stack-risk-identity"><h3 id="stack-risk-name">Ma stack</h3><p id="stack-risk-service-count">0 service</p></header>
+            <div class="stack-risk-signals" aria-label="Indicateurs de risque de la stack">
+              <article data-tone="danger"><strong id="stack-risk-billing">0</strong><span>risque de facturation</span></article>
+              <article data-tone="warning"><strong id="stack-risk-review">0</strong><span>offre à revérifier</span></article>
+              <article data-tone="safe"><strong id="stack-risk-no-card">0</strong><span>service sans carte</span></article>
+              <article data-tone="safe"><strong id="stack-risk-critical">Aucun</strong><span>changement critique cette semaine</span></article>
+            </div>
+            <aside class="stack-confidence"><span>Confiance €0</span><strong><b id="stack-confidence-score">—</b><small>/100</small></strong><p>Facturation, fraîcheur et alertes</p></aside>
+          </section>
+
+          <section class="stack-threat" id="stack-threat" aria-labelledby="stack-threat-title">
+            <div><small>DIAGNOSTIC PRIORITAIRE</small><h3 id="stack-threat-title">Qu’est-ce qui menace ma stack gratuite ?</h3><p id="stack-threat-copy">Ajoutez des services pour obtenir un diagnostic.</p></div>
+            <a id="stack-threat-link" href="/#catalogue" hidden>Examiner le risque →</a>
+          </section>
+
+          <section class="stack-inventory" aria-labelledby="stack-inventory-title">
+            <header><h3 id="stack-inventory-title">Services et niveau de confiance</h3><p>Le rôle est déduit de la catégorie de chaque offre.</p></header>
+            <div class="stack-service-head" aria-hidden="true"><span>Rôle</span><span>Service</span><span>Risque</span><span>Score GPLD</span><span></span></div>
+            <ul class="stack-service-list" id="stack-chips"></ul>
+          </section>
+
+          <section class="stack-configuration" aria-labelledby="stack-configuration-title">
+            <header><small>CONFIGURATION</small><h3 id="stack-configuration-title">Modifier la stack</h3></header>
+            <div class="stack-config-grid">
             <label class="stack-name-field">Nom de la stack<input id="stack-name" maxlength="80" value="Ma stack" /></label>
             <div class="stack-add-row">
               <div class="stack-offer-picker">
@@ -98,12 +122,9 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
               </div>
               <button class="account-primary stack-add-button" id="stack-add" type="button">Ajouter</button>
             </div>
-          </div>
-          <section class="stack-selection" aria-labelledby="stack-selection-title">
-            <header><div><small>SERVICES SÉLECTIONNÉS</small><h3 id="stack-selection-title">Votre stack actuelle</h3></div><p class="stack-offer-limit-copy" id="stack-offer-limit-copy">Compte gratuit : jusqu’à 10 offres dans votre stack.</p></header>
-            <ul class="stack-service-list" id="stack-chips"></ul>
+            </div>
+            <footer class="stack-actions"><p class="stack-offer-limit-copy" id="stack-offer-limit-copy">Compte gratuit : jusqu’à 10 offres dans votre stack.</p><div><button class="account-primary" id="stack-save" type="button">Enregistrer les modifications</button><button class="account-danger" id="stack-delete" type="button">Supprimer la stack</button></div></footer>
           </section>
-          <footer class="stack-actions"><button class="account-primary" id="stack-save" type="button">Enregistrer les modifications</button><button class="account-danger" id="stack-delete" type="button">Supprimer la stack</button></footer>
         </article>
       </section>
 
@@ -139,9 +160,9 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
     const $ = (selector) => document.querySelector(selector);
     const account = () => window.GPLDAccount;
     const FAVORITES_PREVIEW_SIZE = 3;
-    const state = { dashboard: null, catalogue: {}, stackOfferIds: [], favoritesIndex: 0 };
+    const state = { dashboard: null, catalogue: {}, quotas: {}, stackOfferIds: [], favoritesIndex: 0 };
     let stackOfferSelect = null;
-    const offer = (id) => state.catalogue[id] || { id, name: id, category: '', score: null, freeTier: '', cardRequired: null, permanent: null };
+    const offer = (id) => state.catalogue[id] || { id, name: id, category: '', score: null, freeTier: '', cardRequired: null, overageBilled: null, permanent: null, verificationState: null, alerts: [] };
     const offerLink = (id) => `/offres/${encodeURIComponent(id)}/`;
     const formatOfferDate = (value) => value ? new Date(value).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
     const normalize = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
@@ -248,17 +269,88 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
       stackOfferSelect?.setDisabled(full);
     };
 
+    const DAY = 86_400_000;
+    const daysSince = (value) => value ? Math.max(0, Math.floor((Date.now() - new Date(value).getTime()) / DAY)) : Number.POSITIVE_INFINITY;
+    const stackRole = (category = '') => {
+      const value = normalize(category);
+      if (value.includes('e-mail') || value.includes('email')) return 'E-mail';
+      if (value.includes('base') || value.includes('donnee')) return 'Database';
+      if (value.includes('hebergement web') || value.includes('frontend')) return 'Frontend';
+      if (value.includes('supervision') || value.includes('monitor')) return 'Monitoring';
+      if (value.includes('stockage') || value.includes('media')) return 'Storage';
+      if (value.includes('domaine') || value === 'dns') return 'Domaine';
+      if (value.includes('authentification') || value.includes('identite')) return 'Auth';
+      if (value.includes('projet') || value.includes('ticket')) return 'Projet';
+      return category || 'Service';
+    };
+    const stackRisk = (data) => {
+      const staleDays = daysSince(data.verifiedAt);
+      const stale = staleDays > 60;
+      const stackCreatedAt = Number(state.dashboard?.stack?.createdAt || 0);
+      const changedSinceStack = stackCreatedAt > 0 && new Date(data.latestChangeAt || 0).getTime() > stackCreatedAt && data.latestChangeTitle && data.latestChangeTitle !== 'Offre vérifiée';
+      const criticalAlert = (data.alerts || []).find((alert) => alert.level === 'critique');
+      const importantAlert = (data.alerts || []).find((alert) => alert.level === 'important');
+      const needsReview = stale || data.status === 'a_verifier' || ['inconclusive', 'controle_requis'].includes(data.verificationState);
+      let confidence = 100;
+      if (data.overageBilled) confidence -= 35;
+      else if (data.cardRequired) confidence -= 16;
+      if (stale) confidence -= 16;
+      if (data.verificationState === 'inconclusive') confidence -= 10;
+      if (data.verificationState === 'controle_requis') confidence -= 18;
+      if (data.status === 'a_verifier') confidence -= 12;
+      if (criticalAlert) confidence -= 18;
+      else if (importantAlert) confidence -= 7;
+      confidence = Math.max(0, Math.min(100, confidence));
+      if (data.overageBilled) return { confidence, level: 'danger', label: 'Dépassement facturé', priority: 100, reason: `${data.name} est le maillon le plus exposé : un dépassement peut être facturé automatiquement.` };
+      if (criticalAlert) return { confidence, level: 'danger', label: 'Alerte critique', priority: 90, reason: `${data.name} présente une alerte critique : ${criticalAlert.label.toLowerCase()}.` };
+      if (data.cardRequired) return { confidence, level: 'danger', label: 'Risque modéré', priority: 75, reason: `${data.name} présente le risque de coût le plus élevé : une carte bancaire est requise.` };
+      if (needsReview) return { confidence, level: 'warning', label: 'À revérifier', priority: 60 + Math.min(staleDays, 365) / 100, reason: stale ? `${data.name} est le maillon le moins récent : l’offre n’a pas été revérifiée depuis ${staleDays} jours.` : `${data.name} nécessite un nouveau contrôle éditorial.` };
+      if (changedSinceStack) return { confidence, level: 'warning', label: 'Offre modifiée', priority: 52, reason: `${data.name} a changé depuis la création de cette stack : ${data.latestChangeTitle.toLowerCase()}.` };
+      if (importantAlert) return { confidence, level: 'warning', label: 'Point d’attention', priority: 40, reason: `${data.name} mérite une attention particulière : ${importantAlert.label.toLowerCase()}.` };
+      return { confidence, level: 'safe', label: 'Aucun risque', priority: Math.max(0, 20 - Number(data.score || 0) / 10), reason: `${data.name} ne présente aucun risque de facturation identifié.` };
+    };
+    const renderStackRisk = () => {
+      const services = state.stackOfferIds.map((id) => ({ id, data: offer(id) })).filter(({ data }) => data);
+      const analyses = services.map(({ id, data }) => ({ id, data, risk: stackRisk(data) }));
+      const billing = analyses.filter(({ data }) => data.overageBilled || data.cardRequired).length;
+      const review = analyses.filter(({ data }) => daysSince(data.verifiedAt) > 60 || data.status === 'a_verifier' || ['inconclusive', 'controle_requis'].includes(data.verificationState)).length;
+      const noCard = analyses.filter(({ data }) => data.cardRequired === false).length;
+      const weekAgo = Date.now() - 7 * DAY;
+      const critical = analyses.filter(({ data }) => new Date(data.latestChangeAt || 0).getTime() >= weekAgo && (data.alerts || []).some((alert) => alert.level === 'critique')).length;
+      const confidence = analyses.length ? Math.round(analyses.reduce((sum, item) => sum + item.risk.confidence, 0) / analyses.length) : null;
+      const name = $('#stack-name')?.value || state.dashboard?.stack?.name || 'Ma stack';
+      $('#stack-risk-name').textContent = name;
+      $('#stack-risk-service-count').textContent = `${services.length} service${services.length > 1 ? 's' : ''}`;
+      $('#stack-risk-billing').textContent = String(billing);
+      $('#stack-risk-billing').nextElementSibling.textContent = `risque${billing > 1 ? 's' : ''} de facturation`;
+      $('#stack-risk-billing').parentElement.dataset.tone = billing ? 'danger' : 'safe';
+      $('#stack-risk-review').textContent = String(review);
+      $('#stack-risk-review').nextElementSibling.textContent = `offre${review > 1 ? 's' : ''} à revérifier`;
+      $('#stack-risk-review').parentElement.dataset.tone = review ? 'warning' : 'safe';
+      $('#stack-risk-no-card').textContent = String(noCard);
+      $('#stack-risk-no-card').nextElementSibling.textContent = `service${noCard > 1 ? 's' : ''} sans carte`;
+      $('#stack-risk-critical').textContent = critical ? String(critical) : 'Aucun';
+      $('#stack-risk-critical').parentElement.dataset.tone = critical ? 'danger' : 'safe';
+      $('#stack-confidence-score').textContent = confidence == null ? '—' : String(confidence);
+      const threat = [...analyses].sort((a, b) => b.risk.priority - a.risk.priority)[0];
+      $('#stack-threat-copy').textContent = threat?.risk.reason || 'Ajoutez des services pour obtenir un diagnostic.';
+      const threatLink = $('#stack-threat-link'); threatLink.hidden = !threat; if (threat) threatLink.href = offerLink(threat.id);
+    };
+
     const renderStackChips = () => {
       const chips = $('#stack-chips');
       if (!state.stackOfferIds.length) chips.replaceChildren(emptyItem('Ajoutez les services utilisés par votre projet.'));
       else chips.replaceChildren(...state.stackOfferIds.map((id) => {
-        const data = offer(id); const name = data.name || id; const item = document.createElement('li'); item.className = 'stack-service-item';
-        const body = document.createElement('span'); const title = document.createElement('a'); title.href = offerLink(id); title.textContent = name;
-        const meta = document.createElement('small'); meta.textContent = data.category || 'Offre gratuite';
-        const summary = document.createElement('p'); summary.textContent = data.freeTier || 'Consultez la fiche pour connaître les conditions de cette offre.'; body.append(title, meta, summary);
+        const data = offer(id); const name = data.name || id; const risk = stackRisk(data); const item = document.createElement('li'); item.className = 'stack-service-item';
+        const role = document.createElement('span'); role.className = 'stack-service-role'; role.textContent = stackRole(data.category);
+        const body = document.createElement('span'); body.className = 'stack-service-main'; const title = document.createElement('a'); title.href = offerLink(id); title.textContent = name;
+        const summary = document.createElement('small'); summary.textContent = data.freeTier || 'Consultez la fiche pour connaître les conditions de cette offre.'; body.append(title, summary);
+        const riskLabel = document.createElement('strong'); riskLabel.className = `stack-service-risk is-${risk.level}`; riskLabel.textContent = risk.label;
+        const score = document.createElement('span'); score.className = 'stack-service-score'; score.textContent = data.score == null ? '—' : `${data.score}/100`;
         const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Retirer'; button.setAttribute('aria-label', `Retirer ${name} de la stack`); button.addEventListener('click', async () => { if (!await confirmAction({ title: `Retirer ${name} de la stack ?`, description: 'Le service sera retiré de la sélection en cours. La modification ne deviendra définitive qu’après avoir enregistré la stack.', confirmLabel: 'Retirer' })) return; state.stackOfferIds = state.stackOfferIds.filter((value) => value !== id); renderStackChips(); });
-        item.append(body, button); return item;
+        item.append(role, body, riskLabel, score, button); return item;
       }));
+      renderStackRisk();
       updateStackOfferLimit();
     };
     const renderStack = () => {
@@ -329,7 +421,7 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
         setDisabled(disabled) { trigger.disabled = disabled; trigger.setAttribute('aria-disabled', String(disabled)); if (disabled) close(); },
       };
     };
-    const loadCatalogue = async () => { const response = await fetch('/offres.json?v=20260821-account-stack-search', { headers: { Accept: 'application/json' } }); const payload = await response.json(); state.catalogue = payload.catalogue || {}; const entries = Object.values(state.catalogue).sort((a,b) => (a.name || '').localeCompare(b.name || '', 'fr')); stackOfferSelect = setupStackOfferSelect(entries); };
+    const loadCatalogue = async () => { const response = await fetch('/offres.json?v=20260901-stack-risk-dashboard', { headers: { Accept: 'application/json' } }); const payload = await response.json(); state.catalogue = payload.catalogue || {}; state.quotas = payload.quotas || {}; const entries = Object.values(state.catalogue).sort((a,b) => (a.name || '').localeCompare(b.name || '', 'fr')); stackOfferSelect = setupStackOfferSelect(entries); };
     const loadDashboard = async () => {
       if (!account()?.getToken()) { renderSignedOut(); return; }
       $('#account-loading').hidden = false;
@@ -349,6 +441,7 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
     });
     $('#account-logout')?.addEventListener('click', async () => { if (!await confirmAction({ title: 'Se déconnecter ?', description: 'Vos favoris, votre veille et votre stack resteront enregistrés dans votre compte.', confirmLabel: 'Se déconnecter' })) return; await account().logout(); renderSignedOut(); });
     $('#stack-add')?.addEventListener('click', () => { const id = $('#stack-offer-select').value; if (!id) return; if (state.stackOfferIds.includes(id)) { account().showToast('Cette offre est déjà présente dans votre stack.'); return; } const limit = Number(state.dashboard?.limits?.stackOffers || 10); if (state.dashboard?.user?.plan !== 'pro' && state.stackOfferIds.length >= limit) { account().showToast(`La stack gratuite accepte jusqu’à ${limit} offres.`, { pro: true }); return; } state.stackOfferIds.push(id); renderStackChips(); stackOfferSelect?.reset(); });
+    $('#stack-name')?.addEventListener('input', renderStackRisk);
     $('#stack-save')?.addEventListener('click', async () => { try { await account().api('/api/account/stack', { method: 'PUT', body: JSON.stringify({ name: $('#stack-name').value, offerIds: state.stackOfferIds }) }); account().showToast('Stack enregistrée.'); await loadDashboard(); } catch (error) { if (error.payload?.code === 'free_limit' && error.payload?.feature === 'stackOffers') account().showToast(`La stack gratuite accepte jusqu’à ${error.payload.limit || 10} offres.`, { pro: true }); else if (error.payload?.code === 'free_limit') account().showToast('Le compte gratuit contient une stack.', { pro: true }); else account().showToast(error.message || 'Impossible d’enregistrer la stack.'); } });
     $('#stack-delete')?.addEventListener('click', async () => { const name = state.dashboard?.stack?.name || 'Ma stack'; if (!await confirmAction({ eyebrow: 'SUPPRESSION', title: `Supprimer « ${name} » ?`, description: 'La stack et sa sélection de services seront supprimées. Vos favoris et les offres suivies resteront inchangés.', confirmLabel: 'Supprimer' })) return; try { await account().api('/api/account/stack', { method: 'DELETE' }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Suppression impossible.'); } });
     $('#digest-enabled')?.addEventListener('change', async (event) => { try { await account().api('/api/account/preferences', { method: 'POST', body: JSON.stringify({ digestEnabled: event.target.checked }) }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Préférence non enregistrée.'); } });

@@ -23,12 +23,15 @@ export const GET: APIRoute = async () => {
       score: getFreeTierScore(entry.id, entry.data).total,
       freeTier: entry.data.formule,
       cardRequired: entry.data.carteRequise,
+      overageBilled: entry.data.depassementFacture,
       permanent: entry.data.permanent,
       status: entry.data.statut,
+      verificationState: entry.data.verificationEtat ?? null,
       verifiedAt: entry.data.verifieLe.toISOString(),
       latestChangeAt: latestChangeAt.toISOString(),
       latestChangeTitle: latestHistory?.titre ?? 'Offre vérifiée',
       latestChangeSummary: latestHistory?.resume ?? entry.data.verificationNote ?? 'Quotas, conditions et restrictions contrôlés.',
+      alerts: entry.data.alertes.map((alert) => ({ level: alert.niveau, label: alert.libelle, detail: alert.detail })),
     }];
   }));
   return new Response(JSON.stringify({ offers, quotaSchemaVersion: 1, quotas, catalogue }), {
