@@ -38,12 +38,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 962
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Xirsys fournit les briques STUN et TURN utilisées par WebRTC lorsque les clients doivent traverser NAT et pare-feu. Les connexions STUN directes restent gratuites et illimitées, tandis que le relais TURN consomme une allocation mensuelle plafonnée. Les nouveaux comptes bénéficient en plus d’un accès production étendu pendant trente jours avant de revenir automatiquement au niveau Developer permanent.

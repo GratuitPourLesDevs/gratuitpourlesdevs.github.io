@@ -39,11 +39,11 @@ statut: "active"
 vedette: false
 ordre: 78
 verifieLe: 2026-08-17
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Zoho Survey permet de créer gratuitement des questionnaires pour sonder des utilisateurs, valider une idée ou recueillir des retours après une fonctionnalité. La formule gratuite n’impose pas de plafond au nombre de sondages selon la FAQ officielle actuelle, mais chaque questionnaire reste limité à dix questions et cent réponses. Elle est donc surtout adaptée aux petites communautés, tests utilisateurs et enquêtes ponctuelles.

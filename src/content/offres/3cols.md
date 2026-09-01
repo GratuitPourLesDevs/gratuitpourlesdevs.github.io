@@ -29,11 +29,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 270
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 3Cols permet de centraliser des morceaux de code dans le cloud et de les partager facilement. La fiche reste en vérification tant qu’un plan gratuit actuel et ses éventuelles limites ne sont pas documentés explicitement par l’éditeur.

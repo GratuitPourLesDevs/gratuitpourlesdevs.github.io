@@ -19,11 +19,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 28
 verifieLe: 2026-08-13
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Chrome Remote Desktop permet de retrouver son poste de travail depuis un autre ordinateur ou un appareil mobile, ou d’accorder temporairement le contrôle à une personne de confiance. Le service privilégie une configuration simple via le Web ; son usage doit néanmoins rester prudent, car un utilisateur autorisé obtient un accès complet au poste et à ses données.

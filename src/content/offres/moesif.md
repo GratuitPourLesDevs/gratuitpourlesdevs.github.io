@@ -30,15 +30,15 @@ initiales: "MOE"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 1176
 verifieLe: '2026-08-26'
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 2 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Moesif devient intéressant dès qu’une API est un véritable produit et qu’il faut comprendre qui l’utilise, comment, à quel volume et avec quel impact commercial. En plus de l’observabilité des appels, la plateforme peut servir de couche de mesure pour une facturation à l’usage et transmettre ces données à Stripe, Recurly, Chargebee ou Zuora, ce qui évite de reconstruire tout le comptage côté application. Le Free Tier suffit pour un petit trafic ou une phase de lancement, mais ses 30 000 événements mensuels et seulement sept jours de rétention demandent de surveiller rapidement la croissance.

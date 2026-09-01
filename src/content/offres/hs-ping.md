@@ -28,11 +28,11 @@ statut: "active"
 vedette: false
 ordre: 175
 verifieLe: 2026-08-31
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 HS Ping expose une API spécialisée pour retrouver des classifications douanières HS et HTS. Les 100 recherches quotidiennes suffisent pour prototyper une intégration commerce ou logistique sans moyen de paiement.

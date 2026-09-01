@@ -24,15 +24,15 @@ initiales: "AF"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 1156
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 2 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 AppFit est intéressant pour une petite équipe qui veut relier les évolutions d’un produit à ce qui se passe réellement après chaque mise en ligne. Le journal de versions et les insights hebdomadaires permettent de voir plus facilement si une nouvelle fonctionnalité améliore l’usage ou provoque au contraire une baisse d’engagement, sans construire soi-même tout ce suivi. Le plan gratuit convient bien à un MVP ou à une application unique ; sa limite d’un projet et ses 12 semaines d’historique deviennent en revanche vite contraignantes lorsque le produit grandit.

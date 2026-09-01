@@ -36,11 +36,11 @@ statut: "active"
 vedette: false
 ordre: 1089
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Webstudio est utile lorsqu’on veut construire visuellement sans enfermer le projet dans une plateforme propriétaire, grâce à son approche open source et à l’export du projet. Le niveau Cloud gratuit est très confortable pour concevoir, partager et exporter plusieurs sites, même si la publication de production hébergée et le domaine personnalisé passent désormais par Pro.

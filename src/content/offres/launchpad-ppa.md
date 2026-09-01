@@ -38,11 +38,11 @@ statut: "active"
 vedette: false
 ordre: 1117
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Launchpad PPA fournit à chaque développeur ou équipe un espace pour envoyer des paquets source, les faire construire sur l’infrastructure de Canonical puis les distribuer dans un dépôt APT. Le service est très pratique pour Ubuntu, avec 8 GiB attribués aux nouveaux PPA et sans plafond strict de bande passante publié, mais il est réservé aux contenus répondant aux règles de licence de Launchpad.

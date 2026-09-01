@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 1142
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 OnlineGDB ajoute au compilateur web une vraie capacité de débogage, ce qui le rend utile pour l’apprentissage et les reproductions rapides. Il ne faut toutefois pas l’assimiler à une infrastructure de calcul sans limite.

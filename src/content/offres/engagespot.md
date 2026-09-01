@@ -35,15 +35,15 @@ initiales: ES
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "obsolete"
 vedette: false
 ordre: 527
 verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Site officiel momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Site officiel indisponible (HTTP 404) lors de 2 contrôles consécutifs."
 verificationEtat: "controle_requis"
 verificationCode: "site_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Engagespot est référencé avec les limites gratuites vérifiées le 19 août 2026.

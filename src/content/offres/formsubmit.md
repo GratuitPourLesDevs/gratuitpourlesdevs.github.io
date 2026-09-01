@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 759
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 FormSubmit — Endpoint gratuit pour envoyer les soumissions de formulaires HTML par e-mail sans backend. Free Forever : endpoint de formulaire sans inscription, quota public non chiffré. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

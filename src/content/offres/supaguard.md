@@ -20,11 +20,11 @@ statut: "active"
 vedette: false
 ordre: 625
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 SupaGuard exécute des scénarios synthétiques dans un navigateur et des contrôles API afin de détecter une régression avant les utilisateurs. Le plan Hacker offre un volume intéressant — mille checks navigateur et vingt mille checks API par mois — avec trois régions et trente jours de rétention ; certaines promesses historiques comme le self-healing complet ne sont plus attribuées au niveau gratuit.

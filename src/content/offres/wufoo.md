@@ -31,11 +31,11 @@ statut: "active"
 vedette: false
 ordre: 775
 verifieLe: 2026-08-31
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Wufoo — Constructeur de formulaires hébergés avec rapports et API REST. Free : 5 formulaires et 100 entrées/mois. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

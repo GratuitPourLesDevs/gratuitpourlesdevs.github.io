@@ -32,10 +32,10 @@ statut: "a_verifier"
 vedette: false
 ordre: 433
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
 verificationEchecsConsecutifs: 1
 ---
 

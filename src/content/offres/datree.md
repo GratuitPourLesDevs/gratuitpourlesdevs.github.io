@@ -27,15 +27,15 @@ initiales: D
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "obsolete"
 vedette: false
 ordre: 452
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Site officiel momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Site officiel indisponible (HTTP 404) lors de 2 contrôles consécutifs."
 verificationEtat: "controle_requis"
 verificationCode: "site_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Datree est référencé avec les limites gratuites vérifiées le 2026-08-19.

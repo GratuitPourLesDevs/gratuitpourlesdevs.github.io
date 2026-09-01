@@ -33,11 +33,11 @@ statut: "active"
 vedette: false
 ordre: 1112
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 OSMNames est surtout intéressant comme ressource ouverte et auto-hébergeable pour bâtir un moteur de recherche de lieux. Une API de recherche est documentée, mais l’absence de quota et de SLA public rend l’auto-hébergement préférable dès qu’une application dépend réellement du service.

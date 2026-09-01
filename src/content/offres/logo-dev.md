@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 1076
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 429) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Logo.dev est utile lorsqu’un produit doit afficher les logos d’entreprises ou retrouver une marque à partir d’un domaine sans constituer et rafraîchir sa propre base graphique. Il évite une grande partie du travail de collecte, redimensionnement et suivi des rebrandings, avec un quota gratuit suffisamment élevé pour de nombreux side projects.

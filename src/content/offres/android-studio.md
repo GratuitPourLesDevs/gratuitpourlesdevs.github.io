@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 1118
 verifieLe: 2026-08-31
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Android Studio est l’environnement de référence pour créer des applications Android. L’IDE lui-même ne facture pas l’usage et réunit l’édition, l’émulation, le débogage, le profiling et le build Gradle dans une seule chaîne de développement.

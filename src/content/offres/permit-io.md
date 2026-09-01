@@ -34,11 +34,11 @@ statut: "active"
 vedette: false
 ordre: 499
 verifieLe: 2026-08-31
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Permit.io est référencé avec les limites gratuites vérifiées le 2026-08-19.

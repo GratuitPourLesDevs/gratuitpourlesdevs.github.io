@@ -33,11 +33,11 @@ statut: "active"
 vedette: false
 ordre: 1131
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Eclipse Che permet aux équipes de standardiser leurs environnements de développement sur Kubernetes. Le logiciel lui-même est libre ; la valeur principale du niveau gratuit vient donc de l’auto-hébergement et de l’instance publique destinée à l’évaluation.

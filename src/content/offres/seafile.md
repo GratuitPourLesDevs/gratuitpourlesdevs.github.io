@@ -28,15 +28,15 @@ initiales: SF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 318
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 2 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Seafile Community Edition est surtout intéressant pour les équipes qui veulent garder la maîtrise de leurs fichiers. Le logiciel peut être auto-hébergé sans abonnement, contrairement à l’ancienne offre cloud gratuite de 1 Go qui n’est plus permanente.

@@ -34,11 +34,11 @@ statut: "active"
 vedette: false
 ordre: 959
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Google fournit un endpoint STUN fréquemment utilisé dans les exemples WebRTC. Il aide les applications à établir leur configuration réseau pour les connexions pair à pair. Comme aucun quota ni engagement de service public n’est publié, la fiche le présente comme une ressource publique plutôt que comme une offre gratuite garantie.

@@ -24,11 +24,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 689
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 MailCatcher se lance localement comme un faux serveur SMTP : l’application lui envoie ses messages, puis le développeur les ouvre dans une interface web au lieu de les expédier réellement. Cela simplifie énormément les tests de templates, liens de confirmation et pièces jointes tout en supprimant le risque de contacter de vrais utilisateurs. Le projet est historiquement gratuit et open source ; son état de maintenance actuel devant être reconfirmé, il est conservé avec un statut « à vérifier ».

@@ -20,11 +20,11 @@ statut: "active"
 vedette: false
 ordre: 626
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Superlog exploite OpenTelemetry pour réunir traces, logs et métriques, puis ajoute une couche d’investigation assistée par IA pour accélérer le diagnostic d’incident. Le SaaS gratuit propose des quotas très confortables avec un million de spans, cinq millions de logs et dix millions de points métriques par mois sur trente jours ; le projet étant aussi open source, le self-hosting offre une autre voie pour garder le contrôle de l’infrastructure.

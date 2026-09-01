@@ -37,11 +37,11 @@ statut: "active"
 vedette: false
 ordre: 413
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Appetize permet de lancer une application mobile dans un navigateur sans installer de simulateur local. Le plan gratuit reste pratique pour des vérifications ponctuelles, mais ses sessions très courtes le destinent surtout aux tests rapides.

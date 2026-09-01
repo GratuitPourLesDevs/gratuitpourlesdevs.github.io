@@ -27,11 +27,11 @@ statut: "active"
 vedette: false
 ordre: 187
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 ipaddress.sh fait une seule chose : retourner l’adresse IP publique du client ou serveur qui l’appelle. Il est pratique dans des scripts et diagnostics réseau, mais l’absence de quota et de SLA publiés invite à ne pas en dépendre pour un service critique.

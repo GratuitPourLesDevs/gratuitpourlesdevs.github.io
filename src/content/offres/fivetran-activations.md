@@ -28,15 +28,15 @@ initiales: "FTA"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "obsolete"
 vedette: false
 ordre: 1160
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Site officiel momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Site officiel indisponible (HTTP 404) lors de 2 contrôles consécutifs."
 verificationEtat: "controle_requis"
 verificationCode: "site_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Fivetran Activations est utile lorsque les données utiles existent déjà dans le warehouse mais doivent ensuite alimenter un CRM, un outil marketing, un support client ou une autre application métier. Le Reverse ETL évite de maintenir une collection de scripts maison pour recopier ces données et permet aux équipes de travailler à partir d’une source centrale. Le plan gratuit est adapté aux premières synchronisations et petits volumes ; les 3 500 MAR mensuels imposent toutefois de sélectionner soigneusement les données réellement nécessaires.

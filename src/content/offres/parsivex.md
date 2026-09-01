@@ -48,7 +48,7 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 80
-verifieLe: 2026-08-31
+verifieLe: 2026-09-01
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 historique:
   - date: 2026-08-17
@@ -64,7 +64,7 @@ historique:
         apres: 1 scan gratuit au total
         note: La carte tarifaire indique explicitement « One-time full AWS waste scan » et les rescans automatisés sont réservés aux plans payants.
     source: https://www.parsivex.com/pricing
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationEtat: "confirmee"
 verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0

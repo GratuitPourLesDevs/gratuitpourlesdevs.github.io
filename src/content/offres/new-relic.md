@@ -23,8 +23,8 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 606
-verifieLe: 2026-08-31
-verificationAutomatiqueLe: 2026-08-31
+verifieLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
 verificationEtat: "confirmee"
 verificationCode: "gratuit_detecte"

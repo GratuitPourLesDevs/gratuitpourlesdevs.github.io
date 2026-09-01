@@ -21,11 +21,11 @@ statut: "active"
 vedette: false
 ordre: 244
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Tomorrow.io donne accès à une API météo exploitable pour un prototype ou une petite application, avec des limites simultanées quotidiennes, horaires et par seconde qu’il faut respecter côté cache et orchestration.

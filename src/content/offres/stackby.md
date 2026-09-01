@@ -38,11 +38,11 @@ statut: "active"
 vedette: false
 ordre: 941
 verifieLe: 2026-08-31
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 StackBy combine feuille de calcul, base structurée, intégrations externes et automatisations. Le plan gratuit est assez large pour organiser plusieurs petits workflows collaboratifs, avec désormais 20 stacks mais des limites plus serrées sur le nombre de lignes, les automatisations et l’historique.

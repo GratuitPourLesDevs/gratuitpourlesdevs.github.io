@@ -28,12 +28,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1001
-verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Sflow couvre plusieurs usages — développement, support, marketing et ventes — avec une formule gratuite pour les petites équipes. Le plafond actuel est de dix personnes, supérieur à l’ancienne description free-for.dev.

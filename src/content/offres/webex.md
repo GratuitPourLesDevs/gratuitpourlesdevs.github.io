@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 338
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Webex Free couvre largement les réunions courtes d’une équipe ou d’un groupe jusqu’à 100 personnes. La limite structurante reste la durée de 40 minutes.

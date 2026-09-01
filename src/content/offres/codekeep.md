@@ -38,11 +38,11 @@ statut: "active"
 vedette: false
 ordre: 388
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 CodeKeep sert de bibliothèque personnelle et partageable pour conserver des extraits de code, les classer et les transformer en captures prêtes à partager. Le plan gratuit est réellement exploitable pour du contenu public, mais la confidentialité des snippets nécessite le plan Pro.

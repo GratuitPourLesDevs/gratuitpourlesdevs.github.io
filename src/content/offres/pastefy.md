@@ -34,11 +34,11 @@ statut: "active"
 vedette: false
 ordre: 306
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Pastefy est un Pastebin moderne qui ajoute chiffrement client, dossiers et API. Son code open source est aussi un bon filet de sécurité pour les équipes qui veulent migrer ensuite vers une instance maîtrisée.

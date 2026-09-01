@@ -21,11 +21,11 @@ statut: "active"
 vedette: false
 ordre: 152
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 DeepAR fournit un SDK de réalité augmentée pour intégrer des filtres et effets de visage dans des applications mobiles ou web. Le plan gratuit est surtout un quota de développement et de démonstration avec dix utilisateurs actifs mensuels.

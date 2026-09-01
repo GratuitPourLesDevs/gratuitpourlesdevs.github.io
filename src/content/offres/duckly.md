@@ -31,12 +31,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 280
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "Vérification automatique incomplète (HTTP 503) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Duckly permet de travailler à deux sur le même contexte de développement sans partager uniquement une vidéo de l’écran. Le quota gratuit convient surtout au pair programming ponctuel.

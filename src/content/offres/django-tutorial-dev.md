@@ -20,11 +20,11 @@ statut: "active"
 vedette: false
 ordre: 642
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Django-Tutorial.dev rassemble des parcours progressifs pour quelqu’un qui veut commencer avec Django sans devoir assembler seul des dizaines de ressources. Le site part des fondamentaux Python puis couvre l’installation, l’architecture MVT, les modèles, migrations, formulaires, authentification, déploiement et bonnes pratiques, avec des modules complémentaires sur les API et NumPy. Le contenu pédagogique est accessible publiquement ; il s’agit d’une ressource indépendante et non d’une documentation officielle de la Django Software Foundation.

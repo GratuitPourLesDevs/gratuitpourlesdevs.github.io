@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 1101
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 GeoJS est une option très légère lorsqu’une application a seulement besoin d’obtenir le pays, la ville ou les coordonnées approximatives associées à une IP. L’absence de quota publié est pratique pour des petits projets, mais ce n’est pas une promesse d’usage illimité ni un SLA.

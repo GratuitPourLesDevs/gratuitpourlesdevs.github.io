@@ -24,11 +24,11 @@ statut: "active"
 vedette: false
 ordre: 686
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 KaiMail fournit du forwarding pour un domaine personnalisé tout en appliquant des signatures ARC/DKIM. Le plan Basic gratuit comprend un domaine, une mailbox et jusqu’à 300 e-mails reçus par mois, avec une taille maximale d’un mégaoctet et un jour de logs. Le mot important est « reçus » : ce quota ne décrit pas un service d’envoi de 300 messages. Le webhook de réception cité dans certaines descriptions appartient par ailleurs à une offre supérieure et n’est pas inclus dans ce Free Tier.

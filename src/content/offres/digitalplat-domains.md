@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 913
 verifieLe: '2026-08-21'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 DigitalPlat Domains est pratique pour donner rapidement une adresse publique à un projet sans acheter immédiatement un domaine ni accepter l’hébergement imposé par un fournisseur. Le vrai intérêt est la portabilité : le nom peut pointer vers les nameservers, le CDN ou l’hébergeur de son choix. Les plusieurs namespaces disponibles permettent aussi de sélectionner une adresse adaptée à un prototype, un projet communautaire ou une démonstration. Il faut simplement garder à l’esprit qu’il s’agit d’un sous-domaine dépendant des règles du namespace et qu’aucun quota maximal de noms gratuits n’est garanti publiquement.

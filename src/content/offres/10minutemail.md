@@ -24,11 +24,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 656
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 10 Minute Mail — Boîte e-mail temporaire pour tester des inscriptions et réceptions sans utiliser son adresse personnelle. Le référentiel historique le présente avec service gratuit d’e-mail temporaire destiné notamment aux tests. Le service reste intéressant pour le développement, les tests ou les petits usages liés à l’e-mail, mais sa documentation publique actuelle ne permet pas de garantir proprement ces limites en août 2026. La fiche est donc marquée « à vérifier » afin de conserver cette ressource tout en évitant de transformer une ancienne promesse gratuite en information actuelle.

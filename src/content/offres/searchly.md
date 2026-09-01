@@ -20,11 +20,11 @@ statut: "active"
 vedette: false
 ordre: 636
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Searchly héberge Elasticsearch pour éviter d’avoir à installer, mettre à jour et superviser soi-même un cluster. Le plan Starter est réellement gratuit et ne demande pas de carte bancaire : il autorise deux index pour un total de 20 Mo de données, ce qui suffit surtout à des prototypes, démonstrations ou très petits jeux de données. La plateforme prend en charge l’exploitation et la haute disponibilité, mais les sauvegardes quotidiennes ainsi que les capacités supérieures appartiennent aux offres payantes.

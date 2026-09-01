@@ -40,11 +40,11 @@ statut: "active"
 vedette: false
 ordre: 1111
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Le Nominatim public est parfait pour des recherches occasionnelles et des applications modestes capables de respecter la politique OSMF. Il ne faut toutefois pas le traiter comme un SaaS commercial gratuit : sa capacité est volontairement limitée et les usages de masse, autocomplete ou revente sont explicitement interdits.

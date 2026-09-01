@@ -25,15 +25,15 @@ initiales: TR
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: "active"
+statut: "a_verifier"
 vedette: false
 ordre: 330
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-31
-verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-09-01
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 2 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Tencent RTC peut être intéressant pour prototyper des fonctions d’appel audio/vidéo avec un volume conséquent. Ce n’est toutefois pas un Free Tier permanent : l’allocation gratuite annoncée est limitée à la première année.

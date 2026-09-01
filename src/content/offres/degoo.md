@@ -31,11 +31,11 @@ statut: "active"
 vedette: false
 ordre: 1024
 verifieLe: 2026-08-24
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Vérification automatique incomplète (HTTP 503) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Degoo convient au stockage personnel à condition de tenir compte de sa politique d’inactivité sur les comptes gratuits.

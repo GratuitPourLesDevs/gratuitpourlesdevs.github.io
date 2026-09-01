@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 429
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-08-31
+verificationAutomatiqueLe: 2026-09-01
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Percy ajoute des comparaisons visuelles automatisées aux tests existants pour repérer les changements d’interface involontaires. Le quota gratuit convient déjà à un petit projet ou une bibliothèque de composants.
