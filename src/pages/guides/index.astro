@@ -55,6 +55,14 @@ const guideDefinitions = [
     description: 'Comparez builds, déploiements, compute, crédits, concurrence et capacité d’équipe.',
     signals: ['Builds / deploys', 'Compute / crédits', 'Concurrence'],
   },
+  {
+    key: 'securite-pki',
+    href: '/guides/securite-pki/meilleures-offres-gratuites/',
+    category: 'SÉCURITÉ & PKI',
+    title: 'Les meilleures offres gratuites de sécurité et PKI',
+    description: 'Comparez scans, actifs, secrets, certificats et conditions d’accès.',
+    signals: ['Analyses / scans', 'Actifs protégés', 'Secrets / certificats'],
+  },
 ];
 const activeOffers = (await getCollection('offres')).filter(({ data }) => data.statut !== 'obsolete');
 const guides = guideDefinitions.map((guide) => {
