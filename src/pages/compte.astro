@@ -91,7 +91,7 @@ const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
         <header class="account-section-heading--with-limit"><div><small>MA STACK</small><h2>Les services gratuits de votre projet</h2></div><span class="account-limit account-limit--prominent" id="stack-limit">0 / 10</span></header>
         <article class="account-card stack-editor">
           <div class="stack-config-grid">
-            <label>Nom de la stack<input id="stack-name" maxlength="80" value="Ma stack" /></label>
+            <label class="stack-name-field">Nom de la stack<input id="stack-name" maxlength="80" value="Ma stack" /></label>
             <div class="stack-add-row">
               <div class="stack-offer-picker">
                 <CustomSelect id="stack-offer-select" label="Ajouter un service" options={stackOfferOptions} searchable searchLabel="Rechercher une offre" searchPlaceholder="Rechercher une offre par nom ou catégorie…" />
