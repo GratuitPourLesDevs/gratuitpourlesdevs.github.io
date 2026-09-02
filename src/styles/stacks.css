@@ -190,12 +190,12 @@
   flex: 1 0 130px;
   display: flex;
   align-items: center;
-  gap: 9px;
-  min-height: 58px;
-  padding: 11px 16px;
+  gap: 10px;
+  min-height: 62px;
+  padding: 10px 15px;
   border-right: 1px solid var(--line);
   color: var(--muted);
-  font-size: 10px;
+  font-size: clamp(11px, .82vw, 12px);
 }
 
 .stack-service-strip li:last-child {
@@ -208,8 +208,8 @@
   flex: 0 0 auto;
   display: grid;
   place-content: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 1px solid color-mix(in srgb, var(--offer-color) 75%, var(--line));
   border-radius: 7px;
   color: var(--offer-color);
@@ -231,9 +231,9 @@
 
 .stack-service-strip strong {
   color: var(--ink);
-  font-size: 9px;
-  font-weight: 600;
-  line-height: 1.3;
+  font-size: clamp(11px, .82vw, 12px);
+  font-weight: 650;
+  line-height: 1.35;
 }
 
 .featured-confidence.is-excellent strong,
