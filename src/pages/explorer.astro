@@ -13,6 +13,7 @@ import {
   getComparableQuotaValue,
   getOfferQuotas,
 } from '../data/offer-quotas';
+import { slugifyDiscovery } from '../lib/discovery';
 
 const priorityMetrics = ['storage', 'bandwidth', 'requests', 'build_time', 'users'];
 const entries = (await getCollection('offres'))
@@ -88,6 +89,8 @@ const rows = entries.flatMap((entry) => {
               class="quota-explorer-row"
               role="row"
               data-offer-id={entry.id}
+              data-category={entry.data.categorie}
+              data-usages={entry.data.usages.map(slugifyDiscovery).join(' ')}
               data-metric={quota.metric}
               data-period={quota.period}
               data-scope={quota.scope}
@@ -138,6 +141,10 @@ const rows = entries.flatMap((entry) => {
   const compareLink = byId<HTMLAnchorElement>('#explorer-compare-link');
   const selectionCount = byId<HTMLElement>('#explorer-selection-count');
   const selected = new Set<string>();
+  const initialParams = new URLSearchParams(location.search);
+  const requestedOfferIds = new Set((initialParams.get('offers') ?? '').split(',').filter(Boolean));
+  const requestedCategory = initialParams.get('category') ?? '';
+  const requestedUsage = (initialParams.get('usage') ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   const defaults: Record<string, string> = { resource: 'storage', period: 'month', scope: 'account', overage: '', card: '', permanent: '' };
   const resourceLabels: Record<string, string> = { storage: 'stockage', bandwidth: 'trafic sortant', requests: 'requêtes', build_time: 'temps de build', users: 'utilisateurs' };
 
@@ -163,6 +170,9 @@ const rows = entries.flatMap((entry) => {
     const visible = rows.filter((row) => {
       const data = row.dataset;
       return data.metric === filters.resource
+        && (!requestedOfferIds.size || requestedOfferIds.has(data.offerId ?? ''))
+        && (!requestedCategory || data.category === requestedCategory)
+        && (!requestedUsage || (data.usages ?? '').split(' ').includes(requestedUsage))
         && (!filters.period || data.period === filters.period)
         && (!filters.scope || data.scope === filters.scope)
         && (!filters.overage || data.overage === filters.overage)
@@ -184,6 +194,9 @@ const rows = entries.flatMap((entry) => {
     });
 
     const params = new URLSearchParams();
+    if (requestedOfferIds.size) params.set('offers', [...requestedOfferIds].join(','));
+    if (requestedCategory) params.set('category', requestedCategory);
+    if (requestedUsage) params.set('usage', initialParams.get('usage') ?? requestedUsage);
     Object.entries(filters).forEach(([key, value]) => { if (value) params.set(key, value); });
     history.replaceState(null, '', `${location.pathname}?${params.toString()}`);
     const offerCount = new Set(visible.map((row) => row.dataset.offerId)).size;
@@ -198,7 +211,7 @@ const rows = entries.flatMap((entry) => {
     querySummary.textContent = `Quotas ${resourceSubject} ${periodLabel}, ${scopeLabel}.${strict ? '' : ' Vérifiez le périmètre de chaque ligne avant de conclure.'}`;
   };
 
-  const params = new URLSearchParams(location.search);
+  const params = initialParams;
   Object.entries(controls).forEach(([key, control]) => {
     const requested = params.get(key);
     control.value = requested !== null && [...control.options].some((option) => option.value === requested) ? requested : (defaults[key] ?? '');

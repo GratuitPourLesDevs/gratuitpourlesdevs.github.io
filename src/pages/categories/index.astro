@@ -1,0 +1,8 @@
+---
+import { getCollection } from 'astro:content';
+import DiscoveryDirectory from '../../components/DiscoveryDirectory.astro';
+const [categories, offers] = await Promise.all([getCollection('categories'), getCollection('offres')]);
+const activeOffers = offers.filter(({ data }) => data.statut !== 'obsolete');
+const items = categories.filter(({ data }) => data.actif).map((category) => ({ identifier: category.id, name: category.data.nom, description: category.data.description, entries: activeOffers.filter(({ data }) => data.categorie === category.id) })).filter(({ entries }) => entries.length > 0);
+---
+<DiscoveryDirectory mode="category" items={items} />

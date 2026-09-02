@@ -1,0 +1,8 @@
+---
+import { getCollection } from 'astro:content';
+import DiscoveryDirectory from '../../components/DiscoveryDirectory.astro';
+const offers = (await getCollection('offres')).filter(({ data }) => data.statut !== 'obsolete');
+const usages = [...new Set(offers.flatMap(({ data }) => data.usages))];
+const items = usages.map((usage) => ({ identifier: usage, name: usage, description: `Services gratuits adaptés à ${usage}, avec quotas, conditions et risques vérifiés.`, entries: offers.filter(({ data }) => data.usages.includes(usage)) }));
+---
+<DiscoveryDirectory mode="usage" items={items} />

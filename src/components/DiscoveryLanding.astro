@@ -1,0 +1,76 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import { getBillingRisk } from '../data/billing-risk';
+import { getFreeTierScore } from '../data/free-tier-score';
+import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, getComparableQuotaValue, getOfferQuotas } from '../data/offer-quotas';
+import { getDiscoveryDescription, getDiscoveryGuide, getDiscoverySlug, getDiscoveryTitle, getScoreTone, slugifyDiscovery, type DiscoveryMode } from '../lib/discovery';
+import '../styles/discovery-landings.css';
+
+interface Props { mode: DiscoveryMode; identifier: string; name: string; description: string; entries: CollectionEntry<'offres'>[]; }
+const { mode, identifier, name, description: sourceDescription, entries } = Astro.props;
+const categories = (await getCollection('categories')).filter(({ data }) => data.actif);
+const categoryById = new Map(categories.map((category) => [category.id, category.data.nom]));
+const scored = entries.map((entry) => ({ entry, score: getFreeTierScore(entry.id, entry.data), risk: getBillingRisk(entry.data), quotas: getOfferQuotas(entry.id) })).sort((a, b) => b.score.total - a.score.total || a.entry.data.nom.localeCompare(b.entry.data.nom, 'fr'));
+const title = getDiscoveryTitle(mode, identifier, name);
+const metaDescription = getDiscoveryDescription(mode, name, entries.length);
+const rootPath = mode === 'category' ? '/categories/' : '/usages/';
+const currentPath = `${rootPath}${getDiscoverySlug(mode, mode === 'category' ? identifier : name)}/`;
+const noCard = scored.filter(({ entry }) => !entry.data.carteRequise);
+const permanent = scored.filter(({ entry }) => entry.data.permanent);
+const risky = scored.filter(({ risk }) => risk.level !== 'none');
+const average = Math.round(scored.reduce((sum, item) => sum + item.score.total, 0) / scored.length);
+const recent = [...scored].sort((a, b) => b.entry.data.verifieLe.getTime() - a.entry.data.verifieLe.getTime()).slice(0, 5);
+const quotaRows = scored.flatMap((item) => item.quotas.slice(0, 2).map((quota) => ({ ...item, quota }))).slice(0, 10);
+const bestStorage = scored.flatMap((item) => item.quotas.filter((quota) => quota.metric === 'storage').map((quota) => ({ ...item, quota, value: getComparableQuotaValue(quota) }))).filter((item) => item.value !== null).sort((a, b) => Number(b.value) - Number(a.value))[0];
+const relatedCounts = new Map<string, number>();
+scored.forEach(({ entry }) => {
+  const values = mode === 'category' ? entry.data.usages : [entry.data.categorie];
+  values.forEach((value) => relatedCounts.set(value, (relatedCounts.get(value) ?? 0) + 1));
+});
+const related = [...relatedCounts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'fr')).slice(0, 8).map(([value, count]) => ({
+  value,
+  count,
+  label: mode === 'category' ? value : (categoryById.get(value) ?? value),
+  href: mode === 'category' ? `/usages/${slugifyDiscovery(value)}/` : `/categories/${getDiscoverySlug('category', value)}/`,
+}));
+const guide = getDiscoveryGuide(mode, identifier, name);
+const catalogueUrl = `/?${mode === 'category' ? 'category' : 'usage'}=${encodeURIComponent(mode === 'category' ? identifier : name)}#catalogue`;
+const explorerUrl = `/explorer/?${mode === 'category' ? 'category' : 'usage'}=${encodeURIComponent(mode === 'category' ? identifier : name)}`;
+const dateFormatter = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+const faqs = [
+  { question: `Quel est le meilleur service gratuit pour ${name} ?`, answer: `${scored[0]?.entry.data.nom} obtient actuellement le meilleur score GPLD de cette sélection avec ${scored[0]?.score.total}/100. Le meilleur choix dépend toutefois du quota dont votre projet a réellement besoin.` },
+  { question: `Peut-on utiliser ces offres sans carte bancaire ?`, answer: `${noCard.length} offre${noCard.length > 1 ? 's' : ''} sur ${entries.length} ne demande${noCard.length > 1 ? 'nt' : ''} pas de carte bancaire au démarrage.` },
+  { question: `Ces formules gratuites sont-elles permanentes ?`, answer: `${permanent.length} offre${permanent.length > 1 ? 's' : ''} sur ${entries.length} propose${permanent.length > 1 ? 'nt' : ''} une formule gratuite permanente. Les quotas et conditions peuvent néanmoins évoluer.` },
+  { question: `Comment éviter une facturation imprévue ?`, answer: risky.length ? `${risky.length} offre${risky.length > 1 ? 's présentent' : ' présente'} un point de vigilance lié au paiement ou au dépassement. Vérifiez la colonne « Risque » et configurez des alertes chez le fournisseur.` : 'Aucun risque de facturation automatique n’est actuellement identifié dans cette sélection. Il reste conseillé de surveiller les changements de conditions.' },
+];
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: metaDescription, url: new URL(currentPath, Astro.site).href, mainEntity: { '@type': 'ItemList', numberOfItems: scored.length, itemListElement: scored.slice(0, 10).map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.entry.data.nom, url: new URL(`/offres/${item.entry.id}/`, Astro.site).href })) } },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Accueil', item: new URL('/', Astro.site).href }, { '@type': 'ListItem', position: 2, name: mode === 'category' ? 'Catégories' : 'Usages', item: new URL(rootPath, Astro.site).href }, { '@type': 'ListItem', position: 3, name: title, item: new URL(currentPath, Astro.site).href }] },
+];
+---
+
+<BaseLayout title={`${title} — GratuitPourLesDevs`} description={metaDescription} jsonLd={jsonLd}>
+  <SiteHeader active={mode === 'category' ? 'categories' : 'usages'} />
+  <main class="discovery-page">
+    <nav class="discovery-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span>›</span><a href={rootPath}>{mode === 'category' ? 'Catégories' : 'Usages'}</a><span>›</span><strong>{name}</strong></nav>
+    <header class="discovery-hero"><div><small>{mode === 'category' ? 'CATÉGORIE DU CATALOGUE' : 'CAS D’USAGE'}</small><h1>{title}</h1><p>{sourceDescription || metaDescription}</p><div class="discovery-actions"><a class="is-primary" href={catalogueUrl}>Voir les offres dans le catalogue <span>→</span></a><a href={explorerUrl}>Comparer les quotas <span>→</span></a></div></div><aside><small>SÉLECTION ACTUELLE</small><strong>{entries.length}</strong><span>offre{entries.length > 1 ? 's' : ''} gratuite{entries.length > 1 ? 's' : ''} vérifiée{entries.length > 1 ? 's' : ''}</span><p>Mise à jour automatiquement depuis les fiches du catalogue.</p></aside></header>
+    <section class="discovery-signals" aria-label="Indicateurs de la sélection"><article class:list={['is-score', getScoreTone(average)]}><i>◇</i><span><small>SCORE MOYEN</small><strong>{average}<em>/100</em></strong></span></article><article><i>▱</i><span><small>SANS CARTE</small><strong>{noCard.length}<em>/{entries.length}</em></strong></span></article><article><i>∞</i><span><small>FORMULE PERMANENTE</small><strong>{permanent.length}<em>/{entries.length}</em></strong></span></article><article class:list={{ 'has-risk': risky.length > 0 }}><i>△</i><span><small>RISQUE DE COÛT</small><strong>{risky.length ? `${risky.length} à surveiller` : 'Aucun identifié'}</strong></span></article></section>
+
+    <div class="discovery-layout"><div class="discovery-main">
+      <section class="discovery-section"><header><div><small>CLASSEMENT GPLD</small><h2>Les 5 offres à regarder en premier</h2></div><p>Le score combine permanence, carte bancaire, quotas, restrictions, fraîcheur et qualité des sources.</p></header><div class="discovery-ranking"><div class="discovery-table-head"><span>#</span><span>Service et formule</span><span>Conditions</span><span>Risque</span><span>Score</span></div>{scored.slice(0, 5).map((item, index) => <a class="discovery-rank-row" href={`/offres/${item.entry.id}/`}><b>{String(index + 1).padStart(2, '0')}</b><span class="discovery-offer"><i style={`--offer-color:${item.entry.data.couleur}`}>{item.entry.data.initiales}</i><span><strong>{item.entry.data.nom}</strong><small>{item.entry.data.formule}</small></span></span><span class="discovery-conditions"><em class:list={{ positive: !item.entry.data.carteRequise }}>{item.entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</em><em class:list={{ positive: item.entry.data.permanent }}>{item.entry.data.permanent ? 'Permanent' : 'Durée limitée'}</em></span><span class:list={['discovery-risk', `is-${item.risk.level}`]}>{item.risk.shortLabel}</span><strong class:list={['discovery-score', getScoreTone(item.score.total)]}>{item.score.total}<small>/100</small></strong></a>)}</div></section>
+
+      <section class="discovery-section"><header><div><small>QUOTAS STRUCTURÉS</small><h2>Les limites gratuites à comparer</h2></div><p>Même dans une formule permanente, le quota et le comportement au dépassement déterminent le coût réel.</p></header>{quotaRows.length ? <div class="discovery-quota-table"><div class="discovery-quota-head"><span>Service</span><span>Ressource</span><span>Volume gratuit</span><span>Dépassement</span></div>{quotaRows.map((item) => <a href={`/offres/${item.entry.id}/#quotas`}><strong>{item.entry.data.nom}</strong><span>{item.quota.label}</span><span>{formatQuotaAmount(item.quota)} <small>{formatQuotaPeriod(item.quota)}</small></span><em class:list={[`is-${item.quota.overage}`]}>{formatQuotaOverage(item.quota)}</em></a>)}</div> : <p class="discovery-empty-note">Les quotas de cette sélection ne sont pas encore comparables sur une métrique commune.</p>}</section>
+
+      <section class="discovery-insights"><article><small>MEILLEUR STOCKAGE</small><h2>{bestStorage ? bestStorage.entry.data.nom : 'À comparer selon le projet'}</h2><p>{bestStorage ? `${formatQuotaAmount(bestStorage.quota)} ${formatQuotaPeriod(bestStorage.quota)} pour « ${bestStorage.quota.label} ».` : 'Aucun quota de stockage directement comparable dans cette sélection.'}</p></article><article><small>POINT DE VIGILANCE</small><h2>{risky.length ? `${risky.length} offre${risky.length > 1 ? 's' : ''} à surveiller` : 'Aucun coût automatique identifié'}</h2><p>{risky.length ? `${risky.slice(0, 3).map(({ entry }) => entry.data.nom).join(', ')} demande une lecture attentive des conditions de paiement.` : 'Les offres listées bloquent ou évitent actuellement les dépassements facturés documentés.'}</p></article><article><small>CHOIX LE PLUS SIMPLE</small><h2>{noCard[0]?.entry.data.nom ?? scored[0]?.entry.data.nom}</h2><p>{noCard.length ? 'Accessible sans moyen de paiement, avec les conditions vérifiées dans la fiche.' : 'Comparez les conditions d’inscription avant de choisir.'}</p></article></section>
+
+      <section class="discovery-section"><header><div><small>FRAÎCHEUR DES DONNÉES</small><h2>Offres récemment vérifiées</h2></div><p>Une vérification récente réduit le risque de décider à partir d’un ancien quota.</p></header><div class="discovery-recent">{recent.map(({ entry, score }) => <a href={`/offres/${entry.id}/`}><span><strong>{entry.data.nom}</strong><small>{categoryById.get(entry.data.categorie) ?? entry.data.categorie}</small></span><time datetime={entry.data.verifieLe.toISOString()}>{dateFormatter.format(entry.data.verifieLe)}</time><b class={getScoreTone(score.total)}>{score.total}<small>/100</small></b></a>)}</div></section>
+
+      <section class="discovery-section discovery-faq"><header><div><small>QUESTIONS FRÉQUENTES</small><h2>Bien choisir pour {name}</h2></div></header>{faqs.map((faq) => <details><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</section>
+    </div><aside class="discovery-sidebar"><article class="is-action"><small>OUTIL DE DÉCISION</small><h2>Comparez les quotas utiles.</h2><p>L’Explorateur est préfiltré sur les services de cette page.</p><a href={explorerUrl}>Ouvrir l’Explorateur <span>→</span></a></article><article><small>ALLER PLUS LOIN</small><nav><a href={catalogueUrl}><span><strong>Catalogue préfiltré</strong><small>Examiner toutes les fiches</small></span><b>→</b></a>{guide && <a href={guide}><span><strong>Guide éditorial associé</strong><small>Comprendre les critères de choix</small></span><b>→</b></a>}<a href="/methodologie/"><span><strong>Méthodologie GPLD</strong><small>Lire le calcul des scores</small></span><b>→</b></a></nav></article>{related.length > 0 && <article><small>{mode === 'category' ? 'USAGES ASSOCIÉS' : 'CATÉGORIES ASSOCIÉES'}</small><nav>{related.map((item) => <a href={item.href}><span><strong>{item.label}</strong><small>{item.count} offre{item.count > 1 ? 's' : ''} en commun</small></span><b>→</b></a>)}</nav></article>}</aside></div>
+  </main>
+  <SiteFooter />
+</BaseLayout>

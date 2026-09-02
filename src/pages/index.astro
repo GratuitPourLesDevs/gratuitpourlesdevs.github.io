@@ -877,6 +877,18 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       });
     });
     renderFavoritesFilter();
+    const requestedCategory = comparisonParams.get('category');
+    if (requestedCategory && categorySelect && [...categorySelect.options].some((option) => option.value === requestedCategory)) {
+      categorySelect.value = requestedCategory;
+      categorySelect.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    const requestedUsage = comparisonParams.get('usage');
+    if (requestedUsage) {
+      const requestedUsageOption = tagOptions.find((option) => normalize(option.dataset.optionLabel ?? option.textContent ?? '') === normalize(requestedUsage));
+      const canonicalUsage = requestedUsageOption?.dataset.optionLabel ?? requestedUsageOption?.textContent?.trim();
+      if (canonicalUsage) selectedTags.add(canonicalUsage);
+      renderSelectedTags();
+    }
     setSortDirection('desc');
     sortRows(false);
   </script>

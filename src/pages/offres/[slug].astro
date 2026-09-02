@@ -8,6 +8,7 @@ import AdSenseSlot from '../../components/AdSenseSlot.astro';
 import ContentEngagement from '../../components/ContentEngagement.astro';
 import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
 import { getBillingRisk } from '../../data/billing-risk';
+import { getDiscoverySlug, slugifyDiscovery } from '../../lib/discovery';
 import { getFreeTierScore } from '../../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../../data/offer-alerts';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, formatQuotaReset, formatQuotaScope, getOfferQuotas } from '../../data/offer-quotas';
@@ -153,7 +154,7 @@ const jsonLd = [
 <BaseLayout title={title} description={description} ogType="article" modifiedTime={modifiedAt} jsonLd={jsonLd} robots={entry.data.statut === 'obsolete' ? 'noindex, follow' : undefined}>
   <SiteHeader active="catalogue" />
   <main class="offer-page">
-    <nav class="offer-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Catalogue</a><span aria-hidden="true">/</span><span>{categoryName}</span><span aria-hidden="true">/</span><strong>{entry.data.nom}</strong></nav>
+    <nav class="offer-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Catalogue</a><span aria-hidden="true">/</span><a href={`/categories/${getDiscoverySlug('category', entry.data.categorie)}/`}>{categoryName}</a><span aria-hidden="true">/</span><strong>{entry.data.nom}</strong></nav>
 
     <header class="offer-page-hero">
       <div class="offer-page-heading">
@@ -230,7 +231,7 @@ const jsonLd = [
       <aside class="offer-page-sidebar">
         <section><small>REPÈRES</small><dl><div><dt>Catégorie</dt><dd>{categoryName}</dd></div><div><dt>Modèle</dt><dd>{entry.data.type}</dd></div><div><dt>Durée</dt><dd>{entry.data.permanent ? 'Permanente' : 'Limitée'}</dd></div><div><dt>Paiement</dt><dd>{entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</dd></div><div><dt>Statut</dt><dd>{statusLabel}</dd></div></dl></section>
         <section><small>SOURCES OFFICIELLES</small><nav><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></section>
-        <section class="offer-sidebar-usages"><small>USAGES</small><h2>À quoi sert {entry.data.nom} ?</h2><div>{entry.data.usages.map((tag) => <a href="/#catalogue" title={'Filtrer le catalogue par ' + tag}>{tag}</a>)}</div></section>
+        <section class="offer-sidebar-usages"><small>USAGES</small><h2>À quoi sert {entry.data.nom} ?</h2><div>{entry.data.usages.map((tag) => <a href={`/usages/${slugifyDiscovery(tag)}/`} title={'Voir les offres gratuites pour ' + tag}>{tag}</a>)}</div></section>
         <section class="offer-report-error">
           <small>UNE INFORMATION A-T-ELLE CHANGÉ ?</small>
           <h2>Aidez-nous à garder cette fiche fiable.</h2>

@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import DiscoveryLanding from '../../components/DiscoveryLanding.astro';
+import { getDiscoverySlug } from '../../lib/discovery';
+
+export async function getStaticPaths() {
+  const [categories, offers] = await Promise.all([getCollection('categories'), getCollection('offres')]);
+  const activeOffers = offers.filter(({ data }) => data.statut !== 'obsolete');
+  return categories.filter(({ data }) => data.actif).map((category) => ({ category, entries: activeOffers.filter(({ data }) => data.categorie === category.id) })).filter(({ entries }) => entries.length > 0).map(({ category, entries }) => ({ params: { slug: getDiscoverySlug('category', category.id) }, props: { category, entries } }));
+}
+const { category, entries } = Astro.props;
+---
+<DiscoveryLanding mode="category" identifier={category.id} name={category.data.nom} description={category.data.description} entries={entries} />

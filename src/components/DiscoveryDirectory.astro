@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+import { getFreeTierScore } from '../data/free-tier-score';
+import { getDiscoverySlug, type DiscoveryMode } from '../lib/discovery';
+import type { CollectionEntry } from 'astro:content';
+import '../styles/discovery-landings.css';
+interface Item { identifier: string; name: string; description: string; entries: CollectionEntry<'offres'>[]; }
+interface Props { mode: DiscoveryMode; items: Item[]; }
+const { mode, items } = Astro.props;
+const plural = mode === 'category' ? 'catégories' : 'usages';
+const title = mode === 'category' ? 'Catégories de services gratuits pour développeurs' : 'Outils gratuits par usage développeur';
+const intro = mode === 'category' ? 'Explorez le catalogue par famille de services : scores GPLD, quotas, risques et conditions sont synthétisés sur chaque page.' : 'Partez de votre technologie ou de votre besoin pour trouver les services gratuits réellement adaptés à votre projet.';
+const cards = items.map((item) => ({ ...item, average: Math.round(item.entries.reduce((sum, entry) => sum + getFreeTierScore(entry.id, entry.data).total, 0) / item.entries.length), noCard: item.entries.filter(({ data }) => !data.carteRequise).length })).sort((a, b) => b.entries.length - a.entries.length || a.name.localeCompare(b.name, 'fr'));
+const jsonLd = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: intro, mainEntity: { '@type': 'ItemList', numberOfItems: cards.length, itemListElement: cards.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, url: new URL(`/${plural}/${getDiscoverySlug(mode, mode === 'category' ? item.identifier : item.name)}/`, Astro.site).href })) } };
+---
+<BaseLayout title={`${title} — GratuitPourLesDevs`} description={intro} jsonLd={jsonLd}>
+  <SiteHeader active={mode === 'category' ? 'categories' : 'usages'} />
+  <main class="discovery-directory"><nav class="discovery-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span>›</span><strong>{mode === 'category' ? 'Catégories' : 'Usages'}</strong></nav><header class="discovery-directory-hero"><small>{mode === 'category' ? 'TOUT LE CATALOGUE PAR FAMILLE' : 'PARTIR DE VOTRE BESOIN'}</small><h1>{title}</h1><p>{intro}</p></header><section class="discovery-directory-toolbar"><label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="discovery-directory-search" type="search" placeholder={`Rechercher parmi ${cards.length} ${plural}…`} aria-label={`Rechercher parmi les ${plural}`} /></label><span>{cards.length} {plural} documenté{mode === 'category' ? 'es' : 's'}</span></section><div class="discovery-directory-grid" id="discovery-directory-grid">{cards.map((item) => <a class="discovery-directory-card" href={`/${plural}/${getDiscoverySlug(mode, mode === 'category' ? item.identifier : item.name)}/`} data-search={`${item.name} ${item.description}`}><small>{mode === 'category' ? 'CATÉGORIE' : 'USAGE'}</small><h2>{item.name}</h2><p>{item.description}</p><footer><span><strong>{item.entries.length}</strong> offre{item.entries.length > 1 ? 's' : ''} · {item.noCard} sans carte</span><b>{item.average}/100 →</b></footer></a>)}</div><p class="discovery-directory-empty" id="discovery-directory-empty" hidden>Aucun résultat pour cette recherche.</p></main>
+  <SiteFooter />
+  <script is:inline>const directorySearch=document.querySelector('#discovery-directory-search');const directoryCards=[...document.querySelectorAll('.discovery-directory-card')];const directoryEmpty=document.querySelector('#discovery-directory-empty');const normalizeDirectory=(value)=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();directorySearch?.addEventListener('input',()=>{const query=normalizeDirectory(directorySearch.value);let visible=0;directoryCards.forEach((card)=>{const show=!query||normalizeDirectory(card.dataset.search).includes(query);card.hidden=!show;if(show)visible++});directoryEmpty.hidden=visible!==0});</script>
+</BaseLayout>

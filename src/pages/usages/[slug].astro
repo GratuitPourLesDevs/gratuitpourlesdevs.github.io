@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import DiscoveryLanding from '../../components/DiscoveryLanding.astro';
+import { slugifyDiscovery } from '../../lib/discovery';
+
+export async function getStaticPaths() {
+  const offers = (await getCollection('offres')).filter(({ data }) => data.statut !== 'obsolete');
+  const usages = [...new Set(offers.flatMap(({ data }) => data.usages))];
+  const collisions = usages.filter((usage, index) => usages.findIndex((candidate) => slugifyDiscovery(candidate) === slugifyDiscovery(usage)) !== index);
+  if (collisions.length) throw new Error(`Slugs d’usages dupliqués : ${collisions.join(', ')}`);
+  return usages.map((usage) => ({ params: { slug: slugifyDiscovery(usage) }, props: { usage, entries: offers.filter(({ data }) => data.usages.includes(usage)) } }));
+}
+const { usage, entries } = Astro.props;
+---
+<DiscoveryLanding mode="usage" identifier={usage} name={usage} description={`Services gratuits sélectionnés pour les projets qui utilisent ${usage}, avec des quotas et conditions vérifiés.`} entries={entries} />
