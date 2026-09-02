@@ -293,7 +293,6 @@
 }
 
 .stacks-search,
-.stacks-filter,
 .stacks-reset {
   width: 100%;
   height: 44px;
@@ -309,9 +308,41 @@
   padding: 0 14px 0 42px;
 }
 
-.stacks-filter {
-  padding: 0 13px;
+
+.stacks-select,
+.stacks-select .filter-field,
+.stacks-select .custom-select { min-width: 0; }
+
+.stacks-select .filter-field { display: block; }
+
+.stacks-select .filter-field > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
+
+.stacks-select .custom-select-trigger {
+  height: 44px;
+  border-color: var(--line);
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 11px;
+}
+
+.stacks-select .custom-select-popover {
+  z-index: 40;
+  border-color: var(--line);
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.stacks-select .custom-select-options button { color: var(--ink); }
 
 .stacks-reset {
   color: var(--blue);
