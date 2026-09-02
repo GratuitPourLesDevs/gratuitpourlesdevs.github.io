@@ -15,6 +15,8 @@ export type StackOfferEntry = {
     verifieLe: Date;
     source: string;
     documentation?: string;
+    couleur: string;
+    initiales: string;
     alertes: Array<{ niveau: 'important' | 'critique'; libelle: string; type: 'finance' | 'usage' | 'operationnel' | 'fonctionnel'; detail: string }>;
   };
 };
@@ -51,5 +53,6 @@ export const buildStackTemplateView = (template: StackTemplate, offers: Map<stri
   const billingRisks = services.filter((service) => service.offer.data.depassementFacture).length;
   const noCard = services.filter((service) => !service.offer.data.carteRequise).length;
   const threat = [...services].filter((service) => service.confidence < 100).sort((a, b) => a.confidence - b.confidence)[0];
-  return { ...template, services, confidence, billingRisks, noCard, threat };
+  const oldestVerification = services.length ? new Date(Math.min(...services.map((service) => service.offer.data.verifieLe.getTime()))) : null;
+  return { ...template, services, confidence, billingRisks, noCard, threat, oldestVerification };
 };
