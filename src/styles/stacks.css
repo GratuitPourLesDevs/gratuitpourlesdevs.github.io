@@ -138,9 +138,21 @@
 }
 
 .featured-action {
-  display: grid;
-  place-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-right: 0;
+}
+
+.featured-action .stack-button {
+  width: min(178px, 100%);
+  min-height: 48px;
+}
+
+.featured-action .stack-button svg,
+.stack-row-action svg {
+  width: 15px;
+  height: 15px;
 }
 
 .stack-button {
@@ -192,6 +204,7 @@
 
 .stack-service-strip i,
 .stack-service-name i {
+  position: relative;
   flex: 0 0 auto;
   display: grid;
   place-content: center;
@@ -203,6 +216,45 @@
   background: color-mix(in srgb, var(--offer-color) 10%, transparent);
   font: 800 9px var(--mono);
   font-style: normal;
+}
+
+.stack-brand-mark img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 7px;
+  border-radius: inherit;
+  background: #11151d;
+  object-fit: contain;
+}
+
+.stack-service-strip strong {
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.featured-confidence.is-excellent strong,
+.stack-row-confidence.is-excellent {
+  color: var(--green);
+}
+
+.featured-confidence.is-balanced strong,
+.stack-row-confidence.is-balanced {
+  color: #e4a72d;
+}
+
+.featured-confidence.is-limited strong,
+.stack-row-confidence.is-limited {
+  color: #ef655e;
+}
+
+.featured-confidence strong small {
+  color: currentColor;
+  font-size: 13px;
+  opacity: .78;
 }
 
 .stacks-directory-header {
@@ -299,6 +351,9 @@
   min-height: 72px;
   padding: 10px 14px;
   border-bottom: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color .16s ease, box-shadow .16s ease;
 }
 
 .stack-directory-row:last-child {
@@ -311,7 +366,8 @@
 }
 
 .stack-directory-row:hover {
-  background: color-mix(in srgb, var(--blue) 4%, transparent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 7%, var(--surface)), color-mix(in srgb, var(--blue) 2%, var(--surface)) 55%, var(--surface));
+  box-shadow: inset 3px 0 0 var(--blue);
 }
 
 .stack-row-identity {
@@ -337,9 +393,10 @@
 }
 
 .stack-directory-row h3 {
-  margin: 0 0 3px;
+  margin: 0 0 4px;
   color: var(--ink);
   font-size: 14px;
+  line-height: 1.25;
 }
 
 .stack-directory-row p,
@@ -347,24 +404,47 @@
   margin: 0;
   overflow: hidden;
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1.45;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+.stack-row-copy {
+  min-width: 0;
+}
+
+.stack-row-use {
+  color: var(--blue);
+  font-weight: 650;
+}
+
 .stack-row-confidence,
 .stack-row-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: var(--ink);
   font: 800 12px var(--mono);
 }
 
-.stack-row-confidence strong {
-  color: var(--blue);
-  font-size: 16px;
+.stack-row-confidence svg {
+  width: 17px;
+  height: 17px;
+}
+
+.stack-row-confidence small,
+.stack-row-count small {
+  font-size: 8px;
+  font-weight: 700;
+  opacity: .75;
 }
 
 .stack-row-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
   font-size: 10px;
   font-weight: 800;
   text-align: right;

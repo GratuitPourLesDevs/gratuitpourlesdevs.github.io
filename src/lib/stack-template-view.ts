@@ -23,6 +23,7 @@ export type StackOfferEntry = {
 
 export type StackTemplateServiceView = StackTemplate['services'][number] & {
   offer: StackOfferEntry;
+  logoUrl?: string;
   score: number | null;
   confidence: number;
   risk: 'safe' | 'warning' | 'danger';
@@ -30,6 +31,16 @@ export type StackTemplateServiceView = StackTemplate['services'][number] & {
 };
 
 const DAY = 86_400_000;
+
+const STACK_BRAND_LOGOS: Record<string, string> = {
+  vercel: 'https://cdn.simpleicons.org/vercel/FFFFFF',
+  'cloudflare-workers': 'https://cdn.simpleicons.org/cloudflare/F38020',
+  supabase: 'https://cdn.simpleicons.org/supabase/3FCF8E',
+  clerk: 'https://cdn.simpleicons.org/clerk/6C47FF',
+  resend: 'https://cdn.simpleicons.org/resend/FFFFFF',
+  'better-stack-uptime': 'https://cdn.simpleicons.org/betterstack/FFFFFF',
+  posthog: 'https://cdn.simpleicons.org/posthog/F54E00',
+};
 
 export const buildStackTemplateView = (template: StackTemplate, offers: Map<string, StackOfferEntry>, now = new Date()) => {
   const services = template.services.flatMap((service): StackTemplateServiceView[] => {
@@ -47,7 +58,7 @@ export const buildStackTemplateView = (template: StackTemplate, offers: Map<stri
     try { score = getFreeTierScore(offer.id, offer.data).total; } catch { score = null; }
     const risk = offer.data.depassementFacture || critical ? 'danger' : offer.data.carteRequise || age > 60 ? 'warning' : 'safe';
     const riskLabel = offer.data.depassementFacture ? 'Dépassement facturé' : critical ? 'Restriction critique' : offer.data.carteRequise ? 'Carte requise' : age > 60 ? 'À revérifier' : 'Aucun risque identifié';
-    return [{ ...service, offer, score, confidence, risk, riskLabel }];
+    return [{ ...service, offer, score, confidence, risk, riskLabel, logoUrl: STACK_BRAND_LOGOS[offer.id] }];
   });
   const confidence = services.length ? Math.round(services.reduce((sum, service) => sum + service.confidence, 0) / services.length) : 0;
   const billingRisks = services.filter((service) => service.offer.data.depassementFacture).length;
