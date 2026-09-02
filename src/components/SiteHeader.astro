@@ -1,5 +1,5 @@
 ---
-interface Props { active?: 'catalogue' | 'explorer' | 'comparisons' | 'guides' | 'docs'; }
+interface Props { active?: 'catalogue' | 'explorer' | 'comparisons' | 'stacks' | 'guides' | 'docs'; }
 const { active } = Astro.props;
 import ThemeToggle from './ThemeToggle.astro';
 ---
@@ -9,7 +9,7 @@ import ThemeToggle from './ThemeToggle.astro';
     <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
     <span>Gratuit<span>PourLesDevs</span></span>
   </a>
-  <nav aria-label="Navigation principale"><a class:list={{ active: active === 'catalogue' }} href="/">Catalogue</a><a class:list={{ active: active === 'explorer' }} href="/explorer/">Explorateur</a><a class:list={{ active: active === 'comparisons' }} href="/comparaisons/">Comparaisons</a><a class:list={['guides-nav-link', { active: active === 'guides' }]} href="/guides/">Guides</a></nav>
+  <nav aria-label="Navigation principale"><a class:list={{ active: active === 'catalogue' }} href="/">Catalogue</a><a class:list={{ active: active === 'explorer' }} href="/explorer/">Explorateur</a><a class:list={{ active: active === 'comparisons' }} href="/comparaisons/">Comparaisons</a><a class:list={{ active: active === 'stacks' }} href="/stacks/">Stacks</a><a class:list={['guides-nav-link', { active: active === 'guides' }]} href="/guides/">Guides</a></nav>
   <div class="header-actions">
     <ThemeToggle />
     <a class="outline-button" href="/contact/?objet=suggestion">Suggérer un outil</a>

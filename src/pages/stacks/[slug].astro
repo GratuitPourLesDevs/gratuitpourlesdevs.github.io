@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { STACK_TEMPLATES, type StackTemplate } from '../../data/stack-templates';
+import { buildStackTemplateView, type StackOfferEntry } from '../../lib/stack-template-view';
+import '../../styles/stacks.css';
+
+export const getStaticPaths = () => STACK_TEMPLATES.map((template) => ({ params: { slug: template.slug }, props: { template } }));
+const { template } = Astro.props as { template: StackTemplate };
+const offerEntries = (await getCollection('offres')).filter(({ data }) => data.statut !== 'obsolete') as StackOfferEntry[];
+const stack = buildStackTemplateView(template, new Map(offerEntries.map((entry) => [entry.id, entry])));
+const threatCopy = stack.threat ? `${stack.threat.offer.data.nom} est actuellement le maillon le plus exposé : ${stack.threat.riskLabel.toLowerCase()}.` : 'Aucun risque prioritaire n’est identifié dans les fiches actuellement vérifiées.';
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'TechArticle', headline: stack.name, description: stack.description, about: stack.services.map((service) => service.offer.data.nom), author: { '@type': 'Organization', name: 'GratuitPourLesDevs' }, mainEntityOfPage: new URL(`/stacks/${stack.slug}/`, Astro.site).href },
+  { '@context': 'https://schema.org', '@type': 'ItemList', name: `Services de la ${stack.name}`, numberOfItems: stack.services.length, itemListElement: stack.services.map((service, index) => ({ '@type': 'ListItem', position: index + 1, name: `${service.role} : ${service.offer.data.nom}`, url: new URL(`/offres/${service.offer.id}/`, Astro.site).href })) },
+];
+---
+
+<BaseLayout title={`${stack.name} — services gratuits vérifiés | GratuitPourLesDevs`} description={`${stack.description} Consultez les risques, scores et quotas, puis ajoutez cette stack gratuite à votre compte.`} jsonLd={jsonLd}>
+  <SiteHeader active="stacks" />
+  <main class="stacks-page">
+    <nav class="stacks-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span>›</span><a href="/stacks/">Stacks</a><span>›</span><strong>{stack.name}</strong></nav>
+    <header class="stack-detail-hero">
+      <div><small class="stacks-eyebrow">{stack.eyebrow} · STACK PRÊTE À L’EMPLOI</small><h1>{stack.name}</h1><p>{stack.description}</p><nav class="stack-detail-actions"><a class="stack-button" href={`/compte/?modele=${stack.slug}&action=add#stack`}>Ajouter cette stack à mon compte</a><a class="stack-button secondary" href={`/compte/?modele=${stack.slug}&action=adapt#stack`}>Adapter cette stack</a></nav></div>
+      <aside class="stack-detail-summary" aria-label="Résumé de la stack"><div class="stack-kpi"><strong>{stack.services.length}</strong><span>services</span></div><div class="stack-kpi"><strong>{stack.confidence}/100</strong><span>confiance €0</span></div><div class="stack-kpi"><strong>{stack.noCard}</strong><span>sans carte</span></div><div class="stack-kpi"><strong>{stack.billingRisks}</strong><span>risque de facturation</span></div></aside>
+    </header>
+
+    <section class="stack-diagnostic"><div><small class="stacks-eyebrow">DIAGNOSTIC PRIORITAIRE</small><h2>Qu’est-ce qui menace cette stack gratuite ?</h2><p>{threatCopy}</p></div>{stack.threat && <a href={`/offres/${stack.threat.offer.id}/`}>Examiner cette offre →</a>}</section>
+
+    <div class="stack-detail-grid">
+      <section aria-labelledby="stack-services-title"><h2 id="stack-services-title">Services et niveau de confiance</h2><div class="stack-table"><div class="stack-table-head" aria-hidden="true"><span>Rôle</span><span>Service</span><span>Pourquoi ce choix</span><span>Risque</span><span>Score</span></div>{stack.services.map((service) => <article class="stack-table-row"><span>{service.role}</span><strong class="stack-service-name"><a href={`/offres/${service.offer.id}/`}>{service.offer.data.nom}</a><small>{service.offer.data.categorie}</small></strong><span class="stack-reason">{service.reason}</span><strong class:list={['stack-risk', service.risk]}>{service.riskLabel}</strong><span class="stack-score">{service.score == null ? '—' : `${service.score}/100`}</span></article>)}</div></section>
+      <aside class="stack-detail-side"><section><small class="stacks-eyebrow">POUR QUI ?</small><h2>{stack.audience}</h2><p>Ce modèle est une base éditoriale : adaptez les services et vérifiez les quotas selon votre charge réelle.</p></section><section><small class="stacks-eyebrow">POINTS FORTS</small><h2>Pourquoi partir de cette stack</h2><ul>{stack.strengths.map((strength) => <li>{strength}</li>)}</ul></section><section><small class="stacks-eyebrow">VIGILANCE</small><h2>Avant de la mettre en production</h2><p>{stack.vigilance}</p></section></aside>
+    </div>
+
+    <section class="stack-seo-copy"><article><h2>Une stack gratuite, pas une promesse d’illimité</h2><p>Le score de confiance €0 combine les signaux de facturation, la carte bancaire, la fraîcheur de vérification et les alertes connues. Il aide à comparer les architectures, mais chaque quota reste celui du fournisseur.</p></article><article><h2>Adaptez-la sans perdre votre stack actuelle</h2><p>Le mode « Adapter » charge le modèle dans votre configurateur sans l’enregistrer. Le remplacement d’une stack existante demande toujours une confirmation explicite.</p></article></section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

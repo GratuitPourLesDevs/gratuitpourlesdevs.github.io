@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { STACK_TEMPLATES } from '../../data/stack-templates';
+import { buildStackTemplateView, type StackOfferEntry } from '../../lib/stack-template-view';
+import '../../styles/stacks.css';
+
+const offerEntries = (await getCollection('offres')).filter(({ data }) => data.statut !== 'obsolete') as StackOfferEntry[];
+const offers = new Map(offerEntries.map((entry) => [entry.id, entry]));
+const stacks = STACK_TEMPLATES.map((template) => buildStackTemplateView(template, offers));
+const featured = (stacks.find((stack) => stack.featured) ?? stacks[0])!;
+const directory = stacks.filter((stack) => stack.slug !== featured.slug);
+const categories = [...new Set(stacks.map((stack) => stack.category))];
+const jsonLd = {
+  '@context': 'https://schema.org', '@type': 'CollectionPage',
+  name: 'Stacks gratuites prêtes à l’emploi pour développeurs',
+  description: 'Des architectures de services gratuits composées à partir des offres vérifiées par GratuitPourLesDevs.',
+  mainEntity: { '@type': 'ItemList', numberOfItems: stacks.length, itemListElement: stacks.map((stack, index) => ({ '@type': 'ListItem', position: index + 1, url: new URL(`/stacks/${stack.slug}/`, Astro.site).href, name: stack.name })) },
+};
+---
+
+<BaseLayout title="Stacks gratuites prêtes à l’emploi — GratuitPourLesDevs" description="Choisissez une stack SaaS, Next.js, mobile, IA ou sans carte bancaire composée d’offres gratuites vérifiées, puis adaptez-la à votre projet." jsonLd={jsonLd}>
+  <SiteHeader active="stacks" />
+  <main class="stacks-page">
+    <nav class="stacks-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span>›</span><strong>Stacks</strong></nav>
+    <header class="stacks-hero">
+      <div><small class="stacks-eyebrow">ARCHITECTURES PRÊTES À ADAPTER</small><h1>Votre stack gratuite, sans partir d’une page blanche.</h1><p>Chaque modèle assemble des offres réellement présentes dans le catalogue. Comparez leur risque de coût, adaptez les services à votre projet et ajoutez la sélection à votre compte.</p></div>
+      <aside class="stacks-principles" aria-label="Principes des stacks"><article><strong>{stacks.length}</strong><span>architectures par usage ou contrainte</span></article><article><strong>€0</strong><span>confiance calculée depuis les risques vérifiés</span></article><article><strong>1 clic</strong><span>pour charger une stack dans votre espace</span></article></aside>
+    </header>
+
+    <section class="stacks-featured" aria-labelledby="featured-stack-title">
+      <div class="stacks-featured-main"><small class="stacks-eyebrow">STACK RECOMMANDÉE · {featured.eyebrow}</small><h2 id="featured-stack-title">{featured.name}</h2><p>{featured.description}</p><ul class="stack-service-tags">{featured.services.map((service) => <li><strong>{service.role}</strong> · {service.offer.data.nom}</li>)}</ul></div>
+      <aside class="stacks-featured-aside"><div class="stack-kpi"><strong>{featured.services.length}</strong><span>services complémentaires</span></div><div class="stack-kpi"><strong>{featured.confidence}/100</strong><span>confiance €0</span></div><div class="stack-kpi"><strong>{featured.noCard}/{featured.services.length}</strong><span>sans carte bancaire</span></div><div class="stack-kpi"><strong>{featured.billingRisks}</strong><span>risque de facturation</span></div><nav class="stack-actions"><a class="stack-button" href={`/stacks/${featured.slug}/`}>Voir la stack</a><a class="stack-button secondary" href={`/compte/?modele=${featured.slug}&action=adapt#stack`}>Adapter cette stack</a></nav></aside>
+    </section>
+
+    <section aria-labelledby="stacks-directory-title">
+      <header class="stacks-directory-header"><div><small class="stacks-eyebrow">AUTRES MODÈLES</small><h2 id="stacks-directory-title">Trouver la bonne base de départ</h2></div><input class="stacks-search" id="stacks-search" type="search" placeholder="Rechercher une stack, un service…" aria-label="Rechercher une stack" /><select class="stacks-filter" id="stacks-filter" aria-label="Filtrer par catégorie"><option value="">Toutes les catégories</option>{categories.map((category) => <option value={category}>{category}</option>)}</select></header>
+      <ul class="stacks-list" id="stacks-list">
+        {directory.map((stack) => <li data-stack-row data-category={stack.category} data-search={`${stack.name} ${stack.description} ${stack.services.map((service) => service.offer.data.nom).join(' ')}`}><a class="stack-directory-row" href={`/stacks/${stack.slug}/`}><div><small class="stacks-eyebrow">{stack.eyebrow}</small><h3>{stack.name}</h3></div><p>{stack.description}</p><span class="stack-row-metric"><strong>{stack.services.length}</strong><span>services</span></span><span class="stack-row-metric"><strong>{stack.confidence}</strong><span>confiance €0</span></span><span class="stack-row-arrow" aria-hidden="true">→</span></a></li>)}
+      </ul>
+      <p class="stacks-empty" id="stacks-empty" hidden>Aucune stack ne correspond à ces critères.</p>
+    </section>
+  </main>
+  <SiteFooter />
+  <script is:inline>
+    const normalizeStackSearch = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const stackSearch = document.querySelector('#stacks-search');
+    const stackFilter = document.querySelector('#stacks-filter');
+    const filterStacks = () => {
+      const query = normalizeStackSearch(stackSearch?.value); const category = stackFilter?.value || ''; let visible = 0;
+      document.querySelectorAll('[data-stack-row]').forEach((row) => { const show = (!category || row.dataset.category === category) && (!query || normalizeStackSearch(row.dataset.search).includes(query)); row.hidden = !show; if (show) visible++; });
+      document.querySelector('#stacks-empty').hidden = visible !== 0;
+    };
+    stackSearch?.addEventListener('input', filterStacks); stackFilter?.addEventListener('change', filterStacks);
+  </script>
+</BaseLayout>
