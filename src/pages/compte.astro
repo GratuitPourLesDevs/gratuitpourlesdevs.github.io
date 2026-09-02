@@ -480,7 +480,12 @@ const stackTemplatesPayload = JSON.stringify(STACK_TEMPLATES.map((template) => (
     $('#stack-delete')?.addEventListener('click', async () => { const name = state.dashboard?.stack?.name || 'Ma stack'; if (!await confirmAction({ eyebrow: 'SUPPRESSION', title: `Supprimer « ${name} » ?`, description: 'La stack et sa sélection de services seront supprimées. Vos favoris et les offres suivies resteront inchangés.', confirmLabel: 'Supprimer' })) return; try { await account().api('/api/account/stack', { method: 'DELETE' }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Suppression impossible.'); } });
     $('#digest-enabled')?.addEventListener('change', async (event) => { try { await account().api('/api/account/preferences', { method: 'POST', body: JSON.stringify({ digestEnabled: event.target.checked }) }); await loadDashboard(); } catch (error) { account().showToast(error.message || 'Préférence non enregistrée.'); } });
     $('#pro-interest')?.addEventListener('click', async (event) => { const button = event.currentTarget; try { await account().api('/api/account/pro-interest', { method: 'POST' }); button.textContent = '✓ Intérêt enregistré'; button.classList.add('is-recorded'); account().showToast('Merci — cet intérêt sera mesuré avant de décider du lancement de Pro.'); } catch (error) { account().showToast(error.message || 'Impossible d’enregistrer votre intérêt.'); } });
-    const init = async () => { await loadCatalogue().catch(() => {}); await loadDashboard(); if (location.hash === '#pro') $('#pro')?.scrollIntoView({ behavior: 'smooth' }); };
+    const scrollToRequestedSection = () => {
+      const target = location.hash === '#stack' ? $('#stack') : location.hash === '#pro' ? $('#pro') : null;
+      if (!target || target.closest('[hidden]')) return;
+      requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView({ block: 'start' })));
+    };
+    const init = async () => { await loadCatalogue().catch(() => {}); await loadDashboard(); scrollToRequestedSection(); };
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true }); else void init();
   </script>
 </BaseLayout>
