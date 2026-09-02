@@ -2,12 +2,15 @@ import type { OfferAlertLevel, OfferAlertType } from './offer-alerts';
 import { formatQuotaAmount, formatQuotaPeriod, getOfferQuotas } from './offer-quotas';
 import { DATA_TOOLS_QUOTA_SCORES } from './data-tools-scores';
 import { SOURCE_CODE_GUIDE_QUOTA_SCORES } from './source-code-guide';
+import { SECURITY_PLATFORM_QUOTA_SCORES } from './security-platform-scores';
 import './offer-quota-overrides';
 import './parsivex-quota';
 import './source-code-hosting-quotas';
 import './api-service-quotas';
 import './data-service-quotas';
 import './data-tools-quotas';
+import './security-platform-quotas';
+import './security-platform-quotas-more';
 
 export type FreeTierScoreCriterion = {
   id: 'permanence' | 'card' | 'quota' | 'restrictions' | 'freshness' | 'sources';
@@ -41,6 +44,7 @@ type ScoredOffer = {
 const QUOTA_SCORES: Record<string, 5 | 10 | 15 | 20 | 25> = {
   ...DATA_TOOLS_QUOTA_SCORES,
   ...SOURCE_CODE_GUIDE_QUOTA_SCORES,
+  ...SECURITY_PLATFORM_QUOTA_SCORES,
   'abstract-api': 15,
   alphai: 15,
   'amazon-cloudfront': 20,

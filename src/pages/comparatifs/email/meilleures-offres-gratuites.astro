@@ -11,6 +11,7 @@ import { SOURCE_CODE_GUIDE_CONFIG } from '../../../data/source-code-guide';
 import { SUPERVISION_GUIDE_CONFIG } from '../../../data/supervision-guide';
 import { TESTING_GUIDE_CONFIG } from '../../../data/testing-guide';
 import { CI_CD_GUIDE_CONFIG } from '../../../data/ci-cd-guide';
+import { SECURITY_GUIDE_CONFIG } from '../../../data/security-guide';
 
 type ComparisonColumn =
   | { key: 'service' | 'type' | 'plan' | 'duration' | 'overage' | 'card' | 'usage'; label: string }
@@ -36,6 +37,7 @@ const GUIDE_CONFIGS: Record<string, GuideConfig> = {
   supervision: SUPERVISION_GUIDE_CONFIG as GuideConfig,
   tests: TESTING_GUIDE_CONFIG as GuideConfig,
   'ci-cd': CI_CD_GUIDE_CONFIG as GuideConfig,
+  'securite-pki': SECURITY_GUIDE_CONFIG as GuideConfig,
   email: {
     categoryLabelFallback: 'E-mail',
     fallbackDescription: 'Services e-mail pour développeurs',
