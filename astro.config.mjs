@@ -10,6 +10,8 @@ export default defineConfig({
   ],
   redirects: {
     '/comparatifs': '/guides',
+    '/catégories': '/categories',
+    '/catégories/[slug]': '/categories/[slug]',
   },
   output: 'static',
 });
