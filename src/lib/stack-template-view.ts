@@ -32,6 +32,8 @@ export type StackTemplateServiceView = StackTemplate['services'][number] & {
 
 const DAY = 86_400_000;
 
+export const getConfidenceTone = (score: number | null) => score == null ? '' : score >= 90 ? 'is-excellent' : score >= 75 ? 'is-balanced' : 'is-limited';
+
 const STACK_BRAND_LOGOS: Record<string, string> = {
   vercel: 'https://cdn.simpleicons.org/vercel/FFFFFF',
   'cloudflare-workers': 'https://cdn.simpleicons.org/cloudflare/F38020',

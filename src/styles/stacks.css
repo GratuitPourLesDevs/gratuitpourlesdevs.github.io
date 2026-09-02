@@ -526,6 +526,21 @@
   color: var(--green);
 }
 
+.stack-confidence-signal.is-excellent svg,
+.stack-confidence-signal.is-excellent strong,
+.stack-confidence-signal.is-excellent strong b,
+.stack-score.is-excellent { color: var(--green) !important; }
+
+.stack-confidence-signal.is-balanced svg,
+.stack-confidence-signal.is-balanced strong,
+.stack-confidence-signal.is-balanced strong b,
+.stack-score.is-balanced { color: #e4a72d !important; }
+
+.stack-confidence-signal.is-limited svg,
+.stack-confidence-signal.is-limited strong,
+.stack-confidence-signal.is-limited strong b,
+.stack-score.is-limited { color: #ef655e !important; }
+
 .stack-detail-actions {
   display: flex;
   gap: 9px;
@@ -613,7 +628,7 @@
 .stack-risk.safe { color: var(--green); }
 .stack-risk.warning { color: #e4a72d; }
 .stack-risk.danger { color: #ef655e; }
-.stack-score { color: var(--blue) !important; font: 800 11px var(--mono) !important; }
+.stack-score { color: var(--muted) !important; font: 800 11px var(--mono) !important; }
 
 .stack-diagnostic {
   display: grid;
@@ -699,9 +714,22 @@
 }
 
 .stack-detail-panels h2 {
+  display: flex;
+  gap: 9px;
+  align-items: center;
   margin: 8px 0 16px;
   font-size: 19px;
 }
+
+.stack-detail-panels h2 svg {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+}
+
+.stack-detail-panels .is-strength h2 { color: var(--green); }
+.stack-detail-panels .is-caution h2 { color: #e4a72d; }
+.stack-detail-panels .is-alternatives h2 { color: var(--blue); }
 
 .stack-detail-panels ul {
   display: grid;
