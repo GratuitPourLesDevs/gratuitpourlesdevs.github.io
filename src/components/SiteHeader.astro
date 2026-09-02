@@ -1,17 +1,100 @@
 ---
 interface Props { active?: 'catalogue' | 'explorer' | 'comparisons' | 'stacks' | 'guides' | 'docs'; }
 const { active } = Astro.props;
+const discoveryActive = active === 'catalogue' || active === 'explorer' || active === 'guides';
 import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<header class="site-header">
+<header class="site-header" data-site-header>
   <a class="brand" href="/" aria-label="Gratuit pour les devs, accueil">
     <svg viewBox="0 0 40 40" aria-hidden="true"><path d="m4 13 16-9 16 9-16 9L4 13Zm0 9 16 9 16-9M4 31l16 9 16-9" /></svg>
     <span>Gratuit<span>PourLesDevs</span></span>
   </a>
-  <nav aria-label="Navigation principale"><a class:list={{ active: active === 'catalogue' }} href="/">Catalogue</a><a class:list={{ active: active === 'explorer' }} href="/explorer/">Explorateur</a><a class:list={{ active: active === 'comparisons' }} href="/comparaisons/">Comparaisons</a><a class:list={{ active: active === 'stacks' }} href="/stacks/">Stacks</a><a class:list={['guides-nav-link', { active: active === 'guides' }]} href="/guides/">Guides</a></nav>
+
+  <nav class="site-main-nav" id="site-main-nav" aria-label="Navigation principale">
+    <div class:list={['site-nav-group', { active: discoveryActive }]}>
+      <button class="site-nav-trigger" type="button" aria-expanded="false" aria-controls="site-discovery-menu">Découvrir <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></button>
+      <div class="site-nav-popover site-nav-popover--discovery" id="site-discovery-menu" hidden>
+        <a class:list={{ active: active === 'catalogue' }} href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span><strong>Catalogue</strong><small>Toutes les offres gratuites vérifiées</small></span></a>
+        <a class:list={{ active: active === 'explorer' }} href="/explorer/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><span><strong>Explorateur</strong><small>Trouvez une offre selon vos critères</small></span></a>
+        <a class:list={{ active: active === 'guides' }} href="/guides/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16ZM20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/></svg><span><strong>Guides</strong><small>Des sélections pour décider plus vite</small></span></a>
+      </div>
+    </div>
+
+    <a class:list={['site-nav-direct', { active: active === 'comparisons' }]} href="/comparaisons/">Comparer</a>
+    <a class:list={['site-nav-direct', { active: active === 'stacks' }]} href="/stacks/">Stacks</a>
+
+    <div class:list={['site-nav-group', 'site-nav-group--resources', { active: active === 'docs' }]}>
+      <button class="site-nav-trigger" type="button" aria-expanded="false" aria-controls="site-resources-menu">Ressources <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></button>
+      <div class="site-nav-popover site-nav-popover--resources" id="site-resources-menu" hidden>
+        <a class:list={{ active: active === 'docs' }} href="/docs/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5V3Z"/><path d="M16 3v4h4M8 11h8M8 15h8"/></svg><span><strong>Documentation</strong><small>Comprendre les scores et les données</small></span></a>
+        <a href="/methodologie/"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span><strong>Méthodologie</strong><small>Comment les offres sont contrôlées</small></span></a>
+        <a href="/evolutions/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3"/></svg><span><strong>Évolutions</strong><small>Les nouveautés du catalogue</small></span></a>
+      </div>
+    </div>
+
+    <div class="site-mobile-contribute"><span>Contribuer</span><a href="/contact/?objet=suggestion">Suggérer un outil</a><a href="/contact/?objet=erreur">Signaler une erreur</a><a href="/contact/">Nous contacter</a></div>
+  </nav>
+
   <div class="header-actions">
     <ThemeToggle />
-    <a class="outline-button" href="/contact/?objet=suggestion">Suggérer un outil</a>
+    <slot name="actions" />
+    <div class="site-nav-group site-contribute-group">
+      <button class="header-contribute-trigger" type="button" aria-expanded="false" aria-controls="site-contribute-menu">Contribuer <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></button>
+      <div class="site-nav-popover site-nav-popover--contribute" id="site-contribute-menu" hidden>
+        <a href="/contact/?objet=suggestion"><strong>Suggérer un outil</strong><small>Ajoutez une ressource utile au catalogue</small></a>
+        <a href="/contact/?objet=erreur"><strong>Signaler une erreur</strong><small>Aidez-nous à garder les données fiables</small></a>
+        <a href="/contact/"><strong>Nous contacter</strong><small>Échangez directement avec l’équipe</small></a>
+      </div>
+    </div>
+    <button class="site-mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-main-nav"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
   </div>
 </header>
+
+<script is:inline>
+  (() => {
+    const header = document.querySelector('[data-site-header]');
+    if (!header || header.dataset.navigationReady === 'true') return;
+    header.dataset.navigationReady = 'true';
+    const triggers = [...header.querySelectorAll('[aria-controls^="site-"][aria-expanded]')];
+    const menuToggle = header.querySelector('.site-mobile-nav-toggle');
+    const closeDropdowns = (except) => {
+      triggers.forEach((trigger) => {
+        if (trigger === except || trigger === menuToggle) return;
+        trigger.setAttribute('aria-expanded', 'false');
+        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (panel) panel.hidden = true;
+      });
+    };
+    triggers.forEach((trigger) => {
+      if (trigger === menuToggle) return;
+      trigger.addEventListener('click', () => {
+        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (!panel) return;
+        const willOpen = trigger.getAttribute('aria-expanded') !== 'true';
+        closeDropdowns(trigger);
+        trigger.setAttribute('aria-expanded', String(willOpen));
+        panel.hidden = !willOpen;
+      });
+    });
+    menuToggle?.addEventListener('click', () => {
+      const willOpen = !header.classList.contains('is-mobile-open');
+      header.classList.toggle('is-mobile-open', willOpen);
+      menuToggle.setAttribute('aria-expanded', String(willOpen));
+      if (!willOpen) closeDropdowns();
+    });
+    document.addEventListener('click', (event) => { if (!header.contains(event.target)) closeDropdowns(); });
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      closeDropdowns();
+      header.classList.remove('is-mobile-open');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980) {
+        header.classList.remove('is-mobile-open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
