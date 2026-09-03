@@ -1,7 +1,8 @@
 ---
 interface Props { active?: 'catalogue' | 'explorer' | 'categories' | 'usages' | 'comparisons' | 'stacks' | 'guides' | 'docs'; }
 const { active } = Astro.props;
-const discoveryActive = active === 'catalogue' || active === 'explorer' || active === 'categories' || active === 'usages' || active === 'guides';
+const discoveryActive = active === 'catalogue' || active === 'explorer' || active === 'categories' || active === 'usages';
+const resourcesActive = active === 'docs' || active === 'guides';
 import ThemeToggle from './ThemeToggle.astro';
 ---
 
@@ -15,20 +16,20 @@ import ThemeToggle from './ThemeToggle.astro';
     <div class:list={['site-nav-group', { active: discoveryActive }]}>
       <button class="site-nav-trigger" type="button" aria-expanded="false" aria-controls="site-discovery-menu">Découvrir <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></button>
       <div class="site-nav-popover site-nav-popover--discovery" id="site-discovery-menu" hidden>
-        <a class:list={{ active: active === 'catalogue' }} href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span><strong>Catalogue</strong><small>Toutes les offres gratuites vérifiées</small></span></a>
-        <a class:list={{ active: active === 'explorer' }} href="/explorer/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><span><strong>Explorateur</strong><small>Trouvez une offre selon vos critères</small></span></a>
-        <a class:list={{ active: active === 'categories' }} href="/categories/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h7v6H4zM13 5h7v6h-7zM4 13h7v6H4zM13 13h7v6h-7z"/></svg><span><strong>Catégories</strong><small>Comparez chaque famille de services</small></span></a>
-        <a class:list={{ active: active === 'usages' }} href="/usages/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v4H5zM5 10h9v4H5zM5 16h12v4H5z"/></svg><span><strong>Usages</strong><small>Partez de votre besoin technique</small></span></a>
-        <a class:list={{ active: active === 'guides' }} href="/guides/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16ZM20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/></svg><span><strong>Guides</strong><small>Des sélections pour décider plus vite</small></span></a>
+        <a class:list={{ active: active === 'catalogue' }} href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span><strong>Catalogue</strong><small>Toutes les offres vérifiées</small></span></a>
+        <a class:list={['site-nav-featured', { active: active === 'explorer' }]} href="/explorer/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><span><strong>Explorateur</strong><small>Filtrer par quotas et contraintes</small></span></a>
+        <a class:list={{ active: active === 'categories' }} href="/categories/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h7v6H4zM13 5h7v6h-7zM4 13h7v6H4zM13 13h7v6h-7z"/></svg><span><strong>Catégories</strong><small>Par famille de services</small></span></a>
+        <a class:list={{ active: active === 'usages' }} href="/usages/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v4H5zM5 10h9v4H5zM5 16h12v4H5z"/></svg><span><strong>Usages</strong><small>Par besoin technique</small></span></a>
       </div>
     </div>
 
     <a class:list={['site-nav-direct', { active: active === 'comparisons' }]} href="/comparaisons/">Comparer</a>
     <a class:list={['site-nav-direct', { active: active === 'stacks' }]} href="/stacks/">Stacks</a>
 
-    <div class:list={['site-nav-group', 'site-nav-group--resources', { active: active === 'docs' }]}>
+    <div class:list={['site-nav-group', 'site-nav-group--resources', { active: resourcesActive }]}>
       <button class="site-nav-trigger" type="button" aria-expanded="false" aria-controls="site-resources-menu">Ressources <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></button>
       <div class="site-nav-popover site-nav-popover--resources" id="site-resources-menu" hidden>
+        <a class:list={{ active: active === 'guides' }} href="/guides/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16ZM20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/></svg><span><strong>Guides</strong><small>Sélections pour décider plus vite</small></span></a>
         <a class:list={{ active: active === 'docs' }} href="/docs/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5V3Z"/><path d="M16 3v4h4M8 11h8M8 15h8"/></svg><span><strong>Documentation</strong><small>Comprendre les scores et les données</small></span></a>
         <a href="/methodologie/"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg><span><strong>Méthodologie</strong><small>Comment les offres sont contrôlées</small></span></a>
         <a href="/evolutions/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3"/></svg><span><strong>Évolutions</strong><small>Les nouveautés du catalogue</small></span></a>

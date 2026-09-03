@@ -172,10 +172,13 @@ footer{min-height:92px;display:grid;grid-template-columns:1fr auto auto;align-it
 .site-nav-trigger[aria-expanded="true"] svg,.header-contribute-trigger[aria-expanded="true"] svg{transform:rotate(180deg)}
 .site-nav-popover[hidden]{display:none!important}
 .site-nav-popover{position:absolute;z-index:220;top:calc(100% + 10px);width:620px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:8px;border:1px solid var(--line);border-radius:9px;background:var(--surface-raised);box-shadow:0 22px 55px rgb(9 10 13/24%)}
-.site-nav-popover--discovery{left:0}
-.site-nav-popover--resources{right:0}
+.site-nav-popover--discovery{left:0;width:520px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.site-nav-popover--resources{right:0;width:520px;grid-template-columns:repeat(2,minmax(0,1fr))}
 .site-header .site-nav-popover>a{min-width:0;min-height:92px;display:grid;grid-template-columns:30px minmax(0,1fr);place-items:initial;align-items:start;gap:11px;padding:15px;border-radius:7px;color:var(--ink);text-decoration:none}
+.site-header .site-nav-popover--discovery>a,.site-header .site-nav-popover--resources>a{min-height:76px;padding:13px}
 .site-header .site-nav-popover>a:hover,.site-header .site-nav-popover>a:focus-visible,.site-header .site-nav-popover>a.active{color:var(--blue);background:var(--surface-hover);outline:0}
+.site-header .site-nav-popover--discovery>a.site-nav-featured{background:color-mix(in srgb,var(--blue) 7%,var(--surface-raised))}
+.site-header .site-nav-popover--discovery>a.site-nav-featured:hover,.site-header .site-nav-popover--discovery>a.site-nav-featured:focus-visible,.site-header .site-nav-popover--discovery>a.site-nav-featured.active{background:color-mix(in srgb,var(--blue) 12%,var(--surface-raised))}
 .site-nav-popover>a>svg{width:26px;height:26px;padding:4px;border:1px solid color-mix(in srgb,var(--blue) 35%,var(--line));border-radius:6px;fill:none;stroke:var(--blue);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
 .site-nav-popover>a>span,.site-nav-popover--contribute>a{display:grid;gap:5px}
 .site-nav-popover strong{font-size:12px;line-height:1.25}
