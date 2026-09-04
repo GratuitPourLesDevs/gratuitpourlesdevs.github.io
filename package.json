@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "audit:catalogue": "node scripts/audit-catalogue-order.mjs",
+    "audit:editorials": "node scripts/audit-offer-editorials.mjs",
     "verify:offers": "node scripts/verify-offers.mjs",
     "verify:offers:dry": "node scripts/verify-offers.mjs --dry-run",
     "test:verify-offers": "node --test scripts/verify-offers.test.mjs",

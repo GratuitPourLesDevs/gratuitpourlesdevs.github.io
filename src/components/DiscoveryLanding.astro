@@ -53,7 +53,7 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={`${title} — GratuitPourLesDevs`} description={metaDescription} jsonLd={jsonLd}>
+<BaseLayout title={`${title} — GratuitPourLesDevs`} description={metaDescription} jsonLd={jsonLd} robots={entries.length < 3 ? 'noindex, follow' : undefined}>
   <SiteHeader active={mode === 'category' ? 'categories' : 'usages'} />
   <main class="discovery-page">
     <nav class="discovery-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span>›</span><a href={rootPath}>{mode === 'category' ? 'Catégories' : 'Usages'}</a><span>›</span><strong>{name}</strong></nav>

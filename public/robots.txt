@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /*?*category=
+Disallow: /*?*usage=
+Disallow: /*?*compare=
 
 Sitemap: https://gratuitpourlesdevs.fr/sitemap-index.xml

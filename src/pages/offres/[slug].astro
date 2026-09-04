@@ -11,6 +11,7 @@ import { getBillingRisk } from '../../data/billing-risk';
 import { getDiscoverySlug, slugifyDiscovery } from '../../lib/discovery';
 import { getFreeTierScore } from '../../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../../data/offer-alerts';
+import { getGeneratedOfferEditorial, getOfferSwitchLimit } from '../../data/offer-editorial';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, formatQuotaReset, formatQuotaScope, getOfferQuotas } from '../../data/offer-quotas';
 
 type HistoryItem = { timestamp: number; revision?: string };
@@ -51,6 +52,8 @@ const entry = offers.find((offer) => offer.id === offerId);
 if (!entry) throw new Error(`Offre introuvable : ${offerId}`);
 
 const { Content } = await render(entry);
+const offerEditorial = getGeneratedOfferEditorial(entry.id, entry.data);
+const switchLimit = getOfferSwitchLimit(entry.data);
 const categoryName = categoryNames.get(entry.data.categorie) ?? entry.data.categorie;
 const activeOffers = offers.filter((offer) => offer.data.statut !== 'obsolete' && offer.id !== entry.id);
 const sharedUsageCount = (candidate: typeof entry) => candidate.data.usages.filter((tag) => entry.data.usages.includes(tag)).length;
@@ -163,7 +166,7 @@ const jsonLd = [
           <div class="offer-page-tags"><span>{entry.data.type}</span><span>{statusLabel}</span>{entry.data.usages.slice(0, 3).map((tag) => <span>{tag}</span>)}</div>
           <ContentEngagement type="offer" contentKey={entry.id} updatedAt={modifiedAt} trackView class="offer-content-engagement" />
           <section class="offer-hero-plan"><small>FORMULE GRATUITE</small><strong>{entry.data.formule}</strong></section>
-          <section class="offer-editorial"><small>EN BREF</small><h2>Pourquoi {entry.data.nom} est utile</h2><Content /></section>
+          <section class="offer-editorial"><small>EN BREF</small><h2>Pourquoi {entry.data.nom} est utile</h2>{offerEditorial ? <p>{offerEditorial}</p> : <Content />}<div class="offer-editorial-decisions"><article><small>CE QUE COUVRE LE GRATUIT</small><p>{entry.data.formule}</p></article><article><small>QUAND CHANGER DE SOLUTION</small><p>{switchLimit}</p></article></div></section>
         </div>
       </div>
       <aside class="offer-plan-card" aria-label="Score et conditions de l’offre">

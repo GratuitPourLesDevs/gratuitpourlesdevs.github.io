@@ -41,4 +41,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-LocationIQ offre un quota quotidien généreux et combine géocodage, routage et rendu de cartes. Il est utilisable commercialement sur le plan gratuit, ce qui est appréciable, mais l’attribution imposée et la limite de débit doivent être intégrées dès la conception.
+LocationIQ convient à une application web qui doit rechercher des adresses, calculer un itinéraire ou afficher une carte sans multiplier les fournisseurs. Ses 5 000 requêtes quotidiennes permettent de lancer un petit service commercial gratuitement, à condition d’afficher l’attribution demandée. Il faut changer de formule ou de solution lorsque le trafic dépasse deux requêtes par seconde, lorsque l’attribution visible n’est pas acceptable ou lorsque le support best effort ne suffit plus.

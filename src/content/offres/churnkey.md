@@ -36,4 +36,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Churnkey propose désormais un vrai socle gratuit : le composant de cancel flow est open source et peut fonctionner seul, tandis qu’un compte gratuit ajoute des analytics de rétention sans imposer le plan connecté payant.
+Churnkey convient à une application React qui veut comprendre pourquoi ses abonnés résilient sans reconstruire tout le parcours d’annulation. Le SDK MIT permet de déployer gratuitement ce parcours et un compte gratuit ajoute les tendances et taux de rétention utiles à une petite équipe. Il faut envisager le plan payant dès que le projet doit connecter automatiquement le fournisseur de facturation, exécuter des offres de rétention ou lancer des tests avancés.

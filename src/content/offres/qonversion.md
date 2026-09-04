@@ -38,4 +38,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Qonversion propose un niveau gratuit très généreux pour lancer une application à abonnement : la plateforme reste gratuite jusqu’à 10 000 $ de revenus mensuels suivis.
+Qonversion convient à une application mobile qui veut centraliser ses abonnements, ses paywalls et ses indicateurs sans développer toute cette couche autour des stores. Le plan gratuit permet de lancer plusieurs applications, d’inviter toute l’équipe et de suivre jusqu’à 10 000 dollars de revenus mensuels avec les SDK et analytics de base. Un plan supérieur devient nécessaire au-delà de ce revenu suivi ou lorsque le produit dépend des fonctions avancées d’expérimentation et de croissance.

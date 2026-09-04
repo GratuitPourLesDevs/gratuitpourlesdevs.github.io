@@ -40,4 +40,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-TRAE est le produit actuel à suivre plutôt que l’ancienne fiche MarsCode. Il conserve une porte d’entrée gratuite, mais les capacités IA sont désormais structurées autour de plusieurs niveaux et peuvent évoluer avec les modèles disponibles.
+TRAE IDE convient à un développeur qui veut tester dans un même environnement la complétion, la génération de code et un agent IA sans souscrire immédiatement. Le niveau Free permet d’évaluer gratuitement le flux de travail actuel qui a remplacé MarsCode, avec des quotas dépendant des modèles et des fonctions disponibles. Il faut envisager un autre niveau ou un autre outil lorsque ces volumes variables ne garantissent plus la capacité nécessaire à un usage quotidien ou qu’un modèle réservé aux abonnements devient indispensable.

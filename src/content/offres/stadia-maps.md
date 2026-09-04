@@ -41,4 +41,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Stadia Maps est aujourd’hui aussi le point d’accès officiel aux styles historiques Stamen. Son free tier repose sur 200 000 crédits mensuels et bloque par défaut lorsque le pool est consommé, ce qui évite les mauvaises surprises de facturation. En contrepartie, la production commerciale nécessite une offre payante.
+Stadia Maps convient à un prototype cartographique, une démonstration ou un projet non commercial qui veut réunir fonds de carte, styles Stamen et API géospatiales. Les 200 000 crédits mensuels permettent de développer sans carte bancaire et le blocage en erreur 429 au plafond évite une facture inattendue. Il faut choisir une offre payante dès la mise en production commerciale, lorsque le pool de crédits interrompt trop souvent le service ou lorsqu’une API réservée aux niveaux supérieurs devient indispensable.

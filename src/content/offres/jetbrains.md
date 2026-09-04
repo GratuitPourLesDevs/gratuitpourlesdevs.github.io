@@ -41,4 +41,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-JetBrains propose désormais plusieurs modèles gratuits plutôt qu’une seule licence communautaire uniforme. Il faut donc vérifier le produit : IntelliJ IDEA conserve un socle gratuit utilisable commercialement, tandis que plusieurs IDE professionnels complets sont gratuits uniquement hors usage commercial.
+Les IDE JetBrains conviennent à un développeur qui recherche une analyse de code et des outils de refactorisation intégrés plutôt qu’un éditeur à assembler par extensions. Le socle d’IntelliJ IDEA reste gratuit, y compris pour un projet commercial, et les programmes non commerciaux, éducatifs ou open source ouvrent gratuitement d’autres IDE selon l’éligibilité. Une licence payante devient nécessaire pour les fonctions Ultimate ou dès qu’un IDE accordé au titre de l’usage non commercial sert à produire un logiciel commercial.

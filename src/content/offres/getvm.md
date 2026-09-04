@@ -40,4 +40,4 @@ verificationCode: "controle_bloque"
 verificationEchecsConsecutifs: 2
 ---
 
-GetVM est adapté aux essais ponctuels qui ont besoin d’un vrai environnement Linux mais pas d’un serveur durable. La limite de cinq VM par jour est claire, tout comme les compromis : aucune persistance et aucun accès réseau sortant.
+GetVM convient pour reproduire rapidement une commande Linux, vérifier un script ou faire manipuler un environnement isolé pendant une démonstration. Le plan gratuit permet de lancer jusqu’à cinq VM quotidiennes de 30 minutes avec 2 Go de RAM, directement dans le navigateur. Il faut choisir un autre environnement dès que le projet nécessite Internet, la conservation des fichiers, une session longue ou un serveur disponible en continu.

@@ -36,4 +36,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-GeoKeo propose un free tier simple à comprendre et une couverture mondiale, ce qui le rend adapté aux prototypes de recherche d’adresses et de reverse geocoding. Les restrictions IP/HTTP permettent aussi de réduire le risque de fuite d’une clé côté client.
+GeoKeo convient à un prototype qui doit convertir une adresse en coordonnées, retrouver une adresse depuis un point GPS ou valider une recherche internationale. Les 2 500 requêtes quotidiennes permettent de tester puis d’exploiter un petit service sans carte bancaire, tandis que les restrictions par IP ou domaine réduisent le risque de fuite de clé. Une solution plus capacitaire devient nécessaire lorsque le trafic dépasse le quota journalier ou exige un débit continu au-delà de son renouvellement à minuit UTC.

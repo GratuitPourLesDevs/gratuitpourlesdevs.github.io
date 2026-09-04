@@ -30,7 +30,7 @@ const editorialComparisons = EDITORIAL_COMPARISONS.filter((ids) => ids.every((id
 const directoryPayload = JSON.stringify({ offers, editorialComparisons }).replace(/</g, '\\u003c');
 ---
 
-<BaseLayout title="Comparaisons — Gratuit pour les devs" description="Découvrez les comparaisons d’offres gratuites les plus consultées et les plus récentes.">
+<BaseLayout title="Comparaisons — Gratuit pour les devs" description="Découvrez les comparaisons d’offres gratuites les plus consultées et les plus récentes." robots="noindex, follow">
   <SiteHeader active="comparisons" />
   <main class="comparisons-page">
     <header class="comparisons-hero">

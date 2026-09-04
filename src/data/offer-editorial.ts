@@ -8,6 +8,7 @@ type OfferEditorialData = {
   accroche: string;
   formule: string;
   inclus: string[];
+  conditions: string[];
   restrictions: string[];
   usages: string[];
   statut: 'active' | 'a_verifier' | 'obsolete';
@@ -33,4 +34,10 @@ export function getGeneratedOfferEditorial(
   _data: OfferEditorialData,
 ): string | undefined {
   return CUSTOM_OFFER_EDITORIALS[offerId];
+}
+
+export function getOfferSwitchLimit(data: OfferEditorialData): string {
+  if (data.restrictions[0]) return data.restrictions[0];
+  if (data.conditions[0]) return data.conditions[0];
+  return `Cette offre cesse d’être adaptée dès que le projet dépasse le périmètre gratuit vérifié : ${data.formule}.`;
 }

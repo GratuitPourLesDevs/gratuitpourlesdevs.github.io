@@ -41,4 +41,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Mapbox propose plusieurs free tiers très généreux, mais il ne faut pas les résumer à un quota unique : carte web, SDK mobile, images statiques et géocodage disposent de compteurs différents. Comme le compte fonctionne en pay-as-you-go avec un moyen de paiement, le suivi des usages est indispensable.
+Mapbox convient à un produit qui doit combiner cartes personnalisées, recherche d’adresses et navigation avec des SDK cohérents sur le web et le mobile. Les quotas gratuits distincts permettent de lancer une carte ou un prototype avec plusieurs dizaines de milliers d’utilisateurs ou de requêtes selon le produit. Une autre formule devient nécessaire dès qu’un compteur dépasse son seuil, qu’un géocodage permanent est requis ou que l’équipe ne peut pas accepter la carte bancaire et la facturation automatique des dépassements.

@@ -34,4 +34,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-ParityVend offre un quota gratuit particulièrement confortable pour tester ou déployer une tarification en parité de pouvoir d’achat sur de petits sites, sans risque de facturation de dépassement.
+ParityVend convient à un SaaS ou à un créateur de contenu qui veut adapter ses prix au pouvoir d’achat local sans maintenir sa propre base géographique. Les 7 500 requêtes mensuelles permettent de tester puis d’exploiter gratuitement la parité tarifaire sur un site à trafic modéré, sans carte bancaire ni dépassement facturé. Il faut passer à une capacité supérieure lorsque le quota mensuel interrompt le service avant son renouvellement ou lorsque la continuité de l’affichage des remises devient critique.

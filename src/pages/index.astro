@@ -2,12 +2,12 @@
 import { getCollection, render } from 'astro:content';
 import { execFileSync } from 'node:child_process';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import AdSenseSlot from '../components/AdSenseSlot.astro';
 import CustomSelect from '../components/CustomSelect.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { getBillingRisk } from '../data/billing-risk';
 import { getFreeTierScore } from '../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../data/offer-alerts';
+import { getGeneratedOfferEditorial, getOfferSwitchLimit } from '../data/offer-editorial';
 import { assertOfferQuotaCoverage, formatQuotaAmount, formatQuotaMetric, formatQuotaOverage, formatQuotaPeriod, formatQuotaReset, formatQuotaScope, getComparableQuotaValue, getOfferQuotas, getQuotaComparisonKey } from '../data/offer-quotas';
 import { getOffersUpdatedMetadata } from '../lib/offers-updated';
 
@@ -26,7 +26,7 @@ try {
 const entries = (await getCollection('offres'))
   .filter(({ data }) => data.statut !== 'obsolete')
   .sort((a, b) => a.data.ordre - b.data.ordre);
-const offers = await Promise.all(entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content })));
+const offers = await Promise.all(entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content, editorial: getGeneratedOfferEditorial(entry.id, entry.data) })));
 const categories = (await getCollection('categories'))
   .filter(({ data }) => data.actif)
   .sort((a, b) => a.data.ordre - b.data.ordre);
@@ -180,7 +180,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       <div class="offers-table" role="table" aria-label="Offres gratuites">
         <div class="table-head" role="row"><span>Outil et catégorie</span><span>Formule gratuite</span><span>Facturation</span><span>Actions</span></div>
         <div id="offers-list">
-          {offers.map(({ entry, Content }) => {
+          {offers.map(({ entry, Content, editorial }) => {
             const billingRisk = getBillingRisk(entry.data);
             const freeTierScore = scoreById.get(entry.id)!;
             const scoreTone = freeTierScore.total >= 85 ? 'excellent' : freeTierScore.total >= 70 ? 'strong' : freeTierScore.total >= 50 ? 'balanced' : 'limited';
@@ -209,7 +209,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
                 <section><h3>Ce qui est inclus</h3><ul>{entry.data.inclus.map((item) => <li>{item}</li>)}</ul></section>
                 <section><h3>Conditions</h3><ul>{entry.data.conditions.map((item) => <li>{item}</li>)}</ul></section>
                 <section><h3>Restrictions</h3><ul>{entry.data.restrictions.map((item) => <li>{item}</li>)}</ul></section>
-                <section class="why-useful"><h3>Pourquoi c’est utile</h3><Content /></section>
+                <section class="why-useful"><h3>Pourquoi c’est utile</h3>{editorial ? <p>{editorial}</p> : <Content />}<dl class="why-useful-decisions"><div><dt>Le gratuit</dt><dd>{entry.data.formule}</dd></div><div><dt>Point de bascule</dt><dd>{getOfferSwitchLimit(entry.data)}</dd></div></dl></section>
                 <div class="detail-footer"><span class="verified-date"><b>✓</b> Vérifié le {entry.data.verifieLe.toLocaleDateString('fr-FR')}</span><nav aria-label={`Liens pour ${entry.data.nom}`}><a href={`/offres/${entry.id}/`}>Voir la fiche complète →</a><a href={entry.data.url} target="_blank" rel="noreferrer">Site officiel ↗</a>{entry.data.documentation && <a href={entry.data.documentation} target="_blank" rel="noreferrer">Documentation ↗</a>}<a href={entry.data.source} target="_blank" rel="noreferrer">Source tarifaire ↗</a></nav></div>
               </div>
             </article>
@@ -218,7 +218,6 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
         </div>
         <div class="empty-state" id="empty-state" hidden>Aucune offre ne correspond à ces critères.</div>
       </div>
-      <AdSenseSlot placement="catalogue-footer" slot={import.meta.env.PUBLIC_ADSENSE_CATALOGUE_SLOT} />
       <nav class="pagination" id="pagination" aria-label="Pagination du catalogue">
         <span id="pagination-summary" aria-live="polite"></span>
         <div class="pagination-controls">

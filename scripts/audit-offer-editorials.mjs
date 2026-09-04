@@ -18,6 +18,24 @@ function scalar(frontmatter, key) {
   return m ? m[1].trim().replace(/^['"]|['"]$/g, '') : '';
 }
 
+function list(frontmatter, key) {
+  const lines = frontmatter.split(/\r?\n/);
+  const inline = lines.find((line) => new RegExp(`^${key}:\\s*\\[`).test(line));
+  if (inline) {
+    const raw = inline.slice(inline.indexOf('[') + 1, inline.lastIndexOf(']'));
+    return [...raw.matchAll(/"([^"]+)"|'([^']+)'|([^,]+)/g)].map((match) => (match[1] ?? match[2] ?? match[3]).trim()).filter(Boolean);
+  }
+  const start = lines.findIndex((line) => line.trim() === `${key}:`);
+  if (start === -1) return [];
+  const values = [];
+  for (const line of lines.slice(start + 1)) {
+    if (/^[A-Za-zÀ-ÿ_][^:]*:/.test(line)) break;
+    const match = line.match(/^\s*-\s+(.+)$/);
+    if (match) values.push(match[1].trim().replace(/^['"]|['"]$/g, ''));
+  }
+  return values;
+}
+
 function parseEditorialMap(file) {
   const src = read(path.join(DATA_DIR, file));
   const out = new Map();
@@ -43,6 +61,7 @@ const contextRe = /\b(lorsqu|quand|pour\b|par exemple|afin de|dans\b|si l[’']o
 const benefitRe = /\b(évite|simplif|réduit|gagn|accél|facilit|automat|centralis|sécuris|protèg|remplac|économis|permet|aide|sans\b|utile|intéressant|pertinent|amélior|optimis|délègue|rapidement)\b/i;
 const explanatoryRe = /\b(utile|permet|aide|sert|pratique|convient|facilite|simplifie|évite|réduit|automatise|centralise|accélère|sécurise|protège|remplace|intéressant|pertinent)\b/i;
 const bulkGenericRe = /(reste intéressant pour le développement, les tests ou les petits usages|Le référentiel historique le présente avec|La fiche est donc marquée « à vérifier » afin de conserver cette ressource)/i;
+const verificationStubRe = /est référencé avec les limites gratuites vérifiées/i;
 
 function auditMarkdown(text, accroche) {
   const clean = normalize(text);
@@ -70,23 +89,43 @@ for (const file of fs.readdirSync(OFFERS_DIR).filter((f) => f.endsWith('.md')).s
   const nom = scalar(frontmatter, 'nom') || id;
   const accroche = scalar(frontmatter, 'accroche');
   const statut = scalar(frontmatter, 'statut');
+  const formule = scalar(frontmatter, 'formule');
+  const conditions = list(frontmatter, 'conditions');
+  const restrictions = list(frontmatter, 'restrictions');
+  const markdownIsGeneric = verificationStubRe.test(body);
+  const hasFreePlan = formule.length >= 20;
+  const hasSwitchLimit = restrictions.length > 0 || conditions.length > 0 || formule.length >= 20;
   if (custom.has(id)) {
     const text = custom.get(id);
     const sentences = normalize(text).split(/(?<=[.!?])\s+/).filter(Boolean);
-    const ok = text.length >= 170 && sentences.length >= 2 && sentences.length <= 4;
-    results.push({ id, nom, statut, source: 'custom', ok, reasons: ok ? [] : ['éditorial dédié hors format'], length: text.length, sentences: sentences.length });
+    const editorialOk = text.length >= 170 && sentences.length >= 2 && sentences.length <= 4;
+    const reasons = [
+      ...(!editorialOk ? ['éditorial dédié hors format'] : []),
+      ...(!hasFreePlan ? ['formule gratuite insuffisamment explicite'] : []),
+      ...(!hasSwitchLimit ? ['aucune limite de bascule documentée'] : []),
+    ];
+    results.push({ id, nom, statut, source: 'custom', markdownIsGeneric, hasFreePlan, hasSwitchLimit, ok: reasons.length === 0, reasons, length: text.length, sentences: sentences.length });
   } else {
-    results.push({ id, nom, statut, source: 'markdown', ...auditMarkdown(body, accroche) });
+    const editorial = auditMarkdown(body, accroche);
+    const reasons = [
+      ...editorial.reasons,
+      ...(markdownIsGeneric ? ['texte de vérification générique rendu'] : []),
+      ...(!hasFreePlan ? ['formule gratuite insuffisamment explicite'] : []),
+      ...(!hasSwitchLimit ? ['aucune limite de bascule documentée'] : []),
+    ];
+    results.push({ id, nom, statut, source: 'markdown', markdownIsGeneric, hasFreePlan, hasSwitchLimit, ...editorial, ok: editorial.ok && !markdownIsGeneric && hasFreePlan && hasSwitchLimit, reasons });
   }
 }
 
 const failing = results.filter((r) => !r.ok);
 const bySource = Object.fromEntries(['custom','markdown'].map((source) => [source, { total: results.filter((r) => r.source === source).length, aCorriger: failing.filter((r) => r.source === source).length }]));
-const report = { generatedAt: new Date().toISOString(), totalOffers: results.length, conformes: results.length - failing.length, aCorriger: failing.length, bySource, failing };
+const genericMarkdown = results.filter((result) => result.markdownIsGeneric);
+const report = { generatedAt: new Date().toISOString(), totalOffers: results.length, conformes: results.length - failing.length, aCorriger: failing.length, genericMarkdown: { total: genericMarkdown.length, coveredByCustomEditorial: genericMarkdown.filter((result) => result.source === 'custom' && result.ok).length, renderedAsGeneric: genericMarkdown.filter((result) => result.source === 'markdown').length }, bySource, failing };
 fs.mkdirSync(path.join(ROOT, '.tmp'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, '.tmp/editorial-audit.json'), JSON.stringify(report, null, 2));
 console.log(`AUDIT_TOTAL=${report.totalOffers}`);
 console.log(`AUDIT_OK=${report.conformes}`);
 console.log(`AUDIT_FIX=${report.aCorriger}`);
 console.log(`AUDIT_BY_SOURCE=${JSON.stringify(report.bySource)}`);
+console.log(`AUDIT_GENERIC_MARKDOWN=${JSON.stringify(report.genericMarkdown)}`);
 console.log('AUDIT_FAILING_IDS=' + failing.map((r) => r.id).join(','));
