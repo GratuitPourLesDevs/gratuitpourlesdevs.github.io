@@ -1,0 +1,71 @@
+/**
+ * Périmètre éditorial volontairement restreint pour l'indexation.
+ *
+ * Une fiche présente ici a été relue comme un contenu autonome : cas d'usage
+ * concret, contenu du plan gratuit et limite de sortie sont propres au service.
+ * Les autres fiches restent publiques et accessibles depuis le catalogue, mais
+ * ne sont pas proposées aux moteurs tant que leur texte n'a pas passé cette revue.
+ */
+export const EDITORIAL_READY_OFFER_IDS = new Set([
+  'bugfender',
+  'pythonanywhere',
+  'cohesivity',
+  'domcloud',
+  'encore',
+  'pipedream',
+  'runsite',
+  'apply-build',
+  'appwrite',
+  'clever-cloud',
+  'deno-deploy',
+  'flightcontrol',
+  'gigalixir',
+  'val-town',
+  'ownkube',
+  'yepcode',
+  'northflank',
+  'anvil',
+  'ampt',
+  'daestro',
+  'algolia',
+  'bonsai',
+  'cloudflare-1-1-1-1',
+  'localcert',
+  'choreo',
+  'codename-one',
+  'zoho-workdrive',
+  'interactive-cv',
+  'no-ip',
+  'convex',
+  'hurricane-electric-free-dns',
+  'isroot-in',
+  'render',
+  'zoneedit',
+  'flutterflow',
+  'versoly',
+  'hetzner-dns',
+  'snill-ai',
+  'modal',
+  'nhost',
+  'supabase',
+  'vercel',
+  'netlify',
+  'neon',
+  'cloudflare-pages',
+  'github',
+  'resend',
+  'sentry',
+  'cloudflare-r2',
+  'grafana-cloud',
+]);
+
+export const INDEXABLE_DOC_SLUGS = new Set([
+  'quest-ce-que-gratuitpourlesdevs',
+  'comment-utiliser-le-site',
+  'rechercher-dans-le-catalogue',
+  'risque-de-facturation',
+  'stack-100-gratuite',
+]);
+
+export const isEditorialReadyOffer = (offerId) => EDITORIAL_READY_OFFER_IDS.has(offerId);
+export const isIndexableDoc = (slug) => INDEXABLE_DOC_SLUGS.has(slug);

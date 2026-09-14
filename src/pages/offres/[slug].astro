@@ -4,7 +4,6 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
-import AdSenseSlot from '../../components/AdSenseSlot.astro';
 import ContentEngagement from '../../components/ContentEngagement.astro';
 import { EDITORIAL_COMPARISONS } from '../../data/editorial-comparisons';
 import { getBillingRisk } from '../../data/billing-risk';
@@ -13,6 +12,7 @@ import { getFreeTierScore } from '../../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../../data/offer-alerts';
 import { getGeneratedOfferEditorial, getOfferSwitchLimit } from '../../data/offer-editorial';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, formatQuotaReset, formatQuotaScope, getOfferQuotas } from '../../data/offer-quotas';
+import { isEditorialReadyOffer } from '../../lib/editorial-readiness.mjs';
 
 type HistoryItem = { timestamp: number; revision?: string };
 type HistoryChange = { champ: string; avant?: string; apres?: string; note?: string };
@@ -52,7 +52,8 @@ const entry = offers.find((offer) => offer.id === offerId);
 if (!entry) throw new Error(`Offre introuvable : ${offerId}`);
 
 const { Content } = await render(entry);
-const offerEditorial = getGeneratedOfferEditorial(entry.id, entry.data);
+const editorialReady = entry.data.statut === 'active' && isEditorialReadyOffer(entry.id);
+const offerEditorial = editorialReady ? undefined : getGeneratedOfferEditorial(entry.id, entry.data);
 const switchLimit = getOfferSwitchLimit(entry.data);
 const categoryName = categoryNames.get(entry.data.categorie) ?? entry.data.categorie;
 const activeOffers = offers.filter((offer) => offer.data.statut !== 'obsolete' && offer.id !== entry.id);
@@ -154,7 +155,7 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={title} description={description} ogType="article" modifiedTime={modifiedAt} jsonLd={jsonLd} robots={entry.data.statut === 'obsolete' ? 'noindex, follow' : undefined}>
+<BaseLayout title={title} description={description} ogType="article" modifiedTime={modifiedAt} jsonLd={jsonLd} robots={editorialReady ? undefined : 'noindex, follow'}>
   <SiteHeader active="catalogue" />
   <main class="offer-page">
     <nav class="offer-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Catalogue</a><span aria-hidden="true">/</span><a href={`/categories/${getDiscoverySlug('category', entry.data.categorie)}/`}>{categoryName}</a><span aria-hidden="true">/</span><strong>{entry.data.nom}</strong></nav>
@@ -228,7 +229,6 @@ const jsonLd = [
           </ol>
         </section>
 
-        <AdSenseSlot placement="offer-after-history" slot={import.meta.env.PUBLIC_ADSENSE_OFFER_SLOT} />
       </div>
 
       <aside class="offer-page-sidebar">

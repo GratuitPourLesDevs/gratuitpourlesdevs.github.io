@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { EDITORIAL_READY_OFFER_IDS } from './editorial-readiness.mjs';
 
 const stripValue = (value) => value.trim().replace(/^['"]|['"]$/g, '');
 
@@ -45,6 +46,7 @@ export function getIndexabilitySnapshot(root = process.cwd()) {
   const categoryCounts = new Map();
   const usageCounts = new Map();
   const obsoleteOfferPaths = new Set();
+  const nonEditorialOfferPaths = new Set();
 
   for (const file of fs.readdirSync(offersDirectory).filter((name) => name.endsWith('.md'))) {
     const source = fs.readFileSync(path.join(offersDirectory, file), 'utf8');
@@ -54,6 +56,7 @@ export function getIndexabilitySnapshot(root = process.cwd()) {
       obsoleteOfferPaths.add(offerPath);
       continue;
     }
+    if (!EDITORIAL_READY_OFFER_IDS.has(file.slice(0, -3))) nonEditorialOfferPaths.add(offerPath);
     const category = readScalar(frontmatter, 'categorie');
     if (category) categoryCounts.set(category, (categoryCounts.get(category) ?? 0) + 1);
     for (const usage of readList(frontmatter, 'usages')) usageCounts.set(usage, (usageCounts.get(usage) ?? 0) + 1);
@@ -66,5 +69,5 @@ export function getIndexabilitySnapshot(root = process.cwd()) {
     .filter(([, count]) => count < 3)
     .map(([usage]) => `/usages/${slugifyIndexablePath(usage)}/`));
 
-  return { obsoleteOfferPaths, thinCategoryPaths, thinUsagePaths };
+  return { obsoleteOfferPaths, nonEditorialOfferPaths, thinCategoryPaths, thinUsagePaths };
 }

@@ -4,6 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import DocsSearch from '../../components/docs/DocsSearch.astro';
 import DocsSidebar from '../../components/docs/DocsSidebar.astro';
 import { docsArticles, getDocArticle, getDocIndex } from '../../data/docs';
+import { isIndexableDoc } from '../../lib/editorial-readiness.mjs';
 
 export function getStaticPaths() {
   return docsArticles.map((item) => ({ params: { slug: item.slug } }));
@@ -23,9 +24,10 @@ const sectionTitle = isIntroductionGuide ? 'Un catalogue éditorial de free tier
 const secondSectionTitle = isIntroductionGuide ? 'Ce que vous trouvez dans le catalogue' : isStartGuide ? 'Affiner avec les filtres' : isCatalogueSearch ? 'Combiner recherche et filtres' : isBillingGuide ? 'Distinguer les niveaux de risque' : isStackGuide ? 'Vérifier les coûts de jonction' : 'Passer à l’action';
 const thirdSectionTitle = isIntroductionGuide ? 'Ce que le catalogue exclut' : isStartGuide ? 'Lire les résultats' : isCatalogueSearch ? 'Lire et ouvrir les résultats' : 'Vérifier avant de choisir';
 const pageDescription = `${current.summary} Documentation GratuitPourLesDevs.`;
+const indexable = isIndexableDoc(slug);
 ---
 
-<BaseLayout title={`${current.title} — Documentation GratuitPourLesDevs`} description={pageDescription} ogType="article">
+<BaseLayout title={`${current.title} — Documentation GratuitPourLesDevs`} description={pageDescription} ogType="article" robots={indexable ? undefined : 'noindex, follow'}>
   <SiteHeader active="docs" />
   <header class="docs-utility">
     <a href="/docs/" class="docs-utility-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22V5.5ZM20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22V5.5Z"/></svg><span>Documentation</span></a>
