@@ -42,6 +42,4 @@ verificationAutomatiqueLe: '2026-09-23'
 verificationNote: "La licence officielle confirme que les assets Free sont utilisables sans compte ni paiement, y compris commercialement. Le site annonce 200+ blocs et 400+ composants au total, mais le nombre exact d'assets gratuits n'est pas figé car le catalogue mélange Free et Pro."
 ---
 
-Shadcn Dashboard fournit une base prête à l'emploi pour construire des interfaces d'administration avec shadcn/ui, React ou Next.js, TypeScript et Tailwind CSS. Les ressources gratuites suivent une approche copy/paste et restent directement modifiables dans le projet.
-
-Le service ajoute aussi une couche orientée IA : certains composants disposent de prompts prêts à copier afin de reproduire ou adapter l'interface avec des assistants comme ChatGPT, Claude ou Cursor. Le catalogue complet comprend cependant des ressources Pro ; cette fiche retient uniquement les templates, blocs et composants explicitement gratuits.
+Shadcn Dashboard accélère la création d'interfaces d'administration avec des templates, blocs et composants prêts à adapter dans un projet React ou Next.js. Les ressources gratuites restent modifiables directement dans le code et certains composants incluent des prompts pour les assistants IA.
