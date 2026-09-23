@@ -3,7 +3,8 @@ name: Vérifier les offres
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 6 1 * *"
+    # Chaque lundi à 06:17 UTC (08:17 l’été, 07:17 l’hiver en France métropolitaine).
+    - cron: "17 6 * * 1"
 
 permissions:
   contents: write
