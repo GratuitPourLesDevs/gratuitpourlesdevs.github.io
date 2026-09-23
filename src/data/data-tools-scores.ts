@@ -40,6 +40,7 @@ import './code-generation-quotas';
 import './code-quality-quotas';
 import './delivery-automation-quotas';
 import './developer-utility-quotas';
+import './design-ui-resource-quotas';
 import './security-platform-quotas';
 import './security-platform-quotas-more';
 import './identity-access-quotas';
@@ -137,4 +138,5 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   'fraudlabs-pro': 15,
   freeipapi: 25,
   'geolocated-io': 20,
+  'shadcn-space': 20,
 } satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
