@@ -139,4 +139,5 @@ export const DATA_TOOLS_QUOTA_SCORES = {
   freeipapi: 25,
   'geolocated-io': 20,
   'shadcn-space': 20,
+  'shadcn-dashboard': 20,
 } satisfies Record<string, 5 | 10 | 15 | 20 | 25>;
