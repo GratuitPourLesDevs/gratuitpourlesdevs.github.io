@@ -39,4 +39,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Pixela est pratique pour stocker des métriques quotidiennes très simples et obtenir immédiatement une visualisation de type heatmap. Il convient aux trackers personnels, indicateurs de progression et petites métriques techniques sans déployer de base ni de front de visualisation.
+Pixela est utile pour transformer une valeur quotidienne en graphique sans créer de base de données ni développer une interface de visualisation. Un développeur peut suivre ses commits, le temps consacré à un projet, des sauvegardes réussies ou une petite métrique d’exploitation en envoyant simplement les valeurs à l’API. Le service gratuit crée le compte, les graphes et les heatmaps directement par API, ce qui convient bien aux trackers personnels et aux tableaux de bord minimalistes. Il faut envisager une autre solution lorsque plusieurs mesures par jour, des agrégations complexes, des garanties de service ou des fonctions avancées réservées aux sponsors deviennent nécessaires.

@@ -43,4 +43,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Comet ML permet de tracer les expériences de machine learning, versionner des datasets et gérer un registre de modèles. Le plan individuel reste gratuit, mais Comet ne publie plus un simple quota du type « deux modèles » : la limite la plus claire est aujourd’hui un utilisateur, tandis que les autres plafonds du free tier ne sont pas détaillés.
+Comet ML est utile lorsqu’un data scientist veut comparer des entraînements sans disperser paramètres, métriques, artefacts et notes entre des notebooks. Le plan individuel gratuit permet à un utilisateur de suivre ses expériences, versionner des datasets, enregistrer des modèles et tester les fonctions d’évaluation LLM ; il convient donc à un projet personnel, un mémoire ou la validation d’un pipeline MLOps. La principale prudence vient du manque de plafonds quantitatifs publics détaillés : il ne faut pas bâtir une capacité de production sur un quota supposé. Dès qu’une équipe doit collaborer, superviser des modèles en production ou obtenir des limites contractuelles, un plan supérieur ou une alternative plus transparente devient préférable.

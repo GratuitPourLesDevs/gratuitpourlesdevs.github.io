@@ -38,4 +38,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-IPLocate associe géolocalisation et données de sécurité réseau dans le même endpoint. Le plan gratuit avec clé permet 1 000 appels quotidiens et donne accès aux mêmes grandes familles de données que les offres payantes, à plus faible volume.
+IPLocate convient à une application qui doit estimer le pays d’une adresse IP tout en repérant les connexions issues d’un VPN, d’un proxy ou d’un hébergeur. Cette combinaison sert par exemple à adapter une interface, enrichir des journaux ou appliquer un contrôle de risque léger sans maintenir plusieurs bases réseau. Avec une clé gratuite, le plan fournit 1 000 requêtes par jour, les données de géolocalisation, d’ASN et d’entreprise, sans carte bancaire. Le quota sans clé tombe à 50 appels quotidiens ; un trafic soutenu, une analyse systématique de production ou un besoin de garantie impose donc une formule supérieure.

@@ -52,4 +52,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-alphai fournit un flux de news financières déjà enrichi pour éviter de refaire toute la chaîne d’analyse côté application. Les articles sont reliés aux tickers, scorés et accompagnés d’une analyse d’impact ; les dépôts SEC Form 4 sont aussi transformés en événements structurés. Le quota gratuit convient surtout à un prototype ciblé plutôt qu’à l’ingestion exhaustive du flux.
+alphai est pertinent pour prototyper un agent qui résume l’actualité d’une entreprise, alimente une veille par ticker ou déclenche un workflow lorsqu’un événement financier important apparaît. Le service évite de collecter puis de classer soi-même les articles : le plan gratuit expose par API REST et MCP les news enrichies, les scores de pertinence, le sentiment, les événements SEC Form 4 et les données macroéconomiques, dans la limite de 100 requêtes par jour. Cette enveloppe convient à une démonstration ciblée ou à une veille sur quelques actifs ; une ingestion continue, un grand univers de titres ou un usage commercial impose de changer de formule.

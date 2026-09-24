@@ -43,4 +43,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Nuclino vise une expérience de wiki plus légère que les suites tout-en-un. Il est bien adapté à une petite documentation d’équipe ou une base de connaissances tant que les 50 items suffisent.
+Nuclino convient à une petite équipe qui veut centraliser ses décisions, procédures et notes de projet sans déployer un wiki ni adopter une suite de gestion plus lourde. Le plan gratuit permet de collaborer en temps réel, d’organiser jusqu’à 50 items dans plusieurs vues, de créer trois canvases et de partager 2 Go de stockage ; c’est suffisant pour documenter un prototype, préparer l’arrivée d’un collaborateur ou conserver un manuel interne compact. Il devient nécessaire de migrer ou de payer lorsque la base dépasse 50 pages, que l’historique détaillé des versions devient indispensable ou que la documentation doit couvrir plusieurs équipes.

@@ -42,4 +42,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-JSON2Video permet de décrire une vidéo de façon structurée puis de la générer par API, ce qui se prête bien aux contenus automatisés. Le gratuit sert surtout à tester le workflow puisque les 600 crédits ne se renouvellent pas.
+JSON2Video est adapté à un prototype qui transforme des données en vidéos répétables : résumé d’un rapport, fiche produit, bulletin météo ou contenu social composé automatiquement. L’API reçoit une description JSON du montage et génère le rendu, ce qui évite de construire son propre pipeline vidéo pour valider l’idée. Les 600 crédits offerts à l’inscription permettent de tester les fonctions, le rendu jusqu’en 1080p et des vidéos de 60 secondes au maximum. Ce n’est cependant pas un free tier récurrent : les crédits ne se renouvellent pas, les exports gratuits sont marqués et une production régulière nécessite donc un budget ou une autre solution.

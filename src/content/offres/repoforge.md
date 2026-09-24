@@ -49,4 +49,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-RepoForge convient aux petits projets open source qui veulent publier leurs artefacts via des outils standards sans gérer leur propre registre. Son stockage gratuit est assez limité, et l’interdiction d’usage commercial est une contrainte importante à prendre en compte.
+RepoForge répond au besoin d’un petit projet open source qui veut distribuer ses paquets Python, npm, Debian, Conda ou ses images Docker sans exploiter son propre registre. Le plan gratuit autorise un nombre illimité de paquets publics et fournit 100 Mo de stockage, sans carte bancaire : il convient à une bibliothèque légère, un outil communautaire ou une première chaîne de publication. Le service évite ainsi de configurer plusieurs dépôts selon chaque format. Il faut toutefois migrer dès que les artefacts occupent plus de 100 Mo, qu’ils doivent rester privés ou que le projet devient commercial, trois usages exclus de cette formule.

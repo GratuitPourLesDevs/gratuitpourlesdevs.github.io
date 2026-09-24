@@ -40,4 +40,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-ipgeolocation.io expose des données de localisation et réseau à partir d’une adresse IP. Le quota quotidien est exploitable pour de petits projets, mais le plan gratuit n’est pas destiné à une utilisation commerciale.
+ipgeolocation.io est utile pour adapter un prototype au pays ou au fuseau horaire d’un visiteur, enrichir un journal de sécurité ou vérifier la provenance approximative d’une connexion sans maintenir sa propre base IP. Le plan gratuit fournit 1 000 requêtes quotidiennes et les principales données de localisation et de réseau, sans carte bancaire : il suffit donc pour une démonstration, un outil interne ou un projet personnel à trafic modéré. Il faut en revanche choisir une autre formule avant toute mise en production commerciale, et surveiller la consommation des modules qui utilisent plusieurs crédits par appel.

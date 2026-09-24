@@ -57,6 +57,21 @@ export const EDITORIAL_READY_OFFER_IDS = new Set([
   'sentry',
   'cloudflare-r2',
   'grafana-cloud',
+  'ipgeolocation-io',
+  'alphai',
+  'beeceptor',
+  'nuclino',
+  'codeberg',
+  'numlookupapi',
+  'json2video',
+  'zenscrape',
+  'repoforge',
+  'pixela',
+  'iplocate',
+  'aws-codepipeline',
+  'exceptionless',
+  'azure-kubernetes-service',
+  'comet-ml',
 ]);
 
 export const INDEXABLE_DOC_SLUGS = new Set([

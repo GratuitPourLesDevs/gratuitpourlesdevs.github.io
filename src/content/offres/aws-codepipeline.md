@@ -36,4 +36,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-AWS CodePipeline relie les étapes source, compilation, test, approbation et déploiement d’un workflow de livraison continue. Le type V1 convient à un pipeline classique facturé par pipeline actif, tandis que le type V2 ajoute notamment des déclencheurs et des variables avec une facturation à la minute d’action.
+AWS CodePipeline est utile pour orchestrer un déploiement AWS reproductible : récupérer le code, lancer la compilation et les tests, demander une approbation puis publier l’application. Le niveau gratuit couvre un pipeline V1 actif ou 100 minutes mensuelles d’actions V2, ce qui peut suffire à un petit projet déployé peu souvent et évite d’écrire soi-même toute l’orchestration. Cette gratuité ne rend pas la chaîne entière gratuite : les artefacts S3, CodeBuild, CodeDeploy et les autres services appelés suivent leur propre tarification. Il faut donc changer d’architecture ou prévoir un budget dès que plusieurs pipelines restent actifs ou que les actions V2 dépassent 100 minutes.

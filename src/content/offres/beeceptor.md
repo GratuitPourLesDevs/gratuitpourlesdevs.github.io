@@ -52,4 +52,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Beeceptor permet de monter très vite une API factice pour débloquer un frontend, simuler des erreurs ou observer des requêtes entrantes. Son plan gratuit suffit bien aux tests manuels et petits prototypes, avec la contrepartie importante d’un endpoint public et d’un quota quotidien.
+Beeceptor est utile lorsqu’un frontend doit avancer avant que le backend soit disponible, ou lorsqu’un test d’intégration doit reproduire une erreur, une latence ou une réponse précise. Le plan gratuit permet de créer un endpoint public, d’inspecter les requêtes reçues et de définir trois règles de mock, avec 50 appels par jour et un petit stockage CRUD. Cela suffit pour une démonstration, des tests manuels ou le débogage ponctuel d’un webhook sans écrire un serveur factice. Il faut passer à une solution privée ou payante dès que les échanges contiennent des données sensibles, que les scénarios se multiplient ou que le test doit tourner régulièrement en CI.

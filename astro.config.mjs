@@ -9,6 +9,7 @@ const excludedPaths = new Set([
   '/categories/',
   '/comparaisons/',
   '/compte/',
+  '/contact/',
   '/docs/',
   '/evolutions/',
   '/usages/',

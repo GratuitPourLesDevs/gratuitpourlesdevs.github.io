@@ -28,4 +28,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Zenscrape simplifie les appels de scraping en centralisant proxy et rendu navigateur. Les 1 000 appels gratuits sont adaptés au prototypage ou à une petite collecte périodique.
+Zenscrape est utile pour extraire quelques pages publiques lorsqu’un simple client HTTP échoue à cause du rendu JavaScript ou de la gestion des adresses IP. Un développeur peut tester un collecteur de prix, une veille de contenu ou un enrichissement ponctuel sans installer de navigateur automatisé ni administrer un parc de proxies. Le plan gratuit offre 1 000 appels par mois et les options essentielles de l’API, ce qui couvre un prototype ou une collecte peu fréquente. Il faut changer d’offre lorsque le nombre de pages, la fréquence, la concurrence des requêtes ou le besoin de proxies premium rendent cette enveloppe insuffisante.

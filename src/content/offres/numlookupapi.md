@@ -40,4 +40,4 @@ verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 
-Numlookupapi valide et enrichit les numéros de téléphone via une API mondiale. Le Free est modeste mais suffisant pour tester une intégration ou alimenter un petit workflow de validation.
+Numlookupapi.com est utile pour vérifier qu’un numéro saisi dans un formulaire est plausible, identifier son pays ou son opérateur et normaliser quelques contacts avant de les enregistrer. Le plan gratuit fournit une clé API, l’accès aux données de validation et de carrier, 100 appels mensuels et une cadence maximale de 10 requêtes par minute. Cette enveloppe suffit pour développer l’intégration, contrôler un petit fichier ou alimenter un workflow interne occasionnel sans construire une base téléphonique. Elle devient trop étroite pour valider chaque inscription d’un produit actif, nettoyer un CRM important ou lancer un traitement par lots régulier.
