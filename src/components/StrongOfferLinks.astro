@@ -89,9 +89,9 @@ const headingId = `strong-offers-${Astro.url.pathname.replace(/\W/g, '-') || 'ho
   .strong-offer-copy>em{display:-webkit-box;overflow:hidden;color:var(--muted);font-size:10px;font-style:normal;line-height:1.45;-webkit-box-orient:vertical;-webkit-line-clamp:2}
   .strong-offer-copy>span{margin-top:3px;color:var(--ink);font-size:9px;font-weight:700;line-height:1.35}
   .strong-offer-grid>a>b{align-self:center;color:var(--blue);font-size:17px}
-  :global(.home-strong-offers){width:auto;margin:0 3.6vw 24px;--strong-offer-columns:3}
+  .strong-offer-links:global(.home-strong-offers){width:auto;margin:0 3.6vw 24px;--strong-offer-columns:3}
   :global(.guide-strong-offers){--strong-offer-columns:3}
   :global(.category-strong-offers){margin-top:30px;--strong-offer-columns:4}
   @media(max-width:1000px){.strong-offer-grid,:global(.home-strong-offers),:global(.guide-strong-offers),:global(.category-strong-offers){--strong-offer-columns:2}}
-  @media(max-width:760px){.strong-offer-links{padding:18px}.strong-offer-links>header{grid-template-columns:1fr;gap:10px}.strong-offer-links h2{font-size:20px}.strong-offer-grid,:global(.home-strong-offers),:global(.guide-strong-offers),:global(.category-strong-offers){--strong-offer-columns:1}:global(.home-strong-offers){margin:0 16px 20px}.strong-offer-grid>a{padding:14px}}
+  @media(max-width:760px){.strong-offer-links{padding:18px}.strong-offer-links>header{grid-template-columns:1fr;gap:10px}.strong-offer-links h2{font-size:20px}.strong-offer-grid,:global(.home-strong-offers),:global(.guide-strong-offers),:global(.category-strong-offers){--strong-offer-columns:1}.strong-offer-links:global(.home-strong-offers){margin:0 16px 20px}.strong-offer-grid>a{padding:14px}}
 </style>
