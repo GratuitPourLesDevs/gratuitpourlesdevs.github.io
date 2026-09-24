@@ -1,5 +1,14 @@
 (() => {
+  const robots = document.querySelector('meta[name="robots"]')?.content.toLowerCase() || '';
+  const searchParams = new URLSearchParams(location.search);
+  const ineligible = document.body.dataset.advertisingEligible !== 'true'
+    || robots.split(',').some((directive) => directive.trim() === 'noindex')
+    || searchParams.size > 0;
   const containers = [...document.querySelectorAll('[data-ad-placement][data-ad-preview="false"]')];
+  if (ineligible) {
+    containers.forEach((container) => { container.hidden = true; });
+    return;
+  }
   if (!containers.length) return;
   const endpoint = `${document.body.dataset.comparisonsApi || 'https://gratuitpourlesdevs-oauth.gratuitpourlesdevsallianciasolutions.workers.dev'}/api/monetization/config`;
   const placementKeys = { 'catalogue-footer': 'catalogue', 'guide-middle': 'guide', 'offer-after-history': 'offer' };

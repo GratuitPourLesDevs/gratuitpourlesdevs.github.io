@@ -16,6 +16,7 @@
     "test:verify-offers": "node --test scripts/verify-offers.test.mjs",
     "test:oauth": "node --test worker/oauth.test.mjs",
     "test:account": "node --test worker/account.test.mjs",
+    "test:advertising": "node --test src/lib/advertising-eligibility.test.mjs",
     "test:worker": "node --test worker/*.test.mjs",
     "migrate:worker": "wrangler d1 migrations apply gratuitpourlesdevs-comparisons --remote --config worker/wrangler.jsonc",
     "deploy:oauth": "wrangler deploy --config worker/wrangler.jsonc"

@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/account.css';
 import SiteFooter from '../components/SiteFooter.astro';
 import { getOffersUpdatedMetadata } from '../lib/offers-updated';
+import { isAdvertisingEligiblePath } from '../lib/advertising-eligibility.mjs';
 
 interface Props {
   title?: string;
@@ -30,6 +31,7 @@ const adsenseClientId = import.meta.env.PUBLIC_ADSENSE_CLIENT?.trim();
 const validAdsenseClientId = adsenseClientId && /^ca-pub-\d{10,20}$/.test(adsenseClientId)
   ? adsenseClientId
   : undefined;
+const advertisingEligible = isAdvertisingEligiblePath(Astro.url.pathname, robots);
 const offersUpdated = await getOffersUpdatedMetadata();
 ---
 
@@ -40,7 +42,7 @@ const offersUpdated = await getOffersUpdatedMetadata();
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     {robots && <meta name="robots" content={robots} />}
-    {validAdsenseClientId && <meta name="google-adsense-account" content={validAdsenseClientId} />}
+    {validAdsenseClientId && advertisingEligible && <meta name="google-adsense-account" content={validAdsenseClientId} />}
     <meta name="theme-color" content="#ffffff" />
     <script is:inline>
       (() => {
@@ -58,11 +60,11 @@ const offersUpdated = await getOffersUpdatedMetadata();
     <link rel="stylesheet" href="/search-watch.css?v=20260828-search-watch-v11" />
     <script src="/pagination-enhancement.js" defer></script>
     <script src="/catalogue-editorial-enhancement.js" defer></script>
-    <script src="/affiliate-enhancement.js?v=20260903-responsive-catalogue-layout" defer></script>
+    {advertisingEligible && <script is:inline src="/affiliate-enhancement.js?v=20260924-page-eligibility" defer></script>}
     <script src="/account-client.js?v=20260831-multi-provider-auth" defer></script>
     <script src="/search-watch-client.js?v=20260901-pause-confirmation-v12" defer></script>
     <script src="/account-delete.js?v=20260822-confirm-account-deletion" defer></script>
-    <script is:inline src="/adsense-runtime.js?v=20260825-admin-config" defer></script>
+    {advertisingEligible && <script is:inline src="/adsense-runtime.js?v=20260924-page-eligibility" defer></script>}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
@@ -107,6 +109,7 @@ const offersUpdated = await getOffersUpdatedMetadata();
     data-comparisons-api-local="http://127.0.0.1:8787"
     data-offers-updated-label={offersUpdated.label}
     data-offers-updated-iso={offersUpdated.iso}
+    data-advertising-eligible={advertisingEligible ? 'true' : 'false'}
   >
     <slot />
     <SiteFooter />
