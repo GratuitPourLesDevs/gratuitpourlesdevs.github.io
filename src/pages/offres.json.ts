@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { getFreeTierScore } from '../data/free-tier-score';
 import { assertOfferQuotaCoverage, getOfferQuotas } from '../data/offer-quotas';
+import { getCatalogueVersion } from '../lib/catalogue-version';
 
 export const prerender = true;
 
@@ -11,6 +12,7 @@ export const GET: APIRoute = async () => {
   const categoryNames = new Map(categories.map((category) => [category.id, category.data.nom]));
   assertOfferQuotaCoverage(entries.map((entry) => entry.id));
   const activeEntries = entries.filter(({ data }) => data.statut !== 'obsolete').sort((a, b) => a.id.localeCompare(b.id));
+  const catalogueVersion = getCatalogueVersion(activeEntries);
   const offers = activeEntries.map((entry) => entry.id);
   const quotas = Object.fromEntries(offers.map((id) => [id, getOfferQuotas(id)]));
   const catalogue = Object.fromEntries(activeEntries.map((entry) => {
@@ -34,7 +36,7 @@ export const GET: APIRoute = async () => {
       alerts: entry.data.alertes.map((alert) => ({ level: alert.niveau, label: alert.libelle, detail: alert.detail })),
     }];
   }));
-  return new Response(JSON.stringify({ offers, quotaSchemaVersion: 1, quotas, catalogue }), {
+  return new Response(JSON.stringify({ offers, catalogueVersion, quotaSchemaVersion: 1, quotas, catalogue }), {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=300',
