@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CustomSelect from '../components/CustomSelect.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import StrongOfferLinks from '../components/StrongOfferLinks.astro';
 import { getBillingRisk } from '../data/billing-risk';
 import { getFreeTierScore } from '../data/free-tier-score';
 import { OFFER_ALERT_ICONS } from '../data/offer-alerts';
@@ -111,6 +112,15 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       </ul>
       <a href="/methodologie/">Comment nous vérifions les offres <span aria-hidden="true">→</span></a>
     </section>
+
+    <StrongOfferLinks
+      entries={entries}
+      limit={6}
+      diversifyCategories
+      class="home-strong-offers"
+      title="Six fiches solides pour commencer"
+      intro="Chaque sélection mène vers une analyse autonome : formule gratuite, quotas normalisés, restrictions, alternatives et date de vérification."
+    />
 
     <section class="catalogue" id="catalogue">
       <section class="catalogue-discovery" aria-label="Rechercher et filtrer les offres">

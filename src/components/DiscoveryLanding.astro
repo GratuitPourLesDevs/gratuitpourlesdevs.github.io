@@ -3,10 +3,12 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
+import StrongOfferLinks from './StrongOfferLinks.astro';
 import { getBillingRisk } from '../data/billing-risk';
 import { getFreeTierScore } from '../data/free-tier-score';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, getComparableQuotaValue, getOfferQuotas } from '../data/offer-quotas';
 import { getDiscoveryDescription, getDiscoveryGuide, getDiscoverySlug, getDiscoveryTitle, getScoreTone, slugifyDiscovery, type DiscoveryMode } from '../lib/discovery';
+import { isEditorialReadyOffer } from '../lib/editorial-readiness.mjs';
 import '../styles/discovery-landings.css';
 
 interface Props { mode: DiscoveryMode; identifier: string; name: string; description: string; entries: CollectionEntry<'offres'>[]; }
@@ -37,6 +39,7 @@ const related = [...relatedCounts].sort((a, b) => b[1] - a[1] || a[0].localeComp
   href: mode === 'category' ? `/usages/${slugifyDiscovery(value)}/` : `/categories/${getDiscoverySlug('category', value)}/`,
 }));
 const guide = getDiscoveryGuide(mode, identifier, name);
+const editorialReadyCount = scored.filter(({ entry }) => entry.data.statut === 'active' && isEditorialReadyOffer(entry.id)).length;
 const catalogueUrl = `/?${mode === 'category' ? 'category' : 'usage'}=${encodeURIComponent(mode === 'category' ? identifier : name)}#catalogue`;
 const explorerUrl = `/explorer/?${mode === 'category' ? 'category' : 'usage'}=${encodeURIComponent(mode === 'category' ? identifier : name)}`;
 const dateFormatter = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -59,6 +62,14 @@ const jsonLd = [
     <nav class="discovery-breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a><span>›</span><a href={rootPath}>{mode === 'category' ? 'Catégories' : 'Usages'}</a><span>›</span><strong>{name}</strong></nav>
     <header class="discovery-hero"><div><small>{mode === 'category' ? 'CATÉGORIE DU CATALOGUE' : 'CAS D’USAGE'}</small><h1>{title}</h1><p>{sourceDescription || metaDescription}</p><div class="discovery-actions"><a class="is-primary" href={catalogueUrl}>Voir les offres dans le catalogue <span>→</span></a><a href={explorerUrl}>Comparer les quotas <span>→</span></a></div></div><aside><small>SÉLECTION ACTUELLE</small><strong>{entries.length}</strong><span>offre{entries.length > 1 ? 's' : ''} gratuite{entries.length > 1 ? 's' : ''} vérifiée{entries.length > 1 ? 's' : ''}</span><p>Mise à jour automatiquement depuis les fiches du catalogue.</p></aside></header>
     <section class="discovery-signals" aria-label="Indicateurs de la sélection"><article class:list={['is-score', getScoreTone(average)]}><i>◇</i><span><small>SCORE MOYEN</small><strong>{average}<em>/100</em></strong></span></article><article><i>▱</i><span><small>SANS CARTE</small><strong>{noCard.length}<em>/{entries.length}</em></strong></span></article><article><i>∞</i><span><small>FORMULE PERMANENTE</small><strong>{permanent.length}<em>/{entries.length}</em></strong></span></article><article class:list={{ 'has-risk': risky.length > 0 }}><i>△</i><span><small>RISQUE DE COÛT</small><strong>{risky.length ? `${risky.length} à surveiller` : 'Aucun identifié'}</strong></span></article></section>
+
+    {mode === 'category' && editorialReadyCount >= 3 && <StrongOfferLinks
+      entries={entries}
+      limit={4}
+      class="category-strong-offers"
+      title={`Les fiches de référence pour ${name}`}
+      intro="Ces services disposent d’une fiche éditoriale complète et font partie des meilleurs points de départ de cette catégorie."
+    />}
 
     <div class="discovery-layout"><div class="discovery-main">
       <section class="discovery-section"><header><div><small>CLASSEMENT GPLD</small><h2>Les 5 offres à regarder en premier</h2></div><p>Le score combine permanence, carte bancaire, quotas, restrictions, fraîcheur et qualité des sources.</p></header><div class="discovery-ranking"><div class="discovery-table-head"><span>#</span><span>Service et formule</span><span>Conditions</span><span>Risque</span><span>Score</span></div>{scored.slice(0, 5).map((item, index) => <a class="discovery-rank-row" href={`/offres/${item.entry.id}/`}><b>{String(index + 1).padStart(2, '0')}</b><span class="discovery-offer"><i style={`--offer-color:${item.entry.data.couleur}`}>{item.entry.data.initiales}</i><span><strong>{item.entry.data.nom}</strong><small>{item.entry.data.formule}</small></span></span><span class="discovery-conditions"><em class:list={{ positive: !item.entry.data.carteRequise }}>{item.entry.data.carteRequise ? 'Carte requise' : 'Sans carte'}</em><em class:list={{ positive: item.entry.data.permanent }}>{item.entry.data.permanent ? 'Permanent' : 'Durée limitée'}</em></span><span class:list={['discovery-risk', `is-${item.risk.level}`]}>{item.risk.shortLabel}</span><strong class:list={['discovery-score', getScoreTone(item.score.total)]}>{item.score.total}<small>/100</small></strong></a>)}</div></section>

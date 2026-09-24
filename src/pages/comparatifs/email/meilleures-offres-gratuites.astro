@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SiteHeader from '../../../components/SiteHeader.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import ContentEngagement from '../../../components/ContentEngagement.astro';
+import StrongOfferLinks from '../../../components/StrongOfferLinks.astro';
 import { getFreeTierScore } from '../../../data/free-tier-score';
 import { formatQuotaAmount, formatQuotaOverage, formatQuotaPeriod, getOfferQuotas, type OfferQuota } from '../../../data/offer-quotas';
 import { SOURCE_CODE_GUIDE_CONFIG } from '../../../data/source-code-guide';
@@ -275,6 +276,14 @@ const getOverageTone = (quota?: OfferQuota) => {
         <a href="#methodologie">Voir la méthodologie ↓</a>
       </div>
     </section>
+
+    <StrongOfferLinks
+      entries={categoryOffers.map(({ entry }) => entry)}
+      limit={3}
+      class="guide-strong-offers"
+      title="Approfondir les meilleures fiches de ce guide"
+      intro="Passez du classement à la décision : chaque fiche détaille le gratuit réellement disponible, ses limites et le moment où envisager une alternative."
+    />
 
     <section class="seo-ranking" id="top-10">
       <header class="seo-section-heading">
