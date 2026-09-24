@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import CustomSelect from '../components/CustomSelect.astro';
 import { STACK_TEMPLATES } from '../data/stack-templates';
-
+import { getCatalogueVersion } from '../lib/catalogue-version';
+const catalogueVersion = getCatalogueVersion((await getCollection('offres')).filter(({ data }) => data.statut !== 'obsolete'));
 const stackOfferOptions = [{ value: '', label: 'Choisir une offre…' }];
 const stackTemplatesPayload = JSON.stringify(STACK_TEMPLATES.map((template) => ({
   slug: template.slug,
@@ -15,7 +17,8 @@ const stackTemplatesPayload = JSON.stringify(STACK_TEMPLATES.map((template) => (
 
 <BaseLayout title="Mon espace — GratuitPourLesDevs" description="Synchronisez vos favoris, suivez jusqu’à cinq offres gratuites, sauvegardez vos recherches et comparaisons, et surveillez votre stack." robots="noindex, follow">
   <SiteHeader />
-  <main class="account-page">
+  
+  <main class="account-page" data-catalogue-url={`/offres.json?v=${catalogueVersion}`}>
     <header class="account-hero">
       <div class="account-hero-copy">
         <small>MON ESPACE</small>
@@ -455,7 +458,7 @@ const stackTemplatesPayload = JSON.stringify(STACK_TEMPLATES.map((template) => (
         setDisabled(disabled) { trigger.disabled = disabled; trigger.setAttribute('aria-disabled', String(disabled)); if (disabled) close(); },
       };
     };
-    const loadCatalogue = async () => { const response = await fetch('/offres.json?v=20260901-stack-risk-dashboard', { headers: { Accept: 'application/json' } }); const payload = await response.json(); state.catalogue = payload.catalogue || {}; state.quotas = payload.quotas || {}; const entries = Object.values(state.catalogue).sort((a,b) => (a.name || '').localeCompare(b.name || '', 'fr')); stackOfferSelect = setupStackOfferSelect(entries); };
+    const loadCatalogue = async () => { const catalogueUrl = document.querySelector('.account-page')?.dataset.catalogueUrl || '/offres.json'; const response = await fetch(catalogueUrl, { cache: 'no-store', headers: { Accept: 'application/json' } }); const payload = await response.json(); state.catalogue = payload.catalogue || {}; state.quotas = payload.quotas || {}; const entries = Object.values(state.catalogue).sort((a,b) => (a.name || '').localeCompare(b.name || '', 'fr')); stackOfferSelect = setupStackOfferSelect(entries); };
     const loadDashboard = async () => {
       if (!account()?.getToken()) { renderSignedOut(); return; }
       $('#account-loading').hidden = false;
