@@ -28,6 +28,7 @@ const entries = (await getCollection('offres'))
   .filter(({ data }) => data.statut !== 'obsolete')
   .sort((a, b) => a.data.ordre - b.data.ordre);
 const offers = await Promise.all(entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content, editorial: getGeneratedOfferEditorial(entry.id, entry.data) })));
+const initialPageSize = 10;
 const categories = (await getCollection('categories'))
   .filter(({ data }) => data.actif)
   .sort((a, b) => a.data.ordre - b.data.ordre);
@@ -50,6 +51,7 @@ const withoutCard = entries.filter(({ data }) => !data.carteRequise).length;
 const offersUpdated = await getOffersUpdatedMetadata();
 const getOfferChangeDate = (entry: typeof entries[number]) => offerChangeDates.get(`src/content/offres/${entry.id}.md`) ?? entry.data.verifieLe.getTime();
 const scoreById = new Map(entries.map((entry) => [entry.id, getFreeTierScore(entry.id, entry.data)]));
+const initiallySortedOffers = [...offers].sort((a, b) => getOfferChangeDate(b.entry) - getOfferChangeDate(a.entry) || a.entry.data.ordre - b.entry.data.ordre);
 assertOfferQuotaCoverage(entries.map((entry) => entry.id));
 const comparisonPayload = JSON.stringify(entries.map((entry) => ({
   id: entry.id,
@@ -190,13 +192,13 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
       <div class="offers-table" role="table" aria-label="Offres gratuites">
         <div class="table-head" role="row"><span>Outil et catégorie</span><span>Formule gratuite</span><span>Facturation</span><span>Actions</span></div>
         <div id="offers-list">
-          {offers.map(({ entry, Content, editorial }) => {
+          {initiallySortedOffers.map(({ entry, Content, editorial }, index) => {
             const billingRisk = getBillingRisk(entry.data);
             const freeTierScore = scoreById.get(entry.id)!;
             const scoreTone = freeTierScore.total >= 85 ? 'excellent' : freeTierScore.total >= 70 ? 'strong' : freeTierScore.total >= 50 ? 'balanced' : 'limited';
             const catalogueAlerts = entry.data.alertes.filter((alert) => !(alert.type === 'finance' && alert.libelle === billingRisk.shortLabel));
             return (
-            <article class="offer-row" role="row" tabindex="0" aria-expanded="false" data-id={entry.id}
+            <article class="offer-row" role="row" tabindex="0" aria-expanded="false" data-id={entry.id} hidden={index >= initialPageSize}
               data-name={entry.data.nom.toLocaleLowerCase('fr')} data-type={entry.data.type}
               data-category={entry.data.categorie} data-card={String(entry.data.carteRequise)} data-risk={billingRisk.level} data-score={freeTierScore.total} data-permanent={String(entry.data.permanent)} data-verified={entry.data.verifieLe.getTime()} data-updated={getOfferChangeDate(entry)}
               data-usages={JSON.stringify(entry.data.usages)}
@@ -816,7 +818,7 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
     const sortRows = (resetPage = true) => {
       if (!sort || !sortDirection) return;
       const direction = sortDirection.dataset.direction === 'asc' ? 1 : -1;
-      rows.sort((a, b) => {
+      const sortedRows = [...rows].sort((a, b) => {
         const comparison = sort.value === 'nom'
           ? (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr')
           : sort.value === 'categorie'
@@ -831,7 +833,10 @@ const comparisonPayload = JSON.stringify(entries.map((entry) => ({
                   ? Number(a.dataset.updated) - Number(b.dataset.updated)
                   : Number(a.dataset.order) - Number(b.dataset.order);
         return comparison * direction || Number(a.dataset.order) - Number(b.dataset.order);
-      }).forEach((row) => list?.append(row));
+      });
+      const orderChanged = sortedRows.some((row, index) => rows[index] !== row);
+      rows.splice(0, rows.length, ...sortedRows);
+      if (orderChanged) sortedRows.forEach((row) => list?.append(row));
       refresh(resetPage);
     };
     const setSortDirection = (direction: 'asc' | 'desc') => {
