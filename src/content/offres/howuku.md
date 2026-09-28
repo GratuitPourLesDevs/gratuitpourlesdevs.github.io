@@ -31,11 +31,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 1187
 verifieLe: '2026-08-26'
-verificationAutomatiqueLe: 2026-09-01
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 2 contrôles consécutifs ; contrôle éditorial requis."
-verificationEtat: "controle_requis"
-verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 2
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Howuku aide à comprendre ce que les visiteurs font réellement entre deux événements analytics : où ils cliquent, jusqu’où ils descendent et à quel moment ils hésitent ou quittent une page. Replays et heatmaps sont particulièrement utiles pour améliorer une landing page, un onboarding ou un tunnel sans devoir organiser immédiatement des tests utilisateurs formels. Le freemium convient à un petit site avec 1 000 sessions suivies par mois ; les besoins d’historique ou de volume plus importants arrivent assez vite sur un produit en croissance.

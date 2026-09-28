@@ -16,14 +16,14 @@ initiales: SE
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1197
-verifieLe: 2026-09-25
-verificationAutomatiqueLe: 2026-09-25
-verificationNote: "Les limites 3 projets, 3 membres et 3 environnements proviennent de la fiche free-for.dev actualisée le 17 septembre 2026."
-verificationEtat: controle_requis
-verificationCode: controle_bloque
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 

@@ -31,11 +31,11 @@ statut: "active"
 vedette: false
 ordre: 226
 verifieLe: 2026-09-01
-verificationAutomatiqueLe: 2026-09-01
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 ProxySentry aide à ajouter un signal de risque réseau à une authentification, une inscription ou une transaction. Son quota gratuit permet de tester ce contrôle sur un petit service sans dépendre d’un abonnement dès le prototype.

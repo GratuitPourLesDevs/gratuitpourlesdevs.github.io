@@ -20,11 +20,11 @@ statut: "active"
 vedette: false
 ordre: 608
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 OntarioNet.ca CN Test compare la résolution d’un domaine observée depuis la Chine avec des résultats externes afin d’identifier des signes de pollution DNS ou de blocage par le Great Firewall. L’outil est gratuit et utile pour un diagnostic ponctuel d’accessibilité internationale, mais il ne publie ni quota ni SLA et ne doit pas être confondu avec une mesure continue de disponibilité.

@@ -30,11 +30,11 @@ statut: "active"
 vedette: false
 ordre: 421
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 EveryStep permet d’enregistrer un parcours réalisé dans le navigateur et de le convertir en script réutilisable. Le recorder reste gratuit, tandis que l’exploitation continue dans le cloud appartient aux offres payantes.

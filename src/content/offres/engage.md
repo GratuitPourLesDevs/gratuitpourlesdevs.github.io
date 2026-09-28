@@ -36,11 +36,11 @@ statut: "active"
 vedette: false
 ordre: 526
 verifieLe: 2026-08-31
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Engage est référencé avec les limites gratuites vérifiées le 19 août 2026.

@@ -21,14 +21,14 @@ initiales: SR
 carteRequise: true
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1189
-verifieLe: 2026-09-25
-verificationAutomatiqueLe: 2026-09-25
-verificationNote: "Le quota de 3 000 e-mails, la carte obligatoire et le blocage sans facturation au plafond ont été confirmés officiellement."
-verificationEtat: confirmee
-verificationCode: gratuit_detecte
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 

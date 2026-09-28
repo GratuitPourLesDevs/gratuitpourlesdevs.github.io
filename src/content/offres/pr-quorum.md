@@ -16,14 +16,14 @@ initiales: PQ
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1186
-verifieLe: 2026-09-25
-verificationAutomatiqueLe: 2026-09-25
-verificationNote: "Le plan Free permanent, 50 revues mensuelles et 2 dépôts ont été confirmés sur la page tarifaire officielle."
-verificationEtat: confirmee
-verificationCode: gratuit_detecte
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 

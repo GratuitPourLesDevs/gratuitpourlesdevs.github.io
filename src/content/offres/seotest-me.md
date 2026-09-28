@@ -32,11 +32,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 433
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 seotest.me est conservé dans le catalogue avec prudence : la proposition d’audit SEO gratuit est connue, mais le quota exact actuel n’a pas pu être recoupé directement sur le site officiel.

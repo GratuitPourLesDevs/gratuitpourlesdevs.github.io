@@ -27,11 +27,11 @@ statut: "active"
 vedette: false
 ordre: 375
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 DiffText permet de comparer instantanément deux blocs de texte ou de code. Les données restent dans le navigateur et aucun compte n’est requis.

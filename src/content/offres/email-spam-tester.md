@@ -20,14 +20,14 @@ initiales: EST
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1195
-verifieLe: 2026-09-25
-verificationAutomatiqueLe: 2026-09-25
-verificationNote: "La gratuité sans inscription ni carte est annoncée par free-for.dev ; aucun quota officiel chiffré n’a été retenu."
-verificationEtat: controle_requis
-verificationCode: gratuit_non_detecte
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 

@@ -30,11 +30,11 @@ statut: "active"
 vedette: false
 ordre: 174
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 Hoppscotch est une alternative légère aux clients API classiques pour construire et tester rapidement des requêtes depuis le navigateur, le desktop ou la CLI. Son socle open source évite un quota de requêtes imposé par l’outil lui-même.

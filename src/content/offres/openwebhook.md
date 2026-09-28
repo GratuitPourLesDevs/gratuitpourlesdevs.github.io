@@ -16,14 +16,14 @@ initiales: OW
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1196
-verifieLe: 2026-09-25
-verificationAutomatiqueLe: 2026-09-25
-verificationNote: "La formule gratuite sans inscription et les limites des slugs et du forwarding ont été relevées dans l’ajout free-for.dev du 10 septembre 2026."
-verificationEtat: controle_requis
-verificationCode: gratuit_non_detecte
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 

@@ -34,12 +34,15 @@ initiales: SS
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 999
-verifieLe: '2026-09-23'
-verificationAutomatiqueLe: '2026-09-23'
-verificationNote: "Le site officiel confirme un plan Free à 0 $, des ressources open source gratuites, le support Base UI/Radix UI et l'installation via le Shadcn CLI. Le nombre exact de ressources gratuites n'est pas figé car le catalogue évolue fréquemment."
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Shadcn Space accélère la création d'interfaces React avec des composants, blocs, pages et templates compatibles avec shadcn/ui. Les ressources gratuites s'installent via le Shadcn CLI et restent entièrement modifiables dans le projet, sans dépendance d'exécution à Shadcn Space.

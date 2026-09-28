@@ -20,14 +20,14 @@ initiales: TF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1198
-verifieLe: 2026-09-25
-verificationAutomatiqueLe: 2026-09-25
-verificationNote: "free-for.dev signale une API gratuite avec rate limits, sans valeur chiffrée publique ; contrôle éditorial requis."
-verificationEtat: controle_requis
-verificationCode: gratuit_non_detecte
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 

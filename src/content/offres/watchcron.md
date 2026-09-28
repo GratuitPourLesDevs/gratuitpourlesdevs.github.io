@@ -20,14 +20,14 @@ initiales: WC
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1199
-verifieLe: 2026-09-25
-verificationAutomatiqueLe: 2026-09-25
-verificationNote: "Le plan Hobby gratuit permanent et les contrôles à 5 minutes sont confirmés, mais le nombre gratuit est contradictoire sur la page officielle."
-verificationEtat: controle_requis
-verificationCode: controle_bloque
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 

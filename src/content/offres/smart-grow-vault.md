@@ -27,15 +27,15 @@ initiales: SG
 carteRequise: false
 depassementFacture: false
 permanent: false
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 475
-verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-09-01
-verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
-verificationEtat: "controle_requis"
-verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 2
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Smart Grow Vault est référencé avec les limites gratuites vérifiées le 2026-08-19.

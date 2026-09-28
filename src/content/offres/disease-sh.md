@@ -25,11 +25,11 @@ statut: "active"
 vedette: false
 ordre: 155
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 disease.sh est une API open source maintenue par une communauté et couvrant plusieurs statistiques sanitaires, notamment COVID-19 et influenza. Le service public est gratuit mais ne publie pas de plafond chiffré ni de SLA ; l’auto-hébergement reste possible.

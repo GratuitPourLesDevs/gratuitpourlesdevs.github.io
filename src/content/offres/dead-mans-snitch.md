@@ -20,11 +20,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 589
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-09-01
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 2 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 3 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 Dead Man’s Snitch répond à un problème simple mais important : savoir qu’une tâche planifiée n’a pas tourné alors que l’absence de sortie ressemble normalement à du silence. Le niveau gratuit fournit un snitch, suffisant pour sécuriser un backup, un import ou un cron critique unique sans installer une plateforme de monitoring complète.

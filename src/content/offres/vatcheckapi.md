@@ -20,12 +20,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 248
-verifieLe: 2026-08-31
-verificationAutomatiqueLe: 2026-09-01
-verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 VATCheckAPI apporte une validation TVA directement exploitable dans un formulaire, un ERP léger ou un workflow d’onboarding client, avec un quota adapté aux petits volumes.

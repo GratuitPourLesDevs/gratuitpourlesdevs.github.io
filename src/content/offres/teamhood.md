@@ -30,11 +30,11 @@ statut: "active"
 vedette: false
 ordre: 327
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Teamhood est particulièrement adapté aux équipes qui aiment piloter le travail avec Kanban et Gantt. L’ancien quota de 5 utilisateurs et 3 portfolios n’est plus celui affiché par la tarification actuelle.

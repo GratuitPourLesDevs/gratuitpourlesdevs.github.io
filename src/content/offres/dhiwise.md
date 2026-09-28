@@ -39,11 +39,11 @@ statut: "active"
 vedette: false
 ordre: 360
 verifieLe: 2026-09-01
-verificationAutomatiqueLe: 2026-09-01
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 DhiWise est utile pour transformer rapidement une maquette Figma en application React ou Flutter et inspecter le résultat sans payer. La limite majeure du Free est cependant structurante : il sert surtout à évaluer et prévisualiser, car récupérer réellement le projet généré nécessite un abonnement.

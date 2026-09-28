@@ -34,12 +34,15 @@ initiales: SHD
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1000
-verifieLe: '2026-09-23'
-verificationAutomatiqueLe: '2026-09-23'
-verificationNote: "La licence officielle confirme que les assets Free sont utilisables sans compte ni paiement, y compris commercialement. Le site annonce 200+ blocs et 400+ composants au total, mais le nombre exact d'assets gratuits n'est pas figé car le catalogue mélange Free et Pro."
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Shadcn Dashboard accélère la création d'interfaces d'administration avec des templates, blocs et composants prêts à adapter dans un projet React ou Next.js. Les ressources gratuites restent modifiables directement dans le code et certains composants incluent des prompts pour les assistants IA.

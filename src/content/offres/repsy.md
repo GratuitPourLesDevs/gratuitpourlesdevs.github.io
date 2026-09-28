@@ -39,11 +39,11 @@ statut: "active"
 vedette: false
 ordre: 269
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 Repsy est devenu nettement plus généreux que l’ancienne offre à 1 Go : le service annonce désormais 20 Go gratuits et couvre de nombreux formats de packages. C’est une option intéressante pour centraliser plusieurs écosystèmes dans un même registre sans héberger soi-même l’infrastructure.

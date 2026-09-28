@@ -33,11 +33,11 @@ statut: "active"
 vedette: false
 ordre: 1133
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 GetVM convient pour reproduire rapidement une commande Linux, vérifier un script ou faire manipuler un environnement isolé pendant une démonstration. Le plan gratuit permet de lancer jusqu’à cinq VM quotidiennes de 30 minutes avec 2 Go de RAM, directement dans le navigateur. Il faut choisir un autre environnement dès que le projet nécessite Internet, la conservation des fichiers, une session longue ou un serveur disponible en continu.

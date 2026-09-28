@@ -17,14 +17,14 @@ initiales: FF
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: active
+statut: "active"
 vedette: false
 ordre: 1185
-verifieLe: 2026-09-25
-verificationAutomatiqueLe: 2026-09-25
-verificationNote: "Le plan Free, ses 100 unités mensuelles, ses 5 templates et l’absence de dépassement ont été confirmés sur la tarification officielle."
-verificationEtat: confirmee
-verificationCode: gratuit_detecte
+verifieLe: 2026-09-28
+verificationAutomatiqueLe: 2026-09-28
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0
 ---
 

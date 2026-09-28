@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 774
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 Web3Forms — Backend de formulaires pour sites statiques et JAMstack avec API sans serveur. Free : formulaires illimités et 250 soumissions/mois. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

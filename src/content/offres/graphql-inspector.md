@@ -28,11 +28,11 @@ statut: "active"
 vedette: false
 ordre: 980
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-09-01
+verificationAutomatiqueLe: 2026-09-28
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 GraphQL Inspector sécurise les évolutions d’API en expliquant précisément les différences entre deux schémas. Le cœur est open source et s’intègre facilement aux pipelines GitHub ou CI.
