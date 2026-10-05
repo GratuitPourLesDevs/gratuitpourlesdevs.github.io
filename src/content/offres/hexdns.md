@@ -33,11 +33,11 @@ statut: "active"
 vedette: false
 ordre: 900
 verifieLe: 2026-09-28
-verificationAutomatiqueLe: 2026-09-28
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-10-05
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 HexDNS est une option intéressante pour héberger gratuitement quelques domaines avec des fonctions que certains fournisseurs réservent aux plans payants. Les trois premières zones sont gratuites et bénéficient notamment de DNSSEC, Dynamic DNS, ANAME, CDS et mises à jour RFC 2136. Cela couvre confortablement un petit portefeuille de domaines techniques ou personnels avec une bonne capacité d’automatisation. À partir de la quatrième zone, le service devient payant, ce qui rend la frontière du Free très simple à comprendre.

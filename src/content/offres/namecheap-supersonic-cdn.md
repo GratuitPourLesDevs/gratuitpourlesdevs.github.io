@@ -38,11 +38,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 804
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-09-28
+verificationAutomatiqueLe: 2026-10-05
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 3
+verificationEchecsConsecutifs: 4
 ---
 
 Namecheap Supersonic CDN — CDN Namecheap avec protection DDoS de base et 50 Go de trafic mensuel sur l’offre gratuite affichée.

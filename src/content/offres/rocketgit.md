@@ -29,12 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 89
-verifieLe: 2026-09-01
-verificationAutomatiqueLe: 2026-09-28
-verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-10-05
+verificationAutomatiqueLe: 2026-10-05
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 RocketGit est une forge Git plus confidentielle mais toujours active, construite autour d’un logiciel libre. Son avantage le plus simple à comprendre est aussi celui que le service annonce explicitement : le nombre de dépôts publics et privés n’est pas plafonné. Les fonctions périphériques sont moins riches que sur GitHub ou GitLab, mais l’offre peut convenir lorsqu’on recherche avant tout un hébergement Git gratuit.

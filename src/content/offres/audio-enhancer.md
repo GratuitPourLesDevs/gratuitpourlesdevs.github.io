@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 777
 verifieLe: 2026-08-20
-verificationAutomatiqueLe: 2026-09-28
+verificationAutomatiqueLe: 2026-10-05
 verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 3
+verificationEchecsConsecutifs: 4
 ---
 
 Audio Enhancer — Outil IA gratuit pour réduire le bruit et l’écho dans les fichiers audio. Le service fonctionne sans compte et accepte des fichiers jusqu’à 50 Mo.

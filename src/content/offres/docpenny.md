@@ -20,11 +20,11 @@ statut: "active"
 vedette: false
 ordre: 158
 verifieLe: 2026-09-28
-verificationAutomatiqueLe: 2026-09-28
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-10-05
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 DocPenny transforme des templates HTML/CSS/Liquid en PDF et sait générer des lots via JSONL. Le quota gratuit est exprimé en crédits : chaque PDF consomme au minimum un crédit et un crédit couvre jusqu’à 5 Mo de sortie.

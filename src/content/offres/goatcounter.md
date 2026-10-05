@@ -30,12 +30,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1168
-verifieLe: 2026-09-01
-verificationAutomatiqueLe: 2026-09-28
-verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-10-05
+verificationAutomatiqueLe: 2026-10-05
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 GoatCounter reste une excellente option pour les petits sites qui veulent des statistiques lisibles et une empreinte minimale. L’ancien plafond public de 100 000 pages vues ne doit toutefois plus être présenté comme un engagement actuel.

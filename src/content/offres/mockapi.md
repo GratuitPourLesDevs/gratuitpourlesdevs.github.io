@@ -37,11 +37,11 @@ statut: "active"
 vedette: false
 ordre: 207
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-09-28
+verificationAutomatiqueLe: 2026-10-05
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 3
+verificationEchecsConsecutifs: 4
 ---
 
 MockAPI permet de mettre en place rapidement des endpoints REST factices avec génération de données et relations simples. Le quota gratuit est petit mais suffisant pour un prototype frontend ou un exercice pédagogique.

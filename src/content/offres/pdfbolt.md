@@ -39,12 +39,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 219
-verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-09-28
-verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 3
+verifieLe: 2026-10-05
+verificationAutomatiqueLe: 2026-10-05
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 PDFBolt expose une API simple pour transformer des pages ou données en PDF. Le Free reste adapté aux prototypes et petits services internes, mais son quota actuel est nettement inférieur aux anciennes descriptions du service.

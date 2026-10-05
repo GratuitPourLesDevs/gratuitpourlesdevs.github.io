@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 332
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-09-28
+verificationAutomatiqueLe: 2026-10-05
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 3
+verificationEchecsConsecutifs: 4
 ---
 
 tldraw est à la fois un tableau blanc web et une base open source pour construire ses propres expériences de dessin. C’est utile pour les diagrammes rapides, ateliers et prototypes collaboratifs.

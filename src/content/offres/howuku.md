@@ -31,10 +31,10 @@ statut: "a_verifier"
 vedette: false
 ordre: 1187
 verifieLe: '2026-08-26'
-verificationAutomatiqueLe: 2026-09-28
-verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
+verificationAutomatiqueLe: 2026-10-05
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
 verificationEchecsConsecutifs: 1
 ---
 

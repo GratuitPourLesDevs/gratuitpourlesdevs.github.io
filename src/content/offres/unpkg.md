@@ -31,11 +31,11 @@ statut: "active"
 vedette: false
 ordre: 812
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-09-28
+verificationAutomatiqueLe: 2026-10-05
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 3
+verificationEchecsConsecutifs: 4
 ---
 
 UNPKG — CDN mondial pour charger directement n’importe quel fichier publié sur npm, sans installation ni build.

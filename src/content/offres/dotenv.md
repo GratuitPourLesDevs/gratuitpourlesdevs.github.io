@@ -31,11 +31,11 @@ statut: "active"
 vedette: false
 ordre: 456
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-09-28
+verificationAutomatiqueLe: 2026-10-05
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 3
+verificationEchecsConsecutifs: 4
 ---
 
 Dotenvx (Dotenv) est référencé avec les limites gratuites vérifiées le 2026-08-19.

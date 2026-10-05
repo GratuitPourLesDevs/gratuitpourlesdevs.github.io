@@ -30,11 +30,11 @@ statut: "active"
 vedette: false
 ordre: 386
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-09-28
+verificationAutomatiqueLe: 2026-10-05
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 3
+verificationEchecsConsecutifs: 4
 ---
 
 Shields.io génère les badges de statut et de métadonnées que l’on retrouve dans de nombreux README. Le service public reste gratuit et peut aussi être auto-hébergé.

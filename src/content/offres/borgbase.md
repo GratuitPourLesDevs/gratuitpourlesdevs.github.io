@@ -27,11 +27,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 1022
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-09-28
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 3 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-10-05
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 4 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 3
+verificationEchecsConsecutifs: 4
 ---
 
 BorgBase simplifie les sauvegardes hors site pour les utilisateurs de BorgBackup et borgmatic.
