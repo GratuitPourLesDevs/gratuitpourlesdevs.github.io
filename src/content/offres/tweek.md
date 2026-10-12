@@ -29,11 +29,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 1014
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-10-05
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 4 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-10-12
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 5 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 4
+verificationEchecsConsecutifs: 5
 ---
 
 Tweek privilégie une organisation hebdomadaire très simple plutôt qu’un outil de projet complexe. Le plan gratuit convient aux usages personnels avec quelques calendriers et colonnes supplémentaires.

@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 1145
 verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-10-05
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-10-12
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 PHPSandbox permet de reproduire ou partager un environnement PHP sans préparer Docker ou une VM locale. Les ressources du plan Free sont suffisantes pour des exemples, tests et petits prototypes.

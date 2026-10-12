@@ -29,12 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1075
-verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-10-05
-verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 4
+verifieLe: 2026-10-12
+verificationAutomatiqueLe: 2026-10-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Flows est utile pour ajouter des parcours d’onboarding, annonces ou guides contextuels sans développer toute l’infrastructure de product adoption en interne. Le niveau gratuit convient surtout au prototypage et aux petits produits, où l’on peut valider une expérience utilisateur avant d’investir dans une plateforme payante.

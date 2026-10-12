@@ -35,11 +35,11 @@ statut: "active"
 vedette: false
 ordre: 816
 verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-10-05
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-10-12
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 Apply.Build permet de transformer rapidement un dépôt GitHub en application hébergée en Europe sans devoir mettre en place soi-même le serveur, le certificat TLS, le pare-feu ou la collecte de métriques. Ses 0,5 vCPU et 512 MiB de RAM sont adaptés à un petit service web, une API, un prototype ou un site à trafic modéré, tandis que le WAF, les logs, les alertes et le SSL automatique évitent plusieurs briques d’exploitation habituellement séparées. Le disque étant éphémère et les ressources volontairement modestes, le plan gratuit n’est pas destiné aux charges lourdes ni au stockage persistant local. Il constitue en revanche une base très complète pour déployer gratuitement un premier service depuis GitHub.

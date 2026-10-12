@@ -36,11 +36,11 @@ statut: "active"
 vedette: false
 ordre: 776
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-10-05
+verificationAutomatiqueLe: 2026-10-12
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 4
+verificationEchecsConsecutifs: 5
 ---
 
 FormNX — Constructeur de formulaires avec logique, IA, paiements et modèles prêts à l’emploi. Free Forever : formulaires, soumissions et champs illimités. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

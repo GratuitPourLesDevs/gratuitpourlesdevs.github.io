@@ -19,12 +19,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 591
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-10-05
-verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 4
+verifieLe: 2026-10-12
+verificationAutomatiqueLe: 2026-10-12
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Drumbeats rassemble la surveillance des tâches planifiées, des heartbeats et des endpoints avec un flux d’incident et des pages de statut. Le plan gratuit est déjà très confortable par son plafond de cinquante monitors ; les éléments historiques sur une minute d’intervalle ou des sièges illimités ne sont toutefois pas présentés comme acquis tant qu’ils ne sont pas explicitement confirmés par la grille actuelle.

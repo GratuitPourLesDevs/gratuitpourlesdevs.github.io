@@ -36,11 +36,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 500
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-10-05
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 4 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-10-12
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 5 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 4
+verificationEchecsConsecutifs: 5
 ---
 
 Phase Two est référencé avec les limites gratuites vérifiées le 2026-08-19.

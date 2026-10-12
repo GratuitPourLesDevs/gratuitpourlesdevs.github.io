@@ -33,11 +33,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 347
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-10-05
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 4 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-10-12
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 5 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 4
+verificationEchecsConsecutifs: 5
 ---
 
 Zeitio combine suivi du temps et facturation avec un Free Tier adapté au freelance qui gère seulement quelques clients et projets actifs.
