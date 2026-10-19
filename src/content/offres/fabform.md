@@ -30,10 +30,10 @@ statut: "active"
 vedette: false
 ordre: 745
 verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-10-12
-verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
+verificationAutomatiqueLe: 2026-10-19
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
 verificationEchecsConsecutifs: 1
 ---
 

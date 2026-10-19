@@ -30,9 +30,9 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 185
-verifieLe: 2026-10-12
+verifieLe: 2026-10-19
 verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationAutomatiqueLe: 2026-10-12
+verificationAutomatiqueLe: 2026-10-19
 verificationEtat: "confirmee"
 verificationCode: "gratuit_detecte"
 verificationEchecsConsecutifs: 0

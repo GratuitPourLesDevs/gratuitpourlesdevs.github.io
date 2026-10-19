@@ -37,11 +37,11 @@ statut: "active"
 vedette: false
 ordre: 579
 verifieLe: 2026-09-28
-verificationAutomatiqueLe: 2026-10-12
+verificationAutomatiqueLe: 2026-10-19
 verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 Whitespace permet de capturer depuis le navigateur un rapport de bug reproductible comprenant un enregistrement et le contexte de la session. Le plan Personal est gratuit, conserve les recordings sans expiration et permet de rejouer la minute précédente, avec un enregistrement limité à 60 secondes. Il faut toutefois garder en tête que les recordings Personal sont publics par lien ; les recordings privés et les fonctions d’équipe nécessitent le plan Pro. La page tarifaire actuelle ne publie pas de plafond numérique de recordings, donc il vaut mieux ne pas présenter l’usage comme “illimité” sans cette nuance.

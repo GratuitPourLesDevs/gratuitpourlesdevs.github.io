@@ -35,12 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 914
-verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-10-12
-verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-10-19
+verificationAutomatiqueLe: 2026-10-19
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 DNSHE est intéressant pour obtenir plusieurs adresses publiques gratuites tout en conservant une vraie gestion DNS et une API exploitable par des scripts. Les trois inscriptions immédiatement disponibles suffisent pour quelques projets personnels, environnements de test ou démonstrations, avec deux emplacements supplémentaires accessibles par parrainage. L’API permet en plus d’automatiser l’enregistrement, les renouvellements et les changements DNS. Le compromis du modèle 2026 est qu’un nouveau nom doit être renouvelé chaque année, même si ce renouvellement reste gratuit et peut être automatisé.

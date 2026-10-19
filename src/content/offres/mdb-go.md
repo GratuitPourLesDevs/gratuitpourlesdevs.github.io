@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 875
 verifieLe: 2026-10-12
-verificationAutomatiqueLe: 2026-10-12
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-10-19
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 MDB GO reste intéressant comme environnement tout-en-un pour publier rapidement un projet construit avec l’écosystème MDB, y compris lorsqu’il comporte un backend ou une base de données. Le site officiel continue d’annoncer un hébergement gratuit et des fonctionnalités comme SFTP, SSL et domaines personnalisés. C’est suffisant pour conserver l’offre dans le catalogue, mais pas pour recycler les anciennes limites chiffrées comme si elles étaient toujours garanties. Avant d’en faire un socle de projet, il faut donc vérifier les quotas réellement affichés dans le compte au moment de l’inscription.

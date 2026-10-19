@@ -36,11 +36,11 @@ statut: "active"
 vedette: false
 ordre: 202
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-10-12
+verificationAutomatiqueLe: 2026-10-19
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 5
+verificationEchecsConsecutifs: 6
 ---
 
 LoginLlama ajoute une couche de scoring de risque au moment de la connexion afin de décider si une authentification doit être autorisée, renforcée par MFA ou bloquée. Le quota gratuit suffit pour un petit produit ou un environnement de test.

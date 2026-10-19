@@ -30,11 +30,11 @@ statut: "active"
 vedette: false
 ordre: 1129
 verifieLe: '2026-08-25'
-verificationAutomatiqueLe: 2026-10-12
+verificationAutomatiqueLe: 2026-10-19
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 5
+verificationEchecsConsecutifs: 6
 ---
 
 Codeground combine exécution de code, environnements de données et partage sans installation. Le cœur du playground est immédiatement accessible, tandis que l’IA et les espaces persistants introduisent des limites de compte.

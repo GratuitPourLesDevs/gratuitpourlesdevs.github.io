@@ -37,11 +37,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 380
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-10-12
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 5 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-10-19
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 6 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 5
+verificationEchecsConsecutifs: 6
 ---
 
 Holistic.dev examine le SQL et le schéma pour détecter des problèmes avant la production, sans connexion directe aux données. L’éditeur indique que le service est actuellement gratuit.

@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 451
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-10-12
+verificationAutomatiqueLe: 2026-10-19
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 5
+verificationEchecsConsecutifs: 6
 ---
 
 CyberChef est référencé avec les limites gratuites vérifiées le 2026-08-19.

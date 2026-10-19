@@ -29,12 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 1033
-verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-10-12
-verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-10-19
+verificationAutomatiqueLe: 2026-10-19
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 GoFile combine partage web et API, mais son espace gratuit doit être considéré comme temporaire.
