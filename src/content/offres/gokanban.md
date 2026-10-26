@@ -29,11 +29,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 292
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-10-19
+verificationAutomatiqueLe: 2026-10-26
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 6
+verificationEchecsConsecutifs: 7
 ---
 
 goKanban vise la rapidité : ouvrir le tableau et organiser quelques tâches sans créer un espace de travail complexe. La fiche reste en vérification pour ne pas transformer l’absence de tarification visible en promesse d’illimité.

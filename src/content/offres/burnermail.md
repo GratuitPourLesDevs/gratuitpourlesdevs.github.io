@@ -24,11 +24,11 @@ statut: "active"
 vedette: false
 ordre: 665
 verifieLe: 2026-10-19
-verificationAutomatiqueLe: 2026-10-19
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-10-26
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Burner Mail crée des alias ou adresses intermédiaires pour recevoir des messages sans divulguer son adresse principale. C’est utile pour compartimenter des inscriptions et pouvoir désactiver une adresse devenue source de spam. L’ancienne description du Free Tier annonce 5 adresses Burner, une mailbox et sept jours d’historique, mais ces plafonds ne sont pas suffisamment confirmés dans la documentation publique actuelle. Ils sont donc conservés comme référence historique, avec un statut « à vérifier ».

@@ -34,11 +34,11 @@ statut: "active"
 vedette: false
 ordre: 216
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-10-19
+verificationAutomatiqueLe: 2026-10-26
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 6
+verificationEchecsConsecutifs: 7
 ---
 
 OpenAPI Definition Designer fournit une interface visuelle légère pour dessiner une définition OpenAPI 3 sans écrire tout le YAML à la main. Il est surtout utile pour prototyper rapidement des contrats d’API simples.

@@ -24,10 +24,10 @@ statut: "a_verifier"
 vedette: false
 ordre: 684
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-10-19
-verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
+verificationAutomatiqueLe: 2026-10-26
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
 verificationEchecsConsecutifs: 1
 ---
 

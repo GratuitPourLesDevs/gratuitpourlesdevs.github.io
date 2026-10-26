@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 238
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-10-19
+verificationAutomatiqueLe: 2026-10-26
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 6
+verificationEchecsConsecutifs: 7
 ---
 
 SQLable rassemble plusieurs petits outils utiles au quotidien pour nettoyer une requête, tester une syntaxe ou expérimenter avec un moteur SQL sans installer de base locale. C’est une ressource de dépannage et d’apprentissage plutôt qu’un SaaS à quota.

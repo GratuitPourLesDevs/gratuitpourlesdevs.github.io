@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 211
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-10-19
+verificationAutomatiqueLe: 2026-10-26
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 6
+verificationEchecsConsecutifs: 7
 ---
 
 Multi-Exit IP Address Checker permet de voir comment une même connexion apparaît depuis différents nœuds et services. C’est particulièrement pratique pour tester des règles DNS géographiques, VPN, proxies et scénarios de routage.

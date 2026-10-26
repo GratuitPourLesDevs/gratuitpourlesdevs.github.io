@@ -41,11 +41,11 @@ statut: "active"
 vedette: false
 ordre: 506
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-10-19
+verificationAutomatiqueLe: 2026-10-26
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 6
+verificationEchecsConsecutifs: 7
 ---
 
 WorkOS AuthKit est référencé avec les limites gratuites vérifiées le 2026-08-19.

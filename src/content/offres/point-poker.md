@@ -27,11 +27,11 @@ statut: "active"
 vedette: false
 ordre: 998
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-10-19
+verificationAutomatiqueLe: 2026-10-26
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 6
+verificationEchecsConsecutifs: 7
 ---
 
 point.poker permet de lancer immédiatement une estimation collective sans compte. L’absence de quotas sur les participants, sessions et votes en fait une option particulièrement simple pour les équipes agiles.

@@ -24,11 +24,11 @@ statut: "active"
 vedette: false
 ordre: 726
 verifieLe: 2026-10-19
-verificationAutomatiqueLe: 2026-10-19
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-10-26
+verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 Abby est une plateforme open source de feature flags, Remote Config et expérimentation pensée pour les développeurs TypeScript, avec des intégrations notamment pour React et Next.js. Le plan gratuit actuel est permanent et sans carte bancaire, mais il est plus cadré que ne le suggèrent certaines anciennes descriptions : 1 000 événements par mois, un test A/B, trois feature flags ou Remote Configs et cinq environnements.
