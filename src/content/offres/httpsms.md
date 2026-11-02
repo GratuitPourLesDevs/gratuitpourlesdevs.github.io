@@ -34,11 +34,11 @@ statut: "active"
 vedette: false
 ordre: 529
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-10-26
+verificationAutomatiqueLe: 2026-11-02
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 7
+verificationEchecsConsecutifs: 8
 ---
 
 httpSMS est référencé avec les limites gratuites vérifiées le 19 août 2026.

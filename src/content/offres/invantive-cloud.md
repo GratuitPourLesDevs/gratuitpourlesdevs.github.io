@@ -35,12 +35,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 179
-verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-10-26
-verificationNote: "Vérification automatique incomplète (HTTP 451) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 3
+verifieLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-02
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Invantive Cloud expose de nombreuses sources sous une couche commune exploitable depuis des outils BI et d’intégration. Le gratuit est intéressant lorsque le connecteur visé fait partie de la sélection Free, mais il ne faut pas assimiler le catalogue complet aux plateformes gratuites.

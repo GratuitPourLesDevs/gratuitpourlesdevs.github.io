@@ -27,12 +27,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 768
-verifieLe: 2026-09-01
-verificationAutomatiqueLe: 2026-10-26
-verificationNote: "Vérification automatique incomplète (HTTP 429) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 5
+verifieLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-02
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 StaticForms — Endpoint de formulaires pour sites statiques sans code serveur, désormais hébergé sur staticforms.dev. Free : 500 soumissions/mois. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

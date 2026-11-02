@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 479
 verifieLe: 2026-10-19
-verificationAutomatiqueLe: 2026-10-26
+verificationAutomatiqueLe: 2026-11-02
 verificationNote: "Vérification automatique incomplète (HTTP 502) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 TestTLS.com est référencé avec les limites gratuites vérifiées le 2026-08-19.

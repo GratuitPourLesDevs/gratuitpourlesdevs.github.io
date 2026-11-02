@@ -34,11 +34,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 377
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-10-26
+verificationAutomatiqueLe: 2026-11-02
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 7
+verificationEchecsConsecutifs: 8
 ---
 
 GerritHub fournit une instance Gerrit connectée à GitHub. Le service est bien actif, mais sa gratuité et ses quotas actuels ne sont pas suffisamment documentés pour être marqués comme vérifiés.

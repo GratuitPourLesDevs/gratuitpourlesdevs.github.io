@@ -20,15 +20,15 @@ initiales: "ID"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 599
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-10-26
-verificationNote: "Vérification automatique incomplète (HTTP 429) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 7
+verifieLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-02
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 IsItDownStatus expose une API JSON destinée à récupérer l’état opérationnel de services tiers connus, ce qui peut servir à enrichir un dashboard interne ou différencier une panne locale d’un incident fournisseur. L’accès public est annoncé sans authentification, mais le quota et le nombre exact de services couverts ne sont pas assez documentés pour être présentés comme des limites contractuelles ; la fiche reste donc à vérifier.
