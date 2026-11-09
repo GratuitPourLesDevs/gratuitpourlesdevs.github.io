@@ -21,11 +21,11 @@ statut: "active"
 vedette: false
 ordre: 253
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-09
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 8
+verificationEchecsConsecutifs: 9
 ---
 
 WhatIsMyIP.HELP fournit des endpoints minimalistes pratiques pour détecter l’adresse IP publique depuis un script, un serveur ou un outil de diagnostic, sans imposer un SDK spécifique.

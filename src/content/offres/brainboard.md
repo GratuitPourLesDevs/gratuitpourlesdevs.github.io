@@ -19,11 +19,11 @@ statut: "active"
 vedette: false
 ordre: 9
 verifieLe: 2026-11-02
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Brainboard permet de dessiner une architecture multicloud et d’obtenir automatiquement le code Terraform correspondant, sans commencer par écrire l’infrastructure à la main.

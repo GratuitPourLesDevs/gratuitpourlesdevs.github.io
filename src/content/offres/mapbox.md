@@ -34,11 +34,11 @@ statut: "active"
 vedette: false
 ordre: 1109
 verifieLe: 2026-11-02
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Mapbox convient à un produit qui doit combiner cartes personnalisées, recherche d’adresses et navigation avec des SDK cohérents sur le web et le mobile. Les quotas gratuits distincts permettent de lancer une carte ou un prototype avec plusieurs dizaines de milliers d’utilisateurs ou de requêtes selon le produit. Une autre formule devient nécessaire dès qu’un compteur dépasse son seuil, qu’un géocodage permanent est requis ou que l’équipe ne peut pas accepter la carte bancaire et la facturation automatique des dépassements.

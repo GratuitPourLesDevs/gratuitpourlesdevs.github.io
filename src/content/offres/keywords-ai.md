@@ -29,12 +29,12 @@ permanent: true
 statut: "active"
 vedette: false
 ordre: 783
-verifieLe: 2026-10-26
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "Vérification automatique incomplète (HTTP 429) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verifieLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Keywords AI — Gateway et observabilité LLM. Le plan Free actuel repose sur 2 000 logs mensuels plutôt que sur l’ancien quota de 10 000 requêtes.

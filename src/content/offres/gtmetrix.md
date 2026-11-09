@@ -38,11 +38,11 @@ statut: "active"
 vedette: false
 ordre: 379
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-09
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 8
+verificationEchecsConsecutifs: 9
 ---
 
 GTmetrix analyse la vitesse d’un site et fournit des métriques Web Vitals ainsi que des recommandations. Le compte Basic conserve un monitoring gratuit mais le quota de tests manuels est désormais temporaire.

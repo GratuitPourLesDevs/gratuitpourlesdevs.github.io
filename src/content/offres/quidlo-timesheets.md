@@ -33,11 +33,11 @@ statut: "active"
 vedette: false
 ordre: 311
 verifieLe: 2026-11-02
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "Site officiel momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "site_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 Quidlo Timesheets couvre les besoins simples de suivi du temps sans limiter le nombre de projets. Le plafond de dix utilisateurs le destine surtout aux petites équipes, freelances regroupés ou associations.

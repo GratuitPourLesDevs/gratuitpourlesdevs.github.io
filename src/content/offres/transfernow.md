@@ -29,11 +29,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 333
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 8 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 9 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 8
+verificationEchecsConsecutifs: 9
 ---
 
 TransferNow convient aux échanges ponctuels de fichiers volumineux avec un client ou un collègue. Le plan gratuit privilégie le transfert temporaire plutôt que le stockage durable.

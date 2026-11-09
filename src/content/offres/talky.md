@@ -28,11 +28,11 @@ statut: "active"
 vedette: false
 ordre: 325
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-09
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 8
+verificationEchecsConsecutifs: 9
 ---
 
 Talky est utile lorsqu’on veut lancer un petit appel vidéo sans créer un workspace ou gérer des invitations complexes. Un lien de salon suffit pour démarrer.

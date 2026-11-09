@@ -29,11 +29,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 330
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 8 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 9 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 8
+verificationEchecsConsecutifs: 9
 ---
 
 Tencent RTC peut être intéressant pour prototyper des fonctions d’appel audio/vidéo avec un volume conséquent. Ce n’est toutefois pas un Free Tier permanent : l’allocation gratuite annoncée est limitée à la première année.

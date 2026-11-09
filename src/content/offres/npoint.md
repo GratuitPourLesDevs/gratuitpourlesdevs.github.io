@@ -24,11 +24,11 @@ statut: "active"
 vedette: false
 ordre: 1047
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-09
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 8
+verificationEchecsConsecutifs: 9
 ---
 
 npoint.io est pratique pour exposer rapidement un petit document JSON sans mettre en place de backend.

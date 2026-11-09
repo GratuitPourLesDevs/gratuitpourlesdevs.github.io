@@ -25,11 +25,11 @@ statut: "active"
 vedette: false
 ordre: 1031
 verifieLe: 2026-10-26
-verificationAutomatiqueLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-09
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 FreeTools.site rassemble de nombreux utilitaires de conversion et manipulation de fichiers accessibles directement en ligne.

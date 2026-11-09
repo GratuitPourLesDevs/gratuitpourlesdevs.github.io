@@ -20,11 +20,11 @@ statut: "active"
 vedette: false
 ordre: 592
 verifieLe: 2026-11-02
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Economize est un outil FinOps qui agrège et organise les coûts d’infrastructure pour aider à comprendre où part le budget et où optimiser les ressources. Son offre gratuite actuelle est bien plus large que l’ancienne référence de free-for.dev : elle couvre jusqu’à 100 000 dollars de dépenses cloud analysées chaque mois sur AWS, Azure et GCP ; il s’agit bien d’un seuil d’analyse, pas d’un crédit offert par les fournisseurs.

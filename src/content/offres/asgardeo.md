@@ -39,11 +39,11 @@ statut: "active"
 vedette: false
 ordre: 483
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-11-02
+verificationAutomatiqueLe: 2026-11-09
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 8
+verificationEchecsConsecutifs: 9
 ---
 
 Asgardeo est la plateforme CIAM managée de WSO2. Le Free B2C est désormais assez généreux pour un petit produit réel, mais il faut bien distinguer les quotas B2B et B2E.

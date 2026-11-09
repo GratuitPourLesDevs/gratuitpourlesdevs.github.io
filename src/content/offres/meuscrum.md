@@ -25,15 +25,15 @@ initiales: "M"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "obsolete"
 vedette: false
 ordre: 994
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "Site officiel momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "Site officiel indisponible (HTTP 404) lors de 2 contrôles consécutifs."
 verificationEtat: "controle_requis"
 verificationCode: "site_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 MeuScrum reste un service entièrement gratuit dédié aux pratiques Scrum et Kanban. Le site indique explicitement qu’aucun paiement n’est demandé pour continuer à utiliser les modules.

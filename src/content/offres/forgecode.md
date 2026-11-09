@@ -33,11 +33,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 1132
 verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-11-02
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 4 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-11-09
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 5 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 4
+verificationEchecsConsecutifs: 5
 ---
 
 ForgeCode agit comme un pair programmer depuis le terminal et peut aussi s’appuyer sur des fournisseurs externes. Le free tier hébergé est permanent, mais son volume n’est pas fixe, ce qui doit être pris en compte pour un usage quotidien.
