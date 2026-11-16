@@ -30,11 +30,11 @@ statut: "active"
 vedette: false
 ordre: 746
 verifieLe: 2026-11-09
-verificationAutomatiqueLe: 2026-11-09
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-11-16
+verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
+verificationEtat: "controle_requis"
+verificationCode: "gratuit_non_detecte"
+verificationEchecsConsecutifs: 1
 ---
 
 Feathery — Constructeur de formulaires avancés pour onboarding, authentification et workflows complexes. Free : 500 soumissions/mois et 5 formulaires actifs. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

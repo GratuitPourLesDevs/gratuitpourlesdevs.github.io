@@ -36,11 +36,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 264
 verifieLe: 2026-08-18
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 9
+verificationEchecsConsecutifs: 10
 ---
 
 Gemfury reste une plateforme complète d’hébergement de packages multi-écosystèmes. La fiche est conservée en vérification car la disponibilité d’un vrai plan public gratuit permanent n’est plus clairement établie par la documentation tarifaire actuelle.

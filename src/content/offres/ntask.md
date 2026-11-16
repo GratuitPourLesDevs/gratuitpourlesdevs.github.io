@@ -30,11 +30,11 @@ statut: "active"
 vedette: false
 ordre: 995
 verifieLe: 2026-10-26
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Vérification automatique incomplète (HTTP 504) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 2
+verificationEchecsConsecutifs: 3
 ---
 
 nTask Basic couvre gratuitement l’organisation quotidienne d’une petite équipe avec tâches, réunions, temps et suivi des problèmes. Les vues de pilotage projet plus avancées passent sur les offres payantes.

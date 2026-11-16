@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 464
 verifieLe: '2026-08-19'
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 9
+verificationEchecsConsecutifs: 10
 ---
 
 Internet.nl est référencé avec les limites gratuites vérifiées le 2026-08-19.

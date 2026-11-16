@@ -21,11 +21,11 @@ statut: "active"
 vedette: false
 ordre: 165
 verifieLe: 2026-11-02
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Financial Data fournit plusieurs familles de données financières via REST et un SDK Python. Le Free permet surtout d’accéder aux données de marché de base ; les données temps réel, news et jeux avancés commencent sur les offres payantes.

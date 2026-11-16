@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 305
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 9
+verificationEchecsConsecutifs: 10
 ---
 
 paste.sh est pratique pour transmettre rapidement un extrait de code ou du texte chiffré. Son absence de compte et son client CLI en font un outil de dépannage, plutôt qu’un stockage documentaire à long terme.

@@ -29,15 +29,15 @@ initiales: QT
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "active"
+statut: "obsolete"
 vedette: false
 ordre: 311
 verifieLe: 2026-11-02
-verificationAutomatiqueLe: 2026-11-09
-verificationNote: "Site officiel momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationAutomatiqueLe: 2026-11-16
+verificationNote: "Site officiel indisponible (HTTP 404) lors de 2 contrôles consécutifs."
 verificationEtat: "controle_requis"
 verificationCode: "site_indisponible"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Quidlo Timesheets couvre les besoins simples de suivi du temps sans limiter le nombre de projets. Le plafond de dix utilisateurs le destine surtout aux petites équipes, freelances regroupés ou associations.

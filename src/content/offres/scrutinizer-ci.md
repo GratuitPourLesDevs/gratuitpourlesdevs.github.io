@@ -33,11 +33,11 @@ statut: "active"
 vedette: false
 ordre: 384
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 9
+verificationEchecsConsecutifs: 10
 ---
 
 Scrutinizer combine inspection continue et CI. Les projets open source peuvent l’utiliser sans frais avec un nombre illimité de dépôts et d’utilisateurs.

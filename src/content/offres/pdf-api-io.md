@@ -34,11 +34,11 @@ statut: "active"
 vedette: false
 ordre: 218
 verifieLe: 2026-11-09
-verificationAutomatiqueLe: 2026-11-09
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-11-16
+verificationNote: "Vérification automatique incomplète (délai dépassé) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 PDF-API.io permet de produire des documents PDF à partir de modèles visuels ou de HTML sans maintenir un moteur de rendu. Son quota gratuit suffit pour de petits volumes de factures, certificats, rapports ou documents transactionnels.

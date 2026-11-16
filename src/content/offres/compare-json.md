@@ -20,11 +20,11 @@ statut: "active"
 vedette: false
 ordre: 154
 verifieLe: 2026-11-02
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 Compare JSON compare la structure des objets plutôt que leur simple représentation textuelle. Comme le traitement principal est local au navigateur, il n’y a pas de quota SaaS à consommer ni de JSON envoyé au serveur pour le diff.

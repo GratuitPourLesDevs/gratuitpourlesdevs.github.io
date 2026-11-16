@@ -20,15 +20,15 @@ initiales: "OE"
 carteRequise: false
 depassementFacture: false
 permanent: true
-statut: "a_verifier"
+statut: "active"
 vedette: false
 ordre: 701
-verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-11-09
-verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
-verificationEtat: "inconclusive"
-verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 9
+verifieLe: 2026-11-16
+verificationAutomatiqueLe: 2026-11-16
+verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
+verificationEtat: "confirmee"
+verificationCode: "gratuit_detecte"
+verificationEchecsConsecutifs: 0
 ---
 
 Orbisearch Email Validator est un outil de validation en volume destiné à nettoyer rapidement une liste avant import ou campagne. La description historique annonce 100 validations gratuites par jour sans inscription, ce qui le rendrait intéressant pour des contrôles ponctuels sans créer de compte. Comme ce quota et ses conditions ne sont pas suffisamment confirmés sur une source officielle actuelle, la fiche conserve l’outil pour sa valeur pratique mais le classe « à vérifier » avant de l’intégrer dans un processus régulier.

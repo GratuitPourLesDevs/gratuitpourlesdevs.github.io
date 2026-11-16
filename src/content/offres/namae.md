@@ -35,11 +35,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 390
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 9
+verificationEchecsConsecutifs: 10
 ---
 
 Namae vise à éviter les recherches manuelles répétitives au moment de baptiser un nouveau projet. Le code source reste disponible, mais l’état fonctionnel du service hébergé et la liste exacte des plateformes interrogées méritent une nouvelle vérification avant de considérer l’offre comme pleinement active.

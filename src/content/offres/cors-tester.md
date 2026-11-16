@@ -30,11 +30,11 @@ statut: "active"
 vedette: false
 ordre: 419
 verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-11-09
+verificationAutomatiqueLe: 2026-11-16
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 5
+verificationEchecsConsecutifs: 6
 ---
 
 CORS Tester permet de reproduire rapidement une requête cross-origin et de vérifier si les en-têtes retournés par une API sont cohérents avec le domaine, la méthode et les credentials utilisés.

@@ -27,11 +27,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 1045
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-11-09
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 9 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-11-16
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 10 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 9
+verificationEchecsConsecutifs: 10
 ---
 
 MConverter couvre de nombreux formats et permet de traiter plusieurs fichiers à la fois.
