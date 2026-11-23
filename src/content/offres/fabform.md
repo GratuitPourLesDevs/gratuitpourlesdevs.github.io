@@ -30,11 +30,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 745
 verifieLe: 2026-10-05
-verificationAutomatiqueLe: 2026-11-16
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 5 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-11-23
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 6 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 5
+verificationEchecsConsecutifs: 6
 ---
 
 FabForm — Backend de formulaires avec automatisations et intégrations pour développeurs. Free : formulaires, réponses et questions illimités. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

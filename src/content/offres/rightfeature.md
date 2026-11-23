@@ -31,11 +31,11 @@ statut: "active"
 vedette: false
 ordre: 346
 verifieLe: 2026-11-16
-verificationAutomatiqueLe: 2026-11-16
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-11-23
+verificationNote: "La source tarifaire est momentanément indisponible (HTTP 404) ; statut éditorial conservé jusqu’à confirmation."
+verificationEtat: "controle_requis"
+verificationCode: "source_indisponible"
+verificationEchecsConsecutifs: 1
 ---
 
 RightFeature aide un développeur ou une très petite équipe à centraliser les demandes et à les transformer en roadmap. Le Free Tier est surtout adapté à un produit unique.

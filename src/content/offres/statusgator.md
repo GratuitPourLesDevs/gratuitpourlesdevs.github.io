@@ -20,11 +20,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 624
 verifieLe: "2026-08-19"
-verificationAutomatiqueLe: 2026-11-16
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 10 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-11-23
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 11 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 10
+verificationEchecsConsecutifs: 11
 ---
 
 StatusGator évite de consulter manuellement les pages de statut de chaque fournisseur en agrégeant leurs incidents et en les présentant dans un board commun. Le Free Forever permet de suivre trois services et de partager un board avec jusqu’à cent abonnés ; la limite la plus vite atteinte sera souvent celle des dix notifications mensuelles.

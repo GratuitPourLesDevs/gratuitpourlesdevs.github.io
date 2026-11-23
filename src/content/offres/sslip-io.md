@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 909
 verifieLe: 2026-11-16
-verificationAutomatiqueLe: 2026-11-16
-verificationNote: "Source tarifaire accessible et mention d’une formule gratuite détectée."
-verificationEtat: "confirmee"
-verificationCode: "gratuit_detecte"
-verificationEchecsConsecutifs: 0
+verificationAutomatiqueLe: 2026-11-23
+verificationNote: "Vérification automatique incomplète (fetch failed) ; statut éditorial conservé."
+verificationEtat: "inconclusive"
+verificationCode: "controle_bloque"
+verificationEchecsConsecutifs: 1
 ---
 
 sslip.io est extrêmement pratique pour tester rapidement un service web qui exige un vrai hostname sans perdre du temps à créer un enregistrement DNS. En intégrant simplement l’adresse IP dans le nom — par exemple sous la forme d’un sous-domaine sslip.io — la résolution renvoie automatiquement cette IP. Cela fonctionne très bien pour des démonstrations, des clusters locaux, des reverse proxies et des tests TLS ponctuels. Le service n’est cependant pas un substitut à une zone DNS gérée : son intérêt est précisément d’éviter la configuration pour les scénarios temporaires ou reproductibles.

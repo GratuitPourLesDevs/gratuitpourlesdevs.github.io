@@ -31,11 +31,11 @@ statut: "active"
 vedette: false
 ordre: 760
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-11-16
+verificationAutomatiqueLe: 2026-11-23
 verificationNote: "Vérification automatique incomplète (HTTP 403) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 10
+verificationEchecsConsecutifs: 11
 ---
 
 Formware — Constructeur de formulaires responsive avec logique, intégrations et collecte illimitée. Free : formulaires et réponses illimités sous fair use. Les limites et conditions ci-dessus reflètent l’offre vérifiée le 20 août 2026 et privilégient les informations actuellement publiées par le service.

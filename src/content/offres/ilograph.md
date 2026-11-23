@@ -32,11 +32,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 984
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-11-16
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 10 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-11-23
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 11 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 10
+verificationEchecsConsecutifs: 11
 ---
 
 Ilograph est conçu pour explorer une infrastructure selon plusieurs angles plutôt que comme un dessin figé. Le niveau gratuit permet de créer autant de diagrammes que nécessaire, mais le partage privé est réservé aux offres supérieures.

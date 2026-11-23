@@ -34,11 +34,11 @@ statut: "active"
 vedette: false
 ordre: 474
 verifieLe: 2026-11-09
-verificationAutomatiqueLe: 2026-11-16
+verificationAutomatiqueLe: 2026-11-23
 verificationNote: "Vérification automatique incomplète (HTTP 530) ; statut éditorial conservé."
 verificationEtat: "inconclusive"
 verificationCode: "controle_bloque"
-verificationEchecsConsecutifs: 1
+verificationEchecsConsecutifs: 2
 ---
 
 SikkerKey est référencé avec les limites gratuites vérifiées le 2026-08-19.

@@ -32,11 +32,11 @@ statut: "active"
 vedette: false
 ordre: 976
 verifieLe: '2026-08-22'
-verificationAutomatiqueLe: 2026-11-16
+verificationAutomatiqueLe: 2026-11-23
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 10
+verificationEchecsConsecutifs: 11
 ---
 
 EasyRetro facilite les rétrospectives de sprint sans limiter le nombre de participants. Le niveau gratuit a été réduit à deux tableaux publics mensuels.

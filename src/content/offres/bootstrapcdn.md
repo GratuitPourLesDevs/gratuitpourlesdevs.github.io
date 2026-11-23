@@ -29,11 +29,11 @@ statut: "active"
 vedette: false
 ordre: 797
 verifieLe: '2026-08-20'
-verificationAutomatiqueLe: 2026-11-16
+verificationAutomatiqueLe: 2026-11-23
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 10
+verificationEchecsConsecutifs: 11
 ---
 
 BootstrapCDN — CDN public pour Bootstrap, Font Awesome, Bootswatch et Bootstrap Icons, maintenu par l’organisation jsDelivr.

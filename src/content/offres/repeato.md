@@ -33,11 +33,11 @@ statut: "active"
 vedette: false
 ordre: 431
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-16
+verificationAutomatiqueLe: 2026-11-23
 verificationNote: "Source accessible, mais aucune mention explicite de gratuité détectée ; statut éditorial conservé pour contrôle manuel."
 verificationEtat: "controle_requis"
 verificationCode: "gratuit_non_detecte"
-verificationEchecsConsecutifs: 10
+verificationEchecsConsecutifs: 11
 ---
 
 Repeato enregistre et rejoue des interactions en s’appuyant sur la reconnaissance visuelle plutôt que sur des sélecteurs fragiles. Les runs sont illimités, mais la bibliothèque gratuite reste volontairement petite.

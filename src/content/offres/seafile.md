@@ -32,11 +32,11 @@ statut: "a_verifier"
 vedette: false
 ordre: 318
 verifieLe: '2026-08-18'
-verificationAutomatiqueLe: 2026-11-16
-verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 10 contrôles consécutifs ; contrôle éditorial requis."
+verificationAutomatiqueLe: 2026-11-23
+verificationNote: "La source tarifaire reste indisponible (HTTP 404) après 11 contrôles consécutifs ; contrôle éditorial requis."
 verificationEtat: "controle_requis"
 verificationCode: "source_indisponible"
-verificationEchecsConsecutifs: 10
+verificationEchecsConsecutifs: 11
 ---
 
 Seafile Community Edition est surtout intéressant pour les équipes qui veulent garder la maîtrise de leurs fichiers. Le logiciel peut être auto-hébergé sans abonnement, contrairement à l’ancienne offre cloud gratuite de 1 Go qui n’est plus permanente.
